@@ -4,7 +4,7 @@
 
 \# ==============================================================================
 
-\# ACA Infrastructure Bootstrap (az cli) — Single File
+\# ACA Infrastructure Bootstrap (az cli) -- Single File
 
 \# Phase 1: reuse marco\* resources in EsDAICoE-Sandbox RG (dev sandbox)
 
@@ -636,7 +636,7 @@ ensure\_containerapps() {
 
 &nbsp; # Helper: set env vars from Key Vault references (apps will read secrets via KV at startup)
 
-&nbsp; # Container Apps supports secret references; we’ll store KV URI strings as secrets.
+&nbsp; # Container Apps supports secret references; we'll store KV URI strings as secrets.
 
 &nbsp; # We keep it simple: the app knows which secrets to fetch from KV using Managed Identity.
 
@@ -1046,7 +1046,7 @@ phase1() {
 
 &nbsp; echo "========================"
 
-&nbsp; echo "PHASE 1 — marco\* reuse"
+&nbsp; echo "PHASE 1 -- marco\* reuse"
 
 &nbsp; echo "========================"
 
@@ -1100,7 +1100,7 @@ phase2() {
 
 &nbsp; echo "=========================================="
 
-&nbsp; echo "PHASE 2 — new subscription + new RG"
+&nbsp; echo "PHASE 2 -- new subscription + new RG"
 
 &nbsp; echo "=========================================="
 
@@ -1296,7 +1296,7 @@ echo
 
 
 
-At minimum, because you said “proceed”, Container Apps will be created unless you turn it off:
+At minimum, because you said "proceed", Container Apps will be created unless you turn it off:
 
 
 
@@ -1310,7 +1310,7 @@ export USE\_ACR=true
 
 
 
-\# Images (example – replace with your real repos/tags)
+\# Images (example - replace with your real repos/tags)
 
 export API\_IMAGE="marcosandacr20260203.azurecr.io/aca/api:dev"
 

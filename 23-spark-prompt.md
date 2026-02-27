@@ -1,6 +1,6 @@
 ```text
 
-You are Spark, operating in the ACA repo. Build a single React (TypeScript) web app that contains BOTH the Customer pages and the Admin pages in the SAME app, with strict route isolation and RBAC. Use everything already defined in this project (docs/, api-spec.md, architecture notes, tier model, Cosmos schemas, Stripe entitlements, and the “marco\* dev sandbox first → new subscription later” infrastructure approach).
+You are Spark, operating in the ACA repo. Build a single React (TypeScript) web app that contains BOTH the Customer pages and the Admin pages in the SAME app, with strict route isolation and RBAC. Use everything already defined in this project (docs/, api-spec.md, architecture notes, tier model, Cosmos schemas, Stripe entitlements, and the "marco\* dev sandbox first -> new subscription later" infrastructure approach).
 
 
 
@@ -134,7 +134,7 @@ D) Implement behaviors (must be working, not placeholder):
 
 Customer
 
-\- LoginPage: supports your chosen auth approach, but at minimum implement a “dev auth” mode (env var) that simulates a signed-in user with roles and a subscriptionId for local dev.
+\- LoginPage: supports your chosen auth approach, but at minimum implement a "dev auth" mode (env var) that simulates a signed-in user with roles and a subscriptionId for local dev.
 
 \- ConnectSubscriptionPage: collects and stores subscriptionId (local storage) and calls POST /v1/collect/start
 
@@ -150,13 +150,13 @@ Admin
 
 \- AdminDashboardPage: calls GET /v1/admin/kpis and shows KPIs
 
-\- AdminCustomersPage: searches /v1/admin/customers?query=... and shows tier/status; deep link to customer’s runs
+\- AdminCustomersPage: searches /v1/admin/customers?query=... and shows tier/status; deep link to customer's runs
 
-\- AdminBillingPage: surfaces Stripe webhook health, and provides “Reconcile Stripe” action (POST /v1/admin/stripe/reconcile)
+\- AdminBillingPage: surfaces Stripe webhook health, and provides "Reconcile Stripe" action (POST /v1/admin/stripe/reconcile)
 
 \- AdminRunsPage: lists runs (scan/analysis/delivery) from /v1/admin/runs; supports filter by subscriptionId and type
 
-\- AdminControlsPage: lock/unlock subscription; grant entitlements (tier + days + reason) with confirmation; writes an Admin Audit Event via backend call (the backend already records; UI should still show “audited” message)
+\- AdminControlsPage: lock/unlock subscription; grant entitlements (tier + days + reason) with confirmation; writes an Admin Audit Event via backend call (the backend already records; UI should still show "audited" message)
 
 
 

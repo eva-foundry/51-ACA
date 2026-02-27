@@ -534,7 +534,7 @@ async def stripe\_webhook(
 
 \* Subscriptions: Tier2 status stays accurate via Stripe events.
 
-\* No cross-tenant scans: Stripe customer ID → subscriptionId lookup is O(1).
+\* No cross-tenant scans: Stripe customer ID -> subscriptionId lookup is O(1).
 
 
 
@@ -882,11 +882,11 @@ If you want, I can generate:
 
 \* a small `EntitlementsRepo` query to fetch by `stripeCustomerId` (if you decide not to create a mapping container)
 
-\* APIM “cache entitlements for 60s” policy to reduce backend calls
+\* APIM "cache entitlements for 60s" policy to reduce backend calls
 
 
 
-Just say “add caching + schema notes”.
+Just say "add caching + schema notes".
 
 
 

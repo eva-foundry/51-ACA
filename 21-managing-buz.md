@@ -1,4 +1,4 @@
-You can do this in \*\*one app\*\* at first (admin pages inside the same React app + a few admin APIs), and only split into a separate “management app” once you hit \*\*real scaling / separation-of-duties / multi-operator\*\* needs.
+You can do this in \*\*one app\*\* at first (admin pages inside the same React app + a few admin APIs), and only split into a separate "management app" once you hit \*\*real scaling / separation-of-duties / multi-operator\*\* needs.
 
 
 
@@ -14,7 +14,7 @@ You can do this in \*\*one app\*\* at first (admin pages inside the same React a
 
 \* You already have the key entities (clients/subscriptions, scans, entitlements, payments, deliverables).
 
-\* Most “business ops” is just \*\*views + actions\*\* on those entities.
+\* Most "business ops" is just \*\*views + actions\*\* on those entities.
 
 
 
@@ -56,9 +56,9 @@ You can do this in \*\*one app\*\* at first (admin pages inside the same React a
 
 &nbsp;  \* Last scan, last analysis, last delivery
 
-&nbsp;  \* Button: “Grant Tier2/Tier3 for 7 days” (support / goodwill)
+&nbsp;  \* Button: "Grant Tier2/Tier3 for 7 days" (support / goodwill)
 
-&nbsp;  \* Button: “Lock subscription” (abuse)
+&nbsp;  \* Button: "Lock subscription" (abuse)
 
 
 
@@ -70,7 +70,7 @@ You can do this in \*\*one app\*\* at first (admin pages inside the same React a
 
 &nbsp;  \* Webhook health: last N webhook events processed
 
-&nbsp;  \* “Reconcile entitlements” job (repair if webhook missed)
+&nbsp;  \* "Reconcile entitlements" job (repair if webhook missed)
 
 
 
@@ -142,7 +142,7 @@ Split when \*\*any\*\* of these become true:
 
 3\. \*\*Multiple operators + audit needs\*\*
 
-&nbsp;  You need an “admin audit trail” for every manual action (grant, lock, refund assist, override).
+&nbsp;  You need an "admin audit trail" for every manual action (grant, lock, refund assist, override).
 
 
 
@@ -158,7 +158,7 @@ Split when \*\*any\*\* of these become true:
 
 
 
-If you split, keep the same backend — the “Management App” is mostly a different frontend + tighter access controls.
+If you split, keep the same backend -- the "Management App" is mostly a different frontend + tighter access controls.
 
 
 
@@ -166,7 +166,7 @@ If you split, keep the same backend — the “Management App” is mostly a dif
 
 
 
-\### A clean compromise: same app, but “admin surface” is isolated
+\### A clean compromise: same app, but "admin surface" is isolated
 
 
 
@@ -194,7 +194,7 @@ This gives 80% of the benefits without the operational overhead of a second app.
 
 
 
-\### What I’d do for ACA specifically
+\### What I'd do for ACA specifically
 
 
 
@@ -230,7 +230,7 @@ This gives 80% of the benefits without the operational overhead of a second app.
 
 
 
-If you say \*\*“generate the admin pages + admin API spec”\*\*, I’ll produce:
+If you say \*\*"generate the admin pages + admin API spec"\*\*, I'll produce:
 
 
 

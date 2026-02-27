@@ -6,7 +6,7 @@
 
 
 
-You’re calling `/v1/entitlements?subscriptionId=...` inside gating policies. Cache that response to avoid hammering your API.
+You're calling `/v1/entitlements?subscriptionId=...` inside gating policies. Cache that response to avoid hammering your API.
 
 
 
@@ -166,7 +166,7 @@ You’re calling `/v1/entitlements?subscriptionId=...` inside gating policies. C
 
 
 
-If you have repeated “Start scan” attempts, cache the preflight verdict response (or a lightweight `GET /v1/onboarding/preflight/latest?subscriptionId=...` if you add it).
+If you have repeated "Start scan" attempts, cache the preflight verdict response (or a lightweight `GET /v1/onboarding/preflight/latest?subscriptionId=...` if you add it).
 
 
 
@@ -198,7 +198,7 @@ Simple caching approach:
 
 \* Use \*\*deterministic `id`\*\* patterns to avoid duplicates and simplify updates.
 
-\* Keep documents small and “append-only” where possible (audit, payments).
+\* Keep documents small and "append-only" where possible (audit, payments).
 
 
 
@@ -322,7 +322,7 @@ Simple caching approach:
 
 \* Keep default.
 
-\* If you plan “billing history” views, index:
+\* If you plan "billing history" views, index:
 
 
 
@@ -376,7 +376,7 @@ Simple caching approach:
 
 \* Default (point read).
 
-\* Avoid heavy querying here; it’s a lookup table.
+\* Avoid heavy querying here; it's a lookup table.
 
 
 
@@ -442,7 +442,7 @@ Stripe webhook events give you \*\*customer IDs\*\*, not subscriptionIds. This l
 
 
 
-When Stripe webhooks change entitlements (tier activated/canceled), APIM cache might still serve old values for up to 60 seconds. That’s usually acceptable. If you want near-instant, use \*\*short TTL (15s)\*\* or add an admin-only “purge” strategy (more complexity).
+When Stripe webhooks change entitlements (tier activated/canceled), APIM cache might still serve old values for up to 60 seconds. That's usually acceptable. If you want near-instant, use \*\*short TTL (15s)\*\* or add an admin-only "purge" strategy (more complexity).
 
 
 

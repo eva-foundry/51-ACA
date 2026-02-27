@@ -4,7 +4,7 @@
 
 \# ==============================================================================
 
-\# ACA Infrastructure Bootstrap (az cli) — Phase 1 (marco\* sandbox reuse) AND
+\# ACA Infrastructure Bootstrap (az cli) -- Phase 1 (marco\* sandbox reuse) AND
 
 \# Phase 2 (new subscription / new RG).
 
@@ -382,7 +382,7 @@ phase1() {
 
 &nbsp; echo "========================"
 
-&nbsp; echo "PHASE 1 — marco\* reuse"
+&nbsp; echo "PHASE 1 -- marco\* reuse"
 
 &nbsp; echo "========================"
 
@@ -532,7 +532,7 @@ phase2() {
 
 &nbsp; echo "=========================================="
 
-&nbsp; echo "PHASE 2 — new subscription + new RG"
+&nbsp; echo "PHASE 2 -- new subscription + new RG"
 
 &nbsp; echo "=========================================="
 

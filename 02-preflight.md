@@ -32,7 +32,7 @@ Define the \*\*client onboarding flow\*\* and the \*\*pre-flight permission vali
 
 \* Required Azure permissions exist for \*\*all collection tasks\*\*
 
-\* ACA can safely proceed with extraction, or provide an actionable \*\*“missing permissions”\*\* report
+\* ACA can safely proceed with extraction, or provide an actionable \*\*"missing permissions"\*\* report
 
 
 
@@ -66,7 +66,7 @@ ACA validates access for the following collection categories (read-only):
 
 
 
-These map directly to ACA’s collector scope.  
+These map directly to ACA's collector scope.  
 
 
 
@@ -78,11 +78,11 @@ These map directly to ACA’s collector scope.
 
 
 
-ACA supports multiple “access patterns” so enterprises can choose what fits their governance.
+ACA supports multiple "access patterns" so enterprises can choose what fits their governance.
 
 
 
-\### Mode A — Delegated user sign-in (quick scan)
+\### Mode A -- Delegated user sign-in (quick scan)
 
 
 
@@ -98,7 +98,7 @@ ACA supports multiple “access patterns” so enterprises can choose what fits 
 
 
 
-\### Mode B — Client-provisioned app identity (enterprise)
+\### Mode B -- Client-provisioned app identity (enterprise)
 
 
 
@@ -110,11 +110,11 @@ ACA supports multiple “access patterns” so enterprises can choose what fits 
 
 
 
-\### Mode C — Azure Lighthouse (MSP pattern)
+\### Mode C -- Azure Lighthouse (MSP pattern)
 
 
 
-\* Client delegates subscription access to ACA’s tenant
+\* Client delegates subscription access to ACA's tenant
 
 \* ACA uses its own identities while access remains client-controlled
 
@@ -128,7 +128,7 @@ ACA supports multiple “access patterns” so enterprises can choose what fits 
 
 
 
-This section defines the minimum roles needed to successfully complete ACA’s collector tasks. 
+This section defines the minimum roles needed to successfully complete ACA's collector tasks. 
 
 
 
@@ -156,7 +156,7 @@ This section defines the minimum roles needed to successfully complete ACA’s c
 
 
 
-\### 4.3 Notes on “Reader”
+\### 4.3 Notes on "Reader"
 
 
 
@@ -182,7 +182,7 @@ Reader is sufficient for:
 
 
 
-\### Step 0 — Start pre-flight session
+\### Step 0 -- Start pre-flight session
 
 
 
@@ -192,7 +192,7 @@ Reader is sufficient for:
 
 
 
-\### Step 1 — Acquire token \& validate identity
+\### Step 1 -- Acquire token \& validate identity
 
 
 
@@ -210,7 +210,7 @@ Reader is sufficient for:
 
 
 
-\### Step 2 — Enumerate accessible subscriptions
+\### Step 2 -- Enumerate accessible subscriptions
 
 
 
@@ -220,7 +220,7 @@ Reader is sufficient for:
 
 
 
-\### Step 3 — Validate RBAC at subscription scope
+\### Step 3 -- Validate RBAC at subscription scope
 
 
 
@@ -228,11 +228,11 @@ Reader is sufficient for:
 
 
 
-\### Step 4 — Capability probes (per collection surface)
+\### Step 4 -- Capability probes (per collection surface)
 
 
 
-Run fast, low-cost “can I read this?” probes for each collector feature. If a probe fails, capture:
+Run fast, low-cost "can I read this?" probes for each collector feature. If a probe fails, capture:
 
 
 
@@ -246,7 +246,7 @@ Run fast, low-cost “can I read this?” probes for each collector feature. If 
 
 
 
-\### Step 5 — Pre-flight verdict
+\### Step 5 -- Pre-flight verdict
 
 
 
@@ -274,7 +274,7 @@ Record `preflight.completed` audit event.
 
 
 
-Each probe is a \*\*real API call\*\* that closely matches actual extraction so we don’t “green-check” based on assumptions.
+Each probe is a \*\*real API call\*\* that closely matches actual extraction so we don't "green-check" based on assumptions.
 
 
 
@@ -292,7 +292,7 @@ Each probe is a \*\*real API call\*\* that closely matches actual extraction so 
 
 
 
-Fail → \*\*cannot proceed\*\*.
+Fail -> \*\*cannot proceed\*\*.
 
 
 
@@ -308,13 +308,13 @@ Fail → \*\*cannot proceed\*\*.
 
 
 
-\* Call: Resource Graph query at subscription scope (e.g., “resources | project … | take 1”)
+\* Call: Resource Graph query at subscription scope (e.g., "resources | project ... | take 1")
 
 \* Pass: HTTP 200, returns any record or empty (empty is still pass)
 
 
 
-Fail → \*\*cannot proceed\*\* (inventory is mandatory).
+Fail -> \*\*cannot proceed\*\* (inventory is mandatory).
 
 
 
@@ -336,7 +336,7 @@ Fail → \*\*cannot proceed\*\* (inventory is mandatory).
 
 
 
-Fail → \*\*cannot proceed\*\*.
+Fail -> \*\*cannot proceed\*\*.
 
 
 
@@ -358,7 +358,7 @@ Fail → \*\*cannot proceed\*\*.
 
 
 
-Fail → treat as \*\*FAIL\*\* (because ACA relies on Advisor + rules). 
+Fail -> treat as \*\*FAIL\*\* (because ACA relies on Advisor + rules). 
 
 
 
@@ -380,7 +380,7 @@ Fail → treat as \*\*FAIL\*\* (because ACA relies on Advisor + rules).
 
 
 
-Fail → depending on product tier:
+Fail -> depending on product tier:
 
 
 
@@ -424,7 +424,7 @@ Pass: HTTP 200 across probes (empty lists are pass)
 
 
 
-Fail → default to \*\*PASS\_WITH\_WARNINGS\*\* if only some network signals fail, unless you require red-team signals for Tier 2+. 
+Fail -> default to \*\*PASS\_WITH\_WARNINGS\*\* if only some network signals fail, unless you require red-team signals for Tier 2+. 
 
 
 
@@ -446,7 +446,7 @@ Only executed when ACA feature flag `enableLogAnalyticsSignals=true`.
 
 
 
-Fail → \*\*PASS\_WITH\_WARNINGS\*\*.
+Fail -> \*\*PASS\_WITH\_WARNINGS\*\*.
 
 
 
@@ -720,7 +720,7 @@ Each probe stores:
 
 
 
-This matches the “audit log: every pull timestamped and recorded” intent in your plan. 
+This matches the "audit log: every pull timestamped and recorded" intent in your plan. 
 
 
 
@@ -776,7 +776,7 @@ Once the app is logged in, ACA should execute these in order:
 
 
 
-\### 9.5 “Data minimization” check (policy)
+\### 9.5 "Data minimization" check (policy)
 
 
 
@@ -796,9 +796,9 @@ Once the app is logged in, ACA should execute these in order:
 
 
 
-\* PASS → enable “Run Scan” CTA
+\* PASS -> enable "Run Scan" CTA
 
-\* FAIL → show “Fix permissions” with exact remediation text
+\* FAIL -> show "Fix permissions" with exact remediation text
 
 
 
@@ -866,7 +866,7 @@ Once the app is logged in, ACA should execute these in order:
 
 &nbsp;  \* subscription dropdown from discovery
 
-&nbsp;  \* “Run Pre-Flight” button
+&nbsp;  \* "Run Pre-Flight" button
 
 3\. \*\*Pre-Flight Results\*\*
 
@@ -876,7 +876,7 @@ Once the app is logged in, ACA should execute these in order:
 
 &nbsp;  \* table of probes with pass/fail
 
-&nbsp;  \* “Fix permissions” block with copy-paste role instructions
+&nbsp;  \* "Fix permissions" block with copy-paste role instructions
 
 4\. \*\*Run Scan\*\*
 
@@ -896,7 +896,7 @@ Once the app is logged in, ACA should execute these in order:
 
 \* \*\*No extraction\*\* before preflight PASS
 
-\* If any mandatory probe fails → stop immediately
+\* If any mandatory probe fails -> stop immediately
 
 \* Pre-flight must be \*\*fast\*\* (target < 5 seconds typical)
 
@@ -914,7 +914,7 @@ Once the app is logged in, ACA should execute these in order:
 
 
 
-This spec implements the “delegated consent flow + inventory + cost + advisor + policy + network + audit log” collector readiness gate described in Phase 1 Milestone 1.2. 
+This spec implements the "delegated consent flow + inventory + cost + advisor + policy + network + audit log" collector readiness gate described in Phase 1 Milestone 1.2. 
 
 It also supports Phase 2 enterprise hardening and multi-tenancy enforcement. 
 
@@ -924,7 +924,7 @@ It also supports Phase 2 enterprise hardening and multi-tenancy enforcement.
 
 
 
-If you want the next artifact in the same “documentation sprint” style, I can generate \*\*Role Assignment Instructions (Client-Facing)\*\* as a one-pager for:
+If you want the next artifact in the same "documentation sprint" style, I can generate \*\*Role Assignment Instructions (Client-Facing)\*\* as a one-pager for:
 
 
 
@@ -936,7 +936,7 @@ If you want the next artifact in the same “documentation sprint” style, I ca
 
 
 
-…and a matching \*\*`ACCEPTANCE.md` preflight checklist\*\* section aligned to your Phase 1 sign-off gates. 
+...and a matching \*\*`ACCEPTANCE.md` preflight checklist\*\* section aligned to your Phase 1 sign-off gates. 
 
 
 

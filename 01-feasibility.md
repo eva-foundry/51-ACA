@@ -5,9 +5,9 @@
 * Client signs in (MFA/Conditional Access applies as per their tenant).
 * You use **MSAL delegated flow** (device code is simplest for a prototype; auth code + PKCE for web).
 * You store tokens securely (Key Vault) and run collection during the session.
-  This matches your “MSAL device-code + refresh token stored in Key Vault” concept. 
+  This matches your "MSAL device-code + refresh token stored in Key Vault" concept. 
 
-**Pros:** fastest onboarding, “their credentials,” minimal admin work
+**Pros:** fastest onboarding, "their credentials," minimal admin work
 **Cons:** refresh tokens and Conditional Access can get tricky; some tenants restrict user consent.
 
 ### B) Service principal they create (recommended for enterprise clients)
@@ -26,7 +26,7 @@
 * You access with your own identities, but it is still **their controlled delegation**
 
 **Pros:** scales well, clean offboarding, strong ops model
-**Cons:** heavier setup; some orgs won’t allow it
+**Cons:** heavier setup; some orgs won't allow it
 
 ---
 
@@ -43,7 +43,7 @@ You can validate in three layers before extracting anything:
 
 ### 2) RBAC/role validation (subscription scope)
 
-* Call ARM “role assignments” or “access checks”:
+* Call ARM "role assignments" or "access checks":
 
   * List role assignments at `/subscriptions/{subId}/providers/Microsoft.Authorization/roleAssignments`
   * Or use an access-check style call (varies by API surface)
@@ -56,7 +56,7 @@ You can validate in three layers before extracting anything:
 
 ### 3) Capability-by-capability probe
 
-Run quick “can I read this?” probes per API:
+Run quick "can I read this?" probes per API:
 
 * Resource Graph query (inventory)
 * Cost Management query/export read
@@ -65,11 +65,11 @@ Run quick “can I read this?” probes per API:
 * Network resources listing (NSG, Public IP, VNet, Private DNS)
 * (Optional) Activity Logs read if you use it
 
-If any probe fails → report “missing permission X” and stop.
+If any probe fails -> report "missing permission X" and stop.
 
 ---
 
-## Extracting “all the data”: what is realistically extractable read-only
+## Extracting "all the data": what is realistically extractable read-only
 
 With the roles you listed, you can reliably pull the exact collection set you described:  
 
@@ -95,11 +95,11 @@ With the roles you listed, you can reliably pull the exact collection set you de
 
 * NSGs, Public IPs, VNets/peerings, Private DNS zones (ARM read)
 
-### Logs signals (if you truly need “last modified” / “idle”)
+### Logs signals (if you truly need "last modified" / "idle")
 
-* This is the one area where feasibility depends on what you mean by “logs”:
+* This is the one area where feasibility depends on what you mean by "logs":
 
-  * If you only need “resource metadata,” ARM might be enough.
+  * If you only need "resource metadata," ARM might be enough.
   * If you need workspace query results, you need **Log Analytics Reader** plus workspace access.
 
 ---
@@ -108,7 +108,7 @@ With the roles you listed, you can reliably pull the exact collection set you de
 
 1. **User consent disabled** in the client tenant
 
-   * Then delegated flow won’t work; you need admin-consented app or service principal.
+   * Then delegated flow won't work; you need admin-consented app or service principal.
 
 2. **Conditional Access policies** can break refresh tokens or device code flows
 
@@ -120,18 +120,18 @@ With the roles you listed, you can reliably pull the exact collection set you de
 
 4. **Rate limits / scale**
 
-   * Cost Management APIs can throttle on large subs — you already noted pagination + ADF/FinOps hub ingestion as mitigation. 
+   * Cost Management APIs can throttle on large subs -- you already noted pagination + ADF/FinOps hub ingestion as mitigation. 
 
 ---
 
-## Recommended “enterprise-safe” implementation path
+## Recommended "enterprise-safe" implementation path
 
 If your goal is **commercial viability** and smooth onboarding:
 
 1. Support **two onboarding modes**:
 
-   * “Quick Scan” = delegated sign-in (if allowed)
-   * “Enterprise” = client-created service principal + RBAC roles
+   * "Quick Scan" = delegated sign-in (if allowed)
+   * "Enterprise" = client-created service principal + RBAC roles
 
 2. Build a **Permissions Check** endpoint:
 

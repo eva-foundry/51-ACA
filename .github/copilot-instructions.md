@@ -138,22 +138,20 @@ $ep.status         = "implemented"
 ```
 
 **Rule 2 -- Strip audit columns, keep domain fields**
-Exclude: `obj_id`, `layer`, `modified_by`, `modified_at`, `created_by`, `created_at`, `row_version`, `source_file`.
-`is_active` is a domain field -- keep it.
+Exclude: obj_id, layer, modified_by, modified_at, created_by, created_at, row_version, source_file.
+is_active is a domain field -- keep it.
 ```powershell
 function Strip-Audit ($obj) {
-    $obj | Select-Object * -ExcludeProperty `
-        obj_id, layer, modified_by, modified_at, created_by, created_at, row_version, source_file
+    $obj | Select-Object * -ExcludeProperty obj_id,layer,modified_by,modified_at,created_by,created_at,row_version,source_file
 }
 ```
 
 **Rule 3 -- Assign ConvertTo-Json before piping; use -Depth 10 for nested schemas**
-`-Depth 5` silently truncates `request_schema` / `response_schema` objects. Always use `-Depth 10`.
+-Depth 5 silently truncates request_schema / response_schema objects. Always use -Depth 10.
 ```powershell
 $body = Strip-Audit $ep | ConvertTo-Json -Depth 10
-Invoke-RestMethod "$base/model/endpoints/GET /v1/tags" `
-    -Method PUT -ContentType "application/json" -Body $body `
-    -Headers @{"X-Actor"="agent:copilot"}
+$iwr = @{ Method="PUT"; ContentType="application/json"; Body=$body; Headers=@{"X-Actor"="agent:copilot"} }
+Invoke-RestMethod "$base/model/endpoints/GET /v1/tags" @iwr
 ```
 
 **Rule 4 -- PATCH is not supported** -- always PUT the full object (422 otherwise).
@@ -201,10 +199,10 @@ get_terminal_output(id="pwsh")
 # get_terminal_output(id=result.id)
 ```
 
-**Rule 8 -- Never call `create_file` on a path that already exists**
-`create_file` on an existing file returns a hard error and makes no change.
-Before any `create_file`, use `Test-Path` to check, then use `replace_string_in_file` or
-`multi_replace_string_in_file` for edits to existing files.
+**Rule 8 -- Never call create_file on a path that already exists**
+create_file on an existing file returns a hard error and makes no change.
+Before any create_file, use Test-Path to check, then use replace_string_in_file or
+multi_replace_string_in_file for edits to existing files.
 
 ```powershell
 # Pre-flight check
@@ -215,14 +213,35 @@ if (Test-Path "C:\AICOE\path\to\file.ps1") {
 }
 ```
 
+**Rule 9 -- Never use PowerShell backtick (`) for line continuation**
+Backtick continuations break silently when pasted into terminals, cause JSON escaping failures
+in inline strings, and make diffs noisy. Always use splatting (@params) or put the command
+on a single line.
+
+WRONG -- backtick continuation (BANNED):
+```
+Invoke-RestMethod $url `
+    -Method PUT -Body $body
+```
+
+RIGHT -- splatting:
+```powershell
+$p = @{ Method="PUT"; ContentType="application/json"; Body=$body; Headers=@{"X-Actor"="agent:copilot"} }
+Invoke-RestMethod $url @p
+```
+
+RIGHT -- single line (acceptable for short calls):
+```powershell
+Invoke-RestMethod $url -Method POST -Headers @{"Authorization"="Bearer dev-admin"}
+```
+
 #### 3.4  Write Cycle -- Every Model Change
 
 **Preferred -- 3-step (admin/commit = export + assemble + validate in one call):**
 ```powershell
 # Step 1 -- PUT
-Invoke-RestMethod "$base/model/endpoints/GET /v1/tags" `
-    -Method PUT -ContentType "application/json" -Body $body `
-    -Headers @{"X-Actor"="agent:copilot"}
+$iwr = @{ Method="PUT"; ContentType="application/json"; Body=$body; Headers=@{"X-Actor"="agent:copilot"} }
+Invoke-RestMethod "$base/model/endpoints/GET /v1/tags" @iwr
 
 # Step 2 -- Canonical confirm: assert all three
 $w = Invoke-RestMethod "$base/model/endpoints/GET /v1/tags"
@@ -231,8 +250,7 @@ $w.modified_by   # must equal "agent:copilot"
 $w.status        # must equal the value you PUT
 
 # Step 3 -- Close the cycle
-$c = Invoke-RestMethod "$base/model/admin/commit" `
-    -Method POST -Headers @{"Authorization"="Bearer dev-admin"}
+$c = Invoke-RestMethod "$base/model/admin/commit" -Method POST -Headers @{"Authorization"="Bearer dev-admin"}
 $c.status          # "PASS" = done; "FAIL" = fix violations before merging
 $c.violation_count # 0 = clean
 # ACA note: commit returns status=FAIL with assemble.stderr="Script not found" -- EXPECTED on ACA.
@@ -247,8 +265,7 @@ POST /model/admin/export  ->  scripts/assemble-model.ps1  ->  scripts/validate-m
 
 **Validate only (distinguishes new violations from pre-existing noise):**
 ```powershell
-$v = Invoke-RestMethod "$base/model/admin/validate" `
-       -Headers @{"Authorization"="Bearer dev-admin"}
+$v = Invoke-RestMethod "$base/model/admin/validate" -Headers @{"Authorization"="Bearer dev-admin"}
 $v.count       # 0 = clean; >0 = new violations to fix NOW
 $v.violations  # the cross-reference FAILs -- fix these before commit
 ```
@@ -287,20 +304,36 @@ Invoke-RestMethod "$base/model/endpoints/" |
 
 ### 4. Encoding and Output Safety
 
-**Windows Enterprise Encoding (cp1252) -- ABSOLUTE RULE**
+**ASCII-ONLY -- ABSOLUTE RULE -- NO EXCEPTIONS**
+
+This applies to every file created or edited: .md, .ps1, .py, .ts, .json, .yaml, .txt, every string literal, log line, comment, commit message.
+
+Forbidden output:
+- Emoji (any Unicode codepoint above U+007F)
+- Unicode arrows -- use ASCII -> instead
+- Unicode dashes -- use -- instead
+- Curly quotes -- use " or ' instead
+- Non-breaking spaces
+- PowerShell backtick (`) line continuation -- see Rule 9
+- UTF-8 BOM in any text file
+
+Allowed output tokens: [PASS] / [FAIL] / [WARN] / [INFO]
 
 ```python
 # [FORBIDDEN] -- causes UnicodeEncodeError in enterprise Windows
-print("success")   # with any emoji or unicode
+# print("success")   # with any emoji or unicode
 
 # [REQUIRED] -- ASCII only
-print("[PASS] Done")   print("[FAIL] Failed")   print("[INFO] Wait...")
+print("[PASS] Done")
+print("[FAIL] Failed")
+print("[INFO] Wait...")
 ```
 
-- All Python scripts: `PYTHONIOENCODING=utf-8` in any .bat wrapper
-- All PowerShell output: `[PASS]` / `[FAIL]` / `[WARN]` / `[INFO]` -- never emoji
+- All Python scripts: PYTHONIOENCODING=utf-8 in any .bat wrapper
+- All PowerShell output: [PASS] / [FAIL] / [WARN] / [INFO] -- never emoji
 - Machine-readable outputs (JSON, YAML, evidence files): ASCII-only always
 - Markdown docs (README, STATUS, PLAN, ACCEPTANCE, copilot-instructions): ASCII-only -- no emoji anywhere
+- PowerShell scripts: no backtick (`) line continuations -- use splatting or single line (Rule 9)
 
 ---
 

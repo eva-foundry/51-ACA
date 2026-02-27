@@ -1,4 +1,4 @@
-Below is the “Phase-2 hardening” continuation:
+Below is the "Phase-2 hardening" continuation:
 
 
 
@@ -758,7 +758,7 @@ async def stripe\_webhook(
 
 &nbsp;       if tier == "tier2":
 
-&nbsp;           # If subscription mode, we’ll also receive subscription events later.
+&nbsp;           # If subscription mode, we'll also receive subscription events later.
 
 &nbsp;           await entitlements.grant\_tier2(
 
@@ -886,11 +886,11 @@ To fully support recurring billing events, add an index/mapping:
 
 
 
-That lets you map `invoice.paid` → subscriptionId instantly.
+That lets you map `invoice.paid` -> subscriptionId instantly.
 
 
 
-If you want, I’ll generate that container/repo + wire it into the webhook so it can \*\*activate/past\_due/cancel\*\* Tier 2 automatically.
+If you want, I'll generate that container/repo + wire it into the webhook so it can \*\*activate/past\_due/cancel\*\* Tier 2 automatically.
 
 
 
@@ -1026,13 +1026,13 @@ COSMOS\_DB\_NAME=aca
 
 &nbsp;  \* Tier 1 findings redaction
 
-&nbsp;  \* Tier 2 endpoints require entitlement “active”
+&nbsp;  \* Tier 2 endpoints require entitlement "active"
 
 &nbsp;  \* Tier 3 download requires entitlement + deliverable ready
 
 
 
-Say: \*\*“do #1”\*\* or \*\*“do #2”\*\* (or both) and I’ll generate the exact files.
+Say: \*\*"do #1"\*\* or \*\*"do #2"\*\* (or both) and I'll generate the exact files.
 
 
 

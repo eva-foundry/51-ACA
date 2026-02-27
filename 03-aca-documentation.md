@@ -1,4 +1,4 @@
-Perfect — let’s keep building your \*\*ACA documentation pack\*\* so you can move fast and stay consistent.
+Perfect -- let's keep building your \*\*ACA documentation pack\*\* so you can move fast and stay consistent.
 
 
 
@@ -8,7 +8,7 @@ Below are \*\*two ready-to-drop files\*\*:
 
 1\. \*\*Client-Facing Role Assignment Guide (one-pager)\*\*
 
-2\. \*\*ACCEPTANCE.md – Pre-Flight Section (Phase 1 \& 2 gates)\*\*
+2\. \*\*ACCEPTANCE.md - Pre-Flight Section (Phase 1 \& 2 gates)\*\*
 
 
 
@@ -20,7 +20,7 @@ These align directly with your ACA plan and onboarding model.
 
 
 
-\# 📄 FILE 1 — `docs/client-access-guide.md`
+\# ?? FILE 1 -- `docs/client-access-guide.md`
 
 
 
@@ -130,7 +130,7 @@ Step 1 -- Create App Registration
 
 
 
-Azure Portal → Microsoft Entra ID → App registrations → New registration
+Azure Portal -> Microsoft Entra ID -> App registrations -> New registration
 
 
 
@@ -156,7 +156,7 @@ Step 2 -- Create Client Secret
 
 
 
-Certificates \& secrets → New client secret
+Certificates \& secrets -> New client secret
 
 
 
@@ -172,7 +172,7 @@ Step 3 -- Assign Roles (Subscription)
 
 
 
-Azure Portal → Subscriptions → Your Subscription → Access Control (IAM)
+Azure Portal -> Subscriptions -> Your Subscription -> Access Control (IAM)
 
 
 
@@ -240,7 +240,7 @@ Best for:
 
 
 
-Your organization delegates access to ACA’s tenant using Azure Lighthouse.
+Your organization delegates access to ACA's tenant using Azure Lighthouse.
 
 
 
@@ -342,19 +342,19 @@ TROUBLESHOOTING
 
 Error: "Missing permissions"
 
-→ Ensure Reader and Cost Management Reader roles are assigned
+-> Ensure Reader and Cost Management Reader roles are assigned
 
 
 
 Error: "Subscription not visible"
 
-→ Ensure access is assigned at the correct subscription scope
+-> Ensure access is assigned at the correct subscription scope
 
 
 
 Error: "Cost data unavailable"
 
-→ Confirm Cost Management Reader role is assigned
+-> Confirm Cost Management Reader role is assigned
 
 
 
@@ -376,7 +376,7 @@ Contact ACA support for assistance with setup.
 
 
 
-\# 📄 FILE 2 — `ACCEPTANCE.md` (Pre-Flight Section)
+\# ?? FILE 2 -- `ACCEPTANCE.md` (Pre-Flight Section)
 
 
 
@@ -464,17 +464,17 @@ CAPABILITY PROBES
 
 
 
-\[ ] Probe: subscriptions.list → PASS
+\[ ] Probe: subscriptions.list -> PASS
 
-\[ ] Probe: resourcegraph.query → PASS
+\[ ] Probe: resourcegraph.query -> PASS
 
-\[ ] Probe: cost.query (7-day daily) → PASS
+\[ ] Probe: cost.query (7-day daily) -> PASS
 
-\[ ] Probe: advisor.recommendations → PASS
+\[ ] Probe: advisor.recommendations -> PASS
 
-\[ ] Probe: policyinsights.summary → PASS
+\[ ] Probe: policyinsights.summary -> PASS
 
-\[ ] Probe: network resources (NSG, VNet, IP) → PASS
+\[ ] Probe: network resources (NSG, VNet, IP) -> PASS
 
 
 
@@ -702,7 +702,7 @@ PHASE 2 SIGN-OFF
 
 
 
-\# 🧠 What you just built (important)
+\# ?? What you just built (important)
 
 
 
@@ -710,19 +710,19 @@ With these two documents + your previous spec, you now have:
 
 
 
-\### ✔ Technical onboarding spec
+\### ? Technical onboarding spec
 
 
 
-\### ✔ Client-facing setup guide
+\### ? Client-facing setup guide
 
 
 
-\### ✔ Acceptance criteria
+\### ? Acceptance criteria
 
 
 
-👉 That’s already \*\*production-grade SaaS onboarding design\*\*
+?? That's already \*\*production-grade SaaS onboarding design\*\*
 
 
 
@@ -730,7 +730,7 @@ With these two documents + your previous spec, you now have:
 
 
 
-\# 🚀 Suggested next doc (high value)
+\# ?? Suggested next doc (high value)
 
 
 
@@ -738,7 +738,7 @@ To keep momentum, the next best document is:
 
 
 
-\### 👉 `ACA Security \& Data Handling Policy`
+\### ?? `ACA Security \& Data Handling Policy`
 
 
 
@@ -776,7 +776,7 @@ It would include:
 
 
 
-If you want, I can generate that next — \*\*enterprise-grade, ready for clients and security review\*\*.
+If you want, I can generate that next -- \*\*enterprise-grade, ready for clients and security review\*\*.
 
 
 

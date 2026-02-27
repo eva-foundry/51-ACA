@@ -1,4 +1,4 @@
-Great — \*\*GA4 + Microsoft Clarity\*\* is a clean combo, and since you have accounts on both, you can wire this in quickly (ideally via \*\*Google Tag Manager\*\* so you only ship one tag).
+Great -- \*\*GA4 + Microsoft Clarity\*\* is a clean combo, and since you have accounts on both, you can wire this in quickly (ideally via \*\*Google Tag Manager\*\* so you only ship one tag).
 
 
 
@@ -240,7 +240,7 @@ End
 
 
 
-\## Update to `docs/api-spec.md` (add 2 endpoints you’ll want)
+\## Update to `docs/api-spec.md` (add 2 endpoints you'll want)
 
 
 
@@ -346,7 +346,7 @@ This keeps the frontend simple and prevents relying on Stripe-only state.
 
 \* `setTelemetryEnabled(true|false)`
 
-\* if disabled: don’t load GTM (or block tags via GTM consent mode)
+\* if disabled: don't load GTM (or block tags via GTM consent mode)
 
 
 
@@ -364,7 +364,7 @@ This keeps the frontend simple and prevents relying on Stripe-only state.
 
 \* Turn on masking (default is good, verify)
 
-\* Add “sensitive zones” CSS class masking for:
+\* Add "sensitive zones" CSS class masking for:
 
 
 
@@ -384,7 +384,7 @@ This keeps the frontend simple and prevents relying on Stripe-only state.
 
 
 
-If you say “generate the stubs”, I’ll output \*\*actual files\*\* for:
+If you say "generate the stubs", I'll output \*\*actual files\*\* for:
 
 
 
@@ -398,7 +398,7 @@ If you say “generate the stubs”, I’ll output \*\*actual files\*\* for:
 
 
 
-Just tell me whether your frontend is \*\*plain React\*\* or \*\*Next.js\*\* (either works; I’ll default to plain React if you don’t specify).
+Just tell me whether your frontend is \*\*plain React\*\* or \*\*Next.js\*\* (either works; I'll default to plain React if you don't specify).
 
 
 

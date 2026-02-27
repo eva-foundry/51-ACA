@@ -1,4 +1,4 @@
-Yes. Here’s a \*\*Spark-ready package\*\* (routes + page skeletons + admin OpenAPI + Cosmos schema) that matches the ACA plan (Tier 1 customer pages now, admin surface in same app, with clean separation).  
+Yes. Here's a \*\*Spark-ready package\*\* (routes + page skeletons + admin OpenAPI + Cosmos schema) that matches the ACA plan (Tier 1 customer pages now, admin surface in same app, with clean separation).  
 
 
 
@@ -248,7 +248,7 @@ export const router = createBrowserRouter(\[
 
 
 
-Below are minimal “compiles today” stubs you can drop in and iteratively flesh out.
+Below are minimal "compiles today" stubs you can drop in and iteratively flesh out.
 
 
 
@@ -410,9 +410,9 @@ export function AdminCustomersPage() {
 
 &nbsp;           <div style={{ fontWeight: 600 }}>{r.subscriptionId}</div>
 
-&nbsp;           <div>Tier: {r.tier} • Status: {r.paymentStatus}</div>
+&nbsp;           <div>Tier: {r.tier} - Status: {r.paymentStatus}</div>
 
-&nbsp;           <div>Last activity: {r.lastActivityUtc ?? "—"}</div>
+&nbsp;           <div>Last activity: {r.lastActivityUtc ?? "--"}</div>
 
 &nbsp;         </div>
 
@@ -860,7 +860,7 @@ components:
 
 
 
-Add one more container (recommended) to support “same app, but admin is safe.”
+Add one more container (recommended) to support "same app, but admin is safe."
 
 
 
@@ -958,7 +958,7 @@ And create the container with your existing az cli pattern (same as others):
 
 If you want the \*\*next commit-ready bundle\*\*, say:
 
-\*\*“generate the exact Spark files for these stubs”\*\* and I’ll output:
+\*\*"generate the exact Spark files for these stubs"\*\* and I'll output:
 
 
 
@@ -972,7 +972,7 @@ If you want the \*\*next commit-ready bundle\*\*, say:
 
 
 
-All of this stays aligned with your Phase 1/2 plan and the existing marco\* sandbox inventory you’re reusing. 
+All of this stays aligned with your Phase 1/2 plan and the existing marco\* sandbox inventory you're reusing. 
 
 
 

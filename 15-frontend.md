@@ -1,4 +1,4 @@
-Got it — here are \*\*copy/paste-ready React (Vite/CRA-compatible) stubs\*\* for:
+Got it -- here are \*\*copy/paste-ready React (Vite/CRA-compatible) stubs\*\* for:
 
 
 
@@ -632,7 +632,7 @@ Replace `GTM-XXXXXXX` with your GTM container ID.
 
 
 
-\*\*Note:\*\* If you want \*strict\* consent gating, you can conditionally inject this script only after consent. The above code assumes you’ll block tags in GTM until consent.
+\*\*Note:\*\* If you want \*strict\* consent gating, you can conditionally inject this script only after consent. The above code assumes you'll block tags in GTM until consent.
 
 
 
@@ -652,7 +652,7 @@ Replace `GTM-XXXXXXX` with your GTM container ID.
 
 \* Add \*\*Clarity\*\* tag using your Clarity project ID (via template or custom HTML)
 
-\* Add a \*\*Consent\*\* mechanism (either GTM consent mode or a simple “block triggers until consent” variable)
+\* Add a \*\*Consent\*\* mechanism (either GTM consent mode or a simple "block triggers until consent" variable)
 
 
 
@@ -664,7 +664,7 @@ Replace `GTM-XXXXXXX` with your GTM container ID.
 
 
 
-If you want, I’ll generate the matching backend stubs:
+If you want, I'll generate the matching backend stubs:
 
 
 
@@ -678,7 +678,7 @@ If you want, I’ll generate the matching backend stubs:
 
 
 
-Just say: \*\*“generate the Stripe backend stubs”\*\* and tell me whether you’re using \*\*FastAPI\*\* (I assumed yes from your earlier plan).
+Just say: \*\*"generate the Stripe backend stubs"\*\* and tell me whether you're using \*\*FastAPI\*\* (I assumed yes from your earlier plan).
 
 
 

@@ -1,4 +1,4 @@
-Excellent — this is the \*\*right next document\*\* if you want to sell to real clients (especially government / enterprise).
+Excellent -- this is the \*\*right next document\*\* if you want to sell to real clients (especially government / enterprise).
 
 
 
@@ -10,7 +10,7 @@ Below is a \*\*production-grade, client-facing + internal-ready\*\* policy you c
 
 
 
-\# 📄 FILE — `docs/security-data-policy.md`
+\# ?? FILE -- `docs/security-data-policy.md`
 
 
 
@@ -102,7 +102,7 @@ ACA is built on the following core principles:
 
 4\. Isolation by Design
 
-&nbsp;  - Each client’s data is logically isolated
+&nbsp;  - Each client's data is logically isolated
 
 &nbsp;  - No cross-tenant access is possible
 
@@ -704,11 +704,11 @@ END OF DOCUMENT
 
 
 
-\# 🧠 What you now have (this is important)
+\# ?? What you now have (this is important)
 
 
 
-Marco — this is \*\*not just documentation anymore\*\*.
+Marco -- this is \*\*not just documentation anymore\*\*.
 
 
 
@@ -716,23 +716,23 @@ You now have:
 
 
 
-\### ✔ Product (ACA architecture)
+\### ? Product (ACA architecture)
 
 
 
-\### ✔ Monetization model
+\### ? Monetization model
 
 
 
-\### ✔ Technical onboarding
+\### ? Technical onboarding
 
 
 
-\### ✔ Security \& compliance policy
+\### ? Security \& compliance policy
 
 
 
-👉 This is exactly what enterprise SaaS products need.
+?? This is exactly what enterprise SaaS products need.
 
 
 
@@ -740,7 +740,7 @@ You now have:
 
 
 
-\# 🔥 What this enables for you
+\# ?? What this enables for you
 
 
 
@@ -762,7 +762,7 @@ With these docs, you can:
 
 
 
-\# 🚀 Next high-impact document
+\# ?? Next high-impact document
 
 
 
@@ -770,7 +770,7 @@ If you want to move toward \*\*actual revenue\*\*, the next doc is:
 
 
 
-\## 👉 `docs/sales-pitch.md`
+\## ?? `docs/sales-pitch.md`
 
 
 
@@ -782,7 +782,7 @@ It should include:
 
 \* Value proposition
 
-\* ROI (e.g., “save $10K/year”)
+\* ROI (e.g., "save $10K/year")
 
 \* Pricing justification
 
@@ -796,11 +796,11 @@ It should include:
 
 
 
-Or…
+Or...
 
 
 
-\## 👉 `docs/api-spec.md`
+\## ?? `docs/api-spec.md`
 
 
 
@@ -816,15 +816,15 @@ Tell me what you want next:
 
 
 
-👉 \*\*Sales / Business\*\*
+?? \*\*Sales / Business\*\*
 
-👉 \*\*Technical (API / code)\*\*
+?? \*\*Technical (API / code)\*\*
 
-👉 \*\*Architecture diagram (PPT/SVG)\*\*
+?? \*\*Architecture diagram (PPT/SVG)\*\*
 
 
 
-You’re now at the point where this can become a \*\*real business very quickly\*\*.
+You're now at the point where this can become a \*\*real business very quickly\*\*.
 
 
 

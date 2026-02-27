@@ -14,7 +14,7 @@ Below are \*\*FastAPI Stripe backend stubs\*\* you can drop into `services/api/a
 
 
 
-…and follow your planned “Stripe + webhook unlock + Tier 3 delivery trigger” flow.  
+...and follow your planned "Stripe + webhook unlock + Tier 3 delivery trigger" flow.  
 
 
 
@@ -426,7 +426,7 @@ class StripeService:
 
 
 
-&nbsp;       # Optional: prefill email (don’t store it yourself if you can avoid it)
+&nbsp;       # Optional: prefill email (don't store it yourself if you can avoid it)
 
 &nbsp;       if customer\_email:
 
@@ -790,7 +790,7 @@ async def billing\_portal(
 
 
 
-> Note: for security, you’ll typically \*\*not\*\* accept `stripeCustomerId` from the client. You’ll look it up from your `clients` record after Entra auth.
+> Note: for security, you'll typically \*\*not\*\* accept `stripeCustomerId` from the client. You'll look it up from your `clients` record after Entra auth.
 
 
 
@@ -930,11 +930,11 @@ STRIPE\_ENABLE\_SUBSCRIPTIONS=true
 
 
 
-\## What you’ll want next (still “stubs”, but critical)
+\## What you'll want next (still "stubs", but critical)
 
 
 
-If you say “continue”, I’ll generate:
+If you say "continue", I'll generate:
 
 
 
