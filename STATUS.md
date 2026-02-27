@@ -1,15 +1,60 @@
 ACA -- Azure Cost Advisor -- STATUS
 ====================================
 
-Version: 1.1.0
-Updated: 2026-02-27 (SQLite data model: db.py + server.py port 8055, 325 objects seeded,
-         veritas-plan.json rebuilt 250 stories 14 features, copilot-instructions CA.5 full
-         format docs, P2.7 rewritten for SQLite, seed-from-plan --reseed-model EXIT CODE 0)
+Version: 1.2.0
+Updated: 2026-02-27 (opus review session: full architecture review, 5 spec docs created,
+         pre-flight sprint added to PLAN.md, MTI gate lowered 70->30, human decisions
+         ACA-ENT-APP-REG and ACA-MTI-GATE-30 recorded)
 Phase: Phase 1 -- Core Services Bootstrap
 Active Epic: Epic 4 (auth rework), Epic 7 (Delivery templates), Epic 9 (i18n/a11y), Epic 12 (data model)
 
 =============================================================================
-CURRENT STATE (2026-02-27)
+SESSION SUMMARY -- 2026-02-27 (OPUS REVIEW SESSION)
+=============================================================================
+
+Review tool: Claude Opus 4.6 (full codebase review per _opus_review_issue_draft.md)
+Findings doc: _opus_review_findings_20260227.md (8 CRITICAL / 7 HIGH / 8 MEDIUM / 4 LOW)
+
+HUMAN DECISIONS RECORDED:
+  HD-01  Entra app registration: Human requested Application Developer role 2026-02-27.
+         ACA-CLIENT-ID is pending. Mode A (delegated auth) is blocked until granted.
+         Mode B (SP) remains the only working auth mode for Phase 1.
+  HD-02  MTI gate lowered: 70 -> 30 for Sprint 2 pre-flight.
+         Honest baseline was MTI=5 (250 stories vs ~8 tagged source files).
+         Gate will be restored to 70 at Sprint 3 boundary after test suite >= 10 tests.
+         Stub Bicep templates are acceptable for Sprint 2 delivery stories.
+  HD-03  Pre-flight sprint created in PLAN.md (5 stories, 9 FP).
+         Stories ACA-12-021 and ACA-12-022 are DONE this session.
+         Stories ACA-06-021, ACA-03-021, ACA-07-021 are PLANNED for next session.
+
+CRITICAL BUGS CONFIRMED (not yet fixed; fix in pre-flight sprint):
+  C-05  Duplicate @router.post("/webhook") at checkout.py:383 shadows real handler at line 149
+        Stripe revenue completely broken. Fix: ACA-06-021.
+  C-04  FindingsAssembler missing cosmos_client arg in analysis/main.py
+        TypeError on every analysis run. Fix: ACA-03-021.
+  C-07  generate_blob_sas() invalid call + SAS_HOURS=24 (should be 168)
+        Delivery packager crashes. Fix: ACA-07-021.
+
+COMPLETED THIS SESSION:
+  [DONE] Full architecture review -- 8 CRITICAL / 7 HIGH / 8 MEDIUM / 4 LOW findings written
+  [DONE] docs/02-preflight.md created (onboarding + RBAC probes spec)
+  [DONE] docs/05-technical.md created (27 endpoints, code patterns, known bugs)
+  [DONE] docs/08-payment.md created (Stripe flow, webhook safety, tier model)
+  [DONE] docs/saving-opportunity-rules.md created (12 rules, FINDING schema)
+  [DONE] docs/12-IaCscript.md created (IaC template library, 12 template folders)
+  [DONE] .github/copilot-instructions.md CA.2 + CA.5: MTI gate 70 -> 30
+  [DONE] PLAN.md: pre-flight sprint block added with 5 stories
+
+NEXT SESSION PRIORITIES (pre-flight sprint):
+  1. ACA-06-021: Delete checkout.py lines 351-403 (duplicate webhook stub)
+  2. ACA-03-021: Fix FindingsAssembler call in analysis/main.py (add cosmos_client)
+  3. ACA-07-021: Fix packager.py SAS_HOURS=168 + generate_blob_sas account_key
+  4. Run pytest to confirm all 3 bugs fixed and tests pass (exit 0)
+  5. Commit + push pre-flight sprint completion
+
+=============================================================================
+CURRENT STATE (2026-02-27 PRE-SESSION, CARRIED FORWARD)
+=============================================================================
 =============================================================================
 
 All four backend services are bootstrapped and import-verified. Frontend Spark

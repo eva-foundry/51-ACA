@@ -855,5 +855,90 @@ Feature 14.4 -- Evidence and Veritas Integration
 Total Epic 14 FP estimate: 36 FP (10 stories)
 
 =============================================================================
+SPRINT: PRE-FLIGHT
+Added: 2026-02-27 (opus review session -- human approved all 5 stories)
+Goal: Unblock Sprint 2 by fixing CRITICAL bugs, creating missing spec docs,
+      and stabilizing the governance baseline.
+Blocker gate: MTI >= 30 (lowered from 70; restore at Sprint 3 boundary)
+=============================================================================
+
+  Story ACA-06-021  Remove duplicate Stripe webhook stub
+    FP: XS=1  Model: XS  Sprint: pre-flight  Epic: 6
+    Status: PLANNED
+    EVA-STORY tag: # EVA-STORY: ACA-06-021
+    Files: services/api/app/routers/checkout.py
+    Description: Delete the duplicate @router.post("/webhook") stub at lines 351-403
+                 that shadows the real verified handler at line 149. This is a revenue-
+                 breaking bug (C-05): FastAPI registers the LAST definition, so the stub
+                 with no signature verification is the active handler. Stripe revenue
+                 is completely broken until this is fixed.
+    Acceptance:
+    - Only one @router.post("/webhook") decorator exists in checkout.py
+    - Real handler at line 149 survives: reads raw_body, calls stripe.Webhook.construct_event
+    - pytest: POST /v1/checkout/webhook with invalid sig returns 400
+    - pytest: POST /v1/checkout/webhook with valid sig calls handler logic
+    - No duplicate route error in FastAPI startup log
+
+  Story ACA-03-021  Fix FindingsAssembler missing cosmos_client argument
+    FP: XS=1  Model: XS  Sprint: pre-flight  Epic: 3
+    Status: PLANNED
+    EVA-STORY tag: # EVA-STORY: ACA-03-021
+    Files: services/analysis/app/main.py
+    Description: FindingsAssembler.__init__ requires 3 args: scan_id, subscription_id,
+                 cosmos_client. The current call in main.py passes only 2 args (missing
+                 cosmos_client), causing TypeError on every analysis run (bug C-04).
+    Acceptance:
+    - services/analysis/app/main.py instantiates FindingsAssembler with all 3 args
+    - C:\AICOE\.venv\Scripts\python.exe -c "from services.analysis.app.main import run; print('[PASS]')" succeeds
+    - pytest: FindingsAssembler with mock cosmos_client constructs without error
+
+  Story ACA-07-021  Fix generate_blob_sas call and SAS_HOURS constant
+    FP: S=3  Model: S  Sprint: pre-flight  Epic: 7
+    Status: PLANNED
+    EVA-STORY tag: # EVA-STORY: ACA-07-021
+    Files: services/delivery/app/packager.py
+    Description: Two bugs in packager.py (bug C-07):
+                 (1) generate_blob_sas() called with credential=DefaultAzureCredential()
+                     which is an invalid API call -- TypeError at runtime. Must use account_key.
+                 (2) SAS_HOURS = 24 but spec requires 168 (7 days per docs/12-IaCscript.md).
+    Acceptance:
+    - SAS_HOURS = 168 in packager.py
+    - generate_blob_sas() called with account_key parameter (not credential)
+    - pytest: mock blob client test confirms SAS token generated without TypeError
+    - SAS expiry is confirmed to be datetime.now(utc) + timedelta(hours=168)
+
+  Story ACA-12-021  Create missing spec docs in docs/
+    FP: S=3  Model: S  Sprint: pre-flight  Epic: 12
+    Status: DONE (this session 2026-02-27)
+    EVA-STORY tag: # EVA-STORY: ACA-12-021
+    Files: docs/02-preflight.md, docs/05-technical.md, docs/08-payment.md,
+           docs/saving-opportunity-rules.md, docs/12-IaCscript.md
+    Description: Five spec docs referenced in copilot-instructions.md did not exist.
+                 All created this session with authoritative content from P2.1-P2.9.
+    Acceptance:
+    - docs/02-preflight.md exists (onboarding + pre-flight RBAC probes spec)
+    - docs/05-technical.md exists (full API spec, 27 endpoints, code patterns)
+    - docs/08-payment.md exists (Stripe flow, webhook safety, tier model)
+    - docs/saving-opportunity-rules.md exists (12 rules, FINDING schema, tier gating)
+    - docs/12-IaCscript.md exists (IaC template library, 12 template folders, SAS rules)
+    - All files are ASCII-only with EVA-STORY: ACA-12-021 tag
+
+  Story ACA-12-022  Lower MTI gate to 30 for Sprint 2 pre-flight
+    FP: XS=1  Model: XS  Sprint: pre-flight  Epic: 12
+    Status: DONE (this session 2026-02-27)
+    EVA-STORY tag: # EVA-STORY: ACA-12-022
+    Files: .github/copilot-instructions.md
+    Description: MTI baseline was 70 but honest MTI=5 (250 stories vs ~8 tagged files).
+                 Gate lowered to 30 with explicit sunset at Sprint 3 boundary.
+                 Human approved this decision 2026-02-27.
+    Acceptance:
+    - CA.2 Veritas gate reads MTI >= 30
+    - CA.5 Current baseline reads MTI=30 with sunset note
+    - Restore to 70 condition documented
+    - EVA-STORY tag present in copilot-instructions.md
+
+Total Pre-flight Sprint FP estimate: 9 FP (5 stories; 2 DONE, 3 PLANNED)
+
+=============================================================================
 END OF PLAN
 =============================================================================
