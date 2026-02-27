@@ -47,6 +47,9 @@ class Settings(BaseSettings):
     # Observability
     APPLICATIONINSIGHTS_CONNECTION_STRING: str = Field(default="")
 
+    # MSAL Client ID
+    ACA_CLIENT_ID: str = Field(default="", description="MSAL app client ID")
+
 
 @lru_cache
 def get_settings() -> Settings:

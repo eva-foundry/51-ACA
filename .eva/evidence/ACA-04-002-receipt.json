@@ -1,0 +1,13 @@
+{
+  "story_id": "ACA-04-002",
+  "title": "JWT validation dependency: verify_token() FastAPI dep for authenticated routes",
+  "phase": "D|P|D|C|A",
+  "timestamp": "2026-02-27T14:17:54Z",
+  "artifacts": [
+    "services/api/app/deps/auth.py",
+    "services/tests/test_jwt_dep.py"
+  ],
+  "test_result": "WARN",
+  "lint_result": "WARN",
+  "commit_sha": "5cdbff617e3b6f3a4027f50807ce525d4ac35abb"
+}
