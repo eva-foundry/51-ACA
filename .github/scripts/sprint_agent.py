@@ -88,13 +88,18 @@ _SIBLING_MAP: dict[str, list[str]] = {
 
 
 def _load_context() -> str:
-    """Return a slim project-status snapshot (<1500 chars / ~375 tokens).
+    """Return a slim project-status snapshot (<2000 chars / ~500 tokens).
 
     The GitHub Models gpt-4o endpoint allows max 8000 tokens per request.
     The system prompt (~600 tokens) already contains all code patterns.
     Per-story file contents are loaded by _load_story_files().
-    This function provides only a brief project-status heading so the LLM
-    knows the tech stack and current state without blowing the token budget.
+    This function provides:
+      1. Brief project-status heading (stack, phase)
+      2. STATUS.md first 60 lines (current sprint state)
+      3. services/api/AGENTS.md (Sprint-N learnings -- patterns agents must follow)
+
+    AGENTS.md is the cross-sprint feedback loop: it documents patterns established
+    in prior sprints so each new sprint does not regenerate the same bugs.
     """
     lines = []
     lines.append("PROJECT: 51-ACA -- Azure Cost Advisor SaaS")
@@ -105,6 +110,12 @@ def _load_context() -> str:
         status_lines = status_path.read_text(encoding="utf-8", errors="replace").splitlines()[:60]
         lines.append("=== STATUS.md (first 60 lines) ===")
         lines.extend(status_lines)
+    agents_path = REPO_ROOT / "services" / "api" / "AGENTS.md"
+    if agents_path.exists():
+        agents_lines = agents_path.read_text(encoding="utf-8", errors="replace").splitlines()
+        lines.append("")
+        lines.append("=== services/api/AGENTS.md (established patterns -- FOLLOW THESE) ===")
+        lines.extend(agents_lines[:120])  # cap at 120 lines (~300 tokens)
     return "\n".join(lines)
 
 
