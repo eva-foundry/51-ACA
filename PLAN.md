@@ -138,6 +138,7 @@ Feature 3.1 -- Rule engine
 Feature 3.2 -- Tier gating
   Story 3.2.1 [ACA-03-006]  As a Tier 1 client calling GET /v1/findings/:scanId I receive findings
                with category, title, estimated_saving_low, estimated_saving_high only
+    Status: DONE (Sprint-01, merged PR #11)
   Story 3.2.2 [ACA-03-007]  As a Tier 1 client I do not receive narrative or deliverable_template_id
                even if they are stored in Cosmos
   Story 3.2.3 [ACA-03-008]  As a Tier 2 client I receive the full finding including narrative and
@@ -178,6 +179,7 @@ Feature 3.4 -- Rule unit tests (DECISION LOCKED 2026-02-27: 95% coverage, hardco
   Story 3.4.12 [ACA-03-031]  Unit test for R-12 chargeback_gap: fixture with total cost > $5,000 -> finding
   Story 3.4.13 [ACA-03-032]  Negative tests for each rule: below-threshold fixture -> no finding returned
   Story 3.4.14 [ACA-03-033]  FindingsAssembler unit test: mock rule list -> correct Cosmos upsert payload
+    Status: DONE (Sprint-01, merged PR #11)
 =============================================================================
 
 Goal: All 25+ API endpoints implemented, JWT-validated, APIM-proxied.
@@ -263,6 +265,7 @@ Feature 4.5 -- Data layer correctness
                Without this, the Cosmos SDK infers partition_key from the item dict which
                is unreliable and silently fails tenant isolation on malformed documents.
                All callers of upsert_item() must be updated to pass partition_key=subscription_id.
+    Status: DONE (Sprint-01, merged PR #11)
 
 =============================================================================
 EPIC 5 -- FRONTEND SPARK ARCHITECTURE (M1.4)

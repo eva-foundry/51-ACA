@@ -1,6 +1,6 @@
 {
   "schema": "eva.veritas-plan.v1",
-  "generated_at": "2026-02-27T12:28:42.680013+00:00",
+  "generated_at": "2026-02-27T13:38:43.874797+00:00",
   "generated_from": [
     "PLAN.md",
     "README.md",
@@ -421,7 +421,7 @@
           "wbs": "3.2.1",
           "title": "As a Tier 1 client calling GET /v1/findings/:scanId I receive findings",
           "feature_id": "ACA-03",
-          "done": false,
+          "done": true,
           "source": "plan-md",
           "tasks": []
         },
@@ -664,7 +664,7 @@
           "wbs": "3.4.14",
           "title": "FindingsAssembler unit test: mock rule list -> correct Cosmos upsert payload",
           "feature_id": "ACA-03",
-          "done": false,
+          "done": true,
           "source": "plan-md",
           "tasks": []
         }
@@ -923,7 +923,7 @@
           "wbs": "4.5.1",
           "title": "services/api/app/db/cosmos.py upsert_item() must accept partition_key as a",
           "feature_id": "ACA-04",
-          "done": false,
+          "done": true,
           "source": "plan-md",
           "tasks": []
         }

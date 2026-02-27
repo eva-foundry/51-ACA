@@ -1,11 +1,45 @@
 ACA -- Azure Cost Advisor -- STATUS
 ====================================
 
-Version: 1.3.0
-Updated: 2026-02-27 (round 2 review session: code verified, 3 pre-flight bugs fixed,
-         Round 2 assessment written, commit 4816baf pushed to main)
+Version: 1.4.0
+Updated: 2026-02-28 (Sprint-01 A step: 5 stories done, PR #11 merged to main at 9b62f0f)
 Phase: Phase 1 -- Core Services Bootstrap
-Active Epic: Epic 4 (auth rework), Epic 7 (Delivery templates), Epic 9 (i18n/a11y), Epic 12 (data model)
+Active Epic: Epic 3 (analysis rules), Epic 4 (API endpoints), Epic 5 (frontend), Epic 12 (data model)
+
+=============================================================================
+SESSION SUMMARY -- 2026-02-28 (SPRINT-01 COMPLETE + EVA DECOUPLING)
+=============================================================================
+
+Commits this session:
+  37a989b -- EVA decoupling (5 files: copilot-instructions, AGENTS.md, sonnet_review.py,
+             server.py, PLAN.md -- all marco-eva-data-model cloud URLs removed)
+  fef132d -- fix(ACA-03-033): fix test import paths + DI for EntitlementService +
+             extract findings_gate module -- 5/5 unit tests pass
+  9b62f0f -- Sprint-01 PR #11 squash-merged to main (18 files, 2298 insertions)
+
+Sprint-01 stories completed (5/5):
+  [DONE] ACA-02-017  ingest.py -- analysis job trigger (graceful degradation if env not set)
+  [DONE] ACA-03-006  findings_gate.py extracted + GET /v1/findings/:scanId tier gating
+  [DONE] ACA-04-028  cosmos.py upsert_item() with explicit partition_key parameter
+  [DONE] ACA-06-018  entitlement_service.py revoke() preserves tier=3 on Stripe cancel
+  [DONE] ACA-03-033  5 unit tests pass (test_findings_gate x3, test_entitlement_revoke x2)
+
+Test count: 5 passing (pytest services/ -x -q exits 0)
+MTI baseline: 30 (lowered 2026-02-27 for Sprint-01 pre-flight; raise to 70 at Sprint-03)
+Data model: 332 objects (SQLite, port 8055 local) -- EVA cloud URL removed, standalone
+
+Architecture decisions locked this session:
+  - 51-ACA is STANDALONE -- no dependency on any EVA repo or cloud endpoint
+  - Data model served from data-model/db.py direct import (cloud agents) or localhost:8055
+  - findings_gate.py is pure logic (no I/O) -- importable in unit tests without env vars
+  - EntitlementService uses DI pattern (repo=None default) for testability
+  - pyproject.toml pythonpath = [".", "services/api"] for both import styles
+
+OPEN (not yet started):
+  1. copilot-setup-steps.yml -- pre-install deps in GitHub Actions ephemeral env
+  2. Per-service AGENTS.md files (services/api/AGENTS.md etc.)
+  3. .github/agents/sprint-executor.agent.md (native Copilot agent profile)
+  4. Sprint-02 stories (Epic 3 rules, Epic 4 auth stubs, Epic 5 frontend scaffold)
 
 =============================================================================
 SESSION SUMMARY -- 2026-02-27 (ROUND 2 REVIEW + PRE-FLIGHT FIXES)
