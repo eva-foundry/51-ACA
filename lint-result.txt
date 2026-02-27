@@ -133,28 +133,28 @@ T201 `print` found
 help: Remove `print`
 
 I001 [*] Import block is un-sorted or un-formatted
-  --> services/api/app/db/cosmos.py:8:1
+  --> services/api/app/db/cosmos.py:9:1
    |
- 6 |   No cross-tenant queries are permitted.
- 7 |   """
- 8 | / from functools import lru_cache
- 9 | |
-10 | | from azure.cosmos import CosmosClient, PartitionKey
-11 | | from azure.cosmos.exceptions import CosmosResourceNotFoundError
-12 | |
-13 | | from app.settings import get_settings
+ 7 |   No cross-tenant queries are permitted.
+ 8 |   """
+ 9 | / from functools import lru_cache
+10 | |
+11 | | from azure.cosmos import CosmosClient, PartitionKey
+12 | | from azure.cosmos.exceptions import CosmosResourceNotFoundError
+13 | |
+14 | | from app.settings import get_settings
    | |_____________________________________^
-14 |
-15 |   CONTAINERS = {
+15 |
+16 |   CONTAINERS = {
    |
 help: Organize imports
 
 T201 `print` found
-  --> services/api/app/db/cosmos.py:83:9
+  --> services/api/app/db/cosmos.py:84:9
    |
-81 |             partition_key=PartitionKey(path=pk_path),
-82 |         )
-83 |         print(f"[INFO] Container ready: {name}")
+82 |             partition_key=PartitionKey(path=pk_path),
+83 |         )
+84 |         print(f"[INFO] Container ready: {name}")
    |         ^^^^^
    |
 help: Remove `print`
@@ -1073,9 +1073,10 @@ I001 [*] Import block is un-sorted or un-formatted
  9 | | from pydantic import BaseModel
 10 | | from app.db.cosmos import get_item, query_items
 11 | | from app.settings import get_settings
-   | |_____________________________________^
-12 |
-13 |   router = APIRouter(tags=["findings"])
+12 | | from app.services.findings_gate import gate_findings, TIER1_FIELDS, TIER2_FIELDS  # noqa: F401
+   | |________________________________________________________________________________^
+13 |
+14 |   router = APIRouter(tags=["findings"])
    |
 help: Organize imports
 
@@ -1110,8 +1111,7 @@ F401 [*] `app.settings.get_settings` imported but unused
 10 | from app.db.cosmos import get_item, query_items
 11 | from app.settings import get_settings
    |                          ^^^^^^^^^^^^
-12 |
-13 | router = APIRouter(tags=["findings"])
+12 | from app.services.findings_gate import gate_findings, TIER1_FIELDS, TIER2_FIELDS  # noqa: F401
    |
 help: Remove unused import: `app.settings.get_settings`
 
@@ -1271,6 +1271,16 @@ F811 Redefinition of unused `PaymentStatus` from line 11
 15 | @dataclass
    |
 help: Remove definition: `PaymentStatus`
+
+UP045 [*] Use `X | None` for type annotations
+  --> services/api/app/services/entitlement_service.py:33:31
+   |
+32 | class EntitlementService:
+33 |     def __init__(self, repo: "Optional[EntitlementsRepo]" = None) -> None:
+   |                               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+34 |         self._repo: EntitlementsRepo = repo if repo is not None else EntitlementsRepo()
+   |
+help: Convert to `X | None`
 
 UP045 [*] Use `X | None` for type annotations
   --> services/api/app/services/entitlement_service.py:53:29
@@ -1862,6 +1872,44 @@ UP017 [*] Use `datetime.UTC` alias
 help: Convert to `datetime.UTC` alias
 
 I001 [*] Import block is un-sorted or un-formatted
+ --> services/tests/test_analysis_main.py:2:1
+  |
+1 |   # EVA-STORY: ACA-03-021
+2 | / import unittest
+3 | | from unittest.mock import patch, MagicMock
+4 | |
+5 | | from services.analysis.app.findings import FindingsAssembler
+6 | | from services.analysis.app.main import get_cosmos_client
+  | |________________________________________________________^
+7 |
+8 |   class TestFindingsAssembler(unittest.TestCase):
+  |
+help: Organize imports
+
+F401 [*] `services.analysis.app.main.get_cosmos_client` imported but unused
+ --> services/tests/test_analysis_main.py:6:40
+  |
+5 | from services.analysis.app.findings import FindingsAssembler
+6 | from services.analysis.app.main import get_cosmos_client
+  |                                        ^^^^^^^^^^^^^^^^^
+7 |
+8 | class TestFindingsAssembler(unittest.TestCase):
+  |
+help: Remove unused import: `services.analysis.app.main.get_cosmos_client`
+
+T201 `print` found
+  --> services/tests/test_analysis_main.py:24:13
+   |
+22 |             self.assertEqual(assembler.subscription_id, subscription_id)
+23 |             self.assertEqual(assembler.cosmos, mock_cosmos_client)
+24 |             print("[PASS] FindingsAssembler instantiated successfully")
+   |             ^^^^^
+25 |         except Exception as e:
+26 |             self.fail(f"FindingsAssembler instantiation failed: {e}")
+   |
+help: Remove `print`
+
+I001 [*] Import block is un-sorted or un-formatted
  --> services/tests/test_checkout_router.py:2:1
   |
 1 |   # EVA-STORY: ACA-03-033
@@ -1925,10 +1973,10 @@ I001 [*] Import block is un-sorted or un-formatted
   |
 1 |   # EVA-STORY: ACA-03-033
 2 | / import pytest
-3 | | from services.analysis.app.findings import gate_findings, TIER1_FIELDS, TIER2_FIELDS
-  | |____________________________________________________________________________________^
+3 | | from services.api.app.services.findings_gate import gate_findings, TIER1_FIELDS, TIER2_FIELDS
+  | |_____________________________________________________________________________________________^
 4 |
-5 |   def test_gate_findings_tier1():
+5 |   FULL_FINDING = {
   |
 help: Organize imports
 
@@ -1938,21 +1986,21 @@ F401 [*] `pytest` imported but unused
 1 | # EVA-STORY: ACA-03-033
 2 | import pytest
   |        ^^^^^^
-3 | from services.analysis.app.findings import gate_findings, TIER1_FIELDS, TIER2_FIELDS
+3 | from services.api.app.services.findings_gate import gate_findings, TIER1_FIELDS, TIER2_FIELDS
   |
 help: Remove unused import: `pytest`
 
-F401 [*] `services.analysis.app.findings.TIER2_FIELDS` imported but unused
- --> services/tests/test_findings_gate.py:3:73
+F401 [*] `services.api.app.services.findings_gate.TIER2_FIELDS` imported but unused
+ --> services/tests/test_findings_gate.py:3:82
   |
 1 | # EVA-STORY: ACA-03-033
 2 | import pytest
-3 | from services.analysis.app.findings import gate_findings, TIER1_FIELDS, TIER2_FIELDS
-  |                                                                         ^^^^^^^^^^^^
+3 | from services.api.app.services.findings_gate import gate_findings, TIER1_FIELDS, TIER2_FIELDS
+  |                                                                                  ^^^^^^^^^^^^
 4 |
-5 | def test_gate_findings_tier1():
+5 | FULL_FINDING = {
   |
-help: Remove unused import: `services.analysis.app.findings.TIER2_FIELDS`
+help: Remove unused import: `services.api.app.services.findings_gate.TIER2_FIELDS`
 
 I001 [*] Import block is un-sorted or un-formatted
  --> services/tests/test_packager_sas.py:2:1

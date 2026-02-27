@@ -1,0 +1,13 @@
+{
+  "story_id": "ACA-03-021",
+  "title": "Fix FindingsAssembler missing cosmos_client argument",
+  "phase": "D|P|D|C|A",
+  "timestamp": "2026-02-27T14:17:34Z",
+  "artifacts": [
+    "services/analysis/app/main.py",
+    "services/tests/test_analysis_main.py"
+  ],
+  "test_result": "WARN",
+  "lint_result": "WARN",
+  "commit_sha": "de0bb2fa806bc31ee39ef10049b391eccbe0369b"
+}
