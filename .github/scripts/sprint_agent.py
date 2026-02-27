@@ -61,92 +61,95 @@ def _git(args: list) -> subprocess.CompletedProcess:
     return _run(["git"] + args, capture=True)
 
 
-def _load_context() -> str:
-    """Load full project context for the LLM (called once per sprint).
-
-    Loads:
-    - Full copilot-instructions.md (this IS the rulebook -- never truncate it)
-    - PLAN.md, STATUS.md
-    - All service source files at up to 400 lines each
-    - Existing review findings if present
-
-    This is the shared baseline. Per-story file contents are added by
-    _load_story_files() and injected directly into each story's user prompt.
-    """
-    chunks = []
-
-    # Governance and rulebook -- load in full (copilot-instructions has P2.5
-    # code patterns at line ~540; truncating at 200 hides all of them)
-    for rel in [".github/copilot-instructions.md", "PLAN.md", "STATUS.md"]:
-        p = REPO_ROOT / rel
-        if p.exists():
-            chunks.append(f"=== {rel} ===\n{p.read_text(encoding='utf-8', errors='replace')}\n\n")
-        else:
-            chunks.append(f"=== {rel} ===\n[NOT FOUND]\n\n")
-
-    # Existing review findings -- cloud agent must know what is already broken
-    for findings_glob in sorted((REPO_ROOT).glob("_*review_findings*.md")):
-        content = findings_glob.read_text(encoding="utf-8", errors="replace")
-        chunks.append(f"=== REVIEW FINDINGS: {findings_glob.name} ===\n{content[:15000]}\n\n")
-
-    # All service source files -- LLM needs current state to write correct code
-    # 400 lines per file; enough for every file in this repo at current sizes
-    SERVICE_FILES = [
-        "services/api/app/main.py",
-        "services/api/app/settings.py",
-        "services/api/app/routers/auth.py",
-        "services/api/app/routers/checkout.py",
-        "services/api/app/routers/findings.py",
-        "services/api/app/routers/scans.py",
-        "services/api/app/routers/health.py",
-        "services/api/app/routers/admin.py",
+# Key sibling files that routinely need context across multiple stories.
+# Loaded into story context when relevant based on story target paths.
+_SIBLING_MAP: dict[str, list[str]] = {
+    # Any API router change may need cosmos + entitlement context
+    "services/api/app/routers/": [
         "services/api/app/db/cosmos.py",
         "services/api/app/services/entitlement_service.py",
-        "services/api/app/services/stripe_service.py",
-        "services/api/app/services/delivery_service.py",
-        "services/analysis/app/main.py",
-        "services/analysis/app/findings.py",
-        "services/collector/app/main.py",
-        "services/collector/app/preflight.py",
-        "services/collector/app/ingest.py",
+    ],
+    # Analysis findings router needs cosmos + findings
+    "services/analysis/app/": [
+        "services/api/app/db/cosmos.py",
+    ],
+    # Collector changes need ingest + azure_client siblings
+    "services/collector/app/ingest.py": [
         "services/collector/app/azure_client.py",
-        "services/delivery/app/main.py",
-        "services/delivery/app/packager.py",
-        "services/delivery/app/generator.py",
-        "services/delivery/app/cosmos.py",
-    ]
-    for rel in SERVICE_FILES:
-        p = REPO_ROOT / rel
-        if p.exists():
-            lines = p.read_text(encoding="utf-8", errors="replace").splitlines()
-            content = "\n".join(lines[:400])
-            if len(lines) > 400:
-                content += f"\n... [{len(lines)-400} lines truncated]"
-            chunks.append(f"=== {rel} ===\n{content}\n\n")
-        else:
-            chunks.append(f"=== {rel} ===\n[NOT FOUND]\n\n")
+    ],
+    # Test files need source files to know what to test
+    "services/tests/": [
+        "services/api/app/db/cosmos.py",
+        "services/api/app/services/entitlement_service.py",
+        "services/analysis/app/findings.py",
+        "services/collector/app/ingest.py",
+    ],
+}
 
-    return "".join(chunks)
+
+def _load_context() -> str:
+    """Return a slim project-status snapshot (<1500 chars / ~375 tokens).
+
+    The GitHub Models gpt-4o endpoint allows max 8000 tokens per request.
+    The system prompt (~600 tokens) already contains all code patterns.
+    Per-story file contents are loaded by _load_story_files().
+    This function provides only a brief project-status heading so the LLM
+    knows the tech stack and current state without blowing the token budget.
+    """
+    lines = []
+    lines.append("PROJECT: 51-ACA -- Azure Cost Advisor SaaS")
+    lines.append("STACK: Python 3.12 / FastAPI / React 19 / Azure Container Apps / Cosmos DB NoSQL")
+    lines.append("")
+    status_path = REPO_ROOT / "STATUS.md"
+    if status_path.exists():
+        status_lines = status_path.read_text(encoding="utf-8", errors="replace").splitlines()[:60]
+        lines.append("=== STATUS.md (first 60 lines) ===")
+        lines.extend(status_lines)
+    return "\n".join(lines)
 
 
 def _load_story_files(story: dict) -> str:
-    """Load the CURRENT contents of every file listed in files_to_create.
+    """Load current file contents for target files + relevant siblings.
 
-    This is the single most important context improvement. Without it, the
-    LLM generates from scratch and overwrites working code. With it, the LLM
-    can make surgical fixes to the exact lines described in implementation_notes.
+    Primary files (files_to_create): full content -- LLM makes surgical changes.
+    Sibling files (from _SIBLING_MAP): first 120 lines -- reference only.
 
-    Returns a context block injected directly into the per-story user prompt.
+    Keeps total story-file bloc under ~3000 tokens so requests stay within
+    the 8000-token GitHub Models limit for gpt-4o.
     """
     chunks = ["=== CURRENT FILE CONTENTS (read before writing -- make surgical changes) ===\n\n"]
-    for rel_path in story.get("files_to_create", []):
+    seen: set[str] = set()
+
+    target_paths = story.get("files_to_create", [])
+    for rel_path in target_paths:
+        seen.add(rel_path)
         p = REPO_ROOT / rel_path
         if p.exists():
             content = p.read_text(encoding="utf-8", errors="replace")
-            n = len(content.splitlines())
-            chunks.append(f"--- EXISTING ({n} lines): {rel_path} ---\n{content}\n\n")
+            lines = content.splitlines()
+            # Cap at 200 lines per target file to stay within token budget
+            truncated = "\n".join(lines[:200])
+            suffix = f"\n... [{len(lines)-200} lines truncated]" if len(lines) > 200 else ""
+            chunks.append(f"--- EXISTING ({len(lines)} lines): {rel_path} ---\n{truncated}{suffix}\n\n")
         else:
             chunks.append(f"--- NEW FILE: {rel_path} ---\n[Does not exist -- create from scratch]\n\n")
+
+    # Auto-load sibling files for context (120-line cap to save tokens)
+    siblings_to_load: list[str] = []
+    for prefix, sibling_list in _SIBLING_MAP.items():
+        if any(tp.startswith(prefix) or tp == prefix for tp in target_paths):
+            siblings_to_load.extend(sibling_list)
+    for rel_path in siblings_to_load:
+        if rel_path in seen:
+            continue
+        seen.add(rel_path)
+        p = REPO_ROOT / rel_path
+        if p.exists():
+            lines = p.read_text(encoding="utf-8", errors="replace").splitlines()
+            preview = "\n".join(lines[:120])
+            suffix = f"\n... [{len(lines)-120} lines truncated]" if len(lines) > 120 else ""
+            chunks.append(f"--- SIBLING REFERENCE ({len(lines)} lines): {rel_path} ---\n{preview}{suffix}\n\n")
+
     return "".join(chunks)
 
 
@@ -256,6 +259,9 @@ def _generate_code(story: dict, context: str) -> dict[str, str]:
 EPIC: {story.get('epic', 'N/A')}
 SIZE: {story.get('size', 'N/A')}
 
+PROJECT STATUS:
+{context}
+
 IMPLEMENTATION NOTES (follow these exactly):
 {story.get('implementation_notes', 'Implement as per project patterns.')}
 
@@ -266,9 +272,6 @@ FILES TO CREATE OR MODIFY:
 {chr(10).join('- ' + f for f in files_to_create)}
 
 {story_files}
-
-PROJECT CONTEXT (copilot-instructions rulebook, PLAN.md, STATUS.md, service files):
-{context[:60_000]}
 
 Now generate the file contents. Remember:
 1. For existing files: return the COMPLETE file with only the specified changes.
