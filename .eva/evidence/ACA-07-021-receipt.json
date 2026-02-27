@@ -1,0 +1,13 @@
+{
+  "story_id": "ACA-07-021",
+  "title": "Fix generate_blob_sas call and SAS_HOURS constant",
+  "phase": "D|P|D|C|A",
+  "timestamp": "2026-02-27T14:17:36Z",
+  "artifacts": [
+    "services/delivery/app/packager.py",
+    "services/tests/test_packager_sas.py"
+  ],
+  "test_result": "WARN",
+  "lint_result": "WARN",
+  "commit_sha": "0461054313dae16f08837df4a5c694e89d7b7be9"
+}

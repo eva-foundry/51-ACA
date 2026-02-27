@@ -1839,39 +1839,6 @@ I001 [*] Import block is un-sorted or un-formatted
 help: Organize imports
 
 I001 [*] Import block is un-sorted or un-formatted
-  --> services/delivery/app/packager.py:6:1
-   |
- 4 |   Returns a 7-day (168-hour) SAS URL for the client to download.
- 5 |   """
- 6 | / from __future__ import annotations
- 7 | | import hashlib
- 8 | | import io
- 9 | | import json
-10 | | import logging
-11 | | import zipfile
-12 | | from datetime import datetime, timedelta, timezone
-13 | |
-14 | | from azure.storage.blob import BlobServiceClient, BlobSasPermissions, generate_blob_sas
-15 | | from azure.identity import DefaultAzureCredential
-   | |_________________________________________________^
-16 |
-17 |   logger = logging.getLogger(__name__)
-   |
-help: Organize imports
-
-UP017 [*] Use `datetime.UTC` alias
-  --> services/delivery/app/packager.py:69:31
-   |
-67 |         # SAS -- generate_blob_sas requires the storage account key; managed identity
-68 |         # cannot sign SAS tokens. Pass ACA_STORAGE_ACCOUNT_KEY from env.
-69 |         expiry = datetime.now(timezone.utc) + timedelta(hours=SAS_HOURS)
-   |                               ^^^^^^^^^^^^
-70 |         sas_token = generate_blob_sas(
-71 |             account_name=self.storage_account,
-   |
-help: Convert to `datetime.UTC` alias
-
-I001 [*] Import block is un-sorted or un-formatted
  --> services/tests/test_analysis_main.py:2:1
   |
 1 |   # EVA-STORY: ACA-03-021
@@ -2001,27 +1968,3 @@ F401 [*] `services.api.app.services.findings_gate.TIER2_FIELDS` imported but unu
 5 | FULL_FINDING = {
   |
 help: Remove unused import: `services.api.app.services.findings_gate.TIER2_FIELDS`
-
-I001 [*] Import block is un-sorted or un-formatted
- --> services/tests/test_packager_sas.py:2:1
-  |
-1 |   # EVA-STORY: ACA-03-033
-2 | / import pytest
-3 | | import inspect
-4 | | from services.delivery.app.packager import SAS_HOURS, Packager
-  | |______________________________________________________________^
-5 |
-6 |   def test_sas_hours_constant():
-  |
-help: Organize imports
-
-F401 [*] `pytest` imported but unused
- --> services/tests/test_packager_sas.py:2:8
-  |
-1 | # EVA-STORY: ACA-03-033
-2 | import pytest
-  |        ^^^^^^
-3 | import inspect
-4 | from services.delivery.app.packager import SAS_HOURS, Packager
-  |
-help: Remove unused import: `pytest`
