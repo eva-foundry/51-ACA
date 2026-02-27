@@ -47,7 +47,7 @@ gh_token = os.environ.get("GITHUB_TOKEN", "")
 
 if az_endpoint and az_key:
     url = (
-        f"{az_endpoint}/openai/deployments/{deployment}"
+        f"{az_endpoint.rstrip('/')}/openai/deployments/{deployment}"
         "/chat/completions?api-version=2024-08-01-preview"
     )
     headers = {"Content-Type": "application/json", "api-key": az_key}
