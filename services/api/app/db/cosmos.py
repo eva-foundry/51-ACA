@@ -1,4 +1,5 @@
 """
+# EVA-STORY: ACA-01-001
 Cosmos DB client -- tenant-isolated helpers.
 
 RULE: every query MUST include partition_key=subscription_id.

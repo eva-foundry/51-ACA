@@ -1,3 +1,4 @@
+// EVA-STORY: ACA-05-007
 /**
  * AdminLayout -- wraps all /admin/* admin routes.
  * NavAdmin sidebar (left) + main content area via <Outlet />.

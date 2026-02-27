@@ -1,4 +1,5 @@
 """Rule 11: APIM Token Budget Enforcement -- Source: 14-az-finops #11"""
+# EVA-STORY: ACA-03-030
 RULE_ID = "rule-11-apim-token-budget"
 
 def rule_11_apim_token_budget(data: dict) -> dict | None:

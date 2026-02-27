@@ -1,3 +1,4 @@
+// EVA-STORY: ACA-05-017
 /**
  * ConnectSubscriptionPage -- /app/connect
  * Collects Azure subscription ID, selects onboarding mode (A/B/C),

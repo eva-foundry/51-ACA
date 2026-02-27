@@ -1,4 +1,5 @@
 """Rule 07: Cognitive Search SKU Oversize -- Source: 14-az-finops #7"""
+# EVA-STORY: ACA-03-017
 RULE_ID = "rule-07-search-sku-oversize"
 
 def rule_07_search_sku_oversize(data: dict) -> dict | None:

@@ -1,16 +1,18 @@
 AGENTS.md -- ACA Azure Cost Advisor
 ====================================
 
-Version  : 1.0.0
-Updated  : 2026-02-26
-Audience : GitHub Copilot coding agents, Claude, Codex, and any other AI coding
-           agent that works autonomously on issues in this repository.
+Version  : 2.0.0
+Updated  : 2026-02-27
+Audience : GitHub Copilot coding agents (cloud), Claude (Opus/Sonnet), GPT-5 mini,
+           and any other AI coding agent that works autonomously on GitHub Issues,
+           Codespaces, or cloud agent infrastructure in this repository.
 
-This file is the machine-readable contract between this codebase and any AI
-agent that works on it autonomously via GitHub Issues, Codespaces, or cloud
-agent infrastructure.
+This file is the machine-readable contract between this codebase and every AI
+agent. Read AGENTS.md FIRST, then .github/copilot-instructions.md in full.
+Follow every rule. No deviations.
 
-Read this file FIRST. Follow every rule. Do not deviate.
+Model selection, Veritas audit, EVA-STORY tags, and sprint governance rules
+are all mandatory -- not optional -- for every agent session.
 
 -----------------------------------------------------------------------------
 WHAT THIS PROJECT IS
@@ -97,27 +99,121 @@ SPEC DOCUMENTS (read before implementing any feature)
   18-customer-mapping.md  Customer + entitlement mapping spec
 
 -----------------------------------------------------------------------------
+MODEL SELECTION -- REASONING DEPTH, NOT STORY SIZE
+-----------------------------------------------------------------------------
+
+Choose model based on how much context, cross-file reasoning, and judgment
+the task requires. Not by lines of code or FP number.
+
+  Claude Opus 4.6
+    Use for: full repo review, architecture decisions, cross-service refactors,
+    security audit, test strategy design, any task requiring judgment across
+    5+ files simultaneously.
+    One-shot tasks only. Do not waste Opus on boilerplate.
+
+  Claude Sonnet 4.6
+    Use for: implementing L/M stories (cross-service integration, auth flows,
+    analysis rule sets, Stripe webhook logic, multi-file features with tests).
+    Default model for most real work.
+
+  GPT-5.1 or GPT-5 mini
+    Use for: S/XS stories (single route, config change, simple model, one file).
+    Fast and cheap. Good for boilerplate, i18n strings, env var wiring.
+
+  Do NOT use Gemini Flash or Grok for any story in this repo.
+  Do NOT use a fast model for security-sensitive code (auth, Stripe, Cosmos).
+
+-----------------------------------------------------------------------------
+CLOUD AGENT BOOTSTRAP (run in this order, every session)
+-----------------------------------------------------------------------------
+
+1. Read these files in order before writing any code:
+   AGENTS.md (this file)
+   .github/copilot-instructions.md
+   PLAN.md  (find the story assigned; read its Feature block)
+   STATUS.md  (check for open blockers on this story)
+   docs/<relevant-spec>.md  (see SPEC DOCUMENTS section below)
+
+2. Query the data model for endpoint/container/screen details:
+   GET https://marco-eva-data-model.livelyflower-7990bc7b.canadacentral.azurecontainerapps.io/model/endpoints/
+   Filter to the endpoint(s) this story implements.
+   Read .implemented_in and .repo_line to find existing stubs.
+   Never grep for something the model already knows.
+
+3. Check Veritas BEFORE starting work:
+   node /path/to/48-eva-veritas/src/cli.js audit --repo . 2>&1
+   If trust.json has "no-deploy" in actions array -> STOP, report to human.
+   MTI must be >= 70 to proceed.
+
+4. Produce a one-paragraph plan before writing code:
+   - What files change
+   - What the acceptance criteria check
+   - What the test command is
+   Never start coding before the plan is written.
+
+-----------------------------------------------------------------------------
 ISSUE ASSIGNMENT PROTOCOL
 -----------------------------------------------------------------------------
 
 When assigned a GitHub Issue with label "agent-task":
 
 1. Read the issue body. It contains:
-   - Story ID (e.g. ACA-SCANS-001)
+   - Story ID (ACA-NN-NNN format)
+   - WBS ID (N.N.N format)
    - Spec doc reference
-   - Acceptance criteria (testable conditions)
-   - Files to modify (explicit list)
+   - Inputs, Outputs, Acceptance criteria (all testable)
+   - Files to modify (explicit repo-relative paths)
 
-2. Branch: create from main with name feat/{story-id-lowercase}
+2. Branch: create from main with name agent/{story-id-lowercase}-{YYYYMMDD}
+   Example: agent/aca-04-001-20260227
 
-3. Implement all acceptance criteria. Do not implement anything not listed.
+3. Add EVA-STORY tag to every file you modify:
+   Python:  # EVA-STORY: ACA-NN-NNN
+   TS/JS:   // EVA-STORY: ACA-NN-NNN
+   Bicep:   // EVA-STORY: ACA-NN-NNN
+   YAML:    # EVA-STORY: ACA-NN-NNN
+   The tag goes on the first functional line of the file, not in comments at EOF.
 
-4. Run: pytest services/ -x -q
-   If any test fails, fix it before committing.
+4. Implement ONLY the acceptance criteria listed. Do not scope-creep.
 
-5. Open a PR using the pull_request_template.md checklist.
+5. Run the test command:
+   pytest services/ -x -q --tb=short
+   All tests must pass. Fix failures before committing.
 
-6. PR title format: feat(aca): {story-id} -- {short description}
+6. Run Veritas audit AFTER implementing:
+   MTI must still be >= 70. If it drops, you introduced a regression -- fix it.
+
+7. Commit with Story ID on the subject line:
+   feat(scope): ACA-NN-NNN short description
+   The Story ID on the subject line is mandatory -- Veritas mines commits for evidence.
+
+8. Open a PR using the pull_request_template.md checklist.
+   PR title: feat(aca): ACA-NN-NNN -- short description
+
+-----------------------------------------------------------------------------
+SPRINT GOVERNANCE -- WHEN TO PROCEED VS WHEN TO ESCALATE
+-----------------------------------------------------------------------------
+
+PROCEED autonomously when:
+  - Story has clear acceptance criteria, all files listed, no blocked dependency
+  - Veritas MTI >= 70 before and after
+  - pytest exits 0
+  - No secret or Key Vault change required (those need human)
+
+ESCALATE to human (comment on the issue, do not commit) when:
+  - A listed dependency story (Depends On field) is not merged yet
+  - The spec doc contradicts the issue body -- which one wins?
+  - The fix requires a new Cosmos container or new Key Vault secret
+  - Veritas MTI drops below 70 and you cannot find the root cause
+  - Any acceptance criterion is ambiguous (cannot write a test for it)
+  - pytest has failures you cannot resolve after 2 attempts
+
+SPRINT BOUNDARY -- when all sprint stories are merged:
+  1. Run: node cli.js audit --repo . -> confirm MTI >= 70
+  2. Run: pytest services/ -v -> confirm 0 failures
+  3. Post a sprint summary comment on the sprint planning issue:
+     Stories merged, FP delivered, MTI score, test count, next sprint recommendation
+  4. Do NOT start next sprint stories without human confirmation
 
 -----------------------------------------------------------------------------
 KEY FILE LOCATIONS
@@ -157,4 +253,43 @@ WHAT AGENTS MUST NOT DO
 - Do not add emoji or Unicode to any file (encoding rule 3 above).
 - Do not open PRs that fail pytest.
 - Do not modify PLAN.md or STATUS.md (human-edited governance docs).
+- Do not select a fast model (GPT-5 mini) for auth, Stripe, or Cosmos code.
+- Do not skip the EVA-STORY tag on any file you create or modify.
+- Do not open a PR if Veritas MTI dropped below 70.
+- Do not start a new story if the current one has unresolved escalation.
+- Do not run git push without a passing pytest run on record.
+
+-----------------------------------------------------------------------------
+EVA-STORY TAG REFERENCE
+-----------------------------------------------------------------------------
+
+All 22 shipped story IDs (Sprint 0-1):
+  ACA-01-001 through ACA-13-008 (see PLAN.md Story ID Roster for full list)
+
+Next sprint stories (Sprint 2, not yet implemented):
+  ACA-03-001 POST /connect full MSAL delegated auth
+  ACA-04-001 POST /preflight RBAC probe
+  ACA-05-001 POST /disconnect tenant offboarding
+  ACA-10-001 GET /findings tier-gated response (full implementation)
+  ACA-10-002 GET /inventory tenant-scoped
+  ACA-02-001 DELETE /scans/{scan_id} with isolation
+
+When implementing one of these, the EVA-STORY tag goes into the implementation
+file, not just a comment file. Example:
+  # EVA-STORY: ACA-04-001
+  async def preflight(request: Request, ...) -> dict:
+
+-----------------------------------------------------------------------------
+AGENT ESCALATION COMMENT FORMAT
+-----------------------------------------------------------------------------
+
+When you need to escalate, post this exact format as a comment on the issue:
+
+  [AGENT-ESCALATION]
+  Story: ACA-NN-NNN
+  Reason: <one sentence>
+  Blocker type: DEPENDENCY | AMBIGUOUS_SPEC | SECRET_NEEDED | TEST_FAILURE | MTI_REGRESSION
+  Attempted: <what you tried>
+  Human action needed: <exact question or action to unblock>
+  [/AGENT-ESCALATION]
 

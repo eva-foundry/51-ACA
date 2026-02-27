@@ -1,3 +1,4 @@
+// EVA-STORY: ACA-08-005
 /**
  * Consent state management.
  * Consent is required before loading GTM (which fires GA4 and Clarity).

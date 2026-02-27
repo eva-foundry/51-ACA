@@ -1,4 +1,5 @@
 """Rule 10: Savings Plan Coverage Opportunity -- Source: 14-az-finops #10"""
+# EVA-STORY: ACA-03-029
 RULE_ID = "rule-10-savings-plan"
 
 def rule_10_savings_plan_coverage(data: dict) -> dict | None:

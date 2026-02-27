@@ -1,4 +1,5 @@
 """Cosmos helper for delivery service -- thin wrapper around azure-cosmos SDK."""
+# EVA-STORY: ACA-07-009
 from __future__ import annotations
 from azure.cosmos import CosmosClient, PartitionKey
 

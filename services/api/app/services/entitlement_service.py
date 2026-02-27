@@ -1,4 +1,5 @@
 """
+# EVA-STORY: ACA-06-015
 Entitlement service -- business logic layer over EntitlementsRepo.
 
 Abstracts tier/payment-status persistence so routers and webhook

@@ -1,4 +1,5 @@
 """Rule 08: Container Registry Consolidation -- Source: 14-az-finops #8"""
+# EVA-STORY: ACA-03-018
 RULE_ID = "rule-08-acr-consolidation"
 
 def rule_08_acr_consolidation(data: dict) -> dict | None:

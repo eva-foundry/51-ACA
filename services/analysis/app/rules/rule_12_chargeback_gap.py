@@ -1,4 +1,5 @@
 """Rule 12: Shared Cost Chargeback Gap -- Source: 14-az-finops #12"""
+# EVA-STORY: ACA-03-031
 RULE_ID = "rule-12-chargeback-gap"
 
 def rule_12_chargeback_gap(data: dict) -> dict | None:

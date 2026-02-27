@@ -1,4 +1,5 @@
 """
+# EVA-STORY: ACA-02-001
 Pre-flight permission validation.
 Probes ARM, Cost Management, Advisor, Policy, Network APIs before collection.
 Returns PASS | PASS_WITH_WARNINGS | FAIL with per-probe results.

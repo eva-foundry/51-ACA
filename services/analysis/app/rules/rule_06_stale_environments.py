@@ -1,4 +1,5 @@
 """Rule 06: Stale Environment Detection -- Source: 14-az-finops #6"""
+# EVA-STORY: ACA-03-016
 RULE_ID = "rule-06-stale-environments"
 
 def rule_06_stale_environments(data: dict) -> dict | None:

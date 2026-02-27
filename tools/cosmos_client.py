@@ -1,4 +1,5 @@
 """
+# EVA-STORY: ACA-01-001
 tools/cosmos_client.py
 ======================
 Standalone Cosmos DB auth helper for ACA agent tools.

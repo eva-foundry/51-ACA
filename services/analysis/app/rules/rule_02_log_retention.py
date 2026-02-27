@@ -1,4 +1,5 @@
 """
+# EVA-STORY: ACA-03-012
 Rule 02: Log Analytics Retention Right-Size
 Source: 14-az-finops saving-opportunities.md #2
 Saving: CAD $1,000-$2,000/yr

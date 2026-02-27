@@ -1,3 +1,4 @@
+// EVA-STORY: ACA-05-004
 /**
  * RequireRole -- redirect to /app/connect if user lacks any of the specified roles.
  * Use inside RequireAuth so the user is already known to be authenticated.

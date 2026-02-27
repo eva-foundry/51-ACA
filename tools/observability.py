@@ -1,4 +1,5 @@
 """
+# EVA-STORY: ACA-08-009
 tools/observability.py
 ======================
 Operation tracer and structured event logger for ACA.

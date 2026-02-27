@@ -1,3 +1,4 @@
+// EVA-STORY: ACA-05-001
 // ACA role constants -- must match Entra ID group names exactly
 export const ROLE_ADMIN   = "ACA_Admin";
 export const ROLE_SUPPORT = "ACA_Support";
