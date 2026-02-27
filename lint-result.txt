@@ -1311,18 +1311,6 @@ B905 `zip()` without an explicit `strict=` parameter
    |
 help: Add explicit value for parameter `strict=`
 
-UP017 [*] Use `datetime.UTC` alias
-  --> services/collector/app/ingest.py:26:34
-   |
-24 |         self.sub_id = subscription_id
-25 |         self.db = _client().get_database_client(COSMOS_DB)
-26 |         self._now = datetime.now(timezone.utc).isoformat()
-   |                                  ^^^^^^^^^^^^
-27 |
-28 |     def _container(self, name: str):
-   |
-help: Convert to `datetime.UTC` alias
-
 I001 [*] Import block is un-sorted or un-formatted
   --> services/collector/app/main.py:15:1
    |
