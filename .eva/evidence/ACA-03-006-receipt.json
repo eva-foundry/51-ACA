@@ -1,0 +1,12 @@
+{
+  "story_id": "ACA-03-006",
+  "title": "Wire findings.py GET handler: Cosmos reads + gate_findings",
+  "phase": "D|P|D|C|A",
+  "timestamp": "2026-02-27T12:37:27Z",
+  "artifacts": [
+    "services/api/app/routers/findings.py"
+  ],
+  "test_result": "WARN",
+  "lint_result": "WARN",
+  "commit_sha": "f5a340f6c70a7cf045e9141ce401c319ba6027bf"
+}
