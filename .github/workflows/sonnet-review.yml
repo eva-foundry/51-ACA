@@ -1,0 +1,82 @@
+# EVA-STORY: ACA-14-008
+# Sonnet Architecture Review Workflow
+# Trigger: GitHub Issue labeled "sonnet-review"
+# Model:   Claude Sonnet 4.6 via GitHub Models API (GITHUB_TOKEN auto-provided)
+# Mode:    READ-ONLY -- reads repo files, posts structured review comment
+#          No code changes. No branches. No PRs. No commits.
+
+name: Sonnet Architecture Review
+
+on:
+  issues:
+    types: [labeled]
+  workflow_dispatch:
+    inputs:
+      issue_number:
+        description: Issue number to review
+        required: true
+        type: number
+
+jobs:
+  sonnet-review:
+    name: "Sonnet Review"
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      contains(github.event.issue.labels.*.name, 'sonnet-review')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          pip install --quiet openai 2>/dev/null
+          echo "[INFO] dependencies installed"
+
+      - name: Resolve issue number
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            echo "ISSUE_NUM=${{ inputs.issue_number }}" >> "$GITHUB_ENV"
+          else
+            echo "ISSUE_NUM=${{ github.event.issue.number }}" >> "$GITHUB_ENV"
+          fi
+
+      - name: Load review context from repo
+        run: |
+          python3 .github/scripts/sonnet_review.py --load-context \
+            --out /tmp/review-context.txt
+          echo "[INFO] context: $(wc -c < /tmp/review-context.txt) bytes"
+
+      - name: Run Sonnet review and post comment
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 .github/scripts/sonnet_review.py \
+            --review \
+            --issue "$ISSUE_NUM" \
+            --context /tmp/review-context.txt \
+            --repo "${{ github.repository }}"
+
+      - name: Upload review artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: "sonnet-review-issue-${{ env.ISSUE_NUM }}"
+          path: |
+            /tmp/review-context.txt
+            /tmp/review-output.txt
+          retention-days: 30

@@ -1,0 +1,91 @@
+# Sprint Agent Workflow
+# Trigger: GitHub Issue labeled "sprint-task"
+# Model:   Claude Sonnet 4.6 via GitHub Models API
+#
+# Processes a FULL SPRINT from one issue:
+#   - Parses the sprint issue body to extract all story blocks
+#   - Executes each story in sequence: D->P->D->C->A
+#   - Posts a progress comment after EACH story
+#   - Posts a final sprint summary comment when all stories complete
+#
+# Issue format: see .github/SPRINT_ISSUE_TEMPLATE.md
+# Story blocks delimited by: <!-- STORY: ACA-NN-NNN -->
+
+name: Sprint Agent
+
+on:
+  issues:
+    types: [labeled]
+  workflow_dispatch:
+    inputs:
+      issue_number:
+        description: Sprint issue number
+        required: true
+        type: number
+
+jobs:
+  sprint:
+    name: "Sprint"
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      contains(github.event.issue.labels.*.name, 'sprint-task')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          pip install --quiet openai ruff pytest pytest-asyncio httpx
+          pip install -r services/api/requirements.txt --quiet 2>/dev/null || true
+
+      - name: Resolve issue number
+        id: resolve
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            echo "ISSUE_NUM=${{ inputs.issue_number }}" >> "$GITHUB_ENV"
+          else
+            echo "ISSUE_NUM=${{ github.event.issue.number }}" >> "$GITHUB_ENV"
+          fi
+
+      - name: Configure git identity
+        run: |
+          git config user.name "ACA Sprint Agent"
+          git config user.email "agent@eva-foundry.dev"
+
+      - name: Run sprint agent
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          python3 .github/scripts/sprint_agent.py \
+            --issue "$ISSUE_NUM" \
+            --repo "$GH_REPO"
+
+      - name: Upload sprint artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: "sprint-issue-${{ env.ISSUE_NUM }}-artifacts"
+          path: |
+            sprint-state.json
+            sprint-summary.md
+            .eva/evidence/
+            lint-result.txt
+            test-collect.txt
+          retention-days: 30
