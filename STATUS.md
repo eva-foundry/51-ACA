@@ -1,22 +1,67 @@
 ACA -- Azure Cost Advisor -- STATUS
 ====================================
 
-Version: 0.8.0
-Updated: 2026-02-26 (updated: Epic 6 COMPLETE; GitHub cloud agent framework: AGENTS.md, devcontainer, issue/PR templates, ci.yml multi-job)
+Version: 0.9.0
+Updated: 2026-02-27 (plan refinement: multi-tenant auth, coupon/promo codes,
+         Azure free hostnames, Bicep-only templates, Playwright a11y, all 5 locales Phase 1,
+         bootstrap.sh new, 12 rule unit tests target, all Q&A decisions locked)
 Phase: Phase 1 -- Core Services Bootstrap
-Active Epic: Epic 7 (Delivery templates), Epic 9 (i18n/a11y completion)
+Active Epic: Epic 4 (auth rework), Epic 7 (Delivery templates), Epic 9 (i18n/a11y completion)
 
 =============================================================================
 CURRENT STATE (2026-02-26)
 =============================================================================
 
 All four backend services are bootstrapped and import-verified. Frontend Spark
-restructure is complete (Epic 5 DONE). Billing layer (Epic 6) is substantially
-complete: all 5 Cosmos repos, 3 service classes, and full checkout.py implemented
-with Stripe webhook lifecycle (checkout, invoice.paid, subscription updated/deleted).
-Veritas MTI raised from 0 to 50 (22/22 stories tagged, 0 gaps).
-Data model server: http://localhost:8011 (store=memory, total=57).
+restructure is complete (Epic 5 DONE). Billing layer (Epic 6) is complete.
+GitHub cloud agent framework is in place (AGENTS.md, devcontainer, ci.yml multi-job).
+All pre-flight planning Q&A decisions are LOCKED (see DECISIONS LOCKED section below).
+Veritas MTI: 50. Data model: http://localhost:8011 (store=memory, total=57).
 ADO project: dev.azure.com/marcopresta/51-aca (Epic 2730, 12 Features, 16 PBIs).
+
+=============================================================================
+DECISIONS LOCKED (2026-02-27)
+=============================================================================
+
+I1  IaC deployment: Do NOT deploy to Azure now. Finish IaC files (Bicep + bootstrap.sh)
+    in EsDAICoE-Sandbox / marco* resources first. Deploy when integration tests are ready.
+
+I2  Auth model: ACA is standalone private-sector SaaS. NOT tied to EsDAICoE org.
+    Multi-tenant Microsoft Entra (authority=common). Any client Microsoft account works.
+    What matters: delegated token has Reader + Cost Management Reader on CLIENT subscription.
+    ACA app registration must be multi-tenant. current auth.py stubs need full rework.
+
+I3  bootstrap.sh is new -- create from scratch using 12-IaCscript.md + 13-IAC-more.md spec.
+    Cover: Cosmos containers, KV secrets, ACA Container App + 3 Jobs, APIM product.
+    Add DO_CONTAINERAPPS and DO_APIM toggle flags for partial re-runs.
+
+S2  Stripe prices are env-var driven (STRIPE_PRICE_* not hardcoded). Prices are
+    suggestions -- allow coupon/promotion codes. Full fee waiver via coupon is supported.
+    Add STRIPE_COUPON_ENABLED: bool to settings. Pass allow_promotion_codes to checkout.
+
+S3  Billing cycle: Tier 2 = monthly subscription (CAD). Tier 3 = one-time.
+
+T1  Delivery templates: Bicep only for Phase 1. No Terraform in delivery templates yet.
+    Generator skips missing main.tf gracefully. 12 folders: tmpl-devbox-autostop through
+    tmpl-chargeback-policy.
+
+T2  Template parameterization: simple variable substitution (scan_id, subscription_id,
+    finding-specific fields from FINDING schema). Jinja2 already in generator.py.
+
+Cov 95% end-to-end test coverage target. Playwright headless CI for a11y.
+    One test module per rule with hardcoded FP JSON fixtures. No Cosmos calls in unit tests.
+
+A1  a11y testing: Playwright headless (not cypress). Runs in GitHub Actions on ubuntu-latest.
+    All 5 locales exercised in Playwright suite.
+
+A2  i18n: all 5 locales (en, fr, es, de, pt-BR) ship in Phase 1 as best-effort machine
+    translation. Professional review for pt-BR / es / de is Phase 2 hardening only.
+
+D1  Phase 1 uses Azure Container Apps free hostnames (*.{region}.azurecontainerapps.io).
+    No custom domain required for Phase 1. PUBLIC_APP_URL / PUBLIC_API_URL read from env.
+    Phase 2 gets real custom domain (TBD).
+
+D2  Repo stays in eva-foundry (private). Deployed to Azure. No GitHub org move needed.
 
 =============================================================================
 COMPLETED
@@ -160,7 +205,7 @@ Epic 4 -- Admin API Endpoints (from docs 21/23) -- COMPLETE (stubs with audit wi
 IN PROGRESS
 =============================================================================
 
-Epic 6 -- Billing (Stripe)
+Epic 6 -- Monetization and Billing (Stripe) -- COMPLETE
   [PASS] services/api/app/db/repos/entitlements_repo.py (Cosmos-backed, upsert/get)
   [PASS] services/api/app/db/repos/payments_repo.py (record + list_for_subscription)
   [PASS] services/api/app/db/repos/clients_repo.py (upsert + set_stripe_customer_id)
@@ -169,23 +214,14 @@ Epic 6 -- Billing (Stripe)
   [PASS] services/api/app/services/stripe_service.py (checkout, portal, verify_webhook)
   [PASS] services/api/app/services/delivery_service.py (Phase 1 stub, Phase 2 hook)
   [PASS] services/api/app/services/entitlement_service.py (grant/revoke/lifecycle)
-  [PASS] app/routers/checkout.py -- full implementation (was 501 stubs):
-           POST /tier2, /tier3 (Stripe checkout session creation)
-           POST /webhook (sig verify + checkout.session.completed + invoice lifecycle)
-           GET  /portal (billing portal via stripeCustomerId from clients repo)
-           GET  /entitlements (Entitlement dataclass + access flags)
-  [PASS] settings.py updated: PUBLIC_APP_URL, PUBLIC_API_URL, STRIPE_ENABLE_SUBSCRIPTIONS,
-           COSMOS_CONTAINER_* names for 5 new containers
-  [PASS] cosmos.py CONTAINERS updated: +entitlements, +payments, +stripe_customer_map,
-           +admin_audit_events; clients PK fixed to /subscriptionId
-  [PASS] Import check: all 9 new modules import clean (stripe 14.4.0)
-  [PASS] admin_audit_repo + entitlements_repo wired into admin.py:
-           grant_entitlement (upsert + ENTITLEMENT_GRANTED audit)
-           lock_subscription (set_locked + SUBSCRIPTION_LOCKED audit)
-           reconcile_stripe  (STRIPE_RECONCILE audit)
-  [PASS] entitlements_repo: added is_locked param to upsert + set_locked() method
+  [PASS] app/routers/checkout.py -- full implementation (POST /tier2, /tier3, /webhook,
+           GET /portal, GET /entitlements)
+  [PASS] admin_audit_repo + entitlements_repo wired into admin.py
+  [PASS] entitlements_repo: added is_locked param + set_locked() method
+  [ ] PENDING: STRIPE_COUPON_ENABLED field in settings.py (locked decision S2)
+  [ ] PENDING: allow_promotion_codes in stripe_service.py checkout session (S2)
 
-GitHub Cloud Agent Framework
+GitHub Cloud Agent Framework -- COMPLETE
   [PASS] AGENTS.md -- agent contract: non-negotiable rules, DPDCA loop, spec doc map
   [PASS] .devcontainer/devcontainer.json -- Python 3.12 + Node 20 + Azure CLI + gh CLI
   [PASS] .devcontainer/on-create.sh -- installs all deps + smoke test on Codespaces create
@@ -193,25 +229,48 @@ GitHub Cloud Agent Framework
   [PASS] .github/pull_request_template.md -- PR checklist with test evidence + story link
   [PASS] .github/workflows/ci.yml -- 3 jobs: lint-and-test, frontend-build, agent-preflight
 
+Epic 4 -- Auth rework (multi-tenant) -- NEW WORK
+  [ ] services/api/app/routers/auth.py: all 3 endpoints beyond 501 stubs
+      connect: MSAL authority=common, store refresh token in KV per scan
+      preflight: run 5 probes with delegated token (Mode A) or SP token (Mode B)
+      disconnect: revoke token, hard-delete Cosmos tenant data
+  [ ] MSAL app registration configured as multi-tenant in Azure portal
+  [ ] frontend useAuth.ts: MSAL.js authority=common (any Microsoft tenant)
+  [ ] settings.py: add MSAL_AUTHORITY = "https://login.microsoftonline.com/common"
+
+Epic 6 -- Stripe coupon (small -- 2 files)
+  [ ] settings.py: STRIPE_COUPON_ENABLED: bool = Field(default=True)
+  [ ] stripe_service.py: pass allow_promotion_codes=settings.STRIPE_COUPON_ENABLED
+
+Epic 3 -- Rule unit tests
+  [ ] services/analysis/tests/test_rule_01.py through test_rule_12.py (12 files)
+  [ ] services/analysis/tests/test_findings_assembler.py
+  [ ] Target: 95% line coverage on all rule modules (CI blocks on regression)
+
 Epic 7 -- Delivery Templates
   [ ] 12 Jinja2 template folders in services/delivery/app/templates/{tmpl-id}/
-      Each needs: main.bicep, main.tf, README.md
+      Each needs: main.bicep (Bicep only -- no main.tf in Phase 1), README.md
+      Folders: tmpl-devbox-autostop, tmpl-log-retention, tmpl-defender-plan,
+      tmpl-compute-schedule, tmpl-anomaly-alert, tmpl-stale-envs, tmpl-search-sku,
+      tmpl-acr-consolidation, tmpl-dns-consolidation, tmpl-savings-plan,
+      tmpl-apim-token-budget, tmpl-chargeback-policy
 
 Epic 9 -- i18n/a11y
   [ ] FR translation strings reviewed and proofread (currently machine draft)
-  [ ] PT-BR, ES, DE translation stubs (Phase 2 gating flag exists)
+  [ ] PT-BR, ES, DE translation stubs -- all 3 complete for Phase 1 (best-effort)
+  [ ] Playwright headless test suite -- Tier 1 flow, 95% coverage, all 5 locales
   [ ] axe-core CI gate added to .github/workflows/ci.yml
 
-Infra -- IaC Updates (from docs 13/20)
-  [ ] infra/phase1-marco/bootstrap.sh -- update with Container Apps Jobs
-      (CA_COLLECTOR_JOB, CA_ANALYSIS_JOB, CA_DELIVERY_JOB)
+Infra -- IaC Updates
+  [ ] infra/phase1-marco/bootstrap.sh -- NEW FILE from scratch (12-IaCscript.md spec)
+      Cover: Cosmos containers, KV secrets, ACA Container App + 3 Jobs, APIM product,
+      DO_CONTAINERAPPS and DO_APIM toggle flags
   [ ] infra/phase1-marco/apim-policies/ -- add entitlements caching policy XML
       (cache key: entitlements::{subscriptionId}, TTL: 60s)
-  [ ] Update Cosmos container create calls to add admin_audit_events container
-      (PK /subscriptionId, RU 400)
   [ ] IaC toggle flags documented: DO_CONTAINERAPPS, DO_APIM, USE_ACR
 
 Docs
+  [ ] .env.example: add STRIPE_COUPON_ENABLED, Azure free hostname comments
   [ ] docs/analytics-spec.md -- create from doc 14 (GA4+Clarity formal spec)
   [ ] docs/openapi.admin.yaml -- admin API OpenAPI spec from doc 22
 
@@ -263,17 +322,22 @@ BLOCKERS AND OPEN QUESTIONS
 =============================================================================
 
 B1  Stripe account not created for production (need before M1.5)
+    PLAN: Create in test mode first. Real keys at M1.5 launch.
 B2  Private Azure subscription for Phase 2 not provisioned (need before M3.0)
+    PLAN: Not needed for Phase 1. Defer to Phase 2 scope.
 B3  marco-sandbox-apim policy isolation -- need to confirm ACA product can
     coexist with existing EVA POC APIM policies without conflict
+    PLAN: Test on a cloned policy, isolate by API path prefix /v1/aca.
 
-Q1  Which domain name? app.aca.example.com is a placeholder.
-    Real domain needs DNS delegation and TLS before Phase 2.
-Q2  GitHub org: will 51-ACA stay in eva-foundry or move to a commercial org?
-Q3  Stripe account -- personal or business? Business account required for
-    production payments in Canada.
-Q4  Will pt-BR and es translations be machine-translated or professionally reviewed?
-Q5  What FX rate API will be used for currency display? (Open Exchange Rates, fixer.io?)
+RESOLVED (locked 2026-02-27):
+  Q1  Domain name -> RESOLVED: Azure free names for Phase 1. Real domain TBD for Phase 2.
+  Q2  GitHub org move -> RESOLVED: Stays in eva-foundry (private). No move.
+  Q3  Stripe account type -> RESOLVED: Test mode to start. Business account at launch.
+  Q4  pt-BR/es translation quality -> RESOLVED: Machine translation Phase 1, pro review Phase 2.
+  Q5  FX rate API -> UNRESOLVED: Deferred to Phase 2 (M2.1 scope).
+  I2  Auth model -> RESOLVED: Multi-tenant Microsoft Entra, authority=common, any client tenant.
+  S2  Stripe pricing -> RESOLVED: Env-var driven, promotional codes enabled, coupon support.
+  T1  Template format -> RESOLVED: Bicep only for delivery templates in Phase 1.
 
 =============================================================================
 ANALYSIS RULE STATUS
@@ -299,32 +363,46 @@ Totals                               12/12             12/12     0/12
 NEXT SESSION ACTIONS (priority order)
 =============================================================================
 
-1. Frontend Spark restructure -- create auth layer, layouts, router.tsx, API clients
-2. Create 5 admin pages (AdminDashboardPage, AdminCustomersPage, AdminBillingPage,
-   AdminRunsPage, AdminControlsPage)
-3. Add 6 admin API endpoints to admin.py
-4. Create admin_audit_repo.py (Cosmos write for every admin action)
-5. Wire .env from marco-kv secrets + run first collector run
-6. Implement Stripe checkout + webhook fully (from docs 16/17/18)
-7. Add 12 Jinja2 IaC templates
-8. Create docs/analytics-spec.md and docs/openapi.admin.yaml
-9. Update IaC bootstrap.sh with Container Apps Jobs + admin_audit_events container
-10. Add axe-core to ci.yml
+1. Stripe coupon wiring (settings.py: STRIPE_COUPON_ENABLED; stripe_service.py: allow_promotion_codes)
+   -- 2 files, 15 min, no blockers
+
+2. .env.example: add STRIPE_COUPON_ENABLED, Azure free hostname placeholder comments
+   -- 1 file, 5 min, no blockers
+
+3. infra/phase1-marco/bootstrap.sh -- new file from 12-IaCscript.md + 13-IAC-more.md spec
+   -- 1 new file, ~1h, no blockers
+
+4. 12 Jinja2 delivery templates (services/delivery/app/templates/**/main.bicep + README.md)
+   -- 24 files (12 main.bicep + 12 README.md), ~2h, sourced from 12-IaCscript.md patterns
+
+5. 12 rule unit tests (services/analysis/tests/test_rule_*.py) + findings_assembler test
+   -- 13 new test files, ~2h, target 95% coverage, hardcoded JSON fixtures, no Cosmos calls
+
+6. auth.py multi-tenant MSAL rework (connect/preflight/disconnect beyond 501 stubs)
+   authority=common, refresh token in KV per scan, Mode A/B/C all implemented
+   -- 1 file + dependencies, ~3h
+
+7. PT-BR, ES, DE translation stubs (best-effort for Phase 1)
+   -- 3 new translation JSON files (~1h)
+
+8. Playwright a11y CI setup (.github/workflows + playwright.config.ts + axe-core)
+   -- 3 files, ~45 min
+
+9. Commit all + push + update Veritas MTI
 
 =============================================================================
-LAST SESSION (2026-02-26 continuation -- docs 13-23 onboarded)
+LAST SESSION (2026-02-27 -- plan refinement, all Q&A decisions locked)
 =============================================================================
 
 Completed this session:
-- Read all 11 previously-unread source docs (13-23)
-- Identified 4 genuinely new docs (21, 22, 23, 13/20 IaC update)
-  - 14/15/16/17/18/19 are deeper/duplicate versions of 06/07/08/09/10/11
-- Updated README.md with: admin_audit_events container, Spark routing architecture,
-  admin role model (ACA_Admin/ACA_Support/ACA_FinOps), API client mapping,
-  project files map entries 13-23
-- Updated STATUS.md (this file) with full Spark frontend task list
-- Updated PLAN.md with Epic 5 Spark stories + admin API stories
-- Updated data-model: added admin_audit_events to containers.json,
-  added 6 admin endpoints + 3 customer endpoint corrections to endpoints.json,
-  updated screens.json to /app/* + /admin/* Spark routing,
-  added ACA_Admin/ACA_Support/ACA_FinOps roles layer entry
+- Read all governance docs (README.md, PLAN.md, STATUS.md, ACCEPTANCE.md)
+- Conducted pre-flight Q&A (12 questions, all answered)
+- Locked all planning decisions (see DECISIONS LOCKED section above)
+- README.md -> v0.5.0: multi-tenant auth clarification, Azure free hostnames,
+  Stripe coupon documentation, i18n Phase 1 all-5-locales note
+- PLAN.md -> v0.4.0: new Feature 1.5 (Azure free URLs), Feature 3.4 (unit tests),
+  multi-tenant auth Feature 4.1 (7 stories), Stripe coupon Feature 6.1 (8 stories),
+  Bicep-only Feature 7.1, all-5-locales Phase 1 Story 9.1.8, Playwright Story 9.2.11
+- STATUS.md -> v0.9.0 (this update)
+
+Full scope freeze for Phase 1 implementation sprint:

@@ -1,8 +1,10 @@
 ACA -- Azure Cost Advisor -- PLAN
 =================================
 
-Version: 0.3.0
-Updated: 2026-02-26
+Version: 0.4.0
+Updated: 2026-02-27 (plan refinement: multi-tenant auth, coupon/promo codes,
+         Azure free hostnames, Bicep-only templates, Playwright a11y, all 5 locales Phase 1,
+         bootstrap.sh new, 12 rule unit tests target, Azure free URL config stories)
 Phase: Phase 1 active
 
 This plan is the Work Breakdown Structure (WBS) for ACA.
@@ -52,15 +54,24 @@ Feature 1.3 -- Phase 1 marco* infra wiring
   Story 1.3.3  As an operator the API Container App has managed identity approved on KV
   Story 1.3.4  As an operator the collector job has managed identity with Cosmos read/write
   Story 1.3.5  As an operator OIDC is configured on the GitHub Actions workflow for EsDAICoE-Sandbox
+  Story 1.3.6  As an operator infra/phase1-marco/bootstrap.sh exists and provisions all
+               marco* ACA resources in sequence (Cosmos containers, KV secrets, ACA env,
+               Container App + 3 jobs, APIM product) using az CLI with DO_* toggle flags
+               (DO_CONTAINERAPPS, DO_APIM) for partial re-runs
 
 Feature 1.4 -- Container build + push
   Story 1.4.1  As a developer all 4 Dockerfiles build without error on ubuntu-latest
   Story 1.4.2  As an operator deploy-phase1.yml pushes 4 images to marcosandacr20260203
   Story 1.4.3  As an operator collector-schedule.yml triggers nightly at 02:00 UTC
 
-=============================================================================
-EPIC 2 -- DATA COLLECTION PIPELINE (M1.1)
-=============================================================================
+Feature 1.5 -- Phase 1 deployment URLs
+  Story 1.5.1  As an operator PUBLIC_APP_URL and PUBLIC_API_URL are read from env vars;
+               no URLs are hardcoded in source. Phase 1 = Azure free hostnames
+               (*.{region}.azurecontainerapps.io). No custom domain required.
+  Story 1.5.2  As a developer .env.example documents the Azure free hostname pattern
+               with a placeholder comment and instructions to update on first deploy.
+  Story 1.5.3  As an operator ACA_ALLOWED_ORIGINS is seeded from the Phase 1 free hostname
+               on container startup via environment variable injection from KV.
 
 Goal: Collector job runs against a real Azure subscription and saves data to Cosmos.
 
@@ -140,21 +151,51 @@ Feature 3.3 -- Individual rules (one story per rule)
   Story 3.3.11 R-11 APIM token budget: returns finding when APIM + OpenAI both present
   Story 3.3.12 R-12 Chargeback gap: returns finding when total period cost > $5,000
 
-=============================================================================
-EPIC 4 -- API AND AUTH LAYER (M1.3)
+Feature 3.4 -- Rule unit tests (DECISION LOCKED 2026-02-27: 95% coverage, hardcoded fixtures)
+  One test file per rule. Tests use hardcoded JSON fixtures (no Cosmos calls).
+  Target: 95% line coverage across all 12 rule modules. CI blocks on regression.
+
+  Story 3.4.1   Unit test for R-01 devbox_autostop: fixture with Dev Box cost > $1,000 -> finding
+  Story 3.4.2   Unit test for R-02 log_retention: fixture with LA cost > $500 -> finding
+  Story 3.4.3   Unit test for R-03 defender_mismatch: fixture with Defender cost > $2,000 -> finding
+  Story 3.4.4   Unit test for R-04 compute_scheduling: fixture with schedulable > $5,000 -> finding
+  Story 3.4.5   Unit test for R-05 anomaly_detection: fixture with z-score > 3.0 -> finding
+  Story 3.4.6   Unit test for R-06 stale_environments: fixture with >= 3 App Services -> finding
+  Story 3.4.7   Unit test for R-07 search_sku_oversize: fixture with Search cost > $2,000 -> finding
+  Story 3.4.8   Unit test for R-08 acr_consolidation: fixture with >= 3 registries -> finding
+  Story 3.4.9   Unit test for R-09 dns_sprawl: fixture with DNS cost > $1,000 -> finding
+  Story 3.4.10  Unit test for R-10 savings_plan_coverage: fixture with compute > $20,000 -> finding
+  Story 3.4.11  Unit test for R-11 apim_token_budget: fixture with APIM + OpenAI -> finding
+  Story 3.4.12  Unit test for R-12 chargeback_gap: fixture with total cost > $5,000 -> finding
+  Story 3.4.13  Negative tests for each rule: below-threshold fixture -> no finding returned
+  Story 3.4.14  FindingsAssembler unit test: mock rule list -> correct Cosmos upsert payload
 =============================================================================
 
 Goal: All 25+ API endpoints implemented, JWT-validated, APIM-proxied.
 
-Feature 4.1 -- Authentication
-  Story 4.1.1  As a client I can sign in via Entra ID OIDC and receive a JWT
-  Story 4.1.2  As the API I validate the JWT on every authenticated endpoint
-  Story 4.1.3  As the API I extract subscriptionId and tier from the JWT claims
-               or from the Cosmos clients container
+Feature 4.1 -- Authentication (DECISION LOCKED 2026-02-27)
+  ACA is standalone private-sector SaaS. NOT tied to EsDAICoE organization.
+  Multi-tenant: authority=https://login.microsoftonline.com/common
+  Any client with a Microsoft account (any tenant) can sign in.
+  What matters: delegated token has Reader + Cost Management Reader on CLIENT's subscription.
+  ACA app registration must be multi-tenant in Azure portal.
+
+  Story 4.1.1  As a client I can sign in via Microsoft Identity (any Microsoft tenant);
+               I do not need to be in any specific organization to use ACA
+  Story 4.1.2  As the API I validate the JWT on every authenticated endpoint using
+               JWKS from https://login.microsoftonline.com/common/discovery/keys
+  Story 4.1.3  As the API I extract subscriptionId from the session (stored after connect);
+               tier is read from the Cosmos clients container (not from JWT claims)
   Story 4.1.4  As a client I can connect my Azure subscription (POST /v1/auth/connect)
-               in Mode A (delegated), Mode B (service principal), or Mode C (Lighthouse)
+               in Mode A (delegated, any-tenant), Mode B (service principal provided
+               by client), or Mode C (Azure Lighthouse delegation)
   Story 4.1.5  As a client I can disconnect (POST /v1/auth/disconnect) and all access
                tokens are invalidated and removed from Key Vault
+  Story 4.1.6  As a developer auth.py is reworked: MSAL authority=common, no EsDAICoE
+               org dependency, all 3 endpoints (connect/preflight/disconnect) implemented
+               beyond 501 stubs. Refresh token stored per-scan in KV, not per-user.
+  Story 4.1.7  As the frontend LoginPage, sign-in CTA calls MSAL.js with
+               authority=common so any Microsoft account (personal or work) is accepted
 
 Feature 4.2 -- Core API endpoints (Spark paths from docs 22-23)
   Story 4.2.1  POST /v1/auth/connect         -- Connect Azure subscription
@@ -313,12 +354,23 @@ EPIC 6 -- MONETIZATION AND BILLING (M1.5)
 
 Goal: Stripe checkout, webhook, entitlements, recurring billing lifecycle all work.
 
-Feature 6.1 -- Stripe checkout
+Feature 6.1 -- Stripe checkout (DECISIONS LOCKED 2026-02-27)
+  Prices are env-var driven (STRIPE_PRICE_* settings). NOT hardcoded.
+  Billing is monthly subscription for Tier 2. Tier 3 is one-time.
+  Promotion codes are supported (full fee waiver for trials/partnerships).
+
   Story 6.1.1  POST /v1/checkout/tier2 returns a Stripe checkout session URL
   Story 6.1.2  POST /v1/checkout/tier3 returns a Stripe checkout session URL
   Story 6.1.3  mode=subscription creates a Stripe subscription (Tier 2 monthly)
   Story 6.1.4  mode=one_time creates a one-time session (Tier 2 one-time, Tier 3)
   Story 6.1.5  Checkout metadata contains subscriptionId and analysisId
+  Story 6.1.6  As a client with a coupon code I can enter it at Stripe checkout
+               and receive a partial or full fee waiver
+               (allow_promotion_codes=True when STRIPE_COUPON_ENABLED=true)
+  Story 6.1.7  settings.py has STRIPE_COUPON_ENABLED: bool = True field
+               stripe_service.py passes allow_promotion_codes=setting to checkout session
+  Story 6.1.8  As an admin I can create Stripe promotion codes for trial clients
+               without any code changes (pure Stripe dashboard action)
 
 Feature 6.2 -- Webhook lifecycle
   Story 6.2.1  checkout.session.completed -> write entitlement to Cosmos, trigger delivery
@@ -341,10 +393,18 @@ EPIC 7 -- DELIVERY PACKAGER (M1.6)
 
 Goal: Tier 3 deliverable ZIP generated, uploaded, SAS URL delivered.
 
-Feature 7.1 -- IaC template library
+Feature 7.1 -- IaC template library (DECISION LOCKED 2026-02-27: Bicep only)
+  Templates are Bicep only. Terraform is NOT included in delivery templates
+  to keep Phase 1 simple. Generator skips missing main.tf gracefully (TemplateNotFound pass).
+
   Story 7.1.1  12 Jinja2 template folders exist in services/delivery/app/templates/
                (one per deliverable_template_id from analysis rules)
-  Story 7.1.2  Each folder has main.bicep (Phase 1), main.tf (Phase 2), README.md
+               Folders: tmpl-devbox-autostop, tmpl-log-retention, tmpl-defender-plan,
+               tmpl-compute-schedule, tmpl-anomaly-alert, tmpl-stale-envs,
+               tmpl-search-sku, tmpl-acr-consolidation, tmpl-dns-consolidation,
+               tmpl-savings-plan, tmpl-apim-token-budget, tmpl-chargeback-policy
+  Story 7.1.2  Each folder has main.bicep and README.md (Bicep Phase 1 only;
+               main.tf is deferred to Phase 2 / Epic 11)
   Story 7.1.3  Templates are parameterized with scan_id, subscription_id, and finding fields
   Story 7.1.4  Template content sourced from 12-IaCscript.md patterns
 
@@ -398,12 +458,14 @@ Feature 9.1 -- i18n
                CAD, USD, BRL, EUR supported on findings page saving estimates
   Story 9.1.7  fr (fr-CA) translations are completed before Phase 1 go-live
                (required for Canadian market)
-  Story 9.1.8  pt-BR and es and de translations completed before Phase 2 go-live
+  Story 9.1.8  pt-BR, es, and de translations are completed before Phase 1 go-live
+               as best-effort machine translation (DECISION LOCKED 2026-02-27:
+               all 5 locales ship in Phase 1; professional review is Phase 2 hardening)
   Story 9.1.9  API error messages returned with Accept-Language header support for the
                5 supported locales (error codes + localized message)
   Story 9.1.10 Stripe checkout locale is set from user preference
 
-Feature 9.2 -- a11y
+Feature 9.2 -- a11y (DECISION LOCKED 2026-02-27: Playwright headless CI)
   Story 9.2.1  axe-core CI check runs on every PR -- zero critical or serious violations gate
   Story 9.2.2  All icon-only buttons have aria-label in all 5 locales
   Story 9.2.3  All form fields have associated <label> elements (no placeholder-as-label)
@@ -414,6 +476,9 @@ Feature 9.2 -- a11y
   Story 9.2.8  Skip-to-content link is the first focusable element on every page
   Story 9.2.9  Consent banner is keyboard-accessible and screen-reader-labelled
   Story 9.2.10 Keyboard-only walkthrough of the full Tier 1 flow passes before M1.4 sign-off
+  Story 9.2.11 Playwright headless tests cover the Tier 1 customer flow with axe-core
+               assertions. Target: 95% end-to-end coverage. CI gate blocks on failure.
+               All 5 locales exercised in Playwright suite. Runs on ubuntu-latest headless.
 
 =============================================================================
 EPIC 10 -- COMMERCIAL HARDENING (M2.2)

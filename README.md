@@ -1,9 +1,9 @@
 ACA -- Azure Cost Advisor
 =========================
 
-Version: 0.4.0
-Updated: 2026-02-26 (updated: docs 13-23 onboarded)
-Maturity: active -- Phase 1 code skeleton complete; Spark frontend architecture onboarded
+Version: 0.5.0
+Updated: 2026-02-27 (plan refinement: multi-tenant auth, coupon/promo codes, Azure free hostnames, Bicep-only templates, Playwright a11y, all 5 locales Phase 1)
+Maturity: active -- Phase 1 code skeleton complete; plan refined with all pre-flight decisions locked
 
 =============================================================================
 PRODUCT VISION
@@ -11,7 +11,8 @@ PRODUCT VISION
 
 ACA is a consulting-session-as-a-product.
 
-A client navigates to https://app.aca.example.com, connects their Azure
+A client navigates to the ACA app URL (Phase 1: Azure Container Apps free hostname;
+Phase 2: custom domain), connects their Azure
 subscription with read-only consent, and in under five minutes receives a
 prioritized cost and optimization report built from 12 months of billing
 signals, Azure Advisor output, network topology, and policy compliance data.
@@ -71,9 +72,15 @@ PRODUCT DIFFERENTIATORS
    Both ship automatically from the same analysis run.
 
 3. Three onboarding modes
-   Any Azure organization can onboard regardless of Conditional Access policy:
-   Mode A: Delegated user sign-in (quick scan, trial-friendly)
-   Mode B: Service principal they create (enterprise governance-friendly)
+   ACA is a standalone private-sector SaaS. It is NOT tied to any specific
+   Microsoft Entra organization. The ACA app registration uses
+   authority=https://login.microsoftonline.com/common (multi-tenant).
+   Any client with a Microsoft account from any tenant can sign in.
+   What matters is that their delegated token has Reader + Cost Management Reader
+   on the CLIENT's Azure subscription -- not any ACA organization membership.
+
+   Mode A: Delegated sign-in via Microsoft, any tenant (quick scan, trial-friendly)
+   Mode B: Service principal provided by client (enterprise governance-friendly)
    Mode C: Azure Lighthouse delegation (MSP-grade, multi-subscription)
 
 4. 12+1 analysis rules from real production data
@@ -97,7 +104,7 @@ Internet Browser
     |
     v
 [ Next.js / React 19 / Fluent UI v9 / i18next / Vite ]
-    |   (HTTPS + Entra ID OIDC)
+    |   (HTTPS + Entra ID OIDC -- any Microsoft tenant, multi-tenant app registration)
     v
 [ Azure API Management (APIM) ]
     |   - Subscription key throttling
@@ -231,10 +238,13 @@ i18n AND CURRENCY
 
 Supported locales (sprint 1):
   en     -- English (Canada/US default)
-  fr     -- French (Canada, fr-CA)
-  pt-BR  -- Portuguese (Brazil)
-  es     -- Spanish (Latin America)
-  de     -- German
+  fr     -- French (Canada, fr-CA)    [Phase 1 -- complete before M2.1]
+  pt-BR  -- Portuguese (Brazil)        [Phase 1 -- best-effort machine translation]
+  es     -- Spanish (Latin America)    [Phase 1 -- best-effort machine translation]
+  de     -- German                     [Phase 1 -- best-effort machine translation]
+
+Note: all 5 locales are live in Phase 1 with best-effort machine translation.
+Professional review for pt-BR / es / de is a Phase 2 hardening item.
 
 i18n library: i18next + react-i18next
 Translation source: /frontend/src/i18n/locales/{locale}/*.json
@@ -285,6 +295,11 @@ Stripe
   Webhook : POST /v1/webhooks/stripe -- signed with whsec_... secret
   Pattern : Entitlement written to Cosmos on confirmed payment.
             Delivery job triggered on Tier 3 payment confirmed.
+  Billing : Tier 2 = monthly subscription (CAD). Prices are env-var driven --
+            not hardcoded. set STRIPE_PRICE_* env vars before launch.
+  Coupons : Promotion codes supported at checkout (allow_promotion_codes=true).
+            Use STRIPE_COUPON_ENABLED=true to enable (default: true).
+            Full fee waiver via coupon is supported for trials and partnerships.
 
 Google Analytics 4 (GA4)
   Purpose : Product usage funnels, conversion tracking, A/B event data
@@ -369,16 +384,21 @@ Phase 1 -- marco* dev go-live (TARGET: 4 weeks from 2026-02-26)
   Infrastructure : Reuse marco* sandbox resources in EsDAICoE-Sandbox
                    (marco-sandbox-cosmos, marcosandkv20260203,
                     marco-sandbox-apim, marcosandacr20260203)
+  URL            : Azure Container Apps free hostnames (*.{region}.azurecontainerapps.io)
+                   No custom domain required for Phase 1.
+                   PUBLIC_APP_URL and PUBLIC_API_URL are read from env vars.
   Scope          : Internal-use, dogfood on marco* own subscription
   Goal           : Prove the full pipeline end-to-end (collect -> analyze ->
                    display -> tier-gate -> checkout -> deliver)
+  Auth           : Multi-tenant Microsoft Entra (any client tenant). ACA app
+                   registration authority=common. No EsDAICoE membership required.
 
 Phase 2 -- Commercial MVP go-live (TARGET: 10 weeks from 2026-02-26)
   Infrastructure : Dedicated private Azure subscription
                    (Terraform-provisioned: ACA-specific Cosmos, APIM, KV,
                     Container Apps env, Storage, App Insights, ACR)
   Scope          : First 10 external paying clients
-  Domain         : app.aca.example.com / api.aca.example.com (TBD)
+  Domain         : Custom domain (TBD -- real DNS + TLS, Phase 2 only)
   Compliance     : PIPEDA (Canada), GDPR (EU clients), LGPD (BR clients)
   Support        : Intercom or similar, help docs in 5 locales
 
