@@ -1,0 +1,147 @@
+{
+  "meta": {
+    "schema": "eva.reconciliation.v2",
+    "generated_at": "2026-02-27T04:21:36.517Z",
+    "repo": "C:\\AICOE\\eva-foundry\\51-ACA",
+    "discovery_path": "C:\\AICOE\\eva-foundry\\51-ACA\\.eva\\discovery.json"
+  },
+  "coverage": {
+    "stories_total": 22,
+    "stories_with_artifacts": 22,
+    "stories_with_evidence": 0,
+    "consistency_score": 0
+  },
+  "features": [
+    {
+      "id": "ACA-API",
+      "title": "API API",
+      "story_count": 2,
+      "stories_with_artifacts": 2,
+      "stories_with_evidence": 0,
+      "consistency_score": 0,
+      "mti": 50,
+      "gap_count": 0
+    },
+    {
+      "id": "ACA-CONNECT",
+      "title": "CONNECT API",
+      "story_count": 1,
+      "stories_with_artifacts": 1,
+      "stories_with_evidence": 0,
+      "consistency_score": 0,
+      "mti": 50,
+      "gap_count": 0
+    },
+    {
+      "id": "ACA-DISCONNECT",
+      "title": "DISCONNECT API",
+      "story_count": 1,
+      "stories_with_artifacts": 1,
+      "stories_with_evidence": 0,
+      "consistency_score": 0,
+      "mti": 50,
+      "gap_count": 0
+    },
+    {
+      "id": "ACA-ENTITLEMENTS",
+      "title": "ENTITLEMENTS API",
+      "story_count": 1,
+      "stories_with_artifacts": 1,
+      "stories_with_evidence": 0,
+      "consistency_score": 0,
+      "mti": 50,
+      "gap_count": 0
+    },
+    {
+      "id": "ACA-HEALTH",
+      "title": "HEALTH API",
+      "story_count": 1,
+      "stories_with_artifacts": 1,
+      "stories_with_evidence": 0,
+      "consistency_score": 0,
+      "mti": 50,
+      "gap_count": 0
+    },
+    {
+      "id": "ACA-INFRA",
+      "title": "Infrastructure Resources",
+      "story_count": 8,
+      "stories_with_artifacts": 8,
+      "stories_with_evidence": 0,
+      "consistency_score": 0,
+      "mti": 50,
+      "gap_count": 0
+    },
+    {
+      "id": "ACA-PREFLIGHT",
+      "title": "PREFLIGHT API",
+      "story_count": 1,
+      "stories_with_artifacts": 1,
+      "stories_with_evidence": 0,
+      "consistency_score": 0,
+      "mti": 50,
+      "gap_count": 0
+    },
+    {
+      "id": "ACA-SCAN_ID",
+      "title": "SCAN_ID API",
+      "story_count": 2,
+      "stories_with_artifacts": 2,
+      "stories_with_evidence": 0,
+      "consistency_score": 0,
+      "mti": 50,
+      "gap_count": 0
+    },
+    {
+      "id": "ACA-SCANS",
+      "title": "SCANS API",
+      "story_count": 1,
+      "stories_with_artifacts": 1,
+      "stories_with_evidence": 0,
+      "consistency_score": 0,
+      "mti": 50,
+      "gap_count": 0
+    },
+    {
+      "id": "ACA-STATS",
+      "title": "STATS API",
+      "story_count": 1,
+      "stories_with_artifacts": 1,
+      "stories_with_evidence": 0,
+      "consistency_score": 0,
+      "mti": 50,
+      "gap_count": 0
+    },
+    {
+      "id": "ACA-TIER2",
+      "title": "TIER2 API",
+      "story_count": 1,
+      "stories_with_artifacts": 1,
+      "stories_with_evidence": 0,
+      "consistency_score": 0,
+      "mti": 50,
+      "gap_count": 0
+    },
+    {
+      "id": "ACA-TIER3",
+      "title": "TIER3 API",
+      "story_count": 1,
+      "stories_with_artifacts": 1,
+      "stories_with_evidence": 0,
+      "consistency_score": 0,
+      "mti": 50,
+      "gap_count": 0
+    },
+    {
+      "id": "ACA-WEBHOOK",
+      "title": "WEBHOOK API",
+      "story_count": 1,
+      "stories_with_artifacts": 1,
+      "stories_with_evidence": 0,
+      "consistency_score": 0,
+      "mti": 50,
+      "gap_count": 0
+    }
+  ],
+  "gaps": []
+}

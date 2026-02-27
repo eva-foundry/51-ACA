@@ -1,0 +1,133 @@
+{
+  "containers": [
+    {
+      "id": "scans",
+      "label": "Scans",
+      "cosmos_container": "scans",
+      "service": "aca-api",
+      "status": "active",
+      "is_active": true,
+      "partition_key": "/subscriptionId",
+      "description": "Scan jobs -- one record per client subscription scan request.",
+      "key_fields": ["scanId", "subscriptionId", "status", "mode", "startedUtc", "completedUtc", "stats", "error"]
+    },
+    {
+      "id": "inventories",
+      "label": "Inventories",
+      "cosmos_container": "inventories",
+      "service": "aca-collector",
+      "status": "active",
+      "is_active": true,
+      "partition_key": "/subscriptionId",
+      "description": "Full Azure resource inventory per subscription -- resources, tags, SKUs, regions.",
+      "key_fields": ["scanId", "subscriptionId", "capturedUtc", "resources"]
+    },
+    {
+      "id": "cost-data",
+      "label": "Cost Data",
+      "cosmos_container": "cost-data",
+      "service": "aca-collector",
+      "status": "active",
+      "is_active": true,
+      "partition_key": "/subscriptionId",
+      "description": "Cost Management daily cost rows -- 91 days per meter per resource group.",
+      "key_fields": ["scanId", "subscriptionId", "periodStart", "periodEnd", "rows"]
+    },
+    {
+      "id": "advisor",
+      "label": "Advisor",
+      "cosmos_container": "advisor",
+      "service": "aca-collector",
+      "status": "active",
+      "is_active": true,
+      "partition_key": "/subscriptionId",
+      "description": "Azure Advisor recommendations pull -- all categories.",
+      "key_fields": ["scanId", "subscriptionId", "capturedUtc", "recommendations"]
+    },
+    {
+      "id": "findings",
+      "label": "Findings",
+      "cosmos_container": "findings",
+      "service": "aca-analysis",
+      "status": "active",
+      "is_active": true,
+      "partition_key": "/subscriptionId",
+      "description": "Analysis rule findings -- prioritized saving opportunities per scan.",
+      "key_fields": ["id", "scanId", "analysisId", "subscriptionId", "category", "title", "estimated_saving_low", "estimated_saving_high", "effort_class", "risk_class", "heuristic_source", "narrative", "deliverable_template_id", "evidence_refs"]
+    },
+    {
+      "id": "clients",
+      "label": "Clients",
+      "cosmos_container": "clients",
+      "service": "aca-api",
+      "status": "active",
+      "is_active": true,
+      "partition_key": "/subscriptionId",
+      "description": "Client records -- tenant, tier, payment status, allowed subscriptions.",
+      "key_fields": ["clientId", "subscriptionId", "tenantId", "primaryEmail", "tier", "paymentStatus", "allowedSubscriptions"]
+    },
+    {
+      "id": "deliverables",
+      "label": "Deliverables",
+      "cosmos_container": "deliverables",
+      "service": "aca-delivery",
+      "status": "active",
+      "is_active": true,
+      "partition_key": "/subscriptionId",
+      "description": "Delivery records -- ZIP artifact, Blob SAS URL, sha256, expiry.",
+      "key_fields": ["deliverableId", "analysisId", "subscriptionId", "status", "artifact", "download"]
+    },
+    {
+      "id": "entitlements",
+      "label": "Entitlements",
+      "cosmos_container": "entitlements",
+      "service": "aca-api",
+      "status": "active",
+      "is_active": true,
+      "partition_key": "/subscriptionId",
+      "description": "Access entitlements per subscription -- tier, validity, feature list.",
+      "key_fields": ["subscriptionId", "tier", "validUntil", "features", "grantedAt"]
+    },
+    {
+      "id": "payments",
+      "label": "Payments",
+      "cosmos_container": "payments",
+      "service": "aca-api",
+      "status": "active",
+      "is_active": true,
+      "partition_key": "/subscriptionId",
+      "description": "Stripe webhook event audit log -- invoice.paid, sub.updated, sub.deleted.",
+      "key_fields": ["stripeEventId", "subscriptionId", "eventType", "amount", "currency", "createdUtc"]
+    },
+    {
+      "id": "stripe_customer_map",
+      "label": "Stripe Customer Map",
+      "cosmos_container": "stripe_customer_map",
+      "service": "aca-api",
+      "status": "active",
+      "is_active": true,
+      "partition_key": "/stripeCustomerId",
+      "description": "Maps Stripe customer IDs to our subscriptionId. PK is stripeCustomerId for webhook routing.",
+      "key_fields": ["id", "stripeCustomerId", "subscriptionId", "updatedUtc"],
+      "notes": "id format: cust::{stripeCustomerId}. Required for webhook -> subscriptionId routing."
+    },
+    {
+      "id": "admin_audit_events",
+      "label": "Admin Audit Events",
+      "cosmos_container": "admin_audit_events",
+      "service": "aca-api",
+      "status": "active",
+      "is_active": true,
+      "partition_key": "/subscriptionId",
+      "description": "Admin action audit trail -- every grant, lock, reconcile, and override writes a record.",
+      "key_fields": [
+        "id", "subscriptionId", "utc",
+        "actor.userId", "actor.upn", "actor.roles",
+        "action", "target.type", "target.id",
+        "request", "result.status", "result.message",
+        "correlationId", "ip", "userAgent"
+      ],
+      "notes": "id format: aae::<uuid>. action enum: ENTITLEMENT_GRANTED | SUBSCRIPTION_LOCKED | SUBSCRIPTION_UNLOCKED | STRIPE_RECONCILE | RATE_LIMIT_OVERRIDE | FEATURE_FLAG_CHANGED."
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+# collection-agent.yaml
+# 29-foundry agent -- collects Azure resource data for a single subscription
+name: collection-agent
+version: "1.0.0"
+description: >
+  Triggers the collector Container App Job for a given subscription+scan combination.
+  Polls until status reaches collected or failed with a 30-minute timeout.
+
+tools:
+  - trigger_aca_job
+  - poll_scan_status
+  - update_data_model
+
+inputs:
+  - name: scan_id
+    type: string
+    required: true
+  - name: subscription_id
+    type: string
+    required: true
+
+steps:
+  - id: trigger
+    tool: trigger_aca_job
+    args:
+      job_name: aca-51-collector
+      env_args:
+        - "--scan-id"
+        - "{{ inputs.scan_id }}"
+        - "--subscription-id"
+        - "{{ inputs.subscription_id }}"
+
+  - id: poll
+    tool: poll_scan_status
+    args:
+      scan_id: "{{ inputs.scan_id }}"
+      subscription_id: "{{ inputs.subscription_id }}"
+      target_status: "collected"
+      timeout_minutes: 30
+
+  - id: record
+    tool: update_data_model
+    args:
+      layer: scans
+      id: "{{ inputs.scan_id }}"
+      patch:
+        collection_completed: true

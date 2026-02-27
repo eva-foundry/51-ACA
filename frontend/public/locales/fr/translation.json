@@ -1,0 +1,97 @@
+{
+  "app": {
+    "title": "Conseiller en couts Azure",
+    "tagline": "Analyse des couts Azure de qualite professionnelle. En quelques minutes."
+  },
+  "nav": {
+    "home": "Accueil",
+    "connect": "Connexion",
+    "findings": "Constats",
+    "billing": "Facturation",
+    "admin": "Admin",
+    "language": "Langue"
+  },
+  "tiers": {
+    "free": {
+      "name": "Gratuit",
+      "description": "Lancez une analyse et consultez vos 3 principaux constats."
+    },
+    "standard": {
+      "name": "Standard",
+      "description": "Rapport complet avec estimations d'economies.",
+      "price_onetime": "{{amount}} paiement unique",
+      "price_monthly": "{{amount}}/mois"
+    },
+    "professional": {
+      "name": "Professionnel",
+      "description": "Constats + gabarits IaC + rapport PDF executif.",
+      "price_onetime": "{{amount}} paiement unique"
+    }
+  },
+  "actions": {
+    "connect_subscription": "Connecter l'abonnement",
+    "start_scan": "Lancer l'analyse",
+    "view_findings": "Voir les constats",
+    "upgrade": "Mettre a niveau",
+    "download": "Telecharger le rapport",
+    "manage_billing": "Gerer la facturation",
+    "sign_out": "Se deconnecter"
+  },
+  "preflight": {
+    "title": "Verification prealable",
+    "running": "Verification de l'acces a l'abonnement...",
+    "passed": "Toutes les verifications reussies",
+    "failed": "Certaines verifications ont echoue",
+    "required_permissions": "Autorisations requises",
+    "verdict": {
+      "go": "Pret pour l'analyse",
+      "warn": "L'analyse peut etre incomplete",
+      "no_go": "Autorisations insuffisantes"
+    }
+  },
+  "scan": {
+    "status": {
+      "pending": "En attente",
+      "collecting": "Collecte de l'inventaire...",
+      "analysing": "Analyse des donnees de couts...",
+      "done": "Termine",
+      "failed": "Echec"
+    }
+  },
+  "findings": {
+    "title": "Constats",
+    "total_savings": "Economies annuelles estimees",
+    "effort": {
+      "easy": "Facile",
+      "medium": "Moyen",
+      "hard": "Difficile"
+    },
+    "risk": {
+      "none": "Aucun risque",
+      "low": "Faible",
+      "medium": "Moyen",
+      "high": "Eleve"
+    }
+  },
+  "consent": {
+    "banner_title": "Consentement aux temoins et analyses",
+    "banner_body": "Nous utilisons Google Analytics et Microsoft Clarity pour ameliorer le produit. Aucune donnee d'abonnement Azure n'est incluse dans les analyses.",
+    "accept": "Tout accepter",
+    "reject": "Refuser le non-essentiel",
+    "manage": "Gerer les preferences"
+  },
+  "errors": {
+    "generic": "Une erreur s'est produite. Veuillez reessayer.",
+    "unauthorized": "Vous n'etes pas autorise a acceder a cette page.",
+    "preflight_failed": "Les verifications prealables ont echoue. Veuillez verifier les autorisations requises.",
+    "scan_failed": "L'analyse a echoue. Veuillez reessayer ou contacter le support."
+  },
+  "a11y": {
+    "loading": "Chargement...",
+    "close": "Fermer",
+    "expand": "Developper",
+    "collapse": "Reduire",
+    "sort_asc": "Trier par ordre croissant",
+    "sort_desc": "Trier par ordre decroissant"
+  }
+}

@@ -1,0 +1,11 @@
+azure-mgmt-resource>=23.1.0
+azure-mgmt-costmanagement>=4.0.0
+azure-mgmt-advisor>=9.0.0
+azure-mgmt-network>=25.3.0
+azure-mgmt-policyinsights>=1.1.0
+azure-identity>=1.17.0
+azure-keyvault-secrets>=4.8.0
+msal>=1.29.0
+azure-cosmos>=4.7.0
+requests>=2.32.0
+pytest>=8.3.0

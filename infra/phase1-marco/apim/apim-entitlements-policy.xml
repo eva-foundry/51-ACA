@@ -1,0 +1,105 @@
+<!--
+  APIM Policy: Entitlements cache + tier gating
+  Apply at: operation-level on any endpoint that performs tier checks
+  Cache key pattern: entitlements::{subscriptionId}
+  TTL: 60 seconds
+  Backend entitlements URL: resolve from named value "backend-api-url"
+-->
+<policies>
+  <inbound>
+    <base />
+
+    <!-- 1. Resolve subscriptionId from query param or request body -->
+    <set-variable name="subId" value="@(
+        context.Request.Url.Query.GetValueOrDefault(&quot;subscriptionId&quot;, &quot;&quot;)
+    )" />
+    <choose>
+      <when condition="@((string)context.Variables[&quot;subId&quot;] == &quot;&quot; &amp;&amp; context.Request.Body != null)">
+        <set-variable name="subId" value="@(
+          (string)(context.Request.Body.As&lt;JObject&gt;(preserveContent: true)?[&quot;subscriptionId&quot;] ?? &quot;&quot;)
+        )" />
+      </when>
+    </choose>
+
+    <!-- 2. Reject if still empty -->
+    <choose>
+      <when condition="@((string)context.Variables[&quot;subId&quot;] == &quot;&quot;)">
+        <return-response>
+          <set-status code="400" reason="Bad Request" />
+          <set-body>{"error":{"code":"VALIDATION_FAILED","message":"subscriptionId is required"}}</set-body>
+        </return-response>
+      </when>
+    </choose>
+
+    <!-- 3. Build cache key -->
+    <set-variable name="entCacheKey" value="@($&quot;entitlements::{(string)context.Variables[&quot;subId&quot;]}&quot;)" />
+
+    <!-- 4. Cache lookup -->
+    <cache-lookup-value key="@((string)context.Variables[&quot;entCacheKey&quot;])" variable-name="entCached" />
+
+    <choose>
+      <when condition="@(context.Variables.ContainsKey(&quot;entCached&quot;) == false || (string)context.Variables[&quot;entCached&quot;] == &quot;&quot;)">
+
+        <!-- 4a. Cache miss: call entitlements backend -->
+        <send-request mode="new" response-variable-name="entResp" timeout="10" ignore-error="false">
+          <set-url>@($"{{{{backend-api-url}}}}/v1/entitlements?subscriptionId={(string)context.Variables[&quot;subId&quot;]}")</set-url>
+          <set-method>GET</set-method>
+          <set-header name="x-apim-cache-bypass" exists-action="override">
+            <value>false</value>
+          </set-header>
+        </send-request>
+
+        <set-variable name="entJsonStr" value="@(((IResponse)context.Variables[&quot;entResp&quot;]).Body.As&lt;string&gt;())" />
+
+        <!-- 4b. Store in cache for 60 seconds -->
+        <cache-store-value
+          key="@((string)context.Variables[&quot;entCacheKey&quot;])"
+          value="@((string)context.Variables[&quot;entJsonStr&quot;])"
+          duration="60" />
+
+        <set-variable name="entCached" value="@((string)context.Variables[&quot;entJsonStr&quot;])" />
+      </when>
+    </choose>
+
+    <!-- 5. Parse entitlement fields into policy variables -->
+    <set-variable name="entTier" value="@(
+        (string)(JObject.Parse((string)context.Variables[&quot;entCached&quot;])[&quot;tier&quot;] ?? &quot;tier1&quot;)
+    )" />
+    <set-variable name="canViewTier2" value="@(
+        (bool)(JObject.Parse((string)context.Variables[&quot;entCached&quot;])[&quot;canViewTier2&quot;] ?? false)
+    )" />
+    <set-variable name="canGenerateTier3" value="@(
+        (bool)(JObject.Parse((string)context.Variables[&quot;entCached&quot;])[&quot;canGenerateTier3&quot;] ?? false)
+    )" />
+
+    <!-- 6. Tier 2 gate example: protect /v1/reports/tier2 -->
+    <!--
+    <choose>
+      <when condition="@((bool)context.Variables[&quot;canViewTier2&quot;] == false)">
+        <return-response>
+          <set-status code="403" reason="Forbidden" />
+          <set-body>{"error":{"code":"TIER_GATE","message":"Tier 2 subscription required"}}</set-body>
+        </return-response>
+      </when>
+    </choose>
+    -->
+
+  </inbound>
+
+  <backend>
+    <base />
+  </backend>
+
+  <outbound>
+    <base />
+  </outbound>
+
+  <on-error>
+    <base />
+    <!-- Fail open on entitlements service error to avoid hard outage -->
+    <set-variable name="entTier" value="tier1" />
+    <set-variable name="canViewTier2" value="false" />
+    <set-variable name="canGenerateTier3" value="false" />
+  </on-error>
+
+</policies>

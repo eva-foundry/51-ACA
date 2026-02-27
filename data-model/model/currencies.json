@@ -1,0 +1,52 @@
+[
+  {
+    "id": "currency-cad",
+    "code": "CAD",
+    "symbol": "$",
+    "name": "Canadian Dollar",
+    "intl_locale": "en-CA",
+    "is_stripe_primary": true,
+    "is_active": true,
+    "display_order": 1
+  },
+  {
+    "id": "currency-usd",
+    "code": "USD",
+    "symbol": "$",
+    "name": "US Dollar",
+    "intl_locale": "en-US",
+    "is_stripe_primary": false,
+    "is_active": true,
+    "display_order": 2
+  },
+  {
+    "id": "currency-brl",
+    "code": "BRL",
+    "symbol": "R$",
+    "name": "Brazilian Real",
+    "intl_locale": "pt-BR",
+    "is_stripe_primary": false,
+    "is_active": false,
+    "display_order": 3
+  },
+  {
+    "id": "currency-eur",
+    "code": "EUR",
+    "symbol": "E",
+    "name": "Euro",
+    "intl_locale": "de-DE",
+    "is_stripe_primary": false,
+    "is_active": false,
+    "display_order": 4
+  },
+  {
+    "id": "currency-gbp",
+    "code": "GBP",
+    "symbol": "L",
+    "name": "British Pound",
+    "intl_locale": "en-GB",
+    "is_stripe_primary": false,
+    "is_active": false,
+    "display_order": 5
+  }
+]

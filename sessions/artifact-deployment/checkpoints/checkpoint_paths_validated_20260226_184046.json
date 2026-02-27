@@ -1,0 +1,9 @@
+{
+  "data": {
+    "target_path": "C:\\AICOE\\eva-foundry\\51-ACA",
+    "dry_run": false
+  },
+  "timestamp": "2026-02-26T18:40:46.9467342-05:00",
+  "component": "artifact-deployment",
+  "checkpoint_id": "paths_validated"
+}

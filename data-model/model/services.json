@@ -1,0 +1,59 @@
+{
+  "services": [
+    {
+      "id": "aca-api",
+      "label": "ACA API",
+      "type": "backend",
+      "port": 8000,
+      "status": "active",
+      "is_active": true,
+      "repo_path": "services/api",
+      "description": "Main REST API gateway -- scans, findings, auth, checkout, admin",
+      "notes": "FastAPI service. Connects to Cosmos DB (scans, findings containers)."
+    },
+    {
+      "id": "aca-collector",
+      "label": "ACA Collector",
+      "type": "worker",
+      "port": 8002,
+      "status": "active",
+      "is_active": true,
+      "repo_path": "services/collector",
+      "description": "Azure subscription data collector -- inventory, cost, Advisor, policy pulls",
+      "notes": "MSAL device-code consent flow. Stores to Cosmos inventories + cost-data containers."
+    },
+    {
+      "id": "aca-analysis",
+      "label": "ACA Analysis Engine",
+      "type": "worker",
+      "port": 8001,
+      "status": "active",
+      "is_active": true,
+      "repo_path": "services/analysis",
+      "description": "12-rule heuristic analysis engine -- cost anomalies, stale resources, SKU oversize",
+      "notes": "Rules 01-12. Produces findings saved to Cosmos advisor + findings containers."
+    },
+    {
+      "id": "aca-delivery",
+      "label": "ACA Delivery",
+      "type": "worker",
+      "port": 8003,
+      "status": "active",
+      "is_active": true,
+      "repo_path": "services/delivery",
+      "description": "Report generator and packager -- generates Tier 1 deliverables for clients",
+      "notes": "Reads from findings container. Outputs PDF/JSON report packages."
+    },
+    {
+      "id": "aca-frontend",
+      "label": "ACA Frontend",
+      "type": "frontend",
+      "port": 5173,
+      "status": "stub",
+      "is_active": true,
+      "repo_path": "frontend",
+      "description": "Vite + React 19 + Fluent UI v9 SPA. 10 screens. i18next (en, fr-CA, pt-BR, es, de). WCAG 2.1 AA.",
+      "notes": "ConsentBanner -> GTM -> GA4 + Clarity. Stripe.js + Elements for checkout. a11y axe-core CI gate."
+    }
+  ]
+}

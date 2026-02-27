@@ -1,0 +1,98 @@
+[
+  {
+    "id": "epic-01-foundation",
+    "label": "Foundation",
+    "description": "Repo scaffold, docker-compose, CI, venv, environment wiring, health endpoints.",
+    "milestone": "M0.5",
+    "status": "in-progress",
+    "is_active": true
+  },
+  {
+    "id": "epic-02-collection",
+    "label": "Collection",
+    "description": "MSAL auth (Mode A delegated, Mode B SP), Resource Graph inventory, Cost Management 91-day pull, Advisor pull, pre-flight verdict engine.",
+    "milestone": "M1.0",
+    "status": "not-started",
+    "is_active": true
+  },
+  {
+    "id": "epic-03-analysis",
+    "label": "Analysis",
+    "description": "12 heuristic rule engine, FindingsAssembler, AnalysisRun tracking, CAD savings estimates.",
+    "milestone": "M1.0",
+    "status": "in-progress",
+    "is_active": true
+  },
+  {
+    "id": "epic-04-api",
+    "label": "API",
+    "description": "FastAPI service: auth, scans, findings, checkout, webhooks, billing portal, entitlements, admin endpoints. APIM integration.",
+    "milestone": "M1.0",
+    "status": "not-started",
+    "is_active": true
+  },
+  {
+    "id": "epic-05-frontend",
+    "label": "Frontend",
+    "description": "Vite + React 19 + Fluent UI v9. 10 screens. i18next. ConsentBanner. TierCard. FindingsTable. a11y WCAG 2.1 AA.",
+    "milestone": "M1.5",
+    "status": "not-started",
+    "is_active": true
+  },
+  {
+    "id": "epic-06-billing",
+    "label": "Billing",
+    "description": "Stripe Checkout (Tier 2 one-time $499 and $150/mo subscription, Tier 3 $1499). Webhook lifecycle. EntitlementService. PaymentsRepo. StripeCustomerMapRepo.",
+    "milestone": "M1.5",
+    "status": "not-started",
+    "is_active": true
+  },
+  {
+    "id": "epic-07-delivery",
+    "label": "Delivery",
+    "description": "Delivery service: Jinja2 templates for 12 finding types, ZIP packager, Blob Storage upload, 24h SAS URL, SHA-256 verification.",
+    "milestone": "M1.5",
+    "status": "not-started",
+    "is_active": true
+  },
+  {
+    "id": "epic-08-observability",
+    "label": "Observability",
+    "description": "Structured logging, Application Insights, Log Analytics, APIM usage metrics, GA4 events, Clarity session replay.",
+    "milestone": "M2.0",
+    "status": "not-started",
+    "is_active": true
+  },
+  {
+    "id": "epic-09-i18n-a11y",
+    "label": "i18n and a11y",
+    "description": "i18next 5 locales (en, fr-CA, pt-BR, es, de), multi-currency display (CAD/USD/BRL/EUR), WCAG 2.1 AA, axe-core CI gate.",
+    "milestone": "M1.5",
+    "status": "not-started",
+    "is_active": true
+  },
+  {
+    "id": "epic-10-hardening",
+    "label": "Hardening",
+    "description": "APIM entitlement cache (60s), pre-flight caching, rate limiting, idempotency keys, webhook signature validation, PIPEDA compliance, penetration testing.",
+    "milestone": "M2.0",
+    "status": "not-started",
+    "is_active": true
+  },
+  {
+    "id": "epic-11-phase2-infra",
+    "label": "Phase 2 Infra",
+    "description": "Terraform private landing zone, customer-managed VNET, Private Endpoints, Lighthouse Mode C, BYO subscription onboarding.",
+    "milestone": "M3.0",
+    "status": "not-started",
+    "is_active": true
+  },
+  {
+    "id": "epic-12-data-model",
+    "label": "Data Model",
+    "description": "ACA data model seeding (build-time WBS tracker) and runtime layer integration (rules, feature flags, endpoint registry, settings).",
+    "milestone": "M0.5",
+    "status": "in-progress",
+    "is_active": true
+  }
+]

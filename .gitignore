@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+dist/
+build/
+*.egg
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+htmlcov/
+.coverage
+coverage.xml
+
+# Environment / secrets
+.env
+*.env.local
+*.env.production
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# Docker
+*.log
+
+# IaC state
+infra/phase2-private/.terraform/
+infra/phase2-private/*.tfstate
+infra/phase2-private/*.tfstate.backup
+infra/phase2-private/*.tfplan
+
+# Delivery artifacts
+delivery-output/
+*.zip
+
+# IDE
+.vscode/settings.json
+.idea/
+*.sublime-*
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini

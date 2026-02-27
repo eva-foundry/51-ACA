@@ -1,0 +1,97 @@
+{
+  "app": {
+    "title": "Azure Cost Advisor",
+    "tagline": "Consultant-grade Azure cost analysis. In minutes."
+  },
+  "nav": {
+    "home": "Home",
+    "connect": "Connect",
+    "findings": "Findings",
+    "billing": "Billing",
+    "admin": "Admin",
+    "language": "Language"
+  },
+  "tiers": {
+    "free": {
+      "name": "Free",
+      "description": "Run a scan and see your top 3 findings summary."
+    },
+    "standard": {
+      "name": "Standard",
+      "description": "Full findings report with estimated savings.",
+      "price_onetime": "{{amount}} one-time",
+      "price_monthly": "{{amount}}/month"
+    },
+    "professional": {
+      "name": "Professional",
+      "description": "Findings + IaC remediation templates + executive PDF.",
+      "price_onetime": "{{amount}} one-time"
+    }
+  },
+  "actions": {
+    "connect_subscription": "Connect Subscription",
+    "start_scan": "Start Scan",
+    "view_findings": "View Findings",
+    "upgrade": "Upgrade",
+    "download": "Download Report",
+    "manage_billing": "Manage Billing",
+    "sign_out": "Sign Out"
+  },
+  "preflight": {
+    "title": "Pre-Flight Check",
+    "running": "Checking subscription access...",
+    "passed": "All checks passed",
+    "failed": "Some checks failed",
+    "required_permissions": "Required permissions",
+    "verdict": {
+      "go": "Ready to scan",
+      "warn": "Scan may be incomplete",
+      "no_go": "Insufficient permissions"
+    }
+  },
+  "scan": {
+    "status": {
+      "pending": "Pending",
+      "collecting": "Collecting inventory...",
+      "analysing": "Analysing cost data...",
+      "done": "Complete",
+      "failed": "Failed"
+    }
+  },
+  "findings": {
+    "title": "Findings",
+    "total_savings": "Estimated annual savings",
+    "effort": {
+      "easy": "Easy",
+      "medium": "Medium",
+      "hard": "Hard"
+    },
+    "risk": {
+      "none": "No risk",
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High"
+    }
+  },
+  "consent": {
+    "banner_title": "Cookie and Analytics Consent",
+    "banner_body": "We use Google Analytics and Microsoft Clarity to improve the product. No Azure subscription data is included in analytics.",
+    "accept": "Accept All",
+    "reject": "Reject Non-Essential",
+    "manage": "Manage Preferences"
+  },
+  "errors": {
+    "generic": "Something went wrong. Please try again.",
+    "unauthorized": "You are not authorized to access this page.",
+    "preflight_failed": "Pre-flight checks failed. Please review the required permissions.",
+    "scan_failed": "Scan failed. Please try again or contact support."
+  },
+  "a11y": {
+    "loading": "Loading...",
+    "close": "Close",
+    "expand": "Expand",
+    "collapse": "Collapse",
+    "sort_asc": "Sort ascending",
+    "sort_desc": "Sort descending"
+  }
+}

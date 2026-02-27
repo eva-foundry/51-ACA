@@ -1,0 +1,5 @@
+azure-cosmos>=4.7.0
+azure-identity>=1.17.0
+openai>=1.40.0
+requests>=2.32.0
+pytest>=8.3.0

@@ -1,0 +1,278 @@
+{
+  "schema": "eva.veritas-plan.v1",
+  "generated_at": "2026-02-27T00:12:52.666Z",
+  "generated_from": [
+    "README.md"
+  ],
+  "format_detected": "empty",
+  "prefix": "ACA",
+  "features": [
+    {
+      "id": "ACA-STATS",
+      "title": "STATS API",
+      "source": "code-structure",
+      "stories": [
+        {
+          "id": "ACA-STATS-001",
+          "title": "GET /stats",
+          "feature_id": "ACA-STATS",
+          "done": false,
+          "source": "code-structure",
+          "tasks": []
+        }
+      ]
+    },
+    {
+      "id": "ACA-SCANS",
+      "title": "SCANS API",
+      "source": "code-structure",
+      "stories": [
+        {
+          "id": "ACA-SCANS-001",
+          "title": "DELETE /scans/{scan_id}",
+          "feature_id": "ACA-SCANS",
+          "done": false,
+          "source": "code-structure",
+          "tasks": []
+        }
+      ]
+    },
+    {
+      "id": "ACA-CONNECT",
+      "title": "CONNECT API",
+      "source": "code-structure",
+      "stories": [
+        {
+          "id": "ACA-CONNECT-001",
+          "title": "POST /connect",
+          "feature_id": "ACA-CONNECT",
+          "done": false,
+          "source": "code-structure",
+          "tasks": []
+        }
+      ]
+    },
+    {
+      "id": "ACA-PREFLIGHT",
+      "title": "PREFLIGHT API",
+      "source": "code-structure",
+      "stories": [
+        {
+          "id": "ACA-PREFLIGHT-001",
+          "title": "POST /preflight",
+          "feature_id": "ACA-PREFLIGHT",
+          "done": false,
+          "source": "code-structure",
+          "tasks": []
+        }
+      ]
+    },
+    {
+      "id": "ACA-DISCONNECT",
+      "title": "DISCONNECT API",
+      "source": "code-structure",
+      "stories": [
+        {
+          "id": "ACA-DISCONNECT-001",
+          "title": "POST /disconnect",
+          "feature_id": "ACA-DISCONNECT",
+          "done": false,
+          "source": "code-structure",
+          "tasks": []
+        }
+      ]
+    },
+    {
+      "id": "ACA-TIER2",
+      "title": "TIER2 API",
+      "source": "code-structure",
+      "stories": [
+        {
+          "id": "ACA-TIER2-001",
+          "title": "POST /tier2",
+          "feature_id": "ACA-TIER2",
+          "done": false,
+          "source": "code-structure",
+          "tasks": []
+        }
+      ]
+    },
+    {
+      "id": "ACA-TIER3",
+      "title": "TIER3 API",
+      "source": "code-structure",
+      "stories": [
+        {
+          "id": "ACA-TIER3-001",
+          "title": "POST /tier3",
+          "feature_id": "ACA-TIER3",
+          "done": false,
+          "source": "code-structure",
+          "tasks": []
+        }
+      ]
+    },
+    {
+      "id": "ACA-WEBHOOK",
+      "title": "WEBHOOK API",
+      "source": "code-structure",
+      "stories": [
+        {
+          "id": "ACA-WEBHOOK-001",
+          "title": "POST /webhook",
+          "feature_id": "ACA-WEBHOOK",
+          "done": false,
+          "source": "code-structure",
+          "tasks": []
+        }
+      ]
+    },
+    {
+      "id": "ACA-ENTITLEMENTS",
+      "title": "ENTITLEMENTS API",
+      "source": "code-structure",
+      "stories": [
+        {
+          "id": "ACA-ENTITLEMENTS-001",
+          "title": "GET /entitlements",
+          "feature_id": "ACA-ENTITLEMENTS",
+          "done": false,
+          "source": "code-structure",
+          "tasks": []
+        }
+      ]
+    },
+    {
+      "id": "ACA-SCAN_ID",
+      "title": "SCAN_ID API",
+      "source": "code-structure",
+      "stories": [
+        {
+          "id": "ACA-SCAN_ID-001",
+          "title": "GET /{scan_id}",
+          "feature_id": "ACA-SCAN_ID",
+          "done": false,
+          "source": "code-structure",
+          "tasks": []
+        },
+        {
+          "id": "ACA-SCAN_ID-002",
+          "title": "GET /{scan_id}",
+          "feature_id": "ACA-SCAN_ID",
+          "done": false,
+          "source": "code-structure",
+          "tasks": []
+        }
+      ]
+    },
+    {
+      "id": "ACA-HEALTH",
+      "title": "HEALTH API",
+      "source": "code-structure",
+      "stories": [
+        {
+          "id": "ACA-HEALTH-001",
+          "title": "GET /health",
+          "feature_id": "ACA-HEALTH",
+          "done": false,
+          "source": "code-structure",
+          "tasks": []
+        }
+      ]
+    },
+    {
+      "id": "ACA-API",
+      "title": "API API",
+      "source": "code-structure",
+      "stories": [
+        {
+          "id": "ACA-API-001",
+          "title": "POST /",
+          "feature_id": "ACA-API",
+          "done": false,
+          "source": "code-structure",
+          "tasks": []
+        },
+        {
+          "id": "ACA-API-002",
+          "title": "GET /",
+          "feature_id": "ACA-API",
+          "done": false,
+          "source": "code-structure",
+          "tasks": []
+        }
+      ]
+    },
+    {
+      "id": "ACA-INFRA",
+      "title": "Infrastructure Resources",
+      "source": "code-structure",
+      "stories": [
+        {
+          "id": "ACA-INFRA-001",
+          "title": "azurerm_resource_group \"main\"",
+          "feature_id": "ACA-INFRA",
+          "done": false,
+          "source": "code-structure",
+          "tasks": []
+        },
+        {
+          "id": "ACA-INFRA-002",
+          "title": "azurerm_container_registry \"main\"",
+          "feature_id": "ACA-INFRA",
+          "done": false,
+          "source": "code-structure",
+          "tasks": []
+        },
+        {
+          "id": "ACA-INFRA-003",
+          "title": "azurerm_cosmosdb_account \"main\"",
+          "feature_id": "ACA-INFRA",
+          "done": false,
+          "source": "code-structure",
+          "tasks": []
+        },
+        {
+          "id": "ACA-INFRA-004",
+          "title": "azurerm_cosmosdb_sql_database \"main\"",
+          "feature_id": "ACA-INFRA",
+          "done": false,
+          "source": "code-structure",
+          "tasks": []
+        },
+        {
+          "id": "ACA-INFRA-005",
+          "title": "azurerm_storage_account \"main\"",
+          "feature_id": "ACA-INFRA",
+          "done": false,
+          "source": "code-structure",
+          "tasks": []
+        },
+        {
+          "id": "ACA-INFRA-006",
+          "title": "azurerm_log_analytics_workspace \"main\"",
+          "feature_id": "ACA-INFRA",
+          "done": false,
+          "source": "code-structure",
+          "tasks": []
+        },
+        {
+          "id": "ACA-INFRA-007",
+          "title": "azurerm_application_insights \"main\"",
+          "feature_id": "ACA-INFRA",
+          "done": false,
+          "source": "code-structure",
+          "tasks": []
+        },
+        {
+          "id": "ACA-INFRA-008",
+          "title": "azurerm_container_app_environment \"main\"",
+          "feature_id": "ACA-INFRA",
+          "done": false,
+          "source": "code-structure",
+          "tasks": []
+        }
+      ]
+    }
+  ]
+}

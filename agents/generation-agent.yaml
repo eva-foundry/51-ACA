@@ -1,0 +1,37 @@
+# generation-agent.yaml
+name: generation-agent
+version: "1.0.0"
+description: >
+  Generates IaC deliverables for completed scans and uploads to Blob Storage.
+  Runs after analysis-agent completes.
+
+tools:
+  - trigger_aca_job
+  - poll_deliverable_status
+  - update_data_model
+
+inputs:
+  - name: scan_id
+    type: string
+    required: true
+  - name: subscription_id
+    type: string
+    required: true
+
+steps:
+  - id: trigger
+    tool: trigger_aca_job
+    args:
+      job_name: aca-51-delivery
+      env_args:
+        - "--scan-id"
+        - "{{ inputs.scan_id }}"
+        - "--subscription-id"
+        - "{{ inputs.subscription_id }}"
+
+  - id: poll
+    tool: poll_deliverable_status
+    args:
+      scan_id: "{{ inputs.scan_id }}"
+      subscription_id: "{{ inputs.subscription_id }}"
+      timeout_minutes: 15

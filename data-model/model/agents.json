@@ -1,0 +1,40 @@
+{
+  "agents": [
+    {
+      "id": "collection-agent",
+      "label": "Collection Agent",
+      "status": "active",
+      "is_active": true,
+      "plane": "azure",
+      "repo_path": "agents/collection-agent.yaml",
+      "description": "Orchestrates Azure subscription data collection -- inventory, cost, Advisor, policy pulls"
+    },
+    {
+      "id": "analysis-agent",
+      "label": "Analysis Agent",
+      "status": "active",
+      "is_active": true,
+      "plane": "azure",
+      "repo_path": "agents/analysis-agent.yaml",
+      "description": "Runs 12-rule heuristic analysis on collected data to produce cost findings"
+    },
+    {
+      "id": "generation-agent",
+      "label": "Generation Agent",
+      "status": "active",
+      "is_active": true,
+      "plane": "azure",
+      "repo_path": "agents/generation-agent.yaml",
+      "description": "LLM-powered report generator -- produces Tier 1/2/3 deliverables"
+    },
+    {
+      "id": "redteam-agent",
+      "label": "Red Team Agent",
+      "status": "active",
+      "is_active": true,
+      "plane": "azure",
+      "repo_path": "agents/redteam-agent.yaml",
+      "description": "Adversarial testing agent -- validates report quality and rule coverage"
+    }
+  ]
+}

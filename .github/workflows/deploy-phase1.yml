@@ -1,0 +1,57 @@
+name: Deploy -- Phase 1 (marco* sandbox)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+env:
+  ACR_NAME: marcosandacr20260203
+  RESOURCE_GROUP: EsDAICoE-Sandbox
+  ACA_ENV: marco-aca-env
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        service: [api, collector, analysis, delivery]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Azure login (OIDC)
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID_PHASE1 }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID_PHASE1 }}
+
+      - name: Login to ACR
+        run: az acr login --name ${{ env.ACR_NAME }}
+
+      - name: Build and push ${{ matrix.service }}
+        run: |
+          IMAGE=${{ env.ACR_NAME }}.azurecr.io/aca-${{ matrix.service }}:${{ github.sha }}
+          docker build -t $IMAGE services/${{ matrix.service }}/
+          docker push $IMAGE
+
+  deploy:
+    needs: build-and-push
+    runs-on: ubuntu-latest
+    steps:
+      - uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID_PHASE1 }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID_PHASE1 }}
+
+      - name: Deploy API Container App
+        run: |
+          az containerapp update \
+            --name aca-51-api \
+            --resource-group ${{ env.RESOURCE_GROUP }} \
+            --image ${{ env.ACR_NAME }}.azurecr.io/aca-api:${{ github.sha }}

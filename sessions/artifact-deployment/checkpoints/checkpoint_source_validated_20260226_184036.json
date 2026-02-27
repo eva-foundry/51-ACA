@@ -1,0 +1,9 @@
+{
+  "timestamp": "2026-02-26T18:40:36.2075841-05:00",
+  "checkpoint_id": "source_validated",
+  "data": {
+    "source_path": "C:\\AICOE\\eva-foundry\\07-foundation-layer\\02-design\\artifact-templates",
+    "template_path": "C:\\AICOE\\eva-foundry\\07-foundation-layer\\02-design\\artifact-templates\\copilot-instructions-template.md"
+  },
+  "component": "artifact-deployment"
+}

@@ -1,0 +1,302 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-02-26T00:00:00",
+  "ado_org": "https://dev.azure.com/marcopresta",
+  "ado_project": "51-aca",
+  "ado_process": "Scrum",
+  "github_repo": "eva-foundry/51-ACA",
+  "project_maturity": "active",
+
+  "epic": {
+    "skip_if_id_exists": null,
+    "type": "Epic",
+    "title": "Azure Cost Advisor (ACA) -- Phase 1 Commercial SaaS",
+    "description": "Azure Cost Advisor is a commercial SaaS product that helps Azure subscribers discover and act on cost-saving opportunities. Customers connect their subscription (delegated, service principal, or Lighthouse), the platform runs a 12-rule heuristic analysis, and delivers a tiered PDF/JSON findings report. Billing via Stripe. Stack: FastAPI + React 19 + Fluent UI v9 + Cosmos DB + Azure Container Apps + APIM + Stripe.",
+    "tags": "aca;51-aca",
+    "area_path": "51-aca"
+  },
+
+  "features": [
+    {
+      "id_hint": "aca-foundation",
+      "type": "Feature",
+      "title": "Foundation -- Repo Scaffold, Docker, CI, Health endpoints",
+      "description": "Mono-repo layout: services/api (FastAPI), services/collector (ACA Job), services/analysis (ACA Job), services/delivery (ACA Job), frontend (Vite + React 19). docker-compose.yml for local dev. GitHub Actions CI. venv + requirements.txt. Health and readiness endpoints. Environment wiring (.env.example). Data model server (port 8011, isolated from EVA poc).",
+      "tags": "aca;aca-foundation",
+      "parent": "epic"
+    },
+    {
+      "id_hint": "aca-collection",
+      "type": "Feature",
+      "title": "Collection -- MSAL Auth, Resource Graph, Cost Management pull",
+      "description": "Three connection modes: Mode A (delegated MSAL), Mode B (service principal), Mode C (Azure Lighthouse). Resource Graph inventory query. Cost Management 91-day cost pull. Advisor recommendations pull. Pre-flight verdict engine (checks required permissions before committing a run). CollectorJob ACA Job.",
+      "tags": "aca;aca-collection",
+      "parent": "epic"
+    },
+    {
+      "id_hint": "aca-analysis",
+      "type": "Feature",
+      "title": "Analysis -- 12-rule heuristic engine, FindingsAssembler",
+      "description": "12 heuristic rules covering: idle VMs, orphaned disks, oversized SKUs, reserved instance opportunities, untagged resources, idle App Service Plans, over-provisioned Cosmos throughput, unused Public IPs, legacy storage SKUs, unattached managed disks, dev/test licensing gaps, advisor score gaps. FindingsAssembler aggregates per-rule results. AnalysisRun tracking in Cosmos. CAD/USD savings estimates.",
+      "tags": "aca;aca-analysis",
+      "parent": "epic"
+    },
+    {
+      "id_hint": "aca-api",
+      "type": "Feature",
+      "title": "API -- FastAPI service: auth, collection, billing, admin, APIM",
+      "description": "FastAPI routers: auth (connect/preflight/disconnect), collect (start/status), reports (tier1), billing (checkout/portal/stripe-webhook), entitlements (GET), admin (kpis/customers/grant/lock/reconcile/runs/audit). APIM integration with entitlement cache policy (60s TTL). Pydantic models. Cosmos repos. JWT validation middleware.",
+      "tags": "aca;aca-api",
+      "parent": "epic"
+    },
+    {
+      "id_hint": "aca-frontend",
+      "type": "Feature",
+      "title": "Frontend -- React 19, Fluent UI v9, 10 Spark screens",
+      "description": "Vite + React 19 + Fluent UI v9 + Spark design system. createBrowserRouter. RequireAuth + RequireRole guards. CustomerLayout + AdminLayout. 5 customer screens: LoginPage, ConnectSubscriptionPage, CollectionStatusPage, FindingsTier1Page, UpgradePage. 5 admin screens: AdminDashboardPage, AdminCustomersPage, AdminBillingPage, AdminRunsPage, AdminControlsPage. WCAG 2.1 AA. i18next wiring.",
+      "tags": "aca;aca-frontend",
+      "parent": "epic"
+    },
+    {
+      "id_hint": "aca-billing",
+      "type": "Feature",
+      "title": "Billing -- Stripe Checkout, Webhook lifecycle, Entitlements",
+      "description": "Stripe Checkout sessions: Tier 2 one-time ($499 CAD), Tier 2 subscription ($150/mo), Tier 3 ($1499 CAD). Stripe webhook handler (checkout.session.completed, invoice.payment_succeeded, customer.subscription.deleted). EntitlementService: grant, revoke, lock. PaymentsRepo + StripeCustomerMapRepo in Cosmos. Entitlement cache via APIM policy.",
+      "tags": "aca;aca-billing",
+      "parent": "epic"
+    },
+    {
+      "id_hint": "aca-delivery",
+      "type": "Feature",
+      "title": "Delivery -- Jinja2 templates, ZIP packager, Blob SAS URLs",
+      "description": "Delivery service: Jinja2 HTML/PDF templates for 12 finding types. ZIP packager (findings JSON + PDF + CSV). Blob Storage upload (deliverables container). 24-hour SAS URL generation. SHA-256 artifact verification. DeliveryJob ACA Job.",
+      "tags": "aca;aca-delivery",
+      "parent": "epic"
+    },
+    {
+      "id_hint": "aca-observability",
+      "type": "Feature",
+      "title": "Observability -- App Insights, Log Analytics, GA4, Clarity",
+      "description": "Structured JSON logging (structlog). Application Insights SDK integration. Log Analytics workspace queries. APIM usage metrics. GA4 event taxonomy (per analytics-spec.md: onboarding, collection, report, conversion funnel). Microsoft Clarity session replay. Consent Mode v2 (GTM). Privacy-first: no PII in analytics.",
+      "tags": "aca;aca-observability",
+      "parent": "epic"
+    },
+    {
+      "id_hint": "aca-i18n-a11y",
+      "type": "Feature",
+      "title": "i18n and a11y -- 5 locales, multi-currency, WCAG 2.1 AA",
+      "description": "i18next 5 locales: en, fr-CA, pt-BR, es, de. Multi-currency display: CAD, USD, BRL, EUR. ConsentBanner component. WCAG 2.1 AA compliance. axe-core CI gate (zero violations on critical paths). aria-live regions for async status updates.",
+      "tags": "aca;aca-i18n-a11y",
+      "parent": "epic"
+    },
+    {
+      "id_hint": "aca-hardening",
+      "type": "Feature",
+      "title": "Hardening -- APIM cache, rate limiting, idempotency, PIPEDA",
+      "description": "APIM entitlement cache (60s, per analytics-spec.md policy XML). Pre-flight caching. Rate limiting (per subscription). Idempotency keys on POST endpoints. Webhook Stripe-Signature validation. PIPEDA soft-delete (subscriptions + analysis runs). Penetration testing checklist. CSP headers.",
+      "tags": "aca;aca-hardening",
+      "parent": "epic"
+    },
+    {
+      "id_hint": "aca-phase2-infra",
+      "type": "Feature",
+      "title": "Phase 2 Infra -- Terraform private landing zone, Lighthouse Mode C",
+      "description": "Terraform private landing zone (VNET, Private Endpoints for Cosmos + Blob + APIM). Customer-managed VNET option. Azure Lighthouse Mode C (cross-tenant delegated access). BYO subscription onboarding wizard. Phase 2 bootstrap.sh extension.",
+      "tags": "aca;aca-phase2-infra",
+      "parent": "epic"
+    },
+    {
+      "id_hint": "aca-data-model",
+      "type": "Feature",
+      "title": "Data Model -- ACA model server (port 8011), WBS tracking",
+      "description": "ACA-isolated data model server: ports 8011, MODEL_DIR=51-ACA/data-model/model, no Cosmos/Redis, pure MemoryStore. 27 endpoints, 11 containers, 10 screens, 12 epics seeded. Veritas plan + trust score tracking. start.ps1 bootstrap. README maintained as living doc. Separate from EVA POC data model (port 8010).",
+      "tags": "aca;aca-data-model",
+      "parent": "epic"
+    }
+  ],
+
+  "user_stories": [
+    {
+      "id_hint": "aca-s01",
+      "type": "Product Backlog Item",
+      "title": "[ACA-S01] Repo scaffold + docker-compose + health endpoint verified",
+      "acceptance_criteria": "mono-repo layout created; docker-compose up starts api+frontend; GET /health returns {status:ok}; CI passes.",
+      "tags": "aca;aca-foundation",
+      "iteration_path": "51-aca\\Sprint-1",
+      "state": "Done",
+      "parent": "aca-foundation",
+      "evidence": { "test_count": 3, "coverage_pct": null, "notes": "scaffold complete; health route implemented; docker-compose wired." }
+    },
+    {
+      "id_hint": "aca-s02",
+      "type": "Product Backlog Item",
+      "title": "[ACA-S02] Data model server on port 8011 seeded -- 27 endpoints, 11 containers, 10 screens",
+      "acceptance_criteria": "start.ps1 boots server; POST /model/admin/seed loads JSON; agent-summary returns total>=57; zero BOM errors.",
+      "tags": "aca;aca-data-model",
+      "iteration_path": "51-aca\\Sprint-1",
+      "state": "Done",
+      "parent": "aca-data-model",
+      "evidence": { "test_count": null, "coverage_pct": null, "notes": "start.ps1 created; seed confirmed total=57; BOM stripped from all JSON." }
+    },
+    {
+      "id_hint": "aca-s03",
+      "type": "Product Backlog Item",
+      "title": "[ACA-S03] ADO project 51-aca created -- ado-artifacts.json + ado-import.ps1",
+      "acceptance_criteria": "ADO project exists at dev.azure.com/marcopresta/51-aca; Epic + 12 Features + 24 PBIs imported; sprints Sprint-1 through Sprint-3 created.",
+      "tags": "aca;aca-data-model",
+      "iteration_path": "51-aca\\Sprint-1",
+      "state": "New",
+      "parent": "aca-data-model",
+      "evidence": { "test_count": null, "coverage_pct": null, "notes": "ado-artifacts.json created. Pending: az devops project create + ado-import.ps1 run." }
+    },
+    {
+      "id_hint": "aca-s04",
+      "type": "Product Backlog Item",
+      "title": "[ACA-S04] Mode A delegated MSAL auth -- POST /v1/auth/connect implemented",
+      "acceptance_criteria": "POST /v1/auth/connect with MSAL device-code or redirect flow; token stored in Cosmos sessions container; 401 on invalid token; pre-flight verdict returned.",
+      "tags": "aca;aca-collection",
+      "iteration_path": "51-aca\\Sprint-1",
+      "state": "New",
+      "parent": "aca-collection",
+      "evidence": { "test_count": null, "coverage_pct": null, "notes": "router stub exists; implementation pending." }
+    },
+    {
+      "id_hint": "aca-s05",
+      "type": "Product Backlog Item",
+      "title": "[ACA-S05] Resource Graph + Cost Management collector job implemented",
+      "acceptance_criteria": "CollectorJob reads subscriptionId from job payload; runs Resource Graph inventory query; pulls 91-day cost data; stores raw JSON to Cosmos analysis_runs; exits 0.",
+      "tags": "aca;aca-collection",
+      "iteration_path": "51-aca\\Sprint-1",
+      "state": "New",
+      "parent": "aca-collection",
+      "evidence": { "test_count": null, "coverage_pct": null, "notes": "services/collector scaffolded; queries pending implementation." }
+    },
+    {
+      "id_hint": "aca-s06",
+      "type": "Product Backlog Item",
+      "title": "[ACA-S06] 12-rule heuristic analysis engine -- AnalysisJob exits 0 with findings",
+      "acceptance_criteria": "AnalysisJob reads raw inventory from Cosmos; runs all 12 rules; writes findings JSON with savingsEstimateCAD per finding; exits 0; FindingsAssembler produces tier1/tier2/tier3 splits.",
+      "tags": "aca;aca-analysis",
+      "iteration_path": "51-aca\\Sprint-2",
+      "state": "New",
+      "parent": "aca-analysis",
+      "evidence": { "test_count": null, "coverage_pct": null, "notes": "services/analysis scaffolded; rules not yet written." }
+    },
+    {
+      "id_hint": "aca-s07",
+      "type": "Product Backlog Item",
+      "title": "[ACA-S07] GET /v1/reports/tier1 returns findings for authenticated subscriber",
+      "acceptance_criteria": "JWT validated; subscriptionId resolved; findings read from Cosmos; MoneyRangeBar + EffortBadge fields present in response; 404 if no run exists.",
+      "tags": "aca;aca-api",
+      "iteration_path": "51-aca\\Sprint-1",
+      "state": "New",
+      "parent": "aca-api",
+      "evidence": { "test_count": null, "coverage_pct": null, "notes": "router stub exists; Cosmos read pending." }
+    },
+    {
+      "id_hint": "aca-s08",
+      "type": "Product Backlog Item",
+      "title": "[ACA-S08] Admin endpoints -- kpis, customers, grant, lock, reconcile, runs all return 200",
+      "acceptance_criteria": "All 6 admin endpoints return correct schema; role check for ACA_Admin/ACA_Support/ACA_FinOps; _write_audit() fires for grant+lock+reconcile; 403 on wrong role.",
+      "tags": "aca;aca-api",
+      "iteration_path": "51-aca\\Sprint-1",
+      "state": "Done",
+      "parent": "aca-api",
+      "evidence": { "test_count": null, "coverage_pct": null, "notes": "admin.py fully rewritten with Pydantic models + _write_audit() helper." }
+    },
+    {
+      "id_hint": "aca-s09",
+      "type": "Product Backlog Item",
+      "title": "[ACA-S09] Stripe checkout + webhook + entitlements flow end-to-end",
+      "acceptance_criteria": "POST /v1/billing/checkout creates Stripe session; webhook validates Stripe-Signature; on checkout.completed entitlement written to Cosmos; GET /v1/entitlements returns tier+validUntil.",
+      "tags": "aca;aca-billing",
+      "iteration_path": "51-aca\\Sprint-2",
+      "state": "New",
+      "parent": "aca-billing",
+      "evidence": { "test_count": null, "coverage_pct": null, "notes": "router stubs exist; Stripe SDK integration pending." }
+    },
+    {
+      "id_hint": "aca-s10",
+      "type": "Product Backlog Item",
+      "title": "[ACA-S10] APIM entitlement cache policy deployed -- 60s TTL, tier gating template",
+      "acceptance_criteria": "apim-entitlements-policy.xml applied to GET /v1/entitlements operation; cache hit on second call within 60s; 400 returned when subscriptionId missing.",
+      "tags": "aca;aca-hardening",
+      "iteration_path": "51-aca\\Sprint-2",
+      "state": "New",
+      "parent": "aca-hardening",
+      "evidence": { "test_count": null, "coverage_pct": null, "notes": "apim-entitlements-policy.xml created; deployment to APIM pending." }
+    },
+    {
+      "id_hint": "aca-s11",
+      "type": "Product Backlog Item",
+      "title": "[ACA-S11] 5 customer-facing Spark screens -- LoginPage through UpgradePage",
+      "acceptance_criteria": "All 5 screens render; RequireAuth redirects unauthenticated users to /login; ConnectSubscriptionPage Mode A/B/C radio works; CollectionStatusPage polls with exponential backoff; FindingsTier1Page shows findings table; UpgradePage shows tier cards.",
+      "tags": "aca;aca-frontend",
+      "iteration_path": "51-aca\\Sprint-1",
+      "state": "Done",
+      "parent": "aca-frontend",
+      "evidence": { "test_count": null, "coverage_pct": null, "notes": "All 5 pages created: LoginPage, ConnectSubscriptionPage, CollectionStatusPage, FindingsTier1Page, UpgradePage." }
+    },
+    {
+      "id_hint": "aca-s12",
+      "type": "Product Backlog Item",
+      "title": "[ACA-S12] 5 admin Spark screens -- AdminDashboard through AdminControls",
+      "acceptance_criteria": "All 5 admin screens render; RequireRole(ACA_Admin/Support/FinOps) guards applied; ConfirmModal blocks destructive actions; AuditedBanner appears post-action; deep-link ?subscriptionId= auto-loads runs.",
+      "tags": "aca;aca-frontend",
+      "iteration_path": "51-aca\\Sprint-1",
+      "state": "Done",
+      "parent": "aca-frontend",
+      "evidence": { "test_count": null, "coverage_pct": null, "notes": "All 5 admin pages created: AdminDashboardPage, AdminCustomersPage, AdminBillingPage, AdminRunsPage, AdminControlsPage." }
+    },
+    {
+      "id_hint": "aca-s13",
+      "type": "Product Backlog Item",
+      "title": "[ACA-S13] Phase 1 infrastructure -- Cosmos + Container Apps + ACR deployed via bootstrap.sh",
+      "acceptance_criteria": "bootstrap.sh MODE=phase1 exits 0; 11 Cosmos containers created; 3 ACA Jobs registered; UAMI created with KV + ACR RBAC; APIM imported.",
+      "tags": "aca;aca-foundation",
+      "iteration_path": "51-aca\\Sprint-2",
+      "state": "New",
+      "parent": "aca-foundation",
+      "evidence": { "test_count": null, "coverage_pct": null, "notes": "bootstrap.sh created; pending real Azure run in marco* sandbox." }
+    },
+    {
+      "id_hint": "aca-s14",
+      "type": "Product Backlog Item",
+      "title": "[ACA-S14] GA4 + Clarity instrumentation -- analytics-spec.md events firing",
+      "acceptance_criteria": "All events in analytics-spec.md taxonomy fire on correct user actions; no PII in event parameters; Consent Mode v2 blocks analytics until user accepts; Clarity masks PII fields.",
+      "tags": "aca;aca-observability",
+      "iteration_path": "51-aca\\Sprint-2",
+      "state": "New",
+      "parent": "aca-observability",
+      "evidence": { "test_count": null, "coverage_pct": null, "notes": "analytics-spec.md created; SDK integration pending." }
+    },
+    {
+      "id_hint": "aca-s15",
+      "type": "Product Backlog Item",
+      "title": "[ACA-S15] Delivery service -- ZIP packager + Blob SAS URL + SHA-256 verification",
+      "acceptance_criteria": "DeliveryJob produces ZIP with findings JSON + PDF; uploads to deliverables Blob container; returns 24h SAS URL; SHA-256 in response; download verified by client.",
+      "tags": "aca;aca-delivery",
+      "iteration_path": "51-aca\\Sprint-2",
+      "state": "New",
+      "parent": "aca-delivery",
+      "evidence": { "test_count": null, "coverage_pct": null, "notes": "services/delivery stub exists; Jinja2 templates + packager pending." }
+    },
+    {
+      "id_hint": "aca-s16",
+      "type": "Product Backlog Item",
+      "title": "[ACA-S16] Veritas trust score >= 0.50 -- EVA-STORY tags in source files",
+      "acceptance_criteria": "node 48-eva-veritas/src/cli.js audit --repo 51-ACA reports MTI >= 50; all 22 stories tagged with # EVA-STORY: <ID> in corresponding source files or evidence receipts.",
+      "tags": "aca;aca-data-model",
+      "iteration_path": "51-aca\\Sprint-2",
+      "state": "New",
+      "parent": "aca-data-model",
+      "evidence": { "test_count": null, "coverage_pct": null, "notes": "Current MTI=0; veritas-plan.json uses old code-structure format; needs story tagging sprint." }
+    }
+  ],
+
+  "sprints_needed": [
+    { "name": "Sprint-1", "start_date": "2026-02-17", "finish_date": "2026-03-02" },
+    { "name": "Sprint-2", "start_date": "2026-03-02", "finish_date": "2026-03-16" },
+    { "name": "Sprint-3", "start_date": "2026-03-16", "finish_date": "2026-03-30" }
+  ]
+}

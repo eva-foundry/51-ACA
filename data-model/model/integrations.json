@@ -1,0 +1,124 @@
+[
+  {
+    "id": "integration-stripe",
+    "label": "Stripe",
+    "type": "payment",
+    "status": "configured",
+    "is_active": true,
+    "phase": 1,
+    "config_keys": [
+      "STRIPE_SECRET_KEY",
+      "STRIPE_WEBHOOK_SECRET",
+      "STRIPE_PRICE_ID_TIER2_ONETIME",
+      "STRIPE_PRICE_ID_TIER2_MONTHLY",
+      "STRIPE_PRICE_ID_TIER3_ONETIME"
+    ],
+    "events": [
+      "checkout.session.completed",
+      "invoice.paid",
+      "customer.subscription.updated",
+      "customer.subscription.deleted"
+    ],
+    "webhook_path": "/v1/webhooks/stripe",
+    "notes": "All prices in CAD. Display conversion via FX rate API."
+  },
+  {
+    "id": "integration-ga4",
+    "label": "Google Analytics 4",
+    "type": "analytics",
+    "status": "configured",
+    "is_active": true,
+    "phase": 1,
+    "config_keys": [
+      "NEXT_PUBLIC_GTM_CONTAINER_ID",
+      "GA4_MEASUREMENT_ID"
+    ],
+    "delivery": "gtm",
+    "consent_required": true,
+    "events": [
+      "page_view",
+      "session_started",
+      "connect_flow_started",
+      "connect_mode_selected",
+      "preflight_success",
+      "preflight_failed",
+      "scan_started",
+      "scan_completed",
+      "tier_viewed",
+      "checkout_started",
+      "purchase",
+      "download_initiated",
+      "finding_expanded",
+      "finding_deepdive_clicked",
+      "language_changed",
+      "consent_updated"
+    ],
+    "notes": "Personal GA4 account. No Azure identifiers in event params. Consent mode v2."
+  },
+  {
+    "id": "integration-clarity",
+    "label": "Microsoft Clarity",
+    "type": "analytics",
+    "status": "configured",
+    "is_active": true,
+    "phase": 1,
+    "config_keys": [
+      "VITE_CLARITY_PROJECT_ID"
+    ],
+    "delivery": "gtm",
+    "consent_required": true,
+    "notes": "Personal Clarity account. Session replay + heatmaps. Form masking ON. No PII in recording."
+  },
+  {
+    "id": "integration-gtm",
+    "label": "Google Tag Manager",
+    "type": "infrastructure",
+    "status": "configured",
+    "is_active": true,
+    "phase": 1,
+    "config_keys": [
+      "VITE_GTM_CONTAINER_ID"
+    ],
+    "notes": "Single GTM container fires both GA4 and Clarity tags. Consent block triggers tag load."
+  },
+  {
+    "id": "integration-msal",
+    "label": "MSAL Python",
+    "type": "auth",
+    "status": "stub",
+    "is_active": true,
+    "phase": 1,
+    "modes": [
+      {"mode": "A", "label": "Delegated", "description": "User authenticates via browser -- tokens delegated to user principal."},
+      {"mode": "B", "label": "Service Principal", "description": "Client registers SP with Reader role in their subscription."},
+      {"mode": "C", "label": "Azure Lighthouse", "description": "Cross-tenant role delegation. Phase 2 only."}
+    ],
+    "config_keys": [
+      "MSAL_CLIENT_ID",
+      "MSAL_TENANT_ID",
+      "MSAL_CLIENT_SECRET",
+      "MSAL_AUTHORITY"
+    ]
+  },
+  {
+    "id": "integration-azure-sdk",
+    "label": "Azure Python SDK",
+    "type": "data",
+    "status": "stub",
+    "is_active": true,
+    "phase": 1,
+    "apis_used": [
+      "azure-mgmt-resource (Resource Graph)",
+      "azure-mgmt-costmanagement",
+      "azure-mgmt-advisor",
+      "azure-mgmt-policyinsights",
+      "azure-mgmt-network"
+    ],
+    "config_keys": [
+      "AZURE_SUBSCRIPTION_ID",
+      "AZURE_TENANT_ID",
+      "AZURE_CLIENT_ID",
+      "AZURE_CLIENT_SECRET"
+    ]
+  }
+]

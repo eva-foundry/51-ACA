@@ -1,0 +1,48 @@
+# redteam-agent.yaml
+name: redteam-agent
+version: "1.0.0"
+description: >
+  Red-team agent that validates tier gating logic -- confirms Tier 1 responses never
+  contain narrative or deliverable_template_id fields. References 36-red-teaming harness.
+
+tools:
+  - call_api_endpoint
+  - assert_field_absent
+  - report_finding
+
+inputs:
+  - name: api_base_url
+    type: string
+    required: true
+  - name: tier1_token
+    type: string
+    required: true
+  - name: scan_id
+    type: string
+    required: true
+  - name: subscription_id
+    type: string
+    required: true
+
+steps:
+  - id: fetch_findings_tier1
+    tool: call_api_endpoint
+    args:
+      url: "{{ inputs.api_base_url }}/v1/findings/{{ inputs.scan_id }}"
+      method: GET
+      headers:
+        Authorization: "Bearer {{ inputs.tier1_token }}"
+
+  - id: assert_no_narrative
+    tool: assert_field_absent
+    args:
+      data: "{{ steps.fetch_findings_tier1.result }}"
+      field: "narrative"
+      description: "Tier 1 response must not contain narrative field"
+
+  - id: assert_no_deliverable
+    tool: assert_field_absent
+    args:
+      data: "{{ steps.fetch_findings_tier1.result }}"
+      field: "deliverable_template_id"
+      description: "Tier 1 response must not contain deliverable_template_id field"

@@ -1,0 +1,202 @@
+[
+  {
+    "id": "FEATURE_TIER2_ENABLED",
+    "label": "Tier 2 Access Gate",
+    "type": "feature_flag",
+    "value": true,
+    "is_active": true,
+    "description": "Gate Tier 2 checkout (one-time and subscription) and findings access. Disable to force all to Tier 1 (free scan only)."
+  },
+  {
+    "id": "FEATURE_TIER3_ENABLED",
+    "label": "Tier 3 Access Gate",
+    "type": "feature_flag",
+    "value": true,
+    "is_active": true,
+    "description": "Gate Tier 3 checkout and delivery service. Disable to prevent paid delivery orders."
+  },
+  {
+    "id": "FEATURE_MODE_B_ENABLED",
+    "label": "Service Principal Onboarding",
+    "type": "feature_flag",
+    "value": true,
+    "is_active": true,
+    "description": "Enable Mode B (SP credentials) onboarding flow. Safe to disable if only Mode A is supported."
+  },
+  {
+    "id": "FEATURE_MODE_C_ENABLED",
+    "label": "Lighthouse Onboarding",
+    "type": "feature_flag",
+    "value": false,
+    "is_active": true,
+    "description": "Phase 2 only. Enable Azure Lighthouse cross-tenant delegation mode."
+  },
+  {
+    "id": "FEATURE_RECURRING_BILLING",
+    "label": "Stripe Subscription Mode",
+    "type": "feature_flag",
+    "value": true,
+    "is_active": true,
+    "description": "Enable monthly subscription option at Tier 2. If false, only one-time payment shown."
+  },
+  {
+    "id": "FEATURE_DELIVERY_PACKAGER",
+    "label": "Delivery Service",
+    "type": "feature_flag",
+    "value": true,
+    "is_active": true,
+    "description": "Enable delivery service trigger on Tier 3 checkout completion."
+  },
+  {
+    "id": "FEATURE_ANALYTICS_GTM",
+    "label": "GTM Analytics",
+    "type": "feature_flag",
+    "value": true,
+    "is_active": true,
+    "description": "Load GTM container script (GA4 + Clarity). Still requires user consent to fire tags."
+  },
+  {
+    "id": "FEATURE_FR_LOCALE",
+    "label": "French Locale",
+    "type": "feature_flag",
+    "value": true,
+    "is_active": true,
+    "description": "Enable fr-CA locale in the language selector. Phase 1 required."
+  },
+  {
+    "id": "FEATURE_PT_BR_LOCALE",
+    "label": "Portuguese (Brazil) Locale",
+    "type": "feature_flag",
+    "value": false,
+    "is_active": true,
+    "description": "Phase 2. Enable pt-BR locale."
+  },
+  {
+    "id": "FEATURE_ES_LOCALE",
+    "label": "Spanish Locale",
+    "type": "feature_flag",
+    "value": false,
+    "is_active": true,
+    "description": "Phase 2. Enable es locale."
+  },
+  {
+    "id": "FEATURE_DE_LOCALE",
+    "label": "German Locale",
+    "type": "feature_flag",
+    "value": false,
+    "is_active": true,
+    "description": "Phase 2. Enable de locale."
+  },
+  {
+    "id": "ANALYSIS_RULE_R01_ENABLED",
+    "label": "Rule 01: DevBox Auto-Stop",
+    "type": "rule_gate",
+    "value": true,
+    "is_active": true,
+    "rule_id": "rule-01-devbox-autostop"
+  },
+  {
+    "id": "ANALYSIS_RULE_R02_ENABLED",
+    "label": "Rule 02: Log Retention",
+    "type": "rule_gate",
+    "value": true,
+    "is_active": true,
+    "rule_id": "rule-02-log-retention"
+  },
+  {
+    "id": "ANALYSIS_RULE_R03_ENABLED",
+    "label": "Rule 03: Defender Rightsizing",
+    "type": "rule_gate",
+    "value": true,
+    "is_active": true,
+    "rule_id": "rule-03-defender-rightsizing"
+  },
+  {
+    "id": "ANALYSIS_RULE_R04_ENABLED",
+    "label": "Rule 04: Compute Scheduling",
+    "type": "rule_gate",
+    "value": true,
+    "is_active": true,
+    "rule_id": "rule-04-compute-scheduling"
+  },
+  {
+    "id": "ANALYSIS_RULE_R05_ENABLED",
+    "label": "Rule 05: Anomaly Detection",
+    "type": "rule_gate",
+    "value": true,
+    "is_active": true,
+    "rule_id": "rule-05-anomaly-detection"
+  },
+  {
+    "id": "ANALYSIS_RULE_R12_ENABLED",
+    "label": "Rule 12: Chargeback Gap",
+    "type": "rule_gate",
+    "value": true,
+    "is_active": true,
+    "rule_id": "rule-12-chargeback-gap"
+  },
+  {
+    "id": "SCAN_MAX_RESOURCES",
+    "label": "Scan Resource Limit",
+    "type": "config",
+    "value": 1000,
+    "is_active": true,
+    "description": "Resource Graph pagination limit per scan. Increase to 5000 for Phase 2 enterprise."
+  },
+  {
+    "id": "COLLECTION_COST_DAYS",
+    "label": "Cost Collection Window",
+    "type": "config",
+    "value": 91,
+    "is_active": true,
+    "description": "Number of days of cost history the collector pulls from Cost Management."
+  },
+  {
+    "id": "FX_RATE_REFRESH_HOURS",
+    "label": "FX Rate Refresh",
+    "type": "config",
+    "value": 24,
+    "is_active": true,
+    "description": "Hours between FX rate refreshes for currency display conversion."
+  },
+  {
+    "id": "ENTITLEMENT_CACHE_TTL_SECONDS",
+    "label": "Entitlement Cache TTL",
+    "type": "config",
+    "value": 60,
+    "is_active": true,
+    "description": "APIM caching TTL for GET /v1/entitlements per subscriptionId (matches APIM policy)."
+  },
+  {
+    "id": "DELIVERABLE_SAS_EXPIRY_HOURS",
+    "label": "SAS URL Expiry",
+    "type": "config",
+    "value": 24,
+    "is_active": true,
+    "description": "Hours before a deliverable download SAS URL expires."
+  },
+  {
+    "id": "STRIPE_TIER2_ONETIME_PRICE_CAD",
+    "label": "Tier 2 One-Time Price",
+    "type": "pricing",
+    "value": 499,
+    "is_active": true,
+    "description": "Price in CAD for Tier 2 one-time access (findings report)."
+  },
+  {
+    "id": "STRIPE_TIER2_MONTHLY_PRICE_CAD",
+    "label": "Tier 2 Monthly Price",
+    "type": "pricing",
+    "value": 150,
+    "is_active": true,
+    "description": "Price in CAD per month for Tier 2 subscription."
+  },
+  {
+    "id": "STRIPE_TIER3_ONETIME_PRICE_CAD",
+    "label": "Tier 3 One-Time Price",
+    "type": "pricing",
+    "value": 1499,
+    "is_active": true,
+    "description": "Price in CAD for Tier 3 full delivery (findings + IaC templates + PDF report)."
+  }
+]

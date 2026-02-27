@@ -1,0 +1,1720 @@
+{
+  "meta": {
+    "schema": "eva.discovery.v2",
+    "generated_at": "2026-02-27T04:21:36.494Z",
+    "repo": "C:\\AICOE\\eva-foundry\\51-ACA"
+  },
+  "project": null,
+  "planned": {
+    "epic": {
+      "title": "51-ACA",
+      "source": "README.md"
+    },
+    "features": [
+      {
+        "id": "ACA-STATS",
+        "title": "STATS API",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "ACA-SCANS",
+        "title": "SCANS API",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "ACA-CONNECT",
+        "title": "CONNECT API",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "ACA-PREFLIGHT",
+        "title": "PREFLIGHT API",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "ACA-DISCONNECT",
+        "title": "DISCONNECT API",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "ACA-TIER2",
+        "title": "TIER2 API",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "ACA-TIER3",
+        "title": "TIER3 API",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "ACA-WEBHOOK",
+        "title": "WEBHOOK API",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "ACA-ENTITLEMENTS",
+        "title": "ENTITLEMENTS API",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "ACA-SCAN_ID",
+        "title": "SCAN_ID API",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "ACA-HEALTH",
+        "title": "HEALTH API",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "ACA-API",
+        "title": "API API",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "ACA-INFRA",
+        "title": "Infrastructure Resources",
+        "source": "veritas-plan.json"
+      }
+    ],
+    "stories": [
+      {
+        "id": "ACA-STATS-001",
+        "title": "GET /stats",
+        "feature_id": "ACA-STATS",
+        "done": false,
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "ACA-SCANS-001",
+        "title": "DELETE /scans/{scan_id}",
+        "feature_id": "ACA-SCANS",
+        "done": false,
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "ACA-CONNECT-001",
+        "title": "POST /connect",
+        "feature_id": "ACA-CONNECT",
+        "done": false,
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "ACA-PREFLIGHT-001",
+        "title": "POST /preflight",
+        "feature_id": "ACA-PREFLIGHT",
+        "done": false,
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "ACA-DISCONNECT-001",
+        "title": "POST /disconnect",
+        "feature_id": "ACA-DISCONNECT",
+        "done": false,
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "ACA-TIER2-001",
+        "title": "POST /tier2",
+        "feature_id": "ACA-TIER2",
+        "done": false,
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "ACA-TIER3-001",
+        "title": "POST /tier3",
+        "feature_id": "ACA-TIER3",
+        "done": false,
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "ACA-WEBHOOK-001",
+        "title": "POST /webhook",
+        "feature_id": "ACA-WEBHOOK",
+        "done": false,
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "ACA-ENTITLEMENTS-001",
+        "title": "GET /entitlements",
+        "feature_id": "ACA-ENTITLEMENTS",
+        "done": false,
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "ACA-SCAN_ID-001",
+        "title": "GET /{scan_id}",
+        "feature_id": "ACA-SCAN_ID",
+        "done": false,
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "ACA-SCAN_ID-002",
+        "title": "GET /{scan_id}",
+        "feature_id": "ACA-SCAN_ID",
+        "done": false,
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "ACA-HEALTH-001",
+        "title": "GET /health",
+        "feature_id": "ACA-HEALTH",
+        "done": false,
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "ACA-API-001",
+        "title": "POST /",
+        "feature_id": "ACA-API",
+        "done": false,
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "ACA-API-002",
+        "title": "GET /",
+        "feature_id": "ACA-API",
+        "done": false,
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "ACA-INFRA-001",
+        "title": "azurerm_resource_group \"main\"",
+        "feature_id": "ACA-INFRA",
+        "done": false,
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "ACA-INFRA-002",
+        "title": "azurerm_container_registry \"main\"",
+        "feature_id": "ACA-INFRA",
+        "done": false,
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "ACA-INFRA-003",
+        "title": "azurerm_cosmosdb_account \"main\"",
+        "feature_id": "ACA-INFRA",
+        "done": false,
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "ACA-INFRA-004",
+        "title": "azurerm_cosmosdb_sql_database \"main\"",
+        "feature_id": "ACA-INFRA",
+        "done": false,
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "ACA-INFRA-005",
+        "title": "azurerm_storage_account \"main\"",
+        "feature_id": "ACA-INFRA",
+        "done": false,
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "ACA-INFRA-006",
+        "title": "azurerm_log_analytics_workspace \"main\"",
+        "feature_id": "ACA-INFRA",
+        "done": false,
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "ACA-INFRA-007",
+        "title": "azurerm_application_insights \"main\"",
+        "feature_id": "ACA-INFRA",
+        "done": false,
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "ACA-INFRA-008",
+        "title": "azurerm_container_app_environment \"main\"",
+        "feature_id": "ACA-INFRA",
+        "done": false,
+        "source": "veritas-plan.json"
+      }
+    ],
+    "tasks": [],
+    "acceptance": [],
+    "declared_status": {}
+  },
+  "actual": {
+    "artifacts": [
+      {
+        "path": ".env.example",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": ".gitignore",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "01-feasibility.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "02-preflight.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "03-aca-documentation.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "04-security.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "05-technical.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "06-integration.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "07-react.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "08-payment.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "09-hardening-MVP.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "10-recurrent-clients.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "11-caching.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "12-IaCscript.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "13-IAC-more.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "14-analytcs.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "15-frontend.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "16-stripe-backend.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "17-pahse2hardneing.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "18-customer-mapping.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "19-apim-cache.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "20-iac-resources.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "21-managing-buz.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "22-spark-frontend.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "23-spark-prompt.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "ACCEPTANCE.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "ado-artifacts.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "ado-import.ps1",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "docker-compose.yml",
+        "type": "config",
+        "story_tags": []
+      },
+      {
+        "path": "PLAN.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "pyproject.toml",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "README.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "STATUS.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": ".github/copilot-instructions.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "agents/analysis-agent.yaml",
+        "type": "config",
+        "story_tags": []
+      },
+      {
+        "path": "agents/collection-agent.yaml",
+        "type": "config",
+        "story_tags": []
+      },
+      {
+        "path": "agents/generation-agent.yaml",
+        "type": "config",
+        "story_tags": []
+      },
+      {
+        "path": "agents/redteam-agent.yaml",
+        "type": "config",
+        "story_tags": []
+      },
+      {
+        "path": "data-model/README.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "data-model/start.ps1",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/.env.example",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/index.html",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/package.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/tsconfig.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/tsconfig.node.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/vite.config.ts",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "docs/analytics-spec.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/ado-create-project.ps1",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "tools/cosmos_client.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "tools/observability.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "tools/poll_scan_status.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "tools/trigger_aca_job.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "tools/update_data_model.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "tools/__init__.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": ".github/workflows/ci.yml",
+        "type": "config",
+        "story_tags": []
+      },
+      {
+        "path": ".github/workflows/collector-schedule.yml",
+        "type": "config",
+        "story_tags": []
+      },
+      {
+        "path": ".github/workflows/deploy-phase1.yml",
+        "type": "config",
+        "story_tags": []
+      },
+      {
+        "path": "data-model/model/agents.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "data-model/model/components.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "data-model/model/connections.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "data-model/model/containers.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "data-model/model/cp_agents.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "data-model/model/cp_policies.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "data-model/model/cp_skills.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "data-model/model/cp_workflows.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "data-model/model/currencies.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "data-model/model/decisions.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "data-model/model/endpoints.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "data-model/model/environments.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "data-model/model/epics.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "data-model/model/feature_flags.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "data-model/model/hooks.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "data-model/model/i18n.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "data-model/model/infrastructure.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "data-model/model/integrations.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "data-model/model/literals.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "data-model/model/mcp_servers.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "data-model/model/milestones.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "data-model/model/personas.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "data-model/model/planes.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "data-model/model/projects.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "data-model/model/prompts.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "data-model/model/requirements.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "data-model/model/risks.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "data-model/model/rules.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "data-model/model/runbooks.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "data-model/model/schemas.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "data-model/model/screens.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "data-model/model/security_controls.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "data-model/model/services.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "data-model/model/settings.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "data-model/model/sprints.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "data-model/model/ts_types.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "data-model/model/wbs.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/after_analysis_20260226_184028.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/after_analysis_20260226_184036.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/after_analysis_20260226_184047.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/after_deployment_20260226_184047.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/after_part1_extraction_success_20260226_184047.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/after_source_detection_20260226_184028.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/after_source_detection_20260226_184036.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/after_source_detection_20260226_184046.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/after_validation_20260226_184047.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/before_analysis_20260226_184028.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/before_analysis_20260226_184036.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/before_analysis_20260226_184046.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/before_deployment_20260226_184047.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/before_part1_extraction_20260226_184047.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/before_source_detection_20260226_184028.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/before_source_detection_20260226_184036.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/before_source_detection_20260226_184046.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/before_validation_20260226_184047.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/deployment_start_20260226_184028.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/deployment_start_20260226_184036.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/deployment_start_20260226_184046.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/deployment_success_20260226_184047.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/src/App.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/src/main.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "infra/phase1-marco/bootstrap.sh",
+        "type": "infra",
+        "story_tags": []
+      },
+      {
+        "path": "infra/phase1-marco/main.bicep",
+        "type": "infra",
+        "story_tags": []
+      },
+      {
+        "path": "infra/phase1-marco/main.bicepparam",
+        "type": "infra",
+        "story_tags": []
+      },
+      {
+        "path": "infra/phase2-private/main.tf",
+        "type": "infra",
+        "story_tags": [
+          "ACA-INFRA-001",
+          "ACA-INFRA-002",
+          "ACA-INFRA-003",
+          "ACA-INFRA-004",
+          "ACA-INFRA-005",
+          "ACA-INFRA-006",
+          "ACA-INFRA-007",
+          "ACA-INFRA-008"
+        ]
+      },
+      {
+        "path": "infra/phase2-private/production.tfvars",
+        "type": "infra",
+        "story_tags": []
+      },
+      {
+        "path": "services/analysis/Dockerfile",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "services/analysis/requirements.txt",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "services/api/Dockerfile",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "services/api/requirements.txt",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "services/collector/Dockerfile",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "services/collector/requirements.txt",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "services/delivery/Dockerfile",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "services/delivery/requirements.txt",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "sessions/artifact-deployment/session_state.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/src/app/AppShell.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/src/components/ConsentBanner.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/src/components/LanguageSelector.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/src/i18n/index.ts",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/src/pages/Admin.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/src/pages/BillingPortal.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/src/pages/Checkout.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/src/pages/Connect.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/src/pages/Download.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/src/pages/Findings.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/src/pages/Landing.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/src/pages/Login.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/src/pages/PreFlight.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/src/pages/ScanStatus.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/src/telemetry/analytics.ts",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/src/telemetry/consent.ts",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/src/telemetry/gtm.ts",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "infra/phase1-marco/apim/apim-entitlements-policy.xml",
+        "type": "infra",
+        "story_tags": []
+      },
+      {
+        "path": "services/analysis/app/findings.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/analysis/app/main.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/api/app/main.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/api/app/scan_pipeline.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/api/app/settings.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/collector/app/azure_client.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/collector/app/ingest.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/collector/app/main.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/collector/app/preflight.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/delivery/app/cosmos.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/delivery/app/generator.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/delivery/app/main.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/delivery/app/packager.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "sessions/artifact-deployment/checkpoints/checkpoint_analysis_complete_20260226_184028.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "sessions/artifact-deployment/checkpoints/checkpoint_analysis_complete_20260226_184036.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "sessions/artifact-deployment/checkpoints/checkpoint_analysis_complete_20260226_184047.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "sessions/artifact-deployment/checkpoints/checkpoint_deployment_complete_20260226_184047.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "sessions/artifact-deployment/checkpoints/checkpoint_final_state_20260226_184047.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "sessions/artifact-deployment/checkpoints/checkpoint_paths_validated_20260226_184028.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "sessions/artifact-deployment/checkpoints/checkpoint_paths_validated_20260226_184036.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "sessions/artifact-deployment/checkpoints/checkpoint_paths_validated_20260226_184046.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "sessions/artifact-deployment/checkpoints/checkpoint_source_validated_20260226_184028.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "sessions/artifact-deployment/checkpoints/checkpoint_source_validated_20260226_184036.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "sessions/artifact-deployment/checkpoints/checkpoint_source_validated_20260226_184046.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/public/locales/en/translation.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/public/locales/fr/translation.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/src/app/api/adminApi.ts",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/src/app/api/appApi.ts",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/src/app/api/client.ts",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/src/app/auth/RequireAuth.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/src/app/auth/RequireRole.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/src/app/auth/roles.ts",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/src/app/auth/useAuth.ts",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/src/app/components/EffortBadge.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/src/app/components/ErrorState.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/src/app/components/Loading.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/src/app/components/MoneyRangeBar.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/src/app/layout/AdminLayout.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/src/app/layout/CustomerLayout.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/src/app/layout/NavAdmin.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/src/app/layout/NavCustomer.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/src/app/routes/router.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/src/app/types/models.ts",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/analysis/app/rules/rule_01_devbox_autostop.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/analysis/app/rules/rule_02_log_retention.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/analysis/app/rules/rule_03_defender_mismatch.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/analysis/app/rules/rule_04_compute_scheduling.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/analysis/app/rules/rule_05_anomaly_detection.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/analysis/app/rules/rule_06_stale_environments.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/analysis/app/rules/rule_07_search_sku_oversize.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/analysis/app/rules/rule_08_acr_consolidation.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/analysis/app/rules/rule_09_dns_sprawl.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/analysis/app/rules/rule_10_savings_plan_coverage.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/analysis/app/rules/rule_11_apim_token_budget.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/analysis/app/rules/rule_12_chargeback_gap.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/analysis/app/rules/__init__.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/api/app/db/cosmos.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/api/app/routers/admin.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-STATS-001"
+        ]
+      },
+      {
+        "path": "services/api/app/routers/auth.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-CONNECT-001",
+          "ACA-PREFLIGHT-001",
+          "ACA-DISCONNECT-001"
+        ]
+      },
+      {
+        "path": "services/api/app/routers/checkout.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-TIER2-001",
+          "ACA-TIER3-001",
+          "ACA-WEBHOOK-001",
+          "ACA-ENTITLEMENTS-001"
+        ]
+      },
+      {
+        "path": "services/api/app/routers/findings.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-SCAN_ID-001"
+        ]
+      },
+      {
+        "path": "services/api/app/routers/health.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-HEALTH-001"
+        ]
+      },
+      {
+        "path": "services/api/app/routers/scans.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-SCANS-001",
+          "ACA-SCAN_ID-002",
+          "ACA-API-001",
+          "ACA-API-002"
+        ]
+      },
+      {
+        "path": "frontend/src/app/routes/admin/AdminBillingPage.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/src/app/routes/admin/AdminControlsPage.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/src/app/routes/admin/AdminCustomersPage.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/src/app/routes/admin/AdminDashboardPage.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/src/app/routes/admin/AdminRunsPage.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/src/app/routes/app/CollectionStatusPage.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/src/app/routes/app/ConnectSubscriptionPage.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/src/app/routes/app/FindingsTier1Page.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/src/app/routes/app/LoginPage.tsx",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/src/app/routes/app/UpgradePage.tsx",
+        "type": "code",
+        "story_tags": []
+      }
+    ],
+    "story_artifact_map": {
+      "ACA-INFRA-001": {
+        "artifacts": [
+          {
+            "path": "infra/phase2-private/main.tf",
+            "type": "infra",
+            "story_tags": [
+              "ACA-INFRA-001",
+              "ACA-INFRA-002",
+              "ACA-INFRA-003",
+              "ACA-INFRA-004",
+              "ACA-INFRA-005",
+              "ACA-INFRA-006",
+              "ACA-INFRA-007",
+              "ACA-INFRA-008"
+            ]
+          }
+        ]
+      },
+      "ACA-INFRA-002": {
+        "artifacts": [
+          {
+            "path": "infra/phase2-private/main.tf",
+            "type": "infra",
+            "story_tags": [
+              "ACA-INFRA-001",
+              "ACA-INFRA-002",
+              "ACA-INFRA-003",
+              "ACA-INFRA-004",
+              "ACA-INFRA-005",
+              "ACA-INFRA-006",
+              "ACA-INFRA-007",
+              "ACA-INFRA-008"
+            ]
+          }
+        ]
+      },
+      "ACA-INFRA-003": {
+        "artifacts": [
+          {
+            "path": "infra/phase2-private/main.tf",
+            "type": "infra",
+            "story_tags": [
+              "ACA-INFRA-001",
+              "ACA-INFRA-002",
+              "ACA-INFRA-003",
+              "ACA-INFRA-004",
+              "ACA-INFRA-005",
+              "ACA-INFRA-006",
+              "ACA-INFRA-007",
+              "ACA-INFRA-008"
+            ]
+          }
+        ]
+      },
+      "ACA-INFRA-004": {
+        "artifacts": [
+          {
+            "path": "infra/phase2-private/main.tf",
+            "type": "infra",
+            "story_tags": [
+              "ACA-INFRA-001",
+              "ACA-INFRA-002",
+              "ACA-INFRA-003",
+              "ACA-INFRA-004",
+              "ACA-INFRA-005",
+              "ACA-INFRA-006",
+              "ACA-INFRA-007",
+              "ACA-INFRA-008"
+            ]
+          }
+        ]
+      },
+      "ACA-INFRA-005": {
+        "artifacts": [
+          {
+            "path": "infra/phase2-private/main.tf",
+            "type": "infra",
+            "story_tags": [
+              "ACA-INFRA-001",
+              "ACA-INFRA-002",
+              "ACA-INFRA-003",
+              "ACA-INFRA-004",
+              "ACA-INFRA-005",
+              "ACA-INFRA-006",
+              "ACA-INFRA-007",
+              "ACA-INFRA-008"
+            ]
+          }
+        ]
+      },
+      "ACA-INFRA-006": {
+        "artifacts": [
+          {
+            "path": "infra/phase2-private/main.tf",
+            "type": "infra",
+            "story_tags": [
+              "ACA-INFRA-001",
+              "ACA-INFRA-002",
+              "ACA-INFRA-003",
+              "ACA-INFRA-004",
+              "ACA-INFRA-005",
+              "ACA-INFRA-006",
+              "ACA-INFRA-007",
+              "ACA-INFRA-008"
+            ]
+          }
+        ]
+      },
+      "ACA-INFRA-007": {
+        "artifacts": [
+          {
+            "path": "infra/phase2-private/main.tf",
+            "type": "infra",
+            "story_tags": [
+              "ACA-INFRA-001",
+              "ACA-INFRA-002",
+              "ACA-INFRA-003",
+              "ACA-INFRA-004",
+              "ACA-INFRA-005",
+              "ACA-INFRA-006",
+              "ACA-INFRA-007",
+              "ACA-INFRA-008"
+            ]
+          }
+        ]
+      },
+      "ACA-INFRA-008": {
+        "artifacts": [
+          {
+            "path": "infra/phase2-private/main.tf",
+            "type": "infra",
+            "story_tags": [
+              "ACA-INFRA-001",
+              "ACA-INFRA-002",
+              "ACA-INFRA-003",
+              "ACA-INFRA-004",
+              "ACA-INFRA-005",
+              "ACA-INFRA-006",
+              "ACA-INFRA-007",
+              "ACA-INFRA-008"
+            ]
+          }
+        ]
+      },
+      "ACA-STATS-001": {
+        "artifacts": [
+          {
+            "path": "services/api/app/routers/admin.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-STATS-001"
+            ]
+          }
+        ]
+      },
+      "ACA-CONNECT-001": {
+        "artifacts": [
+          {
+            "path": "services/api/app/routers/auth.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-CONNECT-001",
+              "ACA-PREFLIGHT-001",
+              "ACA-DISCONNECT-001"
+            ]
+          }
+        ]
+      },
+      "ACA-PREFLIGHT-001": {
+        "artifacts": [
+          {
+            "path": "services/api/app/routers/auth.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-CONNECT-001",
+              "ACA-PREFLIGHT-001",
+              "ACA-DISCONNECT-001"
+            ]
+          }
+        ]
+      },
+      "ACA-DISCONNECT-001": {
+        "artifacts": [
+          {
+            "path": "services/api/app/routers/auth.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-CONNECT-001",
+              "ACA-PREFLIGHT-001",
+              "ACA-DISCONNECT-001"
+            ]
+          }
+        ]
+      },
+      "ACA-TIER2-001": {
+        "artifacts": [
+          {
+            "path": "services/api/app/routers/checkout.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-TIER2-001",
+              "ACA-TIER3-001",
+              "ACA-WEBHOOK-001",
+              "ACA-ENTITLEMENTS-001"
+            ]
+          }
+        ]
+      },
+      "ACA-TIER3-001": {
+        "artifacts": [
+          {
+            "path": "services/api/app/routers/checkout.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-TIER2-001",
+              "ACA-TIER3-001",
+              "ACA-WEBHOOK-001",
+              "ACA-ENTITLEMENTS-001"
+            ]
+          }
+        ]
+      },
+      "ACA-WEBHOOK-001": {
+        "artifacts": [
+          {
+            "path": "services/api/app/routers/checkout.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-TIER2-001",
+              "ACA-TIER3-001",
+              "ACA-WEBHOOK-001",
+              "ACA-ENTITLEMENTS-001"
+            ]
+          }
+        ]
+      },
+      "ACA-ENTITLEMENTS-001": {
+        "artifacts": [
+          {
+            "path": "services/api/app/routers/checkout.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-TIER2-001",
+              "ACA-TIER3-001",
+              "ACA-WEBHOOK-001",
+              "ACA-ENTITLEMENTS-001"
+            ]
+          }
+        ]
+      },
+      "ACA-SCAN_ID-001": {
+        "artifacts": [
+          {
+            "path": "services/api/app/routers/findings.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-SCAN_ID-001"
+            ]
+          }
+        ]
+      },
+      "ACA-HEALTH-001": {
+        "artifacts": [
+          {
+            "path": "services/api/app/routers/health.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-HEALTH-001"
+            ]
+          }
+        ]
+      },
+      "ACA-SCANS-001": {
+        "artifacts": [
+          {
+            "path": "services/api/app/routers/scans.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-SCANS-001",
+              "ACA-SCAN_ID-002",
+              "ACA-API-001",
+              "ACA-API-002"
+            ]
+          }
+        ]
+      },
+      "ACA-SCAN_ID-002": {
+        "artifacts": [
+          {
+            "path": "services/api/app/routers/scans.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-SCANS-001",
+              "ACA-SCAN_ID-002",
+              "ACA-API-001",
+              "ACA-API-002"
+            ]
+          }
+        ]
+      },
+      "ACA-API-001": {
+        "artifacts": [
+          {
+            "path": "services/api/app/routers/scans.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-SCANS-001",
+              "ACA-SCAN_ID-002",
+              "ACA-API-001",
+              "ACA-API-002"
+            ]
+          }
+        ]
+      },
+      "ACA-API-002": {
+        "artifacts": [
+          {
+            "path": "services/api/app/routers/scans.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-SCANS-001",
+              "ACA-SCAN_ID-002",
+              "ACA-API-001",
+              "ACA-API-002"
+            ]
+          }
+        ]
+      }
+    },
+    "commit_evidence_map": {},
+    "code_complexity": null
+  }
+}

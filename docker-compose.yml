@@ -1,0 +1,44 @@
+version: "3.9"
+
+services:
+  # ACA API
+  api:
+    build:
+      context: services/api
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    env_file: .env
+    environment:
+      - ACA_ENVIRONMENT=local
+    depends_on:
+      - cosmos-emulator
+    volumes:
+      - ./services/api:/app
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8080 --reload
+
+  # Frontend (dev server)
+  frontend:
+    image: node:20-alpine
+    working_dir: /app
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+    command: sh -c "npm install && npm run dev -- --host"
+    env_file: .env
+
+  # Azure Cosmos DB Emulator (local dev only)
+  cosmos-emulator:
+    image: mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:latest
+    ports:
+      - "8081:8081"
+      - "10250-10255:10250-10255"
+    environment:
+      - AZURE_COSMOS_EMULATOR_PARTITION_COUNT=10
+      - AZURE_COSMOS_EMULATOR_ENABLE_DATA_PERSISTENCE=false
+    healthcheck:
+      test: ["CMD", "curl", "-k", "-f", "https://localhost:8081/_explorer/emulator.pem"]
+      interval: 30s
+      timeout: 10s
+      retries: 5

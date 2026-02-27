@@ -1,0 +1,38 @@
+# analysis-agent.yaml
+name: analysis-agent
+version: "1.0.0"
+description: >
+  Runs all 12 heuristic rules against the collected data for a scan.
+  Writes findings to Cosmos and marks analysis complete.
+
+tools:
+  - trigger_aca_job
+  - poll_scan_status
+  - update_data_model
+
+inputs:
+  - name: scan_id
+    type: string
+    required: true
+  - name: subscription_id
+    type: string
+    required: true
+
+steps:
+  - id: trigger
+    tool: trigger_aca_job
+    args:
+      job_name: aca-51-analysis
+      env_args:
+        - "--scan-id"
+        - "{{ inputs.scan_id }}"
+        - "--subscription-id"
+        - "{{ inputs.subscription_id }}"
+
+  - id: poll
+    tool: poll_scan_status
+    args:
+      scan_id: "{{ inputs.scan_id }}"
+      subscription_id: "{{ inputs.subscription_id }}"
+      target_status: "complete"
+      timeout_minutes: 20
