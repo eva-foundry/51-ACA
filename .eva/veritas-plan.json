@@ -1,6 +1,6 @@
 {
   "schema": "eva.veritas-plan.v1",
-  "generated_at": "2026-02-27T12:12:31.989826+00:00",
+  "generated_at": "2026-02-27T12:28:42.680013+00:00",
   "generated_from": [
     "PLAN.md",
     "README.md",
@@ -17,6 +17,7 @@
       "stories": [
         {
           "id": "ACA-01-001",
+          "wbs": "1.1.1",
           "title": "As a developer I can run `docker-compose up` and all services start",
           "feature_id": "ACA-01",
           "done": true,
@@ -25,6 +26,7 @@
         },
         {
           "id": "ACA-01-002",
+          "wbs": "1.1.2",
           "title": "As a developer I can run `pytest services/ -x -q` and all tests pass",
           "feature_id": "ACA-01",
           "done": true,
@@ -33,6 +35,7 @@
         },
         {
           "id": "ACA-01-003",
+          "wbs": "1.1.3",
           "title": "As a developer I can hit http://localhost:8080/health and get status=ok",
           "feature_id": "ACA-01",
           "done": true,
@@ -41,6 +44,7 @@
         },
         {
           "id": "ACA-01-004",
+          "wbs": "1.1.4",
           "title": "As a developer I can run the data-model on port 8011 (start.ps1)",
           "feature_id": "ACA-01",
           "done": true,
@@ -49,6 +53,7 @@
         },
         {
           "id": "ACA-01-005",
+          "wbs": "1.1.5",
           "title": "As a developer I can use the .env.example as a complete checklist",
           "feature_id": "ACA-01",
           "done": true,
@@ -57,6 +62,7 @@
         },
         {
           "id": "ACA-01-006",
+          "wbs": "1.2.1",
           "title": "As a developer, every PR triggers ruff lint. Zero lint errors = green.",
           "feature_id": "ACA-01",
           "done": true,
@@ -65,6 +71,7 @@
         },
         {
           "id": "ACA-01-007",
+          "wbs": "1.2.2",
           "title": "As a developer, every PR triggers mypy type check. No unresolved types.",
           "feature_id": "ACA-01",
           "done": true,
@@ -73,6 +80,7 @@
         },
         {
           "id": "ACA-01-008",
+          "wbs": "1.2.3",
           "title": "As a developer, every PR triggers pytest. No test failures = merge allowed.",
           "feature_id": "ACA-01",
           "done": true,
@@ -81,6 +89,7 @@
         },
         {
           "id": "ACA-01-009",
+          "wbs": "1.2.4",
           "title": "As a developer, main branch push triggers axe-core a11y check on frontend.",
           "feature_id": "ACA-01",
           "done": true,
@@ -89,6 +98,7 @@
         },
         {
           "id": "ACA-01-010",
+          "wbs": "1.3.1",
           "title": "As an operator I can run infra/phase1-marco/main.bicep and get 7 Cosmos containers",
           "feature_id": "ACA-01",
           "done": true,
@@ -97,6 +107,7 @@
         },
         {
           "id": "ACA-01-011",
+          "wbs": "1.3.2",
           "title": "As an operator all secrets are in marcosandkv20260203 (no .env in production)",
           "feature_id": "ACA-01",
           "done": true,
@@ -105,6 +116,7 @@
         },
         {
           "id": "ACA-01-012",
+          "wbs": "1.3.3",
           "title": "As an operator the API Container App has managed identity approved on KV",
           "feature_id": "ACA-01",
           "done": true,
@@ -113,6 +125,7 @@
         },
         {
           "id": "ACA-01-013",
+          "wbs": "1.3.4",
           "title": "As an operator the collector job has managed identity with Cosmos read/write",
           "feature_id": "ACA-01",
           "done": true,
@@ -121,6 +134,7 @@
         },
         {
           "id": "ACA-01-014",
+          "wbs": "1.3.5",
           "title": "As an operator OIDC is configured on the GitHub Actions workflow for EsDAICoE-Sandbox",
           "feature_id": "ACA-01",
           "done": true,
@@ -129,6 +143,7 @@
         },
         {
           "id": "ACA-01-015",
+          "wbs": "1.3.6",
           "title": "As an operator infra/phase1-marco/bootstrap.sh exists and provisions all",
           "feature_id": "ACA-01",
           "done": true,
@@ -137,6 +152,7 @@
         },
         {
           "id": "ACA-01-016",
+          "wbs": "1.4.1",
           "title": "As a developer all 4 Dockerfiles build without error on ubuntu-latest",
           "feature_id": "ACA-01",
           "done": true,
@@ -145,6 +161,7 @@
         },
         {
           "id": "ACA-01-017",
+          "wbs": "1.4.2",
           "title": "As an operator deploy-phase1.yml pushes 4 images to marcosandacr20260203",
           "feature_id": "ACA-01",
           "done": true,
@@ -153,6 +170,7 @@
         },
         {
           "id": "ACA-01-018",
+          "wbs": "1.4.3",
           "title": "As an operator collector-schedule.yml triggers nightly at 02:00 UTC",
           "feature_id": "ACA-01",
           "done": true,
@@ -161,6 +179,7 @@
         },
         {
           "id": "ACA-01-019",
+          "wbs": "1.5.1",
           "title": "As an operator PUBLIC_APP_URL and PUBLIC_API_URL are read from env vars;",
           "feature_id": "ACA-01",
           "done": true,
@@ -169,6 +188,7 @@
         },
         {
           "id": "ACA-01-020",
+          "wbs": "1.5.2",
           "title": "As a developer .env.example documents the Azure free hostname pattern",
           "feature_id": "ACA-01",
           "done": true,
@@ -177,6 +197,7 @@
         },
         {
           "id": "ACA-01-021",
+          "wbs": "1.5.3",
           "title": "As an operator ACA_ALLOWED_ORIGINS is seeded from the Phase 1 free hostname",
           "feature_id": "ACA-01",
           "done": true,
@@ -192,6 +213,7 @@
       "stories": [
         {
           "id": "ACA-02-001",
+          "wbs": "2.1.1",
           "title": "As a client using Mode A (delegated) I see a PASS/FAIL/WARN status",
           "feature_id": "ACA-02",
           "done": true,
@@ -200,6 +222,7 @@
         },
         {
           "id": "ACA-02-002",
+          "wbs": "2.1.2",
           "title": "As a client with missing Cost Management Reader role I see a clear",
           "feature_id": "ACA-02",
           "done": true,
@@ -208,6 +231,7 @@
         },
         {
           "id": "ACA-02-003",
+          "wbs": "2.1.3",
           "title": "As a client with PASS_WITH_WARNINGS I can still proceed with collection",
           "feature_id": "ACA-02",
           "done": true,
@@ -216,6 +240,7 @@
         },
         {
           "id": "ACA-02-004",
+          "wbs": "2.1.4",
           "title": "As an operator I can pass --preflight-only to the collector to validate",
           "feature_id": "ACA-02",
           "done": true,
@@ -224,6 +249,7 @@
         },
         {
           "id": "ACA-02-005",
+          "wbs": "2.2.1",
           "title": "As the system I collect all Azure resources via Resource Graph in < 60s",
           "feature_id": "ACA-02",
           "done": true,
@@ -232,6 +258,7 @@
         },
         {
           "id": "ACA-02-006",
+          "wbs": "2.2.2",
           "title": "As the system I save inventory to Cosmos with partition_key=subscriptionId",
           "feature_id": "ACA-02",
           "done": true,
@@ -240,6 +267,7 @@
         },
         {
           "id": "ACA-02-007",
+          "wbs": "2.2.3",
           "title": "As the system I capture: resource type, name, SKU, region, resource group, tags",
           "feature_id": "ACA-02",
           "done": true,
@@ -248,6 +276,7 @@
         },
         {
           "id": "ACA-02-008",
+          "wbs": "2.3.1",
           "title": "As the system I collect 91 days of daily cost rows via Cost Management Query API",
           "feature_id": "ACA-02",
           "done": true,
@@ -256,6 +285,7 @@
         },
         {
           "id": "ACA-02-009",
+          "wbs": "2.3.2",
           "title": "As the system I capture: date, MeterCategory, MeterName, resourceGroup,",
           "feature_id": "ACA-02",
           "done": true,
@@ -264,6 +294,7 @@
         },
         {
           "id": "ACA-02-010",
+          "wbs": "2.3.3",
           "title": "As the system I handle rate limiting (429) with exponential backoff + retry",
           "feature_id": "ACA-02",
           "done": true,
@@ -272,6 +303,7 @@
         },
         {
           "id": "ACA-02-011",
+          "wbs": "2.4.1",
           "title": "As the system I collect all Advisor recommendations across all categories",
           "feature_id": "ACA-02",
           "done": true,
@@ -280,6 +312,7 @@
         },
         {
           "id": "ACA-02-012",
+          "wbs": "2.4.2",
           "title": "As the system I collect Policy compliance state (compliant / non-compliant counts)",
           "feature_id": "ACA-02",
           "done": true,
@@ -288,6 +321,7 @@
         },
         {
           "id": "ACA-02-013",
+          "wbs": "2.4.3",
           "title": "As the system I collect network signals: NSG rule counts, private DNS zones,",
           "feature_id": "ACA-02",
           "done": true,
@@ -296,6 +330,7 @@
         },
         {
           "id": "ACA-02-014",
+          "wbs": "2.5.1",
           "title": "As the system I update scan status in Cosmos: queued -> running -> succeeded/failed",
           "feature_id": "ACA-02",
           "done": true,
@@ -304,6 +339,7 @@
         },
         {
           "id": "ACA-02-015",
+          "wbs": "2.5.2",
           "title": "As the system I write stats to the scan record (inventoryCount, costRows, advisorRecs)",
           "feature_id": "ACA-02",
           "done": true,
@@ -312,6 +348,7 @@
         },
         {
           "id": "ACA-02-016",
+          "wbs": "2.5.3",
           "title": "As the API I expose GET /v1/scans/:scanId so the frontend can poll status",
           "feature_id": "ACA-02",
           "done": true,
@@ -320,6 +357,7 @@
         },
         {
           "id": "ACA-02-017",
+          "wbs": "2.5.4",
           "title": "As the system, after mark_collection_complete sets status=collected, the analysis",
           "feature_id": "ACA-02",
           "done": true,
@@ -335,6 +373,7 @@
       "stories": [
         {
           "id": "ACA-03-001",
+          "wbs": "3.1.1",
           "title": "As the system I load all 12 rules from ALL_RULES and run each in sequence",
           "feature_id": "ACA-03",
           "done": false,
@@ -343,6 +382,7 @@
         },
         {
           "id": "ACA-03-002",
+          "wbs": "3.1.2",
           "title": "As the system I handle a rule failure in isolation (one rule crash does not",
           "feature_id": "ACA-03",
           "done": false,
@@ -351,6 +391,7 @@
         },
         {
           "id": "ACA-03-003",
+          "wbs": "3.1.3",
           "title": "As the system I persist each Finding to Cosmos with full schema:",
           "feature_id": "ACA-03",
           "done": false,
@@ -359,6 +400,7 @@
         },
         {
           "id": "ACA-03-004",
+          "wbs": "3.1.4",
           "title": "As the system I update AnalysisRun status: queued -> running -> succeeded/failed",
           "feature_id": "ACA-03",
           "done": false,
@@ -367,6 +409,7 @@
         },
         {
           "id": "ACA-03-005",
+          "wbs": "3.1.5",
           "title": "As the system I write findingsSummary to the analysis run record",
           "feature_id": "ACA-03",
           "done": false,
@@ -375,6 +418,7 @@
         },
         {
           "id": "ACA-03-006",
+          "wbs": "3.2.1",
           "title": "As a Tier 1 client calling GET /v1/findings/:scanId I receive findings",
           "feature_id": "ACA-03",
           "done": false,
@@ -383,6 +427,7 @@
         },
         {
           "id": "ACA-03-007",
+          "wbs": "3.2.2",
           "title": "As a Tier 1 client I do not receive narrative or deliverable_template_id",
           "feature_id": "ACA-03",
           "done": false,
@@ -391,6 +436,7 @@
         },
         {
           "id": "ACA-03-008",
+          "wbs": "3.2.3",
           "title": "As a Tier 2 client I receive the full finding including narrative and",
           "feature_id": "ACA-03",
           "done": false,
@@ -399,6 +445,7 @@
         },
         {
           "id": "ACA-03-009",
+          "wbs": "3.2.4",
           "title": "As a Tier 3 client I receive the full finding including deliverable_template_id",
           "feature_id": "ACA-03",
           "done": false,
@@ -407,6 +454,7 @@
         },
         {
           "id": "ACA-03-010",
+          "wbs": "3.2.5",
           "title": "As the red-team agent I can assert that Tier 1 tokens never leak",
           "feature_id": "ACA-03",
           "done": false,
@@ -415,6 +463,7 @@
         },
         {
           "id": "ACA-03-011",
+          "wbs": "3.3.1",
           "title": "R-01 Dev Box auto-stop: returns finding when annual Dev Box cost > $1,000",
           "feature_id": "ACA-03",
           "done": false,
@@ -423,6 +472,7 @@
         },
         {
           "id": "ACA-03-012",
+          "wbs": "3.3.2",
           "title": "R-02 Log retention: returns finding when annual LA cost > $500 in non-prod",
           "feature_id": "ACA-03",
           "done": false,
@@ -431,6 +481,7 @@
         },
         {
           "id": "ACA-03-013",
+          "wbs": "3.3.3",
           "title": "R-03 Defender mismatch: returns finding when annual Defender cost > $2,000",
           "feature_id": "ACA-03",
           "done": false,
@@ -439,6 +490,7 @@
         },
         {
           "id": "ACA-03-014",
+          "wbs": "3.3.4",
           "title": "R-04 Compute scheduling: returns finding when annual schedulable compute > $5,000",
           "feature_id": "ACA-03",
           "done": false,
@@ -447,6 +499,7 @@
         },
         {
           "id": "ACA-03-015",
+          "wbs": "3.3.5",
           "title": "R-05 Anomaly detection: returns finding for each category with z-score > 3.0",
           "feature_id": "ACA-03",
           "done": false,
@@ -455,6 +508,7 @@
         },
         {
           "id": "ACA-03-016",
+          "wbs": "3.3.6",
           "title": "R-06 Stale environments: returns finding when >= 3 App Service sites exist",
           "feature_id": "ACA-03",
           "done": false,
@@ -463,6 +517,7 @@
         },
         {
           "id": "ACA-03-017",
+          "wbs": "3.3.7",
           "title": "R-07 Search SKU oversize: returns finding when annual Search cost > $2,000",
           "feature_id": "ACA-03",
           "done": false,
@@ -471,6 +526,7 @@
         },
         {
           "id": "ACA-03-018",
+          "wbs": "3.3.8",
           "title": "R-08 ACR consolidation: returns finding when >= 3 registries exist",
           "feature_id": "ACA-03",
           "done": false,
@@ -479,6 +535,7 @@
         },
         {
           "id": "ACA-03-019",
+          "wbs": "3.3.9",
           "title": "R-09 DNS sprawl: returns finding when annual DNS cost > $1,000",
           "feature_id": "ACA-03",
           "done": false,
@@ -487,6 +544,7 @@
         },
         {
           "id": "ACA-03-020",
+          "wbs": "3.4.1",
           "title": "Unit test for R-01 devbox_autostop: fixture with Dev Box cost > $1,000 -> finding",
           "feature_id": "ACA-03",
           "done": false,
@@ -495,6 +553,7 @@
         },
         {
           "id": "ACA-03-021",
+          "wbs": "3.4.2",
           "title": "Unit test for R-02 log_retention: fixture with LA cost > $500 -> finding",
           "feature_id": "ACA-03",
           "done": false,
@@ -503,6 +562,7 @@
         },
         {
           "id": "ACA-03-022",
+          "wbs": "3.4.3",
           "title": "Unit test for R-03 defender_mismatch: fixture with Defender cost > $2,000 -> finding",
           "feature_id": "ACA-03",
           "done": false,
@@ -511,6 +571,7 @@
         },
         {
           "id": "ACA-03-023",
+          "wbs": "3.4.4",
           "title": "Unit test for R-04 compute_scheduling: fixture with schedulable > $5,000 -> finding",
           "feature_id": "ACA-03",
           "done": false,
@@ -519,6 +580,7 @@
         },
         {
           "id": "ACA-03-024",
+          "wbs": "3.4.5",
           "title": "Unit test for R-05 anomaly_detection: fixture with z-score > 3.0 -> finding",
           "feature_id": "ACA-03",
           "done": false,
@@ -527,6 +589,7 @@
         },
         {
           "id": "ACA-03-025",
+          "wbs": "3.4.6",
           "title": "Unit test for R-06 stale_environments: fixture with >= 3 App Services -> finding",
           "feature_id": "ACA-03",
           "done": false,
@@ -535,6 +598,7 @@
         },
         {
           "id": "ACA-03-026",
+          "wbs": "3.4.7",
           "title": "Unit test for R-07 search_sku_oversize: fixture with Search cost > $2,000 -> finding",
           "feature_id": "ACA-03",
           "done": false,
@@ -543,6 +607,7 @@
         },
         {
           "id": "ACA-03-027",
+          "wbs": "3.4.8",
           "title": "Unit test for R-08 acr_consolidation: fixture with >= 3 registries -> finding",
           "feature_id": "ACA-03",
           "done": false,
@@ -551,6 +616,7 @@
         },
         {
           "id": "ACA-03-028",
+          "wbs": "3.4.9",
           "title": "Unit test for R-09 dns_sprawl: fixture with DNS cost > $1,000 -> finding",
           "feature_id": "ACA-03",
           "done": false,
@@ -559,6 +625,7 @@
         },
         {
           "id": "ACA-03-029",
+          "wbs": "3.4.10",
           "title": "Unit test for R-10 savings_plan_coverage: fixture with compute > $20,000 -> finding",
           "feature_id": "ACA-03",
           "done": false,
@@ -567,6 +634,7 @@
         },
         {
           "id": "ACA-03-030",
+          "wbs": "3.4.11",
           "title": "Unit test for R-11 apim_token_budget: fixture with APIM + OpenAI -> finding",
           "feature_id": "ACA-03",
           "done": false,
@@ -575,6 +643,7 @@
         },
         {
           "id": "ACA-03-031",
+          "wbs": "3.4.12",
           "title": "Unit test for R-12 chargeback_gap: fixture with total cost > $5,000 -> finding",
           "feature_id": "ACA-03",
           "done": false,
@@ -583,6 +652,7 @@
         },
         {
           "id": "ACA-03-032",
+          "wbs": "3.4.13",
           "title": "Negative tests for each rule: below-threshold fixture -> no finding returned",
           "feature_id": "ACA-03",
           "done": false,
@@ -591,6 +661,7 @@
         },
         {
           "id": "ACA-03-033",
+          "wbs": "3.4.14",
           "title": "FindingsAssembler unit test: mock rule list -> correct Cosmos upsert payload",
           "feature_id": "ACA-03",
           "done": false,
@@ -606,6 +677,7 @@
       "stories": [
         {
           "id": "ACA-04-001",
+          "wbs": "4.1.1",
           "title": "As a client I can sign in via Microsoft Identity (any Microsoft tenant);",
           "feature_id": "ACA-04",
           "done": false,
@@ -614,6 +686,7 @@
         },
         {
           "id": "ACA-04-002",
+          "wbs": "4.1.2",
           "title": "As the API I validate the JWT on every authenticated endpoint using",
           "feature_id": "ACA-04",
           "done": false,
@@ -622,6 +695,7 @@
         },
         {
           "id": "ACA-04-003",
+          "wbs": "4.1.3",
           "title": "As the API I extract subscriptionId from the session (stored after connect);",
           "feature_id": "ACA-04",
           "done": false,
@@ -630,6 +704,7 @@
         },
         {
           "id": "ACA-04-004",
+          "wbs": "4.1.4",
           "title": "As a client I can connect my Azure subscription (POST /v1/auth/connect)",
           "feature_id": "ACA-04",
           "done": false,
@@ -638,6 +713,7 @@
         },
         {
           "id": "ACA-04-005",
+          "wbs": "4.1.5",
           "title": "As a client I can disconnect (POST /v1/auth/disconnect) and all access",
           "feature_id": "ACA-04",
           "done": false,
@@ -646,6 +722,7 @@
         },
         {
           "id": "ACA-04-006",
+          "wbs": "4.1.6",
           "title": "As a developer auth.py is reworked: MSAL authority=common, no EsDAICoE",
           "feature_id": "ACA-04",
           "done": false,
@@ -654,6 +731,7 @@
         },
         {
           "id": "ACA-04-007",
+          "wbs": "4.1.7",
           "title": "As the frontend LoginPage, sign-in CTA calls MSAL.js with",
           "feature_id": "ACA-04",
           "done": false,
@@ -662,6 +740,7 @@
         },
         {
           "id": "ACA-04-008",
+          "wbs": "4.2.1",
           "title": "POST /v1/auth/connect         -- Connect Azure subscription",
           "feature_id": "ACA-04",
           "done": false,
@@ -670,6 +749,7 @@
         },
         {
           "id": "ACA-04-009",
+          "wbs": "4.2.2",
           "title": "POST /v1/auth/preflight       -- Run pre-flight probes",
           "feature_id": "ACA-04",
           "done": false,
@@ -678,6 +758,7 @@
         },
         {
           "id": "ACA-04-010",
+          "wbs": "4.2.3",
           "title": "POST /v1/auth/disconnect      -- Disconnect subscription",
           "feature_id": "ACA-04",
           "done": false,
@@ -686,6 +767,7 @@
         },
         {
           "id": "ACA-04-011",
+          "wbs": "4.2.4",
           "title": "POST /v1/collect/start        -- Trigger collector job (was /v1/scans)",
           "feature_id": "ACA-04",
           "done": false,
@@ -694,6 +776,7 @@
         },
         {
           "id": "ACA-04-012",
+          "wbs": "4.2.5",
           "title": "GET  /v1/collect/status       -- Poll collection progress (was /v1/scans/:scanId)",
           "feature_id": "ACA-04",
           "done": false,
@@ -702,6 +785,7 @@
         },
         {
           "id": "ACA-04-013",
+          "wbs": "4.2.6",
           "title": "GET  /v1/reports/tier1        -- Tier 1 findings report (was /v1/findings/:scanId)",
           "feature_id": "ACA-04",
           "done": false,
@@ -710,6 +794,7 @@
         },
         {
           "id": "ACA-04-014",
+          "wbs": "4.2.7",
           "title": "POST /v1/billing/checkout     -- Stripe checkout (tier2 or tier3 in body)",
           "feature_id": "ACA-04",
           "done": false,
@@ -718,6 +803,7 @@
         },
         {
           "id": "ACA-04-015",
+          "wbs": "4.2.8",
           "title": "GET  /v1/billing/portal       -- Stripe billing portal redirect URL",
           "feature_id": "ACA-04",
           "done": false,
@@ -726,6 +812,7 @@
         },
         {
           "id": "ACA-04-016",
+          "wbs": "4.2.9",
           "title": "POST /v1/webhooks/stripe      -- Stripe event handler",
           "feature_id": "ACA-04",
           "done": false,
@@ -734,6 +821,7 @@
         },
         {
           "id": "ACA-04-017",
+          "wbs": "4.3.1",
           "title": "As the gateway I validate JWT signature on all /v1/* routes",
           "feature_id": "ACA-04",
           "done": false,
@@ -742,6 +830,7 @@
         },
         {
           "id": "ACA-04-018",
+          "wbs": "4.3.2",
           "title": "As the gateway I cache /v1/entitlements response for 60s per subscriptionId",
           "feature_id": "ACA-04",
           "done": false,
@@ -750,6 +839,7 @@
         },
         {
           "id": "ACA-04-019",
+          "wbs": "4.3.3",
           "title": "As the gateway I return 403 with TIER_REQUIRED error when a Tier 1",
           "feature_id": "ACA-04",
           "done": false,
@@ -758,6 +848,7 @@
         },
         {
           "id": "ACA-04-020",
+          "wbs": "4.3.4",
           "title": "As the gateway I enforce subscription key throttling (100 req/min default)",
           "feature_id": "ACA-04",
           "done": false,
@@ -766,6 +857,7 @@
         },
         {
           "id": "ACA-04-021",
+          "wbs": "4.3.5",
           "title": "As the gateway I forward X-Subscription-Id header to the API on all calls",
           "feature_id": "ACA-04",
           "done": false,
@@ -774,6 +866,7 @@
         },
         {
           "id": "ACA-04-022",
+          "wbs": "4.4.1",
           "title": "GET  /v1/admin/kpis",
           "feature_id": "ACA-04",
           "done": false,
@@ -782,6 +875,7 @@
         },
         {
           "id": "ACA-04-023",
+          "wbs": "4.4.2",
           "title": "GET  /v1/admin/customers?query=",
           "feature_id": "ACA-04",
           "done": false,
@@ -790,6 +884,7 @@
         },
         {
           "id": "ACA-04-024",
+          "wbs": "4.4.3",
           "title": "POST /v1/admin/entitlements/grant",
           "feature_id": "ACA-04",
           "done": false,
@@ -798,6 +893,7 @@
         },
         {
           "id": "ACA-04-025",
+          "wbs": "4.4.4",
           "title": "POST /v1/admin/subscriptions/:subscriptionId/lock",
           "feature_id": "ACA-04",
           "done": false,
@@ -806,6 +902,7 @@
         },
         {
           "id": "ACA-04-026",
+          "wbs": "4.4.5",
           "title": "POST /v1/admin/stripe/reconcile",
           "feature_id": "ACA-04",
           "done": false,
@@ -814,6 +911,7 @@
         },
         {
           "id": "ACA-04-027",
+          "wbs": "4.4.6",
           "title": "GET  /v1/admin/runs?type=scan|analysis|delivery",
           "feature_id": "ACA-04",
           "done": false,
@@ -822,6 +920,7 @@
         },
         {
           "id": "ACA-04-028",
+          "wbs": "4.5.1",
           "title": "services/api/app/db/cosmos.py upsert_item() must accept partition_key as a",
           "feature_id": "ACA-04",
           "done": false,
@@ -837,6 +936,7 @@
       "stories": [
         {
           "id": "ACA-05-001",
+          "wbs": "5.1.1",
           "title": "roles.ts defines ACA_Admin, ACA_Support, ACA_FinOps role constants",
           "feature_id": "ACA-05",
           "done": false,
@@ -845,6 +945,7 @@
         },
         {
           "id": "ACA-05-002",
+          "wbs": "5.1.2",
           "title": "useAuth.ts wraps MSAL PublicClientApplication; exposes user, roles,",
           "feature_id": "ACA-05",
           "done": false,
@@ -853,6 +954,7 @@
         },
         {
           "id": "ACA-05-003",
+          "wbs": "5.1.3",
           "title": "RequireAuth.tsx: if !isAuthenticated redirect to /",
           "feature_id": "ACA-05",
           "done": false,
@@ -861,6 +963,7 @@
         },
         {
           "id": "ACA-05-004",
+          "wbs": "5.1.4",
           "title": "RequireRole.tsx: if user lacks anyOf roles, redirect to /app/connect",
           "feature_id": "ACA-05",
           "done": false,
@@ -869,6 +972,7 @@
         },
         {
           "id": "ACA-05-005",
+          "wbs": "5.1.5",
           "title": "All admin routes require RequireAuth + RequireRole (ACA_Admin|Support|FinOps)",
           "feature_id": "ACA-05",
           "done": false,
@@ -877,6 +981,7 @@
         },
         {
           "id": "ACA-05-006",
+          "wbs": "5.2.1",
           "title": "CustomerLayout.tsx: top nav with logo, LanguageSelector, user menu",
           "feature_id": "ACA-05",
           "done": false,
@@ -885,6 +990,7 @@
         },
         {
           "id": "ACA-05-007",
+          "wbs": "5.2.2",
           "title": "AdminLayout.tsx: top nav + left sidebar with admin nav items",
           "feature_id": "ACA-05",
           "done": false,
@@ -893,6 +999,7 @@
         },
         {
           "id": "ACA-05-008",
+          "wbs": "5.2.3",
           "title": "NavCustomer.tsx: links to /app/connect, /app/status, /app/findings",
           "feature_id": "ACA-05",
           "done": false,
@@ -901,6 +1008,7 @@
         },
         {
           "id": "ACA-05-009",
+          "wbs": "5.2.4",
           "title": "NavAdmin.tsx: links to /admin/dashboard, /admin/customers,",
           "feature_id": "ACA-05",
           "done": false,
@@ -909,6 +1017,7 @@
         },
         {
           "id": "ACA-05-010",
+          "wbs": "5.2.5",
           "title": "AppShell.tsx: root component with FluentProvider + ConsentBanner +",
           "feature_id": "ACA-05",
           "done": false,
@@ -917,6 +1026,7 @@
         },
         {
           "id": "ACA-05-011",
+          "wbs": "5.3.1",
           "title": "router.tsx uses createBrowserRouter (not BrowserRouter + <Routes>)",
           "feature_id": "ACA-05",
           "done": false,
@@ -925,6 +1035,7 @@
         },
         {
           "id": "ACA-05-012",
+          "wbs": "5.3.2",
           "title": "Route / -> LoginPage (no auth required)",
           "feature_id": "ACA-05",
           "done": false,
@@ -933,6 +1044,7 @@
         },
         {
           "id": "ACA-05-013",
+          "wbs": "5.3.3",
           "title": "Routes /app/* -> RequireAuth -> CustomerLayout -> Outlet",
           "feature_id": "ACA-05",
           "done": false,
@@ -941,6 +1053,7 @@
         },
         {
           "id": "ACA-05-014",
+          "wbs": "5.3.4",
           "title": "Routes /admin/* -> RequireAuth -> RequireRole -> AdminLayout -> Outlet",
           "feature_id": "ACA-05",
           "done": false,
@@ -949,6 +1062,7 @@
         },
         {
           "id": "ACA-05-015",
+          "wbs": "5.3.5",
           "title": "Code-split: all page components lazy-loaded with React.lazy",
           "feature_id": "ACA-05",
           "done": false,
@@ -957,6 +1071,7 @@
         },
         {
           "id": "ACA-05-016",
+          "wbs": "5.4.1",
           "title": "LoginPage (/) -- Entra ID login CTA + dev bypass link",
           "feature_id": "ACA-05",
           "done": false,
@@ -965,6 +1080,7 @@
         },
         {
           "id": "ACA-05-017",
+          "wbs": "5.4.2",
           "title": "ConnectSubscriptionPage (/app/connect) -- Mode A/B/C radio group;",
           "feature_id": "ACA-05",
           "done": false,
@@ -973,6 +1089,7 @@
         },
         {
           "id": "ACA-05-018",
+          "wbs": "5.4.3",
           "title": "CollectionStatusPage (/app/status/:subscriptionId) -- polls",
           "feature_id": "ACA-05",
           "done": false,
@@ -981,6 +1098,7 @@
         },
         {
           "id": "ACA-05-019",
+          "wbs": "5.4.4",
           "title": "FindingsTier1Page (/app/findings/:subscriptionId) -- renders Tier 1",
           "feature_id": "ACA-05",
           "done": false,
@@ -989,6 +1107,7 @@
         },
         {
           "id": "ACA-05-020",
+          "wbs": "5.4.5",
           "title": "UpgradePage (/app/upgrade/:subscriptionId) -- Tier 2 vs Tier 3 cards;",
           "feature_id": "ACA-05",
           "done": false,
@@ -997,6 +1116,7 @@
         },
         {
           "id": "ACA-05-021",
+          "wbs": "5.5.1",
           "title": "AdminDashboardPage (/admin/dashboard) -- calls GET /v1/admin/kpis;",
           "feature_id": "ACA-05",
           "done": false,
@@ -1005,6 +1125,7 @@
         },
         {
           "id": "ACA-05-022",
+          "wbs": "5.5.2",
           "title": "AdminCustomersPage (/admin/customers) -- search input calls",
           "feature_id": "ACA-05",
           "done": false,
@@ -1013,6 +1134,7 @@
         },
         {
           "id": "ACA-05-023",
+          "wbs": "5.5.3",
           "title": "AdminBillingPage (/admin/billing) -- Stripe billing portal link;",
           "feature_id": "ACA-05",
           "done": false,
@@ -1021,6 +1143,7 @@
         },
         {
           "id": "ACA-05-024",
+          "wbs": "5.5.4",
           "title": "AdminRunsPage (/admin/runs) -- lists runs from GET /v1/admin/runs;",
           "feature_id": "ACA-05",
           "done": false,
@@ -1029,6 +1152,7 @@
         },
         {
           "id": "ACA-05-025",
+          "wbs": "5.5.5",
           "title": "AdminControlsPage (/admin/controls) -- grant tier form (subscriptionId,",
           "feature_id": "ACA-05",
           "done": false,
@@ -1037,6 +1161,7 @@
         },
         {
           "id": "ACA-05-026",
+          "wbs": "5.6.1",
           "title": "frontend/src/app/api/client.ts -- base http<T> function; includes",
           "feature_id": "ACA-05",
           "done": false,
@@ -1045,6 +1170,7 @@
         },
         {
           "id": "ACA-05-027",
+          "wbs": "5.6.2",
           "title": "frontend/src/app/api/appApi.ts -- customer API calls:",
           "feature_id": "ACA-05",
           "done": false,
@@ -1053,6 +1179,7 @@
         },
         {
           "id": "ACA-05-028",
+          "wbs": "5.6.3",
           "title": "frontend/src/app/api/adminApi.ts -- admin API calls:",
           "feature_id": "ACA-05",
           "done": false,
@@ -1061,6 +1188,7 @@
         },
         {
           "id": "ACA-05-029",
+          "wbs": "5.6.4",
           "title": "frontend/src/app/types/models.ts -- TypeScript DTOs:",
           "feature_id": "ACA-05",
           "done": false,
@@ -1069,6 +1197,7 @@
         },
         {
           "id": "ACA-05-030",
+          "wbs": "5.7.1",
           "title": "Loading.tsx -- full-page or inline Fluent Spinner with aria-label",
           "feature_id": "ACA-05",
           "done": false,
@@ -1077,6 +1206,7 @@
         },
         {
           "id": "ACA-05-031",
+          "wbs": "5.7.2",
           "title": "ErrorState.tsx -- Fluent MessageBar (error) with retry callback",
           "feature_id": "ACA-05",
           "done": false,
@@ -1085,6 +1215,7 @@
         },
         {
           "id": "ACA-05-032",
+          "wbs": "5.7.3",
           "title": "DataTable.tsx -- accessible Fluent Table wrapper (th scope=col)",
           "feature_id": "ACA-05",
           "done": false,
@@ -1093,6 +1224,7 @@
         },
         {
           "id": "ACA-05-033",
+          "wbs": "5.7.4",
           "title": "MoneyRangeBar.tsx -- visual low/high saving range bar with currency label",
           "feature_id": "ACA-05",
           "done": false,
@@ -1101,6 +1233,7 @@
         },
         {
           "id": "ACA-05-034",
+          "wbs": "5.7.5",
           "title": "EffortBadge.tsx -- colour-coded badge: trivial/easy/medium/involved/strategic",
           "feature_id": "ACA-05",
           "done": false,
@@ -1109,6 +1242,7 @@
         },
         {
           "id": "ACA-05-035",
+          "wbs": "5.8.1",
           "title": "As a user I see a consent banner on first visit (ConsentBanner reused)",
           "feature_id": "ACA-05",
           "done": false,
@@ -1117,6 +1251,7 @@
         },
         {
           "id": "ACA-05-036",
+          "wbs": "5.8.2",
           "title": "TelemetryProvider.tsx wraps CustomerLayout; loads GTM + Clarity scripts",
           "feature_id": "ACA-05",
           "done": false,
@@ -1125,6 +1260,7 @@
         },
         {
           "id": "ACA-05-037",
+          "wbs": "5.8.3",
           "title": "All 16 AnalyticsEventName events fire at correct points in customer flow",
           "feature_id": "ACA-05",
           "done": false,
@@ -1133,6 +1269,7 @@
         },
         {
           "id": "ACA-05-038",
+          "wbs": "5.8.4",
           "title": "Admin surface does NOT load telemetry (no GA4 in admin pages)",
           "feature_id": "ACA-05",
           "done": false,
@@ -1141,6 +1278,7 @@
         },
         {
           "id": "ACA-05-039",
+          "wbs": "5.9.1",
           "title": "Skip-to-content link is first focusable element on every page",
           "feature_id": "ACA-05",
           "done": false,
@@ -1149,6 +1287,7 @@
         },
         {
           "id": "ACA-05-040",
+          "wbs": "5.9.2",
           "title": "Full keyboard navigation in all customer and admin pages",
           "feature_id": "ACA-05",
           "done": false,
@@ -1157,6 +1296,7 @@
         },
         {
           "id": "ACA-05-041",
+          "wbs": "5.9.3",
           "title": "All form fields have associated label elements",
           "feature_id": "ACA-05",
           "done": false,
@@ -1165,6 +1305,7 @@
         },
         {
           "id": "ACA-05-042",
+          "wbs": "5.9.4",
           "title": "Admin confirmation modals trap focus and close on Escape",
           "feature_id": "ACA-05",
           "done": false,
@@ -1180,6 +1321,7 @@
       "stories": [
         {
           "id": "ACA-06-001",
+          "wbs": "6.1.1",
           "title": "POST /v1/checkout/tier2 returns a Stripe checkout session URL",
           "feature_id": "ACA-06",
           "done": true,
@@ -1188,6 +1330,7 @@
         },
         {
           "id": "ACA-06-002",
+          "wbs": "6.1.2",
           "title": "POST /v1/checkout/tier3 returns a Stripe checkout session URL",
           "feature_id": "ACA-06",
           "done": true,
@@ -1196,6 +1339,7 @@
         },
         {
           "id": "ACA-06-003",
+          "wbs": "6.1.3",
           "title": "mode=subscription creates a Stripe subscription (Tier 2 monthly)",
           "feature_id": "ACA-06",
           "done": true,
@@ -1204,6 +1348,7 @@
         },
         {
           "id": "ACA-06-004",
+          "wbs": "6.1.4",
           "title": "mode=one_time creates a one-time session (Tier 2 one-time, Tier 3)",
           "feature_id": "ACA-06",
           "done": true,
@@ -1212,6 +1357,7 @@
         },
         {
           "id": "ACA-06-005",
+          "wbs": "6.1.5",
           "title": "Checkout metadata contains subscriptionId and analysisId",
           "feature_id": "ACA-06",
           "done": true,
@@ -1220,6 +1366,7 @@
         },
         {
           "id": "ACA-06-006",
+          "wbs": "6.1.6",
           "title": "As a client with a coupon code I can enter it at Stripe checkout",
           "feature_id": "ACA-06",
           "done": true,
@@ -1228,6 +1375,7 @@
         },
         {
           "id": "ACA-06-007",
+          "wbs": "6.1.7",
           "title": "settings.py has STRIPE_COUPON_ENABLED: bool = True field",
           "feature_id": "ACA-06",
           "done": true,
@@ -1236,6 +1384,7 @@
         },
         {
           "id": "ACA-06-008",
+          "wbs": "6.1.8",
           "title": "As an admin I can create Stripe promotion codes for trial clients",
           "feature_id": "ACA-06",
           "done": true,
@@ -1244,6 +1393,7 @@
         },
         {
           "id": "ACA-06-009",
+          "wbs": "6.2.1",
           "title": "checkout.session.completed -> write entitlement to Cosmos, trigger delivery",
           "feature_id": "ACA-06",
           "done": true,
@@ -1252,6 +1402,7 @@
         },
         {
           "id": "ACA-06-010",
+          "wbs": "6.2.2",
           "title": "invoice.paid -> renew Tier 2 subscription entitlement for next period",
           "feature_id": "ACA-06",
           "done": true,
@@ -1260,6 +1411,7 @@
         },
         {
           "id": "ACA-06-011",
+          "wbs": "6.2.3",
           "title": "customer.subscription.updated -> update Tier in Cosmos clients container",
           "feature_id": "ACA-06",
           "done": true,
@@ -1268,6 +1420,7 @@
         },
         {
           "id": "ACA-06-012",
+          "wbs": "6.2.4",
           "title": "customer.subscription.deleted -> downgrade to Tier 1 in Cosmos unless Tier 3 permanent",
           "feature_id": "ACA-06",
           "done": true,
@@ -1276,6 +1429,7 @@
         },
         {
           "id": "ACA-06-013",
+          "wbs": "6.2.5",
           "title": "All webhook events written to payments container for audit trail",
           "feature_id": "ACA-06",
           "done": true,
@@ -1284,6 +1438,7 @@
         },
         {
           "id": "ACA-06-014",
+          "wbs": "6.3.1",
           "title": "GET /v1/entitlements?subscriptionId=X returns { tier, validUntil, features[] }",
           "feature_id": "ACA-06",
           "done": true,
@@ -1292,6 +1447,7 @@
         },
         {
           "id": "ACA-06-015",
+          "wbs": "6.3.2",
           "title": "Tier gate evaluates entitlement from Cosmos (with APIM 60s cache)",
           "feature_id": "ACA-06",
           "done": true,
@@ -1300,6 +1456,7 @@
         },
         {
           "id": "ACA-06-016",
+          "wbs": "6.3.3",
           "title": "StripeCustomerMapRepo resolves stripeCustomerId -> subscriptionId for webhooks",
           "feature_id": "ACA-06",
           "done": true,
@@ -1308,6 +1465,7 @@
         },
         {
           "id": "ACA-06-017",
+          "wbs": "6.3.4",
           "title": "Billing portal endpoint derives stripeCustomerId from Cosmos clients container",
           "feature_id": "ACA-06",
           "done": true,
@@ -1316,6 +1474,7 @@
         },
         {
           "id": "ACA-06-018",
+          "wbs": "6.3.5",
           "title": "As a Tier 3 customer, when my Tier 2 subscription is canceled (subscription.deleted)",
           "feature_id": "ACA-06",
           "done": true,
@@ -1331,6 +1490,7 @@
       "stories": [
         {
           "id": "ACA-07-001",
+          "wbs": "7.1.1",
           "title": "12 Jinja2 template folders exist in services/delivery/app/templates/",
           "feature_id": "ACA-07",
           "done": false,
@@ -1339,6 +1499,7 @@
         },
         {
           "id": "ACA-07-002",
+          "wbs": "7.1.2",
           "title": "Each folder has main.bicep and README.md (Bicep Phase 1 only;",
           "feature_id": "ACA-07",
           "done": false,
@@ -1347,6 +1508,7 @@
         },
         {
           "id": "ACA-07-003",
+          "wbs": "7.1.3",
           "title": "Templates are parameterized with scan_id, subscription_id, and finding fields",
           "feature_id": "ACA-07",
           "done": false,
@@ -1355,6 +1517,7 @@
         },
         {
           "id": "ACA-07-004",
+          "wbs": "7.1.4",
           "title": "Template content sourced from 12-IaCscript.md patterns",
           "feature_id": "ACA-07",
           "done": false,
@@ -1363,6 +1526,7 @@
         },
         {
           "id": "ACA-07-005",
+          "wbs": "7.2.1",
           "title": "Delivery service generates all IaC artifacts for a scan's findings",
           "feature_id": "ACA-07",
           "done": false,
@@ -1371,6 +1535,7 @@
         },
         {
           "id": "ACA-07-006",
+          "wbs": "7.2.2",
           "title": "ZIP is assembled with findings.json manifest at root",
           "feature_id": "ACA-07",
           "done": false,
@@ -1379,6 +1544,7 @@
         },
         {
           "id": "ACA-07-007",
+          "wbs": "7.2.3",
           "title": "ZIP is signed with SHA-256 and the hash stored in the deliverables container",
           "feature_id": "ACA-07",
           "done": false,
@@ -1387,6 +1553,7 @@
         },
         {
           "id": "ACA-07-008",
+          "wbs": "7.2.4",
           "title": "ZIP is uploaded to Azure Blob Storage with 24h SAS URL",
           "feature_id": "ACA-07",
           "done": false,
@@ -1395,6 +1562,7 @@
         },
         {
           "id": "ACA-07-009",
+          "wbs": "7.2.5",
           "title": "Deliverable record is written to Cosmos with sasUrl, sha256, artifactCount",
           "feature_id": "ACA-07",
           "done": false,
@@ -1410,6 +1578,7 @@
       "stories": [
         {
           "id": "ACA-08-001",
+          "wbs": "8.1.1",
           "title": "GTM container is loaded in index.html with consent gating",
           "feature_id": "ACA-08",
           "done": false,
@@ -1418,6 +1587,7 @@
         },
         {
           "id": "ACA-08-002",
+          "wbs": "8.1.2",
           "title": "GA4 tag fires after consent accepted",
           "feature_id": "ACA-08",
           "done": false,
@@ -1426,6 +1596,7 @@
         },
         {
           "id": "ACA-08-003",
+          "wbs": "8.1.3",
           "title": "Clarity tag fires after consent accepted with form field masking ON",
           "feature_id": "ACA-08",
           "done": false,
@@ -1434,6 +1605,7 @@
         },
         {
           "id": "ACA-08-004",
+          "wbs": "8.1.4",
           "title": "All 16 AnalyticsEventName events are fired at correct points in the UI",
           "feature_id": "ACA-08",
           "done": false,
@@ -1442,6 +1614,7 @@
         },
         {
           "id": "ACA-08-005",
+          "wbs": "8.1.5",
           "title": "Consent banner allows accept/reject: rejected state suppresses all tags",
           "feature_id": "ACA-08",
           "done": false,
@@ -1450,6 +1623,7 @@
         },
         {
           "id": "ACA-08-006",
+          "wbs": "8.1.6",
           "title": "Consent preference is respected across page reloads (localStorage)",
           "feature_id": "ACA-08",
           "done": false,
@@ -1458,6 +1632,7 @@
         },
         {
           "id": "ACA-08-007",
+          "wbs": "8.2.1",
           "title": "App Insights connection string is set in all Container Apps via KV reference",
           "feature_id": "ACA-08",
           "done": false,
@@ -1466,6 +1641,7 @@
         },
         {
           "id": "ACA-08-008",
+          "wbs": "8.2.2",
           "title": "All service logs are structured JSON and appear in Azure Monitor",
           "feature_id": "ACA-08",
           "done": false,
@@ -1474,6 +1650,7 @@
         },
         {
           "id": "ACA-08-009",
+          "wbs": "8.2.3",
           "title": "Scan duration, analysis duration, delivery duration are emitted as custom metrics",
           "feature_id": "ACA-08",
           "done": false,
@@ -1482,6 +1659,7 @@
         },
         {
           "id": "ACA-08-010",
+          "wbs": "8.2.4",
           "title": "All API errors (4xx, 5xx) are logged with error_category enum (no raw messages)",
           "feature_id": "ACA-08",
           "done": false,
@@ -1490,6 +1668,7 @@
         },
         {
           "id": "ACA-08-011",
+          "wbs": "8.2.5",
           "title": "Stripe webhook events are logged with event type + subscriptionId (hashed)",
           "feature_id": "ACA-08",
           "done": false,
@@ -1498,6 +1677,7 @@
         },
         {
           "id": "ACA-08-012",
+          "wbs": "8.3.1",
           "title": "Alert: API service 5xx rate > 5% in 5 minutes -> PagerDuty / email",
           "feature_id": "ACA-08",
           "done": false,
@@ -1506,6 +1686,7 @@
         },
         {
           "id": "ACA-08-013",
+          "wbs": "8.3.2",
           "title": "Alert: Collector job failure -> email + Cosmos audit record",
           "feature_id": "ACA-08",
           "done": false,
@@ -1514,6 +1695,7 @@
         },
         {
           "id": "ACA-08-014",
+          "wbs": "8.3.3",
           "title": "Alert: Anomaly detection rule fires -> owner notified (Story R-05 output)",
           "feature_id": "ACA-08",
           "done": false,
@@ -1529,6 +1711,7 @@
       "stories": [
         {
           "id": "ACA-09-001",
+          "wbs": "9.1.1",
           "title": "i18next is configured with 5 locale namespaces in frontend/src/i18n/",
           "feature_id": "ACA-09",
           "done": false,
@@ -1537,6 +1720,7 @@
         },
         {
           "id": "ACA-09-002",
+          "wbs": "9.1.2",
           "title": "All user-visible strings are extracted to translation files (no hardcoded EN text)",
           "feature_id": "ACA-09",
           "done": false,
@@ -1545,6 +1729,7 @@
         },
         {
           "id": "ACA-09-003",
+          "wbs": "9.1.3",
           "title": "Language selector is visible in the nav with locale names in their own language:",
           "feature_id": "ACA-09",
           "done": false,
@@ -1553,6 +1738,7 @@
         },
         {
           "id": "ACA-09-004",
+          "wbs": "9.1.4",
           "title": "Locale preference is persisted in localStorage",
           "feature_id": "ACA-09",
           "done": false,
@@ -1561,6 +1747,7 @@
         },
         {
           "id": "ACA-09-005",
+          "wbs": "9.1.5",
           "title": "Date formats use Intl.DateTimeFormat -- locale-aware, no hardcoded format",
           "feature_id": "ACA-09",
           "done": false,
@@ -1569,6 +1756,7 @@
         },
         {
           "id": "ACA-09-006",
+          "wbs": "9.1.6",
           "title": "Number/currency formats use Intl.NumberFormat with locale and currency options:",
           "feature_id": "ACA-09",
           "done": false,
@@ -1577,6 +1765,7 @@
         },
         {
           "id": "ACA-09-007",
+          "wbs": "9.1.7",
           "title": "fr (fr-CA) translations are completed before Phase 1 go-live",
           "feature_id": "ACA-09",
           "done": false,
@@ -1585,6 +1774,7 @@
         },
         {
           "id": "ACA-09-008",
+          "wbs": "9.1.8",
           "title": "pt-BR, es, and de translations are completed before Phase 1 go-live",
           "feature_id": "ACA-09",
           "done": false,
@@ -1593,6 +1783,7 @@
         },
         {
           "id": "ACA-09-009",
+          "wbs": "9.1.9",
           "title": "API error messages returned with Accept-Language header support for the",
           "feature_id": "ACA-09",
           "done": false,
@@ -1601,6 +1792,7 @@
         },
         {
           "id": "ACA-09-010",
+          "wbs": "9.2.1",
           "title": "axe-core CI check runs on every PR -- zero critical or serious violations gate",
           "feature_id": "ACA-09",
           "done": false,
@@ -1609,6 +1801,7 @@
         },
         {
           "id": "ACA-09-011",
+          "wbs": "9.2.2",
           "title": "All icon-only buttons have aria-label in all 5 locales",
           "feature_id": "ACA-09",
           "done": false,
@@ -1617,6 +1810,7 @@
         },
         {
           "id": "ACA-09-012",
+          "wbs": "9.2.3",
           "title": "All form fields have associated <label> elements (no placeholder-as-label)",
           "feature_id": "ACA-09",
           "done": false,
@@ -1625,6 +1819,7 @@
         },
         {
           "id": "ACA-09-013",
+          "wbs": "9.2.4",
           "title": "Findings table has proper <th scope=\"col\"> headers",
           "feature_id": "ACA-09",
           "done": false,
@@ -1633,6 +1828,7 @@
         },
         {
           "id": "ACA-09-014",
+          "wbs": "9.2.5",
           "title": "PreFlight status indicators use both colour and icon/text (not colour-only)",
           "feature_id": "ACA-09",
           "done": false,
@@ -1641,6 +1837,7 @@
         },
         {
           "id": "ACA-09-015",
+          "wbs": "9.2.6",
           "title": "Colour contrast ratio >= 4.5:1 for all body text (verified in Figma + axe)",
           "feature_id": "ACA-09",
           "done": false,
@@ -1649,6 +1846,7 @@
         },
         {
           "id": "ACA-09-016",
+          "wbs": "9.2.7",
           "title": "Focus ring is visible and high-contrast on all focusable elements",
           "feature_id": "ACA-09",
           "done": false,
@@ -1657,6 +1855,7 @@
         },
         {
           "id": "ACA-09-017",
+          "wbs": "9.2.8",
           "title": "Skip-to-content link is the first focusable element on every page",
           "feature_id": "ACA-09",
           "done": false,
@@ -1665,6 +1864,7 @@
         },
         {
           "id": "ACA-09-018",
+          "wbs": "9.2.9",
           "title": "Consent banner is keyboard-accessible and screen-reader-labelled",
           "feature_id": "ACA-09",
           "done": false,
@@ -1680,6 +1880,7 @@
       "stories": [
         {
           "id": "ACA-10-001",
+          "wbs": "10.1.1",
           "title": "Red-team agent runs Tier 1 token against findings API and asserts",
           "feature_id": "ACA-10",
           "done": false,
@@ -1688,6 +1889,7 @@
         },
         {
           "id": "ACA-10-002",
+          "wbs": "10.1.2",
           "title": "All endpoints validated: no tenant A can access tenant B data",
           "feature_id": "ACA-10",
           "done": false,
@@ -1696,6 +1898,7 @@
         },
         {
           "id": "ACA-10-003",
+          "wbs": "10.1.3",
           "title": "Stripe webhook signature verified on every event (whsec_ secret)",
           "feature_id": "ACA-10",
           "done": false,
@@ -1704,6 +1907,7 @@
         },
         {
           "id": "ACA-10-004",
+          "wbs": "10.1.4",
           "title": "Admin endpoints protected by bearer token rotation schedule",
           "feature_id": "ACA-10",
           "done": false,
@@ -1712,6 +1916,7 @@
         },
         {
           "id": "ACA-10-005",
+          "wbs": "10.1.5",
           "title": "All Cosmos queries parameterized (no string concatenation in queries)",
           "feature_id": "ACA-10",
           "done": false,
@@ -1720,6 +1925,7 @@
         },
         {
           "id": "ACA-10-006",
+          "wbs": "10.1.6",
           "title": "CSP header enforced: scripts from GTM/Stripe/Clarity only, no inline",
           "feature_id": "ACA-10",
           "done": false,
@@ -1728,6 +1934,7 @@
         },
         {
           "id": "ACA-10-007",
+          "wbs": "10.2.1",
           "title": "Privacy policy published at /privacy in all 5 locales",
           "feature_id": "ACA-10",
           "done": false,
@@ -1736,6 +1943,7 @@
         },
         {
           "id": "ACA-10-008",
+          "wbs": "10.2.2",
           "title": "Terms of service published at /terms in all 5 locales",
           "feature_id": "ACA-10",
           "done": false,
@@ -1744,6 +1952,7 @@
         },
         {
           "id": "ACA-10-009",
+          "wbs": "10.2.3",
           "title": "Data retention policy: collected Azure data purged after 90 days",
           "feature_id": "ACA-10",
           "done": false,
@@ -1752,6 +1961,7 @@
         },
         {
           "id": "ACA-10-010",
+          "wbs": "10.2.4",
           "title": "Client can request data deletion via DELETE /v1/auth/disconnect which",
           "feature_id": "ACA-10",
           "done": false,
@@ -1760,6 +1970,7 @@
         },
         {
           "id": "ACA-10-011",
+          "wbs": "10.2.5",
           "title": "GA4 data retention set to 14 months. IP anonymization enabled.",
           "feature_id": "ACA-10",
           "done": false,
@@ -1768,6 +1979,7 @@
         },
         {
           "id": "ACA-10-012",
+          "wbs": "10.2.6",
           "title": "Clarity data retention respects GDPR right-to-be-forgotten via Clarity API",
           "feature_id": "ACA-10",
           "done": false,
@@ -1776,6 +1988,7 @@
         },
         {
           "id": "ACA-10-013",
+          "wbs": "10.3.1",
           "title": "docs/client-access-guide.md published at /docs/access-guide in all 5 locales",
           "feature_id": "ACA-10",
           "done": false,
@@ -1784,6 +1997,7 @@
         },
         {
           "id": "ACA-10-014",
+          "wbs": "10.3.2",
           "title": "FAQ page covers top 10 support questions (from preflight failure analysis)",
           "feature_id": "ACA-10",
           "done": false,
@@ -1792,6 +2006,7 @@
         },
         {
           "id": "ACA-10-015",
+          "wbs": "10.3.3",
           "title": "Status page (uptime) linked from footer",
           "feature_id": "ACA-10",
           "done": false,
@@ -1807,6 +2022,7 @@
       "stories": [
         {
           "id": "ACA-11-001",
+          "wbs": "11.1.1",
           "title": "`terraform apply` on infra/phase2-private completes without error",
           "feature_id": "ACA-11",
           "done": false,
@@ -1815,6 +2031,7 @@
         },
         {
           "id": "ACA-11-002",
+          "wbs": "11.1.2",
           "title": "ACA-specific APIM instance is deployed with Tier enforcement policies",
           "feature_id": "ACA-11",
           "done": false,
@@ -1823,6 +2040,7 @@
         },
         {
           "id": "ACA-11-003",
+          "wbs": "11.1.3",
           "title": "GitHub Actions deploy-phase2.yml is wired to private subscription via OIDC",
           "feature_id": "ACA-11",
           "done": false,
@@ -1831,6 +2049,7 @@
         },
         {
           "id": "ACA-11-004",
+          "wbs": "11.1.4",
           "title": "Custom domain (app.aca.example.com / api.aca.example.com) configured with",
           "feature_id": "ACA-11",
           "done": false,
@@ -1839,6 +2058,7 @@
         },
         {
           "id": "ACA-11-005",
+          "wbs": "11.1.5",
           "title": "Phase 2 Cosmos has 3 geo-replicas (canadacentral primary + failover)",
           "feature_id": "ACA-11",
           "done": false,
@@ -1847,6 +2067,7 @@
         },
         {
           "id": "ACA-11-006",
+          "wbs": "11.2.1",
           "title": "DNS TTL lowered 48h before cutover",
           "feature_id": "ACA-11",
           "done": false,
@@ -1855,6 +2076,7 @@
         },
         {
           "id": "ACA-11-007",
+          "wbs": "11.2.2",
           "title": "Phase 1 marco* infra remains live as rollback for 30 days post-cutover",
           "feature_id": "ACA-11",
           "done": false,
@@ -1863,6 +2085,7 @@
         },
         {
           "id": "ACA-11-008",
+          "wbs": "11.2.3",
           "title": "Phase 2 smoke test: full Tier 1 -> Tier 3 flow on Phase 2 infra",
           "feature_id": "ACA-11",
           "done": false,
@@ -1871,6 +2094,7 @@
         },
         {
           "id": "ACA-11-009",
+          "wbs": "11.2.4",
           "title": "APIM configuration exported and version-controlled",
           "feature_id": "ACA-11",
           "done": false,
@@ -1886,6 +2110,7 @@
       "stories": [
         {
           "id": "ACA-12-001",
+          "wbs": "12.1.1",
           "title": "All epics, features, and stories from this PLAN are seeded into",
           "feature_id": "ACA-12",
           "done": false,
@@ -1894,6 +2119,7 @@
         },
         {
           "id": "ACA-12-002",
+          "wbs": "12.1.2",
           "title": "Each story has status: not-started / in-progress / done",
           "feature_id": "ACA-12",
           "done": false,
@@ -1902,6 +2128,7 @@
         },
         {
           "id": "ACA-12-003",
+          "wbs": "12.1.3",
           "title": "Story status is updated by the agent at start and end of each work item",
           "feature_id": "ACA-12",
           "done": false,
@@ -1910,6 +2137,7 @@
         },
         {
           "id": "ACA-12-004",
+          "wbs": "12.1.4",
           "title": "data-model agent-summary reflects current overall completion percentage",
           "feature_id": "ACA-12",
           "done": false,
@@ -1918,6 +2146,7 @@
         },
         {
           "id": "ACA-12-005",
+          "wbs": "12.2.1",
           "title": "API service reads feature_flags layer to gate unreleased features",
           "feature_id": "ACA-12",
           "done": false,
@@ -1926,6 +2155,7 @@
         },
         {
           "id": "ACA-12-006",
+          "wbs": "12.2.2",
           "title": "Analysis service reads the rules layer to discover enabled/disabled rules",
           "feature_id": "ACA-12",
           "done": false,
@@ -1934,6 +2164,7 @@
         },
         {
           "id": "ACA-12-007",
+          "wbs": "12.2.3",
           "title": "Endpoints layer is kept in sync with every shipped route (PUT on ship)",
           "feature_id": "ACA-12",
           "done": false,
@@ -1942,6 +2173,7 @@
         },
         {
           "id": "ACA-12-008",
+          "wbs": "12.2.4",
           "title": "Containers layer reflects the actual Cosmos schema (fields, partition keys)",
           "feature_id": "ACA-12",
           "done": false,
@@ -1957,6 +2189,7 @@
       "stories": [
         {
           "id": "ACA-13-009",
+          "wbs": "ACA-13-009",
           "title": "GET /v1/assessment/waf scores subscription against 5 WAF pillars",
           "feature_id": "ACA-13",
           "done": false,
@@ -1965,6 +2198,7 @@
         },
         {
           "id": "ACA-13-010",
+          "wbs": "ACA-13-010",
           "title": "WAF reliability pillar rules (APRL checklist integration)",
           "feature_id": "ACA-13",
           "done": false,
@@ -1973,6 +2207,7 @@
         },
         {
           "id": "ACA-13-011",
+          "wbs": "ACA-13-011",
           "title": "FinOps advisor rules R-13 to R-17 from best-practices library",
           "feature_id": "ACA-13",
           "done": false,
@@ -1981,6 +2216,7 @@
         },
         {
           "id": "ACA-13-012",
+          "wbs": "ACA-13-012",
           "title": "Idle resource detection rule (classic cost waste)",
           "feature_id": "ACA-13",
           "done": false,
@@ -1989,6 +2225,7 @@
         },
         {
           "id": "ACA-13-013",
+          "wbs": "ACA-13-013",
           "title": "RBAC hygiene check (over-scoped contributor assignments)",
           "feature_id": "ACA-13",
           "done": false,
@@ -1997,6 +2234,7 @@
         },
         {
           "id": "ACA-13-014",
+          "wbs": "ACA-13-014",
           "title": "Key Vault access policy audit (legacy vs RBAC mode)",
           "feature_id": "ACA-13",
           "done": false,
@@ -2005,6 +2243,7 @@
         },
         {
           "id": "ACA-13-015",
+          "wbs": "ACA-13-015",
           "title": "MCSB control compliance check (Defender for Cloud)",
           "feature_id": "ACA-13",
           "done": false,
@@ -2013,6 +2252,7 @@
         },
         {
           "id": "ACA-13-016",
+          "wbs": "ACA-13-016",
           "title": "APIM rate-limit policy health check",
           "feature_id": "ACA-13",
           "done": false,
@@ -2021,6 +2261,7 @@
         },
         {
           "id": "ACA-13-017",
+          "wbs": "ACA-13-017",
           "title": "API design compliance check (versioning, idempotency, error codes)",
           "feature_id": "ACA-13",
           "done": false,
@@ -2029,6 +2270,7 @@
         },
         {
           "id": "ACA-13-018",
+          "wbs": "ACA-13-018",
           "title": "PSRule for Azure gate on all Bicep templates",
           "feature_id": "ACA-13",
           "done": false,
@@ -2037,6 +2279,7 @@
         },
         {
           "id": "ACA-13-019",
+          "wbs": "ACA-13-019",
           "title": "Best-practice tag enforcement (cost-center, environment, owner)",
           "feature_id": "ACA-13",
           "done": false,
@@ -2052,6 +2295,7 @@
       "stories": [
         {
           "id": "ACA-14-001",
+          "wbs": "ACA-14-001",
           "title": ".github/ISSUE_TEMPLATE/agent-task.yml captures Story ID, WBS ID,",
           "feature_id": "ACA-14",
           "done": true,
@@ -2060,6 +2304,7 @@
         },
         {
           "id": "ACA-14-002",
+          "wbs": "ACA-14-002",
           "title": "Issue template validation: Story ID must match ACA-NN-NNN format",
           "feature_id": "ACA-14",
           "done": true,
@@ -2068,6 +2313,7 @@
         },
         {
           "id": "ACA-14-003",
+          "wbs": "ACA-14-003",
           "title": ".github/workflows/dpdca-agent.yml D1 phase: parse issue, load",
           "feature_id": "ACA-14",
           "done": true,
@@ -2076,6 +2322,7 @@
         },
         {
           "id": "ACA-14-004",
+          "wbs": "ACA-14-004",
           "title": "P phase: Python Plan-step calls gpt-4o-mini with context,",
           "feature_id": "ACA-14",
           "done": true,
@@ -2084,6 +2331,7 @@
         },
         {
           "id": "ACA-14-005",
+          "wbs": "ACA-14-005",
           "title": "D2 phase: create branch agent/ACA-NN-NNN-TIMESTAMP, write",
           "feature_id": "ACA-14",
           "done": true,
@@ -2092,6 +2340,7 @@
         },
         {
           "id": "ACA-14-006",
+          "wbs": "ACA-14-006",
           "title": "C phase: run ruff check + pytest --co; fail workflow on error",
           "feature_id": "ACA-14",
           "done": true,
@@ -2100,6 +2349,7 @@
         },
         {
           "id": "ACA-14-007",
+          "wbs": "ACA-14-007",
           "title": "A phase: commit with Story ID in message, run Veritas audit,",
           "feature_id": "ACA-14",
           "done": true,
@@ -2108,6 +2358,7 @@
         },
         {
           "id": "ACA-14-008",
+          "wbs": "ACA-14-008",
           "title": "GitHub Models API integration (GITHUB_TOKEN, endpoint, model param)",
           "feature_id": "ACA-14",
           "done": false,
@@ -2116,6 +2367,7 @@
         },
         {
           "id": "ACA-14-009",
+          "wbs": "ACA-14-009",
           "title": "Azure OpenAI fallback wiring (AZURE_OPENAI_KEY + endpoint env vars)",
           "feature_id": "ACA-14",
           "done": false,
@@ -2124,6 +2376,7 @@
         },
         {
           "id": "ACA-14-010",
+          "wbs": "ACA-14-010",
           "title": "Evidence receipt schema validation: story_id, wbs_id, epic,",
           "feature_id": "ACA-14",
           "done": false,
@@ -2132,6 +2385,7 @@
         },
         {
           "id": "ACA-03-021",
+          "wbs": "ACA-03-021",
           "title": "Fix FindingsAssembler missing cosmos_client argument",
           "feature_id": "ACA-14",
           "done": false,
@@ -2140,6 +2394,7 @@
         },
         {
           "id": "ACA-07-021",
+          "wbs": "ACA-07-021",
           "title": "Fix generate_blob_sas call and SAS_HOURS constant",
           "feature_id": "ACA-14",
           "done": false,
@@ -2148,6 +2403,7 @@
         },
         {
           "id": "ACA-12-021",
+          "wbs": "ACA-12-021",
           "title": "Create missing spec docs in docs/",
           "feature_id": "ACA-14",
           "done": true,
@@ -2156,6 +2412,7 @@
         },
         {
           "id": "ACA-12-022",
+          "wbs": "ACA-12-022",
           "title": "Lower MTI gate to 30 for Sprint 2 pre-flight",
           "feature_id": "ACA-14",
           "done": true,

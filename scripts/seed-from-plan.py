@@ -55,7 +55,8 @@ except ImportError:
 EPIC_HEADER_RE   = re.compile(r"^=+\s*$", re.MULTILINE)
 EPIC_TITLE_RE    = re.compile(r"EPIC\s+(\d+)\s+--\s+(.+?)(?:\s+\(|$)", re.IGNORECASE)
 FEATURE_RE       = re.compile(r"^\s{0,4}Feature\s+(\d+)\.(\d+)\s+--\s+(.+)$")
-STORY_OLD_RE     = re.compile(r"^\s{2,6}Story\s+(\d+)\.(\d+)\.(\d+)\s{2,}(.+)$")
+# optional [ACA-NN-NNN] annotation (added by reflect-ids.py) -- strip it when matching
+STORY_OLD_RE     = re.compile(r"^\s{2,6}Story\s+(\d+)\.(\d+)\.(\d+)(?:\s+\[[A-Z]{2,5}-\d{2}-\d{3}\])?\s{2,}(.+)$")
 STORY_NEW_RE     = re.compile(r"^\s{2,6}Story\s+(ACA-\d{2}-\d{3})\s{2,}(.+)$")
 STATUS_LINE_RE   = re.compile(r"^\s+Status:\s+(.+)$", re.IGNORECASE)
 EVA_TAG_LINE_RE  = re.compile(r"EVA-STORY\s+tag:\s+[/#/]+\s*EVA-STORY:\s+(ACA-\d{2}-\d{3})")
@@ -292,6 +293,7 @@ def build_veritas_plan(epics: dict) -> dict:
             for st in feat["stories"]:
                 all_stories.append({
                     "id": st["id"],
+                    "wbs": st.get("wbs", ""),
                     "title": st["title"],
                     "feature_id": ep["id"],
                     "done": st.get("done", False),

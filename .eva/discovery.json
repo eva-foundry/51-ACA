@@ -1,7 +1,7 @@
 {
   "meta": {
     "schema": "eva.discovery.v2",
-    "generated_at": "2026-02-27T08:30:21.539Z",
+    "generated_at": "2026-02-27T12:05:57.112Z",
     "repo": "C:\\AICOE\\eva-foundry\\51-ACA"
   },
   "project": null,
@@ -2274,6 +2274,11 @@
         "story_tags": []
       },
       {
+        "path": "_opus_review_findings_20260227.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
         "path": "_opus_review_issue_draft.md",
         "type": "doc",
         "story_tags": []
@@ -2300,6 +2305,11 @@
       },
       {
         "path": ".github/pull_request_template.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": ".github/SPRINT_ISSUE_TEMPLATE.md",
         "type": "doc",
         "story_tags": []
       },
@@ -2366,7 +2376,32 @@
         "story_tags": []
       },
       {
+        "path": "docs/02-preflight.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/05-technical.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/08-payment.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/12-IaCscript.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
         "path": "docs/analytics-spec.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/saving-opportunity-rules.md",
         "type": "doc",
         "story_tags": []
       },
@@ -4228,6 +4263,11 @@
         ]
       },
       {
+        "path": ".github/scripts/create-sonnet-review-issue.ps1",
+        "type": "code",
+        "story_tags": []
+      },
+      {
         "path": ".github/scripts/dpdca_evidence.py",
         "type": "code",
         "story_tags": [
@@ -4247,6 +4287,31 @@
         "story_tags": [
           "ACA-14-007"
         ]
+      },
+      {
+        "path": ".github/scripts/sonnet_review.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-14-008"
+        ]
+      },
+      {
+        "path": ".github/scripts/sprint_agent.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-14-009",
+          "ACA-NN-NNN"
+        ]
+      },
+      {
+        "path": ".github/sprints/README.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": ".github/sprints/sprint-00-preflight.md",
+        "type": "doc",
+        "story_tags": []
       },
       {
         "path": ".github/workflows/ci.yml",
@@ -4271,6 +4336,18 @@
       },
       {
         "path": ".github/workflows/dpdca-agent.yml",
+        "type": "config",
+        "story_tags": []
+      },
+      {
+        "path": ".github/workflows/sonnet-review.yml",
+        "type": "config",
+        "story_tags": [
+          "ACA-14-008"
+        ]
+      },
+      {
+        "path": ".github/workflows/sprint-agent.yml",
         "type": "config",
         "story_tags": []
       },
@@ -4672,13 +4749,6 @@
         "story_tags": []
       },
       {
-        "path": "frontend/src/app/AppShell.tsx",
-        "type": "code",
-        "story_tags": [
-          "ACA-05-010"
-        ]
-      },
-      {
         "path": "frontend/src/components/ConsentBanner.tsx",
         "type": "code",
         "story_tags": [
@@ -4690,6 +4760,13 @@
         "type": "code",
         "story_tags": [
           "ACA-09-003"
+        ]
+      },
+      {
+        "path": "frontend/src/app/AppShell.tsx",
+        "type": "code",
+        "story_tags": [
+          "ACA-05-010"
         ]
       },
       {
@@ -4794,6 +4871,13 @@
         "path": "infra/phase1-marco/apim/apim-entitlements-policy.xml",
         "type": "infra",
         "story_tags": []
+      },
+      {
+        "path": "services/analysis/app/cosmos.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-03-004"
+        ]
       },
       {
         "path": "services/analysis/app/findings.py",
@@ -6040,6 +6124,13 @@
           {
             "path": "evidence/ACA-03-004-receipt.py",
             "type": "evidence",
+            "story_tags": [
+              "ACA-03-004"
+            ]
+          },
+          {
+            "path": "services/analysis/app/cosmos.py",
+            "type": "code",
             "story_tags": [
               "ACA-03-004"
             ]
@@ -8949,6 +9040,20 @@
             "story_tags": [
               "ACA-14-008"
             ]
+          },
+          {
+            "path": ".github/scripts/sonnet_review.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-14-008"
+            ]
+          },
+          {
+            "path": ".github/workflows/sonnet-review.yml",
+            "type": "config",
+            "story_tags": [
+              "ACA-14-008"
+            ]
           }
         ]
       },
@@ -8959,6 +9064,14 @@
             "type": "evidence",
             "story_tags": [
               "ACA-14-009"
+            ]
+          },
+          {
+            "path": ".github/scripts/sprint_agent.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-14-009",
+              "ACA-NN-NNN"
             ]
           }
         ]
@@ -8981,6 +9094,18 @@
             "type": "config",
             "story_tags": [
               "ACA-XX-XXX"
+            ]
+          }
+        ]
+      },
+      "ACA-NN-NNN": {
+        "artifacts": [
+          {
+            "path": ".github/scripts/sprint_agent.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-14-009",
+              "ACA-NN-NNN"
             ]
           }
         ]
@@ -9257,7 +9382,56 @@
       }
     },
     "commit_evidence_map": {
+      "ACA-14-009": [
+        {
+          "sha": "6ca3541",
+          "snippet": "feat(ACA-14-009): expand cloud agent context -- _load_story_files, full P2.5 pat",
+          "source": "commit"
+        },
+        {
+          "sha": "686d0c9",
+          "snippet": "fix(ACA-14-009): add models:read permission + auto-PR creation in sprint agent",
+          "source": "commit"
+        },
+        {
+          "sha": "328e298",
+          "snippet": "chore(ACA-14-009): add sprint-00 preflight manifest (3 blocking bugs)",
+          "source": "commit"
+        },
+        {
+          "sha": "76e1806",
+          "snippet": "feat(ACA-14-009): cloud-first sprint execution -- sprint-agent + sonnet-review w",
+          "source": "commit"
+        }
+      ],
+      "ACA-03-021": [
+        {
+          "sha": "4816baf",
+          "snippet": "fix(ACA-06-021,ACA-03-021,ACA-07-021): pre-flight sprint -- delete checkout stub",
+          "source": "commit"
+        },
+        {
+          "sha": "cd19353",
+          "snippet": "fix(ACA-06-021+ACA-03-021+ACA-07-021): preflight bugs -- rm checkout duplicate, ",
+          "source": "commit"
+        },
+        {
+          "sha": "fe0f781",
+          "snippet": "feat(ACA-03-021): Fix FindingsAssembler instantiation -- add missing cosmos_clie",
+          "source": "commit"
+        }
+      ],
       "ACA-12-001": [
+        {
+          "sha": "e4d8cbb",
+          "snippet": "chore(ACA-12-001): ban backtick continuations -- Rule 9 + Section 4 + splatting ",
+          "source": "commit"
+        },
+        {
+          "sha": "b057766",
+          "snippet": "feat(ACA-12-001): veritas-expert skill + 250 evidence receipts + STATUS consiste",
+          "source": "commit"
+        },
         {
           "sha": "93875c2",
           "snippet": "chore(ACA-12-001): STATUS.md MTI honest baseline 5, SQLite data model state",
@@ -9271,6 +9445,18 @@
         {
           "sha": "225a10a",
           "snippet": "chore(veritas): ACA-01-001 ACA-02-001 ACA-03-001 ACA-04-001 ACA-05-001 ACA-06-00",
+          "source": "commit"
+        }
+      ],
+      "ACA-14-001": [
+        {
+          "sha": "e041b3f",
+          "snippet": "chore(ACA-14-001): update review draft to Sonnet 4.6 + embed live endpoint table",
+          "source": "commit"
+        },
+        {
+          "sha": "ef7341f",
+          "snippet": "feat(plan): ACA-14-001 ACA-14-002 ACA-14-003 ACA-14-004 ACA-14-005 ACA-14-006 AC",
           "source": "commit"
         }
       ],
@@ -9319,13 +9505,6 @@
           "snippet": "fix(dpdca): ACA-14-003 ACA-14-004 ACA-14-005 fix YAML workflow -- no inline Pyth",
           "source": "commit"
         },
-        {
-          "sha": "ef7341f",
-          "snippet": "feat(plan): ACA-14-001 ACA-14-002 ACA-14-003 ACA-14-004 ACA-14-005 ACA-14-006 AC",
-          "source": "commit"
-        }
-      ],
-      "ACA-14-001": [
         {
           "sha": "ef7341f",
           "snippet": "feat(plan): ACA-14-001 ACA-14-002 ACA-14-003 ACA-14-004 ACA-14-005 ACA-14-006 AC",

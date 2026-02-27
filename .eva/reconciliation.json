@@ -1,7 +1,7 @@
 {
   "meta": {
     "schema": "eva.reconciliation.v2",
-    "generated_at": "2026-02-27T08:30:21.560Z",
+    "generated_at": "2026-02-27T12:05:57.132Z",
     "repo": "C:\\AICOE\\eva-foundry\\51-ACA",
     "discovery_path": "C:\\AICOE\\eva-foundry\\51-ACA\\.eva\\discovery.json"
   },
@@ -157,6 +157,11 @@
     {
       "type": "orphan_story_tag",
       "story_id": "ACA-XX-XXX",
+      "title": null
+    },
+    {
+      "type": "orphan_story_tag",
+      "story_id": "ACA-NN-NNN",
       "title": null
     },
     {
