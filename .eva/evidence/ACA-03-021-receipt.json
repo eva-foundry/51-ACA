@@ -1,0 +1,12 @@
+{
+  "story_id": "ACA-03-021",
+  "title": "Fix FindingsAssembler instantiation -- add missing cosmos_client",
+  "phase": "D|P|D|C|A",
+  "timestamp": "2026-02-27T11:29:52Z",
+  "artifacts": [
+    "services/analysis/app/main.py"
+  ],
+  "test_result": "WARN",
+  "lint_result": "WARN",
+  "commit_sha": "e9ecafba7ac9ba585afd20f9fb8a44b054898d6c"
+}
