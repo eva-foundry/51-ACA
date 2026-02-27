@@ -1,5 +1,7 @@
 # EVA-STORY: ACA-04-004
 # EVA-STORY: ACA-04-001
+# EVA-STORY: ACA-04-006
+# EVA-STORY: ACA-04-008
 # EVA-STORY: ACA-05-001
 """
 Auth router -- ACA client sign-in and Azure subscription connection.
@@ -7,6 +9,9 @@ Onboarding modes: delegated (device code) and service principal.
 """
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
+
+from app.services.token_service import TokenService
+from app.db.repos.clients_repo import ClientsRepo
 
 router = APIRouter(tags=["auth"])
 
@@ -30,11 +35,31 @@ class PreflightResponse(BaseModel):
 async def connect_subscription(req: ConnectRequest):
     """
     Step 1: Client initiates connection to their Azure subscription.
-    Returns a device-code URL for delegated mode, or validates SP credentials.
+    Delegated mode: returns device_code + verification_uri for device-code flow.
+    SP mode: not yet implemented (Sprint-03).
     See 02-preflight.md for full spec.
     """
-    # TODO: implement MSAL device-code initiation or SP validation
-    raise HTTPException(status_code=501, detail="[INFO] Not yet implemented -- see 02-preflight.md")
+    if req.connection_mode == "service_principal":
+        raise HTTPException(
+            status_code=501,
+            detail="[INFO] SP mode not yet implemented -- coming in Sprint-03",
+        )
+
+    svc = TokenService()
+    repo = ClientsRepo()
+
+    try:
+        flow = svc.initiate_device_code(req.subscription_id)
+    except RuntimeError as exc:
+        raise HTTPException(status_code=502, detail=str(exc)) from exc
+
+    repo.upsert(
+        subscription_id=req.subscription_id,
+        auth_mode="delegated",
+        status="pending",
+    )
+
+    return {**flow, "subscription_id": req.subscription_id}
 
 
 @router.post("/preflight", response_model=PreflightResponse, summary="Validate Azure permissions")

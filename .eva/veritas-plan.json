@@ -1,6 +1,6 @@
 {
   "schema": "eva.veritas-plan.v1",
-  "generated_at": "2026-02-27T13:38:43.874797+00:00",
+  "generated_at": "2026-02-27T17:33:02.911528+00:00",
   "generated_from": [
     "PLAN.md",
     "README.md",
@@ -689,7 +689,7 @@
           "wbs": "4.1.2",
           "title": "As the API I validate the JWT on every authenticated endpoint using",
           "feature_id": "ACA-04",
-          "done": false,
+          "done": true,
           "source": "plan-md",
           "tasks": []
         },
@@ -725,7 +725,7 @@
           "wbs": "4.1.6",
           "title": "As a developer auth.py is reworked: MSAL authority=common, no EsDAICoE",
           "feature_id": "ACA-04",
-          "done": false,
+          "done": true,
           "source": "plan-md",
           "tasks": []
         },
@@ -743,7 +743,7 @@
           "wbs": "4.2.1",
           "title": "POST /v1/auth/connect         -- Connect Azure subscription",
           "feature_id": "ACA-04",
-          "done": false,
+          "done": true,
           "source": "plan-md",
           "tasks": []
         },
@@ -2388,7 +2388,7 @@
           "wbs": "ACA-03-021",
           "title": "Fix FindingsAssembler missing cosmos_client argument",
           "feature_id": "ACA-14",
-          "done": false,
+          "done": true,
           "source": "plan-md",
           "tasks": []
         },
@@ -2397,7 +2397,7 @@
           "wbs": "ACA-07-021",
           "title": "Fix generate_blob_sas call and SAS_HOURS constant",
           "feature_id": "ACA-14",
-          "done": false,
+          "done": true,
           "source": "plan-md",
           "tasks": []
         },

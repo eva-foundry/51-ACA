@@ -1,10 +1,52 @@
 ACA -- Azure Cost Advisor -- STATUS
 ====================================
 
-Version: 1.5.0
-Updated: 2026-02-28 (Sprint-02 issue #12 created -- 5 stories, manifest fully filled)
+Version: 1.6.0
+Updated: 2026-02-28 (Sprint-02 COMPLETE: 24 tests passing, MTI 100)
 Phase: Phase 1 -- Core Services Bootstrap
 Active Epic: Epic 3 (analysis rules), Epic 4 (API endpoints), Epic 5 (frontend), Epic 12 (data model)
+
+=============================================================================
+SESSION SUMMARY -- 2026-02-28 (SPRINT-02 EXECUTION)
+=============================================================================
+
+Sprint-02 stories completed (5/5):
+  [DONE] ACA-03-021  XS  analysis/main.py EVA-STORY tag + 3 source-inspection unit tests
+  [DONE] ACA-07-021  XS  packager.py EVA-STORY tag + 4 SAS unit tests (class fixed: DeliverablePackager)
+  [DONE] ACA-04-006  M   token_service.py (MSAL multi-tenant device-code) + ACA_CLIENT_ID in settings.py
+  [DONE] ACA-04-002  S   deps/auth.py verify_token JWT dependency (PyJWT, auto_error=False)
+  [DONE] ACA-04-008  M   POST /v1/auth/connect: device-code flow + ClientsRepo.upsert(pending)
+
+Test count: 24 passing (pytest services/ -x -q exits 0)
+MTI: 100 (deploy|merge|release) -- no regression
+Veritas gaps remaining: ACA-12-021 only (spec docs deferred)
+
+New files created this sprint:
+  services/api/app/services/token_service.py  (MSAL device-code, authority=common)
+  services/api/app/deps/__init__.py
+  services/api/app/deps/auth.py               (verify_token FastAPI dependency)
+  services/tests/test_analysis_main.py        (3 tests -- ACA-03-021)
+  services/tests/test_packager_sas.py         (rewritten -- 4 tests, ACA-07-021)
+  services/tests/test_token_service.py        (4 tests -- ACA-04-006)
+  services/tests/test_jwt_dep.py              (3 tests -- ACA-04-002)
+  services/tests/test_auth_connect.py         (4 tests -- ACA-04-008)
+
+Modified files:
+  services/analysis/app/main.py               (added EVA-STORY: ACA-03-021 tag)
+  services/delivery/app/packager.py           (added EVA-STORY: ACA-07-021 tag)
+  services/api/app/settings.py                (added ACA_CLIENT_ID field)
+  services/api/app/routers/auth.py            (POST /connect implemented, 4 new tags)
+  services/api/requirements.txt               (added PyJWT[cryptography]>=2.8.0)
+  PLAN.md                                     (5 stories marked Status: DONE)
+
+Sprint-02 GitHub issue: #12 -- https://github.com/eva-foundry/51-ACA/issues/12
+
+OPEN for Sprint-03 (candidates):
+  1. ACA-03-XXX  Analysis rules implementation (Epic 3 -- 31 undone)
+  2. ACA-04-009  POST /v1/auth/preflight -- run pre-flight permission probes
+  3. ACA-04-010  POST /v1/auth/disconnect -- revoke + KV cleanup
+  4. ACA-05-XXX  Frontend scaffold (React 19 + Fluent UI v9)
+  5. ACA-04-002 JWKS: Sprint-03 must add real signature verification via JWKS URL
 
 =============================================================================
 SESSION SUMMARY -- 2026-02-28 (SPRINT-02 PLANNING + ISSUE CREATION)

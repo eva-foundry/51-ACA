@@ -39,6 +39,9 @@ class Settings(BaseSettings):
     COSMOS_CONTAINER_STRIPE_CUSTOMER_MAP: str = Field(default="stripe_customer_map")
     COSMOS_CONTAINER_ADMIN_AUDIT: str = Field(default="admin_audit_events")
 
+    # Azure AD / MSAL (for delegated auth -- device-code flow)
+    ACA_CLIENT_ID: str = Field(default="", description="MSAL app client ID (Entra app registration)")
+
     # ACA API
     ACA_API_SECRET_KEY: str = Field(default="dev-secret-change-me")
     ACA_ALLOWED_ORIGINS: list[str] = Field(default_factory=lambda: ["http://localhost:5173"])

@@ -4,6 +4,7 @@ pydantic>=2.7.0
 pydantic-settings>=2.3.0
 azure-cosmos>=4.7.0
 msal>=1.29.0
+PyJWT[cryptography]>=2.8.0
 azure-identity>=1.17.0
 azure-keyvault-secrets>=4.8.0
 openai>=1.40.0

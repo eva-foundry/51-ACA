@@ -1,7 +1,7 @@
 {
   "meta": {
     "schema": "eva.discovery.v2",
-    "generated_at": "2026-02-27T12:05:57.112Z",
+    "generated_at": "2026-02-27T17:33:13.642Z",
     "repo": "C:\\AICOE\\eva-foundry\\51-ACA"
   },
   "project": null,
@@ -343,6 +343,13 @@
         "source": "veritas-plan.json"
       },
       {
+        "id": "ACA-02-017",
+        "title": "As the system, after mark_collection_complete sets status=collected, the analysis",
+        "feature_id": "ACA-02",
+        "done": true,
+        "source": "veritas-plan.json"
+      },
+      {
         "id": "ACA-03-001",
         "title": "As the system I load all 12 rules from ALL_RULES and run each in sequence",
         "feature_id": "ACA-03",
@@ -381,7 +388,7 @@
         "id": "ACA-03-006",
         "title": "As a Tier 1 client calling GET /v1/findings/:scanId I receive findings",
         "feature_id": "ACA-03",
-        "done": false,
+        "done": true,
         "source": "veritas-plan.json"
       },
       {
@@ -570,7 +577,7 @@
         "id": "ACA-03-033",
         "title": "FindingsAssembler unit test: mock rule list -> correct Cosmos upsert payload",
         "feature_id": "ACA-03",
-        "done": false,
+        "done": true,
         "source": "veritas-plan.json"
       },
       {
@@ -584,7 +591,7 @@
         "id": "ACA-04-002",
         "title": "As the API I validate the JWT on every authenticated endpoint using",
         "feature_id": "ACA-04",
-        "done": false,
+        "done": true,
         "source": "veritas-plan.json"
       },
       {
@@ -612,7 +619,7 @@
         "id": "ACA-04-006",
         "title": "As a developer auth.py is reworked: MSAL authority=common, no EsDAICoE",
         "feature_id": "ACA-04",
-        "done": false,
+        "done": true,
         "source": "veritas-plan.json"
       },
       {
@@ -626,7 +633,7 @@
         "id": "ACA-04-008",
         "title": "POST /v1/auth/connect         -- Connect Azure subscription",
         "feature_id": "ACA-04",
-        "done": false,
+        "done": true,
         "source": "veritas-plan.json"
       },
       {
@@ -760,6 +767,13 @@
         "title": "GET  /v1/admin/runs?type=scan|analysis|delivery",
         "feature_id": "ACA-04",
         "done": false,
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "ACA-04-028",
+        "title": "services/api/app/db/cosmos.py upsert_item() must accept partition_key as a",
+        "feature_id": "ACA-04",
+        "done": true,
         "source": "veritas-plan.json"
       },
       {
@@ -1135,7 +1149,7 @@
       },
       {
         "id": "ACA-06-012",
-        "title": "customer.subscription.deleted -> downgrade to Tier 1 in Cosmos",
+        "title": "customer.subscription.deleted -> downgrade to Tier 1 in Cosmos unless Tier 3 permanent",
         "feature_id": "ACA-06",
         "done": true,
         "source": "veritas-plan.json"
@@ -1171,6 +1185,13 @@
       {
         "id": "ACA-06-017",
         "title": "Billing portal endpoint derives stripeCustomerId from Cosmos clients container",
+        "feature_id": "ACA-06",
+        "done": true,
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "ACA-06-018",
+        "title": "As a Tier 3 customer, when my Tier 2 subscription is canceled (subscription.deleted)",
         "feature_id": "ACA-06",
         "done": true,
         "source": "veritas-plan.json"
@@ -1832,6 +1853,34 @@
         "feature_id": "ACA-14",
         "done": false,
         "source": "veritas-plan.json"
+      },
+      {
+        "id": "ACA-03-021",
+        "title": "Fix FindingsAssembler missing cosmos_client argument",
+        "feature_id": "ACA-14",
+        "done": true,
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "ACA-07-021",
+        "title": "Fix generate_blob_sas call and SAS_HOURS constant",
+        "feature_id": "ACA-14",
+        "done": true,
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "ACA-12-021",
+        "title": "Create missing spec docs in docs/",
+        "feature_id": "ACA-14",
+        "done": true,
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "ACA-12-022",
+        "title": "Lower MTI gate to 30 for Sprint 2 pre-flight",
+        "feature_id": "ACA-14",
+        "done": true,
+        "source": "veritas-plan.json"
       }
     ],
     "tasks": [],
@@ -2244,6 +2293,15 @@
         ]
       },
       {
+        "path": "lint-result.txt",
+        "type": "other",
+        "story_tags": [
+          "ACA-01-005",
+          "ACA-07-009",
+          "ACA-03-033"
+        ]
+      },
+      {
         "path": "PLAN.md",
         "type": "doc",
         "story_tags": []
@@ -2266,6 +2324,11 @@
       {
         "path": "STATUS.md",
         "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "test-collect.txt",
+        "type": "other",
         "story_tags": []
       },
       {
@@ -2304,12 +2367,32 @@
         "story_tags": []
       },
       {
+        "path": ".github/DPDCA-WORKFLOW.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
         "path": ".github/pull_request_template.md",
         "type": "doc",
         "story_tags": []
       },
       {
         "path": ".github/SPRINT_ISSUE_TEMPLATE.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": ".pytest_cache/.gitignore",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": ".pytest_cache/CACHEDIR.TAG",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": ".pytest_cache/README.md",
         "type": "doc",
         "story_tags": []
       },
@@ -4191,6 +4274,20 @@
         "story_tags": []
       },
       {
+        "path": "scripts/gen-sprint-manifest.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-14-005"
+        ]
+      },
+      {
+        "path": "scripts/reflect-ids.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-12-001"
+        ]
+      },
+      {
         "path": "scripts/seed-from-plan.py",
         "type": "code",
         "story_tags": [
@@ -4236,6 +4333,16 @@
       {
         "path": "tools/__init__.py",
         "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": ".github/agents/sprint-executor.agent.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": ".github/copilot-skills/sprint-advance.skill.md",
+        "type": "doc",
         "story_tags": []
       },
       {
@@ -4300,6 +4407,7 @@
         "type": "code",
         "story_tags": [
           "ACA-14-009",
+          "ACA-12-022",
           "ACA-NN-NNN"
         ]
       },
@@ -4310,6 +4418,16 @@
       },
       {
         "path": ".github/sprints/sprint-00-preflight.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": ".github/sprints/sprint-01-bug-fixes.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": ".github/sprints/sprint-02-bug-fixes-auth.md",
         "type": "doc",
         "story_tags": []
       },
@@ -4325,6 +4443,13 @@
         "type": "config",
         "story_tags": [
           "ACA-01-018"
+        ]
+      },
+      {
+        "path": ".github/workflows/copilot-setup-steps.yml",
+        "type": "config",
+        "story_tags": [
+          "ACA-14-006"
         ]
       },
       {
@@ -4349,6 +4474,116 @@
       {
         "path": ".github/workflows/sprint-agent.yml",
         "type": "config",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/after_analysis_20260226_184028.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/after_analysis_20260226_184036.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/after_analysis_20260226_184047.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/after_deployment_20260226_184047.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/after_part1_extraction_success_20260226_184047.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/after_source_detection_20260226_184028.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/after_source_detection_20260226_184036.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/after_source_detection_20260226_184046.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/after_validation_20260226_184047.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/before_analysis_20260226_184028.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/before_analysis_20260226_184036.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/before_analysis_20260226_184046.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/before_deployment_20260226_184047.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/before_part1_extraction_20260226_184047.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/before_source_detection_20260226_184028.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/before_source_detection_20260226_184036.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/before_source_detection_20260226_184046.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/before_validation_20260226_184047.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/deployment_start_20260226_184028.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/deployment_start_20260226_184036.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/deployment_start_20260226_184046.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/deployment_success_20260226_184047.json",
+        "type": "data",
         "story_tags": []
       },
       {
@@ -4537,116 +4772,6 @@
         "story_tags": []
       },
       {
-        "path": "debug/artifact-deployment/after_analysis_20260226_184028.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "debug/artifact-deployment/after_analysis_20260226_184036.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "debug/artifact-deployment/after_analysis_20260226_184047.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "debug/artifact-deployment/after_deployment_20260226_184047.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "debug/artifact-deployment/after_part1_extraction_success_20260226_184047.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "debug/artifact-deployment/after_source_detection_20260226_184028.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "debug/artifact-deployment/after_source_detection_20260226_184036.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "debug/artifact-deployment/after_source_detection_20260226_184046.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "debug/artifact-deployment/after_validation_20260226_184047.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "debug/artifact-deployment/before_analysis_20260226_184028.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "debug/artifact-deployment/before_analysis_20260226_184036.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "debug/artifact-deployment/before_analysis_20260226_184046.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "debug/artifact-deployment/before_deployment_20260226_184047.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "debug/artifact-deployment/before_part1_extraction_20260226_184047.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "debug/artifact-deployment/before_source_detection_20260226_184028.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "debug/artifact-deployment/before_source_detection_20260226_184036.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "debug/artifact-deployment/before_source_detection_20260226_184046.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "debug/artifact-deployment/before_validation_20260226_184047.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "debug/artifact-deployment/deployment_start_20260226_184028.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "debug/artifact-deployment/deployment_start_20260226_184036.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "debug/artifact-deployment/deployment_start_20260226_184046.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "debug/artifact-deployment/deployment_success_20260226_184047.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
         "path": "frontend/src/App.tsx",
         "type": "code",
         "story_tags": [
@@ -4714,6 +4839,11 @@
         "story_tags": []
       },
       {
+        "path": "services/api/AGENTS.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
         "path": "services/api/Dockerfile",
         "type": "other",
         "story_tags": []
@@ -4744,9 +4874,94 @@
         "story_tags": []
       },
       {
+        "path": "services/tests/test_analysis_main.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-03-021"
+        ]
+      },
+      {
+        "path": "services/tests/test_auth_connect.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-04-008"
+        ]
+      },
+      {
+        "path": "services/tests/test_checkout_router.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-03-033"
+        ]
+      },
+      {
+        "path": "services/tests/test_entitlement_revoke.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-03-033"
+        ]
+      },
+      {
+        "path": "services/tests/test_findings_gate.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-03-033"
+        ]
+      },
+      {
+        "path": "services/tests/test_jwt_dep.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-04-002"
+        ]
+      },
+      {
+        "path": "services/tests/test_packager_sas.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-07-021"
+        ]
+      },
+      {
+        "path": "services/tests/test_token_service.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-04-006"
+        ]
+      },
+      {
+        "path": "services/tests/__init__.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-03-033"
+        ]
+      },
+      {
         "path": "sessions/artifact-deployment/session_state.json",
         "type": "data",
         "story_tags": []
+      },
+      {
+        "path": ".pytest_cache/v/cache/lastfailed",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": ".pytest_cache/v/cache/nodeids",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": ".pytest_cache/v/cache/stepwise",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/src/app/AppShell.tsx",
+        "type": "code",
+        "story_tags": [
+          "ACA-05-010"
+        ]
       },
       {
         "path": "frontend/src/components/ConsentBanner.tsx",
@@ -4760,13 +4975,6 @@
         "type": "code",
         "story_tags": [
           "ACA-09-003"
-        ]
-      },
-      {
-        "path": "frontend/src/app/AppShell.tsx",
-        "type": "code",
-        "story_tags": [
-          "ACA-05-010"
         ]
       },
       {
@@ -4890,7 +5098,8 @@
         "path": "services/analysis/app/main.py",
         "type": "code",
         "story_tags": [
-          "ACA-03-004"
+          "ACA-03-004",
+          "ACA-03-021"
         ]
       },
       {
@@ -4926,7 +5135,7 @@
         "path": "services/collector/app/ingest.py",
         "type": "code",
         "story_tags": [
-          "ACA-02-006"
+          "ACA-02-017"
         ]
       },
       {
@@ -4968,7 +5177,8 @@
         "path": "services/delivery/app/packager.py",
         "type": "code",
         "story_tags": [
-          "ACA-07-006"
+          "ACA-07-006",
+          "ACA-07-021"
         ]
       },
       {
@@ -5250,7 +5460,22 @@
         "path": "services/api/app/db/cosmos.py",
         "type": "code",
         "story_tags": [
-          "ACA-01-001"
+          "ACA-01-001",
+          "ACA-04-028"
+        ]
+      },
+      {
+        "path": "services/api/app/deps/auth.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-04-002"
+        ]
+      },
+      {
+        "path": "services/api/app/deps/__init__.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-04-002"
         ]
       },
       {
@@ -5266,6 +5491,8 @@
         "story_tags": [
           "ACA-04-004",
           "ACA-04-001",
+          "ACA-04-006",
+          "ACA-04-008",
           "ACA-05-001"
         ]
       },
@@ -5314,7 +5541,14 @@
         "path": "services/api/app/services/entitlement_service.py",
         "type": "code",
         "story_tags": [
-          "ACA-06-015"
+          "ACA-06-018"
+        ]
+      },
+      {
+        "path": "services/api/app/services/findings_gate.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-03-006"
         ]
       },
       {
@@ -5322,6 +5556,14 @@
         "type": "code",
         "story_tags": [
           "ACA-06-001"
+        ]
+      },
+      {
+        "path": "services/api/app/services/token_service.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-04-006",
+          "ACA-04-008"
         ]
       },
       {
@@ -5468,7 +5710,110 @@
             "path": "services/api/app/db/cosmos.py",
             "type": "code",
             "story_tags": [
-              "ACA-01-001"
+              "ACA-01-001",
+              "ACA-04-028"
+            ]
+          }
+        ]
+      },
+      "ACA-01-005": {
+        "artifacts": [
+          {
+            "path": "lint-result.txt",
+            "type": "other",
+            "story_tags": [
+              "ACA-01-005",
+              "ACA-07-009",
+              "ACA-03-033"
+            ]
+          },
+          {
+            "path": "evidence/ACA-01-005-receipt.py",
+            "type": "evidence",
+            "story_tags": [
+              "ACA-01-005"
+            ]
+          },
+          {
+            "path": "services/api/app/settings.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-01-005"
+            ]
+          }
+        ]
+      },
+      "ACA-07-009": {
+        "artifacts": [
+          {
+            "path": "lint-result.txt",
+            "type": "other",
+            "story_tags": [
+              "ACA-01-005",
+              "ACA-07-009",
+              "ACA-03-033"
+            ]
+          },
+          {
+            "path": "evidence/ACA-07-009-receipt.py",
+            "type": "evidence",
+            "story_tags": [
+              "ACA-07-009"
+            ]
+          },
+          {
+            "path": "services/delivery/app/cosmos.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-07-009"
+            ]
+          }
+        ]
+      },
+      "ACA-03-033": {
+        "artifacts": [
+          {
+            "path": "lint-result.txt",
+            "type": "other",
+            "story_tags": [
+              "ACA-01-005",
+              "ACA-07-009",
+              "ACA-03-033"
+            ]
+          },
+          {
+            "path": "evidence/ACA-03-033-receipt.py",
+            "type": "evidence",
+            "story_tags": [
+              "ACA-03-033"
+            ]
+          },
+          {
+            "path": "services/tests/test_checkout_router.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-033"
+            ]
+          },
+          {
+            "path": "services/tests/test_entitlement_revoke.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-033"
+            ]
+          },
+          {
+            "path": "services/tests/test_findings_gate.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-033"
+            ]
+          },
+          {
+            "path": "services/tests/__init__.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-033"
             ]
           }
         ]
@@ -5583,6 +5928,13 @@
             ]
           },
           {
+            "path": "scripts/reflect-ids.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-12-001"
+            ]
+          },
+          {
             "path": "scripts/seed-from-plan.py",
             "type": "code",
             "story_tags": [
@@ -5671,24 +6023,6 @@
             "type": "evidence",
             "story_tags": [
               "ACA-01-004"
-            ]
-          }
-        ]
-      },
-      "ACA-01-005": {
-        "artifacts": [
-          {
-            "path": "evidence/ACA-01-005-receipt.py",
-            "type": "evidence",
-            "story_tags": [
-              "ACA-01-005"
-            ]
-          },
-          {
-            "path": "services/api/app/settings.py",
-            "type": "code",
-            "story_tags": [
-              "ACA-01-005"
             ]
           }
         ]
@@ -5963,13 +6297,6 @@
             "story_tags": [
               "ACA-02-006"
             ]
-          },
-          {
-            "path": "services/collector/app/ingest.py",
-            "type": "code",
-            "story_tags": [
-              "ACA-02-006"
-            ]
           }
         ]
       },
@@ -6139,7 +6466,8 @@
             "path": "services/analysis/app/main.py",
             "type": "code",
             "story_tags": [
-              "ACA-03-004"
+              "ACA-03-004",
+              "ACA-03-021"
             ]
           }
         ]
@@ -6166,6 +6494,13 @@
           },
           {
             "path": "frontend/src/pages/Findings.tsx",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-006"
+            ]
+          },
+          {
+            "path": "services/api/app/services/findings_gate.py",
             "type": "code",
             "story_tags": [
               "ACA-03-006"
@@ -6398,6 +6733,21 @@
             "story_tags": [
               "ACA-03-021"
             ]
+          },
+          {
+            "path": "services/tests/test_analysis_main.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-021"
+            ]
+          },
+          {
+            "path": "services/analysis/app/main.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-004",
+              "ACA-03-021"
+            ]
           }
         ]
       },
@@ -6543,17 +6893,6 @@
           }
         ]
       },
-      "ACA-03-033": {
-        "artifacts": [
-          {
-            "path": "evidence/ACA-03-033-receipt.py",
-            "type": "evidence",
-            "story_tags": [
-              "ACA-03-033"
-            ]
-          }
-        ]
-      },
       "ACA-04-001": {
         "artifacts": [
           {
@@ -6569,6 +6908,8 @@
             "story_tags": [
               "ACA-04-004",
               "ACA-04-001",
+              "ACA-04-006",
+              "ACA-04-008",
               "ACA-05-001"
             ]
           }
@@ -6579,6 +6920,27 @@
           {
             "path": "evidence/ACA-04-002-receipt.py",
             "type": "evidence",
+            "story_tags": [
+              "ACA-04-002"
+            ]
+          },
+          {
+            "path": "services/tests/test_jwt_dep.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-04-002"
+            ]
+          },
+          {
+            "path": "services/api/app/deps/auth.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-04-002"
+            ]
+          },
+          {
+            "path": "services/api/app/deps/__init__.py",
+            "type": "code",
             "story_tags": [
               "ACA-04-002"
             ]
@@ -6618,6 +6980,8 @@
             "story_tags": [
               "ACA-04-004",
               "ACA-04-001",
+              "ACA-04-006",
+              "ACA-04-008",
               "ACA-05-001"
             ]
           }
@@ -6642,6 +7006,32 @@
             "story_tags": [
               "ACA-04-006"
             ]
+          },
+          {
+            "path": "services/tests/test_token_service.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-04-006"
+            ]
+          },
+          {
+            "path": "services/api/app/routers/auth.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-04-004",
+              "ACA-04-001",
+              "ACA-04-006",
+              "ACA-04-008",
+              "ACA-05-001"
+            ]
+          },
+          {
+            "path": "services/api/app/services/token_service.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-04-006",
+              "ACA-04-008"
+            ]
           }
         ]
       },
@@ -6662,6 +7052,32 @@
             "path": "evidence/ACA-04-008-receipt.py",
             "type": "evidence",
             "story_tags": [
+              "ACA-04-008"
+            ]
+          },
+          {
+            "path": "services/tests/test_auth_connect.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-04-008"
+            ]
+          },
+          {
+            "path": "services/api/app/routers/auth.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-04-004",
+              "ACA-04-001",
+              "ACA-04-006",
+              "ACA-04-008",
+              "ACA-05-001"
+            ]
+          },
+          {
+            "path": "services/api/app/services/token_service.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-04-006",
               "ACA-04-008"
             ]
           }
@@ -6957,6 +7373,8 @@
             "story_tags": [
               "ACA-04-004",
               "ACA-04-001",
+              "ACA-04-006",
+              "ACA-04-008",
               "ACA-05-001"
             ]
           }
@@ -7858,13 +8276,6 @@
             "story_tags": [
               "ACA-06-015"
             ]
-          },
-          {
-            "path": "services/api/app/services/entitlement_service.py",
-            "type": "code",
-            "story_tags": [
-              "ACA-06-015"
-            ]
           }
         ]
       },
@@ -7978,7 +8389,8 @@
             "path": "services/delivery/app/packager.py",
             "type": "code",
             "story_tags": [
-              "ACA-07-006"
+              "ACA-07-006",
+              "ACA-07-021"
             ]
           }
         ]
@@ -8015,24 +8427,6 @@
             "type": "code",
             "story_tags": [
               "ACA-07-008"
-            ]
-          }
-        ]
-      },
-      "ACA-07-009": {
-        "artifacts": [
-          {
-            "path": "evidence/ACA-07-009-receipt.py",
-            "type": "evidence",
-            "story_tags": [
-              "ACA-07-009"
-            ]
-          },
-          {
-            "path": "services/delivery/app/cosmos.py",
-            "type": "code",
-            "story_tags": [
-              "ACA-07-009"
             ]
           }
         ]
@@ -8987,6 +9381,13 @@
             ]
           },
           {
+            "path": "scripts/gen-sprint-manifest.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-14-005"
+            ]
+          },
+          {
             "path": "scripts/seed-from-plan.py",
             "type": "code",
             "story_tags": [
@@ -9008,6 +9409,13 @@
           {
             "path": "evidence/ACA-14-006-receipt.py",
             "type": "evidence",
+            "story_tags": [
+              "ACA-14-006"
+            ]
+          },
+          {
+            "path": ".github/workflows/copilot-setup-steps.yml",
+            "type": "config",
             "story_tags": [
               "ACA-14-006"
             ]
@@ -9071,6 +9479,7 @@
             "type": "code",
             "story_tags": [
               "ACA-14-009",
+              "ACA-12-022",
               "ACA-NN-NNN"
             ]
           }
@@ -9098,6 +9507,19 @@
           }
         ]
       },
+      "ACA-12-022": {
+        "artifacts": [
+          {
+            "path": ".github/scripts/sprint_agent.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-14-009",
+              "ACA-12-022",
+              "ACA-NN-NNN"
+            ]
+          }
+        ]
+      },
       "ACA-NN-NNN": {
         "artifacts": [
           {
@@ -9105,6 +9527,7 @@
             "type": "code",
             "story_tags": [
               "ACA-14-009",
+              "ACA-12-022",
               "ACA-NN-NNN"
             ]
           }
@@ -9379,9 +9802,259 @@
             ]
           }
         ]
+      },
+      "ACA-07-021": {
+        "artifacts": [
+          {
+            "path": "services/tests/test_packager_sas.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-07-021"
+            ]
+          },
+          {
+            "path": "services/delivery/app/packager.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-07-006",
+              "ACA-07-021"
+            ]
+          }
+        ]
+      },
+      "ACA-02-017": {
+        "artifacts": [
+          {
+            "path": "services/collector/app/ingest.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-02-017"
+            ]
+          }
+        ]
+      },
+      "ACA-04-028": {
+        "artifacts": [
+          {
+            "path": "services/api/app/db/cosmos.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-01-001",
+              "ACA-04-028"
+            ]
+          }
+        ]
+      },
+      "ACA-06-018": {
+        "artifacts": [
+          {
+            "path": "services/api/app/services/entitlement_service.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-06-018"
+            ]
+          }
+        ]
       }
     },
     "commit_evidence_map": {
+      "ACA-14-007": [
+        {
+          "sha": "8ca0b4f",
+          "snippet": "feat(ACA-14-007): sprint-advance.skill.md -- 5-phase sprint handoff + planning s",
+          "source": "commit"
+        },
+        {
+          "sha": "ef7341f",
+          "snippet": "feat(plan): ACA-14-001 ACA-14-002 ACA-14-003 ACA-14-004 ACA-14-005 ACA-14-006 AC",
+          "source": "commit"
+        }
+      ],
+      "ACA-14-006": [
+        {
+          "sha": "624f350",
+          "snippet": "chore(ACA-14-006): STATUS.md v1.5.0 -- Sprint-02 issue #12 created",
+          "source": "commit"
+        },
+        {
+          "sha": "de0bb2f",
+          "snippet": "feat(ACA-14-006): copilot-setup-steps.yml + sprint-executor.agent.md Copilot age",
+          "source": "commit"
+        },
+        {
+          "sha": "ef7341f",
+          "snippet": "feat(plan): ACA-14-001 ACA-14-002 ACA-14-003 ACA-14-004 ACA-14-005 ACA-14-006 AC",
+          "source": "commit"
+        }
+      ],
+      "ACA-12-022": [
+        {
+          "sha": "a7e3dcf",
+          "snippet": "chore(ACA-12-022): Sprint-02 manifest fully filled -- 5 stories, issue #12",
+          "source": "commit"
+        },
+        {
+          "sha": "253e141",
+          "snippet": "fix(ACA-12-022): add EVA-STORY tag to sprint_agent.py for veritas coverage",
+          "source": "commit"
+        },
+        {
+          "sha": "ee3f838",
+          "snippet": "feat(ACA-12-022): add services/api/AGENTS.md Sprint-01 patterns + wire into spri",
+          "source": "commit"
+        },
+        {
+          "sha": "e49227a",
+          "snippet": "chore(ACA-12-022): update STATUS.md with Round 2 review results and pre-flight f",
+          "source": "commit"
+        }
+      ],
+      "ACA-04-028": [
+        {
+          "sha": "7c4c750",
+          "snippet": "fix(ACA-04-028): add EVA-STORY tag to cosmos.py source for veritas coverage",
+          "source": "commit"
+        },
+        {
+          "sha": "42caa44",
+          "snippet": "feat(ACA-04-028): cosmos.py upsert_item -- add partition_key parameter",
+          "source": "commit"
+        },
+        {
+          "sha": "d4c21c5",
+          "snippet": "feat(ACA-12-001): add 3 missing bug-fix stories to PLAN.md -- ACA-02-017/ACA-04-",
+          "source": "commit"
+        }
+      ],
+      "ACA-14-001": [
+        {
+          "sha": "3ac6775",
+          "snippet": "chore(ACA-14-001): Sprint-01 A step -- 5 stories marked done, STATUS.md v1.4.0, ",
+          "source": "commit"
+        },
+        {
+          "sha": "e041b3f",
+          "snippet": "chore(ACA-14-001): update review draft to Sonnet 4.6 + embed live endpoint table",
+          "source": "commit"
+        },
+        {
+          "sha": "ef7341f",
+          "snippet": "feat(plan): ACA-14-001 ACA-14-002 ACA-14-003 ACA-14-004 ACA-14-005 ACA-14-006 AC",
+          "source": "commit"
+        }
+      ],
+      "ACA-03-033": [
+        {
+          "sha": "fef132d",
+          "snippet": "fix(ACA-03-033): fix test import paths, DI for EntitlementService, extract findi",
+          "source": "commit"
+        },
+        {
+          "sha": "2b5f393",
+          "snippet": "feat(ACA-03-033): Minimum test suite: checkout router + findings gate + packager",
+          "source": "commit"
+        }
+      ],
+      "ACA-12-001": [
+        {
+          "sha": "37a989b",
+          "snippet": "chore(ACA-12-001): decouple 51-ACA from EVA -- remove marco-eva-data-model + 37-",
+          "source": "commit"
+        },
+        {
+          "sha": "d4c21c5",
+          "snippet": "feat(ACA-12-001): add 3 missing bug-fix stories to PLAN.md -- ACA-02-017/ACA-04-",
+          "source": "commit"
+        },
+        {
+          "sha": "e4d8cbb",
+          "snippet": "chore(ACA-12-001): ban backtick continuations -- Rule 9 + Section 4 + splatting ",
+          "source": "commit"
+        },
+        {
+          "sha": "b057766",
+          "snippet": "feat(ACA-12-001): veritas-expert skill + 250 evidence receipts + STATUS consiste",
+          "source": "commit"
+        },
+        {
+          "sha": "93875c2",
+          "snippet": "chore(ACA-12-001): STATUS.md MTI honest baseline 5, SQLite data model state",
+          "source": "commit"
+        },
+        {
+          "sha": "293f22f",
+          "snippet": "feat(ACA-12-001): SQLite-backed data model (db.py + server.py port 8055) + seed-",
+          "source": "commit"
+        },
+        {
+          "sha": "225a10a",
+          "snippet": "chore(veritas): ACA-01-001 ACA-02-001 ACA-03-001 ACA-04-001 ACA-05-001 ACA-06-00",
+          "source": "commit"
+        }
+      ],
+      "ACA-02-017": [
+        {
+          "sha": "65422f3",
+          "snippet": "feat(ACA-02-017): ingest.py mark_collection_complete -- trigger analysis Contain",
+          "source": "commit"
+        },
+        {
+          "sha": "d4c21c5",
+          "snippet": "feat(ACA-12-001): add 3 missing bug-fix stories to PLAN.md -- ACA-02-017/ACA-04-",
+          "source": "commit"
+        }
+      ],
+      "ACA-06-018": [
+        {
+          "sha": "4946910",
+          "snippet": "feat(ACA-06-018): entitlement_service.py revoke() -- preserve Tier 3 on subscrip",
+          "source": "commit"
+        },
+        {
+          "sha": "d4c21c5",
+          "snippet": "feat(ACA-12-001): add 3 missing bug-fix stories to PLAN.md -- ACA-02-017/ACA-04-",
+          "source": "commit"
+        }
+      ],
+      "ACA-03-006": [
+        {
+          "sha": "fb943d6",
+          "snippet": "feat(ACA-03-006): Wire findings.py GET handler: Cosmos reads + gate_findings",
+          "source": "commit"
+        }
+      ],
+      "ACA-14-005": [
+        {
+          "sha": "b88e023",
+          "snippet": "fix(ACA-14-005): slim sprint_agent context to fit gpt-4o 8k token limit",
+          "source": "commit"
+        },
+        {
+          "sha": "32365d7",
+          "snippet": "fix(ACA-14-005): switch sprint agent to gpt-4o -- claude-* not available via GIT",
+          "source": "commit"
+        },
+        {
+          "sha": "f5a340f",
+          "snippet": "feat(ACA-14-005): DPDCA workflow -- reflect-ids.py + gen-sprint-manifest.py + PL",
+          "source": "commit"
+        },
+        {
+          "sha": "32604a0",
+          "snippet": "fix(dpdca): ACA-14-005 robust git add + Azure OpenAI secrets wired",
+          "source": "commit"
+        },
+        {
+          "sha": "735ea51",
+          "snippet": "fix(dpdca): ACA-14-003 ACA-14-004 ACA-14-005 fix YAML workflow -- no inline Pyth",
+          "source": "commit"
+        },
+        {
+          "sha": "ef7341f",
+          "snippet": "feat(plan): ACA-14-001 ACA-14-002 ACA-14-003 ACA-14-004 ACA-14-005 ACA-14-006 AC",
+          "source": "commit"
+        }
+      ],
       "ACA-14-009": [
         {
           "sha": "6ca3541",
@@ -9421,42 +10094,27 @@
           "source": "commit"
         }
       ],
-      "ACA-12-001": [
+      "ACA-07-021": [
         {
-          "sha": "e4d8cbb",
-          "snippet": "chore(ACA-12-001): ban backtick continuations -- Rule 9 + Section 4 + splatting ",
+          "sha": "4816baf",
+          "snippet": "fix(ACA-06-021,ACA-03-021,ACA-07-021): pre-flight sprint -- delete checkout stub",
           "source": "commit"
         },
         {
-          "sha": "b057766",
-          "snippet": "feat(ACA-12-001): veritas-expert skill + 250 evidence receipts + STATUS consiste",
+          "sha": "cd19353",
+          "snippet": "fix(ACA-06-021+ACA-03-021+ACA-07-021): preflight bugs -- rm checkout duplicate, ",
           "source": "commit"
         },
         {
-          "sha": "93875c2",
-          "snippet": "chore(ACA-12-001): STATUS.md MTI honest baseline 5, SQLite data model state",
-          "source": "commit"
-        },
-        {
-          "sha": "293f22f",
-          "snippet": "feat(ACA-12-001): SQLite-backed data model (db.py + server.py port 8055) + seed-",
-          "source": "commit"
-        },
-        {
-          "sha": "225a10a",
-          "snippet": "chore(veritas): ACA-01-001 ACA-02-001 ACA-03-001 ACA-04-001 ACA-05-001 ACA-06-00",
+          "sha": "000765b",
+          "snippet": "feat(ACA-07-021): Fix packager.py: SAS_HOURS=168 and user_delegation_key SAS gen",
           "source": "commit"
         }
       ],
-      "ACA-14-001": [
+      "ACA-12-021": [
         {
-          "sha": "e041b3f",
-          "snippet": "chore(ACA-14-001): update review draft to Sonnet 4.6 + embed live endpoint table",
-          "source": "commit"
-        },
-        {
-          "sha": "ef7341f",
-          "snippet": "feat(plan): ACA-14-001 ACA-14-002 ACA-14-003 ACA-14-004 ACA-14-005 ACA-14-006 AC",
+          "sha": "7e53eef",
+          "snippet": "chore(ACA-12-021): create spec docs + pre-flight sprint + lower MTI gate to 30",
           "source": "commit"
         }
       ],
@@ -9469,23 +10127,6 @@
         {
           "sha": "9b189e7",
           "snippet": "fix(dpdca): ACA-14-004 strip trailing slash from AZURE_OPENAI_ENDPOINT",
-          "source": "commit"
-        },
-        {
-          "sha": "735ea51",
-          "snippet": "fix(dpdca): ACA-14-003 ACA-14-004 ACA-14-005 fix YAML workflow -- no inline Pyth",
-          "source": "commit"
-        },
-        {
-          "sha": "ef7341f",
-          "snippet": "feat(plan): ACA-14-001 ACA-14-002 ACA-14-003 ACA-14-004 ACA-14-005 ACA-14-006 AC",
-          "source": "commit"
-        }
-      ],
-      "ACA-14-005": [
-        {
-          "sha": "32604a0",
-          "snippet": "fix(dpdca): ACA-14-005 robust git add + Azure OpenAI secrets wired",
           "source": "commit"
         },
         {
@@ -9512,20 +10153,6 @@
         }
       ],
       "ACA-14-002": [
-        {
-          "sha": "ef7341f",
-          "snippet": "feat(plan): ACA-14-001 ACA-14-002 ACA-14-003 ACA-14-004 ACA-14-005 ACA-14-006 AC",
-          "source": "commit"
-        }
-      ],
-      "ACA-14-006": [
-        {
-          "sha": "ef7341f",
-          "snippet": "feat(plan): ACA-14-001 ACA-14-002 ACA-14-003 ACA-14-004 ACA-14-005 ACA-14-006 AC",
-          "source": "commit"
-        }
-      ],
-      "ACA-14-007": [
         {
           "sha": "ef7341f",
           "snippet": "feat(plan): ACA-14-001 ACA-14-002 ACA-14-003 ACA-14-004 ACA-14-005 ACA-14-006 AC",

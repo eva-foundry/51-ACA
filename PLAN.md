@@ -195,6 +195,7 @@ Feature 4.1 -- Authentication (DECISION LOCKED 2026-02-27)
                I do not need to be in any specific organization to use ACA
   Story 4.1.2 [ACA-04-002]  As the API I validate the JWT on every authenticated endpoint using
                JWKS from https://login.microsoftonline.com/common/discovery/keys
+    Status: DONE (Sprint-02)
   Story 4.1.3 [ACA-04-003]  As the API I extract subscriptionId from the session (stored after connect);
                tier is read from the Cosmos clients container (not from JWT claims)
   Story 4.1.4 [ACA-04-004]  As a client I can connect my Azure subscription (POST /v1/auth/connect)
@@ -205,11 +206,13 @@ Feature 4.1 -- Authentication (DECISION LOCKED 2026-02-27)
   Story 4.1.6 [ACA-04-006]  As a developer auth.py is reworked: MSAL authority=common, no EsDAICoE
                org dependency, all 3 endpoints (connect/preflight/disconnect) implemented
                beyond 501 stubs. Refresh token stored per-scan in KV, not per-user.
+    Status: DONE (Sprint-02)
   Story 4.1.7 [ACA-04-007]  As the frontend LoginPage, sign-in CTA calls MSAL.js with
                authority=common so any Microsoft account (personal or work) is accepted
 
 Feature 4.2 -- Core API endpoints (Spark paths from docs 22-23)
   Story 4.2.1 [ACA-04-008]  POST /v1/auth/connect         -- Connect Azure subscription
+    Status: DONE (Sprint-02)
   Story 4.2.2 [ACA-04-009]  POST /v1/auth/preflight       -- Run pre-flight probes
   Story 4.2.3 [ACA-04-010]  POST /v1/auth/disconnect      -- Disconnect subscription
   Story 4.2.4 [ACA-04-011]  POST /v1/collect/start        -- Trigger collector job (was /v1/scans)
@@ -901,7 +904,7 @@ Blocker gate: MTI >= 30 (lowered from 70; restore at Sprint 3 boundary)
 
   Story ACA-03-021  Fix FindingsAssembler missing cosmos_client argument
     FP: XS=1  Model: XS  Sprint: pre-flight  Epic: 3
-    Status: PLANNED
+    Status: DONE (Sprint-02)
     EVA-STORY tag: # EVA-STORY: ACA-03-021
     Files: services/analysis/app/main.py
     Description: FindingsAssembler.__init__ requires 3 args: scan_id, subscription_id,
@@ -914,7 +917,7 @@ Blocker gate: MTI >= 30 (lowered from 70; restore at Sprint 3 boundary)
 
   Story ACA-07-021  Fix generate_blob_sas call and SAS_HOURS constant
     FP: S=3  Model: S  Sprint: pre-flight  Epic: 7
-    Status: PLANNED
+    Status: DONE (Sprint-02)
     EVA-STORY tag: # EVA-STORY: ACA-07-021
     Files: services/delivery/app/packager.py
     Description: Two bugs in packager.py (bug C-07):

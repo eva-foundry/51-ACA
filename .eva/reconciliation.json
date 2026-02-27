@@ -1,17 +1,27 @@
 {
   "meta": {
     "schema": "eva.reconciliation.v2",
-    "generated_at": "2026-02-27T12:05:57.132Z",
+    "generated_at": "2026-02-27T17:33:13.660Z",
     "repo": "C:\\AICOE\\eva-foundry\\51-ACA",
     "discovery_path": "C:\\AICOE\\eva-foundry\\51-ACA\\.eva\\discovery.json"
   },
   "coverage": {
-    "stories_total": 250,
-    "stories_with_artifacts": 250,
-    "stories_with_evidence": 250,
+    "stories_total": 257,
+    "stories_with_artifacts": 256,
+    "stories_with_evidence": 257,
     "consistency_score": 1
   },
   "features": [
+    {
+      "id": "ACA-14",
+      "title": "DPDCA CLOUD AGENT",
+      "story_count": 14,
+      "stories_with_artifacts": 13,
+      "stories_with_evidence": 14,
+      "consistency_score": 1,
+      "mti": 96,
+      "gap_count": 1
+    },
     {
       "id": "ACA-01",
       "title": "FOUNDATION AND INFRASTRUCTURE",
@@ -25,9 +35,9 @@
     {
       "id": "ACA-02",
       "title": "Epic 2",
-      "story_count": 16,
-      "stories_with_artifacts": 16,
-      "stories_with_evidence": 16,
+      "story_count": 17,
+      "stories_with_artifacts": 17,
+      "stories_with_evidence": 17,
       "consistency_score": 1,
       "mti": 100,
       "gap_count": 0
@@ -45,9 +55,9 @@
     {
       "id": "ACA-04",
       "title": "Epic 4",
-      "story_count": 27,
-      "stories_with_artifacts": 27,
-      "stories_with_evidence": 27,
+      "story_count": 28,
+      "stories_with_artifacts": 28,
+      "stories_with_evidence": 28,
       "consistency_score": 1,
       "mti": 100,
       "gap_count": 0
@@ -65,9 +75,9 @@
     {
       "id": "ACA-06",
       "title": "MONETIZATION AND BILLING",
-      "story_count": 17,
-      "stories_with_artifacts": 17,
-      "stories_with_evidence": 17,
+      "story_count": 18,
+      "stories_with_artifacts": 18,
+      "stories_with_evidence": 18,
       "consistency_score": 1,
       "mti": 100,
       "gap_count": 0
@@ -141,19 +151,14 @@
       "consistency_score": 1,
       "mti": 100,
       "gap_count": 0
-    },
-    {
-      "id": "ACA-14",
-      "title": "DPDCA CLOUD AGENT",
-      "story_count": 10,
-      "stories_with_artifacts": 10,
-      "stories_with_evidence": 10,
-      "consistency_score": 1,
-      "mti": 100,
-      "gap_count": 0
     }
   ],
   "gaps": [
+    {
+      "type": "missing_implementation",
+      "story_id": "ACA-12-021",
+      "title": "Create missing spec docs in docs/"
+    },
     {
       "type": "orphan_story_tag",
       "story_id": "ACA-XX-XXX",
