@@ -4,7 +4,7 @@ rootdir: /home/runner/work/51-ACA/51-ACA
 configfile: pyproject.toml
 plugins: anyio-4.12.1, asyncio-1.3.0
 asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
-collected 6 items / 1 error
+collected 9 items / 1 error
 
 <Dir 51-ACA>
   <Dir services>
@@ -18,6 +18,10 @@ collected 6 items / 1 error
         <Function test_gate_findings_tier1>
         <Function test_gate_findings_tier2>
         <Function test_gate_findings_tier3>
+      <Module test_jwt_dep.py>
+        <Function test_valid_token_returns_payload>
+        <Function test_invalid_token_raises_401>
+        <Function test_no_token_raises_401>
 
 ==================================== ERRORS ====================================
 ____________ ERROR collecting services/tests/test_analysis_main.py _____________
@@ -35,4 +39,4 @@ E   ModuleNotFoundError: No module named 'app.rules'
 =========================== short test summary info ============================
 ERROR services/tests/test_analysis_main.py
 !!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
-===================== 6 tests collected, 1 error in 0.60s ======================
+===================== 9 tests collected, 1 error in 0.69s ======================

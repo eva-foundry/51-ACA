@@ -703,6 +703,41 @@ UP045 [*] Use `X | None` for type annotations
 help: Convert to `X | None`
 
 I001 [*] Import block is un-sorted or un-formatted
+ --> services/api/app/deps/auth.py:2:1
+  |
+1 |   # EVA-STORY: ACA-04-002
+2 | / from fastapi import Depends, HTTPException
+3 | | from fastapi.security import OAuth2PasswordBearer
+4 | | import jwt
+5 | | from jwt import InvalidTokenError, PyJWTError
+6 | | import requests
+  | |_______________^
+7 |
+8 |   # OAuth2 scheme for token extraction
+  |
+help: Organize imports
+
+B904 Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling
+  --> services/api/app/deps/auth.py:29:13
+   |
+27 |             )
+28 |         except PyJWTError:
+29 |             raise HTTPException(status_code=401, detail="Invalid or expired token")
+   |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+30 |
+31 | async def verify_token(token: str = Depends(oauth2_scheme), jwks_url: str = None) -> dict:
+   |
+
+B904 Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling
+  --> services/api/app/deps/auth.py:42:9
+   |
+40 |         return decoded_payload
+41 |     except InvalidTokenError:
+42 |         raise HTTPException(status_code=401, detail="Invalid or expired token")
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+
+I001 [*] Import block is un-sorted or un-formatted
   --> services/api/app/main.py:6:1
    |
  4 |   ACA API -- FastAPI application factory.
@@ -1994,3 +2029,30 @@ F401 [*] `services.api.app.services.findings_gate.TIER2_FIELDS` imported but unu
 5 | FULL_FINDING = {
   |
 help: Remove unused import: `services.api.app.services.findings_gate.TIER2_FIELDS`
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> services/tests/test_jwt_dep.py:2:1
+  |
+1 |   # EVA-STORY: ACA-04-002
+2 | / import pytest
+3 | | from fastapi import HTTPException
+4 | | from fastapi.security import OAuth2PasswordBearer
+5 | | from unittest.mock import patch
+6 | | from services.api.app.deps.auth import verify_token
+  | |___________________________________________________^
+7 |
+8 |   def test_valid_token_returns_payload():
+  |
+help: Organize imports
+
+F401 [*] `fastapi.security.OAuth2PasswordBearer` imported but unused
+ --> services/tests/test_jwt_dep.py:4:30
+  |
+2 | import pytest
+3 | from fastapi import HTTPException
+4 | from fastapi.security import OAuth2PasswordBearer
+  |                              ^^^^^^^^^^^^^^^^^^^^
+5 | from unittest.mock import patch
+6 | from services.api.app.deps.auth import verify_token
+  |
+help: Remove unused import: `fastapi.security.OAuth2PasswordBearer`
