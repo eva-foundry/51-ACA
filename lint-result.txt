@@ -1512,35 +1512,3 @@ I001 [*] Import block is un-sorted or un-formatted
 16 |   logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s %(message)s")
    |
 help: Organize imports
-
-I001 [*] Import block is un-sorted or un-formatted
-  --> services/delivery/app/packager.py:6:1
-   |
- 4 |   Returns a 24-hour SAS URL for the client to download.
- 5 |   """
- 6 | / from __future__ import annotations
- 7 | | import hashlib
- 8 | | import io
- 9 | | import json
-10 | | import logging
-11 | | import zipfile
-12 | | from datetime import datetime, timedelta, timezone
-13 | |
-14 | | from azure.storage.blob import BlobServiceClient, BlobSasPermissions, generate_blob_sas
-15 | | from azure.identity import DefaultAzureCredential
-   | |_________________________________________________^
-16 |
-17 |   logger = logging.getLogger(__name__)
-   |
-help: Organize imports
-
-UP017 [*] Use `datetime.UTC` alias
-  --> services/delivery/app/packager.py:67:31
-   |
-66 |         # SAS
-67 |         expiry = datetime.now(timezone.utc) + timedelta(hours=SAS_HOURS)
-   |                               ^^^^^^^^^^^^
-68 |         sas_token = generate_blob_sas(
-69 |             account_name=self.storage_account,
-   |
-help: Convert to `datetime.UTC` alias

@@ -1,0 +1,12 @@
+{
+  "story_id": "ACA-07-021",
+  "title": "Fix packager.py: SAS_HOURS=168 and user_delegation_key SAS generation",
+  "phase": "D|P|D|C|A",
+  "timestamp": "2026-02-27T11:29:54Z",
+  "artifacts": [
+    "services/delivery/app/packager.py"
+  ],
+  "test_result": "WARN",
+  "lint_result": "WARN",
+  "commit_sha": "fe0f781c600de395ce382cc2da7026c074df3985"
+}
