@@ -1,6 +1,6 @@
 {
   "schema": "eva.veritas-plan.v1",
-  "generated_at": "2026-02-27T08:03:06.683503+00:00",
+  "generated_at": "2026-02-27T12:12:31.989826+00:00",
   "generated_from": [
     "PLAN.md",
     "README.md",
@@ -313,6 +313,14 @@
         {
           "id": "ACA-02-016",
           "title": "As the API I expose GET /v1/scans/:scanId so the frontend can poll status",
+          "feature_id": "ACA-02",
+          "done": true,
+          "source": "plan-md",
+          "tasks": []
+        },
+        {
+          "id": "ACA-02-017",
+          "title": "As the system, after mark_collection_complete sets status=collected, the analysis",
           "feature_id": "ACA-02",
           "done": true,
           "source": "plan-md",
@@ -811,6 +819,14 @@
           "done": false,
           "source": "plan-md",
           "tasks": []
+        },
+        {
+          "id": "ACA-04-028",
+          "title": "services/api/app/db/cosmos.py upsert_item() must accept partition_key as a",
+          "feature_id": "ACA-04",
+          "done": false,
+          "source": "plan-md",
+          "tasks": []
         }
       ]
     },
@@ -1252,7 +1268,7 @@
         },
         {
           "id": "ACA-06-012",
-          "title": "customer.subscription.deleted -> downgrade to Tier 1 in Cosmos",
+          "title": "customer.subscription.deleted -> downgrade to Tier 1 in Cosmos unless Tier 3 permanent",
           "feature_id": "ACA-06",
           "done": true,
           "source": "plan-md",
@@ -1293,6 +1309,14 @@
         {
           "id": "ACA-06-017",
           "title": "Billing portal endpoint derives stripeCustomerId from Cosmos clients container",
+          "feature_id": "ACA-06",
+          "done": true,
+          "source": "plan-md",
+          "tasks": []
+        },
+        {
+          "id": "ACA-06-018",
+          "title": "As a Tier 3 customer, when my Tier 2 subscription is canceled (subscription.deleted)",
           "feature_id": "ACA-06",
           "done": true,
           "source": "plan-md",
@@ -2103,6 +2127,38 @@
           "title": "Evidence receipt schema validation: story_id, wbs_id, epic,",
           "feature_id": "ACA-14",
           "done": false,
+          "source": "plan-md",
+          "tasks": []
+        },
+        {
+          "id": "ACA-03-021",
+          "title": "Fix FindingsAssembler missing cosmos_client argument",
+          "feature_id": "ACA-14",
+          "done": false,
+          "source": "plan-md",
+          "tasks": []
+        },
+        {
+          "id": "ACA-07-021",
+          "title": "Fix generate_blob_sas call and SAS_HOURS constant",
+          "feature_id": "ACA-14",
+          "done": false,
+          "source": "plan-md",
+          "tasks": []
+        },
+        {
+          "id": "ACA-12-021",
+          "title": "Create missing spec docs in docs/",
+          "feature_id": "ACA-14",
+          "done": true,
+          "source": "plan-md",
+          "tasks": []
+        },
+        {
+          "id": "ACA-12-022",
+          "title": "Lower MTI gate to 30 for Sprint 2 pre-flight",
+          "feature_id": "ACA-14",
+          "done": true,
           "source": "plan-md",
           "tasks": []
         }

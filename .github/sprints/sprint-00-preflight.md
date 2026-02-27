@@ -4,6 +4,7 @@
   "sprint_title": "Pre-flight: 3 blocking bugs",
   "target_branch": "sprint/00-preflight",
   "epic": "ACA-00",
+  "_note": "Story IDs ACA-06-017b/ACA-03-004b/ACA-07-008b are hotfix variants of existing veritas stories. Formal IDs will be tracked in sprint-01.",
   "stories": [
     {
       "id": "ACA-06-021",

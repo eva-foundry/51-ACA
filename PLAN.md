@@ -111,6 +111,11 @@ Feature 2.5 -- Collection lifecycle
   Story 2.5.1  As the system I update scan status in Cosmos: queued -> running -> succeeded/failed
   Story 2.5.2  As the system I write stats to the scan record (inventoryCount, costRows, advisorRecs)
   Story 2.5.3  As the API I expose GET /v1/scans/:scanId so the frontend can poll status
+  Story 2.5.4  As the system, after mark_collection_complete sets status=collected, the analysis
+               Container App Job is triggered automatically (via azure.mgmt.appcontainers or
+               az CLI fallback). If ACA_ANALYSIS_JOB_NAME is not set, the trigger is skipped
+               with a warning and collection still succeeds (graceful degradation for CI).
+               Without this trigger no findings are ever produced -- scans stay at status=collected.
 
 =============================================================================
 EPIC 3 -- ANALYSIS ENGINE AND RULES (M1.2)
@@ -252,6 +257,13 @@ Feature 4.4 -- Admin API endpoints (NEW from docs 21/23)
                Supports filter by subscriptionId and type
                Requires role: ACA_Admin | ACA_Support | ACA_FinOps
 
+Feature 4.5 -- Data layer correctness
+  Story 4.5.1  services/api/app/db/cosmos.py upsert_item() must accept partition_key as a
+               required third parameter and pass it explicitly to container.upsert_item().
+               Without this, the Cosmos SDK infers partition_key from the item dict which
+               is unreliable and silently fails tenant isolation on malformed documents.
+               All callers of upsert_item() must be updated to pass partition_key=subscription_id.
+
 =============================================================================
 EPIC 5 -- FRONTEND SPARK ARCHITECTURE (M1.4)
 =============================================================================
@@ -381,7 +393,7 @@ Feature 6.2 -- Webhook lifecycle
                if Tier 3
   Story 6.2.2  invoice.paid -> renew Tier 2 subscription entitlement for next period
   Story 6.2.3  customer.subscription.updated -> update Tier in Cosmos clients container
-  Story 6.2.4  customer.subscription.deleted -> downgrade to Tier 1 in Cosmos
+  Story 6.2.4  customer.subscription.deleted -> downgrade to Tier 1 in Cosmos unless Tier 3 permanent
   Story 6.2.5  All webhook events written to payments container for audit trail
 
 Feature 6.3 -- Entitlement service
@@ -390,6 +402,11 @@ Feature 6.3 -- Entitlement service
   Story 6.3.3  StripeCustomerMapRepo resolves stripeCustomerId -> subscriptionId for webhooks
   Story 6.3.4  Billing portal endpoint derives stripeCustomerId from Cosmos clients container
                (never from browser input -- security requirement)
+  Story 6.3.5  As a Tier 3 customer, when my Tier 2 subscription is canceled (subscription.deleted)
+               my Tier 3 one-time purchase access is preserved. revoke() must not unconditionally
+               set tier=1. Correct logic: if existing.tier >= 3, new_tier = 3 else new_tier = 1.
+               payment_status is always set to canceled regardless. A customer who paid $1,499
+               one-time for Tier 3 must not lose access due to a Tier 2 subscription lifecycle event.
 
 =============================================================================
 EPIC 7 -- DELIVERY PACKAGER (M1.6)
