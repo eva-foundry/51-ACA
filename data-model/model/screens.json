@@ -11,7 +11,13 @@
       "component_file": "frontend/src/app/routes/app/LoginPage.tsx",
       "api_calls": [],
       "a11y_notes": "Primary CTA keyboard-focusable. Dev bypass link visible when VITE_DEV_AUTH=true.",
-      "notes": "Entra ID OIDC entry point. Dev bypass mode simulates signed-in user."
+      "notes": "Entra ID OIDC entry point. Dev bypass mode simulates signed-in user.",
+      "source_file": "model/screens.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.449082+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.449082+00:00",
+      "row_version": 1
     },
     {
       "id": "screen-connect",
@@ -23,9 +29,18 @@
       "is_active": true,
       "component_file": "frontend/src/app/routes/app/ConnectSubscriptionPage.tsx",
       "layout": "CustomerLayout",
-      "api_calls": ["POST /v1/auth/connect", "POST /v1/collect/start"],
+      "api_calls": [
+        "POST /v1/auth/connect",
+        "POST /v1/collect/start"
+      ],
       "a11y_notes": "Mode A/B/C radio group with fieldset+legend. Error message role=alert.",
-      "notes": "Stores subscriptionId in sessionStorage after POST /v1/auth/connect."
+      "notes": "Stores subscriptionId in sessionStorage after POST /v1/auth/connect.",
+      "source_file": "model/screens.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.449082+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.449082+00:00",
+      "row_version": 1
     },
     {
       "id": "screen-collection-status",
@@ -37,9 +52,17 @@
       "is_active": true,
       "component_file": "frontend/src/app/routes/app/CollectionStatusPage.tsx",
       "layout": "CustomerLayout",
-      "api_calls": ["GET /v1/collect/status"],
+      "api_calls": [
+        "GET /v1/collect/status"
+      ],
       "a11y_notes": "aria-live region for step status updates. ProgressBar with aria-valuenow.",
-      "notes": "Polls GET /v1/collect/status?subscriptionId= with exponential backoff. Links to /app/findings/:subscriptionId when complete."
+      "notes": "Polls GET /v1/collect/status?subscriptionId= with exponential backoff. Links to /app/findings/:subscriptionId when complete.",
+      "source_file": "model/screens.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.449082+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.449082+00:00",
+      "row_version": 1
     },
     {
       "id": "screen-findings-tier1",
@@ -51,9 +74,17 @@
       "is_active": true,
       "component_file": "frontend/src/app/routes/app/FindingsTier1Page.tsx",
       "layout": "CustomerLayout",
-      "api_calls": ["GET /v1/reports/tier1"],
+      "api_calls": [
+        "GET /v1/reports/tier1"
+      ],
       "a11y_notes": "Table th scope=col. MoneyRangeBar aria-label includes currency. EffortBadge uses role=img aria-label.",
-      "notes": "Tier 1 free report. Blurred rows with upgrade CTA for Tier 2+ fields. Links to /app/upgrade/:subscriptionId."
+      "notes": "Tier 1 free report. Blurred rows with upgrade CTA for Tier 2+ fields. Links to /app/upgrade/:subscriptionId.",
+      "source_file": "model/screens.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.449082+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.449082+00:00",
+      "row_version": 1
     },
     {
       "id": "screen-upgrade",
@@ -65,9 +96,18 @@
       "is_active": true,
       "component_file": "frontend/src/app/routes/app/UpgradePage.tsx",
       "layout": "CustomerLayout",
-      "api_calls": ["POST /v1/billing/checkout", "GET /v1/billing/portal"],
+      "api_calls": [
+        "POST /v1/billing/checkout",
+        "GET /v1/billing/portal"
+      ],
       "a11y_notes": "Tier comparison cards use role=list. Checkout button aria-busy during redirect.",
-      "notes": "Shows Tier 2 vs Tier 3 cards. POST /v1/billing/checkout returns redirectUrl. Links to billing portal if already subscribed."
+      "notes": "Shows Tier 2 vs Tier 3 cards. POST /v1/billing/checkout returns redirectUrl. Links to billing portal if already subscribed.",
+      "source_file": "model/screens.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.449082+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.449082+00:00",
+      "row_version": 1
     },
     {
       "id": "screen-admin-dashboard",
@@ -75,13 +115,25 @@
       "route": "/admin/dashboard",
       "auth_required": true,
       "tier_required": 0,
-      "role_required": ["ACA_Admin", "ACA_Support", "ACA_FinOps"],
+      "role_required": [
+        "ACA_Admin",
+        "ACA_Support",
+        "ACA_FinOps"
+      ],
       "is_active": true,
       "component_file": "frontend/src/app/routes/admin/AdminDashboardPage.tsx",
       "layout": "AdminLayout",
-      "api_calls": ["GET /v1/admin/kpis"],
+      "api_calls": [
+        "GET /v1/admin/kpis"
+      ],
       "a11y_notes": "KPI cards use <dl>/<dt>/<dd>. MRR value aria-label includes currency.",
-      "notes": "Shows MRR (CAD), active subscriptions, scans/day, analyses/day, deliveries/day, failure rate %."
+      "notes": "Shows MRR (CAD), active subscriptions, scans/day, analyses/day, deliveries/day, failure rate %.",
+      "source_file": "model/screens.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.449082+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.449082+00:00",
+      "row_version": 1
     },
     {
       "id": "screen-admin-customers",
@@ -89,13 +141,25 @@
       "route": "/admin/customers",
       "auth_required": true,
       "tier_required": 0,
-      "role_required": ["ACA_Admin", "ACA_Support", "ACA_FinOps"],
+      "role_required": [
+        "ACA_Admin",
+        "ACA_Support",
+        "ACA_FinOps"
+      ],
       "is_active": true,
       "component_file": "frontend/src/app/routes/admin/AdminCustomersPage.tsx",
       "layout": "AdminLayout",
-      "api_calls": ["GET /v1/admin/customers"],
+      "api_calls": [
+        "GET /v1/admin/customers"
+      ],
       "a11y_notes": "Search input aria-label. Results table th scope=col.",
-      "notes": "Search by subscriptionId, stripeCustomerId. Shows tier, paymentStatus, isLocked, lastActivityUtc. Deep link to runs."
+      "notes": "Search by subscriptionId, stripeCustomerId. Shows tier, paymentStatus, isLocked, lastActivityUtc. Deep link to runs.",
+      "source_file": "model/screens.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.449082+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.449082+00:00",
+      "row_version": 1
     },
     {
       "id": "screen-admin-billing",
@@ -103,13 +167,25 @@
       "route": "/admin/billing",
       "auth_required": true,
       "tier_required": 0,
-      "role_required": ["ACA_Admin", "ACA_Support", "ACA_FinOps"],
+      "role_required": [
+        "ACA_Admin",
+        "ACA_Support",
+        "ACA_FinOps"
+      ],
       "is_active": true,
       "component_file": "frontend/src/app/routes/admin/AdminBillingPage.tsx",
       "layout": "AdminLayout",
-      "api_calls": ["POST /v1/admin/stripe/reconcile"],
+      "api_calls": [
+        "POST /v1/admin/stripe/reconcile"
+      ],
       "a11y_notes": "Reconcile button shows aria-busy during job. Confirmation modal traps focus.",
-      "notes": "Shows Stripe webhook health. Reconcile Stripe button (ACA_Admin only) with confirmation modal."
+      "notes": "Shows Stripe webhook health. Reconcile Stripe button (ACA_Admin only) with confirmation modal.",
+      "source_file": "model/screens.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.449082+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.449082+00:00",
+      "row_version": 1
     },
     {
       "id": "screen-admin-runs",
@@ -117,13 +193,25 @@
       "route": "/admin/runs",
       "auth_required": true,
       "tier_required": 0,
-      "role_required": ["ACA_Admin", "ACA_Support", "ACA_FinOps"],
+      "role_required": [
+        "ACA_Admin",
+        "ACA_Support",
+        "ACA_FinOps"
+      ],
       "is_active": true,
       "component_file": "frontend/src/app/routes/admin/AdminRunsPage.tsx",
       "layout": "AdminLayout",
-      "api_calls": ["GET /v1/admin/runs"],
+      "api_calls": [
+        "GET /v1/admin/runs"
+      ],
       "a11y_notes": "Filter select aria-label. Run status badges role=status.",
-      "notes": "Lists scan/analysis/delivery runs. Filter by subscriptionId and type. Shows status, duration, correlationId."
+      "notes": "Lists scan/analysis/delivery runs. Filter by subscriptionId and type. Shows status, duration, correlationId.",
+      "source_file": "model/screens.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.449082+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.449082+00:00",
+      "row_version": 1
     },
     {
       "id": "screen-admin-controls",
@@ -131,16 +219,24 @@
       "route": "/admin/controls",
       "auth_required": true,
       "tier_required": 0,
-      "role_required": ["ACA_Admin", "ACA_Support"],
+      "role_required": [
+        "ACA_Admin",
+        "ACA_Support"
+      ],
       "is_active": true,
       "component_file": "frontend/src/app/routes/admin/AdminControlsPage.tsx",
       "layout": "AdminLayout",
       "api_calls": [
         "POST /v1/admin/entitlements/grant",
-        "POST /v1/admin/subscriptions/:subscriptionId/lock"
+        "POST /v1/admin/subscriptions/{subscriptionId}/lock"
       ],
       "a11y_notes": "All forms have label+input associations. Confirmation modals use role=dialog, aria-modal=true, focus trap.",
-      "notes": "Grant tier form (subscriptionId, tier, days, reason). Lock/unlock subscription form. All actions write admin_audit_events. Confirmation modal for destructive actions."
+      "notes": "Grant tier form (subscriptionId, tier, days, reason). Lock/unlock subscription form. All actions write admin_audit_events. Confirmation modal for destructive actions.",
+      "modified_by": "agent:copilot",
+      "modified_at": "2026-02-27T05:28:34.127372+00:00",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.449082+00:00",
+      "row_version": 2
     }
   ]
 }

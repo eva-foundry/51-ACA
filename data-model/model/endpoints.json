@@ -11,7 +11,13 @@
       "implemented_in": "services/api/app/routers/health.py",
       "repo_line": 13,
       "auth": [],
-      "description": "Returns service health status"
+      "description": "Returns service health status",
+      "source_file": "model/endpoints.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.426356+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.426356+00:00",
+      "row_version": 1
     },
     {
       "id": "POST /v1/auth/connect",
@@ -24,7 +30,13 @@
       "implemented_in": "services/api/app/routers/auth.py",
       "repo_line": 26,
       "auth": [],
-      "description": "Initiate Azure subscription consent flow (MSAL device-code)"
+      "description": "Initiate Azure subscription consent flow (MSAL device-code)",
+      "source_file": "model/endpoints.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.426356+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.426356+00:00",
+      "row_version": 1
     },
     {
       "id": "POST /v1/auth/preflight",
@@ -37,7 +49,13 @@
       "implemented_in": "services/api/app/routers/auth.py",
       "repo_line": 37,
       "auth": [],
-      "description": "Validate subscription access and required roles before scan"
+      "description": "Validate subscription access and required roles before scan",
+      "source_file": "model/endpoints.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.426356+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.426356+00:00",
+      "row_version": 1
     },
     {
       "id": "POST /v1/auth/disconnect",
@@ -50,7 +68,13 @@
       "implemented_in": "services/api/app/routers/auth.py",
       "repo_line": 48,
       "auth": [],
-      "description": "Revoke subscription consent and remove stored tokens"
+      "description": "Revoke subscription consent and remove stored tokens",
+      "source_file": "model/endpoints.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.426356+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.426356+00:00",
+      "row_version": 1
     },
     {
       "id": "POST /v1/scans/",
@@ -62,9 +86,17 @@
       "is_active": true,
       "implemented_in": "services/api/app/routers/scans.py",
       "repo_line": 25,
-      "cosmos_writes": ["scans"],
+      "cosmos_writes": [
+        "scans"
+      ],
       "auth": [],
-      "description": "Trigger a new scan job for a client subscription"
+      "description": "Trigger a new scan job for a client subscription",
+      "source_file": "model/endpoints.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.426356+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.426356+00:00",
+      "row_version": 1
     },
     {
       "id": "GET /v1/scans/{scan_id}",
@@ -76,9 +108,17 @@
       "is_active": true,
       "implemented_in": "services/api/app/routers/scans.py",
       "repo_line": 43,
-      "cosmos_reads": ["scans"],
+      "cosmos_reads": [
+        "scans"
+      ],
       "auth": [],
-      "description": "Get status of a specific scan by ID"
+      "description": "Get status of a specific scan by ID",
+      "source_file": "model/endpoints.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.426356+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.426356+00:00",
+      "row_version": 1
     },
     {
       "id": "GET /v1/scans/",
@@ -90,9 +130,17 @@
       "is_active": true,
       "implemented_in": "services/api/app/routers/scans.py",
       "repo_line": 50,
-      "cosmos_reads": ["scans"],
+      "cosmos_reads": [
+        "scans"
+      ],
       "auth": [],
-      "description": "List all scans for a subscription"
+      "description": "List all scans for a subscription",
+      "source_file": "model/endpoints.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.426356+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.426356+00:00",
+      "row_version": 1
     },
     {
       "id": "GET /v1/findings/{scan_id}",
@@ -104,9 +152,18 @@
       "is_active": true,
       "implemented_in": "services/api/app/routers/findings.py",
       "repo_line": 34,
-      "cosmos_reads": ["findings", "advisor"],
+      "cosmos_reads": [
+        "findings",
+        "advisor"
+      ],
       "auth": [],
-      "description": "Get prioritized cost findings for a completed scan"
+      "description": "Get prioritized cost findings for a completed scan",
+      "source_file": "model/endpoints.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.426356+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.426356+00:00",
+      "row_version": 1
     },
     {
       "id": "POST /v1/checkout/tier2",
@@ -119,7 +176,13 @@
       "implemented_in": "services/api/app/routers/checkout.py",
       "repo_line": 18,
       "auth": [],
-      "description": "Create Tier 2 checkout session (detailed deliverable)"
+      "description": "Create Tier 2 checkout session (detailed deliverable)",
+      "source_file": "model/endpoints.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.426356+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.426356+00:00",
+      "row_version": 1
     },
     {
       "id": "POST /v1/checkout/tier3",
@@ -132,7 +195,13 @@
       "implemented_in": "services/api/app/routers/checkout.py",
       "repo_line": 29,
       "auth": [],
-      "description": "Create Tier 3 checkout session (full engagement deliverable)"
+      "description": "Create Tier 3 checkout session (full engagement deliverable)",
+      "source_file": "model/endpoints.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.426356+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.426356+00:00",
+      "row_version": 1
     },
     {
       "id": "POST /v1/checkout/webhook",
@@ -145,7 +214,13 @@
       "implemented_in": "services/api/app/routers/checkout.py",
       "repo_line": 39,
       "auth": [],
-      "description": "Stripe webhook handler -- payment events"
+      "description": "Stripe webhook handler -- payment events",
+      "source_file": "model/endpoints.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.426356+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.426356+00:00",
+      "row_version": 1
     },
     {
       "id": "GET /v1/checkout/entitlements",
@@ -158,7 +233,13 @@
       "implemented_in": "services/api/app/routers/checkout.py",
       "repo_line": 54,
       "auth": [],
-      "description": "Get client tier entitlements (what reports they have paid for)"
+      "description": "Get client tier entitlements (what reports they have paid for)",
+      "source_file": "model/endpoints.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.426356+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.426356+00:00",
+      "row_version": 1
     },
     {
       "id": "GET /v1/admin/stats",
@@ -170,8 +251,16 @@
       "is_active": true,
       "implemented_in": "services/api/app/routers/admin.py",
       "repo_line": 11,
-      "auth": ["admin"],
-      "description": "ACA platform stats: scans, clients, revenue"
+      "auth": [
+        "admin"
+      ],
+      "description": "ACA platform stats: scans, clients, revenue",
+      "source_file": "model/endpoints.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.426356+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.426356+00:00",
+      "row_version": 1
     },
     {
       "id": "DELETE /v1/admin/scans/{scan_id}",
@@ -183,9 +272,19 @@
       "is_active": true,
       "implemented_in": "services/api/app/routers/admin.py",
       "repo_line": 17,
-      "auth": ["admin"],
-      "cosmos_writes": ["scans"],
-      "description": "Hard delete a scan record (admin use only)"
+      "auth": [
+        "admin"
+      ],
+      "cosmos_writes": [
+        "scans"
+      ],
+      "description": "Hard delete a scan record (admin use only)",
+      "source_file": "model/endpoints.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.426356+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.426356+00:00",
+      "row_version": 1
     },
     {
       "id": "POST /v1/collect/start",
@@ -197,10 +296,18 @@
       "is_active": true,
       "implemented_in": "services/api/app/routers/scans.py",
       "repo_line": 0,
-      "cosmos_writes": ["scans"],
+      "cosmos_writes": [
+        "scans"
+      ],
       "auth": [],
       "description": "Trigger a new collection job for a subscription (Spark path, replaces POST /v1/scans/)",
-      "notes": "Body: { subscriptionId }. Returns { scanId, status: queued }."
+      "notes": "Body: { subscriptionId }. Returns { scanId, status: queued }.",
+      "source_file": "model/endpoints.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.426356+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.426356+00:00",
+      "row_version": 1
     },
     {
       "id": "GET /v1/collect/status",
@@ -212,10 +319,18 @@
       "is_active": true,
       "implemented_in": "services/api/app/routers/scans.py",
       "repo_line": 0,
-      "cosmos_reads": ["scans"],
+      "cosmos_reads": [
+        "scans"
+      ],
       "auth": [],
       "description": "Poll collection + analysis pipeline progress (Spark path). Query: subscriptionId",
-      "notes": "Returns { scanId, status, steps[], progress, completedUtc }."
+      "notes": "Returns { scanId, status, steps[], progress, completedUtc }.",
+      "source_file": "model/endpoints.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.426356+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.426356+00:00",
+      "row_version": 1
     },
     {
       "id": "GET /v1/reports/tier1",
@@ -227,10 +342,18 @@
       "is_active": true,
       "implemented_in": "services/api/app/routers/findings.py",
       "repo_line": 0,
-      "cosmos_reads": ["findings"],
+      "cosmos_reads": [
+        "findings"
+      ],
       "auth": [],
       "description": "Get Tier 1 findings report (Spark path). Query: subscriptionId",
-      "notes": "Returns Tier1Report: { subscriptionId, currency, findings[{id, category, title, estimatedSavingLow, estimatedSavingHigh, effortClass}], totalSavingLow, totalSavingHigh }."
+      "notes": "Returns Tier1Report: { subscriptionId, currency, findings[{id, category, title, estimatedSavingLow, estimatedSavingHigh, effortClass}], totalSavingLow, totalSavingHigh }.",
+      "source_file": "model/endpoints.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.426356+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.426356+00:00",
+      "row_version": 1
     },
     {
       "id": "POST /v1/billing/checkout",
@@ -244,7 +367,13 @@
       "repo_line": 0,
       "auth": [],
       "description": "Create Stripe checkout session (unified endpoint). Body: { subscriptionId, tier: 2|3, mode: one_time|subscription }",
-      "notes": "Returns { redirectUrl }. Supersedes POST /v1/checkout/tier2 and POST /v1/checkout/tier3."
+      "notes": "Returns { redirectUrl }. Supersedes POST /v1/checkout/tier2 and POST /v1/checkout/tier3.",
+      "source_file": "model/endpoints.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.426356+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.426356+00:00",
+      "row_version": 1
     },
     {
       "id": "GET /v1/billing/portal",
@@ -256,10 +385,18 @@
       "is_active": true,
       "implemented_in": "services/api/app/routers/checkout.py",
       "repo_line": 0,
-      "cosmos_reads": ["clients"],
+      "cosmos_reads": [
+        "clients"
+      ],
       "auth": [],
       "description": "Get Stripe billing portal URL. Query: subscriptionId",
-      "notes": "Derives stripeCustomerId from clients container (never from browser). Returns { portalUrl }."
+      "notes": "Derives stripeCustomerId from clients container (never from browser). Returns { portalUrl }.",
+      "source_file": "model/endpoints.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.426356+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.426356+00:00",
+      "row_version": 1
     },
     {
       "id": "POST /v1/webhooks/stripe",
@@ -271,10 +408,20 @@
       "is_active": true,
       "implemented_in": "services/api/app/routers/checkout.py",
       "repo_line": 0,
-      "cosmos_writes": ["entitlements", "payments", "clients"],
+      "cosmos_writes": [
+        "entitlements",
+        "payments",
+        "clients"
+      ],
       "auth": [],
       "description": "Stripe webhook handler (Spark path). Handles: checkout.session.completed, invoice.paid, subscription.updated, subscription.deleted",
-      "notes": "Stripe-Signature header verified with whsec_ secret on every event."
+      "notes": "Stripe-Signature header verified with whsec_ secret on every event.",
+      "source_file": "model/endpoints.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.426356+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.426356+00:00",
+      "row_version": 1
     },
     {
       "id": "GET /v1/entitlements",
@@ -286,10 +433,18 @@
       "is_active": true,
       "implemented_in": "services/api/app/routers/checkout.py",
       "repo_line": 0,
-      "cosmos_reads": ["entitlements"],
+      "cosmos_reads": [
+        "entitlements"
+      ],
       "auth": [],
       "description": "Get entitlement tier for subscriptionId (Spark path). Query: subscriptionId",
-      "notes": "Returns { tier, validUntil, features[] }. Cached by APIM 60s per subscriptionId."
+      "notes": "Returns { tier, validUntil, features[] }. Cached by APIM 60s per subscriptionId.",
+      "source_file": "model/endpoints.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.426356+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.426356+00:00",
+      "row_version": 1
     },
     {
       "id": "GET /v1/admin/kpis",
@@ -301,10 +456,24 @@
       "is_active": true,
       "implemented_in": "services/api/app/routers/admin.py",
       "repo_line": 0,
-      "cosmos_reads": ["scans", "clients", "payments"],
-      "auth": ["ACA_Admin", "ACA_Support", "ACA_FinOps"],
+      "cosmos_reads": [
+        "scans",
+        "clients",
+        "payments"
+      ],
+      "auth": [
+        "ACA_Admin",
+        "ACA_Support",
+        "ACA_FinOps"
+      ],
       "auth_mode": "any",
-      "description": "Admin KPI snapshot: MRR, active subscriptions, scans/day, failure rate"
+      "description": "Admin KPI snapshot: MRR, active subscriptions, scans/day, failure rate",
+      "source_file": "model/endpoints.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.426356+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.426356+00:00",
+      "row_version": 1
     },
     {
       "id": "GET /v1/admin/customers",
@@ -316,11 +485,25 @@
       "is_active": true,
       "implemented_in": "services/api/app/routers/admin.py",
       "repo_line": 0,
-      "cosmos_reads": ["clients", "entitlements", "stripe_customer_map"],
-      "auth": ["ACA_Admin", "ACA_Support", "ACA_FinOps"],
+      "cosmos_reads": [
+        "clients",
+        "entitlements",
+        "stripe_customer_map"
+      ],
+      "auth": [
+        "ACA_Admin",
+        "ACA_Support",
+        "ACA_FinOps"
+      ],
       "auth_mode": "any",
       "description": "Search customers by subscriptionId or stripeCustomerId or email",
-      "notes": "Returns AdminCustomerSearchResponse: { items[{ subscriptionId, stripeCustomerId, tier, paymentStatus, lastActivityUtc, isLocked }] }"
+      "notes": "Returns AdminCustomerSearchResponse: { items[{ subscriptionId, stripeCustomerId, tier, paymentStatus, lastActivityUtc, isLocked }] }",
+      "source_file": "model/endpoints.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.426356+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.426356+00:00",
+      "row_version": 1
     },
     {
       "id": "POST /v1/admin/entitlements/grant",
@@ -332,12 +515,26 @@
       "is_active": true,
       "implemented_in": "services/api/app/routers/admin.py",
       "repo_line": 0,
-      "cosmos_reads": ["entitlements"],
-      "cosmos_writes": ["entitlements", "admin_audit_events"],
-      "auth": ["ACA_Admin", "ACA_Support"],
+      "cosmos_reads": [
+        "entitlements"
+      ],
+      "cosmos_writes": [
+        "entitlements",
+        "admin_audit_events"
+      ],
+      "auth": [
+        "ACA_Admin",
+        "ACA_Support"
+      ],
       "auth_mode": "any",
       "description": "Grant tier entitlement for N days. Body: { subscriptionId, tier, days, reason }",
-      "notes": "Writes admin_audit_events record. action=ENTITLEMENT_GRANTED."
+      "notes": "Writes admin_audit_events record. action=ENTITLEMENT_GRANTED.",
+      "source_file": "model/endpoints.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.426356+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.426356+00:00",
+      "row_version": 1
     },
     {
       "id": "POST /v1/admin/subscriptions/{subscriptionId}/lock",
@@ -349,12 +546,26 @@
       "is_active": true,
       "implemented_in": "services/api/app/routers/admin.py",
       "repo_line": 0,
-      "cosmos_reads": ["clients"],
-      "cosmos_writes": ["clients", "admin_audit_events"],
-      "auth": ["ACA_Admin", "ACA_Support"],
+      "cosmos_reads": [
+        "clients"
+      ],
+      "cosmos_writes": [
+        "clients",
+        "admin_audit_events"
+      ],
+      "auth": [
+        "ACA_Admin",
+        "ACA_Support"
+      ],
       "auth_mode": "any",
       "description": "Lock subscription (abuse/chargeback prevention). Body: { reason }",
-      "notes": "Writes admin_audit_events record. action=SUBSCRIPTION_LOCKED. Returns 204."
+      "notes": "Writes admin_audit_events record. action=SUBSCRIPTION_LOCKED. Returns 204.",
+      "source_file": "model/endpoints.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.426356+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.426356+00:00",
+      "row_version": 1
     },
     {
       "id": "POST /v1/admin/stripe/reconcile",
@@ -366,12 +577,26 @@
       "is_active": true,
       "implemented_in": "services/api/app/routers/admin.py",
       "repo_line": 0,
-      "cosmos_reads": ["entitlements"],
-      "cosmos_writes": ["entitlements", "payments", "admin_audit_events"],
-      "auth": ["ACA_Admin"],
+      "cosmos_reads": [
+        "entitlements"
+      ],
+      "cosmos_writes": [
+        "entitlements",
+        "payments",
+        "admin_audit_events"
+      ],
+      "auth": [
+        "ACA_Admin"
+      ],
       "auth_mode": "any",
       "description": "Enqueue Stripe reconcile job: fetch all active Stripe subs and repair missing Cosmos entitlements",
-      "notes": "Returns { jobId, acceptedUtc } with 202 Accepted. action=STRIPE_RECONCILE in audit."
+      "notes": "Returns { jobId, acceptedUtc } with 202 Accepted. action=STRIPE_RECONCILE in audit.",
+      "source_file": "model/endpoints.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.426356+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.426356+00:00",
+      "row_version": 1
     },
     {
       "id": "GET /v1/admin/runs",
@@ -383,11 +608,23 @@
       "is_active": true,
       "implemented_in": "services/api/app/routers/admin.py",
       "repo_line": 0,
-      "cosmos_reads": ["scans"],
-      "auth": ["ACA_Admin", "ACA_Support", "ACA_FinOps"],
+      "cosmos_reads": [
+        "scans"
+      ],
+      "auth": [
+        "ACA_Admin",
+        "ACA_Support",
+        "ACA_FinOps"
+      ],
       "auth_mode": "any",
       "description": "List scan/analysis/delivery run history. Query: subscriptionId (optional), type=scan|analysis|delivery",
-      "notes": "Returns paginated run list with status, duration, correlationId, subscriptionId."
+      "notes": "Returns paginated run list with status, duration, correlationId, subscriptionId.",
+      "source_file": "model/endpoints.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.426356+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.426356+00:00",
+      "row_version": 1
     }
   ]
 }

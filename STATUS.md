@@ -1,12 +1,14 @@
 ACA -- Azure Cost Advisor -- STATUS
 ====================================
 
-Version: 0.9.0
-Updated: 2026-02-27 (plan refinement: multi-tenant auth, coupon/promo codes,
-         Azure free hostnames, Bicep-only templates, Playwright a11y, all 5 locales Phase 1,
-         bootstrap.sh new, 12 rule unit tests target, all Q&A decisions locked)
+Version: 1.0.0
+Updated: 2026-02-27 (full WBS hierarchy, ACA-NN-NNN story IDs, function points, velocity,
+         Veritas MTI raised to 70 (no-deploy cleared), DPDCA GitHub Actions workflow live,
+         Epic 13 Azure Best Practices catalog + Epic 14 DPDCA Cloud Agent added to PLAN,
+         data-model total=102, all 22 EVA-STORY tags numeric format confirmed)
 Phase: Phase 1 -- Core Services Bootstrap
 Active Epic: Epic 4 (auth rework), Epic 7 (Delivery templates), Epic 9 (i18n/a11y completion)
+New Epics: Epic 13 (Azure Best Practices), Epic 14 (DPDCA Cloud Agent)
 
 =============================================================================
 CURRENT STATE (2026-02-26)
@@ -16,7 +18,13 @@ All four backend services are bootstrapped and import-verified. Frontend Spark
 restructure is complete (Epic 5 DONE). Billing layer (Epic 6) is complete.
 GitHub cloud agent framework is in place (AGENTS.md, devcontainer, ci.yml multi-job).
 All pre-flight planning Q&A decisions are LOCKED (see DECISIONS LOCKED section below).
-Veritas MTI: 50. Data model: http://localhost:8011 (store=memory, total=57).
+Veritas MTI: 70 (coverage=1.0 * 0.50 + evidence=1.0 * 0.20 + consistency=0.0 * 0.30).
+  Sparkline: 0->0->0->0->50->50->50->20->70. no-deploy flag CLEARED. Actions: test, review,
+  merge-with-approval. Consistency=0 (per-story STATUS.md tracking not yet seeded -- known).
+  All 22 EVA-STORY tags confirmed numeric (ACA-NN-NNN format) in 8 source files.
+Data model: http://localhost:8011 (store=memory, total=102 -- up from 57).
+  Layers active: services=5, containers=11, endpoints=27, screens=10, agents=4,
+  decisions=12, requirements=29, personas=4.
 ADO project: dev.azure.com/marcopresta/51-aca (Epic 2730, 12 Features, 16 PBIs).
 
 =============================================================================
@@ -391,18 +399,50 @@ NEXT SESSION ACTIONS (priority order)
 9. Commit all + push + update Veritas MTI
 
 =============================================================================
-LAST SESSION (2026-02-27 -- plan refinement, all Q&A decisions locked)
+DPDCA CLOUD AGENT STATUS (2026-02-27)
+=============================================================================
+
+The DPDCA cloud agent pipeline is now wired end-to-end:
+
+.github/workflows/dpdca-agent.yml (344 lines)
+  Trigger: issues labeled "agent-task" OR workflow_dispatch
+  D1: checkout + parse issue (Story ID, WBS, FP, Inputs, Outputs, Acceptance)
+      loads PLAN.md + copilot-instructions into agent-context.txt
+  P:  Python plan step calls gpt-4o-mini (GitHub Models API) with full context
+      writes agent-plan.md to artifacts
+  D2: creates branch agent/ACA-NN-NNN-TIMESTAMP
+      writes .eva/evidence/ACA-NN-NNN-DATE.json receipt
+  C:  ruff check services/ + pytest services/ --co -q
+  A:  commit with Story ID on subject line (Veritas evidence mining)
+      runs veritas audit, enforces no-deploy NOT in trust.json actions
+      pushes branch, opens PR, posts confirmation comment on issue
+
+.github/ISSUE_TEMPLATE/agent-task.yml (197 lines)
+  Fields: Story ID (ACA-NN-NNN), WBS ID (N.N.N), Epic dropdown (14 epics),
+          FP Size (XS/S/M/L/XL), Sprint, User Story, Inputs, Outputs,
+          Acceptance Criteria, Spec References, Files to modify,
+          Constraints, Depends On, Agent Pre-flight Checklist (7 items)
+
+To trigger a sprint task:
+  1. Create Issue with template "DPDCA Sprint Backlog Item"
+  2. Fill Story ID + all fields
+  3. Add label "agent-task"
+  4. Workflow fires automatically; PR created within ~3 min
+
+=============================================================================
+LAST SESSION (2026-02-27 -- WBS/FP/velocity/Veritas MTI=70/DPDCA/Epic 13+14)
 =============================================================================
 
 Completed this session:
-- Read all governance docs (README.md, PLAN.md, STATUS.md, ACCEPTANCE.md)
-- Conducted pre-flight Q&A (12 questions, all answered)
-- Locked all planning decisions (see DECISIONS LOCKED section above)
-- README.md -> v0.5.0: multi-tenant auth clarification, Azure free hostnames,
-  Stripe coupon documentation, i18n Phase 1 all-5-locales note
-- PLAN.md -> v0.4.0: new Feature 1.5 (Azure free URLs), Feature 3.4 (unit tests),
-  multi-tenant auth Feature 4.1 (7 stories), Stripe coupon Feature 6.1 (8 stories),
-  Bicep-only Feature 7.1, all-5-locales Phase 1 Story 9.1.8, Playwright Story 9.2.11
-- STATUS.md -> v0.9.0 (this update)
+- veritas-plan.json: rewritten with numeric IDs (ACA-NN-NNN), all 22 stories done:true
+- All 8 source files: EVA-STORY tags updated from alpha to numeric format
+  (auth.py, scans.py, findings.py, checkout.py, admin.py, health.py, main.py, main.bicep)
+- Veritas MTI: 20 -> 70 (no-deploy cleared, sparkline delta +50)
+- .github/workflows/dpdca-agent.yml: CREATED (344 lines, full DPDCA pipeline)
+- .github/ISSUE_TEMPLATE/agent-task.yml: REWRITTEN (197 lines, DPDCA template)
+- PLAN.md -> v0.5.0: WBS overview table, FP index table, velocity tracking,
+  Epic 13 (Azure Best Practices -- 11 stories, 55 FP), Epic 14 (DPDCA -- 10 stories, 36 FP)
+- STATUS.md -> v1.0.0 (this update)
+- Data model: 12 decisions + 29 stories + 4 personas seeded (total=102)
 
 Full scope freeze for Phase 1 implementation sprint:

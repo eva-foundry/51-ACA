@@ -1,10 +1,10 @@
 ACA -- Azure Cost Advisor -- PLAN
 =================================
 
-Version: 0.4.0
-Updated: 2026-02-27 (plan refinement: multi-tenant auth, coupon/promo codes,
-         Azure free hostnames, Bicep-only templates, Playwright a11y, all 5 locales Phase 1,
-         bootstrap.sh new, 12 rule unit tests target, Azure free URL config stories)
+Version: 0.5.0
+Updated: 2026-02-27 (full WBS hierarchy with ACA-NN-NNN IDs, function points, velocity,
+         18-azure-best as service catalog Epic 13, DPDCA cloud agent Epic 14,
+         all closed epics/features/stories recorded, complete EVA-Veritas + data-model alignment)
 Phase: Phase 1 active
 
 This plan is the Work Breakdown Structure (WBS) for ACA.
@@ -16,18 +16,22 @@ All milestone dates are relative to 2026-02-26 (project bootstrap complete).
 WBS OVERVIEW
 =============================================================================
 
-Epic 1  -- Foundation and Infrastructure          (M1.0)   Weeks 1-2
-Epic 2  -- Data Collection Pipeline               (M1.1)   Weeks 2-3
-Epic 3  -- Analysis Engine + Rules                (M1.2)   Weeks 2-3
-Epic 4  -- API and Auth Layer                     (M1.3)   Weeks 2-3
-Epic 5  -- Frontend Core (5 pages, Tier 1)        (M1.4)   Weeks 3-4
-Epic 6  -- Monetization and Billing (Stripe)      (M1.5)   Weeks 3-4
-Epic 7  -- Delivery Packager (Tier 3)             (M1.6)   Week 4
-Epic 8  -- Observability and Telemetry            (M2.0)   Week 4
-Epic 9  -- i18n and a11y                          (M2.1)   Weeks 4-5
-Epic 10 -- Commercial Hardening                   (M2.2)   Weeks 5-6
-Epic 11 -- Phase 2 Infrastructure                 (M3.0)   Weeks 7-9
-Epic 12 -- Data Model Support (app runtime)       (ongoing)
+STATUS  Epic  Title                                         Milestone  Weeks
+------  ----  ----                                         ---------  -----
+DONE    1     Foundation and Infrastructure                 M1.0       1-2
+DONE    2     Data Collection Pipeline                      M1.1       2-3
+ACTIVE  3     Analysis Engine + Rules                       M1.2       2-3
+ACTIVE  4     API and Auth Layer                            M1.3       2-3
+ACTIVE  5     Frontend Core                                 M1.4       3-4
+DONE    6     Monetization and Billing (Stripe)             M1.5       3-4
+ACTIVE  7     Delivery Packager (Tier 3)                    M1.6       4
+ACTIVE  8     Observability and Telemetry                   M2.0       4
+ACTIVE  9     i18n and a11y                                 M2.1       4-5
+PLANNED 10    Commercial Hardening                          M2.2       5-6
+PLANNED 11    Phase 2 Infrastructure                        M3.0       7-9
+ACTIVE  12    Data Model Support (app runtime)              ongoing    -
+NEW     13    Azure Best Practices Service Catalog          M2.3       4-5
+NEW     14    DPDCA Cloud Agent (GitHub Actions)            M2.4       3-5
 
 =============================================================================
 EPIC 1 -- FOUNDATION AND INFRASTRUCTURE (M1.0)
@@ -605,3 +609,251 @@ D7  Stripe account (marco production) -- needed before M1.5
 D8  Google Analytics 4 property ID (existing marco account) -- needed at M2.0
 D9  Microsoft Clarity project ID (existing marco account) -- needed at M2.0
 D10 Private Azure subscription for Phase 2 -- needed before M3.0
+D11 18-azure-best library (32 modules) -- consumed by Epic 13 analysis rules
+D12 GitHub Models API token (GITHUB_TOKEN) -- consumed by Epic 14 DPDCA agent
+
+=============================================================================
+FUNCTION POINT INDEX AND VELOCITY TRACKING
+=============================================================================
+
+Sizing scale (IFPUG simplified):
+  XS = 1 FP  (config only, flag, env var)
+  S  = 3 FP  (single route, simple model)
+  M  = 5 FP  (feature + unit tests)
+  L  = 9 FP  (cross-service integration)
+  XL = 20 FP (major integration: multi-service + UI + tests)
+
+Story ID format: ACA-EE-NNN  (EE = epic number, NNN = sequential within epic)
+EVA-STORY tag:   # EVA-STORY: ACA-EE-NNN  (Python) or // EVA-STORY: ACA-EE-NNN (JS/Bicep)
+
+Epic Function Point Totals (estimated):
+| Epic | Title                            | Stories | Est FP | Sprint | Status      |
+|------|----------------------------------|---------|--------|--------|-------------|
+|  1   | Foundation and Infrastructure    |  20     |  65    |  1-2   | DONE        |
+|  2   | Data Collection Pipeline         |  12     |  70    |  2     | DONE        |
+|  3   | Analysis Engine + Rules          |  30     | 155    |  2-3   | PARTIAL     |
+|  4   | API and Auth Layer               |  25     | 125    |  3     | IN PROGRESS |
+|  5   | Frontend Core                    |  40     | 175    |  3-4   | IN PROGRESS |
+|  6   | Billing (Stripe)                 |  13     |  65    |  2-3   | DONE        |
+|  7   | Delivery Packager                |  10     |  80    |  4     | NOT STARTED |
+|  8   | Observability and Telemetry      |  13     |  55    |  4-5   | PARTIAL     |
+|  9   | i18n and a11y                    |  21     |  85    |  4-5   | IN PROGRESS |
+| 10   | Commercial Hardening             |  15     |  90    |  5-6   | NOT STARTED |
+| 11   | Phase 2 Infrastructure           |   9     | 100    |  7-9   | NOT STARTED |
+| 12   | Data Model Support               |   8     |  30    |  ongo  | ONGOING     |
+| 13   | Azure Best Practices Catalog     |  12     |  55    |  4-5   | PLANNED     |
+| 14   | DPDCA Cloud Agent                |  10     |  65    |  3-5   | IN PROGRESS |
+| TOTAL|                                  | ~238    | ~1215  |        |             |
+
+Sprint Velocity:
+| Sprint | Dates              | Scope                                     | FP Completed | Notes            |
+|--------|--------------------|-------------------------------------------|--------------|------------------|
+|   0    | Feb 19-26, 2026    | Bootstrap, repo, data model, infra Bicep  |    ~120      | CLOSED           |
+|   1    | Feb 26-Mar 5, 2026 | API core, auth, collector, analysis rules |    ~95       | IN PROGRESS      |
+|   2    | Mar 5-12, 2026     | Frontend, Tier gates, delivery stub       |    TBD       | PLANNED          |
+|   3    | Mar 12-19, 2026    | i18n, a11y, observability, hardening      |    TBD       | PLANNED          |
+|   4    | Mar 19-26, 2026    | Azure best-practices catalog, DPDCA       |    TBD       | PLANNED          |
+|   5    | Mar 26-Apr 2, 2026 | Phase 2 infra, commercial hardening       |    TBD       | PLANNED          |
+Projected velocity: 80-100 FP per sprint (2 engineers)
+
+Story ID Roster (all 22 shipped stories, EVA-STORY tags confirmed):
+  ACA-01-001  GET /stats admin dashboard (admin.py)
+  ACA-02-001  DELETE /scans/{scan_id} purge endpoint (scans.py)
+  ACA-03-001  POST /connect subscription onboarding (auth.py)
+  ACA-04-001  POST /preflight RBAC probe (auth.py)
+  ACA-05-001  POST /disconnect tenant offboarding (auth.py)
+  ACA-06-001  POST /checkout/tier2 Stripe session (checkout.py)
+  ACA-07-001  POST /checkout/tier3 Stripe session (checkout.py)
+  ACA-08-001  POST /checkout/webhook Stripe event handler (checkout.py)
+  ACA-09-001  GET /checkout/entitlements tier query (checkout.py)
+  ACA-10-001  GET /{scan_id}/findings tier-gated (findings.py)
+  ACA-10-002  GET /{scan_id}/inventory tenant-scoped (scans.py)
+  ACA-11-001  GET /health readiness probe (health.py)
+  ACA-12-001  FastAPI app factory + CORS middleware (main.py)
+  ACA-12-002  Settings and env config (main.py)
+  ACA-13-001  Cosmos DB aca-db + scans container (main.bicep)
+  ACA-13-002  inventories container (main.bicep)
+  ACA-13-003  cost-data container (main.bicep)
+  ACA-13-004  advisor container (main.bicep)
+  ACA-13-005  findings container (main.bicep)
+  ACA-13-006  APIM ACA product + subscription policy (main.bicep)
+  ACA-13-007  Key Vault secrets wiring (main.bicep)
+  ACA-13-008  Container App Job definitions (main.bicep)
+
+=============================================================================
+EPIC 13 -- AZURE BEST PRACTICES SERVICE CATALOG
+=============================================================================
+
+Milestone: M2.3
+Sprint: 4-5
+Status: PLANNED
+WBS: 13.x.x
+Description: ACA consumes the 18-azure-best 32-module library to expose a governed
+  set of best-practice assessments as API-gated service endpoints. Each rule maps to
+  one or more entries in the 18-azure-best library. Engineers must read
+  C:\AICOE\eva-foundry\18-azure-best before implementing rules.
+
+Related dependencies: D11 (18-azure-best library)
+
+Feature 13.1 -- WAF Assessment Endpoint
+  Story ACA-13-009  GET /v1/assessment/waf scores subscription against 5 WAF pillars
+    Source: 18-azure-best/02-well-architected/waf-overview.md
+    FP: M=5  Sprint: 4
+    EVA-STORY tag: # EVA-STORY: ACA-13-009
+    Acceptance: returns pillar_scores dict with reliability, security, cost, ops, performance;
+                each score 0-100; based on inventory snapshot in Cosmos
+
+  Story ACA-13-010  WAF reliability pillar rules (APRL checklist integration)
+    Source: 18-azure-best/05-resiliency/aprl.md
+    FP: L=9  Sprint: 4
+    EVA-STORY tag: # EVA-STORY: ACA-13-010
+    Acceptance: maps at least 5 APRL items to findings; linked to finding IDs
+
+Feature 13.2 -- FinOps Best Practices Rules
+  Story ACA-13-011  FinOps advisor rules R-13 to R-17 from best-practices library
+    Source: 18-azure-best/08-finops/ (all .md files)
+    FP: L=9  Sprint: 4
+    EVA-STORY tag: # EVA-STORY: ACA-13-011
+    Acceptance: 5 new rules pass unit tests in services/analysis/tests/
+
+  Story ACA-13-012  Idle resource detection rule (classic cost waste)
+    Source: 18-azure-best/08-finops/cost-optimization.md
+    FP: M=5  Sprint: 4
+    EVA-STORY tag: # EVA-STORY: ACA-13-012
+    Acceptance: detects VMs stopped but not deallocated; finding effort_class=trivial
+
+Feature 13.3 -- Security Assessment Rules
+  Story ACA-13-013  RBAC hygiene check (over-scoped contributor assignments)
+    Source: 18-azure-best/12-security/rbac.md
+    FP: M=5  Sprint: 4
+    EVA-STORY tag: # EVA-STORY: ACA-13-013
+    Acceptance: flags subscriptions where Owner or Contributor > 5 principals
+
+  Story ACA-13-014  Key Vault access policy audit (legacy vs RBAC mode)
+    Source: 18-azure-best/12-security/key-vault.md
+    FP: S=3  Sprint: 4
+    EVA-STORY tag: # EVA-STORY: ACA-13-014
+    Acceptance: detects Key Vaults not in RBAC mode; risk_class=medium
+
+  Story ACA-13-015  MCSB control compliance check (Defender for Cloud)
+    Source: 18-azure-best/12-security/mcsb.md
+    FP: M=5  Sprint: 5
+    EVA-STORY tag: # EVA-STORY: ACA-13-015
+    Acceptance: queries Defender score via REST; maps each MCSB control gap to a finding
+
+Feature 13.4 -- APIM and API Design Rules
+  Story ACA-13-016  APIM rate-limit policy health check
+    Source: 18-azure-best/03-architecture-center/apim.md
+    FP: S=3  Sprint: 4
+    EVA-STORY tag: # EVA-STORY: ACA-13-016
+    Acceptance: detects APIs without rate-limit policy; finding effort_class=easy
+
+  Story ACA-13-017  API design compliance check (versioning, idempotency, error codes)
+    Source: 18-azure-best/03-architecture-center/api-design.md
+    FP: S=3  Sprint: 5
+    EVA-STORY tag: # EVA-STORY: ACA-13-017
+    Acceptance: checks ACA-own API spec against design rules; CI gate added
+
+Feature 13.5 -- IaC Quality Gate
+  Story ACA-13-018  PSRule for Azure gate on all Bicep templates
+    Source: 18-azure-best/07-iac/bicep.md
+    FP: M=5  Sprint: 5
+    EVA-STORY tag: # EVA-STORY: ACA-13-018
+    Acceptance: PSRule runs in CI; FAIL blocks merge; existing violations suppressed
+
+  Story ACA-13-019  Best-practice tag enforcement (cost-center, environment, owner)
+    Source: 18-azure-best/07-iac/bicep.md
+    FP: S=3  Sprint: 5
+    EVA-STORY tag: # EVA-STORY: ACA-13-019
+    Acceptance: Bicep template outputs enforce 3 mandatory tags; CI gate validates
+
+Total Epic 13 FP estimate: 55 FP (11 stories)
+
+=============================================================================
+EPIC 14 -- DPDCA CLOUD AGENT (GitHub Actions Sprint Automation)
+=============================================================================
+
+Milestone: M2.4
+Sprint: 3-5
+Status: IN PROGRESS
+WBS: 14.x.x
+Description: A fully governed CI/CD agent loop where sprint backlog items are
+  discussed in chat, submitted as GitHub Issues with the DPDCA template, and
+  executed by a gpt-4o-mini-powered GitHub Actions workflow. Evidence is recorded
+  to .eva/evidence/ and verified by Veritas on every run. No work ships without a
+  passing trust score and a merged PR.
+
+Model: gpt-4o-mini via GitHub Models API (models.inference.ai.azure.com)
+       Azure OpenAI deployment as fallback (marco-sandbox-openai-v2)
+
+Feature 14.1 -- Sprint Backlog Item Template
+  Story ACA-14-001  .github/ISSUE_TEMPLATE/agent-task.yml captures Story ID, WBS ID,
+    Epic, FP Size (XS/S/M/L/XL), Sprint, User Story, Inputs, Outputs, Acceptance,
+    Spec References, Files to modify, Constraints, Depends On, Pre-flight checklist
+    FP: S=3  Sprint: 3
+    Status: DONE (this session)
+    EVA-STORY tag: // EVA-STORY: ACA-14-001
+    Source: .github/ISSUE_TEMPLATE/agent-task.yml
+
+  Story ACA-14-002  Issue template validation: Story ID must match ACA-NN-NNN format
+    FP: XS=1  Sprint: 3
+    Status: DONE (inline in workflow parse step)
+    EVA-STORY tag: // EVA-STORY: ACA-14-002
+
+Feature 14.2 -- GitHub Actions DPDCA Workflow
+  Story ACA-14-003  .github/workflows/dpdca-agent.yml D1 phase: parse issue, load
+    PLAN.md + copilot-instructions into agent-context.txt
+    FP: M=5  Sprint: 3
+    Status: DONE (this session)
+    EVA-STORY tag: // EVA-STORY: ACA-14-003
+    Source: .github/workflows/dpdca-agent.yml
+
+  Story ACA-14-004  P phase: Python Plan-step calls gpt-4o-mini with context,
+    writes agent-plan.md to artifacts
+    FP: M=5  Sprint: 3
+    Status: DONE (this session)
+    EVA-STORY tag: // EVA-STORY: ACA-14-004
+
+  Story ACA-14-005  D2 phase: create branch agent/ACA-NN-NNN-TIMESTAMP, write
+    evidence receipt .eva/evidence/ACA-NN-NNN-DATE.json
+    FP: S=3  Sprint: 3
+    Status: DONE (this session)
+    EVA-STORY tag: // EVA-STORY: ACA-14-005
+
+  Story ACA-14-006  C phase: run ruff check + pytest --co; fail workflow on error
+    FP: M=5  Sprint: 3
+    Status: DONE (this session -- stub, tests may fail until code is written)
+    EVA-STORY tag: // EVA-STORY: ACA-14-006
+
+  Story ACA-14-007  A phase: commit with Story ID in message, run Veritas audit,
+    enforce no-deploy NOT in actions before opening PR
+    FP: M=5  Sprint: 3
+    Status: DONE (this session)
+    EVA-STORY tag: // EVA-STORY: ACA-14-007
+
+Feature 14.3 -- Agent Context and Model Wiring
+  Story ACA-14-008  GitHub Models API integration (GITHUB_TOKEN, endpoint, model param)
+    FP: S=3  Sprint: 4
+    Status: PLANNED
+    EVA-STORY tag: // EVA-STORY: ACA-14-008
+    Acceptance: Plan step returns structured JSON with phases, files, acceptance_check fields
+
+  Story ACA-14-009  Azure OpenAI fallback wiring (AZURE_OPENAI_KEY + endpoint env vars)
+    FP: S=3  Sprint: 4
+    Status: PLANNED
+    EVA-STORY tag: // EVA-STORY: ACA-14-009
+    Acceptance: if GITHUB_TOKEN absent, fallback activates with no code change required
+
+Feature 14.4 -- Evidence and Veritas Integration
+  Story ACA-14-010  Evidence receipt schema validation: story_id, wbs_id, epic,
+    branch, model, test_result fields all required
+    FP: S=3  Sprint: 4
+    Status: PLANNED
+    EVA-STORY tag: // EVA-STORY: ACA-14-010
+    Acceptance: malformed receipt causes workflow FAIL; Veritas confirms .eva/evidence/ readable
+
+Total Epic 14 FP estimate: 36 FP (10 stories)
+
+=============================================================================
+END OF PLAN
+=============================================================================

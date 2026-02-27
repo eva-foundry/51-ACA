@@ -9,7 +9,13 @@
       "is_active": true,
       "repo_path": "services/api",
       "description": "Main REST API gateway -- scans, findings, auth, checkout, admin",
-      "notes": "FastAPI service. Connects to Cosmos DB (scans, findings containers)."
+      "notes": "FastAPI service. Connects to Cosmos DB (scans, findings containers).",
+      "source_file": "model/services.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.378630+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.378630+00:00",
+      "row_version": 1
     },
     {
       "id": "aca-collector",
@@ -20,7 +26,13 @@
       "is_active": true,
       "repo_path": "services/collector",
       "description": "Azure subscription data collector -- inventory, cost, Advisor, policy pulls",
-      "notes": "MSAL device-code consent flow. Stores to Cosmos inventories + cost-data containers."
+      "notes": "MSAL device-code consent flow. Stores to Cosmos inventories + cost-data containers.",
+      "source_file": "model/services.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.378630+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.378630+00:00",
+      "row_version": 1
     },
     {
       "id": "aca-analysis",
@@ -31,7 +43,13 @@
       "is_active": true,
       "repo_path": "services/analysis",
       "description": "12-rule heuristic analysis engine -- cost anomalies, stale resources, SKU oversize",
-      "notes": "Rules 01-12. Produces findings saved to Cosmos advisor + findings containers."
+      "notes": "Rules 01-12. Produces findings saved to Cosmos advisor + findings containers.",
+      "source_file": "model/services.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.378630+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.378630+00:00",
+      "row_version": 1
     },
     {
       "id": "aca-delivery",
@@ -42,7 +60,13 @@
       "is_active": true,
       "repo_path": "services/delivery",
       "description": "Report generator and packager -- generates Tier 1 deliverables for clients",
-      "notes": "Reads from findings container. Outputs PDF/JSON report packages."
+      "notes": "Reads from findings container. Outputs PDF/JSON report packages.",
+      "source_file": "model/services.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.378630+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.378630+00:00",
+      "row_version": 1
     },
     {
       "id": "aca-frontend",
@@ -53,7 +77,13 @@
       "is_active": true,
       "repo_path": "frontend",
       "description": "Vite + React 19 + Fluent UI v9 SPA. 10 screens. i18next (en, fr-CA, pt-BR, es, de). WCAG 2.1 AA.",
-      "notes": "ConsentBanner -> GTM -> GA4 + Clarity. Stripe.js + Elements for checkout. a11y axe-core CI gate."
+      "notes": "ConsentBanner -> GTM -> GA4 + Clarity. Stripe.js + Elements for checkout. a11y axe-core CI gate.",
+      "source_file": "model/services.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.378630+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.378630+00:00",
+      "row_version": 1
     }
   ]
 }

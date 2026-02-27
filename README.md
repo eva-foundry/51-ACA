@@ -1,8 +1,8 @@
 ACA -- Azure Cost Advisor
 =========================
 
-Version: 0.5.0
-Updated: 2026-02-27 (plan refinement: multi-tenant auth, coupon/promo codes, Azure free hostnames, Bicep-only templates, Playwright a11y, all 5 locales Phase 1)
+Version: 0.6.0
+Updated: 2026-02-27 (18-azure-best catalog as service offering, DPDCA cloud agent, WBS/FP/velocity)
 Maturity: active -- Phase 1 code skeleton complete; plan refined with all pre-flight decisions locked
 
 =============================================================================
@@ -465,4 +465,56 @@ PROJECT FILES MAP
   agents/               -- 4 AI agent YAML definitions
   infra/phase1-marco/   -- Bicep (marco* sandbox wiring)
   infra/phase2-private/ -- Terraform (full private subscription)
-  .github/workflows/    -- CI, deploy-phase1, collector-schedule
+  .github/workflows/    -- CI, deploy-phase1, collector-schedule,
+                           dpdca-agent.yml (DPDCA Cloud Agent workflow)
+
+=============================================================================
+AZURE BEST PRACTICES SERVICE CATALOG (18-azure-best integration)
+=============================================================================
+
+ACA's analysis engine and service endpoints are powered by the EVA Azure Best
+Practices Library at C:\AICOE\eva-foundry\18-azure-best (32 modules, read-only).
+Each ACA service offering maps to one or more library modules:
+
+| ACA Endpoint / Service           | 18-azure-best Module                                    |
+|----------------------------------|---------------------------------------------------------|
+| WAF Assessment (GET /assessment) | 02-well-architected/waf-overview.md                     |
+| Reliability pillar rules         | 05-resiliency/aprl.md (APRL checklist)                  |
+| FinOps rules R-13 to R-17        | 08-finops/cost-optimization.md                          |
+| Idle resource detection          | 08-finops/cost-optimization.md                          |
+| RBAC hygiene check               | 12-security/rbac.md                                     |
+| Key Vault audit (RBAC vs policy) | 12-security/key-vault.md                                |
+| MCSB compliance check            | 12-security/mcsb.md                                     |
+| APIM rate-limit policy check     | 03-architecture-center/apim.md                          |
+| API design compliance            | 03-architecture-center/api-design.md                    |
+| IaC quality gate (PSRule)        | 07-iac/bicep.md                                         |
+| Tag enforcement in delivery      | 07-iac/bicep.md                                         |
+
+All Epic 13 analysis rules must import from facts collected by the collector job
+(Cosmos cosmos/inventories partition). Rules return a FINDING dict conforming to
+the P2.5 Pattern 4 schema. Rules are unit-tested in services/analysis/tests/.
+
+=============================================================================
+DPDCA CLOUD AGENT WORKFLOW
+=============================================================================
+
+Spring backlog items are submitted as GitHub Issues and executed by the DPDCA
+GitHub Actions pipeline automatically:
+
+  1. Open GitHub Issue using template "DPDCA Sprint Backlog Item"
+     (.github/ISSUE_TEMPLATE/agent-task.yml)
+     Fill: Story ID (ACA-NN-NNN), WBS, Epic, FP Size, Inputs, Outputs, Acceptance
+
+  2. Add label "agent-task" to the issue
+
+  3. .github/workflows/dpdca-agent.yml fires:
+     D1: parses issue, loads PLAN.md + copilot-instructions into context
+     P:  gpt-4o-mini (GitHub Models API) generates agent-plan.md
+     D2: creates branch agent/ACA-NN-NNN-TIMESTAMP, writes evidence receipt
+     C:  ruff + pytest --co gate
+     A:  commits with Story ID on subject, runs Veritas audit, opens PR
+
+  4. Veritas confirms MTI did not regress before PR merge is allowed
+
+  Model: gpt-4o-mini via models.inference.ai.azure.com (GitHub Models API)
+  Fallback: Azure OpenAI marco-sandbox-openai-v2

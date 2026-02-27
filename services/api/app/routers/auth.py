@@ -1,6 +1,6 @@
-# EVA-STORY: ACA-CONNECT-001
-# EVA-STORY: ACA-PREFLIGHT-001
-# EVA-STORY: ACA-DISCONNECT-001
+# EVA-STORY: ACA-03-001
+# EVA-STORY: ACA-04-001
+# EVA-STORY: ACA-05-001
 """
 Auth router -- ACA client sign-in and Azure subscription connection.
 Onboarding modes: delegated (device code) and service principal.

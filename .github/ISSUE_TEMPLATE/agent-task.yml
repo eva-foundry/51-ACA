@@ -1,15 +1,34 @@
-name: Agent Task
-description: A well-scoped task suitable for assignment to a GitHub Copilot coding agent or other AI agent.
-title: "[AGENT] <story-id>: <short description>"
-labels: ["agent-task"]
+name: Sprint Backlog Item (DPDCA)
+description: >-
+  A well-scoped sprint story submitted for the DPDCA cloud agent.
+  Fill every field -- the agent uses these as its complete work order.
+  Trigger: add label "agent-task" after creating the issue.
+title: "[ACA-XX-XXX] <story title>"
+labels: []
 assignees: []
 body:
+  - type: markdown
+    attributes:
+      value: |
+        ## DPDCA Work Order
+        Complete all sections. The agent reads this issue verbatim -- precision = quality.
+        After creating, add label **agent-task** to trigger the workflow.
+
   - type: input
     id: story_id
     attributes:
       label: Story ID
-      description: The ACA story ID this task implements (e.g. ACA-SCANS-001).
-      placeholder: ACA-XXXX-001
+      description: Numeric Veritas story ID (format ACA-NN-NNN).
+      placeholder: "ACA-04-001"
+    validations:
+      required: true
+
+  - type: input
+    id: wbs_id
+    attributes:
+      label: WBS ID
+      description: Work Breakdown Structure node (format N.N.N).
+      placeholder: "4.1.1"
     validations:
       required: true
 
@@ -18,38 +37,78 @@ body:
     attributes:
       label: Epic
       options:
-        - "Epic 1 -- Foundation"
-        - "Epic 2 -- Collector"
-        - "Epic 3 -- Analysis"
-        - "Epic 4 -- API/Auth"
-        - "Epic 5 -- Frontend"
-        - "Epic 6 -- Billing"
-        - "Epic 7 -- Delivery Templates"
-        - "Epic 8 -- Observability"
-        - "Epic 9 -- i18n/a11y"
-        - "Epic 10 -- Hardening"
-        - "Epic 11 -- Phase 2 Infra"
-        - "Epic 12 -- Data Model"
+        - "Epic 1 -- Foundation and Infrastructure"
+        - "Epic 2 -- Data Collection Pipeline"
+        - "Epic 3 -- Analysis Engine and Rules"
+        - "Epic 4 -- API and Auth Layer"
+        - "Epic 5 -- Frontend Core"
+        - "Epic 6 -- Monetization and Billing"
+        - "Epic 7 -- Delivery Packager"
+        - "Epic 8 -- Azure Best Practices Integration"
+        - "Epic 9 -- i18n and a11y"
+        - "Epic 10 -- DPDCA Cloud Agent"
+        - "Epic 11 -- Phase 2 Infrastructure"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: fp_size
+    attributes:
+      label: Function Point Size
+      description: IFPUG simplified estimate for effort and velocity tracking.
+      options:
+        - "XS (1 FP) -- config change or trivial stub"
+        - "S (3 FP) -- single route or component, no new schema"
+        - "M (5 FP) -- one feature with tests, touches 2-3 files"
+        - "L (9 FP) -- cross-service feature, new schema, full tests"
+        - "XL (20 FP) -- significant integration, multiple services"
     validations:
       required: true
 
   - type: input
-    id: spec_doc
+    id: sprint
     attributes:
-      label: Spec document
-      description: Which spec doc the agent must read before implementing (e.g. 05-technical.md).
-      placeholder: "05-technical.md"
+      label: Sprint
+      description: Sprint number this item belongs to.
+      placeholder: "3"
     validations:
-      required: false
+      required: true
 
   - type: textarea
-    id: files_to_modify
+    id: user_story
     attributes:
-      label: Files to modify
-      description: Explicit list of files the agent should change. One path per line. Relative to repo root.
+      label: User story
+      description: "As a <persona>, I want <action>, so that <value>."
       placeholder: |
-        services/api/app/routers/scans.py
-        services/api/app/db/repos/scans_repo.py
+        As an ACA API consumer, I want the /connect endpoint to accept any
+        Microsoft tenant (authority=common), so that private-sector customers
+        can connect without being tied to the EsDAICoE org.
+    validations:
+      required: true
+
+  - type: textarea
+    id: inputs
+    attributes:
+      label: Inputs
+      description: What files, APIs, data, or secrets this story consumes.
+      placeholder: |
+        - services/api/app/routers/auth.py (current auth stubs)
+        - .env: ACA_CLIENT_ID, ACA_TENANT_ID (becomes common)
+        - MSAL PublicClientApplication + device code flow
+        - Cosmos container: clients (partition_key=subscriptionId)
+    validations:
+      required: true
+
+  - type: textarea
+    id: outputs
+    attributes:
+      label: Outputs
+      description: What files are changed/created, what APIs return.
+      placeholder: |
+        - services/api/app/routers/auth.py -- updated connect() function
+        - services/api/app/middleware/tenant.py -- updated authority= line
+        - services/api/tests/test_auth.py -- added multi-tenant test
+        - POST /v1/connect returns 200 { subscriptionId, tier, token } for any tenant
     validations:
       required: true
 
@@ -57,20 +116,62 @@ body:
     id: acceptance_criteria
     attributes:
       label: Acceptance criteria
-      description: Testable conditions. Each item must be verifiable by pytest or an assertion.
-      placeholder: |
-        - [ ] POST /v1/scans returns 202 with { scanId, status: "queued" }
-        - [ ] Cosmos record is written with partition_key=subscriptionId
+      description: Each item must be verifiable by pytest or an assertion. Check boxes.
+      value: |
+        - [ ] POST /v1/connect with authority=common returns 200
+        - [ ] connection_token stored in Cosmos with partition_key=subscriptionId
+        - [ ] tenant_id from decoded token matches subscriptionId scope
         - [ ] pytest services/ -x -q exits 0
+        - [ ] ruff check services/ exits 0
+        - [ ] EVA-STORY tag present: # EVA-STORY: ACA-XX-XXX
     validations:
       required: true
 
   - type: textarea
-    id: context
+    id: spec_refs
     attributes:
-      label: Additional context
-      description: Any constraints, edge cases, or patterns the agent must follow.
-      placeholder: "Follow the tenant isolation pattern in cosmos.py. Never query without partition_key."
+      label: Spec references
+      description: Spec docs the agent must read before implementing.
+      placeholder: |
+        - docs/02-preflight.md -- MSAL delegated auth pattern
+        - docs/05-technical.md -- API spec section 3
+        - .github/copilot-instructions.md -- Section P2.5 Pattern 3
+    validations:
+      required: false
+
+  - type: textarea
+    id: files_to_modify
+    attributes:
+      label: Files to modify or create
+      description: Explicit list. One per line. Relative to repo root.
+      placeholder: |
+        services/api/app/routers/auth.py
+        services/api/app/middleware/tenant.py
+        services/api/tests/test_auth.py
+    validations:
+      required: true
+
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Constraints and patterns
+      description: Rules the agent MUST follow. Non-negotiable.
+      value: |
+        - ASCII-only. No Unicode, no emoji in any file.
+        - Every Cosmos query must include partition_key=subscriptionId.
+        - Tier 1 responses must pass through gate_findings() -- never return full findings.
+        - MSAL authority must be https://login.microsoftonline.com/common (multi-tenant).
+        - No .env or secrets committed. Use settings.py + Key Vault references.
+        - All new functions must have type hints. mypy must remain clean.
+    validations:
+      required: false
+
+  - type: textarea
+    id: depends_on
+    attributes:
+      label: Depends on (story IDs)
+      description: Stories that must be complete before this one starts.
+      placeholder: "ACA-12-001, ACA-12-002"
     validations:
       required: false
 
@@ -78,13 +179,19 @@ body:
     id: agent_preflight
     attributes:
       label: Agent pre-flight checklist
-      description: The agent must confirm all of these before opening a PR.
+      description: The agent confirms all of these before opening a PR.
       options:
-        - label: "pytest services/ -x -q exits 0"
+        - label: "pytest services/ --co -q exits 0 (collect phase)"
+          required: true
+        - label: "ruff check services/ exits 0"
           required: true
         - label: "No .env or secrets committed"
           required: true
         - label: "All Cosmos queries include partition_key"
           required: true
         - label: "No Unicode or emoji in any file"
+          required: true
+        - label: "EVA-STORY tag added to all new/modified source files"
+          required: true
+        - label: "Evidence receipt written to .eva/evidence/"
           required: true

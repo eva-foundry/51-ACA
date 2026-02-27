@@ -7,7 +7,13 @@
       "is_active": true,
       "plane": "azure",
       "repo_path": "agents/collection-agent.yaml",
-      "description": "Orchestrates Azure subscription data collection -- inventory, cost, Advisor, policy pulls"
+      "description": "Orchestrates Azure subscription data collection -- inventory, cost, Advisor, policy pulls",
+      "source_file": "model/agents.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.470926+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.470926+00:00",
+      "row_version": 1
     },
     {
       "id": "analysis-agent",
@@ -16,7 +22,13 @@
       "is_active": true,
       "plane": "azure",
       "repo_path": "agents/analysis-agent.yaml",
-      "description": "Runs 12-rule heuristic analysis on collected data to produce cost findings"
+      "description": "Runs 12-rule heuristic analysis on collected data to produce cost findings",
+      "source_file": "model/agents.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.470926+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.470926+00:00",
+      "row_version": 1
     },
     {
       "id": "generation-agent",
@@ -25,7 +37,13 @@
       "is_active": true,
       "plane": "azure",
       "repo_path": "agents/generation-agent.yaml",
-      "description": "LLM-powered report generator -- produces Tier 1/2/3 deliverables"
+      "description": "LLM-powered report generator -- produces Tier 1/2/3 deliverables",
+      "source_file": "model/agents.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.470926+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.470926+00:00",
+      "row_version": 1
     },
     {
       "id": "redteam-agent",
@@ -34,7 +52,13 @@
       "is_active": true,
       "plane": "azure",
       "repo_path": "agents/redteam-agent.yaml",
-      "description": "Adversarial testing agent -- validates report quality and rule coverage"
+      "description": "Adversarial testing agent -- validates report quality and rule coverage",
+      "source_file": "model/agents.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.470926+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.470926+00:00",
+      "row_version": 1
     }
   ]
 }

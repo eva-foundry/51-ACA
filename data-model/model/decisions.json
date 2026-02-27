@@ -1,3 +1,228 @@
 {
-  "decisions": []
+  "decisions": [
+    {
+      "tags": [
+        "infra",
+        "phase1"
+      ],
+      "is_active": true,
+      "id": "DEC-I1-iac-scope",
+      "rationale": "Risk of breaking existing marco* resources if deployed prematurely.",
+      "status": "accepted",
+      "date": "2026-02-27",
+      "title": "IaC: finish files only, no deploy yet",
+      "decision": "Do not deploy to Azure now. Finish IaC files (Bicep + bootstrap.sh) in EsDAICoE-Sandbox / marco* resources first. Deploy when integration tests are ready.",
+      "modified_by": "agent:copilot",
+      "modified_at": "2026-02-27T05:25:46.140735+00:00",
+      "created_by": "agent:copilot",
+      "created_at": "2026-02-27T05:25:35.146843+00:00",
+      "row_version": 2
+    },
+    {
+      "tags": [
+        "auth",
+        "phase1",
+        "critical"
+      ],
+      "is_active": true,
+      "id": "DEC-I2-auth-multi-tenant",
+      "rationale": "ACA must be usable by any paying client. Tying auth to EsDAICoE org would prevent commercial use.",
+      "status": "accepted",
+      "date": "2026-02-27",
+      "title": "Auth: standalone multi-tenant Microsoft Entra (authority=common)",
+      "decision": "ACA is standalone private-sector SaaS. NOT tied to EsDAICoE org. Multi-tenant Microsoft Entra (authority=common). Any client Microsoft account works. What matters: delegated token has Reader + Cost Management Reader on CLIENT subscription.",
+      "modified_by": "agent:copilot",
+      "modified_at": "2026-02-27T05:25:48.204166+00:00",
+      "created_by": "agent:copilot",
+      "created_at": "2026-02-27T05:25:48.204166+00:00",
+      "row_version": 1
+    },
+    {
+      "tags": [
+        "infra",
+        "phase1"
+      ],
+      "is_active": true,
+      "id": "DEC-I3-bootstrap-new",
+      "rationale": "bootstrap.sh was not previously specified. Needs full authoring.",
+      "status": "accepted",
+      "date": "2026-02-27",
+      "title": "bootstrap.sh: new file from scratch (not update)",
+      "decision": "infra/phase1-marco/bootstrap.sh is a new file. Must cover: Cosmos containers, KV secrets, ACA Container App + 3 Jobs, APIM product. DO_CONTAINERAPPS and DO_APIM toggle flags required.",
+      "modified_by": "agent:copilot",
+      "modified_at": "2026-02-27T05:25:50.251215+00:00",
+      "created_by": "agent:copilot",
+      "created_at": "2026-02-27T05:25:50.251215+00:00",
+      "row_version": 1
+    },
+    {
+      "tags": [
+        "stripe",
+        "billing",
+        "phase1"
+      ],
+      "is_active": true,
+      "id": "DEC-S2-stripe-coupons",
+      "rationale": "Prices are business decisions, not engineering constants. Coupons give sales flexibility without code changes.",
+      "status": "accepted",
+      "date": "2026-02-27",
+      "title": "Stripe: env-var prices, promotion codes enabled, full coupon waiver supported",
+      "decision": "Prices NOT hardcoded. STRIPE_PRICE_* are env vars. Add STRIPE_COUPON_ENABLED: bool. Pass allow_promotion_codes=True to checkout sessions. Full fee waiver via coupon is supported for trials/partnerships.",
+      "modified_by": "agent:copilot",
+      "modified_at": "2026-02-27T05:25:52.294061+00:00",
+      "created_by": "agent:copilot",
+      "created_at": "2026-02-27T05:25:52.294061+00:00",
+      "row_version": 1
+    },
+    {
+      "tags": [
+        "stripe",
+        "billing",
+        "phase1"
+      ],
+      "is_active": true,
+      "id": "DEC-S3-monthly-billing",
+      "rationale": "Monthly subscription provides predictable MRR. One-time for Tier 3 matches the per-engagement delivery model.",
+      "status": "accepted",
+      "date": "2026-02-27",
+      "title": "Stripe: Tier 2 = monthly subscription (CAD), Tier 3 = one-time",
+      "decision": "Tier 2 uses mode=subscription with monthly recurring billing in CAD. Tier 3 uses mode=one_time per engagement.",
+      "modified_by": "agent:copilot",
+      "modified_at": "2026-02-27T05:25:54.330190+00:00",
+      "created_by": "agent:copilot",
+      "created_at": "2026-02-27T05:25:54.330190+00:00",
+      "row_version": 1
+    },
+    {
+      "tags": [
+        "templates",
+        "delivery",
+        "phase1"
+      ],
+      "is_active": true,
+      "id": "DEC-T1-bicep-only-templates",
+      "rationale": "Keeps Phase 1 simpler. Marco* sandbox is already Bicep-provisioned. Terraform adds complexity without Phase 1 value.",
+      "status": "accepted",
+      "date": "2026-02-27",
+      "title": "Delivery templates: Bicep only for Phase 1 (no Terraform)",
+      "decision": "12 delivery template folders contain main.bicep + README.md only. No main.tf in Phase 1. Generator skips missing files gracefully (TemplateNotFound pass). Terraform deferred to Phase 2 / Epic 11.",
+      "modified_by": "agent:copilot",
+      "modified_at": "2026-02-27T05:25:56.370934+00:00",
+      "created_by": "agent:copilot",
+      "created_at": "2026-02-27T05:25:56.370934+00:00",
+      "row_version": 1
+    },
+    {
+      "tags": [
+        "templates",
+        "delivery",
+        "phase1"
+      ],
+      "is_active": true,
+      "id": "DEC-T2-simple-parametrization",
+      "rationale": "Simple is sufficient for Phase 1. Complex parametrization can be added in Phase 2.",
+      "status": "accepted",
+      "date": "2026-02-27",
+      "title": "Delivery templates: simple Jinja2 variable substitution",
+      "decision": "Templates use {{ scan_id }}, {{ subscription_id }}, and finding-specific fields. No complex logic. Jinja2 rendering already in generator.py.",
+      "modified_by": "agent:copilot",
+      "modified_at": "2026-02-27T05:25:58.402516+00:00",
+      "created_by": "agent:copilot",
+      "created_at": "2026-02-27T05:25:58.402516+00:00",
+      "row_version": 1
+    },
+    {
+      "tags": [
+        "testing",
+        "a11y",
+        "phase1"
+      ],
+      "is_active": true,
+      "id": "DEC-COV-95pct-e2e",
+      "rationale": "95% is achievable with fixture-based unit tests. Playwright is preferred over Cypress for headless CI.",
+      "status": "accepted",
+      "date": "2026-02-27",
+      "title": "Test coverage: 95% end-to-end target, Playwright headless, hardcoded fixtures",
+      "decision": "95% line coverage on all analysis rule modules. Unit tests use hardcoded JSON fixtures (no Cosmos calls). Playwright headless for E2E a11y. All 5 locales exercised in Playwright suite.",
+      "modified_by": "agent:copilot",
+      "modified_at": "2026-02-27T05:26:00.435100+00:00",
+      "created_by": "agent:copilot",
+      "created_at": "2026-02-27T05:26:00.435100+00:00",
+      "row_version": 1
+    },
+    {
+      "tags": [
+        "a11y",
+        "ci",
+        "phase1"
+      ],
+      "is_active": true,
+      "id": "DEC-A1-playwright-headless",
+      "rationale": "Playwright is lighter than Cypress for headless CI, already supported by @axe-core/playwright.",
+      "status": "accepted",
+      "date": "2026-02-27",
+      "title": "a11y testing: Playwright headless in GitHub Actions CI",
+      "decision": "Playwright headless (not Cypress). Runs on ubuntu-latest in GitHub Actions. axe-core assertions injected into Playwright tests. Zero critical/serious violations gates PR merge.",
+      "modified_by": "agent:copilot",
+      "modified_at": "2026-02-27T05:26:02.472149+00:00",
+      "created_by": "agent:copilot",
+      "created_at": "2026-02-27T05:26:02.472149+00:00",
+      "row_version": 1
+    },
+    {
+      "tags": [
+        "i18n",
+        "phase1"
+      ],
+      "is_active": true,
+      "id": "DEC-A2-all-5-locales-phase1",
+      "rationale": "Shipping all 5 locales in Phase 1 maximizes market coverage from day 1 without blocking on professional translators.",
+      "status": "accepted",
+      "date": "2026-02-27",
+      "title": "i18n: all 5 locales ship in Phase 1 (best-effort machine translation)",
+      "decision": "en, fr, es, de, pt-BR all live in Phase 1. fr-CA is reviewed before launch. pt-BR, es, de are best-effort machine translation. Professional review for non-EN/FR locales is Phase 2 hardening.",
+      "modified_by": "agent:copilot",
+      "modified_at": "2026-02-27T05:26:04.514825+00:00",
+      "created_by": "agent:copilot",
+      "created_at": "2026-02-27T05:26:04.514825+00:00",
+      "row_version": 1
+    },
+    {
+      "tags": [
+        "infra",
+        "deployment",
+        "phase1"
+      ],
+      "is_active": true,
+      "id": "DEC-D1-azure-free-hostnames",
+      "rationale": "Custom domain requires DNS delegation, TLS setup, and a purchased domain. Not needed for Phase 1 dogfood.",
+      "status": "accepted",
+      "date": "2026-02-27",
+      "title": "Phase 1 deployment: Azure Container Apps free hostnames, no custom domain",
+      "decision": "Phase 1 uses *.{region}.azurecontainerapps.io free hostnames. No custom domain required. PUBLIC_APP_URL and PUBLIC_API_URL read from env vars. Phase 2 gets real custom domain (TBD).",
+      "modified_by": "agent:copilot",
+      "modified_at": "2026-02-27T05:26:06.558971+00:00",
+      "created_by": "agent:copilot",
+      "created_at": "2026-02-27T05:26:06.558971+00:00",
+      "row_version": 1
+    },
+    {
+      "tags": [
+        "governance",
+        "phase1"
+      ],
+      "is_active": true,
+      "id": "DEC-D2-repo-eva-foundry",
+      "rationale": "Moving org adds friction with no Phase 1 benefit. Private repo in eva-foundry is sufficient for controlled beta.",
+      "status": "accepted",
+      "date": "2026-02-27",
+      "title": "Repository: stays in eva-foundry org (private), deployed to Azure",
+      "decision": "Repo 51-ACA stays in eva-foundry GitHub org (private). No org move needed for Phase 1. Deployed to Azure subscription EsDAICoE-Sandbox. Commercial org move can be evaluated at Phase 2.",
+      "modified_by": "agent:copilot",
+      "modified_at": "2026-02-27T05:26:08.610333+00:00",
+      "created_by": "agent:copilot",
+      "created_at": "2026-02-27T05:26:08.610333+00:00",
+      "row_version": 1
+    }
+  ]
 }

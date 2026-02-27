@@ -1,7 +1,7 @@
 {
   "meta": {
     "schema": "eva.discovery.v2",
-    "generated_at": "2026-02-27T04:21:36.494Z",
+    "generated_at": "2026-02-27T05:56:45.531Z",
     "repo": "C:\\AICOE\\eva-foundry\\51-ACA"
   },
   "project": null,
@@ -12,224 +12,224 @@
     },
     "features": [
       {
-        "id": "ACA-STATS",
+        "id": "ACA-01",
         "title": "STATS API",
         "source": "veritas-plan.json"
       },
       {
-        "id": "ACA-SCANS",
+        "id": "ACA-02",
         "title": "SCANS API",
         "source": "veritas-plan.json"
       },
       {
-        "id": "ACA-CONNECT",
+        "id": "ACA-03",
         "title": "CONNECT API",
         "source": "veritas-plan.json"
       },
       {
-        "id": "ACA-PREFLIGHT",
+        "id": "ACA-04",
         "title": "PREFLIGHT API",
         "source": "veritas-plan.json"
       },
       {
-        "id": "ACA-DISCONNECT",
+        "id": "ACA-05",
         "title": "DISCONNECT API",
         "source": "veritas-plan.json"
       },
       {
-        "id": "ACA-TIER2",
+        "id": "ACA-06",
         "title": "TIER2 API",
         "source": "veritas-plan.json"
       },
       {
-        "id": "ACA-TIER3",
+        "id": "ACA-07",
         "title": "TIER3 API",
         "source": "veritas-plan.json"
       },
       {
-        "id": "ACA-WEBHOOK",
+        "id": "ACA-08",
         "title": "WEBHOOK API",
         "source": "veritas-plan.json"
       },
       {
-        "id": "ACA-ENTITLEMENTS",
+        "id": "ACA-09",
         "title": "ENTITLEMENTS API",
         "source": "veritas-plan.json"
       },
       {
-        "id": "ACA-SCAN_ID",
-        "title": "SCAN_ID API",
+        "id": "ACA-10",
+        "title": "SCAN RESULTS API",
         "source": "veritas-plan.json"
       },
       {
-        "id": "ACA-HEALTH",
+        "id": "ACA-11",
         "title": "HEALTH API",
         "source": "veritas-plan.json"
       },
       {
-        "id": "ACA-API",
-        "title": "API API",
+        "id": "ACA-12",
+        "title": "API Gateway",
         "source": "veritas-plan.json"
       },
       {
-        "id": "ACA-INFRA",
-        "title": "Infrastructure Resources",
+        "id": "ACA-13",
+        "title": "Infrastructure",
         "source": "veritas-plan.json"
       }
     ],
     "stories": [
       {
-        "id": "ACA-STATS-001",
+        "id": "ACA-01-001",
         "title": "GET /stats",
-        "feature_id": "ACA-STATS",
-        "done": false,
+        "feature_id": "ACA-01",
+        "done": true,
         "source": "veritas-plan.json"
       },
       {
-        "id": "ACA-SCANS-001",
+        "id": "ACA-02-001",
         "title": "DELETE /scans/{scan_id}",
-        "feature_id": "ACA-SCANS",
-        "done": false,
+        "feature_id": "ACA-02",
+        "done": true,
         "source": "veritas-plan.json"
       },
       {
-        "id": "ACA-CONNECT-001",
+        "id": "ACA-03-001",
         "title": "POST /connect",
-        "feature_id": "ACA-CONNECT",
-        "done": false,
+        "feature_id": "ACA-03",
+        "done": true,
         "source": "veritas-plan.json"
       },
       {
-        "id": "ACA-PREFLIGHT-001",
+        "id": "ACA-04-001",
         "title": "POST /preflight",
-        "feature_id": "ACA-PREFLIGHT",
-        "done": false,
+        "feature_id": "ACA-04",
+        "done": true,
         "source": "veritas-plan.json"
       },
       {
-        "id": "ACA-DISCONNECT-001",
+        "id": "ACA-05-001",
         "title": "POST /disconnect",
-        "feature_id": "ACA-DISCONNECT",
-        "done": false,
+        "feature_id": "ACA-05",
+        "done": true,
         "source": "veritas-plan.json"
       },
       {
-        "id": "ACA-TIER2-001",
+        "id": "ACA-06-001",
         "title": "POST /tier2",
-        "feature_id": "ACA-TIER2",
-        "done": false,
+        "feature_id": "ACA-06",
+        "done": true,
         "source": "veritas-plan.json"
       },
       {
-        "id": "ACA-TIER3-001",
+        "id": "ACA-07-001",
         "title": "POST /tier3",
-        "feature_id": "ACA-TIER3",
-        "done": false,
+        "feature_id": "ACA-07",
+        "done": true,
         "source": "veritas-plan.json"
       },
       {
-        "id": "ACA-WEBHOOK-001",
+        "id": "ACA-08-001",
         "title": "POST /webhook",
-        "feature_id": "ACA-WEBHOOK",
-        "done": false,
+        "feature_id": "ACA-08",
+        "done": true,
         "source": "veritas-plan.json"
       },
       {
-        "id": "ACA-ENTITLEMENTS-001",
+        "id": "ACA-09-001",
         "title": "GET /entitlements",
-        "feature_id": "ACA-ENTITLEMENTS",
-        "done": false,
+        "feature_id": "ACA-09",
+        "done": true,
         "source": "veritas-plan.json"
       },
       {
-        "id": "ACA-SCAN_ID-001",
-        "title": "GET /{scan_id}",
-        "feature_id": "ACA-SCAN_ID",
-        "done": false,
+        "id": "ACA-10-001",
+        "title": "GET /{scan_id}/findings",
+        "feature_id": "ACA-10",
+        "done": true,
         "source": "veritas-plan.json"
       },
       {
-        "id": "ACA-SCAN_ID-002",
-        "title": "GET /{scan_id}",
-        "feature_id": "ACA-SCAN_ID",
-        "done": false,
+        "id": "ACA-10-002",
+        "title": "GET /{scan_id}/inventory",
+        "feature_id": "ACA-10",
+        "done": true,
         "source": "veritas-plan.json"
       },
       {
-        "id": "ACA-HEALTH-001",
+        "id": "ACA-11-001",
         "title": "GET /health",
-        "feature_id": "ACA-HEALTH",
-        "done": false,
+        "feature_id": "ACA-11",
+        "done": true,
         "source": "veritas-plan.json"
       },
       {
-        "id": "ACA-API-001",
-        "title": "POST /",
-        "feature_id": "ACA-API",
-        "done": false,
+        "id": "ACA-12-001",
+        "title": "FastAPI app factory",
+        "feature_id": "ACA-12",
+        "done": true,
         "source": "veritas-plan.json"
       },
       {
-        "id": "ACA-API-002",
-        "title": "GET /",
-        "feature_id": "ACA-API",
-        "done": false,
+        "id": "ACA-12-002",
+        "title": "Settings and env config",
+        "feature_id": "ACA-12",
+        "done": true,
         "source": "veritas-plan.json"
       },
       {
-        "id": "ACA-INFRA-001",
-        "title": "azurerm_resource_group \"main\"",
-        "feature_id": "ACA-INFRA",
-        "done": false,
+        "id": "ACA-13-001",
+        "title": "resource_group main",
+        "feature_id": "ACA-13",
+        "done": true,
         "source": "veritas-plan.json"
       },
       {
-        "id": "ACA-INFRA-002",
-        "title": "azurerm_container_registry \"main\"",
-        "feature_id": "ACA-INFRA",
-        "done": false,
+        "id": "ACA-13-002",
+        "title": "container_registry main",
+        "feature_id": "ACA-13",
+        "done": true,
         "source": "veritas-plan.json"
       },
       {
-        "id": "ACA-INFRA-003",
-        "title": "azurerm_cosmosdb_account \"main\"",
-        "feature_id": "ACA-INFRA",
-        "done": false,
+        "id": "ACA-13-003",
+        "title": "cosmosdb_account main",
+        "feature_id": "ACA-13",
+        "done": true,
         "source": "veritas-plan.json"
       },
       {
-        "id": "ACA-INFRA-004",
-        "title": "azurerm_cosmosdb_sql_database \"main\"",
-        "feature_id": "ACA-INFRA",
-        "done": false,
+        "id": "ACA-13-004",
+        "title": "cosmosdb_sql_database main",
+        "feature_id": "ACA-13",
+        "done": true,
         "source": "veritas-plan.json"
       },
       {
-        "id": "ACA-INFRA-005",
-        "title": "azurerm_storage_account \"main\"",
-        "feature_id": "ACA-INFRA",
-        "done": false,
+        "id": "ACA-13-005",
+        "title": "storage_account main",
+        "feature_id": "ACA-13",
+        "done": true,
         "source": "veritas-plan.json"
       },
       {
-        "id": "ACA-INFRA-006",
-        "title": "azurerm_log_analytics_workspace \"main\"",
-        "feature_id": "ACA-INFRA",
-        "done": false,
+        "id": "ACA-13-006",
+        "title": "log_analytics_workspace main",
+        "feature_id": "ACA-13",
+        "done": true,
         "source": "veritas-plan.json"
       },
       {
-        "id": "ACA-INFRA-007",
-        "title": "azurerm_application_insights \"main\"",
-        "feature_id": "ACA-INFRA",
-        "done": false,
+        "id": "ACA-13-007",
+        "title": "application_insights main",
+        "feature_id": "ACA-13",
+        "done": true,
         "source": "veritas-plan.json"
       },
       {
-        "id": "ACA-INFRA-008",
-        "title": "azurerm_container_app_environment \"main\"",
-        "feature_id": "ACA-INFRA",
-        "done": false,
+        "id": "ACA-13-008",
+        "title": "container_app_environment main",
+        "feature_id": "ACA-13",
+        "done": true,
         "source": "veritas-plan.json"
       }
     ],
@@ -380,6 +380,11 @@
         "story_tags": []
       },
       {
+        "path": "AGENTS.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
         "path": "docker-compose.yml",
         "type": "config",
         "story_tags": []
@@ -405,8 +410,45 @@
         "story_tags": []
       },
       {
-        "path": ".github/copilot-instructions.md",
-        "type": "doc",
+        "path": "_dm_commit.ps1",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "_dm_fix_violations.ps1",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "_dm_seed_decisions.ps1",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "_dm_seed_stories.ps1",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "_vt_mark_done.ps1",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "_write_issue_template.ps1",
+        "type": "code",
+        "story_tags": [
+          "ACA-XX-XXX"
+        ]
+      },
+      {
+        "path": ".devcontainer/devcontainer.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": ".devcontainer/on-create.sh",
+        "type": "other",
         "story_tags": []
       },
       {
@@ -440,6 +482,21 @@
         "story_tags": []
       },
       {
+        "path": ".github/copilot-instructions.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": ".github/pull_request_template.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/analytics-spec.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
         "path": "frontend/.env.example",
         "type": "other",
         "story_tags": []
@@ -467,11 +524,6 @@
       {
         "path": "frontend/vite.config.ts",
         "type": "code",
-        "story_tags": []
-      },
-      {
-        "path": "docs/analytics-spec.md",
-        "type": "doc",
         "story_tags": []
       },
       {
@@ -507,21 +559,6 @@
       {
         "path": "tools/__init__.py",
         "type": "code",
-        "story_tags": []
-      },
-      {
-        "path": ".github/workflows/ci.yml",
-        "type": "config",
-        "story_tags": []
-      },
-      {
-        "path": ".github/workflows/collector-schedule.yml",
-        "type": "config",
-        "story_tags": []
-      },
-      {
-        "path": ".github/workflows/deploy-phase1.yml",
-        "type": "config",
         "story_tags": []
       },
       {
@@ -710,6 +747,33 @@
         "story_tags": []
       },
       {
+        "path": ".github/ISSUE_TEMPLATE/agent-task.yml",
+        "type": "config",
+        "story_tags": [
+          "ACA-XX-XXX"
+        ]
+      },
+      {
+        "path": ".github/workflows/ci.yml",
+        "type": "config",
+        "story_tags": []
+      },
+      {
+        "path": ".github/workflows/collector-schedule.yml",
+        "type": "config",
+        "story_tags": []
+      },
+      {
+        "path": ".github/workflows/deploy-phase1.yml",
+        "type": "config",
+        "story_tags": []
+      },
+      {
+        "path": ".github/workflows/dpdca-agent.yml",
+        "type": "config",
+        "story_tags": []
+      },
+      {
         "path": "debug/artifact-deployment/after_analysis_20260226_184028.json",
         "type": "data",
         "story_tags": []
@@ -820,6 +884,25 @@
         "story_tags": []
       },
       {
+        "path": "infra/phase2-private/main.tf",
+        "type": "infra",
+        "story_tags": [
+          "ACA-INFRA-001",
+          "ACA-INFRA-002",
+          "ACA-INFRA-003",
+          "ACA-INFRA-004",
+          "ACA-INFRA-005",
+          "ACA-INFRA-006",
+          "ACA-INFRA-007",
+          "ACA-INFRA-008"
+        ]
+      },
+      {
+        "path": "infra/phase2-private/production.tfvars",
+        "type": "infra",
+        "story_tags": []
+      },
+      {
         "path": "frontend/src/App.tsx",
         "type": "code",
         "story_tags": []
@@ -837,29 +920,19 @@
       {
         "path": "infra/phase1-marco/main.bicep",
         "type": "infra",
-        "story_tags": []
-      },
-      {
-        "path": "infra/phase1-marco/main.bicepparam",
-        "type": "infra",
-        "story_tags": []
-      },
-      {
-        "path": "infra/phase2-private/main.tf",
-        "type": "infra",
         "story_tags": [
-          "ACA-INFRA-001",
-          "ACA-INFRA-002",
-          "ACA-INFRA-003",
-          "ACA-INFRA-004",
-          "ACA-INFRA-005",
-          "ACA-INFRA-006",
-          "ACA-INFRA-007",
-          "ACA-INFRA-008"
+          "ACA-13-001",
+          "ACA-13-002",
+          "ACA-13-003",
+          "ACA-13-004",
+          "ACA-13-005",
+          "ACA-13-006",
+          "ACA-13-007",
+          "ACA-13-008"
         ]
       },
       {
-        "path": "infra/phase2-private/production.tfvars",
+        "path": "infra/phase1-marco/main.bicepparam",
         "type": "infra",
         "story_tags": []
       },
@@ -1011,7 +1084,10 @@
       {
         "path": "services/api/app/main.py",
         "type": "code",
-        "story_tags": []
+        "story_tags": [
+          "ACA-12-001",
+          "ACA-12-002"
+        ]
       },
       {
         "path": "services/api/app/scan_pipeline.py",
@@ -1287,51 +1363,71 @@
         "path": "services/api/app/routers/admin.py",
         "type": "code",
         "story_tags": [
-          "ACA-STATS-001"
+          "ACA-01-001"
         ]
       },
       {
         "path": "services/api/app/routers/auth.py",
         "type": "code",
         "story_tags": [
-          "ACA-CONNECT-001",
-          "ACA-PREFLIGHT-001",
-          "ACA-DISCONNECT-001"
+          "ACA-03-001",
+          "ACA-04-001",
+          "ACA-05-001"
         ]
       },
       {
         "path": "services/api/app/routers/checkout.py",
         "type": "code",
         "story_tags": [
-          "ACA-TIER2-001",
-          "ACA-TIER3-001",
-          "ACA-WEBHOOK-001",
-          "ACA-ENTITLEMENTS-001"
+          "ACA-06-001",
+          "ACA-07-001",
+          "ACA-08-001",
+          "ACA-09-001"
         ]
       },
       {
         "path": "services/api/app/routers/findings.py",
         "type": "code",
         "story_tags": [
-          "ACA-SCAN_ID-001"
+          "ACA-10-001"
         ]
       },
       {
         "path": "services/api/app/routers/health.py",
         "type": "code",
         "story_tags": [
-          "ACA-HEALTH-001"
+          "ACA-11-001"
         ]
       },
       {
         "path": "services/api/app/routers/scans.py",
         "type": "code",
         "story_tags": [
-          "ACA-SCANS-001",
-          "ACA-SCAN_ID-002",
-          "ACA-API-001",
-          "ACA-API-002"
+          "ACA-02-001",
+          "ACA-10-002",
+          "ACA-12-001",
+          "ACA-12-002"
         ]
+      },
+      {
+        "path": "services/api/app/services/delivery_service.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/api/app/services/entitlement_service.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/api/app/services/stripe_service.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/api/app/services/__init__.py",
+        "type": "code",
+        "story_tags": []
       },
       {
         "path": "frontend/src/app/routes/admin/AdminBillingPage.tsx",
@@ -1382,9 +1478,57 @@
         "path": "frontend/src/app/routes/app/UpgradePage.tsx",
         "type": "code",
         "story_tags": []
+      },
+      {
+        "path": "services/api/app/db/repos/admin_audit_repo.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/api/app/db/repos/clients_repo.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/api/app/db/repos/entitlements_repo.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/api/app/db/repos/payments_repo.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/api/app/db/repos/stripe_customer_map_repo.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/api/app/db/repos/__init__.py",
+        "type": "code",
+        "story_tags": []
       }
     ],
     "story_artifact_map": {
+      "ACA-XX-XXX": {
+        "artifacts": [
+          {
+            "path": "_write_issue_template.ps1",
+            "type": "code",
+            "story_tags": [
+              "ACA-XX-XXX"
+            ]
+          },
+          {
+            "path": ".github/ISSUE_TEMPLATE/agent-task.yml",
+            "type": "config",
+            "story_tags": [
+              "ACA-XX-XXX"
+            ]
+          }
+        ]
+      },
       "ACA-INFRA-001": {
         "artifacts": [
           {
@@ -1529,192 +1673,507 @@
           }
         ]
       },
-      "ACA-STATS-001": {
+      "ACA-13-001": {
+        "artifacts": [
+          {
+            "path": "infra/phase1-marco/main.bicep",
+            "type": "infra",
+            "story_tags": [
+              "ACA-13-001",
+              "ACA-13-002",
+              "ACA-13-003",
+              "ACA-13-004",
+              "ACA-13-005",
+              "ACA-13-006",
+              "ACA-13-007",
+              "ACA-13-008"
+            ]
+          }
+        ]
+      },
+      "ACA-13-002": {
+        "artifacts": [
+          {
+            "path": "infra/phase1-marco/main.bicep",
+            "type": "infra",
+            "story_tags": [
+              "ACA-13-001",
+              "ACA-13-002",
+              "ACA-13-003",
+              "ACA-13-004",
+              "ACA-13-005",
+              "ACA-13-006",
+              "ACA-13-007",
+              "ACA-13-008"
+            ]
+          }
+        ]
+      },
+      "ACA-13-003": {
+        "artifacts": [
+          {
+            "path": "infra/phase1-marco/main.bicep",
+            "type": "infra",
+            "story_tags": [
+              "ACA-13-001",
+              "ACA-13-002",
+              "ACA-13-003",
+              "ACA-13-004",
+              "ACA-13-005",
+              "ACA-13-006",
+              "ACA-13-007",
+              "ACA-13-008"
+            ]
+          }
+        ]
+      },
+      "ACA-13-004": {
+        "artifacts": [
+          {
+            "path": "infra/phase1-marco/main.bicep",
+            "type": "infra",
+            "story_tags": [
+              "ACA-13-001",
+              "ACA-13-002",
+              "ACA-13-003",
+              "ACA-13-004",
+              "ACA-13-005",
+              "ACA-13-006",
+              "ACA-13-007",
+              "ACA-13-008"
+            ]
+          }
+        ]
+      },
+      "ACA-13-005": {
+        "artifacts": [
+          {
+            "path": "infra/phase1-marco/main.bicep",
+            "type": "infra",
+            "story_tags": [
+              "ACA-13-001",
+              "ACA-13-002",
+              "ACA-13-003",
+              "ACA-13-004",
+              "ACA-13-005",
+              "ACA-13-006",
+              "ACA-13-007",
+              "ACA-13-008"
+            ]
+          }
+        ]
+      },
+      "ACA-13-006": {
+        "artifacts": [
+          {
+            "path": "infra/phase1-marco/main.bicep",
+            "type": "infra",
+            "story_tags": [
+              "ACA-13-001",
+              "ACA-13-002",
+              "ACA-13-003",
+              "ACA-13-004",
+              "ACA-13-005",
+              "ACA-13-006",
+              "ACA-13-007",
+              "ACA-13-008"
+            ]
+          }
+        ]
+      },
+      "ACA-13-007": {
+        "artifacts": [
+          {
+            "path": "infra/phase1-marco/main.bicep",
+            "type": "infra",
+            "story_tags": [
+              "ACA-13-001",
+              "ACA-13-002",
+              "ACA-13-003",
+              "ACA-13-004",
+              "ACA-13-005",
+              "ACA-13-006",
+              "ACA-13-007",
+              "ACA-13-008"
+            ]
+          }
+        ]
+      },
+      "ACA-13-008": {
+        "artifacts": [
+          {
+            "path": "infra/phase1-marco/main.bicep",
+            "type": "infra",
+            "story_tags": [
+              "ACA-13-001",
+              "ACA-13-002",
+              "ACA-13-003",
+              "ACA-13-004",
+              "ACA-13-005",
+              "ACA-13-006",
+              "ACA-13-007",
+              "ACA-13-008"
+            ]
+          }
+        ]
+      },
+      "ACA-12-001": {
+        "artifacts": [
+          {
+            "path": "services/api/app/main.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-12-001",
+              "ACA-12-002"
+            ]
+          },
+          {
+            "path": "services/api/app/routers/scans.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-02-001",
+              "ACA-10-002",
+              "ACA-12-001",
+              "ACA-12-002"
+            ]
+          }
+        ]
+      },
+      "ACA-12-002": {
+        "artifacts": [
+          {
+            "path": "services/api/app/main.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-12-001",
+              "ACA-12-002"
+            ]
+          },
+          {
+            "path": "services/api/app/routers/scans.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-02-001",
+              "ACA-10-002",
+              "ACA-12-001",
+              "ACA-12-002"
+            ]
+          }
+        ]
+      },
+      "ACA-01-001": {
         "artifacts": [
           {
             "path": "services/api/app/routers/admin.py",
             "type": "code",
             "story_tags": [
-              "ACA-STATS-001"
+              "ACA-01-001"
             ]
           }
         ]
       },
-      "ACA-CONNECT-001": {
+      "ACA-03-001": {
         "artifacts": [
           {
             "path": "services/api/app/routers/auth.py",
             "type": "code",
             "story_tags": [
-              "ACA-CONNECT-001",
-              "ACA-PREFLIGHT-001",
-              "ACA-DISCONNECT-001"
+              "ACA-03-001",
+              "ACA-04-001",
+              "ACA-05-001"
             ]
           }
         ]
       },
-      "ACA-PREFLIGHT-001": {
+      "ACA-04-001": {
         "artifacts": [
           {
             "path": "services/api/app/routers/auth.py",
             "type": "code",
             "story_tags": [
-              "ACA-CONNECT-001",
-              "ACA-PREFLIGHT-001",
-              "ACA-DISCONNECT-001"
+              "ACA-03-001",
+              "ACA-04-001",
+              "ACA-05-001"
             ]
           }
         ]
       },
-      "ACA-DISCONNECT-001": {
+      "ACA-05-001": {
         "artifacts": [
           {
             "path": "services/api/app/routers/auth.py",
             "type": "code",
             "story_tags": [
-              "ACA-CONNECT-001",
-              "ACA-PREFLIGHT-001",
-              "ACA-DISCONNECT-001"
+              "ACA-03-001",
+              "ACA-04-001",
+              "ACA-05-001"
             ]
           }
         ]
       },
-      "ACA-TIER2-001": {
+      "ACA-06-001": {
         "artifacts": [
           {
             "path": "services/api/app/routers/checkout.py",
             "type": "code",
             "story_tags": [
-              "ACA-TIER2-001",
-              "ACA-TIER3-001",
-              "ACA-WEBHOOK-001",
-              "ACA-ENTITLEMENTS-001"
+              "ACA-06-001",
+              "ACA-07-001",
+              "ACA-08-001",
+              "ACA-09-001"
             ]
           }
         ]
       },
-      "ACA-TIER3-001": {
+      "ACA-07-001": {
         "artifacts": [
           {
             "path": "services/api/app/routers/checkout.py",
             "type": "code",
             "story_tags": [
-              "ACA-TIER2-001",
-              "ACA-TIER3-001",
-              "ACA-WEBHOOK-001",
-              "ACA-ENTITLEMENTS-001"
+              "ACA-06-001",
+              "ACA-07-001",
+              "ACA-08-001",
+              "ACA-09-001"
             ]
           }
         ]
       },
-      "ACA-WEBHOOK-001": {
+      "ACA-08-001": {
         "artifacts": [
           {
             "path": "services/api/app/routers/checkout.py",
             "type": "code",
             "story_tags": [
-              "ACA-TIER2-001",
-              "ACA-TIER3-001",
-              "ACA-WEBHOOK-001",
-              "ACA-ENTITLEMENTS-001"
+              "ACA-06-001",
+              "ACA-07-001",
+              "ACA-08-001",
+              "ACA-09-001"
             ]
           }
         ]
       },
-      "ACA-ENTITLEMENTS-001": {
+      "ACA-09-001": {
         "artifacts": [
           {
             "path": "services/api/app/routers/checkout.py",
             "type": "code",
             "story_tags": [
-              "ACA-TIER2-001",
-              "ACA-TIER3-001",
-              "ACA-WEBHOOK-001",
-              "ACA-ENTITLEMENTS-001"
+              "ACA-06-001",
+              "ACA-07-001",
+              "ACA-08-001",
+              "ACA-09-001"
             ]
           }
         ]
       },
-      "ACA-SCAN_ID-001": {
+      "ACA-10-001": {
         "artifacts": [
           {
             "path": "services/api/app/routers/findings.py",
             "type": "code",
             "story_tags": [
-              "ACA-SCAN_ID-001"
+              "ACA-10-001"
             ]
           }
         ]
       },
-      "ACA-HEALTH-001": {
+      "ACA-11-001": {
         "artifacts": [
           {
             "path": "services/api/app/routers/health.py",
             "type": "code",
             "story_tags": [
-              "ACA-HEALTH-001"
+              "ACA-11-001"
             ]
           }
         ]
       },
-      "ACA-SCANS-001": {
+      "ACA-02-001": {
         "artifacts": [
           {
             "path": "services/api/app/routers/scans.py",
             "type": "code",
             "story_tags": [
-              "ACA-SCANS-001",
-              "ACA-SCAN_ID-002",
-              "ACA-API-001",
-              "ACA-API-002"
+              "ACA-02-001",
+              "ACA-10-002",
+              "ACA-12-001",
+              "ACA-12-002"
             ]
           }
         ]
       },
-      "ACA-SCAN_ID-002": {
+      "ACA-10-002": {
         "artifacts": [
           {
             "path": "services/api/app/routers/scans.py",
             "type": "code",
             "story_tags": [
-              "ACA-SCANS-001",
-              "ACA-SCAN_ID-002",
-              "ACA-API-001",
-              "ACA-API-002"
-            ]
-          }
-        ]
-      },
-      "ACA-API-001": {
-        "artifacts": [
-          {
-            "path": "services/api/app/routers/scans.py",
-            "type": "code",
-            "story_tags": [
-              "ACA-SCANS-001",
-              "ACA-SCAN_ID-002",
-              "ACA-API-001",
-              "ACA-API-002"
-            ]
-          }
-        ]
-      },
-      "ACA-API-002": {
-        "artifacts": [
-          {
-            "path": "services/api/app/routers/scans.py",
-            "type": "code",
-            "story_tags": [
-              "ACA-SCANS-001",
-              "ACA-SCAN_ID-002",
-              "ACA-API-001",
-              "ACA-API-002"
+              "ACA-02-001",
+              "ACA-10-002",
+              "ACA-12-001",
+              "ACA-12-002"
             ]
           }
         ]
       }
     },
-    "commit_evidence_map": {},
+    "commit_evidence_map": {
+      "ACA-01-001": [
+        {
+          "sha": "225a10a",
+          "snippet": "chore(veritas): ACA-01-001 ACA-02-001 ACA-03-001 ACA-04-001 ACA-05-001 ACA-06-00",
+          "source": "commit"
+        }
+      ],
+      "ACA-02-001": [
+        {
+          "sha": "225a10a",
+          "snippet": "chore(veritas): ACA-01-001 ACA-02-001 ACA-03-001 ACA-04-001 ACA-05-001 ACA-06-00",
+          "source": "commit"
+        }
+      ],
+      "ACA-03-001": [
+        {
+          "sha": "225a10a",
+          "snippet": "chore(veritas): ACA-01-001 ACA-02-001 ACA-03-001 ACA-04-001 ACA-05-001 ACA-06-00",
+          "source": "commit"
+        }
+      ],
+      "ACA-04-001": [
+        {
+          "sha": "225a10a",
+          "snippet": "chore(veritas): ACA-01-001 ACA-02-001 ACA-03-001 ACA-04-001 ACA-05-001 ACA-06-00",
+          "source": "commit"
+        }
+      ],
+      "ACA-05-001": [
+        {
+          "sha": "225a10a",
+          "snippet": "chore(veritas): ACA-01-001 ACA-02-001 ACA-03-001 ACA-04-001 ACA-05-001 ACA-06-00",
+          "source": "commit"
+        }
+      ],
+      "ACA-06-001": [
+        {
+          "sha": "225a10a",
+          "snippet": "chore(veritas): ACA-01-001 ACA-02-001 ACA-03-001 ACA-04-001 ACA-05-001 ACA-06-00",
+          "source": "commit"
+        }
+      ],
+      "ACA-07-001": [
+        {
+          "sha": "225a10a",
+          "snippet": "chore(veritas): ACA-01-001 ACA-02-001 ACA-03-001 ACA-04-001 ACA-05-001 ACA-06-00",
+          "source": "commit"
+        }
+      ],
+      "ACA-08-001": [
+        {
+          "sha": "225a10a",
+          "snippet": "chore(veritas): ACA-01-001 ACA-02-001 ACA-03-001 ACA-04-001 ACA-05-001 ACA-06-00",
+          "source": "commit"
+        }
+      ],
+      "ACA-09-001": [
+        {
+          "sha": "225a10a",
+          "snippet": "chore(veritas): ACA-01-001 ACA-02-001 ACA-03-001 ACA-04-001 ACA-05-001 ACA-06-00",
+          "source": "commit"
+        }
+      ],
+      "ACA-10-001": [
+        {
+          "sha": "225a10a",
+          "snippet": "chore(veritas): ACA-01-001 ACA-02-001 ACA-03-001 ACA-04-001 ACA-05-001 ACA-06-00",
+          "source": "commit"
+        }
+      ],
+      "ACA-10-002": [
+        {
+          "sha": "225a10a",
+          "snippet": "chore(veritas): ACA-01-001 ACA-02-001 ACA-03-001 ACA-04-001 ACA-05-001 ACA-06-00",
+          "source": "commit"
+        }
+      ],
+      "ACA-11-001": [
+        {
+          "sha": "225a10a",
+          "snippet": "chore(veritas): ACA-01-001 ACA-02-001 ACA-03-001 ACA-04-001 ACA-05-001 ACA-06-00",
+          "source": "commit"
+        }
+      ],
+      "ACA-12-001": [
+        {
+          "sha": "225a10a",
+          "snippet": "chore(veritas): ACA-01-001 ACA-02-001 ACA-03-001 ACA-04-001 ACA-05-001 ACA-06-00",
+          "source": "commit"
+        }
+      ],
+      "ACA-12-002": [
+        {
+          "sha": "225a10a",
+          "snippet": "chore(veritas): ACA-01-001 ACA-02-001 ACA-03-001 ACA-04-001 ACA-05-001 ACA-06-00",
+          "source": "commit"
+        }
+      ],
+      "ACA-13-001": [
+        {
+          "sha": "225a10a",
+          "snippet": "chore(veritas): ACA-01-001 ACA-02-001 ACA-03-001 ACA-04-001 ACA-05-001 ACA-06-00",
+          "source": "commit"
+        }
+      ],
+      "ACA-13-002": [
+        {
+          "sha": "225a10a",
+          "snippet": "chore(veritas): ACA-01-001 ACA-02-001 ACA-03-001 ACA-04-001 ACA-05-001 ACA-06-00",
+          "source": "commit"
+        }
+      ],
+      "ACA-13-003": [
+        {
+          "sha": "225a10a",
+          "snippet": "chore(veritas): ACA-01-001 ACA-02-001 ACA-03-001 ACA-04-001 ACA-05-001 ACA-06-00",
+          "source": "commit"
+        }
+      ],
+      "ACA-13-004": [
+        {
+          "sha": "225a10a",
+          "snippet": "chore(veritas): ACA-01-001 ACA-02-001 ACA-03-001 ACA-04-001 ACA-05-001 ACA-06-00",
+          "source": "commit"
+        }
+      ],
+      "ACA-13-005": [
+        {
+          "sha": "225a10a",
+          "snippet": "chore(veritas): ACA-01-001 ACA-02-001 ACA-03-001 ACA-04-001 ACA-05-001 ACA-06-00",
+          "source": "commit"
+        }
+      ],
+      "ACA-13-006": [
+        {
+          "sha": "225a10a",
+          "snippet": "chore(veritas): ACA-01-001 ACA-02-001 ACA-03-001 ACA-04-001 ACA-05-001 ACA-06-00",
+          "source": "commit"
+        }
+      ],
+      "ACA-13-007": [
+        {
+          "sha": "225a10a",
+          "snippet": "chore(veritas): ACA-01-001 ACA-02-001 ACA-03-001 ACA-04-001 ACA-05-001 ACA-06-00",
+          "source": "commit"
+        }
+      ],
+      "ACA-13-008": [
+        {
+          "sha": "225a10a",
+          "snippet": "chore(veritas): ACA-01-001 ACA-02-001 ACA-03-001 ACA-04-001 ACA-05-001 ACA-06-00",
+          "source": "commit"
+        }
+      ]
+    },
     "code_complexity": null
   }
 }

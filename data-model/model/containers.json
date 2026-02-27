@@ -9,7 +9,22 @@
       "is_active": true,
       "partition_key": "/subscriptionId",
       "description": "Scan jobs -- one record per client subscription scan request.",
-      "key_fields": ["scanId", "subscriptionId", "status", "mode", "startedUtc", "completedUtc", "stats", "error"]
+      "key_fields": [
+        "scanId",
+        "subscriptionId",
+        "status",
+        "mode",
+        "startedUtc",
+        "completedUtc",
+        "stats",
+        "error"
+      ],
+      "source_file": "model/containers.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.412580+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.412580+00:00",
+      "row_version": 1
     },
     {
       "id": "inventories",
@@ -20,7 +35,18 @@
       "is_active": true,
       "partition_key": "/subscriptionId",
       "description": "Full Azure resource inventory per subscription -- resources, tags, SKUs, regions.",
-      "key_fields": ["scanId", "subscriptionId", "capturedUtc", "resources"]
+      "key_fields": [
+        "scanId",
+        "subscriptionId",
+        "capturedUtc",
+        "resources"
+      ],
+      "source_file": "model/containers.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.412580+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.412580+00:00",
+      "row_version": 1
     },
     {
       "id": "cost-data",
@@ -31,7 +57,19 @@
       "is_active": true,
       "partition_key": "/subscriptionId",
       "description": "Cost Management daily cost rows -- 91 days per meter per resource group.",
-      "key_fields": ["scanId", "subscriptionId", "periodStart", "periodEnd", "rows"]
+      "key_fields": [
+        "scanId",
+        "subscriptionId",
+        "periodStart",
+        "periodEnd",
+        "rows"
+      ],
+      "source_file": "model/containers.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.412580+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.412580+00:00",
+      "row_version": 1
     },
     {
       "id": "advisor",
@@ -42,7 +80,18 @@
       "is_active": true,
       "partition_key": "/subscriptionId",
       "description": "Azure Advisor recommendations pull -- all categories.",
-      "key_fields": ["scanId", "subscriptionId", "capturedUtc", "recommendations"]
+      "key_fields": [
+        "scanId",
+        "subscriptionId",
+        "capturedUtc",
+        "recommendations"
+      ],
+      "source_file": "model/containers.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.412580+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.412580+00:00",
+      "row_version": 1
     },
     {
       "id": "findings",
@@ -53,7 +102,28 @@
       "is_active": true,
       "partition_key": "/subscriptionId",
       "description": "Analysis rule findings -- prioritized saving opportunities per scan.",
-      "key_fields": ["id", "scanId", "analysisId", "subscriptionId", "category", "title", "estimated_saving_low", "estimated_saving_high", "effort_class", "risk_class", "heuristic_source", "narrative", "deliverable_template_id", "evidence_refs"]
+      "key_fields": [
+        "id",
+        "scanId",
+        "analysisId",
+        "subscriptionId",
+        "category",
+        "title",
+        "estimated_saving_low",
+        "estimated_saving_high",
+        "effort_class",
+        "risk_class",
+        "heuristic_source",
+        "narrative",
+        "deliverable_template_id",
+        "evidence_refs"
+      ],
+      "source_file": "model/containers.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.412580+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.412580+00:00",
+      "row_version": 1
     },
     {
       "id": "clients",
@@ -64,7 +134,21 @@
       "is_active": true,
       "partition_key": "/subscriptionId",
       "description": "Client records -- tenant, tier, payment status, allowed subscriptions.",
-      "key_fields": ["clientId", "subscriptionId", "tenantId", "primaryEmail", "tier", "paymentStatus", "allowedSubscriptions"]
+      "key_fields": [
+        "clientId",
+        "subscriptionId",
+        "tenantId",
+        "primaryEmail",
+        "tier",
+        "paymentStatus",
+        "allowedSubscriptions"
+      ],
+      "source_file": "model/containers.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.412580+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.412580+00:00",
+      "row_version": 1
     },
     {
       "id": "deliverables",
@@ -75,7 +159,20 @@
       "is_active": true,
       "partition_key": "/subscriptionId",
       "description": "Delivery records -- ZIP artifact, Blob SAS URL, sha256, expiry.",
-      "key_fields": ["deliverableId", "analysisId", "subscriptionId", "status", "artifact", "download"]
+      "key_fields": [
+        "deliverableId",
+        "analysisId",
+        "subscriptionId",
+        "status",
+        "artifact",
+        "download"
+      ],
+      "source_file": "model/containers.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.412580+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.412580+00:00",
+      "row_version": 1
     },
     {
       "id": "entitlements",
@@ -86,7 +183,19 @@
       "is_active": true,
       "partition_key": "/subscriptionId",
       "description": "Access entitlements per subscription -- tier, validity, feature list.",
-      "key_fields": ["subscriptionId", "tier", "validUntil", "features", "grantedAt"]
+      "key_fields": [
+        "subscriptionId",
+        "tier",
+        "validUntil",
+        "features",
+        "grantedAt"
+      ],
+      "source_file": "model/containers.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.412580+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.412580+00:00",
+      "row_version": 1
     },
     {
       "id": "payments",
@@ -97,7 +206,20 @@
       "is_active": true,
       "partition_key": "/subscriptionId",
       "description": "Stripe webhook event audit log -- invoice.paid, sub.updated, sub.deleted.",
-      "key_fields": ["stripeEventId", "subscriptionId", "eventType", "amount", "currency", "createdUtc"]
+      "key_fields": [
+        "stripeEventId",
+        "subscriptionId",
+        "eventType",
+        "amount",
+        "currency",
+        "createdUtc"
+      ],
+      "source_file": "model/containers.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.412580+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.412580+00:00",
+      "row_version": 1
     },
     {
       "id": "stripe_customer_map",
@@ -108,8 +230,19 @@
       "is_active": true,
       "partition_key": "/stripeCustomerId",
       "description": "Maps Stripe customer IDs to our subscriptionId. PK is stripeCustomerId for webhook routing.",
-      "key_fields": ["id", "stripeCustomerId", "subscriptionId", "updatedUtc"],
-      "notes": "id format: cust::{stripeCustomerId}. Required for webhook -> subscriptionId routing."
+      "key_fields": [
+        "id",
+        "stripeCustomerId",
+        "subscriptionId",
+        "updatedUtc"
+      ],
+      "notes": "id format: cust::{stripeCustomerId}. Required for webhook -> subscriptionId routing.",
+      "source_file": "model/containers.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.412580+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.412580+00:00",
+      "row_version": 1
     },
     {
       "id": "admin_audit_events",
@@ -121,13 +254,29 @@
       "partition_key": "/subscriptionId",
       "description": "Admin action audit trail -- every grant, lock, reconcile, and override writes a record.",
       "key_fields": [
-        "id", "subscriptionId", "utc",
-        "actor.userId", "actor.upn", "actor.roles",
-        "action", "target.type", "target.id",
-        "request", "result.status", "result.message",
-        "correlationId", "ip", "userAgent"
+        "id",
+        "subscriptionId",
+        "utc",
+        "actor.userId",
+        "actor.upn",
+        "actor.roles",
+        "action",
+        "target.type",
+        "target.id",
+        "request",
+        "result.status",
+        "result.message",
+        "correlationId",
+        "ip",
+        "userAgent"
       ],
-      "notes": "id format: aae::<uuid>. action enum: ENTITLEMENT_GRANTED | SUBSCRIPTION_LOCKED | SUBSCRIPTION_UNLOCKED | STRIPE_RECONCILE | RATE_LIMIT_OVERRIDE | FEATURE_FLAG_CHANGED."
+      "notes": "id format: aae::<uuid>. action enum: ENTITLEMENT_GRANTED | SUBSCRIPTION_LOCKED | SUBSCRIPTION_UNLOCKED | STRIPE_RECONCILE | RATE_LIMIT_OVERRIDE | FEATURE_FLAG_CHANGED.",
+      "source_file": "model/containers.json",
+      "created_by": "system:autoload",
+      "created_at": "2026-02-27T04:17:10.412580+00:00",
+      "modified_by": "system:autoload",
+      "modified_at": "2026-02-27T04:17:10.412580+00:00",
+      "row_version": 1
     }
   ]
 }

@@ -1,147 +1,193 @@
 {
   "meta": {
     "schema": "eva.reconciliation.v2",
-    "generated_at": "2026-02-27T04:21:36.517Z",
+    "generated_at": "2026-02-27T05:56:45.556Z",
     "repo": "C:\\AICOE\\eva-foundry\\51-ACA",
     "discovery_path": "C:\\AICOE\\eva-foundry\\51-ACA\\.eva\\discovery.json"
   },
   "coverage": {
     "stories_total": 22,
     "stories_with_artifacts": 22,
-    "stories_with_evidence": 0,
+    "stories_with_evidence": 22,
     "consistency_score": 0
   },
   "features": [
     {
-      "id": "ACA-API",
-      "title": "API API",
-      "story_count": 2,
-      "stories_with_artifacts": 2,
-      "stories_with_evidence": 0,
-      "consistency_score": 0,
-      "mti": 50,
-      "gap_count": 0
-    },
-    {
-      "id": "ACA-CONNECT",
-      "title": "CONNECT API",
-      "story_count": 1,
-      "stories_with_artifacts": 1,
-      "stories_with_evidence": 0,
-      "consistency_score": 0,
-      "mti": 50,
-      "gap_count": 0
-    },
-    {
-      "id": "ACA-DISCONNECT",
-      "title": "DISCONNECT API",
-      "story_count": 1,
-      "stories_with_artifacts": 1,
-      "stories_with_evidence": 0,
-      "consistency_score": 0,
-      "mti": 50,
-      "gap_count": 0
-    },
-    {
-      "id": "ACA-ENTITLEMENTS",
-      "title": "ENTITLEMENTS API",
-      "story_count": 1,
-      "stories_with_artifacts": 1,
-      "stories_with_evidence": 0,
-      "consistency_score": 0,
-      "mti": 50,
-      "gap_count": 0
-    },
-    {
-      "id": "ACA-HEALTH",
-      "title": "HEALTH API",
-      "story_count": 1,
-      "stories_with_artifacts": 1,
-      "stories_with_evidence": 0,
-      "consistency_score": 0,
-      "mti": 50,
-      "gap_count": 0
-    },
-    {
-      "id": "ACA-INFRA",
-      "title": "Infrastructure Resources",
-      "story_count": 8,
-      "stories_with_artifacts": 8,
-      "stories_with_evidence": 0,
-      "consistency_score": 0,
-      "mti": 50,
-      "gap_count": 0
-    },
-    {
-      "id": "ACA-PREFLIGHT",
-      "title": "PREFLIGHT API",
-      "story_count": 1,
-      "stories_with_artifacts": 1,
-      "stories_with_evidence": 0,
-      "consistency_score": 0,
-      "mti": 50,
-      "gap_count": 0
-    },
-    {
-      "id": "ACA-SCAN_ID",
-      "title": "SCAN_ID API",
-      "story_count": 2,
-      "stories_with_artifacts": 2,
-      "stories_with_evidence": 0,
-      "consistency_score": 0,
-      "mti": 50,
-      "gap_count": 0
-    },
-    {
-      "id": "ACA-SCANS",
-      "title": "SCANS API",
-      "story_count": 1,
-      "stories_with_artifacts": 1,
-      "stories_with_evidence": 0,
-      "consistency_score": 0,
-      "mti": 50,
-      "gap_count": 0
-    },
-    {
-      "id": "ACA-STATS",
+      "id": "ACA-01",
       "title": "STATS API",
       "story_count": 1,
       "stories_with_artifacts": 1,
-      "stories_with_evidence": 0,
+      "stories_with_evidence": 1,
       "consistency_score": 0,
-      "mti": 50,
+      "mti": 70,
       "gap_count": 0
     },
     {
-      "id": "ACA-TIER2",
+      "id": "ACA-02",
+      "title": "SCANS API",
+      "story_count": 1,
+      "stories_with_artifacts": 1,
+      "stories_with_evidence": 1,
+      "consistency_score": 0,
+      "mti": 70,
+      "gap_count": 0
+    },
+    {
+      "id": "ACA-03",
+      "title": "CONNECT API",
+      "story_count": 1,
+      "stories_with_artifacts": 1,
+      "stories_with_evidence": 1,
+      "consistency_score": 0,
+      "mti": 70,
+      "gap_count": 0
+    },
+    {
+      "id": "ACA-04",
+      "title": "PREFLIGHT API",
+      "story_count": 1,
+      "stories_with_artifacts": 1,
+      "stories_with_evidence": 1,
+      "consistency_score": 0,
+      "mti": 70,
+      "gap_count": 0
+    },
+    {
+      "id": "ACA-05",
+      "title": "DISCONNECT API",
+      "story_count": 1,
+      "stories_with_artifacts": 1,
+      "stories_with_evidence": 1,
+      "consistency_score": 0,
+      "mti": 70,
+      "gap_count": 0
+    },
+    {
+      "id": "ACA-06",
       "title": "TIER2 API",
       "story_count": 1,
       "stories_with_artifacts": 1,
-      "stories_with_evidence": 0,
+      "stories_with_evidence": 1,
       "consistency_score": 0,
-      "mti": 50,
+      "mti": 70,
       "gap_count": 0
     },
     {
-      "id": "ACA-TIER3",
+      "id": "ACA-07",
       "title": "TIER3 API",
       "story_count": 1,
       "stories_with_artifacts": 1,
-      "stories_with_evidence": 0,
+      "stories_with_evidence": 1,
       "consistency_score": 0,
-      "mti": 50,
+      "mti": 70,
       "gap_count": 0
     },
     {
-      "id": "ACA-WEBHOOK",
+      "id": "ACA-08",
       "title": "WEBHOOK API",
       "story_count": 1,
       "stories_with_artifacts": 1,
-      "stories_with_evidence": 0,
+      "stories_with_evidence": 1,
       "consistency_score": 0,
-      "mti": 50,
+      "mti": 70,
+      "gap_count": 0
+    },
+    {
+      "id": "ACA-09",
+      "title": "ENTITLEMENTS API",
+      "story_count": 1,
+      "stories_with_artifacts": 1,
+      "stories_with_evidence": 1,
+      "consistency_score": 0,
+      "mti": 70,
+      "gap_count": 0
+    },
+    {
+      "id": "ACA-10",
+      "title": "SCAN RESULTS API",
+      "story_count": 2,
+      "stories_with_artifacts": 2,
+      "stories_with_evidence": 2,
+      "consistency_score": 0,
+      "mti": 70,
+      "gap_count": 0
+    },
+    {
+      "id": "ACA-11",
+      "title": "HEALTH API",
+      "story_count": 1,
+      "stories_with_artifacts": 1,
+      "stories_with_evidence": 1,
+      "consistency_score": 0,
+      "mti": 70,
+      "gap_count": 0
+    },
+    {
+      "id": "ACA-12",
+      "title": "API Gateway",
+      "story_count": 2,
+      "stories_with_artifacts": 2,
+      "stories_with_evidence": 2,
+      "consistency_score": 0,
+      "mti": 70,
+      "gap_count": 0
+    },
+    {
+      "id": "ACA-13",
+      "title": "Infrastructure",
+      "story_count": 8,
+      "stories_with_artifacts": 8,
+      "stories_with_evidence": 8,
+      "consistency_score": 0,
+      "mti": 70,
       "gap_count": 0
     }
   ],
-  "gaps": []
+  "gaps": [
+    {
+      "type": "orphan_story_tag",
+      "story_id": "ACA-XX-XXX",
+      "title": null
+    },
+    {
+      "type": "orphan_story_tag",
+      "story_id": "ACA-INFRA-001",
+      "title": null
+    },
+    {
+      "type": "orphan_story_tag",
+      "story_id": "ACA-INFRA-002",
+      "title": null
+    },
+    {
+      "type": "orphan_story_tag",
+      "story_id": "ACA-INFRA-003",
+      "title": null
+    },
+    {
+      "type": "orphan_story_tag",
+      "story_id": "ACA-INFRA-004",
+      "title": null
+    },
+    {
+      "type": "orphan_story_tag",
+      "story_id": "ACA-INFRA-005",
+      "title": null
+    },
+    {
+      "type": "orphan_story_tag",
+      "story_id": "ACA-INFRA-006",
+      "title": null
+    },
+    {
+      "type": "orphan_story_tag",
+      "story_id": "ACA-INFRA-007",
+      "title": null
+    },
+    {
+      "type": "orphan_story_tag",
+      "story_id": "ACA-INFRA-008",
+      "title": null
+    }
+  ]
 }
