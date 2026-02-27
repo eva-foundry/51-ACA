@@ -1,10 +1,44 @@
 ACA -- Azure Cost Advisor -- STATUS
 ====================================
 
-Version: 1.4.0
-Updated: 2026-02-28 (Sprint-01 A step: 5 stories done, PR #11 merged to main at 9b62f0f)
+Version: 1.5.0
+Updated: 2026-02-28 (Sprint-02 issue #12 created -- 5 stories, manifest fully filled)
 Phase: Phase 1 -- Core Services Bootstrap
 Active Epic: Epic 3 (analysis rules), Epic 4 (API endpoints), Epic 5 (frontend), Epic 12 (data model)
+
+=============================================================================
+SESSION SUMMARY -- 2026-02-28 (SPRINT-02 PLANNING + ISSUE CREATION)
+=============================================================================
+
+Commits this session:
+  ee3f838 -- services/api/AGENTS.md (9 Sprint-01 pattern sections) + _load_context() wiring
+  de0bb2f -- copilot-setup-steps.yml + sprint-executor.agent.md (ACA-14-006)
+  a7e3dcf -- Sprint-02 manifest fully filled: .github/sprints/sprint-02-bug-fixes-auth.md
+
+GitHub issues:
+  Issue #12 -- [SPRINT-02] bug-fixes-auth (5 stories, label sprint-task)
+  https://github.com/eva-foundry/51-ACA/issues/12
+
+Sprint-02 stories (5 total, awaiting agent execution):
+  [PLANNED] ACA-03-021  XS  analysis/main.py EVA-STORY tag + unit test (code already fixed)
+  [PLANNED] ACA-07-021  XS  packager.py EVA-STORY tag + SAS unit tests (code already fixed)
+  [PLANNED] ACA-04-006  M   token_service.py MSAL multi-tenant + settings.py ACA_CLIENT_ID
+  [PLANNED] ACA-04-002  S   deps/auth.py JWT verify_token FastAPI dependency
+  [PLANNED] ACA-04-008  M   POST /v1/auth/connect: device-code + Cosmos clients write
+
+Discovery (4816baf code archaeology):
+  - ACA-03-021 code fix already in analysis/main.py (FindingsAssembler + cosmos_client)
+  - ACA-07-021 code fix already in packager.py (SAS_HOURS=168 + account_key)
+  - Both just need EVA-STORY tags + unit tests + Status: DONE in PLAN.md
+
+Cross-sprint feedback loop (implemented ee3f838):
+  - services/api/AGENTS.md: 9 pattern sections from Sprint-01 learnings
+  - sprint_agent.py _load_context(): injects AGENTS.md (120 lines) after STATUS.md
+  - Prevents code pattern regressions in future agent sprints
+
+MTI status: 100 (deploy|merge|release)
+Veritas gaps remaining: ACA-07-021 (needs tag+test), ACA-12-021 (spec docs, deferred)
+Test count: 5 passing (unchanged from Sprint-01)
 
 =============================================================================
 SESSION SUMMARY -- 2026-02-28 (SPRINT-01 COMPLETE + EVA DECOUPLING)
