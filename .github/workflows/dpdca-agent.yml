@@ -130,7 +130,9 @@ jobs:
 
       - name: A -- Commit scaffolded work
         run: |
-          git add .eva/evidence/ agent-plan.md || true
+          git status --short
+          git add .eva/ agent-plan.md lint-result.txt test-collect.txt 2>&1 || true
+          git status --short
           MSG="${STORY_ID} agent: scaffold + evidence receipt -- issue #${ISSUE_NUM}"
           git diff --cached --quiet && echo "[INFO] Nothing to commit" || \
           git commit -m "$MSG"
