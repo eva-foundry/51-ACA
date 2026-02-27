@@ -1267,66 +1267,68 @@ F811 Redefinition of unused `PaymentStatus` from line 11
 12 |
 13 | PaymentStatus = Literal["none", "active", "past_due", "canceled"]  # re-export
    | ^^^^^^^^^^^^^ `PaymentStatus` redefined here
+14 |
+15 | @dataclass
    |
 help: Remove definition: `PaymentStatus`
 
 UP045 [*] Use `X | None` for type annotations
-  --> services/api/app/services/entitlement_service.py:54:29
+  --> services/api/app/services/entitlement_service.py:53:29
    |
-52 |         *,
-53 |         payment_status: str = "active",
-54 |         stripe_customer_id: Optional[str] = None,
+51 |         *,
+52 |         payment_status: str = "active",
+53 |         stripe_customer_id: Optional[str] = None,
    |                             ^^^^^^^^^^^^^
-55 |         stripe_subscription_id: Optional[str] = None,
-56 |     ) -> None:
+54 |         stripe_subscription_id: Optional[str] = None,
+55 |     ) -> None:
    |
 help: Convert to `X | None`
 
 UP045 [*] Use `X | None` for type annotations
-  --> services/api/app/services/entitlement_service.py:55:33
+  --> services/api/app/services/entitlement_service.py:54:33
    |
-53 |         payment_status: str = "active",
-54 |         stripe_customer_id: Optional[str] = None,
-55 |         stripe_subscription_id: Optional[str] = None,
+52 |         payment_status: str = "active",
+53 |         stripe_customer_id: Optional[str] = None,
+54 |         stripe_subscription_id: Optional[str] = None,
    |                                 ^^^^^^^^^^^^^
-56 |     ) -> None:
-57 |         existing = self.get(subscription_id)
+55 |     ) -> None:
+56 |         existing = self.get(subscription_id)
    |
 help: Convert to `X | None`
 
 UP045 [*] Use `X | None` for type annotations
-  --> services/api/app/services/entitlement_service.py:74:29
+  --> services/api/app/services/entitlement_service.py:73:29
    |
-72 |         *,
-73 |         payment_status: str = "active",
-74 |         stripe_customer_id: Optional[str] = None,
+71 |         *,
+72 |         payment_status: str = "active",
+73 |         stripe_customer_id: Optional[str] = None,
    |                             ^^^^^^^^^^^^^
-75 |         stripe_subscription_id: Optional[str] = None,
-76 |     ) -> None:
+74 |         stripe_subscription_id: Optional[str] = None,
+75 |     ) -> None:
    |
 help: Convert to `X | None`
 
 UP045 [*] Use `X | None` for type annotations
-  --> services/api/app/services/entitlement_service.py:75:33
+  --> services/api/app/services/entitlement_service.py:74:33
    |
-73 |         payment_status: str = "active",
-74 |         stripe_customer_id: Optional[str] = None,
-75 |         stripe_subscription_id: Optional[str] = None,
+72 |         payment_status: str = "active",
+73 |         stripe_customer_id: Optional[str] = None,
+74 |         stripe_subscription_id: Optional[str] = None,
    |                                 ^^^^^^^^^^^^^
-76 |     ) -> None:
-77 |         self._repo.upsert(
+75 |     ) -> None:
+76 |         self._repo.upsert(
    |
 help: Convert to `X | None`
 
 UP045 [*] Use `X | None` for type annotations
-  --> services/api/app/services/entitlement_service.py:91:33
+  --> services/api/app/services/entitlement_service.py:90:33
    |
-89 |         payment_status: str,
-90 |         *,
-91 |         stripe_subscription_id: Optional[str] = None,
+88 |         payment_status: str,
+89 |         *,
+90 |         stripe_subscription_id: Optional[str] = None,
    |                                 ^^^^^^^^^^^^^
-92 |     ) -> None:
-93 |         """Called by recurring billing lifecycle webhooks (invoice.paid, etc.)"""
+91 |     ) -> None:
+92 |         """Called by recurring billing lifecycle webhooks (invoice.paid, etc.)"""
    |
 help: Convert to `X | None`
 
