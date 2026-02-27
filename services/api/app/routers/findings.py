@@ -5,8 +5,10 @@ Findings router -- retrieve scan findings with tier gating.
 CRITICAL: gate_findings() must strip implementation details for Tier 1.
 Never return narrative or deliverable_template_id to Tier 1 clients.
 """
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Request
 from pydantic import BaseModel
+from app.db.cosmos import get_item, query_items
+from app.settings import get_settings
 
 router = APIRouter(tags=["findings"])
 
@@ -19,7 +21,6 @@ TIER1_FIELDS = {
 TIER2_FIELDS = TIER1_FIELDS | {"narrative", "heuristic_source"}
 # Tier 3: all fields including deliverable_template_id
 
-
 def gate_findings(findings: list[dict], tier: str) -> list[dict]:
     """
     Strip findings to tier-appropriate fields.
@@ -31,7 +32,6 @@ def gate_findings(findings: list[dict], tier: str) -> list[dict]:
         return [{k: v for k, v in f.items() if k in TIER2_FIELDS} for f in findings]
     return findings  # tier3: full object
 
-
 @router.get("/{scan_id}", summary="Get findings for a completed scan")
 async def get_findings(scan_id: str, subscription_id: str):
     """
@@ -40,8 +40,22 @@ async def get_findings(scan_id: str, subscription_id: str):
     Tier 2: full narrative.
     Tier 3: full + deliverable_template_id.
     """
-    # TODO: load scan from Cosmos, check scan.status == "complete"
-    # TODO: load client tier from Cosmos clients container
-    # TODO: load findings from Cosmos findings container (partition_key=subscription_id)
-    # TODO: return gate_findings(findings, client_tier)
-    raise HTTPException(status_code=404, detail=f"Scan {scan_id} not found or not complete")
+    # Load scan from Cosmos
+    scan = get_item("scans", scan_id, partition_key=subscription_id)
+    if not scan or scan.get("status") != "complete":
+        raise HTTPException(status_code=404, detail=f"Scan {scan_id} not found or not complete")
+
+    # Load client tier from Cosmos
+    client = get_item("clients", subscription_id, partition_key=subscription_id)
+    tier = client.get("tier", "tier1") if client else "tier1"
+
+    # Load findings from Cosmos
+    raw_findings = query_items(
+        "findings",
+        "SELECT * FROM c WHERE c.scanId = @s",
+        [{"name": "@s", "value": scan_id}],
+        partition_key=subscription_id,
+    )
+
+    # Return gated findings
+    return gate_findings(raw_findings, tier)
