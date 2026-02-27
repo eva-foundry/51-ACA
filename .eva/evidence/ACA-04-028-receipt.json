@@ -1,0 +1,12 @@
+{
+  "story_id": "ACA-04-028",
+  "title": "cosmos.py upsert_item -- add partition_key parameter",
+  "phase": "D|P|D|C|A",
+  "timestamp": "2026-02-27T12:49:13Z",
+  "artifacts": [
+    "services/api/app/db/cosmos.py"
+  ],
+  "test_result": "WARN",
+  "lint_result": "WARN",
+  "commit_sha": "49469109b3a07d08d19e8e28336b6dd79f418542"
+}

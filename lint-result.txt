@@ -150,11 +150,11 @@ I001 [*] Import block is un-sorted or un-formatted
 help: Organize imports
 
 T201 `print` found
-  --> services/api/app/db/cosmos.py:82:9
+  --> services/api/app/db/cosmos.py:83:9
    |
-80 |             partition_key=PartitionKey(path=pk_path),
-81 |         )
-82 |         print(f"[INFO] Container ready: {name}")
+81 |             partition_key=PartitionKey(path=pk_path),
+82 |         )
+83 |         print(f"[INFO] Container ready: {name}")
    |         ^^^^^
    |
 help: Remove `print`

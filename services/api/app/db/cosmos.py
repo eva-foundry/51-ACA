@@ -40,10 +40,11 @@ def get_container(name: str):
     return db.get_container_client(name)
 
 
-def upsert_item(container_name: str, item: dict) -> dict:
+def upsert_item(container_name: str, item: dict, partition_key: str) -> dict:
     """Upsert a single item. Item MUST contain the partition key field."""
     container = get_container(container_name)
-    return container.upsert_item(item)
+    # partition_key MUST be supplied -- enforces tenant isolation
+    return container.upsert_item(item, partition_key=partition_key)
 
 
 def get_item(container_name: str, item_id: str, partition_key: str) -> dict | None:
