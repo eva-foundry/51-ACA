@@ -10,8 +10,8 @@
       "title": "Wire findings.py GET handler: Cosmos reads + gate_findings",
       "wbs": "3.2.1",
       "size": "M",
-      "model": "claude-sonnet-4-6",
-      "model_rationale": "Cross-service: reads entitlements container, reads findings container, calls gate_findings. Needs to reason about tenant isolation + tier gating together.",
+      "model": "gpt-4o",
+      "model_rationale": "Cross-file: reads entitlements + findings containers, calls gate_findings. Tenant isolation + tier gating judgment.",
       "epic": "Epic 03 -- Analysis + Epic 04 -- API",
       "files_to_create": [
         "services/api/app/routers/findings.py"
@@ -35,8 +35,8 @@
       "title": "entitlement_service.py revoke() -- preserve Tier 3 on subscription.deleted",
       "wbs": "6.3.5",
       "size": "XS",
-      "model": "claude-sonnet-4-6",
-      "model_rationale": "Revenue safety bug -- wrong logic for Tier 3 permanent purchases.",
+      "model": "gpt-4o",
+      "model_rationale": "Single-method fix. Clear logic judgment needed.",
       "epic": "Epic 06 -- Billing",
       "files_to_create": [
         "services/api/app/services/entitlement_service.py"
@@ -56,8 +56,8 @@
       "title": "cosmos.py upsert_item -- add partition_key parameter",
       "wbs": "4.5.1",
       "size": "XS",
-      "model": "claude-sonnet-4-6",
-      "model_rationale": "Tenant isolation critical path. Wrong fix here breaks every write across all services.",
+      "model": "gpt-4o",
+      "model_rationale": "Parameter addition. Must not break tenant isolation.",
       "epic": "Epic 03 -- Analysis, Epic 01 -- Foundation",
       "files_to_create": [
         "services/api/app/db/cosmos.py"
@@ -75,7 +75,7 @@
       "title": "ingest.py mark_collection_complete -- trigger analysis Container App Job",
       "wbs": "2.5.4",
       "size": "S",
-      "model": "claude-sonnet-4-6",
+      "model": "gpt-4o",
       "model_rationale": "Involves Azure Container Apps Jobs API -- needs Azure SDK pattern knowledge.",
       "epic": "Epic 02 -- Data Collection, Epic 03 -- Analysis",
       "files_to_create": [
@@ -99,7 +99,7 @@
       "wbs": "3.4.14",
       "note": "ACA-03-033 in veritas = FindingsAssembler unit test -- this sprint story covers the broader test suite including checkout/gate/packager/entitlement.",
       "size": "M",
-      "model": "claude-sonnet-4-6",
+      "model": "gpt-4o",
       "model_rationale": "Needs to understand all 4 fixed services to write meaningful tests.",
       "epic": "Epic 03 -- Analysis, Epic 06 -- Billing, Epic 07 -- Delivery",
       "files_to_create": [

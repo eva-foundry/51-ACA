@@ -25,7 +25,10 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).parent.parent.parent
-MODEL = "claude-sonnet-4-6"
+# GitHub Models endpoint -- GITHUB_TOKEN in CI grants access to these models:
+# gpt-4o, gpt-4o-mini, Meta-Llama-3.1-405B-Instruct, Mistral-large-2407
+# Claude models (claude-sonnet-*) are NOT available via GITHUB_TOKEN -- use gpt-4o
+MODEL = "gpt-4o"
 GITHUB_MODELS_URL = "https://models.inference.ai.azure.com"
 STATE_FILE = REPO_ROOT / "sprint-state.json"
 SUMMARY_FILE = REPO_ROOT / "sprint-summary.md"

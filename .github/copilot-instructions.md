@@ -769,16 +769,21 @@ Use `await request.body()` before any JSON parsing.
 
 The right model is determined by how much cross-file judgment and context the task needs.
 
+Models available via GITHUB_TOKEN at models.inference.ai.azure.com (verified 2026-02-27):
+  gpt-4o, gpt-4o-mini, Meta-Llama-3.1-{8B,70B,405B}-Instruct, Mistral-large-2407,
+  Mistral-Nemo, AI21-Jamba-Instruct
+NOT available via GITHUB_TOKEN: any claude-* model (requires separate Anthropic key).
+
 | Task type | Model | Rationale |
 |---|---|---|
-| Full repo review, architecture audit, security analysis | Claude Opus 4.6 | Needs to reason across entire codebase simultaneously |
-| L stories: cross-service, auth, Stripe, analysis rules | Claude Sonnet 4.6 | Default for real implementation work |
-| M stories: feature + tests, single service | Claude Sonnet 4.6 | Same -- Sonnet is the standard workhorse |
-| S stories: single route, simple model | GPT-5.1 or GPT-5 mini | Fast, cheap, sufficient |
-| XS: config, env var, comment, tag | GPT-5 mini | No reasoning needed |
+| Full repo review, architecture audit, security analysis | gpt-4o | Best available at GitHub Models endpoint |
+| L stories: cross-service, auth, Stripe, analysis rules | gpt-4o | Strong cross-file reasoning |
+| M stories: feature + tests, single service | gpt-4o | Standard workhorse |
+| S stories: single route, simple model | gpt-4o-mini | Fast, sufficient |
+| XS: config, env var, comment, tag | gpt-4o-mini | No deep reasoning needed |
 
 Never use a fast model for: auth.py, checkout.py, any Cosmos query, any secret handling.
-Never use Gemini or Grok models in this repo.
+Never use Gemini, Grok, or claude-* models via the GITHUB_TOKEN endpoint.
 
 ### CA.2 Mandatory Gates (every agent PR must pass all three)
 

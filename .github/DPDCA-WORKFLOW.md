@@ -124,11 +124,14 @@ Step D.7 -- Agent execution (automated -- do not interrupt)
        all 22 service files, all *review_findings* docs
     c. For each story (in order defined in the manifest):
        - Calls _load_story_files(story) -- loads existing file content
-       - Calls claude-sonnet-4-6 with full context + story requirements
+       - Calls gpt-4o (M/L) or gpt-4o-mini (XS/S) with full context + story requirements
        - Writes the response to the target files
        - Tags every file with correct EVA-STORY: ACA-NN-NNN (from manifest -- not invented)
        - Commits with subject "feat(ACA-NN-NNN): <description>"
     d. Opens a PR when done
+
+  Model: gpt-4o for M/L stories, gpt-4o-mini for XS/S (verified available via
+  GITHUB_TOKEN at models.inference.ai.azure.com -- claude-* NOT available).
 
   EVA-STORY tag format reminder (by file type):
     # EVA-STORY: ACA-NN-NNN      Python, YAML, Dockerfile, .env files

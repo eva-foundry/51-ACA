@@ -29,13 +29,16 @@ PLAN_FILE    = REPO_ROOT / "PLAN.md"
 VERITAS_FILE = REPO_ROOT / ".eva" / "veritas-plan.json"
 SPRINTS_DIR  = REPO_ROOT / ".github" / "sprints"
 
-# Default model per story size (kept in sync with CA.1)
+# Default model per story size -- must be a model available via GITHUB_TOKEN
+# at https://models.inference.ai.azure.com (verified 2026-02-27):
+#   gpt-4o, gpt-4o-mini, Meta-Llama-3.1-405B-Instruct, Mistral-large-2407
+# Claude models are NOT available via GITHUB_TOKEN in CI -- removed from table
 MODEL_BY_SIZE = {
-    "XS": "gpt-5-mini",
-    "S":  "gpt-5",
-    "M":  "claude-sonnet-4-6",
-    "L":  "claude-sonnet-4-6",
-    "XL": "claude-opus-4-6",
+    "XS": "gpt-4o-mini",
+    "S":  "gpt-4o-mini",
+    "M":  "gpt-4o",
+    "L":  "gpt-4o",
+    "XL": "gpt-4o",
 }
 
 EPIC_LABEL = {
