@@ -1,12 +1,53 @@
 ACA -- Azure Cost Advisor -- STATUS
 ====================================
 
-Version: 1.2.0
-Updated: 2026-02-27 (opus review session: full architecture review, 5 spec docs created,
-         pre-flight sprint added to PLAN.md, MTI gate lowered 70->30, human decisions
-         ACA-ENT-APP-REG and ACA-MTI-GATE-30 recorded)
+Version: 1.3.0
+Updated: 2026-02-27 (round 2 review session: code verified, 3 pre-flight bugs fixed,
+         Round 2 assessment written, commit 4816baf pushed to main)
 Phase: Phase 1 -- Core Services Bootstrap
 Active Epic: Epic 4 (auth rework), Epic 7 (Delivery templates), Epic 9 (i18n/a11y), Epic 12 (data model)
+
+=============================================================================
+SESSION SUMMARY -- 2026-02-27 (ROUND 2 REVIEW + PRE-FLIGHT FIXES)
+=============================================================================
+
+Review tool: Claude Sonnet 4.6 (code verification + fix implementation)
+Commit: 4816baf (pushed to main)
+Trigger: "opus fixes implemented -- check the code, update the review for a second round"
+
+ROUND 2 FINDING: 0 of 3 pre-flight bugs had been fixed in source code before this session.
+C-05 ESCALATED: the stub block at checkout.py lines 349-403 was not just a duplicate
+  webhook route -- it reassigned the `router` variable entirely, orphaning all 5 real
+  endpoints (tier2, tier3, webhook with sig verification, portal, entitlements).
+
+IMPROVEMENTS CONFIRMED SINCE ROUND 1:
+  - gate_findings() in findings.py now correctly implemented (TIER1_FIELDS / TIER2_FIELDS)
+  - entitlement_service.py grant_tier2/grant_tier3: correct, downgrade protection present
+  - cosmos.py: ensure_containers() added with all 11 containers (idempotent, correct PK paths)
+  - auth.py: stubs now have proper spec references, ConnectRequest/PreflightResponse models
+
+BUGS FIXED THIS SESSION (commit 4816baf):
+  [DONE] C-05-v2  checkout.py lines 349-403 -- stub block deleted, real router unmutated.
+                  All 5 real endpoints now mounted: tier2, tier3, webhook+sig, portal, entitlements.
+  [DONE] C-04     analysis/main.py -- FindingsAssembler now receives cosmos_client.
+                  New services/analysis/app/cosmos.py created with AnalysisCosmosClient class.
+  [DONE] C-07     packager.py -- SAS_HOURS=168 (was 24), generate_blob_sas uses account_key.
+                  delivery/main.py passes ACA_STORAGE_ACCOUNT_KEY env var to packager.
+
+STILL OPEN (not pre-flight sprint -- require more work):
+  C-01 / C-02  auth.py /connect and /preflight still 501 (blocked on Entra app reg HD-01)
+  C-03         cosmos.py upsert_item() still no partition_key param
+  C-06         findings.py endpoint still raises 404 unconditionally (gate_findings wired now)
+  H-02         ingest.py mark_collection_complete() does not trigger analysis job
+  H-03         entitlement_service.py revoke() forces tier=1, clears permanent Tier 3 purchase
+  ZERO TESTS   No test files anywhere in services/ -- pytest exits 0 vacuously
+
+NEXT PRIORITY ORDER (see Round 2 assessment in _opus_review_findings_20260227.md):
+  1. findings.py -- wire Cosmos reads + gate_findings() into GET /{scan_id} handler (ACA-10-001)
+  2. cosmos.py upsert_item -- add partition_key parameter (3-line fix, ACA-03-003)
+  3. ingest.py -- add analysis job trigger in mark_collection_complete (ACA-03-006)
+  4. entitlement_service.py revoke() -- preserve tier=3 if tier3_purchased (ACA-06-015)
+  5. Minimum test suite: test_checkout_router.py, test_packager.py, test_analysis_main.py
 
 =============================================================================
 SESSION SUMMARY -- 2026-02-27 (OPUS REVIEW SESSION)
