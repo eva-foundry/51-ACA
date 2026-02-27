@@ -1,0 +1,1887 @@
+I001 [*] Import block is un-sorted or un-formatted
+ --> services/analysis/app/findings.py:4:1
+  |
+2 |   FindingsAssembler -- load collected data + persist findings to Cosmos.
+3 |   """
+4 | / from __future__ import annotations
+5 | | import logging
+6 | | from datetime import datetime, timezone
+  | |_______________________________________^
+7 |
+8 |   logger = logging.getLogger(__name__)
+  |
+help: Organize imports
+
+UP017 [*] Use `datetime.UTC` alias
+  --> services/analysis/app/findings.py:89:45
+   |
+87 |                 "scanId": self.scan_id,
+88 |                 "subscriptionId": self.subscription_id,
+89 |                 "generatedAt": datetime.now(timezone.utc).isoformat(),
+   |                                             ^^^^^^^^^^^^
+90 |             }
+91 |             self.cosmos.upsert_item("findings", doc, subscription_id=self.subscription_id)
+   |
+help: Convert to `datetime.UTC` alias
+
+UP017 [*] Use `datetime.UTC` alias
+   --> services/analysis/app/findings.py:100:48
+    |
+ 98 |             scan["status"] = "complete"
+ 99 |             scan["findingCount"] = count
+100 |             scan["completedAt"] = datetime.now(timezone.utc).isoformat()
+    |                                                ^^^^^^^^^^^^
+101 |             self.cosmos.upsert_item("scans", scan, subscription_id=self.subscription_id)
+102 |             logger.info("[%s] scan marked complete, %d findings", self.scan_id, count)
+    |
+help: Convert to `datetime.UTC` alias
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> services/analysis/app/main.py:10:1
+   |
+ 8 |   Writes findings JSON to Cosmos findings container.
+ 9 |   """
+10 | / import argparse
+11 | | import os
+12 | | import sys
+13 | |
+14 | | from app.rules import ALL_RULES
+15 | | from app.findings import FindingsAssembler
+   | |__________________________________________^
+   |
+help: Organize imports
+
+F401 [*] `os` imported but unused
+  --> services/analysis/app/main.py:11:8
+   |
+ 9 | """
+10 | import argparse
+11 | import os
+   |        ^^
+12 | import sys
+   |
+help: Remove unused import: `os`
+
+T201 `print` found
+  --> services/analysis/app/main.py:27:5
+   |
+25 |     sub_id = args.subscription_id
+26 |
+27 |     print(f"[INFO] ACA Analysis Engine starting | scan={scan_id} sub={sub_id}")
+   |     ^^^^^
+28 |
+29 |     assembler = FindingsAssembler(scan_id=scan_id, subscription_id=sub_id)
+   |
+help: Remove `print`
+
+T201 `print` found
+  --> services/analysis/app/main.py:33:9
+   |
+32 |     if not data:
+33 |         print("[FAIL] No collected data found in Cosmos for this scan")
+   |         ^^^^^
+34 |         return 1
+   |
+help: Remove `print`
+
+T201 `print` found
+  --> services/analysis/app/main.py:42:17
+   |
+40 |             if result:
+41 |                 findings.extend(result if isinstance(result, list) else [result])
+42 |                 print(f"[INFO] Rule {rule.__name__}: {len(result) if isinstance(result, list) else 1} finding(s)")
+   |                 ^^^^^
+43 |         except Exception as e:
+44 |             print(f"[WARN] Rule {rule.__name__} failed: {e}")
+   |
+help: Remove `print`
+
+T201 `print` found
+  --> services/analysis/app/main.py:44:13
+   |
+42 |                 print(f"[INFO] Rule {rule.__name__}: {len(result) if isinstance(result, list) else 1} finding(s)")
+43 |         except Exception as e:
+44 |             print(f"[WARN] Rule {rule.__name__} failed: {e}")
+   |             ^^^^^
+45 |
+46 |     print(f"[INFO] Rules produced {len(findings)} findings")
+   |
+help: Remove `print`
+
+T201 `print` found
+  --> services/analysis/app/main.py:46:5
+   |
+44 |             print(f"[WARN] Rule {rule.__name__} failed: {e}")
+45 |
+46 |     print(f"[INFO] Rules produced {len(findings)} findings")
+   |     ^^^^^
+47 |
+48 |     # TODO: run 29-foundry analysis-agent and redteam-agent for beyond-rule findings
+   |
+help: Remove `print`
+
+T201 `print` found
+  --> services/analysis/app/main.py:54:5
+   |
+52 |     assembler.save_findings(findings)
+53 |     assembler.mark_analysis_complete(len(findings))
+54 |     print(f"[PASS] Analysis complete | findings={len(findings)}")
+   |     ^^^^^
+55 |     return 0
+   |
+help: Remove `print`
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> services/api/app/db/cosmos.py:7:1
+   |
+ 5 |   No cross-tenant queries are permitted.
+ 6 |   """
+ 7 | / from functools import lru_cache
+ 8 | |
+ 9 | | from azure.cosmos import CosmosClient, PartitionKey
+10 | | from azure.cosmos.exceptions import CosmosResourceNotFoundError
+11 | |
+12 | | from app.settings import get_settings
+   | |_____________________________________^
+13 |
+14 |   CONTAINERS = {
+   |
+help: Organize imports
+
+T201 `print` found
+  --> services/api/app/db/cosmos.py:81:9
+   |
+79 |             partition_key=PartitionKey(path=pk_path),
+80 |         )
+81 |         print(f"[INFO] Container ready: {name}")
+   |         ^^^^^
+   |
+help: Remove `print`
+
+UP035 `typing.Dict` is deprecated, use `dict` instead
+  --> services/api/app/db/repos/admin_audit_repo.py:12:1
+   |
+10 | import time
+11 | from datetime import datetime, timezone
+12 | from typing import Any, Dict, List, Optional
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+13 |
+14 | from app.db.cosmos import get_container, query_items
+   |
+
+UP035 `typing.List` is deprecated, use `list` instead
+  --> services/api/app/db/repos/admin_audit_repo.py:12:1
+   |
+10 | import time
+11 | from datetime import datetime, timezone
+12 | from typing import Any, Dict, List, Optional
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+13 |
+14 | from app.db.cosmos import get_container, query_items
+   |
+
+UP045 [*] Use `X | None` for type annotations
+  --> services/api/app/db/repos/admin_audit_repo.py:29:18
+   |
+27 |         subscription_id: str,
+28 |         actor: str,
+29 |         details: Optional[Dict[str, Any]] = None,
+   |                  ^^^^^^^^^^^^^^^^^^^^^^^^
+30 |     ) -> Dict[str, Any]:
+31 |         now = datetime.now(timezone.utc).isoformat()
+   |
+help: Convert to `X | None`
+
+UP006 [*] Use `dict` instead of `Dict` for type annotation
+  --> services/api/app/db/repos/admin_audit_repo.py:29:27
+   |
+27 |         subscription_id: str,
+28 |         actor: str,
+29 |         details: Optional[Dict[str, Any]] = None,
+   |                           ^^^^
+30 |     ) -> Dict[str, Any]:
+31 |         now = datetime.now(timezone.utc).isoformat()
+   |
+help: Replace with `dict`
+
+UP006 [*] Use `dict` instead of `Dict` for type annotation
+  --> services/api/app/db/repos/admin_audit_repo.py:30:10
+   |
+28 |         actor: str,
+29 |         details: Optional[Dict[str, Any]] = None,
+30 |     ) -> Dict[str, Any]:
+   |          ^^^^
+31 |         now = datetime.now(timezone.utc).isoformat()
+32 |         ts_ms = int(time.time() * 1000)
+   |
+help: Replace with `dict`
+
+UP017 [*] Use `datetime.UTC` alias
+  --> services/api/app/db/repos/admin_audit_repo.py:31:28
+   |
+29 |         details: Optional[Dict[str, Any]] = None,
+30 |     ) -> Dict[str, Any]:
+31 |         now = datetime.now(timezone.utc).isoformat()
+   |                            ^^^^^^^^^^^^
+32 |         ts_ms = int(time.time() * 1000)
+33 |         doc: Dict[str, Any] = {
+   |
+help: Convert to `datetime.UTC` alias
+
+UP006 [*] Use `dict` instead of `Dict` for type annotation
+  --> services/api/app/db/repos/admin_audit_repo.py:33:14
+   |
+31 |         now = datetime.now(timezone.utc).isoformat()
+32 |         ts_ms = int(time.time() * 1000)
+33 |         doc: Dict[str, Any] = {
+   |              ^^^^
+34 |             "id": f"audit::{event_type}::{ts_ms}",
+35 |             "subscriptionId": subscription_id,
+   |
+help: Replace with `dict`
+
+UP006 [*] Use `list` instead of `List` for type annotation
+  --> services/api/app/db/repos/admin_audit_repo.py:47:10
+   |
+45 |         subscription_id: str,
+46 |         limit: int = 50,
+47 |     ) -> List[Dict[str, Any]]:
+   |          ^^^^
+48 |         return query_items(
+49 |             "admin_audit_events",
+   |
+help: Replace with `list`
+
+UP006 [*] Use `dict` instead of `Dict` for type annotation
+  --> services/api/app/db/repos/admin_audit_repo.py:47:15
+   |
+45 |         subscription_id: str,
+46 |         limit: int = 50,
+47 |     ) -> List[Dict[str, Any]]:
+   |               ^^^^
+48 |         return query_items(
+49 |             "admin_audit_events",
+   |
+help: Replace with `dict`
+
+UP035 `typing.Dict` is deprecated, use `dict` instead
+  --> services/api/app/db/repos/clients_repo.py:11:1
+   |
+ 9 | """
+10 | from datetime import datetime, timezone
+11 | from typing import Any, Dict, Optional
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+12 |
+13 | from app.db.cosmos import get_container
+   |
+
+UP045 [*] Use `X | None` for type annotations
+  --> services/api/app/db/repos/clients_repo.py:25:44
+   |
+23 |         return f"client::{subscription_id}"
+24 |
+25 |     def get(self, subscription_id: str) -> Optional[Dict[str, Any]]:
+   |                                            ^^^^^^^^^^^^^^^^^^^^^^^^
+26 |         try:
+27 |             return self.container.read_item(
+   |
+help: Convert to `X | None`
+
+UP006 [*] Use `dict` instead of `Dict` for type annotation
+  --> services/api/app/db/repos/clients_repo.py:25:53
+   |
+23 |         return f"client::{subscription_id}"
+24 |
+25 |     def get(self, subscription_id: str) -> Optional[Dict[str, Any]]:
+   |                                                     ^^^^
+26 |         try:
+27 |             return self.container.read_item(
+   |
+help: Replace with `dict`
+
+UP045 [*] Use `X | None` for type annotations
+  --> services/api/app/db/repos/clients_repo.py:41:29
+   |
+39 |         tier: int = 1,
+40 |         status: str = "active",
+41 |         stripe_customer_id: Optional[str] = None,
+   |                             ^^^^^^^^^^^^^
+42 |         extra: Optional[Dict[str, Any]] = None,
+43 |     ) -> Dict[str, Any]:
+   |
+help: Convert to `X | None`
+
+UP045 [*] Use `X | None` for type annotations
+  --> services/api/app/db/repos/clients_repo.py:42:16
+   |
+40 |         status: str = "active",
+41 |         stripe_customer_id: Optional[str] = None,
+42 |         extra: Optional[Dict[str, Any]] = None,
+   |                ^^^^^^^^^^^^^^^^^^^^^^^^
+43 |     ) -> Dict[str, Any]:
+44 |         now = datetime.now(timezone.utc).isoformat()
+   |
+help: Convert to `X | None`
+
+UP006 [*] Use `dict` instead of `Dict` for type annotation
+  --> services/api/app/db/repos/clients_repo.py:42:25
+   |
+40 |         status: str = "active",
+41 |         stripe_customer_id: Optional[str] = None,
+42 |         extra: Optional[Dict[str, Any]] = None,
+   |                         ^^^^
+43 |     ) -> Dict[str, Any]:
+44 |         now = datetime.now(timezone.utc).isoformat()
+   |
+help: Replace with `dict`
+
+UP006 [*] Use `dict` instead of `Dict` for type annotation
+  --> services/api/app/db/repos/clients_repo.py:43:10
+   |
+41 |         stripe_customer_id: Optional[str] = None,
+42 |         extra: Optional[Dict[str, Any]] = None,
+43 |     ) -> Dict[str, Any]:
+   |          ^^^^
+44 |         now = datetime.now(timezone.utc).isoformat()
+45 |         existing = self.get(subscription_id) or {}
+   |
+help: Replace with `dict`
+
+UP017 [*] Use `datetime.UTC` alias
+  --> services/api/app/db/repos/clients_repo.py:44:28
+   |
+42 |         extra: Optional[Dict[str, Any]] = None,
+43 |     ) -> Dict[str, Any]:
+44 |         now = datetime.now(timezone.utc).isoformat()
+   |                            ^^^^^^^^^^^^
+45 |         existing = self.get(subscription_id) or {}
+46 |         doc: Dict[str, Any] = {
+   |
+help: Convert to `datetime.UTC` alias
+
+UP006 [*] Use `dict` instead of `Dict` for type annotation
+  --> services/api/app/db/repos/clients_repo.py:46:14
+   |
+44 |         now = datetime.now(timezone.utc).isoformat()
+45 |         existing = self.get(subscription_id) or {}
+46 |         doc: Dict[str, Any] = {
+   |              ^^^^
+47 |             **existing,
+48 |             "id": self._doc_id(subscription_id),
+   |
+help: Replace with `dict`
+
+UP017 [*] Use `datetime.UTC` alias
+  --> services/api/app/db/repos/clients_repo.py:68:45
+   |
+66 |             return
+67 |         client["stripeCustomerId"] = stripe_customer_id
+68 |         client["updatedUtc"] = datetime.now(timezone.utc).isoformat()
+   |                                             ^^^^^^^^^^^^
+69 |         self.container.upsert_item(client)
+   |
+help: Convert to `datetime.UTC` alias
+
+UP035 `typing.Dict` is deprecated, use `dict` instead
+  --> services/api/app/db/repos/entitlements_repo.py:9:1
+   |
+ 7 | """
+ 8 | from datetime import datetime, timezone
+ 9 | from typing import Any, Dict, Literal, Optional
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10 |
+11 | from app.db.cosmos import get_container
+   |
+
+UP045 [*] Use `X | None` for type annotations
+  --> services/api/app/db/repos/entitlements_repo.py:26:44
+   |
+24 |         return f"entitlement::{subscription_id}"
+25 |
+26 |     def get(self, subscription_id: str) -> Optional[Dict[str, Any]]:
+   |                                            ^^^^^^^^^^^^^^^^^^^^^^^^
+27 |         try:
+28 |             return self.container.read_item(
+   |
+help: Convert to `X | None`
+
+UP006 [*] Use `dict` instead of `Dict` for type annotation
+  --> services/api/app/db/repos/entitlements_repo.py:26:53
+   |
+24 |         return f"entitlement::{subscription_id}"
+25 |
+26 |     def get(self, subscription_id: str) -> Optional[Dict[str, Any]]:
+   |                                                     ^^^^
+27 |         try:
+28 |             return self.container.read_item(
+   |
+help: Replace with `dict`
+
+UP045 [*] Use `X | None` for type annotations
+  --> services/api/app/db/repos/entitlements_repo.py:42:29
+   |
+40 |         payment_status: PaymentStatus,
+41 |         source: str,
+42 |         stripe_customer_id: Optional[str] = None,
+   |                             ^^^^^^^^^^^^^
+43 |         stripe_subscription_id: Optional[str] = None,
+44 |         expires_utc: Optional[str] = None,
+   |
+help: Convert to `X | None`
+
+UP045 [*] Use `X | None` for type annotations
+  --> services/api/app/db/repos/entitlements_repo.py:43:33
+   |
+41 |         source: str,
+42 |         stripe_customer_id: Optional[str] = None,
+43 |         stripe_subscription_id: Optional[str] = None,
+   |                                 ^^^^^^^^^^^^^
+44 |         expires_utc: Optional[str] = None,
+45 |         is_locked: bool = False,
+   |
+help: Convert to `X | None`
+
+UP045 [*] Use `X | None` for type annotations
+  --> services/api/app/db/repos/entitlements_repo.py:44:22
+   |
+42 |         stripe_customer_id: Optional[str] = None,
+43 |         stripe_subscription_id: Optional[str] = None,
+44 |         expires_utc: Optional[str] = None,
+   |                      ^^^^^^^^^^^^^
+45 |         is_locked: bool = False,
+46 |     ) -> Dict[str, Any]:
+   |
+help: Convert to `X | None`
+
+UP006 [*] Use `dict` instead of `Dict` for type annotation
+  --> services/api/app/db/repos/entitlements_repo.py:46:10
+   |
+44 |         expires_utc: Optional[str] = None,
+45 |         is_locked: bool = False,
+46 |     ) -> Dict[str, Any]:
+   |          ^^^^
+47 |         now = datetime.now(timezone.utc).isoformat()
+48 |         doc: Dict[str, Any] = {
+   |
+help: Replace with `dict`
+
+UP017 [*] Use `datetime.UTC` alias
+  --> services/api/app/db/repos/entitlements_repo.py:47:28
+   |
+45 |         is_locked: bool = False,
+46 |     ) -> Dict[str, Any]:
+47 |         now = datetime.now(timezone.utc).isoformat()
+   |                            ^^^^^^^^^^^^
+48 |         doc: Dict[str, Any] = {
+49 |             "id": self._doc_id(subscription_id),
+   |
+help: Convert to `datetime.UTC` alias
+
+UP006 [*] Use `dict` instead of `Dict` for type annotation
+  --> services/api/app/db/repos/entitlements_repo.py:48:14
+   |
+46 |     ) -> Dict[str, Any]:
+47 |         now = datetime.now(timezone.utc).isoformat()
+48 |         doc: Dict[str, Any] = {
+   |              ^^^^
+49 |             "id": self._doc_id(subscription_id),
+50 |             "subscriptionId": subscription_id,
+   |
+help: Replace with `dict`
+
+UP006 [*] Use `dict` instead of `Dict` for type annotation
+  --> services/api/app/db/repos/entitlements_repo.py:68:10
+   |
+66 |         locked: bool,
+67 |         reason: str = "",
+68 |     ) -> Dict[str, Any]:
+   |          ^^^^
+69 |         """Set isLocked flag on the entitlement record. Creates a minimal record if absent."""
+70 |         now = datetime.now(timezone.utc).isoformat()
+   |
+help: Replace with `dict`
+
+UP017 [*] Use `datetime.UTC` alias
+  --> services/api/app/db/repos/entitlements_repo.py:70:28
+   |
+68 |     ) -> Dict[str, Any]:
+69 |         """Set isLocked flag on the entitlement record. Creates a minimal record if absent."""
+70 |         now = datetime.now(timezone.utc).isoformat()
+   |                            ^^^^^^^^^^^^
+71 |         existing = self.get(subscription_id)
+72 |         if existing:
+   |
+help: Convert to `datetime.UTC` alias
+
+UP006 [*] Use `dict` instead of `Dict` for type annotation
+  --> services/api/app/db/repos/entitlements_repo.py:78:14
+   |
+76 |             return self.container.upsert_item(existing)
+77 |         # No entitlement yet -- create a locked placeholder at tier 1
+78 |         doc: Dict[str, Any] = {
+   |              ^^^^
+79 |             "id": self._doc_id(subscription_id),
+80 |             "subscriptionId": subscription_id,
+   |
+help: Replace with `dict`
+
+UP035 `typing.Dict` is deprecated, use `dict` instead
+  --> services/api/app/db/repos/payments_repo.py:9:1
+   |
+ 7 | """
+ 8 | from datetime import datetime, timezone
+ 9 | from typing import Any, Dict, List, Literal, Optional
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10 |
+11 | from app.db.cosmos import get_container
+   |
+
+UP035 `typing.List` is deprecated, use `list` instead
+  --> services/api/app/db/repos/payments_repo.py:9:1
+   |
+ 7 | """
+ 8 | from datetime import datetime, timezone
+ 9 | from typing import Any, Dict, List, Literal, Optional
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10 |
+11 | from app.db.cosmos import get_container
+   |
+
+UP045 [*] Use `X | None` for type annotations
+  --> services/api/app/db/repos/payments_repo.py:30:29
+   |
+28 |         mode: PaymentMode,
+29 |         stripe_session_id: str,
+30 |         stripe_customer_id: Optional[str] = None,
+   |                             ^^^^^^^^^^^^^
+31 |         stripe_subscription_id: Optional[str] = None,
+32 |         amount_total: Optional[int] = None,
+   |
+help: Convert to `X | None`
+
+UP045 [*] Use `X | None` for type annotations
+  --> services/api/app/db/repos/payments_repo.py:31:33
+   |
+29 |         stripe_session_id: str,
+30 |         stripe_customer_id: Optional[str] = None,
+31 |         stripe_subscription_id: Optional[str] = None,
+   |                                 ^^^^^^^^^^^^^
+32 |         amount_total: Optional[int] = None,
+33 |         currency: str = "cad",
+   |
+help: Convert to `X | None`
+
+UP045 [*] Use `X | None` for type annotations
+  --> services/api/app/db/repos/payments_repo.py:32:23
+   |
+30 |         stripe_customer_id: Optional[str] = None,
+31 |         stripe_subscription_id: Optional[str] = None,
+32 |         amount_total: Optional[int] = None,
+   |                       ^^^^^^^^^^^^^
+33 |         currency: str = "cad",
+34 |         status: str = "completed",
+   |
+help: Convert to `X | None`
+
+UP006 [*] Use `dict` instead of `Dict` for type annotation
+  --> services/api/app/db/repos/payments_repo.py:35:10
+   |
+33 |         currency: str = "cad",
+34 |         status: str = "completed",
+35 |     ) -> Dict[str, Any]:
+   |          ^^^^
+36 |         now = datetime.now(timezone.utc).isoformat()
+37 |         doc: Dict[str, Any] = {
+   |
+help: Replace with `dict`
+
+UP017 [*] Use `datetime.UTC` alias
+  --> services/api/app/db/repos/payments_repo.py:36:28
+   |
+34 |         status: str = "completed",
+35 |     ) -> Dict[str, Any]:
+36 |         now = datetime.now(timezone.utc).isoformat()
+   |                            ^^^^^^^^^^^^
+37 |         doc: Dict[str, Any] = {
+38 |             "id": f"payment::{stripe_session_id}",
+   |
+help: Convert to `datetime.UTC` alias
+
+UP006 [*] Use `dict` instead of `Dict` for type annotation
+  --> services/api/app/db/repos/payments_repo.py:37:14
+   |
+35 |     ) -> Dict[str, Any]:
+36 |         now = datetime.now(timezone.utc).isoformat()
+37 |         doc: Dict[str, Any] = {
+   |              ^^^^
+38 |             "id": f"payment::{stripe_session_id}",
+39 |             "subscriptionId": subscription_id,
+   |
+help: Replace with `dict`
+
+UP006 [*] Use `list` instead of `List` for type annotation
+  --> services/api/app/db/repos/payments_repo.py:52:62
+   |
+50 |         return self.container.upsert_item(doc)
+51 |
+52 |     def list_for_subscription(self, subscription_id: str) -> List[Dict[str, Any]]:
+   |                                                              ^^^^
+53 |         from app.db.cosmos import query_items
+54 |         return query_items(
+   |
+help: Replace with `list`
+
+UP006 [*] Use `dict` instead of `Dict` for type annotation
+  --> services/api/app/db/repos/payments_repo.py:52:67
+   |
+50 |         return self.container.upsert_item(doc)
+51 |
+52 |     def list_for_subscription(self, subscription_id: str) -> List[Dict[str, Any]]:
+   |                                                                   ^^^^
+53 |         from app.db.cosmos import query_items
+54 |         return query_items(
+   |
+help: Replace with `dict`
+
+UP035 `typing.Dict` is deprecated, use `dict` instead
+  --> services/api/app/db/repos/stripe_customer_map_repo.py:12:1
+   |
+10 | """
+11 | from datetime import datetime, timezone
+12 | from typing import Any, Dict, Optional
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+13 |
+14 | from app.db.cosmos import get_container
+   |
+
+UP006 [*] Use `dict` instead of `Dict` for type annotation
+  --> services/api/app/db/repos/stripe_customer_map_repo.py:23:79
+   |
+21 |         self.container = get_container(s.COSMOS_CONTAINER_STRIPE_CUSTOMER_MAP)
+22 |
+23 |     def upsert_map(self, *, stripe_customer_id: str, subscription_id: str) -> Dict[str, Any]:
+   |                                                                               ^^^^
+24 |         now = datetime.now(timezone.utc).isoformat()
+25 |         doc: Dict[str, Any] = {
+   |
+help: Replace with `dict`
+
+UP017 [*] Use `datetime.UTC` alias
+  --> services/api/app/db/repos/stripe_customer_map_repo.py:24:28
+   |
+23 |     def upsert_map(self, *, stripe_customer_id: str, subscription_id: str) -> Dict[str, Any]:
+24 |         now = datetime.now(timezone.utc).isoformat()
+   |                            ^^^^^^^^^^^^
+25 |         doc: Dict[str, Any] = {
+26 |             "id": f"cust::{stripe_customer_id}",
+   |
+help: Convert to `datetime.UTC` alias
+
+UP006 [*] Use `dict` instead of `Dict` for type annotation
+  --> services/api/app/db/repos/stripe_customer_map_repo.py:25:14
+   |
+23 |     def upsert_map(self, *, stripe_customer_id: str, subscription_id: str) -> Dict[str, Any]:
+24 |         now = datetime.now(timezone.utc).isoformat()
+25 |         doc: Dict[str, Any] = {
+   |              ^^^^
+26 |             "id": f"cust::{stripe_customer_id}",
+27 |             "stripeCustomerId": stripe_customer_id,
+   |
+help: Replace with `dict`
+
+UP045 [*] Use `X | None` for type annotations
+  --> services/api/app/db/repos/stripe_customer_map_repo.py:33:63
+   |
+31 |         return self.container.upsert_item(doc)
+32 |
+33 |     def get_subscription_id(self, stripe_customer_id: str) -> Optional[str]:
+   |                                                               ^^^^^^^^^^^^^
+34 |         doc_id = f"cust::{stripe_customer_id}"
+35 |         try:
+   |
+help: Convert to `X | None`
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> services/api/app/main.py:6:1
+   |
+ 4 |   ACA API -- FastAPI application factory.
+ 5 |   """
+ 6 | / from contextlib import asynccontextmanager
+ 7 | |
+ 8 | | from fastapi import FastAPI
+ 9 | | from fastapi.middleware.cors import CORSMiddleware
+10 | |
+11 | | from app.settings import get_settings
+12 | | from app.routers import auth, scans, findings, checkout, admin, health
+   | |______________________________________________________________________^
+13 |
+14 |   settings = get_settings()
+   |
+help: Organize imports
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> services/api/app/routers/admin.py:17:1
+   |
+15 |     DELETE /scans/{scan_id}
+16 |   """
+17 | / import uuid
+18 | | from datetime import datetime, timedelta, timezone
+19 | | from typing import Optional
+20 | |
+21 | | from fastapi import APIRouter, Depends, HTTPException, Query
+22 | | from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
+23 | | from pydantic import BaseModel
+24 | |
+25 | | from app.db.cosmos import upsert_item, query_items, get_container
+26 | | from app.db.repos.admin_audit_repo import AdminAuditRepo
+27 | | from app.db.repos.entitlements_repo import EntitlementsRepo
+   | |___________________________________________________________^
+28 |
+29 |   router = APIRouter(tags=["admin"])
+   |
+help: Organize imports
+
+F401 [*] `fastapi.HTTPException` imported but unused
+  --> services/api/app/routers/admin.py:21:41
+   |
+19 | from typing import Optional
+20 |
+21 | from fastapi import APIRouter, Depends, HTTPException, Query
+   |                                         ^^^^^^^^^^^^^
+22 | from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
+23 | from pydantic import BaseModel
+   |
+help: Remove unused import: `fastapi.HTTPException`
+
+F401 [*] `app.db.cosmos.upsert_item` imported but unused
+  --> services/api/app/routers/admin.py:25:27
+   |
+23 | from pydantic import BaseModel
+24 |
+25 | from app.db.cosmos import upsert_item, query_items, get_container
+   |                           ^^^^^^^^^^^
+26 | from app.db.repos.admin_audit_repo import AdminAuditRepo
+27 | from app.db.repos.entitlements_repo import EntitlementsRepo
+   |
+help: Remove unused import
+
+F401 [*] `app.db.cosmos.query_items` imported but unused
+  --> services/api/app/routers/admin.py:25:40
+   |
+23 | from pydantic import BaseModel
+24 |
+25 | from app.db.cosmos import upsert_item, query_items, get_container
+   |                                        ^^^^^^^^^^^
+26 | from app.db.repos.admin_audit_repo import AdminAuditRepo
+27 | from app.db.repos.entitlements_repo import EntitlementsRepo
+   |
+help: Remove unused import
+
+F401 [*] `app.db.cosmos.get_container` imported but unused
+  --> services/api/app/routers/admin.py:25:53
+   |
+23 | from pydantic import BaseModel
+24 |
+25 | from app.db.cosmos import upsert_item, query_items, get_container
+   |                                                     ^^^^^^^^^^^^^
+26 | from app.db.repos.admin_audit_repo import AdminAuditRepo
+27 | from app.db.repos.entitlements_repo import EntitlementsRepo
+   |
+help: Remove unused import
+
+UP045 [*] Use `X | None` for type annotations
+  --> services/api/app/routers/admin.py:49:22
+   |
+47 |     paymentStatus: str
+48 |     isLocked: bool
+49 |     lastActivityUtc: Optional[str] = None
+   |                      ^^^^^^^^^^^^^
+   |
+help: Convert to `X | None`
+
+UP045 [*] Use `X | None` for type annotations
+  --> services/api/app/routers/admin.py:78:17
+   |
+76 |     type: str
+77 |     status: str
+78 |     durationMs: Optional[int] = None
+   |                 ^^^^^^^^^^^^^
+79 |     correlationId: Optional[str] = None
+   |
+help: Convert to `X | None`
+
+UP045 [*] Use `X | None` for type annotations
+  --> services/api/app/routers/admin.py:79:20
+   |
+77 |     status: str
+78 |     durationMs: Optional[int] = None
+79 |     correlationId: Optional[str] = None
+   |                    ^^^^^^^^^^^^^
+   |
+help: Convert to `X | None`
+
+B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+   --> services/api/app/routers/admin.py:104:58
+    |
+103 | @router.get("/kpis", response_model=AdminKpis, summary="KPI overview")
+104 | async def get_kpis(creds: HTTPAuthorizationCredentials = Depends(security)):
+    |                                                          ^^^^^^^^^^^^^^^^^
+105 |     """Return aggregate KPIs. Reads entitlements + scans containers."""
+106 |     # TODO: implement real aggregation queries against Cosmos
+    |
+
+B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+   --> services/api/app/routers/admin.py:118:43
+    |
+116 | async def search_customers(
+117 |     query: str = Query(default="", description="Filter by subscriptionId, UPN, or tier"),
+118 |     creds: HTTPAuthorizationCredentials = Depends(security),
+    |                                           ^^^^^^^^^^^^^^^^^
+119 | ):
+120 |     """Search across entitlements container. Cross-partition (admin-only)."""
+    |
+
+B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+   --> services/api/app/routers/admin.py:132:43
+    |
+130 | async def grant_entitlement(
+131 |     req: AdminGrantEntitlementRequest,
+132 |     creds: HTTPAuthorizationCredentials = Depends(security),
+    |                                           ^^^^^^^^^^^^^^^^^
+133 | ):
+134 |     """
+    |
+
+UP017 [*] Use `datetime.UTC` alias
+   --> services/api/app/routers/admin.py:140:22
+    |
+138 |     actor = creds.credentials[:8] + "..."
+139 |     expires_utc = (
+140 |         datetime.now(timezone.utc) + timedelta(days=req.durationDays)
+    |                      ^^^^^^^^^^^^
+141 |     ).isoformat() if req.durationDays > 0 else ""
+    |
+help: Convert to `datetime.UTC` alias
+
+B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+   --> services/api/app/routers/admin.py:169:43
+    |
+167 |     subscription_id: str,
+168 |     req: AdminLockRequest,
+169 |     creds: HTTPAuthorizationCredentials = Depends(security),
+    |                                           ^^^^^^^^^^^^^^^^^
+170 | ):
+171 |     """
+    |
+
+B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+   --> services/api/app/routers/admin.py:194:66
+    |
+192 |     summary="Enqueue Stripe reconciliation job",
+193 | )
+194 | async def reconcile_stripe(creds: HTTPAuthorizationCredentials = Depends(security)):
+    |                                                                  ^^^^^^^^^^^^^^^^^
+195 |     """
+196 |     Enqueues an async Stripe sync job. Admin-only.
+    |
+
+UP045 [*] Use `X | None` for type annotations
+   --> services/api/app/routers/admin.py:214:11
+    |
+212 | @router.get("/runs", response_model=AdminRunsResponse, summary="Run history")
+213 | async def get_runs(
+214 |     type: Optional[str] = Query(default=None, description="Filter by run type: scan|analysis|delivery"),
+    |           ^^^^^^^^^^^^^
+215 |     subscriptionId: Optional[str] = Query(default=None, description="Filter by subscription ID"),
+216 |     creds: HTTPAuthorizationCredentials = Depends(security),
+    |
+help: Convert to `X | None`
+
+UP045 [*] Use `X | None` for type annotations
+   --> services/api/app/routers/admin.py:215:21
+    |
+213 | async def get_runs(
+214 |     type: Optional[str] = Query(default=None, description="Filter by run type: scan|analysis|delivery"),
+215 |     subscriptionId: Optional[str] = Query(default=None, description="Filter by subscription ID"),
+    |                     ^^^^^^^^^^^^^
+216 |     creds: HTTPAuthorizationCredentials = Depends(security),
+217 | ):
+    |
+help: Convert to `X | None`
+
+B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+   --> services/api/app/routers/admin.py:216:43
+    |
+214 |     type: Optional[str] = Query(default=None, description="Filter by run type: scan|analysis|delivery"),
+215 |     subscriptionId: Optional[str] = Query(default=None, description="Filter by subscription ID"),
+216 |     creds: HTTPAuthorizationCredentials = Depends(security),
+    |                                           ^^^^^^^^^^^^^^^^^
+217 | ):
+218 |     """
+    |
+
+B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+   --> services/api/app/routers/admin.py:231:55
+    |
+230 | @router.get("/stats", summary="ACA stats: scans, clients, revenue (legacy)")
+231 | async def stats(creds: HTTPAuthorizationCredentials = Depends(security)):
+    |                                                       ^^^^^^^^^^^^^^^^^
+232 |     # TODO: aggregate from Cosmos
+233 |     return {"scans_total": 0, "clients_total": 0, "deliverables_generated": 0}
+    |
+
+B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+   --> services/api/app/routers/admin.py:240:43
+    |
+238 |     scan_id: str,
+239 |     subscription_id: str,
+240 |     creds: HTTPAuthorizationCredentials = Depends(security),
+    |                                           ^^^^^^^^^^^^^^^^^
+241 | ):
+242 |     # TODO: delete scan + related data from Cosmos (partition_key=subscription_id)
+    |
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> services/api/app/routers/checkout.py:13:1
+   |
+11 |   call it before any .json() call.
+12 |   """
+13 | / import logging
+14 | | from typing import Literal, Optional
+15 | |
+16 | | import stripe
+17 | | from fastapi import APIRouter, Header, HTTPException, Query, Request
+18 | | from pydantic import BaseModel, Field
+19 | |
+20 | | from app.db.repos.clients_repo import ClientsRepo
+21 | | from app.db.repos.payments_repo import PaymentsRepo
+22 | | from app.db.repos.stripe_customer_map_repo import StripeCustomerMapRepo
+23 | | from app.services.delivery_service import DeliveryService
+24 | | from app.services.entitlement_service import EntitlementService
+25 | | from app.services.stripe_service import StripeService
+26 | | from app.settings import get_settings
+   | |_____________________________________^
+27 |
+28 |   log = logging.getLogger(__name__)
+   |
+help: Organize imports
+
+UP045 [*] Use `X | None` for type annotations
+  --> services/api/app/routers/checkout.py:42:18
+   |
+40 |     analysis_id: str = Field(default="")
+41 |     mode: Tier2Mode = "one_time"
+42 |     success_url: Optional[str] = None
+   |                  ^^^^^^^^^^^^^
+43 |     cancel_url: Optional[str] = None
+   |
+help: Convert to `X | None`
+
+UP045 [*] Use `X | None` for type annotations
+  --> services/api/app/routers/checkout.py:43:17
+   |
+41 |     mode: Tier2Mode = "one_time"
+42 |     success_url: Optional[str] = None
+43 |     cancel_url: Optional[str] = None
+   |                 ^^^^^^^^^^^^^
+   |
+help: Convert to `X | None`
+
+UP045 [*] Use `X | None` for type annotations
+  --> services/api/app/routers/checkout.py:49:18
+   |
+47 |     subscription_id: str = Field(..., min_length=1)
+48 |     analysis_id: str = Field(..., min_length=1)
+49 |     success_url: Optional[str] = None
+   |                  ^^^^^^^^^^^^^
+50 |     cancel_url: Optional[str] = None
+   |
+help: Convert to `X | None`
+
+UP045 [*] Use `X | None` for type annotations
+  --> services/api/app/routers/checkout.py:50:17
+   |
+48 |     analysis_id: str = Field(..., min_length=1)
+49 |     success_url: Optional[str] = None
+50 |     cancel_url: Optional[str] = None
+   |                 ^^^^^^^^^^^^^
+   |
+help: Convert to `X | None`
+
+B904 Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling
+   --> services/api/app/routers/checkout.py:110:9
+    |
+108 |     except stripe.StripeError as exc:
+109 |         log.error("[FAIL] stripe checkout_tier2: %s", exc)
+110 |         raise HTTPException(status_code=502, detail=f"Stripe error: {exc.user_message or str(exc)}")
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+111 |     return CheckoutResponse(
+112 |         checkout_session_id=session.id,
+    |
+
+B904 Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling
+   --> services/api/app/routers/checkout.py:138:9
+    |
+136 |     except stripe.StripeError as exc:
+137 |         log.error("[FAIL] stripe checkout_tier3: %s", exc)
+138 |         raise HTTPException(status_code=502, detail=f"Stripe error: {exc.user_message or str(exc)}")
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+139 |     return CheckoutResponse(
+140 |         checkout_session_id=session.id,
+    |
+
+B904 Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling
+   --> services/api/app/routers/checkout.py:170:9
+    |
+168 |         event = _svc().verify_webhook(payload, stripe_signature)
+169 |     except stripe.SignatureVerificationError:
+170 |         raise HTTPException(status_code=400, detail="Invalid Stripe signature")
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+171 |     except Exception as exc:
+172 |         log.error("[FAIL] webhook verify: %s", exc)
+    |
+
+B904 Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling
+   --> services/api/app/routers/checkout.py:173:9
+    |
+171 |     except Exception as exc:
+172 |         log.error("[FAIL] webhook verify: %s", exc)
+173 |         raise HTTPException(status_code=400, detail="Webhook verification failed")
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+174 |
+175 |     event_type: str = event.get("type", "")
+    |
+
+B904 Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling
+   --> services/api/app/routers/checkout.py:327:9
+    |
+325 |     except stripe.StripeError as exc:
+326 |         log.error("[FAIL] billing portal: %s", exc)
+327 |         raise HTTPException(status_code=502, detail=f"Stripe error: {exc.user_message or str(exc)}")
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+328 |
+329 |     return BillingPortalResponse(redirect_url=portal.url)
+    |
+
+E402 Module level import not at top of file
+   --> services/api/app/routers/checkout.py:349:1
+    |
+347 |     )
+348 |
+349 | from fastapi import APIRouter, HTTPException, Request
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+350 | from pydantic import BaseModel
+    |
+
+F811 [*] Redefinition of unused `HTTPException` from line 17
+   --> services/api/app/routers/checkout.py:349:32
+    |
+347 |     )
+348 |
+349 | from fastapi import APIRouter, HTTPException, Request
+    |                                ^^^^^^^^^^^^^ `HTTPException` redefined here
+350 | from pydantic import BaseModel
+    |
+   ::: services/api/app/routers/checkout.py:17:40
+    |
+ 16 | import stripe
+ 17 | from fastapi import APIRouter, Header, HTTPException, Query, Request
+    |                                        ------------- previous definition of `HTTPException` here
+ 18 | from pydantic import BaseModel, Field
+    |
+help: Remove definition: `HTTPException`
+
+E402 Module level import not at top of file
+   --> services/api/app/routers/checkout.py:350:1
+    |
+349 | from fastapi import APIRouter, HTTPException, Request
+350 | from pydantic import BaseModel
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+351 |
+352 | router = APIRouter(tags=["checkout"])
+    |
+
+F811 Redefinition of unused `checkout_tier2` from line 92
+   --> services/api/app/routers/checkout.py:363:11
+    |
+362 | @router.post("/tier2", summary="Create Tier 2 checkout session")
+363 | async def checkout_tier2(req: CheckoutRequest):
+    |           ^^^^^^^^^^^^^^ `checkout_tier2` redefined here
+364 |     """
+365 |     Create a Stripe checkout session for Tier 2 Advisory Report.
+    |
+   ::: services/api/app/routers/checkout.py:92:11
+    |
+ 91 | @router.post("/tier2", response_model=CheckoutResponse, summary="Create Tier 2 checkout session")
+ 92 | async def checkout_tier2(req: CheckoutTier2Request):
+    |           -------------- previous definition of `checkout_tier2` here
+ 93 |     """
+ 94 |     Create a Stripe checkout session for the Tier 2 Advisory Report.
+    |
+help: Remove definition: `checkout_tier2`
+
+F811 Redefinition of unused `checkout_tier3` from line 122
+   --> services/api/app/routers/checkout.py:374:11
+    |
+373 | @router.post("/tier3", summary="Create Tier 3 deliverable checkout session")
+374 | async def checkout_tier3(req: CheckoutRequest):
+    |           ^^^^^^^^^^^^^^ `checkout_tier3` redefined here
+375 |     """
+376 |     Create a Stripe checkout session for Tier 3 Deliverable Package.
+    |
+   ::: services/api/app/routers/checkout.py:122:11
+    |
+121 | @router.post("/tier3", response_model=CheckoutResponse, summary="Create Tier 3 checkout session")
+122 | async def checkout_tier3(req: CheckoutTier3Request):
+    |           -------------- previous definition of `checkout_tier3` here
+123 |     """
+124 |     Create a Stripe checkout session for the Tier 3 Deliverable Package.
+    |
+help: Remove definition: `checkout_tier3`
+
+F811 Redefinition of unused `stripe_webhook` from line 150
+   --> services/api/app/routers/checkout.py:384:11
+    |
+383 | @router.post("/webhook", summary="Stripe webhook handler", include_in_schema=False)
+384 | async def stripe_webhook(request: Request):
+    |           ^^^^^^^^^^^^^^ `stripe_webhook` redefined here
+385 |     """
+386 |     Stripe webhook: verify signature, handle checkout.session.completed.
+    |
+   ::: services/api/app/routers/checkout.py:150:11
+    |
+149 | @router.post("/webhook", summary="Stripe webhook", include_in_schema=False)
+150 | async def stripe_webhook(
+    |           -------------- previous definition of `stripe_webhook` here
+151 |     request: Request,
+152 |     stripe_signature: str = Header(default="", alias="Stripe-Signature"),
+    |
+help: Remove definition: `stripe_webhook`
+
+F841 Local variable `payload` is assigned to but never used
+   --> services/api/app/routers/checkout.py:391:5
+    |
+389 |     CRITICAL: read raw body BEFORE json() to preserve Stripe signature.
+390 |     """
+391 |     payload = await request.body()
+    |     ^^^^^^^
+392 |     sig_header = request.headers.get("stripe-signature", "")
+393 |     # TODO: stripe.Webhook.construct_event(payload, sig_header, settings.STRIPE_WEBHOOK_SECRET)
+    |
+help: Remove assignment to unused variable `payload`
+
+F841 Local variable `sig_header` is assigned to but never used
+   --> services/api/app/routers/checkout.py:392:5
+    |
+390 |     """
+391 |     payload = await request.body()
+392 |     sig_header = request.headers.get("stripe-signature", "")
+    |     ^^^^^^^^^^
+393 |     # TODO: stripe.Webhook.construct_event(payload, sig_header, settings.STRIPE_WEBHOOK_SECRET)
+394 |     # TODO: handle checkout.session.completed event
+    |
+help: Remove assignment to unused variable `sig_header`
+
+F811 Redefinition of unused `get_entitlements` from line 337
+   --> services/api/app/routers/checkout.py:399:11
+    |
+398 | @router.get("/entitlements", summary="Get client tier entitlements")
+399 | async def get_entitlements(subscription_id: str):
+    |           ^^^^^^^^^^^^^^^^ `get_entitlements` redefined here
+400 |     """Return current tier and available actions for a subscription."""
+401 |     # TODO: read client record from Cosmos
+    |
+   ::: services/api/app/routers/checkout.py:337:11
+    |
+336 | @router.get("/entitlements", response_model=EntitlementsResponse, summary="Get client entitlements")
+337 | async def get_entitlements(subscription_id: str = Query(...)):
+    |           ---------------- previous definition of `get_entitlements` here
+338 |     """Return current tier and access flags for a subscription."""
+339 |     ent = EntitlementService().get(subscription_id)
+    |
+help: Remove definition: `get_entitlements`
+
+F401 [*] `pydantic.BaseModel` imported but unused
+  --> services/api/app/routers/findings.py:9:22
+   |
+ 7 | """
+ 8 | from fastapi import APIRouter, HTTPException
+ 9 | from pydantic import BaseModel
+   |                      ^^^^^^^^^
+10 |
+11 | router = APIRouter(tags=["findings"])
+   |
+help: Remove unused import: `pydantic.BaseModel`
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> services/api/app/routers/scans.py:8:1
+   |
+ 6 |   Scans router -- trigger and monitor collection + analysis jobs.
+ 7 |   """
+ 8 | / import asyncio
+ 9 | | import logging
+10 | | from concurrent.futures import ThreadPoolExecutor
+11 | |
+12 | | from fastapi import APIRouter, BackgroundTasks, HTTPException, Query
+13 | | from pydantic import BaseModel
+14 | |
+15 | | from app.scan_pipeline import ScanPipeline, ScanStateError
+16 | | from tools.observability import log_event, trace_operation
+   | |__________________________________________________________^
+17 |
+18 |   logger = logging.getLogger(__name__)
+   |
+help: Organize imports
+
+B904 Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling
+   --> services/api/app/routers/scans.py:115:9
+    |
+113 |         )
+114 |     except LookupError as exc:
+115 |         raise HTTPException(status_code=404, detail=str(exc))
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+116 |     except ScanStateError as exc:
+117 |         raise HTTPException(status_code=409, detail=str(exc))
+    |
+
+B904 Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling
+   --> services/api/app/routers/scans.py:117:9
+    |
+115 |         raise HTTPException(status_code=404, detail=str(exc))
+116 |     except ScanStateError as exc:
+117 |         raise HTTPException(status_code=409, detail=str(exc))
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+118 |
+119 |     log_event("scan_state_advanced", {
+    |
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> services/api/app/scan_pipeline.py:20:1
+   |
+18 |     4. Trigger the background pipeline fan-out (trigger_pipeline)
+19 |   """
+20 | / from __future__ import annotations
+21 | |
+22 | | import logging
+23 | | import uuid
+24 | | from datetime import datetime, timezone
+25 | | from typing import Optional
+26 | |
+27 | | from app.db.cosmos import get_item, upsert_item, query_items
+   | |____________________________________________________________^
+28 |
+29 |   __all__ = [
+   |
+help: Organize imports
+
+UP045 [*] Use `X | None` for type annotations
+   --> services/api/app/scan_pipeline.py:104:24
+    |
+103 |     @property
+104 |     def error(self) -> Optional[str]:
+    |                        ^^^^^^^^^^^^^
+105 |         return self._data.get("error")
+    |
+help: Convert to `X | None`
+
+UP037 [*] Remove quotes from type annotation
+   --> services/api/app/scan_pipeline.py:111:46
+    |
+110 |     @classmethod
+111 |     def create(cls, subscription_id: str) -> "ScanRecord":
+    |                                              ^^^^^^^^^^^^
+112 |         """Build a new scan record in QUEUED state (not yet persisted)."""
+113 |         now = datetime.now(timezone.utc).isoformat()
+    |
+help: Remove quotes
+
+UP017 [*] Use `datetime.UTC` alias
+   --> services/api/app/scan_pipeline.py:113:28
+    |
+111 |     def create(cls, subscription_id: str) -> "ScanRecord":
+112 |         """Build a new scan record in QUEUED state (not yet persisted)."""
+113 |         now = datetime.now(timezone.utc).isoformat()
+    |                            ^^^^^^^^^^^^
+114 |         return cls({
+115 |             "id": str(uuid.uuid4()),
+    |
+help: Convert to `datetime.UTC` alias
+
+UP045 [*] Use `X | None` for type annotations
+   --> services/api/app/scan_pipeline.py:163:63
+    |
+161 |         return record
+162 |
+163 |     def get_scan(self, scan_id: str, subscription_id: str) -> Optional[ScanRecord]:
+    |                                                               ^^^^^^^^^^^^^^^^^^^^
+164 |         """Read a scan record from Cosmos. Returns None if not found."""
+165 |         data = get_item("scans", scan_id, partition_key=subscription_id)
+    |
+help: Convert to `X | None`
+
+UP045 [*] Use `X | None` for type annotations
+   --> services/api/app/scan_pipeline.py:173:16
+    |
+171 |         subscription_id: str,
+172 |         new_status: str,
+173 |         error: Optional[str] = None,
+    |                ^^^^^^^^^^^^^
+174 |         **extra_fields,
+175 |     ) -> ScanRecord:
+    |
+help: Convert to `X | None`
+
+UP017 [*] Use `datetime.UTC` alias
+   --> services/api/app/scan_pipeline.py:203:28
+    |
+201 |             )
+202 |
+203 |         now = datetime.now(timezone.utc).isoformat()
+    |                            ^^^^^^^^^^^^
+204 |         data = record.as_dict()
+205 |         data["status"] = new_status
+    |
+help: Convert to `datetime.UTC` alias
+
+F401 [*] `tools.update_data_model.update_scan` imported but unused
+   --> services/api/app/scan_pipeline.py:253:45
+    |
+251 |         """
+252 |         from tools.trigger_aca_job import trigger_aca_job
+253 |         from tools.update_data_model import update_scan
+    |                                             ^^^^^^^^^^^
+254 |
+255 |         result = trigger_aca_job(
+    |
+help: Remove unused import: `tools.update_data_model.update_scan`
+
+F811 Redefinition of unused `PaymentStatus` from line 10
+  --> services/api/app/services/entitlement_service.py:10:62
+   |
+ 8 | from typing import Literal, Optional
+ 9 |
+10 | from app.db.repos.entitlements_repo import EntitlementsRepo, PaymentStatus, Tier
+   |                                                              ------------- previous definition of `PaymentStatus` here
+11 |
+12 | PaymentStatus = Literal["none", "active", "past_due", "canceled"]  # re-export
+   | ^^^^^^^^^^^^^ `PaymentStatus` redefined here
+   |
+help: Remove definition: `PaymentStatus`
+
+UP045 [*] Use `X | None` for type annotations
+  --> services/api/app/services/entitlement_service.py:53:29
+   |
+51 |         *,
+52 |         payment_status: str = "active",
+53 |         stripe_customer_id: Optional[str] = None,
+   |                             ^^^^^^^^^^^^^
+54 |         stripe_subscription_id: Optional[str] = None,
+55 |     ) -> None:
+   |
+help: Convert to `X | None`
+
+UP045 [*] Use `X | None` for type annotations
+  --> services/api/app/services/entitlement_service.py:54:33
+   |
+52 |         payment_status: str = "active",
+53 |         stripe_customer_id: Optional[str] = None,
+54 |         stripe_subscription_id: Optional[str] = None,
+   |                                 ^^^^^^^^^^^^^
+55 |     ) -> None:
+56 |         existing = self.get(subscription_id)
+   |
+help: Convert to `X | None`
+
+UP045 [*] Use `X | None` for type annotations
+  --> services/api/app/services/entitlement_service.py:73:29
+   |
+71 |         *,
+72 |         payment_status: str = "active",
+73 |         stripe_customer_id: Optional[str] = None,
+   |                             ^^^^^^^^^^^^^
+74 |         stripe_subscription_id: Optional[str] = None,
+75 |     ) -> None:
+   |
+help: Convert to `X | None`
+
+UP045 [*] Use `X | None` for type annotations
+  --> services/api/app/services/entitlement_service.py:74:33
+   |
+72 |         payment_status: str = "active",
+73 |         stripe_customer_id: Optional[str] = None,
+74 |         stripe_subscription_id: Optional[str] = None,
+   |                                 ^^^^^^^^^^^^^
+75 |     ) -> None:
+76 |         self._repo.upsert(
+   |
+help: Convert to `X | None`
+
+UP045 [*] Use `X | None` for type annotations
+  --> services/api/app/services/entitlement_service.py:90:33
+   |
+88 |         payment_status: str,
+89 |         *,
+90 |         stripe_subscription_id: Optional[str] = None,
+   |                                 ^^^^^^^^^^^^^
+91 |     ) -> None:
+92 |         """Called by recurring billing lifecycle webhooks (invoice.paid, etc.)"""
+   |
+help: Convert to `X | None`
+
+UP035 `typing.Dict` is deprecated, use `dict` instead
+ --> services/api/app/services/stripe_service.py:6:1
+  |
+4 | Keeps all stripe API calls in one place so routers stay clean.
+5 | """
+6 | from typing import Any, Dict, Literal, Optional
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+7 |
+8 | import stripe
+  |
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> services/api/app/services/stripe_service.py:6:1
+   |
+ 4 |   Keeps all stripe API calls in one place so routers stay clean.
+ 5 |   """
+ 6 | / from typing import Any, Dict, Literal, Optional
+ 7 | |
+ 8 | | import stripe
+ 9 | |
+10 | | from app.settings import get_settings
+   | |_____________________________________^
+11 |
+12 |   Tier2Mode = Literal["one_time", "subscription"]
+   |
+help: Organize imports
+
+UP045 [*] Use `X | None` for type annotations
+  --> services/api/app/services/stripe_service.py:45:25
+   |
+43 |         cancel_url: str,
+44 |         mode: Tier2Mode = "one_time",
+45 |         customer_email: Optional[str] = None,
+   |                         ^^^^^^^^^^^^^
+46 |         existing_customer_id: Optional[str] = None,
+47 |     ) -> stripe.checkout.Session:
+   |
+help: Convert to `X | None`
+
+UP045 [*] Use `X | None` for type annotations
+  --> services/api/app/services/stripe_service.py:46:31
+   |
+44 |         mode: Tier2Mode = "one_time",
+45 |         customer_email: Optional[str] = None,
+46 |         existing_customer_id: Optional[str] = None,
+   |                               ^^^^^^^^^^^^^
+47 |     ) -> stripe.checkout.Session:
+48 |         billing_mode = "subscription" if (tier == "tier2" and mode == "subscription") else "payment"
+   |
+help: Convert to `X | None`
+
+UP006 [*] Use `dict` instead of `Dict` for type annotation
+  --> services/api/app/services/stripe_service.py:51:17
+   |
+49 |         price_id = self._price_tier2(mode) if tier == "tier2" else self._price_tier3()
+50 |
+51 |         params: Dict[str, Any] = {
+   |                 ^^^^
+52 |             "mode": billing_mode,
+53 |             "line_items": [{"price": price_id, "quantity": 1}],
+   |
+help: Replace with `dict`
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> services/collector/app/azure_client.py:4:1
+   |
+ 2 |   Azure collector -- wraps Azure SDK calls for resource/cost/advisor/network/policy.
+ 3 |   """
+ 4 | / import os
+ 5 | | from datetime import datetime, timedelta, timezone
+ 6 | |
+ 7 | | from azure.identity import ClientSecretCredential
+ 8 | | from azure.mgmt.resource import ResourceManagementClient
+ 9 | | from azure.mgmt.costmanagement import CostManagementClient
+10 | | from azure.mgmt.advisor import AdvisorManagementClient
+11 | | from azure.mgmt.network import NetworkManagementClient
+12 | | from azure.mgmt.policyinsights import PolicyInsightsClient
+   | |__________________________________________________________^
+   |
+help: Organize imports
+
+UP017 [*] Use `datetime.UTC` alias
+  --> services/collector/app/azure_client.py:51:28
+   |
+49 |         client = CostManagementClient(self.cred)
+50 |         scope = f"/subscriptions/{self.sub_id}"
+51 |         end = datetime.now(timezone.utc)
+   |                            ^^^^^^^^^^^^
+52 |         start = end - timedelta(days=days)
+   |
+help: Convert to `datetime.UTC` alias
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> services/collector/app/azure_client.py:54:9
+   |
+52 |           start = end - timedelta(days=days)
+53 |
+54 | /         from azure.mgmt.costmanagement.models import (
+55 | |             QueryDefinition, QueryTimePeriod, QueryDataset,
+56 | |             QueryGrouping, QueryAggregation, TimeframeType,
+57 | |         )
+   | |_________^
+58 |
+59 |           query = QueryDefinition(
+   |
+help: Organize imports
+
+B905 `zip()` without an explicit `strict=` parameter
+  --> services/collector/app/azure_client.py:80:34
+   |
+78 |             cols = [c.name for c in result.columns]
+79 |             for row in result.rows:
+80 |                 rows.append(dict(zip(cols, row)))
+   |                                  ^^^^^^^^^^^^^^
+81 |         return rows
+   |
+help: Add explicit value for parameter `strict=`
+
+UP017 [*] Use `datetime.UTC` alias
+  --> services/collector/app/ingest.py:25:34
+   |
+23 |         self.sub_id = subscription_id
+24 |         self.db = _client().get_database_client(COSMOS_DB)
+25 |         self._now = datetime.now(timezone.utc).isoformat()
+   |                                  ^^^^^^^^^^^^
+26 |
+27 |     def _container(self, name: str):
+   |
+help: Convert to `datetime.UTC` alias
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> services/collector/app/main.py:14:1
+   |
+12 |     5. Network topology signals (NSG, public IPs, private DNS, VNet)
+13 |   """
+14 | / import argparse
+15 | | import os
+16 | | import sys
+17 | | from datetime import datetime, timezone
+18 | |
+19 | | from app.preflight import run_preflight
+20 | | from app.azure_client import AzureCollector
+21 | | from app.ingest import Ingestor
+   | |_______________________________^
+   |
+help: Organize imports
+
+F401 [*] `os` imported but unused
+  --> services/collector/app/main.py:15:8
+   |
+13 | """
+14 | import argparse
+15 | import os
+   |        ^^
+16 | import sys
+17 | from datetime import datetime, timezone
+   |
+help: Remove unused import: `os`
+
+F401 [*] `datetime.datetime` imported but unused
+  --> services/collector/app/main.py:17:22
+   |
+15 | import os
+16 | import sys
+17 | from datetime import datetime, timezone
+   |                      ^^^^^^^^
+18 |
+19 | from app.preflight import run_preflight
+   |
+help: Remove unused import
+
+F401 [*] `datetime.timezone` imported but unused
+  --> services/collector/app/main.py:17:32
+   |
+15 | import os
+16 | import sys
+17 | from datetime import datetime, timezone
+   |                                ^^^^^^^^
+18 |
+19 | from app.preflight import run_preflight
+   |
+help: Remove unused import
+
+T201 `print` found
+  --> services/collector/app/main.py:35:5
+   |
+33 |     sub_id = args.subscription_id
+34 |
+35 |     print(f"[INFO] ACA Collector starting | scan={scan_id} sub={sub_id}")
+   |     ^^^^^
+36 |
+37 |     # Step 1: Pre-flight permission validation
+   |
+help: Remove `print`
+
+T201 `print` found
+  --> services/collector/app/main.py:40:9
+   |
+38 |     pf = run_preflight(sub_id)
+39 |     if pf["verdict"] == "FAIL":
+40 |         print(f"[FAIL] Pre-flight failed: {pf['blockers']}")
+   |         ^^^^^
+41 |         return 1
+42 |     if pf["verdict"] == "PASS_WITH_WARNINGS":
+   |
+help: Remove `print`
+
+T201 `print` found
+  --> services/collector/app/main.py:44:13
+   |
+42 |     if pf["verdict"] == "PASS_WITH_WARNINGS":
+43 |         for w in pf.get("warnings", []):
+44 |             print(f"[WARN] {w}")
+   |             ^^^^^
+45 |
+46 |     if args.preflight_only:
+   |
+help: Remove `print`
+
+T201 `print` found
+  --> services/collector/app/main.py:47:9
+   |
+46 |     if args.preflight_only:
+47 |         print(f"[PASS] Pre-flight OK | verdict={pf['verdict']}")
+   |         ^^^^^
+48 |         return 0
+   |
+help: Remove `print`
+
+T201 `print` found
+  --> services/collector/app/main.py:54:5
+   |
+52 |     ingestor = Ingestor(scan_id=scan_id, subscription_id=sub_id)
+53 |
+54 |     print("[INFO] Collecting resource inventory...")
+   |     ^^^^^
+55 |     resources = collector.get_inventory()
+56 |     ingestor.save_inventory(resources)
+   |
+help: Remove `print`
+
+T201 `print` found
+  --> services/collector/app/main.py:57:5
+   |
+55 |     resources = collector.get_inventory()
+56 |     ingestor.save_inventory(resources)
+57 |     print(f"[INFO] Inventory: {len(resources)} resources saved")
+   |     ^^^^^
+58 |
+59 |     print("[INFO] Collecting cost data (91 days)...")
+   |
+help: Remove `print`
+
+T201 `print` found
+  --> services/collector/app/main.py:59:5
+   |
+57 |     print(f"[INFO] Inventory: {len(resources)} resources saved")
+58 |
+59 |     print("[INFO] Collecting cost data (91 days)...")
+   |     ^^^^^
+60 |     cost_rows = collector.get_cost_data(days=91)
+61 |     ingestor.save_cost_data(cost_rows)
+   |
+help: Remove `print`
+
+T201 `print` found
+  --> services/collector/app/main.py:62:5
+   |
+60 |     cost_rows = collector.get_cost_data(days=91)
+61 |     ingestor.save_cost_data(cost_rows)
+62 |     print(f"[INFO] Cost: {len(cost_rows)} daily rows saved")
+   |     ^^^^^
+63 |
+64 |     print("[INFO] Collecting Azure Advisor recommendations...")
+   |
+help: Remove `print`
+
+T201 `print` found
+  --> services/collector/app/main.py:64:5
+   |
+62 |     print(f"[INFO] Cost: {len(cost_rows)} daily rows saved")
+63 |
+64 |     print("[INFO] Collecting Azure Advisor recommendations...")
+   |     ^^^^^
+65 |     advisor = collector.get_advisor_recommendations()
+66 |     ingestor.save_advisor(advisor)
+   |
+help: Remove `print`
+
+T201 `print` found
+  --> services/collector/app/main.py:67:5
+   |
+65 |     advisor = collector.get_advisor_recommendations()
+66 |     ingestor.save_advisor(advisor)
+67 |     print(f"[INFO] Advisor: {len(advisor)} recommendations saved")
+   |     ^^^^^
+68 |
+69 |     print("[INFO] Collecting policy compliance state...")
+   |
+help: Remove `print`
+
+T201 `print` found
+  --> services/collector/app/main.py:69:5
+   |
+67 |     print(f"[INFO] Advisor: {len(advisor)} recommendations saved")
+68 |
+69 |     print("[INFO] Collecting policy compliance state...")
+   |     ^^^^^
+70 |     policy = collector.get_policy_state()
+71 |     ingestor.save_policy(policy)
+   |
+help: Remove `print`
+
+T201 `print` found
+  --> services/collector/app/main.py:72:5
+   |
+70 |     policy = collector.get_policy_state()
+71 |     ingestor.save_policy(policy)
+72 |     print(f"[INFO] Policy: {policy.get('total', 0)} policy states saved")
+   |     ^^^^^
+73 |
+74 |     print("[INFO] Collecting network topology signals...")
+   |
+help: Remove `print`
+
+T201 `print` found
+  --> services/collector/app/main.py:74:5
+   |
+72 |     print(f"[INFO] Policy: {policy.get('total', 0)} policy states saved")
+73 |
+74 |     print("[INFO] Collecting network topology signals...")
+   |     ^^^^^
+75 |     network = collector.get_network_topology()
+76 |     ingestor.save_network(network)
+   |
+help: Remove `print`
+
+T201 `print` found
+  --> services/collector/app/main.py:77:5
+   |
+75 |     network = collector.get_network_topology()
+76 |     ingestor.save_network(network)
+77 |     print("[INFO] Network topology saved")
+   |     ^^^^^
+78 |
+79 |     ingestor.mark_collection_complete()
+   |
+help: Remove `print`
+
+T201 `print` found
+  --> services/collector/app/main.py:80:5
+   |
+79 |     ingestor.mark_collection_complete()
+80 |     print(f"[PASS] Collection complete | scan={scan_id}")
+   |     ^^^^^
+81 |     return 0
+   |
+help: Remove `print`
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> services/collector/app/preflight.py:7:1
+  |
+5 |   See 02-preflight.md for full spec.
+6 |   """
+7 | / import os
+8 | | import requests
+9 | | from azure.identity import ClientSecretCredential
+  | |_________________________________________________^
+  |
+help: Organize imports
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> services/delivery/app/cosmos.py:2:1
+  |
+1 |   """Cosmos helper for delivery service -- thin wrapper around azure-cosmos SDK."""
+2 | / from __future__ import annotations
+3 | | from azure.cosmos import CosmosClient, PartitionKey
+  | |___________________________________________________^
+  |
+help: Organize imports
+
+F401 [*] `azure.cosmos.PartitionKey` imported but unused
+ --> services/delivery/app/cosmos.py:3:40
+  |
+1 | """Cosmos helper for delivery service -- thin wrapper around azure-cosmos SDK."""
+2 | from __future__ import annotations
+3 | from azure.cosmos import CosmosClient, PartitionKey
+  |                                        ^^^^^^^^^^^^
+  |
+help: Remove unused import: `azure.cosmos.PartitionKey`
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> services/delivery/app/generator.py:6:1
+   |
+ 4 |   Each template folder: main.bicep (phase1), main.tf (phase2), README.md
+ 5 |   """
+ 6 | / from __future__ import annotations
+ 7 | | import logging
+ 8 | | from pathlib import Path
+ 9 | | from jinja2 import Environment, FileSystemLoader, TemplateNotFound
+   | |__________________________________________________________________^
+10 |
+11 |   logger = logging.getLogger(__name__)
+   |
+help: Organize imports
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> services/delivery/app/main.py:6:1
+   |
+ 4 |   Usage: python -m app.main --scan-id SCAN --subscription-id SUB
+ 5 |   """
+ 6 | / from __future__ import annotations
+ 7 | | import argparse
+ 8 | | import logging
+ 9 | | import sys
+10 | | import os
+11 | |
+12 | | from app.generator import TemplateGenerator
+13 | | from app.packager import DeliverablePackager
+   | |____________________________________________^
+14 |
+15 |   logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s %(message)s")
+   |
+help: Organize imports
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> services/delivery/app/packager.py:5:1
+   |
+ 3 |   Returns a 24-hour SAS URL for the client to download.
+ 4 |   """
+ 5 | / from __future__ import annotations
+ 6 | | import hashlib
+ 7 | | import io
+ 8 | | import json
+ 9 | | import logging
+10 | | import zipfile
+11 | | from datetime import datetime, timedelta, timezone
+12 | |
+13 | | from azure.storage.blob import BlobServiceClient, BlobSasPermissions, generate_blob_sas
+14 | | from azure.identity import DefaultAzureCredential
+   | |_________________________________________________^
+15 |
+16 |   logger = logging.getLogger(__name__)
+   |
+help: Organize imports
+
+UP017 [*] Use `datetime.UTC` alias
+  --> services/delivery/app/packager.py:66:31
+   |
+65 |         # SAS
+66 |         expiry = datetime.now(timezone.utc) + timedelta(hours=SAS_HOURS)
+   |                               ^^^^^^^^^^^^
+67 |         sas_token = generate_blob_sas(
+68 |             account_name=self.storage_account,
+   |
+help: Convert to `datetime.UTC` alias
+
