@@ -132,33 +132,6 @@ T201 `print` found
    |
 help: Remove `print`
 
-I001 [*] Import block is un-sorted or un-formatted
-  --> services/api/app/db/cosmos.py:8:1
-   |
- 6 |   No cross-tenant queries are permitted.
- 7 |   """
- 8 | / from functools import lru_cache
- 9 | |
-10 | | from azure.cosmos import CosmosClient, PartitionKey
-11 | | from azure.cosmos.exceptions import CosmosResourceNotFoundError
-12 | |
-13 | | from app.settings import get_settings
-   | |_____________________________________^
-14 |
-15 |   CONTAINERS = {
-   |
-help: Organize imports
-
-T201 `print` found
-  --> services/api/app/db/cosmos.py:82:9
-   |
-80 |             partition_key=PartitionKey(path=pk_path),
-81 |         )
-82 |         print(f"[INFO] Container ready: {name}")
-   |         ^^^^^
-   |
-help: Remove `print`
-
 UP035 `typing.Dict` is deprecated, use `dict` instead
   --> services/api/app/db/repos/admin_audit_repo.py:13:1
    |
