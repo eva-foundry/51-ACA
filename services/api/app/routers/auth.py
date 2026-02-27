@@ -1,3 +1,4 @@
+# EVA-STORY: ACA-04-006
 # EVA-STORY: ACA-04-004
 # EVA-STORY: ACA-04-001
 # EVA-STORY: ACA-05-001
@@ -7,6 +8,7 @@ Onboarding modes: delegated (device code) and service principal.
 """
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
+from app.services.token_service import TokenService
 
 router = APIRouter(tags=["auth"])
 
@@ -33,8 +35,11 @@ async def connect_subscription(req: ConnectRequest):
     Returns a device-code URL for delegated mode, or validates SP credentials.
     See 02-preflight.md for full spec.
     """
-    # TODO: implement MSAL device-code initiation or SP validation
-    raise HTTPException(status_code=501, detail="[INFO] Not yet implemented -- see 02-preflight.md")
+    if req.connection_mode == "delegated":
+        token_service = TokenService()
+        flow = token_service.initiate_device_code(req.subscription_id)
+        return flow
+    raise HTTPException(status_code=501, detail="[INFO] Service principal mode not yet implemented")
 
 
 @router.post("/preflight", response_model=PreflightResponse, summary="Validate Azure permissions")

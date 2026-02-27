@@ -1,0 +1,14 @@
+{
+  "story_id": "ACA-04-006",
+  "title": "auth.py MSAL rework: multi-tenant authority=common, token_service.py",
+  "phase": "D|P|D|C|A",
+  "timestamp": "2026-02-27T14:17:47Z",
+  "artifacts": [
+    "services/api/app/services/token_service.py",
+    "services/api/app/routers/auth.py",
+    "services/api/app/settings.py"
+  ],
+  "test_result": "WARN",
+  "lint_result": "WARN",
+  "commit_sha": "25f1469a1d02ba949d66f0f0ab2c6123a0efee94"
+}

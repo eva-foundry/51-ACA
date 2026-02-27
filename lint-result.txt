@@ -943,6 +943,20 @@ B008 Do not perform function call `Depends` in argument defaults; instead, perfo
     |
 
 I001 [*] Import block is un-sorted or un-formatted
+  --> services/api/app/routers/auth.py:9:1
+   |
+ 7 |   Onboarding modes: delegated (device code) and service principal.
+ 8 |   """
+ 9 | / from fastapi import APIRouter, HTTPException
+10 | | from pydantic import BaseModel
+11 | | from app.services.token_service import TokenService
+   | |___________________________________________________^
+12 |
+13 |   router = APIRouter(tags=["auth"])
+   |
+help: Organize imports
+
+I001 [*] Import block is un-sorted or un-formatted
   --> services/api/app/routers/checkout.py:13:1
    |
 11 |   call it before any .json() call.
@@ -1404,6 +1418,18 @@ UP006 [*] Use `dict` instead of `Dict` for type annotation
 54 |             "line_items": [{"price": price_id, "quantity": 1}],
    |
 help: Replace with `dict`
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> services/api/app/services/token_service.py:2:1
+  |
+1 |   # EVA-STORY: ACA-04-006
+2 | / from msal import PublicClientApplication
+3 | | from app.settings import get_settings
+  | |_____________________________________^
+4 |
+5 |   class TokenService:
+  |
+help: Organize imports
 
 I001 [*] Import block is un-sorted or un-formatted
  --> services/api/app/settings.py:1:1

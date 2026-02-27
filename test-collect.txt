@@ -35,4 +35,4 @@ E   ModuleNotFoundError: No module named 'app.rules'
 =========================== short test summary info ============================
 ERROR services/tests/test_analysis_main.py
 !!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
-===================== 6 tests collected, 1 error in 0.59s ======================
+===================== 6 tests collected, 1 error in 0.60s ======================
