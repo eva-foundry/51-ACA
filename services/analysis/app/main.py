@@ -14,6 +14,7 @@ import sys
 
 from app.rules import ALL_RULES
 from app.findings import FindingsAssembler
+from app.cosmos import get_cosmos_client
 
 
 def main() -> int:
@@ -27,7 +28,8 @@ def main() -> int:
 
     print(f"[INFO] ACA Analysis Engine starting | scan={scan_id} sub={sub_id}")
 
-    assembler = FindingsAssembler(scan_id=scan_id, subscription_id=sub_id)
+    assembler = FindingsAssembler(scan_id=scan_id, subscription_id=sub_id,
+                                  cosmos_client=get_cosmos_client())
     data = assembler.load_collected_data()
 
     if not data:

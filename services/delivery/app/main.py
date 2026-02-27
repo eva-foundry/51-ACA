@@ -52,6 +52,7 @@ def main(scan_id: str, subscription_id: str) -> None:
     packager = DeliverablePackager(
         storage_account=os.environ["STORAGE_ACCOUNT"],
         container_name=os.environ.get("DELIVERY_CONTAINER", "deliverables"),
+        account_key=os.environ["ACA_STORAGE_ACCOUNT_KEY"],
     )
     sas_url = packager.package_and_upload(
         scan_id=scan_id,

@@ -1,7 +1,7 @@
 """
 # EVA-STORY: ACA-07-006
 DeliverablePackager -- ZIP, SHA-256 sign, upload to Azure Blob Storage.
-Returns a 24-hour SAS URL for the client to download.
+Returns a 7-day (168-hour) SAS URL for the client to download.
 """
 from __future__ import annotations
 import hashlib
@@ -15,13 +15,14 @@ from azure.storage.blob import BlobServiceClient, BlobSasPermissions, generate_b
 from azure.identity import DefaultAzureCredential
 
 logger = logging.getLogger(__name__)
-SAS_HOURS = 24
+SAS_HOURS = 168  # 7 days per 08-payment.md spec
 
 
 class DeliverablePackager:
-    def __init__(self, storage_account: str, container_name: str) -> None:
+    def __init__(self, storage_account: str, container_name: str, account_key: str) -> None:
         self.storage_account = storage_account
         self.container_name = container_name
+        self.account_key = account_key
         account_url = f"https://{storage_account}.blob.core.windows.net"
         self.client = BlobServiceClient(
             account_url=account_url,
@@ -63,14 +64,14 @@ class DeliverablePackager:
         )
         logger.info("[%s] uploaded %d bytes sha256=%s", scan_id, len(zip_bytes), sha256[:16])
 
-        # SAS
+        # SAS -- generate_blob_sas requires the storage account key; managed identity
+        # cannot sign SAS tokens. Pass ACA_STORAGE_ACCOUNT_KEY from env.
         expiry = datetime.now(timezone.utc) + timedelta(hours=SAS_HOURS)
         sas_token = generate_blob_sas(
             account_name=self.storage_account,
             container_name=self.container_name,
             blob_name=blob_name,
-            account_key=None,
-            credential=DefaultAzureCredential(),
+            account_key=self.account_key,
             permission=BlobSasPermissions(read=True),
             expiry=expiry,
         )
