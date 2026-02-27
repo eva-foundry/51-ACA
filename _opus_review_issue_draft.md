@@ -5,14 +5,14 @@
 opus-review
 
 ## MODEL
-Claude Opus 4.6
+Claude Sonnet 4.6
 
 ---
 
 ## BODY
 
-INSTRUCTIONS FOR CLAUDE OPUS 4.6
-===================================
+INSTRUCTIONS FOR CLAUDE SONNET 4.6
+====================================
 
 This is a READ-ONLY analysis task. Do NOT write code. Do NOT open PRs.
 Do NOT commit. Your only deliverable is a structured comment on this issue.
@@ -151,22 +151,71 @@ For each gap, classify:
   [MEDIUM]    Degrades quality, coverage, or test safety
   [LOW]       Nice to have
 
+GROUND TRUTH FROM DATA MODEL (port 8055, SQLite, generated 2026-02-27)
+------------------------------------------------------------------------
+Total objects: 325. Endpoints: 27. Source: GET http://localhost:8055/model/endpoints/
+
+ENDPOINT STATUS TABLE (authoritative -- do NOT re-derive from file scan)
+  IMPLEMENTED:
+    GET  /health
+    GET  /v1/admin/stats
+    GET  /v1/checkout/entitlements
+    GET  /v1/findings/{scan_id}
+    GET  /v1/scans/
+    GET  /v1/scans/{scan_id}
+    POST /v1/auth/connect
+    POST /v1/auth/disconnect
+    POST /v1/auth/preflight
+    POST /v1/checkout/tier2
+    POST /v1/checkout/tier3
+    POST /v1/checkout/webhook
+    POST /v1/scans/
+    DELETE /v1/admin/scans/{scan_id}
+
+  STUB (route exists, logic not implemented):
+    GET  /v1/admin/customers
+    GET  /v1/admin/kpis
+    GET  /v1/admin/runs
+    GET  /v1/billing/portal
+    GET  /v1/collect/status
+    GET  /v1/entitlements
+    GET  /v1/reports/tier1
+    POST /v1/admin/entitlements/grant
+    POST /v1/admin/stripe/reconcile
+    POST /v1/admin/subscriptions/{subscriptionId}/lock
+    POST /v1/billing/checkout
+    POST /v1/collect/start
+    POST /v1/webhooks/stripe
+
+MISSING SPEC DOCS (files listed in original read-list that do NOT exist on disk):
+  MISSING: docs/02-preflight.md
+  MISSING: docs/05-technical.md
+  MISSING: docs/08-payment.md
+  MISSING: docs/saving-opportunity-rules.md
+  MISSING: docs/12-IaCscript.md
+  MISSING: services/api/app/middleware/   (directory does not exist)
+  PRESENT: services/api/app/routers/      (6 files: admin.py auth.py checkout.py findings.py health.py scans.py)
+  PRESENT: services/api/app/db/
+  PRESENT: services/collector/app/
+  PRESENT: services/analysis/app/
+  PRESENT: services/delivery/app/
+  PRESENT: frontend/src/pages/
+  MTI: 100 (coverage=1.0, evidence=1.0, consistency=1.0) -- trust.json 2026-02-27
+
 FILES TO READ (in this order)
   1. AGENTS.md
   2. .github/copilot-instructions.md
   3. PLAN.md + STATUS.md + ACCEPTANCE.md
-  4. docs/02-preflight.md
-  5. docs/05-technical.md
-  6. docs/08-payment.md (or 16-stripe-backend.md)
-  7. docs/saving-opportunity-rules.md
-  8. services/api/app/routers/       (all 6 files)
-  9. services/api/app/middleware/    (all files)
-  10. services/api/app/db/           (all files)
-  11. services/collector/app/        (all files)
-  12. services/analysis/app/         (all files)
-  13. services/delivery/app/         (all files)
-  14. frontend/src/pages/            (all files)
-  15. .eva/veritas-plan.json + .eva/trust.json
+  4. services/api/app/routers/       (all 6 files)
+  5. services/api/app/db/           (all files)
+  6. services/collector/app/        (all files)
+  7. services/analysis/app/         (all files)
+  8. services/delivery/app/         (all files)
+  9. frontend/src/pages/            (all files)
+  10. .eva/veritas-plan.json + .eva/trust.json
+  NOTE: docs/ spec files are MISSING from the repo. Where the review references
+        spec docs, compare against .github/copilot-instructions.md PART 2 sections
+        P2.1-P2.9 which contain the canonical specs inline.
 
 AREA 1 -- SERVICE FLOW COMPLETENESS
   Walk the 8 steps above against the actual code.
