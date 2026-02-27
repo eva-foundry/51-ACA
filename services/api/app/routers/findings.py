@@ -9,28 +9,9 @@ from fastapi import APIRouter, HTTPException, Request
 from pydantic import BaseModel
 from app.db.cosmos import get_item, query_items
 from app.settings import get_settings
+from app.services.findings_gate import gate_findings, TIER1_FIELDS, TIER2_FIELDS  # noqa: F401
 
 router = APIRouter(tags=["findings"])
-
-TIER1_FIELDS = {
-    "id", "category", "title",
-    "estimated_saving_low", "estimated_saving_high",
-    "effort_class", "risk_class",
-}
-
-TIER2_FIELDS = TIER1_FIELDS | {"narrative", "heuristic_source"}
-# Tier 3: all fields including deliverable_template_id
-
-def gate_findings(findings: list[dict], tier: str) -> list[dict]:
-    """
-    Strip findings to tier-appropriate fields.
-    NEVER expose narrative or deliverable_template_id to Tier 1.
-    """
-    if tier == "tier1":
-        return [{k: v for k, v in f.items() if k in TIER1_FIELDS} for f in findings]
-    if tier == "tier2":
-        return [{k: v for k, v in f.items() if k in TIER2_FIELDS} for f in findings]
-    return findings  # tier3: full object
 
 @router.get("/{scan_id}", summary="Get findings for a completed scan")
 async def get_findings(scan_id: str, subscription_id: str):

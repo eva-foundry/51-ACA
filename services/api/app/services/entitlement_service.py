@@ -30,8 +30,8 @@ class Entitlement:
 
 
 class EntitlementService:
-    def __init__(self) -> None:
-        self._repo = EntitlementsRepo()
+    def __init__(self, repo: "Optional[EntitlementsRepo]" = None) -> None:
+        self._repo: EntitlementsRepo = repo if repo is not None else EntitlementsRepo()
 
     def get(self, subscription_id: str) -> Entitlement:
         doc = self._repo.get(subscription_id)
