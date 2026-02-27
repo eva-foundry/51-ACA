@@ -1465,16 +1465,72 @@ B905 `zip()` without an explicit `strict=` parameter
 help: Add explicit value for parameter `strict=`
 
 UP017 [*] Use `datetime.UTC` alias
-  --> services/collector/app/ingest.py:26:34
+  --> services/collector/app/ingest.py:21:34
    |
-24 |         self.sub_id = subscription_id
-25 |         self.db = _client().get_database_client(COSMOS_DB)
-26 |         self._now = datetime.now(timezone.utc).isoformat()
+19 |         self.sub_id = subscription_id
+20 |         self.db = _client().get_database_client(COSMOS_DB)
+21 |         self._now = datetime.now(timezone.utc).isoformat()
    |                                  ^^^^^^^^^^^^
-27 |
-28 |     def _container(self, name: str):
+22 |
+23 |     def _container(self, name: str):
    |
 help: Convert to `datetime.UTC` alias
+
+T201 `print` found
+  --> services/collector/app/ingest.py:85:13
+   |
+84 |         if not job_name or not resource_group:
+85 |             print("[WARN] ACA_ANALYSIS_JOB_NAME or ACA_RESOURCE_GROUP not set -- skipping analysis trigger")
+   |             ^^^^^
+86 |             return
+   |
+help: Remove `print`
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> services/collector/app/ingest.py:89:13
+   |
+88 |           try:
+89 | /             from azure.mgmt.appcontainers import ContainerAppsAPIClient
+90 | |             from azure.identity import DefaultAzureCredential
+   | |_____________________________________________________________^
+91 |
+92 |               client = ContainerAppsAPIClient(credential=DefaultAzureCredential())
+   |
+help: Organize imports
+
+T201 `print` found
+   --> services/collector/app/ingest.py:111:13
+    |
+109 |             )
+110 |         except ImportError:
+111 |             print("[WARN] azure.mgmt.appcontainers not installed -- falling back to subprocess")
+    |             ^^^^^
+112 |             try:
+113 |                 import subprocess
+    |
+help: Remove `print`
+
+T201 `print` found
+   --> services/collector/app/ingest.py:121:17
+    |
+119 |                 ], check=True)
+120 |             except Exception as e:
+121 |                 print(f"[FAIL] Failed to trigger analysis job via subprocess: {e}")
+    |                 ^^^^^
+122 |         except Exception as e:
+123 |             print(f"[FAIL] Failed to trigger analysis job via SDK: {e}")
+    |
+help: Remove `print`
+
+T201 `print` found
+   --> services/collector/app/ingest.py:123:13
+    |
+121 |                 print(f"[FAIL] Failed to trigger analysis job via subprocess: {e}")
+122 |         except Exception as e:
+123 |             print(f"[FAIL] Failed to trigger analysis job via SDK: {e}")
+    |             ^^^^^
+    |
+help: Remove `print`
 
 I001 [*] Import block is un-sorted or un-formatted
   --> services/collector/app/main.py:15:1
