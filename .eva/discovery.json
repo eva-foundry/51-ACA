@@ -1,7 +1,7 @@
 {
   "meta": {
     "schema": "eva.discovery.v2",
-    "generated_at": "2026-02-27T17:33:13.642Z",
+    "generated_at": "2026-02-27T18:42:09.700Z",
     "repo": "C:\\AICOE\\eva-foundry\\51-ACA"
   },
   "project": null,
@@ -2322,6 +2322,11 @@
         "story_tags": []
       },
       {
+        "path": "reseed-wired.txt",
+        "type": "other",
+        "story_tags": []
+      },
+      {
         "path": "STATUS.md",
         "type": "doc",
         "story_tags": []
@@ -2486,6 +2491,41 @@
       {
         "path": "docs/saving-opportunity-rules.md",
         "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/spec-wiring.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/.env.example",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/index.html",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/package.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/tsconfig.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/tsconfig.node.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/vite.config.ts",
+        "type": "code",
         "story_tags": []
       },
       {
@@ -4239,36 +4279,6 @@
         ]
       },
       {
-        "path": "frontend/.env.example",
-        "type": "other",
-        "story_tags": []
-      },
-      {
-        "path": "frontend/index.html",
-        "type": "other",
-        "story_tags": []
-      },
-      {
-        "path": "frontend/package.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "frontend/tsconfig.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "frontend/tsconfig.node.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "frontend/vite.config.ts",
-        "type": "code",
-        "story_tags": []
-      },
-      {
         "path": "scripts/ado-create-project.ps1",
         "type": "code",
         "story_tags": []
@@ -4292,6 +4302,7 @@
         "type": "code",
         "story_tags": [
           "ACA-12-001",
+          "ACA-12-021",
           "ACA-14-005"
         ]
       },
@@ -4477,116 +4488,6 @@
         "story_tags": []
       },
       {
-        "path": "debug/artifact-deployment/after_analysis_20260226_184028.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "debug/artifact-deployment/after_analysis_20260226_184036.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "debug/artifact-deployment/after_analysis_20260226_184047.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "debug/artifact-deployment/after_deployment_20260226_184047.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "debug/artifact-deployment/after_part1_extraction_success_20260226_184047.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "debug/artifact-deployment/after_source_detection_20260226_184028.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "debug/artifact-deployment/after_source_detection_20260226_184036.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "debug/artifact-deployment/after_source_detection_20260226_184046.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "debug/artifact-deployment/after_validation_20260226_184047.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "debug/artifact-deployment/before_analysis_20260226_184028.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "debug/artifact-deployment/before_analysis_20260226_184036.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "debug/artifact-deployment/before_analysis_20260226_184046.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "debug/artifact-deployment/before_deployment_20260226_184047.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "debug/artifact-deployment/before_part1_extraction_20260226_184047.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "debug/artifact-deployment/before_source_detection_20260226_184028.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "debug/artifact-deployment/before_source_detection_20260226_184036.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "debug/artifact-deployment/before_source_detection_20260226_184046.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "debug/artifact-deployment/before_validation_20260226_184047.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "debug/artifact-deployment/deployment_start_20260226_184028.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "debug/artifact-deployment/deployment_start_20260226_184036.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "debug/artifact-deployment/deployment_start_20260226_184046.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "debug/artifact-deployment/deployment_success_20260226_184047.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
         "path": "data-model/model/agents.json",
         "type": "data",
         "story_tags": []
@@ -4768,6 +4669,116 @@
       },
       {
         "path": "data-model/model/wbs.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/after_analysis_20260226_184028.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/after_analysis_20260226_184036.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/after_analysis_20260226_184047.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/after_deployment_20260226_184047.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/after_part1_extraction_success_20260226_184047.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/after_source_detection_20260226_184028.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/after_source_detection_20260226_184036.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/after_source_detection_20260226_184046.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/after_validation_20260226_184047.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/before_analysis_20260226_184028.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/before_analysis_20260226_184036.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/before_analysis_20260226_184046.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/before_deployment_20260226_184047.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/before_part1_extraction_20260226_184047.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/before_source_detection_20260226_184028.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/before_source_detection_20260226_184036.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/before_source_detection_20260226_184046.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/before_validation_20260226_184047.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/deployment_start_20260226_184028.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/deployment_start_20260226_184036.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/deployment_start_20260226_184046.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "debug/artifact-deployment/deployment_success_20260226_184047.json",
         "type": "data",
         "story_tags": []
       },
@@ -5939,6 +5950,7 @@
             "type": "code",
             "story_tags": [
               "ACA-12-001",
+              "ACA-12-021",
               "ACA-14-005"
             ]
           },
@@ -9392,6 +9404,7 @@
             "type": "code",
             "story_tags": [
               "ACA-12-001",
+              "ACA-12-021",
               "ACA-14-005"
             ]
           },
@@ -9492,6 +9505,19 @@
             "type": "evidence",
             "story_tags": [
               "ACA-14-010"
+            ]
+          }
+        ]
+      },
+      "ACA-12-021": {
+        "artifacts": [
+          {
+            "path": "scripts/seed-from-plan.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-12-001",
+              "ACA-12-021",
+              "ACA-14-005"
             ]
           }
         ]
@@ -9858,6 +9884,13 @@
       }
     },
     "commit_evidence_map": {
+      "ACA-04-008": [
+        {
+          "sha": "da7f324",
+          "snippet": "feat(ACA-04-008): Sprint-02 complete -- 5 stories, 24 tests, MTI 100",
+          "source": "commit"
+        }
+      ],
       "ACA-14-007": [
         {
           "sha": "8ca0b4f",

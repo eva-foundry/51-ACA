@@ -1,5 +1,6 @@
 """
 # EVA-STORY: ACA-12-001
+# EVA-STORY: ACA-12-021
 seed-from-plan.py -- ACA artifact seeder
 =========================================
 Reads README.md, PLAN.md, STATUS.md, ACCEPTANCE.md and rebuilds:
@@ -369,66 +370,317 @@ WIPEABLE_LAYERS = [
     "sprints", "milestones", "wbs",
 ]
 
-# Canonical endpoint definitions (mirrors services/api routers)
+# Canonical endpoint definitions -- includes cosmos cross-layer wiring.
+# cosmos_reads / cosmos_writes list the Cosmos containers each endpoint touches.
+# This is the single authoritative source; every reseed re-wires the graph.
 ENDPOINT_DEFS = [
-    # implemented
-    {"id": "GET /health",                        "status": "implemented", "implemented_in": "services/api/app/routers/health.py",    "repo_line": 10, "auth": [],             "service": "aca-api"},
-    {"id": "GET /v1/admin/stats",                "status": "implemented", "implemented_in": "services/api/app/routers/admin.py",     "repo_line": 12, "auth": ["ACA_Admin"],  "service": "aca-api"},
-    {"id": "DELETE /v1/admin/scans/{scan_id}",   "status": "implemented", "implemented_in": "services/api/app/routers/admin.py",     "repo_line": 30, "auth": ["ACA_Admin"],  "service": "aca-api"},
-    {"id": "GET /v1/scans/",                     "status": "implemented", "implemented_in": "services/api/app/routers/scans.py",     "repo_line": 15, "auth": ["user"],       "service": "aca-api"},
-    {"id": "GET /v1/scans/{scan_id}",            "status": "implemented", "implemented_in": "services/api/app/routers/scans.py",     "repo_line": 25, "auth": ["user"],       "service": "aca-api"},
-    {"id": "POST /v1/scans/",                    "status": "implemented", "implemented_in": "services/api/app/routers/scans.py",     "repo_line": 40, "auth": ["user"],       "service": "aca-api"},
-    {"id": "POST /v1/auth/connect",              "status": "implemented", "implemented_in": "services/api/app/routers/auth.py",      "repo_line": 18, "auth": [],             "service": "aca-api"},
-    {"id": "POST /v1/auth/preflight",            "status": "implemented", "implemented_in": "services/api/app/routers/auth.py",      "repo_line": 45, "auth": ["user"],       "service": "aca-api"},
-    {"id": "POST /v1/auth/disconnect",           "status": "implemented", "implemented_in": "services/api/app/routers/auth.py",      "repo_line": 70, "auth": ["user"],       "service": "aca-api"},
-    {"id": "POST /v1/checkout/tier2",            "status": "implemented", "implemented_in": "services/api/app/routers/checkout.py",  "repo_line": 20, "auth": ["user"],       "service": "aca-api"},
-    {"id": "POST /v1/checkout/tier3",            "status": "implemented", "implemented_in": "services/api/app/routers/checkout.py",  "repo_line": 45, "auth": ["user"],       "service": "aca-api"},
-    {"id": "POST /v1/checkout/webhook",          "status": "implemented", "implemented_in": "services/api/app/routers/checkout.py",  "repo_line": 70, "auth": [],             "service": "aca-api"},
-    {"id": "GET /v1/checkout/entitlements",      "status": "implemented", "implemented_in": "services/api/app/routers/checkout.py",  "repo_line": 95, "auth": ["user"],       "service": "aca-api"},
-    {"id": "GET /v1/findings/{scan_id}",         "status": "implemented", "implemented_in": "services/api/app/routers/findings.py",  "repo_line": 15, "auth": ["user"],       "service": "aca-api"},
-    # stubs
-    {"id": "GET /v1/admin/kpis",                 "status": "stub", "implemented_in": "services/api/app/routers/admin.py",     "repo_line": 55,  "auth": ["ACA_Admin", "ACA_Support", "ACA_FinOps"], "service": "aca-api"},
-    {"id": "GET /v1/admin/customers",            "status": "stub", "implemented_in": "services/api/app/routers/admin.py",     "repo_line": 75,  "auth": ["ACA_Admin", "ACA_Support", "ACA_FinOps"], "service": "aca-api"},
-    {"id": "GET /v1/admin/runs",                 "status": "stub", "implemented_in": "services/api/app/routers/admin.py",     "repo_line": 95,  "auth": ["ACA_Admin", "ACA_Support", "ACA_FinOps"], "service": "aca-api"},
-    {"id": "POST /v1/admin/entitlements/grant",  "status": "stub", "implemented_in": "services/api/app/routers/admin.py",     "repo_line": 115, "auth": ["ACA_Admin", "ACA_Support"],               "service": "aca-api"},
-    {"id": "POST /v1/admin/subscriptions/{subscriptionId}/lock", "status": "stub", "implemented_in": "services/api/app/routers/admin.py", "repo_line": 135, "auth": ["ACA_Admin", "ACA_Support"], "service": "aca-api"},
-    {"id": "POST /v1/admin/stripe/reconcile",    "status": "stub", "implemented_in": "services/api/app/routers/admin.py",     "repo_line": 155, "auth": ["ACA_Admin"],                              "service": "aca-api"},
-    {"id": "POST /v1/collect/start",             "status": "stub", "implemented_in": "services/api/app/routers/collector.py", "repo_line": 10,  "auth": ["user"], "service": "aca-api"},
-    {"id": "GET /v1/collect/status",             "status": "stub", "implemented_in": "services/api/app/routers/collector.py", "repo_line": 30,  "auth": ["user"], "service": "aca-api"},
-    {"id": "GET /v1/reports/tier1",              "status": "stub", "implemented_in": "services/api/app/routers/findings.py",  "repo_line": 40,  "auth": ["user"], "service": "aca-api"},
-    {"id": "POST /v1/billing/checkout",          "status": "stub", "implemented_in": "services/api/app/routers/billing.py",   "repo_line": 10,  "auth": ["user"], "service": "aca-api"},
-    {"id": "GET /v1/billing/portal",             "status": "stub", "implemented_in": "services/api/app/routers/billing.py",   "repo_line": 30,  "auth": ["user"], "service": "aca-api"},
-    {"id": "POST /v1/webhooks/stripe",           "status": "stub", "implemented_in": "services/api/app/routers/webhooks.py",  "repo_line": 10,  "auth": [],       "service": "aca-api"},
-    {"id": "GET /v1/entitlements",               "status": "stub", "implemented_in": "services/api/app/routers/entitlements.py", "repo_line": 10, "auth": ["user"], "service": "aca-api"},
+    # --- implemented ---
+    {
+        "id": "GET /health",
+        "status": "implemented", "service": "aca-api",
+        "implemented_in": "services/api/app/routers/health.py", "repo_line": 10,
+        "auth": [], "cosmos_reads": [], "cosmos_writes": [],
+    },
+    {
+        "id": "GET /v1/admin/stats",
+        "status": "implemented", "service": "aca-api",
+        "implemented_in": "services/api/app/routers/admin.py", "repo_line": 12,
+        "auth": ["ACA_Admin"],
+        "cosmos_reads": ["scans", "clients"], "cosmos_writes": [],
+    },
+    {
+        "id": "DELETE /v1/admin/scans/{scan_id}",
+        "status": "implemented", "service": "aca-api",
+        "implemented_in": "services/api/app/routers/admin.py", "repo_line": 30,
+        "auth": ["ACA_Admin"],
+        "cosmos_reads": ["scans"], "cosmos_writes": ["scans", "admin_audit_events"],
+    },
+    {
+        "id": "GET /v1/scans/",
+        "status": "implemented", "service": "aca-api",
+        "implemented_in": "services/api/app/routers/scans.py", "repo_line": 15,
+        "auth": ["user"],
+        "cosmos_reads": ["scans"], "cosmos_writes": [],
+    },
+    {
+        "id": "GET /v1/scans/{scan_id}",
+        "status": "implemented", "service": "aca-api",
+        "implemented_in": "services/api/app/routers/scans.py", "repo_line": 25,
+        "auth": ["user"],
+        "cosmos_reads": ["scans"], "cosmos_writes": [],
+    },
+    {
+        "id": "POST /v1/scans/",
+        "status": "implemented", "service": "aca-api",
+        "implemented_in": "services/api/app/routers/scans.py", "repo_line": 40,
+        "auth": ["user"],
+        "cosmos_reads": ["clients"], "cosmos_writes": ["scans"],
+    },
+    {
+        "id": "POST /v1/auth/connect",
+        "status": "implemented", "service": "aca-api",
+        "implemented_in": "services/api/app/routers/auth.py", "repo_line": 18,
+        "auth": [],
+        "cosmos_reads": [], "cosmos_writes": ["clients"],
+    },
+    {
+        "id": "POST /v1/auth/preflight",
+        "status": "implemented", "service": "aca-api",
+        "implemented_in": "services/api/app/routers/auth.py", "repo_line": 45,
+        "auth": ["user"],
+        "cosmos_reads": ["clients"], "cosmos_writes": [],
+    },
+    {
+        "id": "POST /v1/auth/disconnect",
+        "status": "implemented", "service": "aca-api",
+        "implemented_in": "services/api/app/routers/auth.py", "repo_line": 70,
+        "auth": ["user"],
+        "cosmos_reads": [], "cosmos_writes": ["clients"],
+    },
+    {
+        "id": "POST /v1/checkout/tier2",
+        "status": "implemented", "service": "aca-api",
+        "implemented_in": "services/api/app/routers/checkout.py", "repo_line": 20,
+        "auth": ["user"],
+        "cosmos_reads": ["clients"], "cosmos_writes": ["entitlements", "payments"],
+    },
+    {
+        "id": "POST /v1/checkout/tier3",
+        "status": "implemented", "service": "aca-api",
+        "implemented_in": "services/api/app/routers/checkout.py", "repo_line": 45,
+        "auth": ["user"],
+        "cosmos_reads": ["clients"], "cosmos_writes": ["entitlements", "payments"],
+    },
+    {
+        "id": "POST /v1/checkout/webhook",
+        "status": "implemented", "service": "aca-api",
+        "implemented_in": "services/api/app/routers/checkout.py", "repo_line": 70,
+        "auth": [],
+        "cosmos_reads": ["stripe_customer_map"], "cosmos_writes": ["entitlements", "payments", "clients"],
+    },
+    {
+        "id": "GET /v1/checkout/entitlements",
+        "status": "implemented", "service": "aca-api",
+        "implemented_in": "services/api/app/routers/checkout.py", "repo_line": 95,
+        "auth": ["user"],
+        "cosmos_reads": ["entitlements", "clients"], "cosmos_writes": [],
+    },
+    {
+        "id": "GET /v1/findings/{scan_id}",
+        "status": "implemented", "service": "aca-api",
+        "implemented_in": "services/api/app/routers/findings.py", "repo_line": 15,
+        "auth": ["user"],
+        "cosmos_reads": ["findings", "clients"], "cosmos_writes": [],
+    },
+    # --- stubs ---
+    {
+        "id": "GET /v1/admin/kpis",
+        "status": "stub", "service": "aca-api",
+        "implemented_in": "services/api/app/routers/admin.py", "repo_line": 55,
+        "auth": ["ACA_Admin", "ACA_Support", "ACA_FinOps"],
+        "cosmos_reads": ["scans", "clients", "entitlements"], "cosmos_writes": [],
+    },
+    {
+        "id": "GET /v1/admin/customers",
+        "status": "stub", "service": "aca-api",
+        "implemented_in": "services/api/app/routers/admin.py", "repo_line": 75,
+        "auth": ["ACA_Admin", "ACA_Support", "ACA_FinOps"],
+        "cosmos_reads": ["clients"], "cosmos_writes": [],
+    },
+    {
+        "id": "GET /v1/admin/runs",
+        "status": "stub", "service": "aca-api",
+        "implemented_in": "services/api/app/routers/admin.py", "repo_line": 95,
+        "auth": ["ACA_Admin", "ACA_Support", "ACA_FinOps"],
+        "cosmos_reads": ["scans"], "cosmos_writes": [],
+    },
+    {
+        "id": "POST /v1/admin/entitlements/grant",
+        "status": "stub", "service": "aca-api",
+        "implemented_in": "services/api/app/routers/admin.py", "repo_line": 115,
+        "auth": ["ACA_Admin", "ACA_Support"],
+        "cosmos_reads": ["clients"], "cosmos_writes": ["entitlements", "admin_audit_events"],
+    },
+    {
+        "id": "POST /v1/admin/subscriptions/{subscriptionId}/lock",
+        "status": "stub", "service": "aca-api",
+        "implemented_in": "services/api/app/routers/admin.py", "repo_line": 135,
+        "auth": ["ACA_Admin", "ACA_Support"],
+        "cosmos_reads": ["clients"], "cosmos_writes": ["clients", "admin_audit_events"],
+    },
+    {
+        "id": "POST /v1/admin/stripe/reconcile",
+        "status": "stub", "service": "aca-api",
+        "implemented_in": "services/api/app/routers/admin.py", "repo_line": 155,
+        "auth": ["ACA_Admin"],
+        "cosmos_reads": ["payments", "entitlements"], "cosmos_writes": ["entitlements"],
+    },
+    {
+        "id": "POST /v1/collect/start",
+        "status": "stub", "service": "aca-api",
+        "implemented_in": "services/api/app/routers/collector.py", "repo_line": 10,
+        "auth": ["user"],
+        "cosmos_reads": ["clients"], "cosmos_writes": ["scans"],
+    },
+    {
+        "id": "GET /v1/collect/status",
+        "status": "stub", "service": "aca-api",
+        "implemented_in": "services/api/app/routers/collector.py", "repo_line": 30,
+        "auth": ["user"],
+        "cosmos_reads": ["scans"], "cosmos_writes": [],
+    },
+    {
+        "id": "GET /v1/reports/tier1",
+        "status": "stub", "service": "aca-api",
+        "implemented_in": "services/api/app/routers/findings.py", "repo_line": 40,
+        "auth": ["user"],
+        "cosmos_reads": ["findings", "clients"], "cosmos_writes": [],
+    },
+    {
+        "id": "POST /v1/billing/checkout",
+        "status": "stub", "service": "aca-api",
+        "implemented_in": "services/api/app/routers/billing.py", "repo_line": 10,
+        "auth": ["user"],
+        "cosmos_reads": ["clients"], "cosmos_writes": ["payments"],
+    },
+    {
+        "id": "GET /v1/billing/portal",
+        "status": "stub", "service": "aca-api",
+        "implemented_in": "services/api/app/routers/billing.py", "repo_line": 30,
+        "auth": ["user"],
+        "cosmos_reads": ["clients", "payments"], "cosmos_writes": [],
+    },
+    {
+        "id": "POST /v1/webhooks/stripe",
+        "status": "stub", "service": "aca-api",
+        "implemented_in": "services/api/app/routers/webhooks.py", "repo_line": 10,
+        "auth": [],
+        "cosmos_reads": ["stripe_customer_map"], "cosmos_writes": ["payments", "entitlements", "clients"],
+    },
+    {
+        "id": "GET /v1/entitlements",
+        "status": "stub", "service": "aca-api",
+        "implemented_in": "services/api/app/routers/entitlements.py", "repo_line": 10,
+        "auth": ["user"],
+        "cosmos_reads": ["entitlements", "clients"], "cosmos_writes": [],
+    },
 ]
 
-# Canonical Cosmos containers
+# Canonical Cosmos containers -- includes field-level schema.
+# fields drives impact analysis: changing a container shows which endpoints break.
 CONTAINER_DEFS = [
-    {"id": "scans",               "status": "active", "partition_key": "/subscriptionId", "description": "Scan lifecycle records"},
-    {"id": "inventories",         "status": "active", "partition_key": "/subscriptionId", "description": "Azure resource inventory snapshots"},
-    {"id": "cost-data",           "status": "active", "partition_key": "/subscriptionId", "description": "91-day daily cost rows"},
-    {"id": "advisor",             "status": "active", "partition_key": "/subscriptionId", "description": "Azure Advisor recommendations"},
-    {"id": "findings",            "status": "active", "partition_key": "/subscriptionId", "description": "Tiered analysis findings"},
-    {"id": "clients",             "status": "active", "partition_key": "/subscriptionId", "description": "Client entitlement and tier records"},
-    {"id": "entitlements",        "status": "active", "partition_key": "/subscriptionId", "description": "Stripe entitlement lifecycle"},
-    {"id": "payments",            "status": "active", "partition_key": "/subscriptionId", "description": "Stripe webhook audit trail"},
-    {"id": "deliverables",        "status": "active", "partition_key": "/subscriptionId", "description": "Tier 3 ZIP SAS URL records"},
-    {"id": "admin_audit_events",  "status": "active", "partition_key": "/subscriptionId", "description": "Admin action audit log"},
-    {"id": "stripe_customer_map", "status": "active", "partition_key": "/stripeCustomerId", "description": "stripeCustomerId -> subscriptionId map"},
+    {
+        "id": "scans", "status": "active", "partition_key": "/subscriptionId",
+        "description": "Scan lifecycle records",
+        "fields": ["id", "subscriptionId", "status", "started_at", "completed_at", "scan_type", "trigger"],
+    },
+    {
+        "id": "inventories", "status": "active", "partition_key": "/subscriptionId",
+        "description": "Azure resource inventory snapshots",
+        "fields": ["id", "subscriptionId", "scan_id", "resource_type", "resource_id", "resource_name", "location", "properties"],
+    },
+    {
+        "id": "cost-data", "status": "active", "partition_key": "/subscriptionId",
+        "description": "91-day daily cost rows",
+        "fields": ["id", "subscriptionId", "scan_id", "date", "service_name", "resource_id", "cost_usd", "currency"],
+    },
+    {
+        "id": "advisor", "status": "active", "partition_key": "/subscriptionId",
+        "description": "Azure Advisor recommendations",
+        "fields": ["id", "subscriptionId", "scan_id", "recommendation_id", "category", "impact", "short_description", "resource_id"],
+    },
+    {
+        "id": "findings", "status": "active", "partition_key": "/subscriptionId",
+        "description": "Tiered analysis findings",
+        "fields": ["id", "subscriptionId", "scan_id", "rule_id", "category", "title",
+                   "estimated_saving_low", "estimated_saving_high", "effort_class", "risk_class",
+                   "narrative", "deliverable_template_id"],
+    },
+    {
+        "id": "clients", "status": "active", "partition_key": "/subscriptionId",
+        "description": "Client entitlement and tier records",
+        "fields": ["id", "subscriptionId", "auth_mode", "status", "tier",
+                   "stripe_customer_id", "entra_tenant_id", "created_at", "last_scan_at"],
+    },
+    {
+        "id": "entitlements", "status": "active", "partition_key": "/subscriptionId",
+        "description": "Stripe entitlement lifecycle",
+        "fields": ["id", "subscriptionId", "tier", "stripe_session_id", "activated_at", "expires_at", "status"],
+    },
+    {
+        "id": "payments", "status": "active", "partition_key": "/subscriptionId",
+        "description": "Stripe webhook audit trail",
+        "fields": ["id", "subscriptionId", "stripe_event_id", "event_type", "amount", "currency", "created_at", "raw_payload"],
+    },
+    {
+        "id": "deliverables", "status": "active", "partition_key": "/subscriptionId",
+        "description": "Tier 3 ZIP SAS URL records",
+        "fields": ["id", "subscriptionId", "scan_id", "tier", "zip_blob_name", "sas_url", "sas_expires_at", "sha256"],
+    },
+    {
+        "id": "admin_audit_events", "status": "active", "partition_key": "/subscriptionId",
+        "description": "Admin action audit log",
+        "fields": ["id", "subscriptionId", "actor", "action", "target", "ts", "details"],
+    },
+    {
+        "id": "stripe_customer_map", "status": "active", "partition_key": "/stripeCustomerId",
+        "description": "stripeCustomerId -> subscriptionId map",
+        "fields": ["id", "stripeCustomerId", "subscriptionId", "created_at"],
+    },
 ]
 
-# Canonical screens (Spark pages)
+# Canonical screens -- api_calls and personas both wired.
+# personas links screens to the user types that drive each route.
 SCREEN_DEFS = [
-    {"id": "LoginPage",               "route": "/",                               "service": "aca-frontend", "api_calls": [], "auth_required": False},
-    {"id": "ConnectSubscriptionPage", "route": "/app/connect",                    "service": "aca-frontend", "api_calls": ["POST /v1/auth/connect", "POST /v1/auth/preflight"], "auth_required": True},
-    {"id": "CollectionStatusPage",    "route": "/app/status/:subscriptionId",     "service": "aca-frontend", "api_calls": ["POST /v1/collect/start", "GET /v1/collect/status"], "auth_required": True},
-    {"id": "FindingsTier1Page",       "route": "/app/findings/:subscriptionId",   "service": "aca-frontend", "api_calls": ["GET /v1/reports/tier1"], "auth_required": True},
-    {"id": "UpgradePage",             "route": "/app/upgrade/:subscriptionId",    "service": "aca-frontend", "api_calls": ["POST /v1/billing/checkout"], "auth_required": True},
-    {"id": "AdminDashboardPage",      "route": "/admin/dashboard",                "service": "aca-frontend", "api_calls": ["GET /v1/admin/kpis"], "auth_required": True},
-    {"id": "AdminCustomersPage",      "route": "/admin/customers",                "service": "aca-frontend", "api_calls": ["GET /v1/admin/customers"], "auth_required": True},
-    {"id": "AdminBillingPage",        "route": "/admin/billing",                  "service": "aca-frontend", "api_calls": ["POST /v1/admin/stripe/reconcile", "GET /v1/billing/portal"], "auth_required": True},
-    {"id": "AdminRunsPage",           "route": "/admin/runs",                     "service": "aca-frontend", "api_calls": ["GET /v1/admin/runs"], "auth_required": True},
-    {"id": "AdminControlsPage",       "route": "/admin/controls",                 "service": "aca-frontend", "api_calls": ["POST /v1/admin/entitlements/grant", "POST /v1/admin/subscriptions/{subscriptionId}/lock"], "auth_required": True},
+    {
+        "id": "LoginPage", "route": "/", "service": "aca-frontend",
+        "api_calls": [], "personas": [], "auth_required": False,
+    },
+    {
+        "id": "ConnectSubscriptionPage", "route": "/app/connect", "service": "aca-frontend",
+        "api_calls": ["POST /v1/auth/connect", "POST /v1/auth/preflight"],
+        "personas": ["tier1-user", "tier2-user", "tier3-user"], "auth_required": True,
+    },
+    {
+        "id": "CollectionStatusPage", "route": "/app/status/:subscriptionId", "service": "aca-frontend",
+        "api_calls": ["POST /v1/collect/start", "GET /v1/collect/status"],
+        "personas": ["tier1-user", "tier2-user", "tier3-user"], "auth_required": True,
+    },
+    {
+        "id": "FindingsTier1Page", "route": "/app/findings/:subscriptionId", "service": "aca-frontend",
+        "api_calls": ["GET /v1/reports/tier1"],
+        "personas": ["tier1-user"], "auth_required": True,
+    },
+    {
+        "id": "UpgradePage", "route": "/app/upgrade/:subscriptionId", "service": "aca-frontend",
+        "api_calls": ["POST /v1/billing/checkout"],
+        "personas": ["tier1-user"], "auth_required": True,
+    },
+    {
+        "id": "AdminDashboardPage", "route": "/admin/dashboard", "service": "aca-frontend",
+        "api_calls": ["GET /v1/admin/kpis"],
+        "personas": ["aca-admin"], "auth_required": True,
+    },
+    {
+        "id": "AdminCustomersPage", "route": "/admin/customers", "service": "aca-frontend",
+        "api_calls": ["GET /v1/admin/customers"],
+        "personas": ["aca-admin"], "auth_required": True,
+    },
+    {
+        "id": "AdminBillingPage", "route": "/admin/billing", "service": "aca-frontend",
+        "api_calls": ["POST /v1/admin/stripe/reconcile", "GET /v1/billing/portal"],
+        "personas": ["aca-admin"], "auth_required": True,
+    },
+    {
+        "id": "AdminRunsPage", "route": "/admin/runs", "service": "aca-frontend",
+        "api_calls": ["GET /v1/admin/runs"],
+        "personas": ["aca-admin"], "auth_required": True,
+    },
+    {
+        "id": "AdminControlsPage", "route": "/admin/controls", "service": "aca-frontend",
+        "api_calls": ["POST /v1/admin/entitlements/grant", "POST /v1/admin/subscriptions/{subscriptionId}/lock"],
+        "personas": ["aca-admin"], "auth_required": True,
+    },
 ]
 
 # Canonical services
@@ -454,6 +706,87 @@ PERSONA_DEFS = [
     {"id": "tier2-user",   "label": "Tier 2 User (Paid Monthly)",  "tier": "tier2", "features": ["findings_summary", "narrative", "evidence"]},
     {"id": "tier3-user",   "label": "Tier 3 User (One-time)",      "tier": "tier3", "features": ["findings_summary", "narrative", "evidence", "iac_deliverable"]},
     {"id": "aca-admin",    "label": "ACA Admin",                   "tier": "admin", "features": ["admin_dashboard", "customer_mgmt", "billing_mgmt", "controls"]},
+]
+
+# Canonical frontend hooks (React 19 + Fluent UI v9)
+# calls_endpoints links hooks to the endpoints they consume -- drives impact analysis
+# when an endpoint signature changes.
+HOOK_DEFS = [
+    {
+        "id": "useFindings",
+        "label": "useFindings",
+        "service": "aca-frontend",
+        "repo_path": "frontend/src/hooks/useFindings.ts",
+        "calls_endpoints": ["GET /v1/findings/{scan_id}", "GET /v1/reports/tier1"],
+        "used_by_screens": ["FindingsTier1Page"],
+        "status": "stub", "is_active": True,
+    },
+    {
+        "id": "useScanStatus",
+        "label": "useScanStatus",
+        "service": "aca-frontend",
+        "repo_path": "frontend/src/hooks/useScanStatus.ts",
+        "calls_endpoints": ["POST /v1/collect/start", "GET /v1/collect/status", "GET /v1/scans/{scan_id}"],
+        "used_by_screens": ["CollectionStatusPage"],
+        "status": "stub", "is_active": True,
+    },
+    {
+        "id": "useCheckout",
+        "label": "useCheckout",
+        "service": "aca-frontend",
+        "repo_path": "frontend/src/hooks/useCheckout.ts",
+        "calls_endpoints": ["POST /v1/checkout/tier2", "POST /v1/checkout/tier3", "GET /v1/checkout/entitlements"],
+        "used_by_screens": ["UpgradePage"],
+        "status": "stub", "is_active": True,
+    },
+]
+
+# Canonical feature flags -- tier gating map.
+# personas lists which personas can access the flag-gated feature.
+FEATURE_FLAG_DEFS = [
+    {
+        "id": "tier1_report",
+        "label": "Tier 1 Report",
+        "description": "Show summarized savings opportunities (no narrative, no IaC)",
+        "personas": ["tier1-user", "tier2-user", "tier3-user"],
+        "status": "active", "is_active": True,
+    },
+    {
+        "id": "tier2_narrative",
+        "label": "Tier 2 Narrative",
+        "description": "Show full narrative + evidence for each finding",
+        "personas": ["tier2-user", "tier3-user"],
+        "status": "active", "is_active": True,
+    },
+    {
+        "id": "tier3_deliverable",
+        "label": "Tier 3 IaC Deliverable",
+        "description": "Generate and download ZIP IaC package",
+        "personas": ["tier3-user"],
+        "status": "active", "is_active": True,
+    },
+    {
+        "id": "admin_dashboard",
+        "label": "Admin Dashboard",
+        "description": "ACA internal admin controls -- KPIs, customers, billing, locks",
+        "personas": ["aca-admin"],
+        "status": "active", "is_active": True,
+    },
+]
+
+# Phase 1 infrastructure -- reused marco* resources (EsDAICoE-Sandbox, canadacentral).
+# resource_type uses Azure provider notation for consistency.
+INFRASTRUCTURE_DEFS = [
+    {"id": "marco-sandbox-cosmos",      "label": "Cosmos DB",            "resource_type": "Microsoft.DocumentDB/databaseAccounts", "region": "canadacentral", "phase": 1, "status": "active",  "is_active": True, "notes": "ACA DB: aca-db -- 11 containers, partition=/subscriptionId"},
+    {"id": "marco-sandbox-apim",        "label": "API Management",       "resource_type": "Microsoft.ApiManagement/service",        "region": "canadacentral", "phase": 1, "status": "active",  "is_active": True, "notes": "ACA product + subscription key policy"},
+    {"id": "marco-sandbox-openai-v2",   "label": "Azure OpenAI",         "resource_type": "Microsoft.CognitiveServices/accounts",   "region": "canadaeast",    "phase": 1, "status": "active",  "is_active": True, "notes": "GPT-4o deployment for analysis LLM"},
+    {"id": "marco-sandbox-foundry",     "label": "Azure AI Foundry",     "resource_type": "Microsoft.CognitiveServices/accounts",   "region": "canadaeast",    "phase": 1, "status": "active",  "is_active": True, "notes": "29-foundry agent orchestration project"},
+    {"id": "marcosandacr20260203",       "label": "Container Registry",   "resource_type": "Microsoft.ContainerRegistry/registries", "region": "canadacentral", "phase": 1, "status": "active",  "is_active": True, "notes": "ACA container images pushed here"},
+    {"id": "marcosandkv20260203",        "label": "Key Vault",            "resource_type": "Microsoft.KeyVault/vaults",              "region": "canadacentral", "phase": 1, "status": "active",  "is_active": True, "notes": "Secrets: ACA-CLIENT-ID, ACA-OPENAI-KEY, ACA-COSMOS-CONN, STRIPE-*"},
+    {"id": "marco-sandbox-appinsights",  "label": "Application Insights", "resource_type": "Microsoft.Insights/components",          "region": "canadacentral", "phase": 1, "status": "active",  "is_active": True, "notes": "Observability for all ACA services"},
+    {"id": "marcosand20260203",          "label": "Storage Account",      "resource_type": "Microsoft.Storage/storageAccounts",      "region": "canadacentral", "phase": 1, "status": "active",  "is_active": True, "notes": "Tier 3 ZIP blob storage + SAS URL delivery"},
+    {"id": "marcosandboxfinopshub",      "label": "FinOps Hub Storage",   "resource_type": "Microsoft.Storage/storageAccounts",      "region": "canadacentral", "phase": 1, "status": "active",  "is_active": True, "notes": "91-day cost export landing zone"},
+    {"id": "marco-sandbox-finops-adf",   "label": "Data Factory",         "resource_type": "Microsoft.DataFactory/factories",        "region": "canadacentral", "phase": 1, "status": "active",  "is_active": True, "notes": "Cost ingestion pipeline -- already working"},
 ]
 
 
@@ -550,6 +883,27 @@ def model_reseed(epics: dict, dry_run: bool = False) -> dict:
         if model_post("personas", p, dry_run):
             n += 1
     counts["personas"] = n
+
+    # -- hooks --
+    n = 0
+    for h in HOOK_DEFS:
+        if model_post("hooks", h, dry_run):
+            n += 1
+    counts["hooks"] = n
+
+    # -- feature_flags --
+    n = 0
+    for ff in FEATURE_FLAG_DEFS:
+        if model_post("feature_flags", ff, dry_run):
+            n += 1
+    counts["feature_flags"] = n
+
+    # -- infrastructure --
+    n = 0
+    for infra in INFRASTRUCTURE_DEFS:
+        if model_post("infrastructure", infra, dry_run):
+            n += 1
+    counts["infrastructure"] = n
 
     # -- requirements: seed every story as a requirement object --
     n = 0

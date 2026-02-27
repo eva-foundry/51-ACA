@@ -1,27 +1,17 @@
 {
   "meta": {
     "schema": "eva.reconciliation.v2",
-    "generated_at": "2026-02-27T17:33:13.660Z",
+    "generated_at": "2026-02-27T18:42:09.720Z",
     "repo": "C:\\AICOE\\eva-foundry\\51-ACA",
     "discovery_path": "C:\\AICOE\\eva-foundry\\51-ACA\\.eva\\discovery.json"
   },
   "coverage": {
     "stories_total": 257,
-    "stories_with_artifacts": 256,
+    "stories_with_artifacts": 257,
     "stories_with_evidence": 257,
     "consistency_score": 1
   },
   "features": [
-    {
-      "id": "ACA-14",
-      "title": "DPDCA CLOUD AGENT",
-      "story_count": 14,
-      "stories_with_artifacts": 13,
-      "stories_with_evidence": 14,
-      "consistency_score": 1,
-      "mti": 96,
-      "gap_count": 1
-    },
     {
       "id": "ACA-01",
       "title": "FOUNDATION AND INFRASTRUCTURE",
@@ -151,14 +141,19 @@
       "consistency_score": 1,
       "mti": 100,
       "gap_count": 0
+    },
+    {
+      "id": "ACA-14",
+      "title": "DPDCA CLOUD AGENT",
+      "story_count": 14,
+      "stories_with_artifacts": 14,
+      "stories_with_evidence": 14,
+      "consistency_score": 1,
+      "mti": 100,
+      "gap_count": 0
     }
   ],
   "gaps": [
-    {
-      "type": "missing_implementation",
-      "story_id": "ACA-12-021",
-      "title": "Create missing spec docs in docs/"
-    },
     {
       "type": "orphan_story_tag",
       "story_id": "ACA-XX-XXX",
