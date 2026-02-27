@@ -1,0 +1,72 @@
+# EVA-STORY: ACA-14-006
+# copilot-setup-steps.yml
+#
+# GitHub Copilot coding agent pre-install workflow.
+# Runs automatically before every Copilot agent session in this repo.
+# Installs all Python and npm dependencies so the agent does not need to
+# run pip/npm install mid-session (which fails in ephemeral envs without caching).
+#
+# Reference: https://docs.github.com/en/copilot/concepts/agents/coding-agent
+# Job name MUST be "copilot-setup-steps" -- GitHub looks for this exact name.
+
+name: Copilot Setup Steps
+
+on:
+  workflow_dispatch:
+
+jobs:
+  copilot-setup-steps:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # -----------------------------------------------------------------
+      # Python -- all 4 service requirements + test/lint tooling
+      # -----------------------------------------------------------------
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install Python tooling
+        run: pip install --quiet ruff mypy pytest pytest-asyncio httpx openai
+
+      - name: Install services/api dependencies
+        run: pip install --quiet -r services/api/requirements.txt
+
+      - name: Install services/collector dependencies
+        run: pip install --quiet -r services/collector/requirements.txt
+
+      - name: Install services/analysis dependencies
+        run: pip install --quiet -r services/analysis/requirements.txt
+
+      - name: Install services/delivery dependencies
+        run: pip install --quiet -r services/delivery/requirements.txt
+
+      - name: Install data-model dependencies
+        run: pip install --quiet fastapi uvicorn aiosqlite 2>/dev/null || true
+
+      # -----------------------------------------------------------------
+      # Node / frontend
+      # -----------------------------------------------------------------
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install frontend dependencies
+        working-directory: frontend
+        run: npm ci --prefer-offline 2>/dev/null || npm install
+
+      # -----------------------------------------------------------------
+      # Smoke check -- confirm pytest can collect without env vars
+      # -----------------------------------------------------------------
+      - name: Verify pytest collects without errors
+        env:
+          PYTHONPATH: ".:services/api"
+        run: pytest services/ --collect-only -q 2>&1 | tail -5
