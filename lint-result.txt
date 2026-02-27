@@ -1860,3 +1860,120 @@ UP017 [*] Use `datetime.UTC` alias
 71 |             account_name=self.storage_account,
    |
 help: Convert to `datetime.UTC` alias
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> services/tests/test_checkout_router.py:2:1
+  |
+1 |   # EVA-STORY: ACA-03-033
+2 | / import pytest
+3 | | import sys
+4 | | import os
+  | |_________^
+5 |
+6 |   sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "api"))
+  |
+help: Organize imports
+
+F401 [*] `pytest` imported but unused
+ --> services/tests/test_checkout_router.py:2:8
+  |
+1 | # EVA-STORY: ACA-03-033
+2 | import pytest
+  |        ^^^^^^
+3 | import sys
+4 | import os
+  |
+help: Remove unused import: `pytest`
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> services/tests/test_checkout_router.py:7:1
+  |
+6 | sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "api"))
+7 | from app.routers.checkout import router
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+8 |
+9 | def test_checkout_router_routes():
+  |
+help: Organize imports
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> services/tests/test_entitlement_revoke.py:2:1
+  |
+1 |   # EVA-STORY: ACA-03-033
+2 | / import pytest
+3 | | from unittest.mock import MagicMock
+4 | | from services.api.app.services.entitlement_service import EntitlementService
+  | |____________________________________________________________________________^
+5 |
+6 |   def test_revoke_tier3_preserved():
+  |
+help: Organize imports
+
+F401 [*] `pytest` imported but unused
+ --> services/tests/test_entitlement_revoke.py:2:8
+  |
+1 | # EVA-STORY: ACA-03-033
+2 | import pytest
+  |        ^^^^^^
+3 | from unittest.mock import MagicMock
+4 | from services.api.app.services.entitlement_service import EntitlementService
+  |
+help: Remove unused import: `pytest`
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> services/tests/test_findings_gate.py:2:1
+  |
+1 |   # EVA-STORY: ACA-03-033
+2 | / import pytest
+3 | | from services.analysis.app.findings import gate_findings, TIER1_FIELDS, TIER2_FIELDS
+  | |____________________________________________________________________________________^
+4 |
+5 |   def test_gate_findings_tier1():
+  |
+help: Organize imports
+
+F401 [*] `pytest` imported but unused
+ --> services/tests/test_findings_gate.py:2:8
+  |
+1 | # EVA-STORY: ACA-03-033
+2 | import pytest
+  |        ^^^^^^
+3 | from services.analysis.app.findings import gate_findings, TIER1_FIELDS, TIER2_FIELDS
+  |
+help: Remove unused import: `pytest`
+
+F401 [*] `services.analysis.app.findings.TIER2_FIELDS` imported but unused
+ --> services/tests/test_findings_gate.py:3:73
+  |
+1 | # EVA-STORY: ACA-03-033
+2 | import pytest
+3 | from services.analysis.app.findings import gate_findings, TIER1_FIELDS, TIER2_FIELDS
+  |                                                                         ^^^^^^^^^^^^
+4 |
+5 | def test_gate_findings_tier1():
+  |
+help: Remove unused import: `services.analysis.app.findings.TIER2_FIELDS`
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> services/tests/test_packager_sas.py:2:1
+  |
+1 |   # EVA-STORY: ACA-03-033
+2 | / import pytest
+3 | | import inspect
+4 | | from services.delivery.app.packager import SAS_HOURS, Packager
+  | |______________________________________________________________^
+5 |
+6 |   def test_sas_hours_constant():
+  |
+help: Organize imports
+
+F401 [*] `pytest` imported but unused
+ --> services/tests/test_packager_sas.py:2:8
+  |
+1 | # EVA-STORY: ACA-03-033
+2 | import pytest
+  |        ^^^^^^
+3 | import inspect
+4 | from services.delivery.app.packager import SAS_HOURS, Packager
+  |
+help: Remove unused import: `pytest`
