@@ -475,6 +475,23 @@ Working through {len(stories)} stories in sequence. Progress comments will follo
 
     # Post final summary comment
     _gh_comment(issue, repo, summary)
+
+    # Open PR
+    try:
+        pr_result = _run([
+            "gh", "pr", "create",
+            "--repo", repo,
+            "--title", f"fix({sprint_id}): {manifest.get('sprint_title', '')}",
+            "--body", summary,
+            "--base", "main",
+            "--head", branch,
+        ])
+        pr_url = pr_result.stdout.strip()
+        print(f"[INFO] PR created: {pr_url}")
+        _gh_comment(issue, repo, f"PR opened: {pr_url}")
+    except Exception as exc:
+        print(f"[WARN] PR creation failed: {exc}")
+
     print(f"\n[PASS] Sprint {sprint_id} complete -- {sum(1 for r in results if r['status']=='DONE')}/{len(results)} stories done")
 
 
