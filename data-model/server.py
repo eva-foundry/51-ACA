@@ -1,6 +1,6 @@
 """
 ACA local data model -- FastAPI HTTP server (port 8055).
-Exposes the same REST shape as 37-data-model so Veritas works unchanged.
+Standalone server for 51-ACA. Exposes REST shape compatible with Veritas audit.
 Backed by SQLite via db.py -- persists across restarts.
 
 Start: pwsh -File start.ps1
@@ -56,7 +56,7 @@ def ready():
 
 
 # ---------------------------------------------------------------------------
-# Agent helpers (matching 37-data-model shape)
+# Agent helpers
 # ---------------------------------------------------------------------------
 
 @app.get("/model/agent-summary")
@@ -166,7 +166,7 @@ def delete_object(
 
 
 # ---------------------------------------------------------------------------
-# Endpoint filter (special route matching 37-data-model)
+# Endpoint filter (special route for status-based filtering)
 # ---------------------------------------------------------------------------
 
 @app.get("/model/endpoints/filter")

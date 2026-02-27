@@ -139,10 +139,10 @@ def load_context(out_path: str) -> None:
 def _build_endpoint_table() -> str:
     """Embed the known data model endpoint table as context.
 
-    Truth source: GET http://localhost:8055/model/endpoints/ (port 8055 local,
-    or https://marco-eva-data-model.livelyflower-7990bc7b.canadacentral.azurecontainerapps.io
-    for cloud agents). Table below is a snapshot -- may drift from live model.
-    Cloud agents: query the ACA endpoint before reviewing if accuracy is needed.
+    Truth source: GET http://localhost:8055/model/endpoints/ (local dev, port 8055).
+    Or import data-model/db.py directly in cloud agent context (no HTTP server needed).
+    Table below is a snapshot -- may drift from live model.
+    Refresh: python -c "import sys; sys.path.insert(0,'data-model'); import db; print(db.list_layer('endpoints'))"
     """
     return textwrap.dedent("""
 === DATA MODEL ENDPOINT TABLE (snapshot -- check live model for authoritative state) ===

@@ -618,9 +618,9 @@ DEPENDENCIES
 
 D1  14-az-finops -- saving-opportunities.md (seeded all 12 rules)
 D2  18-azure-best -- 11-module playbook (infra patterns, APIM, Terraform)
-D3  29-foundry -- agent framework (collection, analysis, generation, redteam agents)
-D4  31-eva-faces -- Fluent UI v9 patterns (frontend component patterns)
-D5  37-data-model -- shared EVA data model API code (services/api, port 8011)
+D3  Azure AI Foundry Agent SDK -- AI agent framework for analysis agents (collection, analysis, generation, redteam)
+D4  Fluent UI v9 -- Microsoft component library for React 19 frontend (npm package, no EVA dependency)
+D5  REMOVED -- 51-ACA has its own standalone data model (data-model/); no dependency on any shared EVA model
 D6  48-eva-veritas -- traceability (audit_repo gates trust score)
 D7  Stripe account (marco production) -- needed before M1.5
 D8  Google Analytics 4 property ID (existing marco account) -- needed at M2.0

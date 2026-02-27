@@ -135,7 +135,9 @@ CLOUD AGENT BOOTSTRAP (run in this order, every session)
    docs/<relevant-spec>.md  (see SPEC DOCUMENTS section below)
 
 2. Query the data model for endpoint/container/screen details:
-   GET https://marco-eva-data-model.livelyflower-7990bc7b.canadacentral.azurecontainerapps.io/model/endpoints/
+   51-ACA has its own standalone data model -- do NOT use any external EVA endpoint.
+   Local: GET http://localhost:8055/model/endpoints/
+   Cloud agents: import data-model/db.py directly from the repo checkout (see CA.4 in copilot-instructions.md).
    Filter to the endpoint(s) this story implements.
    Read .implemented_in and .repo_line to find existing stubs.
    Never grep for something the model already knows.

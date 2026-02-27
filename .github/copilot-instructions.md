@@ -725,13 +725,13 @@ az deployment group create \
 
 ### P2.7 Data Model Notes
 
-51-ACA owns its data model completely.
+51-ACA owns its data model completely. No dependency on any external EVA data model.
 - **Local**: SQLite at `data-model/aca-model.db`, served via `data-model/server.py` on port 8055
-- **Cloud agents**: Use `https://marco-eva-data-model.livelyflower-7990bc7b.canadacentral.azurecontainerapps.io` (Cosmos-backed)
+- **Cloud agents (GitHub Actions)**: import `data-model/db.py` directly from the checked-out repo -- no HTTP server needed
 - **Rebuild**: `python scripts/seed-from-plan.py --reseed-model` -- wipes + reseeds all layers from PLAN.md
 - **Quick query**: `python -c "import sys; sys.path.insert(0,'data-model'); import db; print(db.total_active(), db.count_all())"`
 - The seed script imports `data-model/db.py` directly -- no HTTP call needed for seeding
-- Register ACA services in the SHARED EVA data model (37-data-model) only at Phase 1 go-live
+- Phase 2: deploy `data-model/server.py` as a separate ACA container for 51-ACA exclusively (no shared EVA endpoint)
 
 ---
 
@@ -823,27 +823,33 @@ After all sprint issues are merged, post a sprint summary comment on the
 sprint planning issue with: stories merged, FP delivered, MTI score, test count,
 next sprint recommendation. Do NOT start next sprint without human confirmation.
 
-### CA.4 Data Model API (same as PART 1 Section 3, adapted for cloud agents)
+### CA.4 Data Model API (51-ACA standalone -- no shared EVA endpoint)
 
-Cloud agents cannot run the local data model on port 8055.
-Use the ACA endpoint (Cosmos-backed, always up, no auth required):
+51-ACA has its own data model. Do NOT use any external EVA data model URL.
 
+**Local dev (port 8055):**
 ```
-base = "https://marco-eva-data-model.livelyflower-7990bc7b.canadacentral.azurecontainerapps.io"
+base = "http://localhost:8055"
+```
+
+**Cloud agents (GitHub Actions):** Import db.py directly from the checked-out repo:
+```python
+import sys, os
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '../../data-model'))
+import db
+endpoints = db.list_layer("endpoints")
+ep = db.get_object("endpoints", "GET /v1/scans")
 ```
 
 Before implementing any endpoint, fetch its model record:
+```python
+ep = db.get_object("endpoints", "GET /v1/scans/")
+# Read: ep["status"] (must be "stub"), ep["implemented_in"], ep["repo_line"]
 ```
-GET {base}/model/endpoints/{METHOD /path}
-```
-Read: .status (must be "stub" to implement), .implemented_in, .repo_line,
-.cosmos_reads, .cosmos_writes, .auth, .feature_flag
 
-After implementing, PUT the model record to mark it "implemented":
-```
-PUT {base}/model/endpoints/{METHOD /path}
-Body: full object with status="implemented", implemented_in=<path>, repo_line=<int>
-Header: X-Actor: agent:copilot
+After implementing, update the record:
+```python
+db.put_object("endpoints", "GET /v1/scans/", {**ep, "status": "implemented", "implemented_in": "services/api/app/routers/scans.py", "repo_line": 42})
 ```
 
 ### CA.5 Veritas Integration
