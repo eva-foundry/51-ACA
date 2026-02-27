@@ -1032,6 +1032,19 @@ def main():
         if not args.dry_run and USE_SQLITE:
             live_total = _db.total_active()
             print(f"[PASS] Model seeded: {total} objects written | DB active total: {live_total}")
+            # Re-apply endpoint schemas so --reseed-model preserves them
+            try:
+                import importlib.util
+                _spec = importlib.util.spec_from_file_location(
+                    "put_schemas",
+                    os.path.join(os.path.dirname(__file__), "put-schemas.py"),
+                )
+                _ps = importlib.util.module_from_spec(_spec)
+                _spec.loader.exec_module(_ps)
+                _ps.main()
+                print("[PASS] Endpoint schemas re-applied via put-schemas.py")
+            except Exception as _e:
+                print(f"[WARN] Could not re-apply schemas: {_e}")
         else:
             print(f"[PASS] Model seeded: {total} total objects")
 
