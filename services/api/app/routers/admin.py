@@ -15,7 +15,7 @@ Legacy (kept for backward compat):
   DELETE /scans/{scan_id}
 """
 import uuid
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from typing import Optional
 
 from fastapi import APIRouter, Depends, HTTPException, Query
@@ -23,6 +23,8 @@ from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from pydantic import BaseModel
 
 from app.db.cosmos import upsert_item, query_items, get_container
+from app.db.repos.admin_audit_repo import AdminAuditRepo
+from app.db.repos.entitlements_repo import EntitlementsRepo
 
 router = APIRouter(tags=["admin"])
 security = HTTPBearer()
@@ -83,27 +85,15 @@ class AdminRunsResponse(BaseModel):
 
 
 # ---------------------------------------------------------------------------
-# Audit helper
+# Repo singletons (lazy init; safe to construct per-request in absence of DI)
 # ---------------------------------------------------------------------------
 
-def _write_audit(action: str, payload: dict, actor: str = "admin") -> None:
-    """Write an admin_audit_events record. Non-blocking best-effort."""
-    try:
-        event_id = f"aae::{uuid.uuid4()}"
-        subscription_id = payload.get("subscriptionId", "system")
-        upsert_item(
-            "admin_audit_events",
-            {
-                "id": event_id,
-                "subscriptionId": subscription_id,
-                "action": action,
-                "actor": actor,
-                "payload": payload,
-                "timestampUtc": datetime.now(timezone.utc).isoformat(),
-            },
-        )
-    except Exception:  # noqa: BLE001
-        pass  # Audit write failure must never block the primary operation
+def _audit_repo() -> AdminAuditRepo:
+    return AdminAuditRepo()
+
+
+def _ent_repo() -> EntitlementsRepo:
+    return EntitlementsRepo()
 
 
 # ---------------------------------------------------------------------------
@@ -143,12 +133,27 @@ async def grant_entitlement(
 ):
     """
     Override entitlement for a subscription (support + admin use).
-    Writes an ENTITLEMENT_GRANTED audit event.
+    Upserts an entitlement record and writes an ENTITLEMENT_GRANTED audit event.
     """
-    # TODO: upsert entitlement doc in entitlements container
-    _write_audit(
-        action="ENTITLEMENT_GRANTED",
-        payload=req.model_dump(),
+    actor = creds.credentials[:8] + "..."
+    expires_utc = (
+        datetime.now(timezone.utc) + timedelta(days=req.durationDays)
+    ).isoformat() if req.durationDays > 0 else ""
+
+    ent = _ent_repo()
+    ent.upsert(
+        subscription_id=req.subscriptionId,
+        tier=req.tier,  # type: ignore[arg-type]
+        payment_status="active",
+        source="admin_grant",
+        expires_utc=expires_utc,
+    )
+
+    _audit_repo().write(
+        event_type="ENTITLEMENT_GRANTED",
+        subscription_id=req.subscriptionId,
+        actor=actor,
+        details=req.model_dump(),
     )
     return {"subscriptionId": req.subscriptionId, "tier": req.tier, "status": "granted"}
 
@@ -167,10 +172,15 @@ async def lock_subscription(
     Set isLocked=true on the entitlement record.
     Writes a SUBSCRIPTION_LOCKED audit event.
     """
-    # TODO: update entitlement record isLocked field
-    _write_audit(
-        action="SUBSCRIPTION_LOCKED",
-        payload={"subscriptionId": subscription_id, "reason": req.reason},
+    actor = creds.credentials[:8] + "..."
+
+    _ent_repo().set_locked(subscription_id, locked=True, reason=req.reason)
+
+    _audit_repo().write(
+        event_type="SUBSCRIPTION_LOCKED",
+        subscription_id=subscription_id,
+        actor=actor,
+        details={"subscriptionId": subscription_id, "reason": req.reason},
     )
     return {"subscriptionId": subscription_id, "isLocked": True}
 
@@ -187,9 +197,13 @@ async def reconcile_stripe(creds: HTTPAuthorizationCredentials = Depends(securit
     Writes a STRIPE_RECONCILE audit event.
     """
     job_id = str(uuid.uuid4())
-    _write_audit(
-        action="STRIPE_RECONCILE",
-        payload={"jobId": job_id},
+    actor = creds.credentials[:8] + "..."
+
+    _audit_repo().write(
+        event_type="STRIPE_RECONCILE",
+        subscription_id="system",
+        actor=actor,
+        details={"jobId": job_id},
     )
     # TODO: enqueue job via Azure Storage Queue or Container Apps Job trigger
     return AdminJobAccepted(jobId=job_id)

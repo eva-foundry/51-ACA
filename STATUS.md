@@ -1,10 +1,10 @@
 ACA -- Azure Cost Advisor -- STATUS
 ====================================
 
-Version: 0.7.0
-Updated: 2026-02-26 (updated: Epic 6 billing layer -- repos, services, full checkout.py; Veritas MTI 0->50)
+Version: 0.8.0
+Updated: 2026-02-26 (updated: Epic 6 COMPLETE; GitHub cloud agent framework: AGENTS.md, devcontainer, issue/PR templates, ci.yml multi-job)
 Phase: Phase 1 -- Core Services Bootstrap
-Active Epic: Epic 6 (Billing/Stripe -- repos+services done, checkout full), Epic 7 (Delivery templates), Epic 9 (i18n/a11y completion)
+Active Epic: Epic 7 (Delivery templates), Epic 9 (i18n/a11y completion)
 
 =============================================================================
 CURRENT STATE (2026-02-26)
@@ -179,7 +179,19 @@ Epic 6 -- Billing (Stripe)
   [PASS] cosmos.py CONTAINERS updated: +entitlements, +payments, +stripe_customer_map,
            +admin_audit_events; clients PK fixed to /subscriptionId
   [PASS] Import check: all 9 new modules import clean (stripe 14.4.0)
-  [ ] admin_audit_repo wired into admin.py grant/lock/reconcile endpoints
+  [PASS] admin_audit_repo + entitlements_repo wired into admin.py:
+           grant_entitlement (upsert + ENTITLEMENT_GRANTED audit)
+           lock_subscription (set_locked + SUBSCRIPTION_LOCKED audit)
+           reconcile_stripe  (STRIPE_RECONCILE audit)
+  [PASS] entitlements_repo: added is_locked param to upsert + set_locked() method
+
+GitHub Cloud Agent Framework
+  [PASS] AGENTS.md -- agent contract: non-negotiable rules, DPDCA loop, spec doc map
+  [PASS] .devcontainer/devcontainer.json -- Python 3.12 + Node 20 + Azure CLI + gh CLI
+  [PASS] .devcontainer/on-create.sh -- installs all deps + smoke test on Codespaces create
+  [PASS] .github/ISSUE_TEMPLATE/agent-task.yml -- structured template for agent-assignable tasks
+  [PASS] .github/pull_request_template.md -- PR checklist with test evidence + story link
+  [PASS] .github/workflows/ci.yml -- 3 jobs: lint-and-test, frontend-build, agent-preflight
 
 Epic 7 -- Delivery Templates
   [ ] 12 Jinja2 template folders in services/delivery/app/templates/{tmpl-id}/

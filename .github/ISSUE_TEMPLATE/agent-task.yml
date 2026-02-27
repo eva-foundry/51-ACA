@@ -1,0 +1,90 @@
+name: Agent Task
+description: A well-scoped task suitable for assignment to a GitHub Copilot coding agent or other AI agent.
+title: "[AGENT] <story-id>: <short description>"
+labels: ["agent-task"]
+assignees: []
+body:
+  - type: input
+    id: story_id
+    attributes:
+      label: Story ID
+      description: The ACA story ID this task implements (e.g. ACA-SCANS-001).
+      placeholder: ACA-XXXX-001
+    validations:
+      required: true
+
+  - type: dropdown
+    id: epic
+    attributes:
+      label: Epic
+      options:
+        - "Epic 1 -- Foundation"
+        - "Epic 2 -- Collector"
+        - "Epic 3 -- Analysis"
+        - "Epic 4 -- API/Auth"
+        - "Epic 5 -- Frontend"
+        - "Epic 6 -- Billing"
+        - "Epic 7 -- Delivery Templates"
+        - "Epic 8 -- Observability"
+        - "Epic 9 -- i18n/a11y"
+        - "Epic 10 -- Hardening"
+        - "Epic 11 -- Phase 2 Infra"
+        - "Epic 12 -- Data Model"
+    validations:
+      required: true
+
+  - type: input
+    id: spec_doc
+    attributes:
+      label: Spec document
+      description: Which spec doc the agent must read before implementing (e.g. 05-technical.md).
+      placeholder: "05-technical.md"
+    validations:
+      required: false
+
+  - type: textarea
+    id: files_to_modify
+    attributes:
+      label: Files to modify
+      description: Explicit list of files the agent should change. One path per line. Relative to repo root.
+      placeholder: |
+        services/api/app/routers/scans.py
+        services/api/app/db/repos/scans_repo.py
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance criteria
+      description: Testable conditions. Each item must be verifiable by pytest or an assertion.
+      placeholder: |
+        - [ ] POST /v1/scans returns 202 with { scanId, status: "queued" }
+        - [ ] Cosmos record is written with partition_key=subscriptionId
+        - [ ] pytest services/ -x -q exits 0
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Any constraints, edge cases, or patterns the agent must follow.
+      placeholder: "Follow the tenant isolation pattern in cosmos.py. Never query without partition_key."
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: agent_preflight
+    attributes:
+      label: Agent pre-flight checklist
+      description: The agent must confirm all of these before opening a PR.
+      options:
+        - label: "pytest services/ -x -q exits 0"
+          required: true
+        - label: "No .env or secrets committed"
+          required: true
+        - label: "All Cosmos queries include partition_key"
+          required: true
+        - label: "No Unicode or emoji in any file"
+          required: true

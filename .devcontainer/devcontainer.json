@@ -1,0 +1,49 @@
+{
+  "name": "ACA -- Azure Cost Advisor",
+  "image": "mcr.microsoft.com/devcontainers/python:3.12-bullseye",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": { "version": "20" },
+    "ghcr.io/devcontainers/features/azure-cli:1": { "version": "latest" },
+    "ghcr.io/devcontainers/features/github-cli:1": { "version": "latest" },
+    "ghcr.io/devcontainers/features/powershell:1": { "version": "latest" }
+  },
+
+  "forwardPorts": [8080, 5173, 8011],
+  "portsAttributes": {
+    "8080": { "label": "ACA API", "onAutoForward": "notify" },
+    "5173": { "label": "ACA Frontend", "onAutoForward": "openBrowser" },
+    "8011": { "label": "Data Model", "onAutoForward": "silent" }
+  },
+
+  "postCreateCommand": "bash .devcontainer/on-create.sh",
+
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "editor.formatOnSave": true,
+        "python.formatting.provider": "none",
+        "[python]": { "editor.defaultFormatter": "charliermarsh.ruff" }
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "charliermarsh.ruff",
+        "ms-azuretools.vscode-azurecontainerapps",
+        "ms-azuretools.vscode-bicep",
+        "hashicorp.terraform",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "GitHub.copilot",
+        "GitHub.copilot-chat"
+      ]
+    }
+  },
+
+  "remoteEnv": {
+    "PYTHONPATH": "${containerWorkspaceFolder}/services/api",
+    "PYTHONIOENCODING": "utf-8"
+  },
+
+  "remoteUser": "vscode"
+}
