@@ -21,27 +21,47 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).parent.parent.parent  # .github/scripts -> repo root
 MODEL = "claude-sonnet-4-6"
 GITHUB_MODELS_URL = "https://models.inference.ai.azure.com"
-MAX_LINES_PER_FILE = 300
+MAX_LINES_PER_FILE = 500  # increased from 300 -- checkout.py (403 lines) was being cut off
 
 # Files loaded into context for the review agent
+# Rule: read every file that touches the service flow (auth->collect->analysis->report->billing->delivery)
 DIRECT_FILES = [
     "AGENTS.md",
     ".github/copilot-instructions.md",
     "PLAN.md",
     "STATUS.md",
     "ACCEPTANCE.md",
+    # API layer -- all routers
+    "services/api/app/main.py",
+    "services/api/app/settings.py",
     "services/api/app/routers/admin.py",
     "services/api/app/routers/auth.py",
     "services/api/app/routers/checkout.py",
     "services/api/app/routers/findings.py",
     "services/api/app/routers/health.py",
     "services/api/app/routers/scans.py",
-    "services/api/app/main.py",
-    "services/api/app/settings.py",
     "services/api/requirements.txt",
+    # API services (business logic layer)
+    "services/api/app/services/entitlement_service.py",
+    "services/api/app/services/stripe_service.py",
+    "services/api/app/services/delivery_service.py",
+    # Collector
     "services/collector/app/main.py",
+    "services/collector/app/azure_client.py",
+    "services/collector/app/preflight.py",
+    "services/collector/app/ingest.py",
+    "services/collector/requirements.txt",
+    # Analysis
     "services/analysis/app/main.py",
+    "services/analysis/app/findings.py",
+    "services/analysis/requirements.txt",
+    # Delivery
     "services/delivery/app/main.py",
+    "services/delivery/app/packager.py",
+    "services/delivery/app/generator.py",
+    "services/delivery/app/cosmos.py",
+    "services/delivery/requirements.txt",
+    # Veritas / trust
     ".eva/trust.json",
     ".eva/veritas-plan.json",
 ]
@@ -50,9 +70,16 @@ GLOB_DIRS = [
     ("services/api/app/db", "*.py"),
     ("services/api/app/middleware", "*.py"),
     ("services/api/app/models", "*.py"),
+    ("services/analysis/app/rules", "*.py"),  # 12 analysis rules
     ("frontend/src/pages", "*.tsx"),
+    ("frontend/src/app/routes/app", "*.tsx"),  # route-level pages
+    ("frontend/src/components", "*.tsx"),
     ("frontend/src/hooks", "*.ts"),
+    ("frontend/src/api", "*.ts"),
     ("infra/phase1-marco", "*.bicep"),
+    ("infra/phase1-marco", "*.json"),
+    (".github/workflows", "*.yml"),
+    ("services", "**/requirements.txt"),
 ]
 
 
@@ -87,10 +114,17 @@ def load_context(out_path: str) -> None:
         dir_path = REPO_ROOT / dir_rel
         if dir_path.exists():
             for fpath in sorted(dir_path.glob(pattern)):
+                if "__pycache__" in str(fpath) or "node_modules" in str(fpath):
+                    continue
                 rel_label = str(fpath.relative_to(REPO_ROOT))
                 chunks.append(_read_truncated(fpath, rel_label))
         else:
             chunks.append(f"=== {dir_rel}/{pattern} ===\n[DIR NOT FOUND]\n\n")
+
+    # Load any existing review findings -- reviewer must know prior findings
+    for findings_file in sorted(REPO_ROOT.glob("_*review_findings*.md")):
+        content = findings_file.read_text(encoding="utf-8", errors="replace")
+        chunks.append(f"=== PRIOR REVIEW FINDINGS: {findings_file.name} ===\n{content}\n\n")
 
     # Inline endpoint table (known ground truth)
     chunks.append(_build_endpoint_table())
@@ -103,9 +137,15 @@ def load_context(out_path: str) -> None:
 
 
 def _build_endpoint_table() -> str:
-    """Embed the known data model endpoint table as context."""
+    """Embed the known data model endpoint table as context.
+
+    Truth source: GET http://localhost:8055/model/endpoints/ (port 8055 local,
+    or https://marco-eva-data-model.livelyflower-7990bc7b.canadacentral.azurecontainerapps.io
+    for cloud agents). Table below is a snapshot -- may drift from live model.
+    Cloud agents: query the ACA endpoint before reviewing if accuracy is needed.
+    """
     return textwrap.dedent("""
-=== DATA MODEL ENDPOINT TABLE (ground truth from /model/endpoints) ===
+=== DATA MODEL ENDPOINT TABLE (snapshot -- check live model for authoritative state) ===
 
 IMPLEMENTED (14):
   GET  /health
@@ -138,6 +178,10 @@ STUB (13 -- not yet implemented):
   POST /v1/collect/start
   POST /v1/webhooks/stripe
 
+NOTE: The data model reports endpoints as 'implemented' even when the Python handler
+raises HTTP 501. 'Implemented' means the route is registered with FastAPI;
+it does NOT mean the business logic is working. Verify by reading the handler body.
+
 """)
 
 
@@ -168,20 +212,45 @@ def run_review(issue: int, context_path: str, repo: str) -> None:
         print(f"[FAIL] Could not read context file: {exc}", file=sys.stderr)
         sys.exit(1)
 
-    # Truncate context if too large (keep first 80 KB)
-    MAX_CONTEXT_BYTES = 80_000
+    # Truncate context if too large (keep first 160 KB -- raised from 80 KB because we now
+    # load 33 direct files at 500 lines each + glob patterns covering rules/, components/, api/)
+    MAX_CONTEXT_BYTES = 163_840
     if len(context_content.encode()) > MAX_CONTEXT_BYTES:
         context_content = context_content.encode()[:MAX_CONTEXT_BYTES].decode("utf-8", errors="replace")
-        context_content += "\n... [context truncated at 80 KB]"
+        context_content += "\n... [context truncated at 160 KB]"
 
     system_prompt = textwrap.dedent("""
-        You are a senior software architect reviewing the 51-ACA (Azure Cost Advisor) project.
-        You have access to the project context below.
-        Respond with a structured architecture review using the exact format specified in the task.
-        Be specific: reference actual file paths, endpoint IDs, and story IDs from the context.
-        Use plain ASCII only. No Unicode. No emoji.
-        Section headers: use === SECTION NAME === format.
-        Keep the review actionable and grounded in the actual codebase state.
+        You are a senior software architect and security reviewer for the 51-ACA
+        (Azure Cost Advisor) commercial SaaS product.
+
+        You have access to the full project codebase, copilot-instructions rulebook,
+        PLAN.md, STATUS.md, and prior review findings (if loaded).
+
+        REVIEW MANDATE:
+        - Be specific: reference actual file paths, line numbers, endpoint IDs, story IDs.
+        - Report what is actually in the code -- not what should be there.
+        - Distinguish: CRITICAL (breaks revenue or tenant isolation), HIGH (breaks a
+          service flow step), MEDIUM (spec violation, no immediate revenue impact),
+          LOW (quality/tech debt).
+        - For each finding: state FILE, LINE RANGE, CURRENT CODE (quoted), REQUIRED FIX,
+          and the blocking STORY ID. Never invent problems that are not in the code.
+        - Check EVERY file you are given -- do not skip collector, delivery, or analysis
+          just because the review topic is auth or checkout.
+        - If a handler raises HTTP 501, it is still a CRITICAL even if the data model
+          calls it 'implemented'. Check the handler body.
+        - Tenant isolation: verify every Cosmos call has partition_key=subscriptionId.
+          A missing partition_key is always CRITICAL per copilot-instructions Rule.
+        - Tier gating: verify gate_findings() is actually called in the findings handler,
+          not just defined in the same file.
+        - SAS generation: verify generate_blob_sas() uses user_delegation_key, not credential=.
+        - Sprint story list: at the end of the review, propose a Sprint story list ordered
+          by dependency with story ID, title, size (XS/S/M/L), model (GPT-5-mini/Sonnet),
+          acceptance criteria, and files_to_create.
+
+        ENCODING RULES:
+        - ASCII ONLY. No emoji, no Unicode, no curly quotes.
+        - Section headers: use === SECTION NAME === format.
+        - Keep review actionable and grounded in the actual codebase.
     """).strip()
 
     user_prompt = f"""TASK (from issue #{issue}: {issue_title}):

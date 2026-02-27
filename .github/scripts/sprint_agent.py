@@ -59,24 +59,91 @@ def _git(args: list) -> subprocess.CompletedProcess:
 
 
 def _load_context() -> str:
-    """Load abbreviated project context for the LLM."""
+    """Load full project context for the LLM (called once per sprint).
+
+    Loads:
+    - Full copilot-instructions.md (this IS the rulebook -- never truncate it)
+    - PLAN.md, STATUS.md
+    - All service source files at up to 400 lines each
+    - Existing review findings if present
+
+    This is the shared baseline. Per-story file contents are added by
+    _load_story_files() and injected directly into each story's user prompt.
+    """
     chunks = []
-    for rel in [
-        ".github/copilot-instructions.md",
-        "PLAN.md",
-        "STATUS.md",
+
+    # Governance and rulebook -- load in full (copilot-instructions has P2.5
+    # code patterns at line ~540; truncating at 200 hides all of them)
+    for rel in [".github/copilot-instructions.md", "PLAN.md", "STATUS.md"]:
+        p = REPO_ROOT / rel
+        if p.exists():
+            chunks.append(f"=== {rel} ===\n{p.read_text(encoding='utf-8', errors='replace')}\n\n")
+        else:
+            chunks.append(f"=== {rel} ===\n[NOT FOUND]\n\n")
+
+    # Existing review findings -- cloud agent must know what is already broken
+    for findings_glob in sorted((REPO_ROOT).glob("_*review_findings*.md")):
+        content = findings_glob.read_text(encoding="utf-8", errors="replace")
+        chunks.append(f"=== REVIEW FINDINGS: {findings_glob.name} ===\n{content[:15000]}\n\n")
+
+    # All service source files -- LLM needs current state to write correct code
+    # 400 lines per file; enough for every file in this repo at current sizes
+    SERVICE_FILES = [
         "services/api/app/main.py",
         "services/api/app/settings.py",
-    ]:
+        "services/api/app/routers/auth.py",
+        "services/api/app/routers/checkout.py",
+        "services/api/app/routers/findings.py",
+        "services/api/app/routers/scans.py",
+        "services/api/app/routers/health.py",
+        "services/api/app/routers/admin.py",
+        "services/api/app/db/cosmos.py",
+        "services/api/app/services/entitlement_service.py",
+        "services/api/app/services/stripe_service.py",
+        "services/api/app/services/delivery_service.py",
+        "services/analysis/app/main.py",
+        "services/analysis/app/findings.py",
+        "services/collector/app/main.py",
+        "services/collector/app/preflight.py",
+        "services/collector/app/ingest.py",
+        "services/collector/app/azure_client.py",
+        "services/delivery/app/main.py",
+        "services/delivery/app/packager.py",
+        "services/delivery/app/generator.py",
+        "services/delivery/app/cosmos.py",
+    ]
+    for rel in SERVICE_FILES:
         p = REPO_ROOT / rel
         if p.exists():
             lines = p.read_text(encoding="utf-8", errors="replace").splitlines()
-            truncated = "\n".join(lines[:200])
-            if len(lines) > 200:
-                truncated += f"\n... [{len(lines)-200} lines truncated]"
-            chunks.append(f"=== {rel} ===\n{truncated}\n\n")
+            content = "\n".join(lines[:400])
+            if len(lines) > 400:
+                content += f"\n... [{len(lines)-400} lines truncated]"
+            chunks.append(f"=== {rel} ===\n{content}\n\n")
         else:
             chunks.append(f"=== {rel} ===\n[NOT FOUND]\n\n")
+
+    return "".join(chunks)
+
+
+def _load_story_files(story: dict) -> str:
+    """Load the CURRENT contents of every file listed in files_to_create.
+
+    This is the single most important context improvement. Without it, the
+    LLM generates from scratch and overwrites working code. With it, the LLM
+    can make surgical fixes to the exact lines described in implementation_notes.
+
+    Returns a context block injected directly into the per-story user prompt.
+    """
+    chunks = ["=== CURRENT FILE CONTENTS (read before writing -- make surgical changes) ===\n\n"]
+    for rel_path in story.get("files_to_create", []):
+        p = REPO_ROOT / rel_path
+        if p.exists():
+            content = p.read_text(encoding="utf-8", errors="replace")
+            n = len(content.splitlines())
+            chunks.append(f"--- EXISTING ({n} lines): {rel_path} ---\n{content}\n\n")
+        else:
+            chunks.append(f"--- NEW FILE: {rel_path} ---\n[Does not exist -- create from scratch]\n\n")
     return "".join(chunks)
 
 
@@ -123,36 +190,88 @@ def _generate_code(story: dict, context: str) -> dict[str, str]:
         return {}
 
     system_prompt = textwrap.dedent("""
-        You are implementing code for the 51-ACA (Azure Cost Advisor) project.
-        Rules:
-        - ASCII only. No Unicode. No emoji.
-        - Follow the exact file paths specified.
-        - Include the EVA-STORY tag comment on the first functional line.
-        - For Python: use FastAPI patterns from copilot-instructions.
-        - For TypeScript/TSX: use React 19 + Fluent UI v9 patterns.
-        - For stubs: write minimal but importable/compilable code.
-        - Respond ONLY with a JSON object: {"path/to/file.py": "<file contents>"}
-        - No markdown fences. Just the JSON object.
+        You are an expert senior developer implementing stories for the 51-ACA
+        (Azure Cost Advisor) SaaS product. You have full codebase context.
+        Follow ALL rules exactly -- they come from copilot-instructions.md.
+
+        ENCODING RULES (ABSOLUTE -- Rule 9 from copilot-instructions):
+        - ASCII ONLY. Zero tolerance. No emoji, no Unicode arrows or dashes,
+          no curly quotes, no non-breaking spaces.
+        - PowerShell: use splatting @params, never backtick (`) line continuation.
+        - All Python print/log: use [PASS]/[FAIL]/[WARN]/[INFO] tokens only.
+        - No UTF-8 BOM in any file.
+
+        EVA-STORY TAG (mandatory -- missing tag drops Veritas artifact score):
+        - Python / YAML / Dockerfile: # EVA-STORY: ACA-NN-NNN
+        - JS / TS / Bicep:            // EVA-STORY: ACA-NN-NNN
+        - HTML / JSX / TSX:           <!-- EVA-STORY: ACA-NN-NNN -->
+        - Tag MUST appear on the first functional line of every file.
+
+        CODE PATTERNS (from copilot-instructions P2.5 -- apply exactly):
+
+        Pattern 1 -- Tenant isolation (MANDATORY for every Cosmos call):
+          WRONG: container.query_items(query=..., parameters=[...])
+          RIGHT: container.query_items(query=..., parameters=[...], partition_key=sub_id)
+          Never call cosmos_client.query_items() without partition_key=subscriptionId.
+
+        Pattern 2 -- Tier gating (MANDATORY -- never expose full findings to Tier 1):
+          Use gate_findings(findings, tier) from findings.py.
+          Tier 1: return only id/title/category/estimated_saving_low/high/effort_class.
+          Tier 2: strip deliverable_template_id.
+          Tier 3: full object.
+
+        Pattern 3 -- MSAL delegated auth:
+          app = msal.PublicClientApplication(client_id, authority=...)
+          result = app.acquire_token_by_refresh_token(refresh_token, scopes=[...])
+          Store refresh token in Key Vault, NOT in Cosmos.
+
+        Pattern 4 -- SAS generation (correct API usage):
+          WRONG: generate_blob_sas(..., account_key=None, credential=DefaultAzureCredential())
+          RIGHT: udk = client.get_user_delegation_key(key_start_time=..., key_expiry_time=...)
+                 generate_blob_sas(..., user_delegation_key=udk, ...)
+
+        MODIFICATION RULES:
+        - For EXISTING files: return the COMPLETE modified file.
+          Preserve ALL code outside the specific lines being changed.
+          Do NOT rewrite from scratch -- you are given the current content.
+        - For NEW files: implement fully per the patterns above.
+        - SAS_HOURS = 168 (7 days per spec, not 24).
+        - Every Cosmos upsert_item() call must include partition_key parameter.
+
+        OUTPUT FORMAT:
+        Return ONLY a valid JSON object:
+        {"relative/path/file.py": "<complete file contents>", ...}
+        No markdown fences. No explanation text. Just the JSON object.
+        All values must be complete files, not partial excerpts.
     """).strip()
 
-    user_prompt = f"""STORY: {story['id']} -- {story['title']}
-WBS: {story.get('wbs', 'N/A')}
-EPIC: {story.get('epic', 'N/A')}
+    # Load current file contents -- this is what makes bug-fix stories work
+    # Without this, the LLM writes from scratch and destroys existing code
+    story_files = _load_story_files(story)
 
-IMPLEMENTATION NOTES:
+    user_prompt = f"""STORY: {story['id']} -- {story['title']}
+EPIC: {story.get('epic', 'N/A')}
+SIZE: {story.get('size', 'N/A')}
+
+IMPLEMENTATION NOTES (follow these exactly):
 {story.get('implementation_notes', 'Implement as per project patterns.')}
 
-ACCEPTANCE CRITERIA:
+ACCEPTANCE CRITERIA (all must pass):
 {chr(10).join('- ' + a for a in story.get('acceptance', []))}
 
-FILES TO CREATE OR UPDATE:
+FILES TO CREATE OR MODIFY:
 {chr(10).join('- ' + f for f in files_to_create)}
 
-PROJECT CONTEXT:
-{context[:40_000]}
+{story_files}
 
-Generate the file contents now. Return ONLY valid JSON: {{"path": "content", ...}}
-EVA-STORY tag for this story: # EVA-STORY: {story['id']}
+PROJECT CONTEXT (copilot-instructions rulebook, PLAN.md, STATUS.md, service files):
+{context[:60_000]}
+
+Now generate the file contents. Remember:
+1. For existing files: return the COMPLETE file with only the specified changes.
+2. For new files: full implementation following patterns.
+3. EVA-STORY tag on first functional line: # EVA-STORY: {story['id']}
+4. Return ONLY valid JSON: {{"path": "content", ...}}
 """
 
     try:
