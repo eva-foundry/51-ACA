@@ -22,9 +22,9 @@
 Before answering any question or writing any code:
 
 1. **Establish $base** (51-ACA local data model -- run the bootstrap block in Section 3.1 first):
-   - Local ACA data model (port 8011): `http://localhost:8011`
+   - Local ACA data model (port 8055, SQLite): `http://localhost:8055`
    - Start if not running: `pwsh -File C:\AICOE\eva-foundry\51-ACA\data-model\start.ps1`
-   - Reference: `C:\AICOE\eva-foundry\51-ACA\data-model\README.md`
+   - DB file: `C:\AICOE\eva-foundry\51-ACA\data-model\aca-model.db` (persists across restarts)
    - `$base` must be set before any model query in this session.
 
 2. **Read this project's governance docs** (in order):
@@ -80,8 +80,8 @@ Loop      --> return to Discover if tasks remain
 #### 3.1  Bootstrap
 
 ```powershell
-# 51-ACA local data model (port 8011, MemoryStore -- no Cosmos required)
-$base = "http://localhost:8011"
+# 51-ACA local data model (port 8055, SQLite -- persistent, no Cosmos required)
+$base = "http://localhost:8055"
 $h = Invoke-RestMethod "$base/health" -ErrorAction SilentlyContinue
 # Start if not running
 if (-not $h) {
@@ -89,10 +89,10 @@ if (-not $h) {
     Start-Sleep 4
     $h = Invoke-RestMethod "$base/health" -ErrorAction SilentlyContinue
 }
-if (-not $h) { Write-Warning "[WARN] data-model not responding on port 8011 -- check start.ps1" }
+if (-not $h) { Write-Warning "[WARN] data-model not responding on port 8055 -- check start.ps1" }
 # The API self-documents -- read the agent guide before doing anything
 Invoke-RestMethod "$base/model/agent-guide"
-# One-call state check -- all 27 layer counts + total objects
+# One-call state check -- all layer counts + total objects
 Invoke-RestMethod "$base/model/agent-summary"
 ```
 
@@ -176,7 +176,7 @@ pwsh -NoLogo -NonInteractive -Command "& { $body=... | ConvertTo-Json; Invoke-Re
 RIGHT -- write a temp script, run it with -File:
 ```powershell
 $script = @'
-$base = "http://localhost:8011"
+$base = "http://localhost:8055"
 $obj  = Invoke-RestMethod "$base/model/{layer}/{id}"
 $obj.status = "implemented"
 $body = $obj | Select-Object * -ExcludeProperty layer,modified_by,modified_at,created_by,created_at,row_version,source_file | ConvertTo-Json -Depth 10
@@ -672,12 +672,15 @@ az deployment group create \
 
 ---
 
-### P2.7 Tier and Data Model Notes
+### P2.7 Data Model Notes
 
-- Do not register ACA services in the EVA data model API until Phase 1 is go-live.
-- When ready: `POST /model/services/` with service record for `aca-api`, `aca-collector`,
-  `aca-analysis`, `aca-delivery`.
-- Register endpoints in the model as each route is implemented.
+51-ACA owns its data model completely.
+- **Local**: SQLite at `data-model/aca-model.db`, served via `data-model/server.py` on port 8055
+- **Cloud agents**: Use `https://marco-eva-data-model.livelyflower-7990bc7b.canadacentral.azurecontainerapps.io` (Cosmos-backed)
+- **Rebuild**: `python scripts/seed-from-plan.py --reseed-model` -- wipes + reseeds all layers from PLAN.md
+- **Quick query**: `python -c "import sys; sys.path.insert(0,'data-model'); import db; print(db.total_active(), db.count_all())"`
+- The seed script imports `data-model/db.py` directly -- no HTTP call needed for seeding
+- Register ACA services in the SHARED EVA data model (37-data-model) only at Phase 1 go-live
 
 ---
 
@@ -703,7 +706,172 @@ Use `await request.body()` before any JSON parsing.
 
 ---
 
-### P2.9 Roles, Secrets, and Infra Identity
+---
+
+## PART 3 -- CLOUD AGENT RULES
+> Applies to any AI agent working via GitHub Issues, Codespaces, or the GitHub Copilot
+> coding agent on github.com. Rules here override PART 1 where they conflict.
+
+---
+
+### CA.1 Model Selection (reasoning depth, not story size)
+
+The right model is determined by how much cross-file judgment and context the task needs.
+
+| Task type | Model | Rationale |
+|---|---|---|
+| Full repo review, architecture audit, security analysis | Claude Opus 4.6 | Needs to reason across entire codebase simultaneously |
+| L stories: cross-service, auth, Stripe, analysis rules | Claude Sonnet 4.6 | Default for real implementation work |
+| M stories: feature + tests, single service | Claude Sonnet 4.6 | Same -- Sonnet is the standard workhorse |
+| S stories: single route, simple model | GPT-5.1 or GPT-5 mini | Fast, cheap, sufficient |
+| XS: config, env var, comment, tag | GPT-5 mini | No reasoning needed |
+
+Never use a fast model for: auth.py, checkout.py, any Cosmos query, any secret handling.
+Never use Gemini or Grok models in this repo.
+
+### CA.2 Mandatory Gates (every agent PR must pass all three)
+
+1. **pytest gate**: `pytest services/ -x -q --tb=short` exits 0
+2. **Veritas gate**: MTI >= 70 after changes. Run: node cli.js audit --repo .
+   If MTI < 70 or "no-deploy" in actions -> do NOT push -> escalate.
+3. **EVA-STORY tag gate**: every file modified has `# EVA-STORY: ACA-NN-NNN` on a functional line.
+   Missing tag = Veritas artifact score drops = MTI regression.
+
+### CA.3 Sprint Governance
+
+The sprint backlog lives in PLAN.md. Stories are assigned via GitHub Issues.
+
+**Sprint loop (autonomous):**
+```
+1. Read assigned issue (Story ID, Inputs, Outputs, Acceptance, Files)
+2. Read the spec doc listed in "Spec references" field
+3. Query data model: GET /model/endpoints/{id} for the endpoint being implemented
+4. Write plan comment on the issue (files + acceptance check method)
+5. Implement
+6. Run pytest + Veritas
+7. Commit with Story ID on subject line
+8. Open PR
+```
+
+**Escalate (do not commit) when:**
+- A "Depends On" story is not yet merged
+- Spec doc contradicts issue body
+- New Cosmos container or Key Vault secret needed
+- Veritas MTI drops and cannot be fixed
+- pytest failure after 2 fix attempts
+
+**Sprint boundary:**
+After all sprint issues are merged, post a sprint summary comment on the
+sprint planning issue with: stories merged, FP delivered, MTI score, test count,
+next sprint recommendation. Do NOT start next sprint without human confirmation.
+
+### CA.4 Data Model API (same as PART 1 Section 3, adapted for cloud agents)
+
+Cloud agents cannot run the local data model on port 8055.
+Use the ACA endpoint (Cosmos-backed, always up, no auth required):
+
+```
+base = "https://marco-eva-data-model.livelyflower-7990bc7b.canadacentral.azurecontainerapps.io"
+```
+
+Before implementing any endpoint, fetch its model record:
+```
+GET {base}/model/endpoints/{METHOD /path}
+```
+Read: .status (must be "stub" to implement), .implemented_in, .repo_line,
+.cosmos_reads, .cosmos_writes, .auth, .feature_flag
+
+After implementing, PUT the model record to mark it "implemented":
+```
+PUT {base}/model/endpoints/{METHOD /path}
+Body: full object with status="implemented", implemented_in=<path>, repo_line=<int>
+Header: X-Actor: agent:copilot
+```
+
+### CA.5 Veritas Integration
+
+Veritas is the trust gating system. MTI formula: coverage*0.50 + evidence*0.20 + consistency*0.30
+
+**Story ID format**: `ACA-NN-NNN`
+- NN = 2-digit epic number (01-14), NNN = 3-digit story number (001-999)
+- Required in every commit subject line: `feat(ACA-02-005): <description>`
+- Alpha IDs (`ACA-STATS-001`) are NOT mined from commits -- use numeric format only
+- Epic mapping: ACA-01=Foundation, ACA-02=Data Collection, ACA-03=Analysis, ACA-04=API,
+  ACA-05=Frontend, ACA-06=Billing, ACA-07=Delivery, ACA-08=Observability, ACA-09=i18n,
+  ACA-10=Hardening, ACA-11=Phase2 Infra, ACA-12=Data Model, ACA-13=Best Practices, ACA-14=DPDCA Agent
+
+**EVA-STORY tag format**:
+```python
+# EVA-STORY: ACA-NN-NNN          <- Python, YAML, Dockerfile, .env
+// EVA-STORY: ACA-NN-NNN         <- JS/TS, Bicep
+<!-- EVA-STORY: ACA-NN-NNN -->   <- HTML, React JSX/TSX
+```
+- Tag must appear on a **functional line** (not in a blank comment block)
+- One tag per file is minimum; multiple files per story is fine
+- Missing tag on a modified file = artifact score drops = MTI regression
+
+**Commit message format**: `<type>(<story-id>): <imperative description>`
+- Types: feat, fix, test, chore, docs, refactor
+- Example: `feat(ACA-02-005): add Resource Graph pagination for large subscriptions`
+- Story ID must match an entry in `.eva/veritas-plan.json`
+
+**Branch name format** (agent branches only): `agent/ACA-NN-NNN-YYYYMMDD-HHMMSS`
+- Example: `agent/ACA-03-007-20260227-143000`
+
+**Evidence receipt format** (`.eva/evidence/*.json`):
+```json
+{
+  "story_id": "ACA-NN-NNN",
+  "phase": "D|P|D|C|A",
+  "timestamp": "2026-MM-DDTHH:MM:SSZ",
+  "artifacts": ["path/to/file.py"],
+  "test_result": "PASS",
+  "commit_sha": "<sha>"
+}
+```
+
+**veritas-plan.json format** (`.eva/veritas-plan.json`):
+- Schema: `eva.veritas-plan.v1`
+- Generated by: `python scripts/seed-from-plan.py`
+- `features[].id` = epic ID (e.g. `ACA-02`)
+- `features[].stories[].id` = story ID (e.g. `ACA-02-005`)
+- `features[].stories[].done` = `true` only for stories with source artifacts + passing tests
+- Never hand-edit this file -- always regenerate from PLAN.md via the seed script
+
+**ACCEPTANCE.md gate format**:
+```
+[ ] P1-NNa: gate description   <- unchecked
+[x] P1-NNb: gate description   <- checked/passed
+```
+- Gate IDs: Phase prefix (P1/P2) + 2-digit seq + optional a/b/c suffix
+- Gates are checked during manual QA, not by agents
+
+**Run audit**: `node C:\AICOE\eva-foundry\48-eva-veritas\src\cli.js audit --repo .`
+Current baseline: MTI=70. Do not regress below this.
+
+Trust file location: `.eva/trust.json`
+Actions at MTI=70: ["test", "review", "merge-with-approval"] -- no-deploy flag CLEARED.
+
+### CA.6 29-Foundry Agent Tools (for complex analysis stories)
+
+For Epic 3 (analysis rules) and Epic 13 (Azure best practices), agents may use
+the 29-foundry tool chain from: `C:\AICOE\eva-foundry\29-foundry\`
+
+```python
+import sys
+sys.path.insert(0, "../29-foundry")
+from tools.search import EVASearchClient   # AI Search over knowledge base
+from tools.rag import RAGPipeline           # RAG over spec docs
+```
+
+In cloud environment: 29-foundry tools are not available. Use the spec docs
+directly from the repo (docs/ folder). Do not block on tool unavailability.
+
+---
+
+**P2.9** -- Roles, Secrets, and Infra Identity (unchanged, see below)
+
+
 
 **ACA Application Roles (Entra ID groups -- define before Phase 1 go-live)**
 

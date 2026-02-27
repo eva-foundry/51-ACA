@@ -46,3 +46,9 @@ delivery-output/
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# ACA local SQLite data model
+data-model/aca-model.db
+data-model/__pycache__/
+reseed-final.txt
+

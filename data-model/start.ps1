@@ -1,37 +1,24 @@
-# ACA local data model server -- isolated instance on port 8011
-# Shares code from 37-data-model but uses 51-ACA data only.
-# Run from anywhere: pwsh start.ps1
+# ACA local data model server -- SQLite-backed, port 8055
+# 51-ACA owns this server completely; no dependency on 37-data-model.
+# DB persists across restarts at: data-model/aca-model.db
 #
 # Usage:
-#   pwsh C:\AICOE\eva-foundry\51-ACA\data-model\start.ps1
-#   Then: Invoke-RestMethod http://localhost:8011/health
-#
-# Data lives in: C:\AICOE\eva-foundry\51-ACA\data-model\model\
-# Code lives in: C:\AICOE\eva-foundry\37-data-model\
+#   pwsh -File C:\AICOE\eva-foundry\51-ACA\data-model\start.ps1
+#   Then: Invoke-RestMethod http://localhost:8055/health
+#   Docs: http://localhost:8055/docs
 
-$SCRIPT_DIR = "C:\AICOE\eva-foundry\51-ACA\data-model"
-$CODE_DIR   = "C:\AICOE\eva-foundry\37-data-model"
+$SCRIPT_DIR = $PSScriptRoot
 $VENV_PY    = "C:\AICOE\.venv\Scripts\python.exe"
+$Port       = 8055
 
-# -- isolation: point server at ACA model data only
-$env:MODEL_DIR   = "$SCRIPT_DIR\model"
-$env:COSMOS_URL  = ""
-$env:COSMOS_KEY  = ""
-$env:MODEL_DB_NAME        = ""
-$env:MODEL_CONTAINER_NAME = ""
-$env:REDIS_URL            = ""
-$env:CACHE_TTL_SECONDS    = "0"
-$env:ADMIN_TOKEN          = "dev-admin"
-$env:DEV_MODE             = "true"
-$env:API_TITLE            = "ACA Model API"
-
-Write-Host "[INFO] Starting ACA data model on port 8011"
-Write-Host "[INFO] Model dir: $($env:MODEL_DIR)"
-Write-Host "[INFO] Store: MemoryStore (in-process, no Cosmos)"
-Write-Host "[INFO] Health: http://localhost:8011/health"
-Write-Host "[INFO] Agent summary: http://localhost:8011/model/agent-summary"
+Write-Host "[INFO] Starting ACA data model on http://localhost:$Port"
+Write-Host "[INFO] DB: $SCRIPT_DIR\aca-model.db"
+Write-Host "[INFO] Store: SQLite (persistent)"
+Write-Host "[INFO] Health: http://localhost:$Port/health"
+Write-Host "[INFO] Agent summary: http://localhost:$Port/model/agent-summary"
+Write-Host "[INFO] Docs: http://localhost:$Port/docs"
 Write-Host "[INFO] Press Ctrl+C to stop"
 
-Push-Location $CODE_DIR
-& $VENV_PY -m uvicorn api.server:app --port 8011 --reload --log-level info
+Push-Location $SCRIPT_DIR
+& $VENV_PY -m uvicorn server:app --port $Port --reload --log-level info
 Pop-Location
