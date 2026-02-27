@@ -1,0 +1,60 @@
+[INFO] ACA seed-from-plan -- 2026-02-27 13:40:37
+[INFO] Repo: C:\AICOE\eva-foundry\51-ACA
+[INFO] PLAN.md        60,825 chars
+[INFO] STATUS.md      45,301 chars
+[INFO] ACCEPTANCE.md  11,027 chars
+[INFO] README.md      27,469 chars
+[INFO] Parsed: 14 epics, 54 features, 257 stories
+[INFO]   done=73  planned=184
+[INFO]   shipped roster (old scheme, reference only): 0 IDs
+[INFO] Acceptance gates: 116 total, 0 passed
+[INFO] Status: phase=Phase 1 -- Core Services Bootstrap MTI=20
+
+[INFO] Epic breakdown:
+  ACA-01  DONE          stories= 21  done=21  -- FOUNDATION AND INFRASTRUCTURE
+  ACA-02  DONE          stories= 17  done=17  -- Epic 2
+  ACA-03  ACTIVE        stories= 33  done=2  -- ANALYSIS ENGINE AND RULES
+  ACA-04  ACTIVE        stories= 28  done=4  -- Epic 4
+  ACA-05  ACTIVE        stories= 42  done=0  -- FRONTEND SPARK ARCHITECTURE
+  ACA-06  DONE          stories= 18  done=18  -- MONETIZATION AND BILLING
+  ACA-07  ACTIVE        stories=  9  done=0  -- DELIVERY PACKAGER
+  ACA-08  ACTIVE        stories= 14  done=0  -- OBSERVABILITY AND TELEMETRY
+  ACA-09  ACTIVE        stories= 18  done=0  -- i18n AND a11y
+  ACA-10  PLANNED       stories= 15  done=0  -- COMMERCIAL HARDENING
+  ACA-11  PLANNED       stories=  9  done=0  -- PHASE 2 INFRASTRUCTURE
+  ACA-12  ACTIVE        stories=  8  done=0  -- DATA MODEL SUPPORT
+  ACA-13  NEW           stories= 11  done=0  -- AZURE BEST PRACTICES SERVICE CATALOG
+  ACA-14  NEW           stories= 14  done=11  -- DPDCA CLOUD AGENT
+[INFO] Wiping data model (SQLite: C:\AICOE\eva-foundry\51-ACA\data-model\aca-model.db) ...
+  [INFO] Wiped requirements: 270 objects
+  [INFO] Wiped endpoints: 27 objects
+  [INFO] Wiped containers: 11 objects
+  [INFO] Wiped screens: 10 objects
+  [INFO] Wiped agents: 4 objects
+  [INFO] Wiped services: 5 objects
+  [INFO] Wiped personas: 4 objects
+  [INFO] Wiped decisions: 0 objects
+  [INFO] Wiped schemas: 0 objects
+  [INFO] Wiped hooks: 0 objects
+  [INFO] Wiped components: 0 objects
+  [INFO] Wiped literals: 0 objects
+  [INFO] Wiped infrastructure: 0 objects
+  [INFO] Wiped feature_flags: 0 objects
+  [INFO] Wiped sprints: 0 objects
+  [INFO] Wiped milestones: 0 objects
+  [INFO] Wiped wbs: 0 objects
+[INFO] Wiped 331 objects
+[PASS] veritas-plan.json written: 14 features, 257 stories
+[INFO] Reseeding data model (SQLite) ...
+  [INFO] agents: 4 objects seeded
+  [INFO] containers: 11 objects seeded
+  [INFO] endpoints: 27 objects seeded
+  [INFO] feature_flags: 4 objects seeded
+  [INFO] hooks: 3 objects seeded
+  [INFO] infrastructure: 10 objects seeded
+  [INFO] personas: 4 objects seeded
+  [INFO] requirements: 271 objects seeded
+  [INFO] screens: 10 objects seeded
+  [INFO] services: 5 objects seeded
+[PASS] Model seeded: 349 objects written | DB active total: 348
+[PASS] seed-from-plan complete
