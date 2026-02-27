@@ -9,6 +9,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.settings import get_settings
+from app.middleware.timing import TimingMiddleware
 from app.routers import auth, scans, findings, checkout, admin, health
 
 settings = get_settings()
@@ -36,6 +37,7 @@ def create_app() -> FastAPI:
         allow_methods=["*"],
         allow_headers=["*"],
     )
+    app.add_middleware(TimingMiddleware)
 
     app.include_router(health.router)
     app.include_router(auth.router, prefix="/v1/auth")

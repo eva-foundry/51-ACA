@@ -883,7 +883,12 @@ Veritas is the trust gating system. MTI formula: coverage*0.50 + evidence*0.20 +
 **Branch name format** (agent branches only): `agent/ACA-NN-NNN-YYYYMMDD-HHMMSS`
 - Example: `agent/ACA-03-007-20260227-143000`
 
-**Evidence receipt format** (`.eva/evidence/*.json`):
+**Evidence receipt format** (`.eva/evidence/{story_id}-receipt.json`):
+
+Cloud agents MUST write this file at the end of every story. All numeric fields are required.
+`duration_ms` = wall-clock ms from first file edit to passing pytest. `tokens_used` = total
+prompt + completion tokens from all LLM calls in the session (0 if no LLM calls made).
+
 ```json
 {
   "story_id": "ACA-NN-NNN",
@@ -891,9 +896,34 @@ Veritas is the trust gating system. MTI formula: coverage*0.50 + evidence*0.20 +
   "timestamp": "2026-MM-DDTHH:MM:SSZ",
   "artifacts": ["path/to/file.py"],
   "test_result": "PASS",
-  "commit_sha": "<sha>"
+  "commit_sha": "<sha>",
+  "duration_ms": 12400,
+  "tokens_used": 3210,
+  "test_count_before": 24,
+  "test_count_after": 27,
+  "files_changed": 3
 }
 ```
+
+Field rules:
+- `duration_ms`: required, int. Measure from first tool call to pytest PASS.
+- `tokens_used`: required, int. Sum all LLM usage.prompt_tokens + usage.completion_tokens.
+- `test_count_before`: required, int. pytest count BEFORE this story's changes.
+- `test_count_after`: required, int. pytest count AFTER -- must be >= test_count_before.
+- `files_changed`: required, int. Number of source files created or modified.
+- `test_result`: "PASS" or "FAIL". Never commit a receipt with FAIL.
+
+**Structured commit trailer** (append to every commit body, machine-parseable):
+
+```
+feat(ACA-NN-NNN): imperative description
+
+ACA-METRICS: duration_ms=12400 tokens=3210 tests_before=24 tests_after=27 files=3 result=PASS
+```
+
+The `ACA-METRICS:` trailer is parsed by `scripts/parse-agent-log.py` to feed ADO dashboards and
+the data model. Include it on every story commit. The parser reads the last `ACA-METRICS:` line
+when multiple commits exist for the same story.
 
 **veritas-plan.json format** (`.eva/veritas-plan.json`):
 - Schema: `eva.veritas-plan.v1`
