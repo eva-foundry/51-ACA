@@ -1,0 +1,14 @@
+{
+  "story_id": "ACA-04-008",
+  "title": "POST /v1/auth/connect: initiate MSAL device-code, store session in Cosmos",
+  "phase": "D|P|D|C|A",
+  "timestamp": "2026-02-27T14:17:56Z",
+  "artifacts": [
+    "services/api/app/routers/auth.py",
+    "services/api/app/db/repos/clients_repo.py",
+    "services/tests/test_auth_connect.py"
+  ],
+  "test_result": "WARN",
+  "lint_result": "WARN",
+  "commit_sha": "b2ed5799cca848475bbfaa9192831c7d9e6a27d1"
+}
