@@ -1,0 +1,12 @@
+{
+  "story_id": "ACA-06-018",
+  "title": "entitlement_service.py revoke() -- preserve Tier 3 on subscription.deleted",
+  "phase": "D|P|D|C|A",
+  "timestamp": "2026-02-27T12:37:28Z",
+  "artifacts": [
+    "services/api/app/services/entitlement_service.py"
+  ],
+  "test_result": "WARN",
+  "lint_result": "WARN",
+  "commit_sha": "c7d5d71692f4bdf85301d526dd4932154f24a766"
+}
