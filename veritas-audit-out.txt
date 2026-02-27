@@ -1,0 +1,582 @@
+[INFO] Discovering: C:\AICOE\eva-foundry\51-ACA
+[INFO] Using veritas-plan.json (format: auto-seeded, 250 stories, 0 tasks)
+[INFO] Planned: 14 features, 250 stories
+[INFO] Actual: 251 artifacts, 34 stories tagged
+[INFO] Evidence: 21 from commits, 0 from PRs, 0 from filenames
+[PASS] discovery written: C:\AICOE\eva-foundry\51-ACA\.eva\discovery.json
+[PASS] reconciliation written: C:\AICOE\eva-foundry\51-ACA\.eva\reconciliation.json
+[INFO] Gaps: 250
+[PASS] trust written: C:\AICOE\eva-foundry\51-ACA\.eva\trust.json (score: 5)
+
+=======================================
+EVA Veritas Report: 51-ACA
+=======================================
+Repo:    C:\AICOE\eva-foundry\51-ACA
+Planned: 14 features, 250 stories
+
+Coverage
+---------------------------------------
+Stories total:          250
+Stories with artifacts: 17
+Stories with evidence:  21
+Consistency score:      0.00
+
+Gaps
+---------------------------------------
+[FAIL] missing_implementation :: ACA-01-002 -- As a developer I can run `pytest services/ -x -q` and all tests pass
+[FAIL] missing_implementation :: ACA-01-003 -- As a developer I can hit http://localhost:8080/health and get status=ok
+[FAIL] missing_implementation :: ACA-01-004 -- As a developer I can run the data-model on port 8011 (start.ps1)
+[FAIL] missing_implementation :: ACA-01-005 -- As a developer I can use the .env.example as a complete checklist
+[FAIL] missing_implementation :: ACA-01-006 -- As a developer, every PR triggers ruff lint. Zero lint errors = green.
+[FAIL] missing_implementation :: ACA-01-007 -- As a developer, every PR triggers mypy type check. No unresolved types.
+[FAIL] missing_implementation :: ACA-01-008 -- As a developer, every PR triggers pytest. No test failures = merge allowed.
+[FAIL] missing_implementation :: ACA-01-009 -- As a developer, main branch push triggers axe-core a11y check on frontend.
+[FAIL] missing_implementation :: ACA-01-010 -- As an operator I can run infra/phase1-marco/main.bicep and get 7 Cosmos containers
+[FAIL] missing_implementation :: ACA-01-011 -- As an operator all secrets are in marcosandkv20260203 (no .env in production)
+[FAIL] missing_implementation :: ACA-01-012 -- As an operator the API Container App has managed identity approved on KV
+[FAIL] missing_implementation :: ACA-01-013 -- As an operator the collector job has managed identity with Cosmos read/write
+[FAIL] missing_implementation :: ACA-01-014 -- As an operator OIDC is configured on the GitHub Actions workflow for EsDAICoE-Sandbox
+[FAIL] missing_implementation :: ACA-01-015 -- As an operator infra/phase1-marco/bootstrap.sh exists and provisions all
+[FAIL] missing_implementation :: ACA-01-016 -- As a developer all 4 Dockerfiles build without error on ubuntu-latest
+[FAIL] missing_implementation :: ACA-01-017 -- As an operator deploy-phase1.yml pushes 4 images to marcosandacr20260203
+[FAIL] missing_implementation :: ACA-01-018 -- As an operator collector-schedule.yml triggers nightly at 02:00 UTC
+[FAIL] missing_implementation :: ACA-01-019 -- As an operator PUBLIC_APP_URL and PUBLIC_API_URL are read from env vars;
+[FAIL] missing_implementation :: ACA-01-020 -- As a developer .env.example documents the Azure free hostname pattern
+[FAIL] missing_implementation :: ACA-01-021 -- As an operator ACA_ALLOWED_ORIGINS is seeded from the Phase 1 free hostname
+[FAIL] missing_implementation :: ACA-02-002 -- As a client with missing Cost Management Reader role I see a clear
+[FAIL] missing_implementation :: ACA-02-003 -- As a client with PASS_WITH_WARNINGS I can still proceed with collection
+[FAIL] missing_implementation :: ACA-02-004 -- As an operator I can pass --preflight-only to the collector to validate
+[FAIL] missing_implementation :: ACA-02-005 -- As the system I collect all Azure resources via Resource Graph in < 60s
+[FAIL] missing_implementation :: ACA-02-006 -- As the system I save inventory to Cosmos with partition_key=subscriptionId
+[FAIL] missing_implementation :: ACA-02-007 -- As the system I capture: resource type, name, SKU, region, resource group, tags
+[FAIL] missing_implementation :: ACA-02-008 -- As the system I collect 91 days of daily cost rows via Cost Management Query API
+[FAIL] missing_implementation :: ACA-02-009 -- As the system I capture: date, MeterCategory, MeterName, resourceGroup,
+[FAIL] missing_implementation :: ACA-02-010 -- As the system I handle rate limiting (429) with exponential backoff + retry
+[FAIL] missing_implementation :: ACA-02-011 -- As the system I collect all Advisor recommendations across all categories
+[FAIL] missing_implementation :: ACA-02-012 -- As the system I collect Policy compliance state (compliant / non-compliant counts)
+[FAIL] missing_implementation :: ACA-02-013 -- As the system I collect network signals: NSG rule counts, private DNS zones,
+[FAIL] missing_implementation :: ACA-02-014 -- As the system I update scan status in Cosmos: queued -> running -> succeeded/failed
+[FAIL] missing_implementation :: ACA-02-015 -- As the system I write stats to the scan record (inventoryCount, costRows, advisorRecs)
+[FAIL] missing_implementation :: ACA-02-016 -- As the API I expose GET /v1/scans/:scanId so the frontend can poll status
+[FAIL] missing_implementation :: ACA-03-002 -- As the system I handle a rule failure in isolation (one rule crash does not
+[FAIL] missing_implementation :: ACA-03-003 -- As the system I persist each Finding to Cosmos with full schema:
+[FAIL] missing_implementation :: ACA-03-004 -- As the system I update AnalysisRun status: queued -> running -> succeeded/failed
+[FAIL] missing_implementation :: ACA-03-005 -- As the system I write findingsSummary to the analysis run record
+[FAIL] missing_implementation :: ACA-03-006 -- As a Tier 1 client calling GET /v1/findings/:scanId I receive findings
+[FAIL] missing_implementation :: ACA-03-007 -- As a Tier 1 client I do not receive narrative or deliverable_template_id
+[FAIL] missing_implementation :: ACA-03-008 -- As a Tier 2 client I receive the full finding including narrative and
+[FAIL] missing_implementation :: ACA-03-009 -- As a Tier 3 client I receive the full finding including deliverable_template_id
+[FAIL] missing_implementation :: ACA-03-010 -- As the red-team agent I can assert that Tier 1 tokens never leak
+[FAIL] missing_implementation :: ACA-03-011 -- R-01 Dev Box auto-stop: returns finding when annual Dev Box cost > $1,000
+[FAIL] missing_implementation :: ACA-03-012 -- R-02 Log retention: returns finding when annual LA cost > $500 in non-prod
+[FAIL] missing_implementation :: ACA-03-013 -- R-03 Defender mismatch: returns finding when annual Defender cost > $2,000
+[FAIL] missing_implementation :: ACA-03-014 -- R-04 Compute scheduling: returns finding when annual schedulable compute > $5,000
+[FAIL] missing_implementation :: ACA-03-015 -- R-05 Anomaly detection: returns finding for each category with z-score > 3.0
+[FAIL] missing_implementation :: ACA-03-016 -- R-06 Stale environments: returns finding when >= 3 App Service sites exist
+[FAIL] missing_implementation :: ACA-03-017 -- R-07 Search SKU oversize: returns finding when annual Search cost > $2,000
+[FAIL] missing_implementation :: ACA-03-018 -- R-08 ACR consolidation: returns finding when >= 3 registries exist
+[FAIL] missing_implementation :: ACA-03-019 -- R-09 DNS sprawl: returns finding when annual DNS cost > $1,000
+[FAIL] missing_implementation :: ACA-03-020 -- Unit test for R-01 devbox_autostop: fixture with Dev Box cost > $1,000 -> finding
+[FAIL] missing_implementation :: ACA-03-021 -- Unit test for R-02 log_retention: fixture with LA cost > $500 -> finding
+[FAIL] missing_implementation :: ACA-03-022 -- Unit test for R-03 defender_mismatch: fixture with Defender cost > $2,000 -> finding
+[FAIL] missing_implementation :: ACA-03-023 -- Unit test for R-04 compute_scheduling: fixture with schedulable > $5,000 -> finding
+[FAIL] missing_implementation :: ACA-03-024 -- Unit test for R-05 anomaly_detection: fixture with z-score > 3.0 -> finding
+[FAIL] missing_implementation :: ACA-03-025 -- Unit test for R-06 stale_environments: fixture with >= 3 App Services -> finding
+[FAIL] missing_implementation :: ACA-03-026 -- Unit test for R-07 search_sku_oversize: fixture with Search cost > $2,000 -> finding
+[FAIL] missing_implementation :: ACA-03-027 -- Unit test for R-08 acr_consolidation: fixture with >= 3 registries -> finding
+[FAIL] missing_implementation :: ACA-03-028 -- Unit test for R-09 dns_sprawl: fixture with DNS cost > $1,000 -> finding
+[FAIL] missing_implementation :: ACA-03-029 -- Unit test for R-10 savings_plan_coverage: fixture with compute > $20,000 -> finding
+[FAIL] missing_implementation :: ACA-03-030 -- Unit test for R-11 apim_token_budget: fixture with APIM + OpenAI -> finding
+[FAIL] missing_implementation :: ACA-03-031 -- Unit test for R-12 chargeback_gap: fixture with total cost > $5,000 -> finding
+[FAIL] missing_implementation :: ACA-03-032 -- Negative tests for each rule: below-threshold fixture -> no finding returned
+[FAIL] missing_implementation :: ACA-03-033 -- FindingsAssembler unit test: mock rule list -> correct Cosmos upsert payload
+[FAIL] missing_implementation :: ACA-04-002 -- As the API I validate the JWT on every authenticated endpoint using
+[FAIL] missing_implementation :: ACA-04-003 -- As the API I extract subscriptionId from the session (stored after connect);
+[FAIL] missing_implementation :: ACA-04-004 -- As a client I can connect my Azure subscription (POST /v1/auth/connect)
+[FAIL] missing_implementation :: ACA-04-005 -- As a client I can disconnect (POST /v1/auth/disconnect) and all access
+[FAIL] missing_implementation :: ACA-04-006 -- As a developer auth.py is reworked: MSAL authority=common, no EsDAICoE
+[FAIL] missing_implementation :: ACA-04-007 -- As the frontend LoginPage, sign-in CTA calls MSAL.js with
+[FAIL] missing_implementation :: ACA-04-008 -- POST /v1/auth/connect         -- Connect Azure subscription
+[FAIL] missing_implementation :: ACA-04-009 -- POST /v1/auth/preflight       -- Run pre-flight probes
+[FAIL] missing_implementation :: ACA-04-010 -- POST /v1/auth/disconnect      -- Disconnect subscription
+[FAIL] missing_implementation :: ACA-04-011 -- POST /v1/collect/start        -- Trigger collector job (was /v1/scans)
+[FAIL] missing_implementation :: ACA-04-012 -- GET  /v1/collect/status       -- Poll collection progress (was /v1/scans/:scanId)
+[FAIL] missing_implementation :: ACA-04-013 -- GET  /v1/reports/tier1        -- Tier 1 findings report (was /v1/findings/:scanId)
+[FAIL] missing_implementation :: ACA-04-014 -- POST /v1/billing/checkout     -- Stripe checkout (tier2 or tier3 in body)
+[FAIL] missing_implementation :: ACA-04-015 -- GET  /v1/billing/portal       -- Stripe billing portal redirect URL
+[FAIL] missing_implementation :: ACA-04-016 -- POST /v1/webhooks/stripe      -- Stripe event handler
+[FAIL] missing_implementation :: ACA-04-017 -- As the gateway I validate JWT signature on all /v1/* routes
+[FAIL] missing_implementation :: ACA-04-018 -- As the gateway I cache /v1/entitlements response for 60s per subscriptionId
+[FAIL] missing_implementation :: ACA-04-019 -- As the gateway I return 403 with TIER_REQUIRED error when a Tier 1
+[FAIL] missing_implementation :: ACA-04-020 -- As the gateway I enforce subscription key throttling (100 req/min default)
+[FAIL] missing_implementation :: ACA-04-021 -- As the gateway I forward X-Subscription-Id header to the API on all calls
+[FAIL] missing_implementation :: ACA-04-022 -- GET  /v1/admin/kpis
+[FAIL] missing_implementation :: ACA-04-023 -- GET  /v1/admin/customers?query=
+[FAIL] missing_implementation :: ACA-04-024 -- POST /v1/admin/entitlements/grant
+[FAIL] missing_implementation :: ACA-04-025 -- POST /v1/admin/subscriptions/:subscriptionId/lock
+[FAIL] missing_implementation :: ACA-04-026 -- POST /v1/admin/stripe/reconcile
+[FAIL] missing_implementation :: ACA-04-027 -- GET  /v1/admin/runs?type=scan|analysis|delivery
+[FAIL] missing_implementation :: ACA-05-002 -- useAuth.ts wraps MSAL PublicClientApplication; exposes user, roles,
+[FAIL] missing_implementation :: ACA-05-003 -- RequireAuth.tsx: if !isAuthenticated redirect to /
+[FAIL] missing_implementation :: ACA-05-004 -- RequireRole.tsx: if user lacks anyOf roles, redirect to /app/connect
+[FAIL] missing_implementation :: ACA-05-005 -- All admin routes require RequireAuth + RequireRole (ACA_Admin|Support|FinOps)
+[FAIL] missing_implementation :: ACA-05-006 -- CustomerLayout.tsx: top nav with logo, LanguageSelector, user menu
+[FAIL] missing_implementation :: ACA-05-007 -- AdminLayout.tsx: top nav + left sidebar with admin nav items
+[FAIL] missing_implementation :: ACA-05-008 -- NavCustomer.tsx: links to /app/connect, /app/status, /app/findings
+[FAIL] missing_implementation :: ACA-05-009 -- NavAdmin.tsx: links to /admin/dashboard, /admin/customers,
+[FAIL] missing_implementation :: ACA-05-010 -- AppShell.tsx: root component with FluentProvider + ConsentBanner +
+[FAIL] missing_implementation :: ACA-05-011 -- router.tsx uses createBrowserRouter (not BrowserRouter + <Routes>)
+[FAIL] missing_implementation :: ACA-05-012 -- Route / -> LoginPage (no auth required)
+[FAIL] missing_implementation :: ACA-05-013 -- Routes /app/* -> RequireAuth -> CustomerLayout -> Outlet
+[FAIL] missing_implementation :: ACA-05-014 -- Routes /admin/* -> RequireAuth -> RequireRole -> AdminLayout -> Outlet
+[FAIL] missing_implementation :: ACA-05-015 -- Code-split: all page components lazy-loaded with React.lazy
+[FAIL] missing_implementation :: ACA-05-016 -- LoginPage (/) -- Entra ID login CTA + dev bypass link
+[FAIL] missing_implementation :: ACA-05-017 -- ConnectSubscriptionPage (/app/connect) -- Mode A/B/C radio group;
+[FAIL] missing_implementation :: ACA-05-018 -- CollectionStatusPage (/app/status/:subscriptionId) -- polls
+[FAIL] missing_implementation :: ACA-05-019 -- FindingsTier1Page (/app/findings/:subscriptionId) -- renders Tier 1
+[FAIL] missing_implementation :: ACA-05-020 -- UpgradePage (/app/upgrade/:subscriptionId) -- Tier 2 vs Tier 3 cards;
+[FAIL] missing_implementation :: ACA-05-021 -- AdminDashboardPage (/admin/dashboard) -- calls GET /v1/admin/kpis;
+[FAIL] missing_implementation :: ACA-05-022 -- AdminCustomersPage (/admin/customers) -- search input calls
+[FAIL] missing_implementation :: ACA-05-023 -- AdminBillingPage (/admin/billing) -- Stripe billing portal link;
+[FAIL] missing_implementation :: ACA-05-024 -- AdminRunsPage (/admin/runs) -- lists runs from GET /v1/admin/runs;
+[FAIL] missing_implementation :: ACA-05-025 -- AdminControlsPage (/admin/controls) -- grant tier form (subscriptionId,
+[FAIL] missing_implementation :: ACA-05-026 -- frontend/src/app/api/client.ts -- base http<T> function; includes
+[FAIL] missing_implementation :: ACA-05-027 -- frontend/src/app/api/appApi.ts -- customer API calls:
+[FAIL] missing_implementation :: ACA-05-028 -- frontend/src/app/api/adminApi.ts -- admin API calls:
+[FAIL] missing_implementation :: ACA-05-029 -- frontend/src/app/types/models.ts -- TypeScript DTOs:
+[FAIL] missing_implementation :: ACA-05-030 -- Loading.tsx -- full-page or inline Fluent Spinner with aria-label
+[FAIL] missing_implementation :: ACA-05-031 -- ErrorState.tsx -- Fluent MessageBar (error) with retry callback
+[FAIL] missing_implementation :: ACA-05-032 -- DataTable.tsx -- accessible Fluent Table wrapper (th scope=col)
+[FAIL] missing_implementation :: ACA-05-033 -- MoneyRangeBar.tsx -- visual low/high saving range bar with currency label
+[FAIL] missing_implementation :: ACA-05-034 -- EffortBadge.tsx -- colour-coded badge: trivial/easy/medium/involved/strategic
+[FAIL] missing_implementation :: ACA-05-035 -- As a user I see a consent banner on first visit (ConsentBanner reused)
+[FAIL] missing_implementation :: ACA-05-036 -- TelemetryProvider.tsx wraps CustomerLayout; loads GTM + Clarity scripts
+[FAIL] missing_implementation :: ACA-05-037 -- All 16 AnalyticsEventName events fire at correct points in customer flow
+[FAIL] missing_implementation :: ACA-05-038 -- Admin surface does NOT load telemetry (no GA4 in admin pages)
+[FAIL] missing_implementation :: ACA-05-039 -- Skip-to-content link is first focusable element on every page
+[FAIL] missing_implementation :: ACA-05-040 -- Full keyboard navigation in all customer and admin pages
+[FAIL] missing_implementation :: ACA-05-041 -- All form fields have associated label elements
+[FAIL] missing_implementation :: ACA-05-042 -- Admin confirmation modals trap focus and close on Escape
+[FAIL] missing_implementation :: ACA-06-002 -- POST /v1/checkout/tier3 returns a Stripe checkout session URL
+[FAIL] missing_implementation :: ACA-06-003 -- mode=subscription creates a Stripe subscription (Tier 2 monthly)
+[FAIL] missing_implementation :: ACA-06-004 -- mode=one_time creates a one-time session (Tier 2 one-time, Tier 3)
+[FAIL] missing_implementation :: ACA-06-005 -- Checkout metadata contains subscriptionId and analysisId
+[FAIL] missing_implementation :: ACA-06-006 -- As a client with a coupon code I can enter it at Stripe checkout
+[FAIL] missing_implementation :: ACA-06-007 -- settings.py has STRIPE_COUPON_ENABLED: bool = True field
+[FAIL] missing_implementation :: ACA-06-008 -- As an admin I can create Stripe promotion codes for trial clients
+[FAIL] missing_implementation :: ACA-06-009 -- checkout.session.completed -> write entitlement to Cosmos, trigger delivery
+[FAIL] missing_implementation :: ACA-06-010 -- invoice.paid -> renew Tier 2 subscription entitlement for next period
+[FAIL] missing_implementation :: ACA-06-011 -- customer.subscription.updated -> update Tier in Cosmos clients container
+[FAIL] missing_implementation :: ACA-06-012 -- customer.subscription.deleted -> downgrade to Tier 1 in Cosmos
+[FAIL] missing_implementation :: ACA-06-013 -- All webhook events written to payments container for audit trail
+[FAIL] missing_implementation :: ACA-06-014 -- GET /v1/entitlements?subscriptionId=X returns { tier, validUntil, features[] }
+[FAIL] missing_implementation :: ACA-06-015 -- Tier gate evaluates entitlement from Cosmos (with APIM 60s cache)
+[FAIL] missing_implementation :: ACA-06-016 -- StripeCustomerMapRepo resolves stripeCustomerId -> subscriptionId for webhooks
+[FAIL] missing_implementation :: ACA-06-017 -- Billing portal endpoint derives stripeCustomerId from Cosmos clients container
+[FAIL] missing_implementation :: ACA-07-002 -- Each folder has main.bicep and README.md (Bicep Phase 1 only;
+[FAIL] missing_implementation :: ACA-07-003 -- Templates are parameterized with scan_id, subscription_id, and finding fields
+[FAIL] missing_implementation :: ACA-07-004 -- Template content sourced from 12-IaCscript.md patterns
+[FAIL] missing_implementation :: ACA-07-005 -- Delivery service generates all IaC artifacts for a scan's findings
+[FAIL] missing_implementation :: ACA-07-006 -- ZIP is assembled with findings.json manifest at root
+[FAIL] missing_implementation :: ACA-07-007 -- ZIP is signed with SHA-256 and the hash stored in the deliverables container
+[FAIL] missing_implementation :: ACA-07-008 -- ZIP is uploaded to Azure Blob Storage with 24h SAS URL
+[FAIL] missing_implementation :: ACA-07-009 -- Deliverable record is written to Cosmos with sasUrl, sha256, artifactCount
+[FAIL] missing_implementation :: ACA-08-002 -- GA4 tag fires after consent accepted
+[FAIL] missing_implementation :: ACA-08-003 -- Clarity tag fires after consent accepted with form field masking ON
+[FAIL] missing_implementation :: ACA-08-004 -- All 16 AnalyticsEventName events are fired at correct points in the UI
+[FAIL] missing_implementation :: ACA-08-005 -- Consent banner allows accept/reject: rejected state suppresses all tags
+[FAIL] missing_implementation :: ACA-08-006 -- Consent preference is respected across page reloads (localStorage)
+[FAIL] missing_implementation :: ACA-08-007 -- App Insights connection string is set in all Container Apps via KV reference
+[FAIL] missing_implementation :: ACA-08-008 -- All service logs are structured JSON and appear in Azure Monitor
+[FAIL] missing_implementation :: ACA-08-009 -- Scan duration, analysis duration, delivery duration are emitted as custom metrics
+[FAIL] missing_implementation :: ACA-08-010 -- All API errors (4xx, 5xx) are logged with error_category enum (no raw messages)
+[FAIL] missing_implementation :: ACA-08-011 -- Stripe webhook events are logged with event type + subscriptionId (hashed)
+[FAIL] missing_implementation :: ACA-08-012 -- Alert: API service 5xx rate > 5% in 5 minutes -> PagerDuty / email
+[FAIL] missing_implementation :: ACA-08-013 -- Alert: Collector job failure -> email + Cosmos audit record
+[FAIL] missing_implementation :: ACA-08-014 -- Alert: Anomaly detection rule fires -> owner notified (Story R-05 output)
+[FAIL] missing_implementation :: ACA-09-002 -- All user-visible strings are extracted to translation files (no hardcoded EN text)
+[FAIL] missing_implementation :: ACA-09-003 -- Language selector is visible in the nav with locale names in their own language:
+[FAIL] missing_implementation :: ACA-09-004 -- Locale preference is persisted in localStorage
+[FAIL] missing_implementation :: ACA-09-005 -- Date formats use Intl.DateTimeFormat -- locale-aware, no hardcoded format
+[FAIL] missing_implementation :: ACA-09-006 -- Number/currency formats use Intl.NumberFormat with locale and currency options:
+[FAIL] missing_implementation :: ACA-09-007 -- fr (fr-CA) translations are completed before Phase 1 go-live
+[FAIL] missing_implementation :: ACA-09-008 -- pt-BR, es, and de translations are completed before Phase 1 go-live
+[FAIL] missing_implementation :: ACA-09-009 -- API error messages returned with Accept-Language header support for the
+[FAIL] missing_implementation :: ACA-09-010 -- axe-core CI check runs on every PR -- zero critical or serious violations gate
+[FAIL] missing_implementation :: ACA-09-011 -- All icon-only buttons have aria-label in all 5 locales
+[FAIL] missing_implementation :: ACA-09-012 -- All form fields have associated <label> elements (no placeholder-as-label)
+[FAIL] missing_implementation :: ACA-09-013 -- Findings table has proper <th scope="col"> headers
+[FAIL] missing_implementation :: ACA-09-014 -- PreFlight status indicators use both colour and icon/text (not colour-only)
+[FAIL] missing_implementation :: ACA-09-015 -- Colour contrast ratio >= 4.5:1 for all body text (verified in Figma + axe)
+[FAIL] missing_implementation :: ACA-09-016 -- Focus ring is visible and high-contrast on all focusable elements
+[FAIL] missing_implementation :: ACA-09-017 -- Skip-to-content link is the first focusable element on every page
+[FAIL] missing_implementation :: ACA-09-018 -- Consent banner is keyboard-accessible and screen-reader-labelled
+[FAIL] missing_implementation :: ACA-10-003 -- Stripe webhook signature verified on every event (whsec_ secret)
+[FAIL] missing_implementation :: ACA-10-004 -- Admin endpoints protected by bearer token rotation schedule
+[FAIL] missing_implementation :: ACA-10-005 -- All Cosmos queries parameterized (no string concatenation in queries)
+[FAIL] missing_implementation :: ACA-10-006 -- CSP header enforced: scripts from GTM/Stripe/Clarity only, no inline
+[FAIL] missing_implementation :: ACA-10-007 -- Privacy policy published at /privacy in all 5 locales
+[FAIL] missing_implementation :: ACA-10-008 -- Terms of service published at /terms in all 5 locales
+[FAIL] missing_implementation :: ACA-10-009 -- Data retention policy: collected Azure data purged after 90 days
+[FAIL] missing_implementation :: ACA-10-010 -- Client can request data deletion via DELETE /v1/auth/disconnect which
+[FAIL] missing_implementation :: ACA-10-011 -- GA4 data retention set to 14 months. IP anonymization enabled.
+[FAIL] missing_implementation :: ACA-10-012 -- Clarity data retention respects GDPR right-to-be-forgotten via Clarity API
+[FAIL] missing_implementation :: ACA-10-013 -- docs/client-access-guide.md published at /docs/access-guide in all 5 locales
+[FAIL] missing_implementation :: ACA-10-014 -- FAQ page covers top 10 support questions (from preflight failure analysis)
+[FAIL] missing_implementation :: ACA-10-015 -- Status page (uptime) linked from footer
+[FAIL] missing_implementation :: ACA-11-002 -- ACA-specific APIM instance is deployed with Tier enforcement policies
+[FAIL] missing_implementation :: ACA-11-003 -- GitHub Actions deploy-phase2.yml is wired to private subscription via OIDC
+[FAIL] missing_implementation :: ACA-11-004 -- Custom domain (app.aca.example.com / api.aca.example.com) configured with
+[FAIL] missing_implementation :: ACA-11-005 -- Phase 2 Cosmos has 3 geo-replicas (canadacentral primary + failover)
+[FAIL] missing_implementation :: ACA-11-006 -- DNS TTL lowered 48h before cutover
+[FAIL] missing_implementation :: ACA-11-007 -- Phase 1 marco* infra remains live as rollback for 30 days post-cutover
+[FAIL] missing_implementation :: ACA-11-008 -- Phase 2 smoke test: full Tier 1 -> Tier 3 flow on Phase 2 infra
+[FAIL] missing_implementation :: ACA-11-009 -- APIM configuration exported and version-controlled
+[FAIL] missing_implementation :: ACA-12-003 -- Story status is updated by the agent at start and end of each work item
+[FAIL] missing_implementation :: ACA-12-004 -- data-model agent-summary reflects current overall completion percentage
+[FAIL] missing_implementation :: ACA-12-005 -- API service reads feature_flags layer to gate unreleased features
+[FAIL] missing_implementation :: ACA-12-006 -- Analysis service reads the rules layer to discover enabled/disabled rules
+[FAIL] missing_implementation :: ACA-12-007 -- Endpoints layer is kept in sync with every shipped route (PUT on ship)
+[FAIL] missing_implementation :: ACA-12-008 -- Containers layer reflects the actual Cosmos schema (fields, partition keys)
+[FAIL] missing_implementation :: ACA-13-009 -- GET /v1/assessment/waf scores subscription against 5 WAF pillars
+[FAIL] missing_implementation :: ACA-13-010 -- WAF reliability pillar rules (APRL checklist integration)
+[FAIL] missing_implementation :: ACA-13-011 -- FinOps advisor rules R-13 to R-17 from best-practices library
+[FAIL] missing_implementation :: ACA-13-012 -- Idle resource detection rule (classic cost waste)
+[FAIL] missing_implementation :: ACA-13-013 -- RBAC hygiene check (over-scoped contributor assignments)
+[FAIL] missing_implementation :: ACA-13-014 -- Key Vault access policy audit (legacy vs RBAC mode)
+[FAIL] missing_implementation :: ACA-13-015 -- MCSB control compliance check (Defender for Cloud)
+[FAIL] missing_implementation :: ACA-13-016 -- APIM rate-limit policy health check
+[FAIL] missing_implementation :: ACA-13-017 -- API design compliance check (versioning, idempotency, error codes)
+[FAIL] missing_implementation :: ACA-13-018 -- PSRule for Azure gate on all Bicep templates
+[FAIL] missing_implementation :: ACA-13-019 -- Best-practice tag enforcement (cost-center, environment, owner)
+[FAIL] missing_implementation :: ACA-14-001 -- .github/ISSUE_TEMPLATE/agent-task.yml captures Story ID, WBS ID,
+[FAIL] missing_implementation :: ACA-14-002 -- Issue template validation: Story ID must match ACA-NN-NNN format
+[FAIL] missing_implementation :: ACA-14-003 -- .github/workflows/dpdca-agent.yml D1 phase: parse issue, load
+[FAIL] missing_implementation :: ACA-14-006 -- C phase: run ruff check + pytest --co; fail workflow on error
+[FAIL] missing_implementation :: ACA-14-008 -- GitHub Models API integration (GITHUB_TOKEN, endpoint, model param)
+[FAIL] missing_implementation :: ACA-14-009 -- Azure OpenAI fallback wiring (AZURE_OPENAI_KEY + endpoint env vars)
+[FAIL] missing_implementation :: ACA-14-010 -- Evidence receipt schema validation: story_id, wbs_id, epic,
+[FAIL] orphan_story_tag :: ACA-XX-XXX
+[FAIL] orphan_story_tag :: ACA-13-001
+[FAIL] orphan_story_tag :: ACA-13-002
+[FAIL] orphan_story_tag :: ACA-13-003
+[FAIL] orphan_story_tag :: ACA-13-004
+[FAIL] orphan_story_tag :: ACA-13-005
+[FAIL] orphan_story_tag :: ACA-13-006
+[FAIL] orphan_story_tag :: ACA-13-007
+[FAIL] orphan_story_tag :: ACA-13-008
+[FAIL] orphan_story_tag :: ACA-INFRA-001
+[FAIL] orphan_story_tag :: ACA-INFRA-002
+[FAIL] orphan_story_tag :: ACA-INFRA-003
+[FAIL] orphan_story_tag :: ACA-INFRA-004
+[FAIL] orphan_story_tag :: ACA-INFRA-005
+[FAIL] orphan_story_tag :: ACA-INFRA-006
+[FAIL] orphan_story_tag :: ACA-INFRA-007
+[FAIL] orphan_story_tag :: ACA-INFRA-008
+
+Feature Breakdown
+---------------------------------------
+[  2] ACA-05     FRONTEND SPARK ARCHITECTURE     1/42 artifacts  1/42 evidence  41 gaps
+[  2] ACA-03     ANALYSIS ENGINE AND RULES       1/33 artifacts  1/33 evidence  32 gaps
+[  3] ACA-04     Epic 4                          1/27 artifacts  1/27 evidence  26 gaps
+[  3] ACA-01     FOUNDATION AND INFRASTRUCTURE   1/21 artifacts  1/21 evidence  20 gaps
+[  4] ACA-09     i18n AND a11y                   1/18 artifacts  1/18 evidence  17 gaps
+[  4] ACA-06     MONETIZATION AND BILLING        1/17 artifacts  1/17 evidence  16 gaps
+[  4] ACA-02     Epic 2                          1/16 artifacts  1/16 evidence  15 gaps
+[  5] ACA-08     OBSERVABILITY AND TELEMETRY     1/14 artifacts  1/14 evidence  13 gaps
+[  9] ACA-10     COMMERCIAL HARDENING            2/15 artifacts  2/15 evidence  13 gaps
+[  0] ACA-13     AZURE BEST PRACTICES SERVICE C  0/11 artifacts  0/11 evidence  11 gaps  [NOT STARTED]
+[  8] ACA-07     DELIVERY PACKAGER               1/9 artifacts  1/9 evidence  8 gaps
+[  8] ACA-11     PHASE 2 INFRASTRUCTURE          1/9 artifacts  1/9 evidence  8 gaps
+[ 29] ACA-14     DPDCA CLOUD AGENT               3/10 artifacts  7/10 evidence  7 gaps
+[ 18] ACA-12     DATA MODEL SUPPORT              2/8 artifacts  2/8 evidence  6 gaps
+
+Implemented
+---------------------------------------
+[IMPL] ACA-01-001 -- As a developer I can run `docker-compose up` and all services start (3 artifacts)
+[IMPL] ACA-02-001 -- As a client using Mode A (delegated) I see a PASS/FAIL/WARN status (1 artifact)
+[IMPL] ACA-03-001 -- As the system I load all 12 rules from ALL_RULES and run each in sequence (1 artifact)
+[IMPL] ACA-04-001 -- As a client I can sign in via Microsoft Identity (any Microsoft tenant); (1 artifact)
+[IMPL] ACA-05-001 -- roles.ts defines ACA_Admin, ACA_Support, ACA_FinOps role constants (1 artifact)
+[IMPL] ACA-06-001 -- POST /v1/checkout/tier2 returns a Stripe checkout session URL (1 artifact)
+[IMPL] ACA-07-001 -- 12 Jinja2 template folders exist in services/delivery/app/templates/ (1 artifact)
+[IMPL] ACA-08-001 -- GTM container is loaded in index.html with consent gating (1 artifact)
+[IMPL] ACA-09-001 -- i18next is configured with 5 locale namespaces in frontend/src/i18n/ (1 artifact)
+[IMPL] ACA-10-001 -- Red-team agent runs Tier 1 token against findings API and asserts (1 artifact)
+[IMPL] ACA-10-002 -- All endpoints validated: no tenant A can access tenant B data (1 artifact)
+[IMPL] ACA-11-001 -- `terraform apply` on infra/phase2-private completes without error (1 artifact)
+[IMPL] ACA-12-001 -- All epics, features, and stories from this PLAN are seeded into (2 artifacts)
+[IMPL] ACA-12-002 -- Each story has status: not-started / in-progress / done (2 artifacts)
+[IMPL] ACA-14-004 -- P phase: Python Plan-step calls gpt-4o-mini with context, (1 artifact)
+[IMPL] ACA-14-005 -- D2 phase: create branch agent/ACA-NN-NNN-TIMESTAMP, write (2 artifacts)
+[IMPL] ACA-14-007 -- A phase: commit with Story ID in message, run Veritas audit, (1 artifact)
+
+Trust (MTI)
+---------------------------------------
+Score:   5 (-52)
+Trend:   50 -> 50 -> 50 -> 20 -> 70 -> 70 -> 70 -> 70 -> 57 -> 5
+Actions: block, investigate
+Components: coverage=0.07 evidence=0.08 consistency=0
+Weights:    coverage=0.5 evidence=0.2 consistency=0.3
+
+Improvement Hints
+---------------------------------------
+[ACT] To reach MTI 50 (review-required): tag 225 more stories with # EVA-STORY
+      To reach MTI 70 (merge-with-approval): tag 325 more stories with # EVA-STORY
+      To reach MTI 90 (deploy): tag 425 more stories with # EVA-STORY
+
+[ACT] 233 unimplemented stories by feature (highest priority first):
+      ACA-05 FRONTEND SPARK ARCHITECTURE (41 gaps)
+        - ACA-05-002 -- useAuth.ts wraps MSAL PublicClientApplication; exposes user, roles,
+        - ACA-05-003 -- RequireAuth.tsx: if !isAuthenticated redirect to /
+        - ACA-05-004 -- RequireRole.tsx: if user lacks anyOf roles, redirect to /app/connect
+        - ACA-05-005 -- All admin routes require RequireAuth + RequireRole (ACA_Admin|Support|FinOps)
+        - ACA-05-006 -- CustomerLayout.tsx: top nav with logo, LanguageSelector, user menu
+        - ACA-05-007 -- AdminLayout.tsx: top nav + left sidebar with admin nav items
+        - ACA-05-008 -- NavCustomer.tsx: links to /app/connect, /app/status, /app/findings
+        - ACA-05-009 -- NavAdmin.tsx: links to /admin/dashboard, /admin/customers,
+        - ACA-05-010 -- AppShell.tsx: root component with FluentProvider + ConsentBanner +
+        - ACA-05-011 -- router.tsx uses createBrowserRouter (not BrowserRouter + <Routes>)
+        - ACA-05-012 -- Route / -> LoginPage (no auth required)
+        - ACA-05-013 -- Routes /app/* -> RequireAuth -> CustomerLayout -> Outlet
+        - ACA-05-014 -- Routes /admin/* -> RequireAuth -> RequireRole -> AdminLayout -> Outlet
+        - ACA-05-015 -- Code-split: all page components lazy-loaded with React.lazy
+        - ACA-05-016 -- LoginPage (/) -- Entra ID login CTA + dev bypass link
+        - ACA-05-017 -- ConnectSubscriptionPage (/app/connect) -- Mode A/B/C radio group;
+        - ACA-05-018 -- CollectionStatusPage (/app/status/:subscriptionId) -- polls
+        - ACA-05-019 -- FindingsTier1Page (/app/findings/:subscriptionId) -- renders Tier 1
+        - ACA-05-020 -- UpgradePage (/app/upgrade/:subscriptionId) -- Tier 2 vs Tier 3 cards;
+        - ACA-05-021 -- AdminDashboardPage (/admin/dashboard) -- calls GET /v1/admin/kpis;
+        - ACA-05-022 -- AdminCustomersPage (/admin/customers) -- search input calls
+        - ACA-05-023 -- AdminBillingPage (/admin/billing) -- Stripe billing portal link;
+        - ACA-05-024 -- AdminRunsPage (/admin/runs) -- lists runs from GET /v1/admin/runs;
+        - ACA-05-025 -- AdminControlsPage (/admin/controls) -- grant tier form (subscriptionId,
+        - ACA-05-026 -- frontend/src/app/api/client.ts -- base http<T> function; includes
+        - ACA-05-027 -- frontend/src/app/api/appApi.ts -- customer API calls:
+        - ACA-05-028 -- frontend/src/app/api/adminApi.ts -- admin API calls:
+        - ACA-05-029 -- frontend/src/app/types/models.ts -- TypeScript DTOs:
+        - ACA-05-030 -- Loading.tsx -- full-page or inline Fluent Spinner with aria-label
+        - ACA-05-031 -- ErrorState.tsx -- Fluent MessageBar (error) with retry callback
+        - ACA-05-032 -- DataTable.tsx -- accessible Fluent Table wrapper (th scope=col)
+        - ACA-05-033 -- MoneyRangeBar.tsx -- visual low/high saving range bar with currency label
+        - ACA-05-034 -- EffortBadge.tsx -- colour-coded badge: trivial/easy/medium/involved/strategic
+        - ACA-05-035 -- As a user I see a consent banner on first visit (ConsentBanner reused)
+        - ACA-05-036 -- TelemetryProvider.tsx wraps CustomerLayout; loads GTM + Clarity scripts
+        - ACA-05-037 -- All 16 AnalyticsEventName events fire at correct points in customer flow
+        - ACA-05-038 -- Admin surface does NOT load telemetry (no GA4 in admin pages)
+        - ACA-05-039 -- Skip-to-content link is first focusable element on every page
+        - ACA-05-040 -- Full keyboard navigation in all customer and admin pages
+        - ACA-05-041 -- All form fields have associated label elements
+        - ACA-05-042 -- Admin confirmation modals trap focus and close on Escape
+      ACA-03 ANALYSIS ENGINE AND RULES (32 gaps)
+        - ACA-03-002 -- As the system I handle a rule failure in isolation (one rule crash does not
+        - ACA-03-003 -- As the system I persist each Finding to Cosmos with full schema:
+        - ACA-03-004 -- As the system I update AnalysisRun status: queued -> running -> succeeded/failed
+        - ACA-03-005 -- As the system I write findingsSummary to the analysis run record
+        - ACA-03-006 -- As a Tier 1 client calling GET /v1/findings/:scanId I receive findings
+        - ACA-03-007 -- As a Tier 1 client I do not receive narrative or deliverable_template_id
+        - ACA-03-008 -- As a Tier 2 client I receive the full finding including narrative and
+        - ACA-03-009 -- As a Tier 3 client I receive the full finding including deliverable_template_id
+        - ACA-03-010 -- As the red-team agent I can assert that Tier 1 tokens never leak
+        - ACA-03-011 -- R-01 Dev Box auto-stop: returns finding when annual Dev Box cost > $1,000
+        - ACA-03-012 -- R-02 Log retention: returns finding when annual LA cost > $500 in non-prod
+        - ACA-03-013 -- R-03 Defender mismatch: returns finding when annual Defender cost > $2,000
+        - ACA-03-014 -- R-04 Compute scheduling: returns finding when annual schedulable compute > $5,000
+        - ACA-03-015 -- R-05 Anomaly detection: returns finding for each category with z-score > 3.0
+        - ACA-03-016 -- R-06 Stale environments: returns finding when >= 3 App Service sites exist
+        - ACA-03-017 -- R-07 Search SKU oversize: returns finding when annual Search cost > $2,000
+        - ACA-03-018 -- R-08 ACR consolidation: returns finding when >= 3 registries exist
+        - ACA-03-019 -- R-09 DNS sprawl: returns finding when annual DNS cost > $1,000
+        - ACA-03-020 -- Unit test for R-01 devbox_autostop: fixture with Dev Box cost > $1,000 -> finding
+        - ACA-03-021 -- Unit test for R-02 log_retention: fixture with LA cost > $500 -> finding
+        - ACA-03-022 -- Unit test for R-03 defender_mismatch: fixture with Defender cost > $2,000 -> finding
+        - ACA-03-023 -- Unit test for R-04 compute_scheduling: fixture with schedulable > $5,000 -> finding
+        - ACA-03-024 -- Unit test for R-05 anomaly_detection: fixture with z-score > 3.0 -> finding
+        - ACA-03-025 -- Unit test for R-06 stale_environments: fixture with >= 3 App Services -> finding
+        - ACA-03-026 -- Unit test for R-07 search_sku_oversize: fixture with Search cost > $2,000 -> finding
+        - ACA-03-027 -- Unit test for R-08 acr_consolidation: fixture with >= 3 registries -> finding
+        - ACA-03-028 -- Unit test for R-09 dns_sprawl: fixture with DNS cost > $1,000 -> finding
+        - ACA-03-029 -- Unit test for R-10 savings_plan_coverage: fixture with compute > $20,000 -> finding
+        - ACA-03-030 -- Unit test for R-11 apim_token_budget: fixture with APIM + OpenAI -> finding
+        - ACA-03-031 -- Unit test for R-12 chargeback_gap: fixture with total cost > $5,000 -> finding
+        - ACA-03-032 -- Negative tests for each rule: below-threshold fixture -> no finding returned
+        - ACA-03-033 -- FindingsAssembler unit test: mock rule list -> correct Cosmos upsert payload
+      ACA-04 Epic 4 (26 gaps)
+        - ACA-04-002 -- As the API I validate the JWT on every authenticated endpoint using
+        - ACA-04-003 -- As the API I extract subscriptionId from the session (stored after connect);
+        - ACA-04-004 -- As a client I can connect my Azure subscription (POST /v1/auth/connect)
+        - ACA-04-005 -- As a client I can disconnect (POST /v1/auth/disconnect) and all access
+        - ACA-04-006 -- As a developer auth.py is reworked: MSAL authority=common, no EsDAICoE
+        - ACA-04-007 -- As the frontend LoginPage, sign-in CTA calls MSAL.js with
+        - ACA-04-008 -- POST /v1/auth/connect         -- Connect Azure subscription
+        - ACA-04-009 -- POST /v1/auth/preflight       -- Run pre-flight probes
+        - ACA-04-010 -- POST /v1/auth/disconnect      -- Disconnect subscription
+        - ACA-04-011 -- POST /v1/collect/start        -- Trigger collector job (was /v1/scans)
+        - ACA-04-012 -- GET  /v1/collect/status       -- Poll collection progress (was /v1/scans/:scanId)
+        - ACA-04-013 -- GET  /v1/reports/tier1        -- Tier 1 findings report (was /v1/findings/:scanId)
+        - ACA-04-014 -- POST /v1/billing/checkout     -- Stripe checkout (tier2 or tier3 in body)
+        - ACA-04-015 -- GET  /v1/billing/portal       -- Stripe billing portal redirect URL
+        - ACA-04-016 -- POST /v1/webhooks/stripe      -- Stripe event handler
+        - ACA-04-017 -- As the gateway I validate JWT signature on all /v1/* routes
+        - ACA-04-018 -- As the gateway I cache /v1/entitlements response for 60s per subscriptionId
+        - ACA-04-019 -- As the gateway I return 403 with TIER_REQUIRED error when a Tier 1
+        - ACA-04-020 -- As the gateway I enforce subscription key throttling (100 req/min default)
+        - ACA-04-021 -- As the gateway I forward X-Subscription-Id header to the API on all calls
+        - ACA-04-022 -- GET  /v1/admin/kpis
+        - ACA-04-023 -- GET  /v1/admin/customers?query=
+        - ACA-04-024 -- POST /v1/admin/entitlements/grant
+        - ACA-04-025 -- POST /v1/admin/subscriptions/:subscriptionId/lock
+        - ACA-04-026 -- POST /v1/admin/stripe/reconcile
+        - ACA-04-027 -- GET  /v1/admin/runs?type=scan|analysis|delivery
+      ACA-01 FOUNDATION AND INFRASTRUCTURE (20 gaps)
+        - ACA-01-002 -- As a developer I can run `pytest services/ -x -q` and all tests pass
+        - ACA-01-003 -- As a developer I can hit http://localhost:8080/health and get status=ok
+        - ACA-01-004 -- As a developer I can run the data-model on port 8011 (start.ps1)
+        - ACA-01-005 -- As a developer I can use the .env.example as a complete checklist
+        - ACA-01-006 -- As a developer, every PR triggers ruff lint. Zero lint errors = green.
+        - ACA-01-007 -- As a developer, every PR triggers mypy type check. No unresolved types.
+        - ACA-01-008 -- As a developer, every PR triggers pytest. No test failures = merge allowed.
+        - ACA-01-009 -- As a developer, main branch push triggers axe-core a11y check on frontend.
+        - ACA-01-010 -- As an operator I can run infra/phase1-marco/main.bicep and get 7 Cosmos containers
+        - ACA-01-011 -- As an operator all secrets are in marcosandkv20260203 (no .env in production)
+        - ACA-01-012 -- As an operator the API Container App has managed identity approved on KV
+        - ACA-01-013 -- As an operator the collector job has managed identity with Cosmos read/write
+        - ACA-01-014 -- As an operator OIDC is configured on the GitHub Actions workflow for EsDAICoE-Sandbox
+        - ACA-01-015 -- As an operator infra/phase1-marco/bootstrap.sh exists and provisions all
+        - ACA-01-016 -- As a developer all 4 Dockerfiles build without error on ubuntu-latest
+        - ACA-01-017 -- As an operator deploy-phase1.yml pushes 4 images to marcosandacr20260203
+        - ACA-01-018 -- As an operator collector-schedule.yml triggers nightly at 02:00 UTC
+        - ACA-01-019 -- As an operator PUBLIC_APP_URL and PUBLIC_API_URL are read from env vars;
+        - ACA-01-020 -- As a developer .env.example documents the Azure free hostname pattern
+        - ACA-01-021 -- As an operator ACA_ALLOWED_ORIGINS is seeded from the Phase 1 free hostname
+      ACA-09 i18n AND a11y (17 gaps)
+        - ACA-09-002 -- All user-visible strings are extracted to translation files (no hardcoded EN text)
+        - ACA-09-003 -- Language selector is visible in the nav with locale names in their own language:
+        - ACA-09-004 -- Locale preference is persisted in localStorage
+        - ACA-09-005 -- Date formats use Intl.DateTimeFormat -- locale-aware, no hardcoded format
+        - ACA-09-006 -- Number/currency formats use Intl.NumberFormat with locale and currency options:
+        - ACA-09-007 -- fr (fr-CA) translations are completed before Phase 1 go-live
+        - ACA-09-008 -- pt-BR, es, and de translations are completed before Phase 1 go-live
+        - ACA-09-009 -- API error messages returned with Accept-Language header support for the
+        - ACA-09-010 -- axe-core CI check runs on every PR -- zero critical or serious violations gate
+        - ACA-09-011 -- All icon-only buttons have aria-label in all 5 locales
+        - ACA-09-012 -- All form fields have associated <label> elements (no placeholder-as-label)
+        - ACA-09-013 -- Findings table has proper <th scope="col"> headers
+        - ACA-09-014 -- PreFlight status indicators use both colour and icon/text (not colour-only)
+        - ACA-09-015 -- Colour contrast ratio >= 4.5:1 for all body text (verified in Figma + axe)
+        - ACA-09-016 -- Focus ring is visible and high-contrast on all focusable elements
+        - ACA-09-017 -- Skip-to-content link is the first focusable element on every page
+        - ACA-09-018 -- Consent banner is keyboard-accessible and screen-reader-labelled
+      ACA-06 MONETIZATION AND BILLING (16 gaps)
+        - ACA-06-002 -- POST /v1/checkout/tier3 returns a Stripe checkout session URL
+        - ACA-06-003 -- mode=subscription creates a Stripe subscription (Tier 2 monthly)
+        - ACA-06-004 -- mode=one_time creates a one-time session (Tier 2 one-time, Tier 3)
+        - ACA-06-005 -- Checkout metadata contains subscriptionId and analysisId
+        - ACA-06-006 -- As a client with a coupon code I can enter it at Stripe checkout
+        - ACA-06-007 -- settings.py has STRIPE_COUPON_ENABLED: bool = True field
+        - ACA-06-008 -- As an admin I can create Stripe promotion codes for trial clients
+        - ACA-06-009 -- checkout.session.completed -> write entitlement to Cosmos, trigger delivery
+        - ACA-06-010 -- invoice.paid -> renew Tier 2 subscription entitlement for next period
+        - ACA-06-011 -- customer.subscription.updated -> update Tier in Cosmos clients container
+        - ACA-06-012 -- customer.subscription.deleted -> downgrade to Tier 1 in Cosmos
+        - ACA-06-013 -- All webhook events written to payments container for audit trail
+        - ACA-06-014 -- GET /v1/entitlements?subscriptionId=X returns { tier, validUntil, features[] }
+        - ACA-06-015 -- Tier gate evaluates entitlement from Cosmos (with APIM 60s cache)
+        - ACA-06-016 -- StripeCustomerMapRepo resolves stripeCustomerId -> subscriptionId for webhooks
+        - ACA-06-017 -- Billing portal endpoint derives stripeCustomerId from Cosmos clients container
+      ACA-02 Epic 2 (15 gaps)
+        - ACA-02-002 -- As a client with missing Cost Management Reader role I see a clear
+        - ACA-02-003 -- As a client with PASS_WITH_WARNINGS I can still proceed with collection
+        - ACA-02-004 -- As an operator I can pass --preflight-only to the collector to validate
+        - ACA-02-005 -- As the system I collect all Azure resources via Resource Graph in < 60s
+        - ACA-02-006 -- As the system I save inventory to Cosmos with partition_key=subscriptionId
+        - ACA-02-007 -- As the system I capture: resource type, name, SKU, region, resource group, tags
+        - ACA-02-008 -- As the system I collect 91 days of daily cost rows via Cost Management Query API
+        - ACA-02-009 -- As the system I capture: date, MeterCategory, MeterName, resourceGroup,
+        - ACA-02-010 -- As the system I handle rate limiting (429) with exponential backoff + retry
+        - ACA-02-011 -- As the system I collect all Advisor recommendations across all categories
+        - ACA-02-012 -- As the system I collect Policy compliance state (compliant / non-compliant counts)
+        - ACA-02-013 -- As the system I collect network signals: NSG rule counts, private DNS zones,
+        - ACA-02-014 -- As the system I update scan status in Cosmos: queued -> running -> succeeded/failed
+        - ACA-02-015 -- As the system I write stats to the scan record (inventoryCount, costRows, advisorRecs)
+        - ACA-02-016 -- As the API I expose GET /v1/scans/:scanId so the frontend can poll status
+      ACA-08 OBSERVABILITY AND TELEMETRY (13 gaps)
+        - ACA-08-002 -- GA4 tag fires after consent accepted
+        - ACA-08-003 -- Clarity tag fires after consent accepted with form field masking ON
+        - ACA-08-004 -- All 16 AnalyticsEventName events are fired at correct points in the UI
+        - ACA-08-005 -- Consent banner allows accept/reject: rejected state suppresses all tags
+        - ACA-08-006 -- Consent preference is respected across page reloads (localStorage)
+        - ACA-08-007 -- App Insights connection string is set in all Container Apps via KV reference
+        - ACA-08-008 -- All service logs are structured JSON and appear in Azure Monitor
+        - ACA-08-009 -- Scan duration, analysis duration, delivery duration are emitted as custom metrics
+        - ACA-08-010 -- All API errors (4xx, 5xx) are logged with error_category enum (no raw messages)
+        - ACA-08-011 -- Stripe webhook events are logged with event type + subscriptionId (hashed)
+        - ACA-08-012 -- Alert: API service 5xx rate > 5% in 5 minutes -> PagerDuty / email
+        - ACA-08-013 -- Alert: Collector job failure -> email + Cosmos audit record
+        - ACA-08-014 -- Alert: Anomaly detection rule fires -> owner notified (Story R-05 output)
+      ACA-10 COMMERCIAL HARDENING (13 gaps)
+        - ACA-10-003 -- Stripe webhook signature verified on every event (whsec_ secret)
+        - ACA-10-004 -- Admin endpoints protected by bearer token rotation schedule
+        - ACA-10-005 -- All Cosmos queries parameterized (no string concatenation in queries)
+        - ACA-10-006 -- CSP header enforced: scripts from GTM/Stripe/Clarity only, no inline
+        - ACA-10-007 -- Privacy policy published at /privacy in all 5 locales
+        - ACA-10-008 -- Terms of service published at /terms in all 5 locales
+        - ACA-10-009 -- Data retention policy: collected Azure data purged after 90 days
+        - ACA-10-010 -- Client can request data deletion via DELETE /v1/auth/disconnect which
+        - ACA-10-011 -- GA4 data retention set to 14 months. IP anonymization enabled.
+        - ACA-10-012 -- Clarity data retention respects GDPR right-to-be-forgotten via Clarity API
+        - ACA-10-013 -- docs/client-access-guide.md published at /docs/access-guide in all 5 locales
+        - ACA-10-014 -- FAQ page covers top 10 support questions (from preflight failure analysis)
+        - ACA-10-015 -- Status page (uptime) linked from footer
+      ACA-13 AZURE BEST PRACTICES SERVICE CATALOG (11 gaps)
+        - ACA-13-009 -- GET /v1/assessment/waf scores subscription against 5 WAF pillars
+        - ACA-13-010 -- WAF reliability pillar rules (APRL checklist integration)
+        - ACA-13-011 -- FinOps advisor rules R-13 to R-17 from best-practices library
+        - ACA-13-012 -- Idle resource detection rule (classic cost waste)
+        - ACA-13-013 -- RBAC hygiene check (over-scoped contributor assignments)
+        - ACA-13-014 -- Key Vault access policy audit (legacy vs RBAC mode)
+        - ACA-13-015 -- MCSB control compliance check (Defender for Cloud)
+        - ACA-13-016 -- APIM rate-limit policy health check
+        - ACA-13-017 -- API design compliance check (versioning, idempotency, error codes)
+        - ACA-13-018 -- PSRule for Azure gate on all Bicep templates
+        - ACA-13-019 -- Best-practice tag enforcement (cost-center, environment, owner)
+      ACA-07 DELIVERY PACKAGER (8 gaps)
+        - ACA-07-002 -- Each folder has main.bicep and README.md (Bicep Phase 1 only;
+        - ACA-07-003 -- Templates are parameterized with scan_id, subscription_id, and finding fields
+        - ACA-07-004 -- Template content sourced from 12-IaCscript.md patterns
+        - ACA-07-005 -- Delivery service generates all IaC artifacts for a scan's findings
+        - ACA-07-006 -- ZIP is assembled with findings.json manifest at root
+        - ACA-07-007 -- ZIP is signed with SHA-256 and the hash stored in the deliverables container
+        - ACA-07-008 -- ZIP is uploaded to Azure Blob Storage with 24h SAS URL
+        - ACA-07-009 -- Deliverable record is written to Cosmos with sasUrl, sha256, artifactCount
+      ACA-11 PHASE 2 INFRASTRUCTURE (8 gaps)
+        - ACA-11-002 -- ACA-specific APIM instance is deployed with Tier enforcement policies
+        - ACA-11-003 -- GitHub Actions deploy-phase2.yml is wired to private subscription via OIDC
+        - ACA-11-004 -- Custom domain (app.aca.example.com / api.aca.example.com) configured with
+        - ACA-11-005 -- Phase 2 Cosmos has 3 geo-replicas (canadacentral primary + failover)
+        - ACA-11-006 -- DNS TTL lowered 48h before cutover
+        - ACA-11-007 -- Phase 1 marco* infra remains live as rollback for 30 days post-cutover
+        - ACA-11-008 -- Phase 2 smoke test: full Tier 1 -> Tier 3 flow on Phase 2 infra
+        - ACA-11-009 -- APIM configuration exported and version-controlled
+      ACA-14 DPDCA CLOUD AGENT (7 gaps)
+        - ACA-14-001 -- .github/ISSUE_TEMPLATE/agent-task.yml captures Story ID, WBS ID,
+        - ACA-14-002 -- Issue template validation: Story ID must match ACA-NN-NNN format
+        - ACA-14-003 -- .github/workflows/dpdca-agent.yml D1 phase: parse issue, load
+        - ACA-14-006 -- C phase: run ruff check + pytest --co; fail workflow on error
+        - ACA-14-008 -- GitHub Models API integration (GITHUB_TOKEN, endpoint, model param)
+        - ACA-14-009 -- Azure OpenAI fallback wiring (AZURE_OPENAI_KEY + endpoint env vars)
+        - ACA-14-010 -- Evidence receipt schema validation: story_id, wbs_id, epic,
+      ACA-12 DATA MODEL SUPPORT (6 gaps)
+        - ACA-12-003 -- Story status is updated by the agent at start and end of each work item
+        - ACA-12-004 -- data-model agent-summary reflects current overall completion percentage
+        - ACA-12-005 -- API service reads feature_flags layer to gate unreleased features
+        - ACA-12-006 -- Analysis service reads the rules layer to discover enabled/disabled rules
+        - ACA-12-007 -- Endpoints layer is kept in sync with every shipped route (PUT on ship)
+        - ACA-12-008 -- Containers layer reflects the actual Cosmos schema (fields, partition keys)
+
+[ACT] How to close each gap type:
+      missing_implementation  -- Add a tagged source file:
+        Option A: tag an existing file  -->  add  # EVA-STORY: <ID>  at the top
+        Option B: create a receipt       -->  evidence/<feature-id>.py  with  # EVA-STORY: <ID>
+
+[FAIL] MTI 5 is below threshold 70. Raise score or use --warn-only.

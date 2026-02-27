@@ -1,24 +1,23 @@
 {
   "meta": {
     "schema": "eva.trust.v2",
-    "generated_at": "2026-02-27T05:56:45.568Z",
+    "generated_at": "2026-02-27T08:06:38.304Z",
     "repo": "C:\\AICOE\\eva-foundry\\51-ACA",
     "reconciliation_path": "C:\\AICOE\\eva-foundry\\51-ACA\\.eva\\reconciliation.json"
   },
-  "score": 70,
+  "score": 5,
   "stale": false,
-  "sparkline": "0 -> 0 -> 0 -> 0 -> 50 -> 50 -> 50 -> 20 -> 70",
-  "sparkline_delta": "+50",
+  "sparkline": "50 -> 50 -> 50 -> 20 -> 70 -> 70 -> 70 -> 70 -> 57 -> 5",
+  "sparkline_delta": "-52",
   "components": {
-    "coverage": 1,
-    "evidenceCompleteness": 1,
+    "coverage": 0.07,
+    "evidenceCompleteness": 0.08,
     "consistencyScore": 0,
     "complexityCoverage": 0,
     "formula": "3-component-fallback"
   },
   "actions": [
-    "test",
-    "review",
-    "merge-with-approval"
+    "block",
+    "investigate"
   ]
 }

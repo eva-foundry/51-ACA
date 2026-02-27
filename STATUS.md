@@ -1,30 +1,39 @@
 ACA -- Azure Cost Advisor -- STATUS
 ====================================
 
-Version: 1.0.0
-Updated: 2026-02-27 (full WBS hierarchy, ACA-NN-NNN story IDs, function points, velocity,
-         Veritas MTI raised to 70 (no-deploy cleared), DPDCA GitHub Actions workflow live,
-         Epic 13 Azure Best Practices catalog + Epic 14 DPDCA Cloud Agent added to PLAN,
-         data-model total=102, all 22 EVA-STORY tags numeric format confirmed)
+Version: 1.1.0
+Updated: 2026-02-27 (SQLite data model: db.py + server.py port 8055, 325 objects seeded,
+         veritas-plan.json rebuilt 250 stories 14 features, copilot-instructions CA.5 full
+         format docs, P2.7 rewritten for SQLite, seed-from-plan --reseed-model EXIT CODE 0)
 Phase: Phase 1 -- Core Services Bootstrap
-Active Epic: Epic 4 (auth rework), Epic 7 (Delivery templates), Epic 9 (i18n/a11y completion)
-New Epics: Epic 13 (Azure Best Practices), Epic 14 (DPDCA Cloud Agent)
+Active Epic: Epic 4 (auth rework), Epic 7 (Delivery templates), Epic 9 (i18n/a11y), Epic 12 (data model)
 
 =============================================================================
-CURRENT STATE (2026-02-26)
+CURRENT STATE (2026-02-27)
 =============================================================================
 
 All four backend services are bootstrapped and import-verified. Frontend Spark
 restructure is complete (Epic 5 DONE). Billing layer (Epic 6) is complete.
 GitHub cloud agent framework is in place (AGENTS.md, devcontainer, ci.yml multi-job).
 All pre-flight planning Q&A decisions are LOCKED (see DECISIONS LOCKED section below).
-Veritas MTI: 70 (coverage=1.0 * 0.50 + evidence=1.0 * 0.20 + consistency=0.0 * 0.30).
-  Sparkline: 0->0->0->0->50->50->50->20->70. no-deploy flag CLEARED. Actions: test, review,
-  merge-with-approval. Consistency=0 (per-story STATUS.md tracking not yet seeded -- known).
-  All 22 EVA-STORY tags confirmed numeric (ACA-NN-NNN format) in 8 source files.
-Data model: http://localhost:8011 (store=memory, total=102 -- up from 57).
-  Layers active: services=5, containers=11, endpoints=27, screens=10, agents=4,
-  decisions=12, requirements=29, personas=4.
+
+DATA MODEL (SQLite, owned by 51-ACA):
+  Port: 8055 (own server, NOT a proxy to 37-data-model)
+  Storage: data-model/aca-model.db (SQLite, gitignored, persistent across restarts)
+  Total active objects: 325 (up from 102 memory-store baseline)
+  Layers: agents=4, containers=11, endpoints=27, personas=4,
+          requirements=264 (14 epics + 250 stories), screens=10, services=5
+  Seed script: scripts/seed-from-plan.py --reseed-model (EXIT CODE 0)
+  Start server: pwsh -File data-model/start.ps1 -> http://localhost:8055
+  Docs: http://localhost:8055/docs
+
+VERITAS (HONEST BASELINE after 250-story rebuild):
+  MTI: 5 (was artificially 70 -- that was based on 32-story plan)
+  Reason: 250 plan stories vs ~8 source files with EVA-STORY tags (Phase 1 skeleton)
+  Next target: add EVA-STORY tags to all source files, target MTI 50+ (Sprint 2)
+  no-deploy flag: CLEARED from previous session -- still valid for active files
+  veritas-plan.json: 14 features, 250 stories, done=61, planned=189
+
 ADO project: dev.azure.com/marcopresta/51-aca (Epic 2730, 12 Features, 16 PBIs).
 
 =============================================================================
