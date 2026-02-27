@@ -1,5 +1,5 @@
 """
-# EVA-STORY: ACA-06-015
+# EVA-STORY: ACA-06-018
 Entitlement service -- business logic layer over EntitlementsRepo.
 
 Abstracts tier/payment-status persistence so routers and webhook
@@ -11,7 +11,6 @@ from typing import Literal, Optional
 from app.db.repos.entitlements_repo import EntitlementsRepo, PaymentStatus, Tier
 
 PaymentStatus = Literal["none", "active", "past_due", "canceled"]  # re-export
-
 
 @dataclass
 class Entitlement:
@@ -31,8 +30,8 @@ class Entitlement:
 
 
 class EntitlementService:
-    def __init__(self) -> None:
-        self._repo = EntitlementsRepo()
+    def __init__(self, repo: "Optional[EntitlementsRepo]" = None) -> None:
+        self._repo: EntitlementsRepo = repo if repo is not None else EntitlementsRepo()
 
     def get(self, subscription_id: str) -> Entitlement:
         doc = self._repo.get(subscription_id)
@@ -106,9 +105,10 @@ class EntitlementService:
     def revoke(self, subscription_id: str) -> None:
         """Cancel entitlement -- called on subscription.deleted."""
         existing = self.get(subscription_id)
+        new_tier = 3 if existing.tier >= 3 else 1
         self._repo.upsert(
             subscription_id=subscription_id,
-            tier=1,
+            tier=new_tier,
             payment_status="canceled",
             source="stripe_lifecycle",
             stripe_customer_id=existing.stripe_customer_id or None,

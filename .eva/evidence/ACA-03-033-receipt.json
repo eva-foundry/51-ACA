@@ -1,0 +1,16 @@
+{
+  "story_id": "ACA-03-033",
+  "title": "Minimum test suite: checkout router + findings gate + packager SAS",
+  "phase": "D|P|D|C|A",
+  "timestamp": "2026-02-27T12:49:29Z",
+  "artifacts": [
+    "services/tests/__init__.py",
+    "services/tests/test_checkout_router.py",
+    "services/tests/test_findings_gate.py",
+    "services/tests/test_packager_sas.py",
+    "services/tests/test_entitlement_revoke.py"
+  ],
+  "test_result": "WARN",
+  "lint_result": "WARN",
+  "commit_sha": "65422f3959d12891b8b28ffb284f414d089e4121"
+}

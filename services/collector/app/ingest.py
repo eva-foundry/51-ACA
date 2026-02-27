@@ -1,8 +1,3 @@
-"""
-# EVA-STORY: ACA-02-006
-Ingestor -- saves collected data to Cosmos DB.
-All saves are partitioned by subscriptionId.
-"""
 import os
 from datetime import datetime, timezone
 
@@ -10,13 +5,13 @@ from azure.cosmos import CosmosClient
 
 COSMOS_DB = os.environ.get("ACA_COSMOS_DB", "aca-db")
 
+# EVA-STORY: ACA-02-017
 
 def _client():
     return CosmosClient(
         url=os.environ["ACA_COSMOS_URL"],
         credential=os.environ["ACA_COSMOS_KEY"],
     )
-
 
 class Ingestor:
     def __init__(self, scan_id: str, subscription_id: str):
@@ -79,4 +74,50 @@ class Ingestor:
             "subscriptionId": self.sub_id,
             "status": "collected",
             "collectionCompletedUtc": self._now,
-        })
+        }, partition_key=self.sub_id)
+        self._trigger_analysis_job(scan_id=self.scan_id, subscription_id=self.sub_id)
+
+    def _trigger_analysis_job(self, scan_id: str, subscription_id: str) -> None:
+        job_name = os.environ.get("ACA_ANALYSIS_JOB_NAME", "")
+        resource_group = os.environ.get("ACA_RESOURCE_GROUP", "")
+
+        if not job_name or not resource_group:
+            print("[WARN] ACA_ANALYSIS_JOB_NAME or ACA_RESOURCE_GROUP not set -- skipping analysis trigger")
+            return
+
+        try:
+            from azure.mgmt.appcontainers import ContainerAppsAPIClient
+            from azure.identity import DefaultAzureCredential
+
+            client = ContainerAppsAPIClient(credential=DefaultAzureCredential())
+            client.jobs.start(
+                resource_group_name=resource_group,
+                job_name=job_name,
+                properties={
+                    "template": {
+                        "containers": [
+                            {
+                                "name": "analysis",
+                                "env": [
+                                    {"name": "SCAN_ID", "value": scan_id},
+                                    {"name": "SUBSCRIPTION_ID", "value": subscription_id},
+                                ],
+                            }
+                        ]
+                    }
+                }
+            )
+        except ImportError:
+            print("[WARN] azure.mgmt.appcontainers not installed -- falling back to subprocess")
+            try:
+                import subprocess
+                subprocess.run([
+                    "az", "containerapp", "job", "start",
+                    "--name", job_name,
+                    "--resource-group", resource_group,
+                    "--environment-variables", f"SCAN_ID={scan_id} SUBSCRIPTION_ID={subscription_id}"
+                ], check=True)
+            except Exception as e:
+                print(f"[FAIL] Failed to trigger analysis job via subprocess: {e}")
+        except Exception as e:
+            print(f"[FAIL] Failed to trigger analysis job via SDK: {e}")

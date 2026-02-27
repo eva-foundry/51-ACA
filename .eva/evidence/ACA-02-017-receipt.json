@@ -1,0 +1,12 @@
+{
+  "story_id": "ACA-02-017",
+  "title": "ingest.py mark_collection_complete -- trigger analysis Container App Job",
+  "phase": "D|P|D|C|A",
+  "timestamp": "2026-02-27T12:49:20Z",
+  "artifacts": [
+    "services/collector/app/ingest.py"
+  ],
+  "test_result": "WARN",
+  "lint_result": "WARN",
+  "commit_sha": "42caa44203e2920563eb2117130631dfaa2830a1"
+}
