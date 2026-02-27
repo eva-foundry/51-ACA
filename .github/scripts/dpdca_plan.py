@@ -58,8 +58,7 @@ else:
         "Authorization": f"Bearer {gh_token}",
     }
 
-payload = {
-    "model": deployment,
+payload: dict = {
     "messages": [
         {"role": "system", "content": system_prompt},
         {"role": "user", "content": user_prompt},
@@ -67,6 +66,9 @@ payload = {
     "max_tokens": 2000,
     "temperature": 0.2,
 }
+# GitHub Models / OpenAI require "model" field; Azure OpenAI uses the URL deployment path
+if not (az_endpoint and az_key):
+    payload["model"] = deployment
 
 try:
     req = urllib.request.Request(
