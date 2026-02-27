@@ -1,0 +1,13 @@
+{
+  "story_id": "ACA-14-008",
+  "wbs_id": "14.3.1",
+  "epic": "Epic 10 -- DPDCA Cloud Agent\r",
+  "issue_number": "1",
+  "branch": "agent/aca-14-008-20260227063614",
+  "generated_at": "2026-02-27T06:36:14.940850Z",
+  "status": "agent-scaffolded",
+  "agent": "dpdca-agent",
+  "model": "gpt-4o-mini",
+  "lint_result": "warn",
+  "test_result": "warn"
+}
