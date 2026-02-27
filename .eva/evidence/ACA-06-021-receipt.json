@@ -1,0 +1,12 @@
+{
+  "story_id": "ACA-06-021",
+  "title": "Delete duplicate checkout router block (lines 349-402)",
+  "phase": "D|P|D|C|A",
+  "timestamp": "2026-02-27T11:29:51Z",
+  "artifacts": [
+    "services/api/app/routers/checkout.py"
+  ],
+  "test_result": "WARN",
+  "lint_result": "WARN",
+  "commit_sha": "328e298e3ee2c910092072e07b9140bd1198df81"
+}
