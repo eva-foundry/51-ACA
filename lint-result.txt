@@ -205,6 +205,28 @@ I001 [*] Import block is un-sorted or un-formatted
 help: Organize imports
 
 I001 [*] Import block is un-sorted or un-formatted
+  --> services/analysis/app/rules/savings_plan_coverage.py:8:1
+   |
+ 6 | monthly cost without a savings plan.
+ 7 | """
+ 8 | from app.db.cosmos import query_items
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ 9 |
+10 | def evaluate_savings_plan_coverage(subscription_id: str) -> list[dict]:
+   |
+help: Organize imports
+
+T201 `print` found
+  --> services/analysis/app/rules/savings_plan_coverage.py:38:5
+   |
+36 |     subscription_id = "example-subscription-id"
+37 |     findings = evaluate_savings_plan_coverage(subscription_id)
+38 |     print(f"[INFO] Findings: {findings}")
+   |     ^^^^^
+   |
+help: Remove `print`
+
+I001 [*] Import block is un-sorted or un-formatted
  --> services/analysis/app/rules/search_sku_oversize.py:6:1
   |
 4 | Purpose: Identify findings where the cost exceeds $2000.

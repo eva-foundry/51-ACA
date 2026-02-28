@@ -1,0 +1,12 @@
+{
+  "story_id": "ACA-03-012",
+  "title": "Rule 10 -- Savings plan coverage",
+  "phase": "D|P|D|C|A",
+  "timestamp": "2026-02-28T17:56:40Z",
+  "artifacts": [
+    "services/analysis/app/rules/savings_plan_coverage.py"
+  ],
+  "test_result": "WARN",
+  "lint_result": "WARN",
+  "commit_sha": "c79d37f3b70cf3170b26f5ab7c9a9398868dabf8"
+}
