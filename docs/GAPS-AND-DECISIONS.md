@@ -1,6 +1,6 @@
 # ACA -- Critical Gaps and Decisions
 
-**Version**: 1.1.0
+**Version**: 1.2.0
 **Date**: 2026-02-28
 **For**: 2-person team (Marco + Copilot)
 **Purpose**: Fix these BEFORE Phase 1 ships
@@ -194,6 +194,50 @@ Story 11.1.6 [ACA-11-010]  As the system I use a standalone data model server (P
 
 ---
 
+### GB-07: 29-Foundry Agent Dependency (Phase 2 blocker, plan now)
+**Impact**: Phase 2 cannot ship with dependency on shared EVA 29-foundry service
+**Location**: services/analysis/app/main.py line 9 + 52, agents/*.yaml files
+**Symptoms**: Product independence principle violated
+
+**Current state**:
+- Analysis service uses: `sys.path.insert(0, "../29-foundry")` imports
+- Agent definitions: agents/collection-agent.yaml, analysis-agent.yaml, generation-agent.yaml, redteam-agent.yaml
+- Shared code: tools/search.py, tools/rag.py, agents/orchestrator.py from C:\AICOE\eva-foundry\29-foundry
+- Acceptable for Phase 1 (project infrastructure reuse)
+- BLOCKER for Phase 2 (commercial product cannot depend on EVA internal service)
+
+**Phase 2 options**:
+- A) Bundle 29-foundry code into ACA analysis service (copy required modules, no external dependency)
+- B) Deploy ACA-owned 29-foundry fork (separate repo, no EVA shared service)
+- C) Replace with direct Azure OpenAI SDK calls (eliminate agent framework, simpler but less flexible)
+
+**Recommendation**: Option A (bundle agent code into analysis service)
+- Self-contained deployment (no external service dependency)
+- Agent definitions stay in ACA repo (agents/*.yaml already there)
+- Copy only required modules: tools/search.py, tools/rag.py, agents/orchestrator.py (lightweight)
+- Phase 2 migration: Replace `sys.path.insert` with bundled package import
+
+**Story to add:**
+```
+Story 3.2.9 [ACA-03-020]  As the analysis service I bundle 29-foundry agent code (Phase 2)
+  Size: M
+  Acceptance: services/analysis/app/foundry/ contains search.py, rag.py, orchestrator.py
+              No sys.path.insert to external 29-foundry path
+              All agent workflows run without EVA dependency
+  Files: services/analysis/app/foundry/ (new package, copy from 29-foundry)
+        services/analysis/app/main.py (update imports)
+        services/analysis/requirements.txt (add agent dependencies)
+  Related: Product independence principle (no EVA dependency in production)
+```
+
+**Build-time dependencies (Acceptable):**
+- **48-eva-veritas**: CI/CD gate only (MTI >= 30 for Sprint 2, restore to 70 at Sprint 3)
+  - Used in: .github/workflows/ci.yml for trust scoring
+  - NOT a production runtime dependency
+  - Acceptable: CI tools can remain shared EVA infrastructure per product independence principle
+
+---
+
 ## HIGH PRIORITY (Phase 1 quality issues)
 
 ### GP-01: No Rate Limiting on Collection
@@ -209,8 +253,7 @@ Story 11.1.6 [ACA-11-010]  As the system I use a standalone data model server (P
 | D-02 | MVP scope Sprint 2? | Full Epic 5 / Customer flow only | **Customer flow only** | 2026-02-28 | Admin pages defer to Sprint 3 |
 | D-03 | Error response format? | Plain text / RFC 7807 Problem Details | **RFC 7807** | 2026-02-28 | Structured + help URLs |
 | D-04 | Rate limiting Phase 1? | None / APIM 10 req/sec / Collector backoff | **APIM + backoff** | 2026-02-28 | Defense in depth |
-| D-05 | Data model Phase 2? | Standalone server / Embed db.py / Migrate to SQL | **Standalone server** | 2026-02-28 | Maintains benefits, product independence
----
+| D-05 | Data model Phase 2? | Standalone server / Embed db.py / Migrate to SQL | **Standalone server** | 2026-02-28 | Maintains benefits, product independence| D-06 | 29-foundry Phase 2? | Bundle agent code / Deploy ACA fork / Replace with direct SDK | **Bundle agent code** | 2026-02-28 | Self-contained, no external dependency |---
 
 ### GP-03: Data Retention Beyond TTLs Not Specified
 **Impact**: Cosmos grows unbounded, monthly cost escalates
@@ -252,7 +295,7 @@ Story 11.1.6 [ACA-11-010]  As the system I use a standalone data model server (P
 3. Approve GB-04 error catalog structure before implementation
 
 **For Copilot:**
-1. Add 9 new stories to PLAN.md (GB-01 through GB-06 conversions)
+1. Add 10 new stories to PLAN.md (GB-01 through GB-07 conversions)
 2. Implement GB-02 (analysis auto-trigger) -- HIGHEST IMPACT
 3. Implement GB-03 (Resource Graph pagination) -- QUICK WIN
 4. Create infra/phase1-marco/frontend-slot.bicep (GB-01 resolution)sions)
