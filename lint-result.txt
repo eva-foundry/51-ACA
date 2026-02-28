@@ -181,6 +181,18 @@ I001 [*] Import block is un-sorted or un-formatted
 help: Organize imports
 
 I001 [*] Import block is un-sorted or un-formatted
+ --> services/analysis/app/rules/dns_sprawl.py:7:1
+  |
+5 | This rule identifies DNS records with associated costs exceeding $1000.
+6 | """
+7 | from app.db.cosmos import query_items
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+8 |
+9 | def analyze_dns_sprawl(subscription_id: str) -> list[dict]:
+  |
+help: Organize imports
+
+I001 [*] Import block is un-sorted or un-formatted
  --> services/analysis/app/rules/log_retention.py:3:1
   |
 1 | # EVA-STORY: ACA-03-003

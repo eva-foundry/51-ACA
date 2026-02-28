@@ -1,0 +1,12 @@
+{
+  "story_id": "ACA-03-011",
+  "title": "Rule 09 -- DNS sprawl",
+  "phase": "D|P|D|C|A",
+  "timestamp": "2026-02-28T17:56:21Z",
+  "artifacts": [
+    "services/analysis/app/rules/dns_sprawl.py"
+  ],
+  "test_result": "WARN",
+  "lint_result": "WARN",
+  "commit_sha": "a3ddfad8015055fb616270c65b34de0615cfe6b1"
+}
