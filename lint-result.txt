@@ -135,6 +135,17 @@ T201 `print` found
 help: Remove `print`
 
 I001 [*] Import block is un-sorted or un-formatted
+ --> services/analysis/app/rules/anomaly_detection.py:2:1
+  |
+1 | # EVA-STORY: ACA-03-007
+2 | import numpy as np
+  | ^^^^^^^^^^^^^^^^^^
+3 |
+4 | def detect_anomalies(data: list[float], threshold: float = 3.0) -> list[dict]:
+  |
+help: Organize imports
+
+I001 [*] Import block is un-sorted or un-formatted
   --> services/analysis/app/rules/defender_mismatch.py:8:1
    |
  6 | where the cost exceeds $2000.

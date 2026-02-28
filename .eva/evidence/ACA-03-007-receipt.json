@@ -1,0 +1,12 @@
+{
+  "story_id": "ACA-03-007",
+  "title": "Rule 05 -- Anomaly detection",
+  "phase": "D|P|D|C|A",
+  "timestamp": "2026-02-28T17:56:02Z",
+  "artifacts": [
+    "services/analysis/app/rules/anomaly_detection.py"
+  ],
+  "test_result": "WARN",
+  "lint_result": "WARN",
+  "commit_sha": "87288ffffbafc8e7a401b1a2366094aca7cddc07"
+}
