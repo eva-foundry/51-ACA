@@ -73,6 +73,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
+          ACA_DATA_MODEL_URL: ${{ secrets.ACA_DATA_MODEL_URL || 'http://localhost:8055' }}
+          ADO_PAT: ${{ secrets.ADO_PAT }}
+          ADO_WORKITEMS_PAT: ${{ secrets.ADO_WORKITEMS_PAT }}
         run: |
           python3 .github/scripts/sprint_agent.py \
             --issue "$ISSUE_NUM" \
