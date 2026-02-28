@@ -135,6 +135,17 @@ T201 `print` found
 help: Remove `print`
 
 I001 [*] Import block is un-sorted or un-formatted
+ --> services/analysis/app/rules/acr_consolidation.py:2:1
+  |
+1 | # EVA-STORY: ACA-03-010
+2 | from app.db.cosmos import query_items
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+3 |
+4 | def acr_consolidation(subscription_id: str) -> dict:
+  |
+help: Organize imports
+
+I001 [*] Import block is un-sorted or un-formatted
  --> services/analysis/app/rules/anomaly_detection.py:2:1
   |
 1 | # EVA-STORY: ACA-03-007
