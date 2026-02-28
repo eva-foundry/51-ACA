@@ -1,0 +1,12 @@
+{
+  "story_id": "ACA-03-005",
+  "title": "Rule 04 -- Compute scheduling",
+  "phase": "D|P|D|C|A",
+  "timestamp": "2026-02-28T17:55:59Z",
+  "artifacts": [
+    "services/analysis/app/rules/compute_scheduling.py"
+  ],
+  "test_result": "WARN",
+  "lint_result": "WARN",
+  "commit_sha": "5fe4353d21faad2fe536ededfa913fb129612653"
+}
