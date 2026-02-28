@@ -1,0 +1,12 @@
+{
+  "story_id": "ACA-03-009",
+  "title": "Rule 07 -- Search SKU oversize",
+  "phase": "D|P|D|C|A",
+  "timestamp": "2026-02-28T17:56:12Z",
+  "artifacts": [
+    "services/analysis/app/rules/search_sku_oversize.py"
+  ],
+  "test_result": "WARN",
+  "lint_result": "WARN",
+  "commit_sha": "fd0430b9bd69e2cb2fb4ae8ce687b2a1f3f62aff"
+}
