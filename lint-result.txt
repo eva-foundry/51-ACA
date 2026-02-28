@@ -182,6 +182,17 @@ I001 [*] Import block is un-sorted or un-formatted
 help: Organize imports
 
 I001 [*] Import block is un-sorted or un-formatted
+ --> services/analysis/app/rules/stale_environments.py:2:1
+  |
+1 | # EVA-STORY: ACA-03-008
+2 | from app.db.cosmos import query_items
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+3 |
+4 | def detect_stale_environments(subscription_id: str) -> list[dict]:
+  |
+help: Organize imports
+
+I001 [*] Import block is un-sorted or un-formatted
   --> services/api/app/db/cosmos.py:9:1
    |
  7 |   No cross-tenant queries are permitted.

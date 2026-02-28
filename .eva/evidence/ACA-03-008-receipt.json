@@ -1,0 +1,12 @@
+{
+  "story_id": "ACA-03-008",
+  "title": "Rule 06 -- Stale environments",
+  "phase": "D|P|D|C|A",
+  "timestamp": "2026-02-28T17:56:07Z",
+  "artifacts": [
+    "services/analysis/app/rules/stale_environments.py"
+  ],
+  "test_result": "WARN",
+  "lint_result": "WARN",
+  "commit_sha": "8a22d0b11f1c0949fc80342269c7d564aebd0467"
+}
