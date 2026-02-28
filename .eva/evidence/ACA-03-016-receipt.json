@@ -1,0 +1,12 @@
+{
+  "story_id": "ACA-03-016",
+  "title": "GB-03 -- Resource Graph pagination",
+  "phase": "D|P|D|C|A",
+  "timestamp": "2026-02-28T17:56:59Z",
+  "artifacts": [
+    "services/collector/app/resource_graph.py"
+  ],
+  "test_result": "WARN",
+  "lint_result": "WARN",
+  "commit_sha": "2e2a93acacf22873d6df7962e7d2f7464a885365"
+}

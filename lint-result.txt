@@ -2059,6 +2059,65 @@ I001 [*] Import block is un-sorted or un-formatted
 help: Organize imports
 
 I001 [*] Import block is un-sorted or un-formatted
+ --> services/collector/app/resource_graph.py:2:1
+  |
+1 |   # EVA-STORY: ACA-03-016
+2 | / import requests
+3 | | from typing import Optional, Dict, Any
+  | |______________________________________^
+4 |
+5 |   class ResourceGraphClient:
+  |
+help: Organize imports
+
+UP035 `typing.Dict` is deprecated, use `dict` instead
+ --> services/collector/app/resource_graph.py:3:1
+  |
+1 | # EVA-STORY: ACA-03-016
+2 | import requests
+3 | from typing import Optional, Dict, Any
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+4 |
+5 | class ResourceGraphClient:
+  |
+
+UP045 [*] Use `X | None` for type annotations
+  --> services/collector/app/resource_graph.py:10:67
+   |
+ 8 |         self.token = token
+ 9 |
+10 |     def query(self, query: str, subscription_id: str, skip_token: Optional[str] = None) -> Dict[str, Any]:
+   |                                                                   ^^^^^^^^^^^^^
+11 |         headers = {
+12 |             "Authorization": f"Bearer {self.token}",
+   |
+help: Convert to `X | None`
+
+UP006 [*] Use `dict` instead of `Dict` for type annotation
+  --> services/collector/app/resource_graph.py:10:92
+   |
+ 8 |         self.token = token
+ 9 |
+10 |     def query(self, query: str, subscription_id: str, skip_token: Optional[str] = None) -> Dict[str, Any]:
+   |                                                                                            ^^^^
+11 |         headers = {
+12 |             "Authorization": f"Bearer {self.token}",
+   |
+help: Replace with `dict`
+
+UP006 [*] Use `dict` instead of `Dict` for type annotation
+  --> services/collector/app/resource_graph.py:29:72
+   |
+27 |         return response.json()
+28 |
+29 |     def paginate_query(self, query: str, subscription_id: str) -> list[Dict[str, Any]]:
+   |                                                                        ^^^^
+30 |         all_results = []
+31 |         skip_token = None
+   |
+help: Replace with `dict`
+
+I001 [*] Import block is un-sorted or un-formatted
  --> services/delivery/app/cosmos.py:3:1
   |
 1 |   """Cosmos helper for delivery service -- thin wrapper around azure-cosmos SDK."""
