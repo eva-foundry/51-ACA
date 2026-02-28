@@ -1,10 +1,39 @@
 ACA -- Azure Cost Advisor -- STATUS
 ====================================
 
-Version: 1.7.0
-Updated: 2026-02-27 (Cross-layer wiring complete: 349 model objects, zero veritas gaps)
+Version: 1.8.0
+Updated: 2026-02-28 (Full ADO import: 257 stories as individual PBIs in dev.azure.com/marcopresta/51-aca)
 Phase: Phase 1 -- Core Services Bootstrap
 Active Epic: Epic 3 (analysis rules), Epic 4 (API endpoints), Epic 5 (frontend), Epic 12 (data model)
+
+=============================================================================
+SESSION SUMMARY -- 2026-02-28 (FULL ADO IMPORT + ADO-ID-MAP)
+=============================================================================
+
+Completed:
+  TimingMiddleware (services/api/app/middleware/timing.py) -- ASGI, all 27 routes
+  parse-agent-log.py (scripts/) -- git log + ACA-METRICS trailer -> ADO + data model
+  CA.5 extended with duration_ms, tokens_used, test counts, files_changed, ACA-METRICS trailer
+  Full ADO import: 14 Features + 257 PBIs into dev.azure.com/marcopresta/51-aca
+  ado-artifacts-full.json: 257 story-level PBIs generated from veritas-plan.json (73 Done / 184 New)
+  ado-artifacts.json: updated to match full version (import default target)
+  .eva/ado-id-map.json: rebuilt with 256 individual ACA-NN-NNN -> ADO PBI ID mappings
+  Note: ACA-03-021 is a duplicate in veritas-plan.json; 256 unique story IDs map to 256 ADO PBIs
+
+Commits this session:
+  a1a659e -- feat(ACA-12-022): timing middleware + parse-agent-log + evidence receipt extensions
+  4a07520 -- feat(ACA-12-022): full ADO import -- 256 unique story PBIs in 51-aca, ado-id-map story-level
+
+Test count: 24/24 passing (unchanged)
+
+Open blockers:
+  ACA-03-021 duplicate in veritas-plan.json -- minor, covered by single ADO PBI 3193
+  ACA-03-021 should be investigated and de-duped in a future PLAN.md / seed run
+
+Next:
+  Run pytest to confirm 24/24 still passing after timing middleware
+  Begin Epic 3 analysis rule implementation (ACA-03-xxx stubs)
+  Epic 4 API endpoint stubs -> implemented
 
 =============================================================================
 SESSION SUMMARY -- 2026-02-27 (DATA MODEL WIRING)
