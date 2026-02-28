@@ -135,6 +135,18 @@ T201 `print` found
 help: Remove `print`
 
 I001 [*] Import block is un-sorted or un-formatted
+  --> services/analysis/app/rules/defender_mismatch.py:8:1
+   |
+ 6 | where the cost exceeds $2000.
+ 7 | """
+ 8 | from app.db.cosmos import query_items
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ 9 |
+10 | def analyze_defender_mismatch(subscription_id: str) -> list[dict]:
+   |
+help: Organize imports
+
+I001 [*] Import block is un-sorted or un-formatted
  --> services/analysis/app/rules/devbox_autostop.py:6:1
   |
 4 | Purpose: Identify Dev Boxes with costs exceeding $1000 and recommend autostop.

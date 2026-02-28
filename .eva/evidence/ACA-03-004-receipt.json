@@ -1,0 +1,12 @@
+{
+  "story_id": "ACA-03-004",
+  "title": "Rule 03 -- Defender mismatch",
+  "phase": "D|P|D|C|A",
+  "timestamp": "2026-02-28T17:55:54Z",
+  "artifacts": [
+    "services/analysis/app/rules/defender_mismatch.py"
+  ],
+  "test_result": "WARN",
+  "lint_result": "WARN",
+  "commit_sha": "ae0a75146b612a34363f4a9d77324600d9261099"
+}
