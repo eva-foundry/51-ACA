@@ -1,0 +1,12 @@
+{
+  "story_id": "ACA-03-013",
+  "title": "Rule 11 -- APIM token budget",
+  "phase": "D|P|D|C|A",
+  "timestamp": "2026-02-28T17:56:45Z",
+  "artifacts": [
+    "services/analysis/app/rules/apim_token_budget.py"
+  ],
+  "test_result": "WARN",
+  "lint_result": "WARN",
+  "commit_sha": "2d08ba3fa21c2eb035f5121fca82c5b102bf3e6f"
+}
