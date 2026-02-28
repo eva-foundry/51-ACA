@@ -49,6 +49,8 @@ I001 [*] Import block is un-sorted or un-formatted
 16 | | from app.findings import FindingsAssembler
 17 | | from app.cosmos import get_cosmos_client
    | |________________________________________^
+18 |
+19 |   def main() -> int:
    |
 help: Organize imports
 
@@ -64,97 +66,97 @@ F401 [*] `os` imported but unused
 help: Remove unused import: `os`
 
 T201 `print` found
-  --> services/analysis/app/main.py:29:5
+  --> services/analysis/app/main.py:28:5
    |
-27 |     sub_id = args.subscription_id
-28 |
-29 |     print(f"[INFO] ACA Analysis Engine starting | scan={scan_id} sub={sub_id}")
+26 |     sub_id = args.subscription_id
+27 |
+28 |     print(f"[INFO] ACA Analysis Engine starting | scan={scan_id} sub={sub_id}")
    |     ^^^^^
-30 |
-31 |     assembler = FindingsAssembler(scan_id=scan_id, subscription_id=sub_id,
+29 |
+30 |     assembler = FindingsAssembler(scan_id=scan_id, subscription_id=sub_id,
    |
 help: Remove `print`
 
 T201 `print` found
-  --> services/analysis/app/main.py:36:9
+  --> services/analysis/app/main.py:35:9
    |
-35 |     if not data:
-36 |         print("[FAIL] No collected data found in Cosmos for this scan")
+34 |     if not data:
+35 |         print("[FAIL] No collected data found in Cosmos for this scan")
    |         ^^^^^
-37 |         return 1
+36 |         return 1
    |
 help: Remove `print`
 
 T201 `print` found
-  --> services/analysis/app/main.py:45:17
+  --> services/analysis/app/main.py:44:17
    |
-43 |             if result:
-44 |                 findings.extend(result if isinstance(result, list) else [result])
-45 |                 print(f"[INFO] Rule {rule.__name__}: {len(result) if isinstance(result, list) else 1} finding(s)")
+42 |             if result:
+43 |                 findings.extend(result if isinstance(result, list) else [result])
+44 |                 print(f"[INFO] Rule {rule.__name__}: {len(result) if isinstance(result, list) else 1} finding(s)")
    |                 ^^^^^
-46 |         except Exception as e:
-47 |             print(f"[WARN] Rule {rule.__name__} failed: {e}")
+45 |         except Exception as e:
+46 |             print(f"[WARN] Rule {rule.__name__} failed: {e}")
    |
 help: Remove `print`
 
 T201 `print` found
-  --> services/analysis/app/main.py:47:13
+  --> services/analysis/app/main.py:46:13
    |
-45 |                 print(f"[INFO] Rule {rule.__name__}: {len(result) if isinstance(result, list) else 1} finding(s)")
-46 |         except Exception as e:
-47 |             print(f"[WARN] Rule {rule.__name__} failed: {e}")
+44 |                 print(f"[INFO] Rule {rule.__name__}: {len(result) if isinstance(result, list) else 1} finding(s)")
+45 |         except Exception as e:
+46 |             print(f"[WARN] Rule {rule.__name__} failed: {e}")
    |             ^^^^^
-48 |
-49 |     print(f"[INFO] Rules produced {len(findings)} findings")
+47 |
+48 |     print(f"[INFO] Rules produced {len(findings)} findings")
    |
 help: Remove `print`
 
 T201 `print` found
-  --> services/analysis/app/main.py:49:5
+  --> services/analysis/app/main.py:48:5
    |
-47 |             print(f"[WARN] Rule {rule.__name__} failed: {e}")
-48 |
-49 |     print(f"[INFO] Rules produced {len(findings)} findings")
+46 |             print(f"[WARN] Rule {rule.__name__} failed: {e}")
+47 |
+48 |     print(f"[INFO] Rules produced {len(findings)} findings")
    |     ^^^^^
-50 |
-51 |     # TODO: run 29-foundry analysis-agent and redteam-agent for beyond-rule findings
+49 |
+50 |     # TODO: run 29-foundry analysis-agent and redteam-agent for beyond-rule findings
    |
 help: Remove `print`
 
 T201 `print` found
-  --> services/analysis/app/main.py:57:5
+  --> services/analysis/app/main.py:56:5
    |
-55 |     assembler.save_findings(findings)
-56 |     assembler.mark_analysis_complete(len(findings))
-57 |     print(f"[PASS] Analysis complete | findings={len(findings)}")
+54 |     assembler.save_findings(findings)
+55 |     assembler.mark_analysis_complete(len(findings))
+56 |     print(f"[PASS] Analysis complete | findings={len(findings)}")
    |     ^^^^^
-58 |     return 0
+57 |     return 0
    |
 help: Remove `print`
 
 I001 [*] Import block is un-sorted or un-formatted
-  --> services/api/app/db/cosmos.py:8:1
+  --> services/api/app/db/cosmos.py:9:1
    |
- 6 |   No cross-tenant queries are permitted.
- 7 |   """
- 8 | / from functools import lru_cache
- 9 | |
-10 | | from azure.cosmos import CosmosClient, PartitionKey
-11 | | from azure.cosmos.exceptions import CosmosResourceNotFoundError
-12 | |
-13 | | from app.settings import get_settings
+ 7 |   No cross-tenant queries are permitted.
+ 8 |   """
+ 9 | / from functools import lru_cache
+10 | |
+11 | | from azure.cosmos import CosmosClient, PartitionKey
+12 | | from azure.cosmos.exceptions import CosmosResourceNotFoundError
+13 | |
+14 | | from app.settings import get_settings
    | |_____________________________________^
-14 |
-15 |   CONTAINERS = {
+15 |
+16 |   CONTAINERS = {
    |
 help: Organize imports
 
 T201 `print` found
-  --> services/api/app/db/cosmos.py:83:9
+  --> services/api/app/db/cosmos.py:84:9
    |
-81 |             partition_key=PartitionKey(path=pk_path),
-82 |         )
-83 |         print(f"[INFO] Container ready: {name}")
+82 |             partition_key=PartitionKey(path=pk_path),
+83 |         )
+84 |         print(f"[INFO] Container ready: {name}")
    |         ^^^^^
    |
 help: Remove `print`
@@ -702,6 +704,17 @@ UP045 [*] Use `X | None` for type annotations
    |
 help: Convert to `X | None`
 
+UP045 [*] Use `X | None` for type annotations
+  --> services/api/app/deps/auth.py:28:12
+   |
+27 | async def verify_token(
+28 |     token: Optional[str] = Depends(oauth2_scheme),
+   |            ^^^^^^^^^^^^^
+29 | ) -> dict:
+30 |     """
+   |
+help: Convert to `X | None`
+
 I001 [*] Import block is un-sorted or un-formatted
   --> services/api/app/main.py:6:1
    |
@@ -713,12 +726,25 @@ I001 [*] Import block is un-sorted or un-formatted
  9 | | from fastapi.middleware.cors import CORSMiddleware
 10 | |
 11 | | from app.settings import get_settings
-12 | | from app.routers import auth, scans, findings, checkout, admin, health
+12 | | from app.middleware.timing import TimingMiddleware
+13 | | from app.routers import auth, scans, findings, checkout, admin, health
    | |______________________________________________________________________^
-13 |
-14 |   settings = get_settings()
+14 |
+15 |   settings = get_settings()
    |
 help: Organize imports
+
+UP035 [*] Import from `collections.abc` instead: `Callable`
+  --> services/api/app/middleware/timing.py:30:1
+   |
+28 | import time
+29 | import uuid
+30 | from typing import Callable
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+31 |
+32 | from starlette.middleware.base import BaseHTTPMiddleware
+   |
+help: Import from `collections.abc`
 
 I001 [*] Import block is un-sorted or un-formatted
   --> services/api/app/routers/admin.py:17:1
@@ -943,6 +969,22 @@ B008 Do not perform function call `Depends` in argument defaults; instead, perfo
     |
 
 I001 [*] Import block is un-sorted or un-formatted
+  --> services/api/app/routers/auth.py:10:1
+   |
+ 8 |   Onboarding modes: delegated (device code) and service principal.
+ 9 |   """
+10 | / from fastapi import APIRouter, HTTPException
+11 | | from pydantic import BaseModel
+12 | |
+13 | | from app.services.token_service import TokenService
+14 | | from app.db.repos.clients_repo import ClientsRepo
+   | |_________________________________________________^
+15 |
+16 |   router = APIRouter(tags=["auth"])
+   |
+help: Organize imports
+
+I001 [*] Import block is un-sorted or un-formatted
   --> services/api/app/routers/checkout.py:13:1
    |
 11 |   call it before any .json() call.
@@ -1073,9 +1115,10 @@ I001 [*] Import block is un-sorted or un-formatted
  9 | | from pydantic import BaseModel
 10 | | from app.db.cosmos import get_item, query_items
 11 | | from app.settings import get_settings
-   | |_____________________________________^
-12 |
-13 |   router = APIRouter(tags=["findings"])
+12 | | from app.services.findings_gate import gate_findings, TIER1_FIELDS, TIER2_FIELDS  # noqa: F401
+   | |________________________________________________________________________________^
+13 |
+14 |   router = APIRouter(tags=["findings"])
    |
 help: Organize imports
 
@@ -1110,8 +1153,7 @@ F401 [*] `app.settings.get_settings` imported but unused
 10 | from app.db.cosmos import get_item, query_items
 11 | from app.settings import get_settings
    |                          ^^^^^^^^^^^^
-12 |
-13 | router = APIRouter(tags=["findings"])
+12 | from app.services.findings_gate import gate_findings, TIER1_FIELDS, TIER2_FIELDS  # noqa: F401
    |
 help: Remove unused import: `app.settings.get_settings`
 
@@ -1273,6 +1315,16 @@ F811 Redefinition of unused `PaymentStatus` from line 11
 help: Remove definition: `PaymentStatus`
 
 UP045 [*] Use `X | None` for type annotations
+  --> services/api/app/services/entitlement_service.py:33:31
+   |
+32 | class EntitlementService:
+33 |     def __init__(self, repo: "Optional[EntitlementsRepo]" = None) -> None:
+   |                               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+34 |         self._repo: EntitlementsRepo = repo if repo is not None else EntitlementsRepo()
+   |
+help: Convert to `X | None`
+
+UP045 [*] Use `X | None` for type annotations
   --> services/api/app/services/entitlement_service.py:53:29
    |
 51 |         *,
@@ -1392,6 +1444,80 @@ UP006 [*] Use `dict` instead of `Dict` for type annotation
    |                 ^^^^
 53 |             "mode": billing_mode,
 54 |             "line_items": [{"price": price_id, "quantity": 1}],
+   |
+help: Replace with `dict`
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> services/api/app/services/token_service.py:11:1
+   |
+ 9 |   DI pattern: pass client_id= in __init__ to bypass settings (for tests).
+10 |   """
+11 | / from __future__ import annotations
+12 | |
+13 | | from typing import Any, Dict, Optional
+14 | |
+15 | | import msal
+16 | |
+17 | | from app.settings import get_settings
+   | |_____________________________________^
+   |
+help: Organize imports
+
+UP035 `typing.Dict` is deprecated, use `dict` instead
+  --> services/api/app/services/token_service.py:13:1
+   |
+11 | from __future__ import annotations
+12 |
+13 | from typing import Any, Dict, Optional
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+14 |
+15 | import msal
+   |
+
+UP045 [*] Use `X | None` for type annotations
+  --> services/api/app/services/token_service.py:21:35
+   |
+20 | class TokenService:
+21 |     def __init__(self, client_id: Optional[str] = None) -> None:
+   |                                   ^^^^^^^^^^^^^
+22 |         # Accept injected client_id for unit tests -- avoids env var requirement
+23 |         self.client_id = client_id or get_settings().ACA_CLIENT_ID
+   |
+help: Convert to `X | None`
+
+UP006 [*] Use `dict` instead of `Dict` for type annotation
+  --> services/api/app/services/token_service.py:31:61
+   |
+29 |         )
+30 |
+31 |     def initiate_device_code(self, subscription_id: str) -> Dict[str, Any]:
+   |                                                             ^^^^
+32 |         """
+33 |         Initiate MSAL device-code flow.
+   |
+help: Replace with `dict`
+
+UP006 [*] Use `dict` instead of `Dict` for type annotation
+  --> services/api/app/services/token_service.py:54:42
+   |
+52 |         }
+53 |
+54 |     def exchange_device_code(self, flow: Dict[str, Any]) -> Dict[str, Any]:
+   |                                          ^^^^
+55 |         """
+56 |         Poll for token after user completes device sign-in.
+   |
+help: Replace with `dict`
+
+UP006 [*] Use `dict` instead of `Dict` for type annotation
+  --> services/api/app/services/token_service.py:54:61
+   |
+52 |         }
+53 |
+54 |     def exchange_device_code(self, flow: Dict[str, Any]) -> Dict[str, Any]:
+   |                                                             ^^^^
+55 |         """
+56 |         Poll for token after user completes device sign-in.
    |
 help: Replace with `dict`
 
@@ -1829,37 +1955,121 @@ I001 [*] Import block is un-sorted or un-formatted
 help: Organize imports
 
 I001 [*] Import block is un-sorted or un-formatted
-  --> services/delivery/app/packager.py:6:1
+  --> services/delivery/app/packager.py:7:1
    |
- 4 |   Returns a 7-day (168-hour) SAS URL for the client to download.
- 5 |   """
- 6 | / from __future__ import annotations
- 7 | | import hashlib
- 8 | | import io
- 9 | | import json
-10 | | import logging
-11 | | import zipfile
-12 | | from datetime import datetime, timedelta, timezone
-13 | |
-14 | | from azure.storage.blob import BlobServiceClient, BlobSasPermissions, generate_blob_sas
-15 | | from azure.identity import DefaultAzureCredential
+ 5 |   Returns a 7-day (168-hour) SAS URL for the client to download.
+ 6 |   """
+ 7 | / from __future__ import annotations
+ 8 | | import hashlib
+ 9 | | import io
+10 | | import json
+11 | | import logging
+12 | | import zipfile
+13 | | from datetime import datetime, timedelta, timezone
+14 | |
+15 | | from azure.storage.blob import BlobServiceClient, BlobSasPermissions, generate_blob_sas
+16 | | from azure.identity import DefaultAzureCredential
    | |_________________________________________________^
-16 |
-17 |   logger = logging.getLogger(__name__)
+17 |
+18 |   logger = logging.getLogger(__name__)
    |
 help: Organize imports
 
 UP017 [*] Use `datetime.UTC` alias
-  --> services/delivery/app/packager.py:69:31
+  --> services/delivery/app/packager.py:70:31
    |
-67 |         # SAS -- generate_blob_sas requires the storage account key; managed identity
-68 |         # cannot sign SAS tokens. Pass ACA_STORAGE_ACCOUNT_KEY from env.
-69 |         expiry = datetime.now(timezone.utc) + timedelta(hours=SAS_HOURS)
+68 |         # SAS -- generate_blob_sas requires the storage account key; managed identity
+69 |         # cannot sign SAS tokens. Pass ACA_STORAGE_ACCOUNT_KEY from env.
+70 |         expiry = datetime.now(timezone.utc) + timedelta(hours=SAS_HOURS)
    |                               ^^^^^^^^^^^^
-70 |         sas_token = generate_blob_sas(
-71 |             account_name=self.storage_account,
+71 |         sas_token = generate_blob_sas(
+72 |             account_name=self.storage_account,
    |
 help: Convert to `datetime.UTC` alias
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> services/tests/test_analysis_main.py:8:1
+  |
+6 | to FindingsAssembler. Source-inspection tests -- no Cosmos env vars required.
+7 | """
+8 | from pathlib import Path
+  | ^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+help: Organize imports
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> services/tests/test_auth_connect.py:8:1
+   |
+ 6 |   Patches TokenService and ClientsRepo so no env vars are required.
+ 7 |   """
+ 8 | / import asyncio
+ 9 | | import pytest
+10 | | from unittest.mock import MagicMock, patch
+11 | | from fastapi import HTTPException
+   | |_________________________________^
+12 |
+13 |   MOCK_FLOW = {
+   |
+help: Organize imports
+
+F401 [*] `unittest.mock.MagicMock` imported but unused
+  --> services/tests/test_auth_connect.py:10:27
+   |
+ 8 | import asyncio
+ 9 | import pytest
+10 | from unittest.mock import MagicMock, patch
+   |                           ^^^^^^^^^
+11 | from fastapi import HTTPException
+   |
+help: Remove unused import: `unittest.mock.MagicMock`
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> services/tests/test_auth_connect.py:28:9
+   |
+26 |         MockCR.return_value.upsert.return_value = {}
+27 |
+28 |         from services.api.app.routers.auth import connect_subscription, ConnectRequest
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+29 |         req = ConnectRequest(
+30 |             subscription_id="sub-test-abc",
+   |
+help: Organize imports
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> services/tests/test_auth_connect.py:48:9
+   |
+46 |         mock_repo = MockCR.return_value
+47 |
+48 |         from services.api.app.routers.auth import connect_subscription, ConnectRequest
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+49 |         req = ConnectRequest(subscription_id="sub-test-abc", connection_mode="delegated")
+50 |         asyncio.run(connect_subscription(req))
+   |
+help: Organize imports
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> services/tests/test_auth_connect.py:61:5
+   |
+59 | def test_connect_sp_returns_501():
+60 |     """ACA-04-008: service_principal connection_mode raises HTTP 501."""
+61 |     from services.api.app.routers.auth import connect_subscription, ConnectRequest
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+62 |     req = ConnectRequest(subscription_id="sub-test-abc", connection_mode="service_principal")
+63 |     with pytest.raises(HTTPException) as exc_info:
+   |
+help: Organize imports
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> services/tests/test_auth_connect.py:74:9
+   |
+72 |         MockTS.return_value.initiate_device_code.side_effect = RuntimeError("[FAIL] MSAL error")
+73 |
+74 |         from services.api.app.routers.auth import connect_subscription, ConnectRequest
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+75 |         req = ConnectRequest(subscription_id="sub-test-abc", connection_mode="delegated")
+76 |         with pytest.raises(HTTPException) as exc_info:
+   |
+help: Organize imports
 
 I001 [*] Import block is un-sorted or un-formatted
  --> services/tests/test_checkout_router.py:2:1
@@ -1925,10 +2135,10 @@ I001 [*] Import block is un-sorted or un-formatted
   |
 1 |   # EVA-STORY: ACA-03-033
 2 | / import pytest
-3 | | from services.analysis.app.findings import gate_findings, TIER1_FIELDS, TIER2_FIELDS
-  | |____________________________________________________________________________________^
+3 | | from services.api.app.services.findings_gate import gate_findings, TIER1_FIELDS, TIER2_FIELDS
+  | |_____________________________________________________________________________________________^
 4 |
-5 |   def test_gate_findings_tier1():
+5 |   FULL_FINDING = {
   |
 help: Organize imports
 
@@ -1938,42 +2148,58 @@ F401 [*] `pytest` imported but unused
 1 | # EVA-STORY: ACA-03-033
 2 | import pytest
   |        ^^^^^^
-3 | from services.analysis.app.findings import gate_findings, TIER1_FIELDS, TIER2_FIELDS
+3 | from services.api.app.services.findings_gate import gate_findings, TIER1_FIELDS, TIER2_FIELDS
   |
 help: Remove unused import: `pytest`
 
-F401 [*] `services.analysis.app.findings.TIER2_FIELDS` imported but unused
- --> services/tests/test_findings_gate.py:3:73
+F401 [*] `services.api.app.services.findings_gate.TIER2_FIELDS` imported but unused
+ --> services/tests/test_findings_gate.py:3:82
   |
 1 | # EVA-STORY: ACA-03-033
 2 | import pytest
-3 | from services.analysis.app.findings import gate_findings, TIER1_FIELDS, TIER2_FIELDS
-  |                                                                         ^^^^^^^^^^^^
+3 | from services.api.app.services.findings_gate import gate_findings, TIER1_FIELDS, TIER2_FIELDS
+  |                                                                                  ^^^^^^^^^^^^
 4 |
-5 | def test_gate_findings_tier1():
+5 | FULL_FINDING = {
   |
-help: Remove unused import: `services.analysis.app.findings.TIER2_FIELDS`
+help: Remove unused import: `services.api.app.services.findings_gate.TIER2_FIELDS`
 
 I001 [*] Import block is un-sorted or un-formatted
- --> services/tests/test_packager_sas.py:2:1
-  |
-1 |   # EVA-STORY: ACA-03-033
-2 | / import pytest
-3 | | import inspect
-4 | | from services.delivery.app.packager import SAS_HOURS, Packager
-  | |______________________________________________________________^
-5 |
-6 |   def test_sas_hours_constant():
-  |
+  --> services/tests/test_jwt_dep.py:8:1
+   |
+ 6 |   No env vars required -- jwt.decode is patched.
+ 7 |   """
+ 8 | / import asyncio
+ 9 | | import pytest
+10 | | from unittest.mock import patch
+11 | | from fastapi import HTTPException
+12 | |
+13 | | from services.api.app.deps.auth import verify_token
+   | |___________________________________________________^
+   |
 help: Organize imports
 
-F401 [*] `pytest` imported but unused
- --> services/tests/test_packager_sas.py:2:8
-  |
-1 | # EVA-STORY: ACA-03-033
-2 | import pytest
-  |        ^^^^^^
-3 | import inspect
-4 | from services.delivery.app.packager import SAS_HOURS, Packager
-  |
-help: Remove unused import: `pytest`
+I001 [*] Import block is un-sorted or un-formatted
+  --> services/tests/test_token_service.py:8:1
+   |
+ 6 |   Mocks msal.PublicClientApplication to avoid real MSAL network calls.
+ 7 |   """
+ 8 | / import pytest
+ 9 | | from unittest.mock import MagicMock, patch
+10 | |
+11 | | from services.api.app.services.token_service import TokenService
+   | |________________________________________________________________^
+   |
+help: Organize imports
+
+F401 [*] `unittest.mock.MagicMock` imported but unused
+  --> services/tests/test_token_service.py:9:27
+   |
+ 7 | """
+ 8 | import pytest
+ 9 | from unittest.mock import MagicMock, patch
+   |                           ^^^^^^^^^
+10 |
+11 | from services.api.app.services.token_service import TokenService
+   |
+help: Remove unused import: `unittest.mock.MagicMock`

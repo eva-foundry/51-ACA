@@ -1,6 +1,5 @@
 """
-# EVA-STORY: ACA-03-004
-# EVA-STORY: ACA-03-021
+# EVA-STORY: ACA-03-001
 ACA Analysis Engine -- Service 2
 Runs as an Azure Container App Job (triggered after collection completes).
 
@@ -16,7 +15,6 @@ import sys
 from app.rules import ALL_RULES
 from app.findings import FindingsAssembler
 from app.cosmos import get_cosmos_client
-
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="ACA Analysis Engine")
@@ -57,7 +55,6 @@ def main() -> int:
     assembler.mark_analysis_complete(len(findings))
     print(f"[PASS] Analysis complete | findings={len(findings)}")
     return 0
-
 
 if __name__ == "__main__":
     sys.exit(main())
