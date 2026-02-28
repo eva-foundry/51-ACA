@@ -157,6 +157,18 @@ I001 [*] Import block is un-sorted or un-formatted
 help: Organize imports
 
 I001 [*] Import block is un-sorted or un-formatted
+ --> services/analysis/app/rules/chargeback_gap.py:7:1
+  |
+5 | This rule identifies cost items where the chargeback exceeds $5000.
+6 | """
+7 | from app.db.cosmos import query_items
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+8 |
+9 | def evaluate_chargeback_gap(subscription_id: str) -> list[dict]:
+  |
+help: Organize imports
+
+I001 [*] Import block is un-sorted or un-formatted
   --> services/analysis/app/rules/defender_mismatch.py:8:1
    |
  6 | where the cost exceeds $2000.
