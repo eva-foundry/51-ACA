@@ -1,0 +1,12 @@
+{
+  "story_id": "ACA-03-015",
+  "title": "GB-02 -- Analysis auto-trigger",
+  "phase": "D|P|D|C|A",
+  "timestamp": "2026-02-28T17:56:54Z",
+  "artifacts": [
+    "services/analysis/app/trigger.py"
+  ],
+  "test_result": "WARN",
+  "lint_result": "WARN",
+  "commit_sha": "15519ac62b931ed11ab5fa62c2c002a110d9bf2a"
+}

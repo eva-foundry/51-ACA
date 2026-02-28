@@ -262,6 +262,38 @@ I001 [*] Import block is un-sorted or un-formatted
 help: Organize imports
 
 I001 [*] Import block is un-sorted or un-formatted
+ --> services/analysis/app/trigger.py:2:1
+  |
+1 |   # EVA-STORY: ACA-03-015
+2 | / from app.db.cosmos import query_items, upsert_item
+3 | | from app.settings import get_settings
+  | |_____________________________________^
+4 |
+5 |   def auto_trigger_analysis(subscription_id: str, scan_id: str) -> None:
+  |
+help: Organize imports
+
+T201 `print` found
+  --> services/analysis/app/trigger.py:23:9
+   |
+22 |     if not scan_details:
+23 |         print(f"[WARN] No scan found with ID: {scan_id} for subscription: {subscription_id}")
+   |         ^^^^^
+24 |         return
+   |
+help: Remove `print`
+
+T201 `print` found
+  --> services/analysis/app/trigger.py:40:5
+   |
+38 |     # Upsert the analysis trigger document
+39 |     upsert_item("advisor", analysis_trigger, partition_key=subscription_id)
+40 |     print(f"[INFO] Analysis trigger created for scan ID: {scan_id}, subscription: {subscription_id}")
+   |     ^^^^^
+   |
+help: Remove `print`
+
+I001 [*] Import block is un-sorted or un-formatted
   --> services/api/app/db/cosmos.py:9:1
    |
  7 |   No cross-tenant queries are permitted.
