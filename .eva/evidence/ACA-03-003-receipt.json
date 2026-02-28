@@ -1,0 +1,12 @@
+{
+  "story_id": "ACA-03-003",
+  "title": "Rule 02 -- Log retention",
+  "phase": "D|P|D|C|A",
+  "timestamp": "2026-02-28T17:55:50Z",
+  "artifacts": [
+    "services/analysis/app/rules/log_retention.py"
+  ],
+  "test_result": "WARN",
+  "lint_result": "WARN",
+  "commit_sha": "6f650de3ad78912a9896161517b712118f8a1bbc"
+}
