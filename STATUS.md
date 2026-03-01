@@ -57,6 +57,14 @@ Quality Metrics:
   - Lint: WARN (import sorting issues - auto-fixable)
   - Tests: WARN (1 collection error in test_packager_sas.py - pre-existing)
   - PR Status: MERGEABLE, CLEAN
+  - **Post-merge: 23/24 tests passing (test_analysis_main_passes_cosmos_client FAILING)**
+
+Post-Merge Issue:
+  - Test: test_analysis_main_passes_cosmos_client
+  - Cause: Sprint 4 refactored main.py, removed FindingsAssembler + cosmos_client kwarg
+  - Impact: C-04 regression guard bypassed
+  - Fix: Update test to validate new upsert_item() pattern OR restore cosmos_client kwarg
+  - Priority: HIGH (must fix before Sprint 5)
 
 Comparison to Day 4 Test:
   - Day 4 (Sprint 99): 1 story, 47s total, 13 files (stubs)
