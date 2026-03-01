@@ -1,0 +1,43 @@
+{
+  "sprint_id": "51-ACA-SPRINT-99",
+  "description": "Test manifest for single story execution (ACA-03-001) - Day 4 Test",
+  "mode": "test",
+  "stories": [
+    {
+      "id": "ACA-03-001",
+      "title": "As the system I load all 12 rules from ALL_RULES and run each in sequence",
+      "fp": 5,
+      "epic": "ACA-03",
+      "feature": "Rule engine",
+      "files_to_create": [
+        "services/analysis/app/rules/__init__.py",
+        "services/analysis/app/rules/rule_01_dev_box_autostop.py",
+        "services/analysis/app/rules/rule_02_vm_right_sizing.py",
+        "services/analysis/app/rules/rule_03_reserved_instances.py",
+        "services/analysis/app/rules/rule_04_storage_tiering.py",
+        "services/analysis/app/rules/rule_05_unattached_disks.py",
+        "services/analysis/app/rules/rule_06_snapshot_cleanup.py",
+        "services/analysis/app/rules/rule_07_idle_app_services.py",
+        "services/analysis/app/rules/rule_08_oversized_cosmos.py",
+        "services/analysis/app/rules/rule_09_network_optimization.py",
+        "services/analysis/app/rules/rule_10_openai_throttling.py",
+        "services/analysis/app/rules/rule_11_rbac_hygiene.py",
+        "services/analysis/app/rules/rule_12_zombie_resources.py"
+      ],
+      "files_to_edit": [
+        "services/analysis/app/main.py"
+      ],
+      "spec_references": [
+        "docs/saving-opportunity-rules.md"
+      ],
+      "acceptance_criteria": [
+        "ALL_RULES list contains all 12 rule modules",
+        "Each rule is imported and registered in __init__.py",
+        "main.py loads ALL_RULES and executes each in sequence",
+        "Rule failure does not crash the engine (handled gracefully)",
+        "pytest passes for services/analysis/"
+      ]
+    }
+  ],
+  "notes": "Single story test execution. No ADO sync (test mode). Validate DPDCA cycle end-to-end."
+}

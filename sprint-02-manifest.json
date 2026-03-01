@@ -1,0 +1,26 @@
+{
+  "sprint_info": {
+    "label": "Sprint 2 -- Analysis Rules",
+    "project_id": "51-ACA",
+    "start_date": "2026-02-28",
+    "end_date": "2026-03-10",
+    "status": "active",
+    "goal": "Epic 3 rules (12 saving opportunity detectors) + GB-02/GB-03 fixes (auto-trigger, pagination)",
+    "velocity_planned": 15,
+    "velocity_actual": null,
+    "story_count": 15,
+    "stories_completed": 0,
+    "ado_iteration_path": "51-aca\\Sprint 2",
+    "mti_at_close": null,
+    "notes": "Critical: GB-02 (analysis auto-trigger), GB-03 (Resource Graph pagination), 12 rules from ACA-03",
+    "id": "51-ACA-sprint-02",
+    "layer": "sprints",
+    "is_active": true,
+    "row_version": 1,
+    "modified_by": "agent:seed",
+    "modified_at": "2026-02-28T14:37:51Z",
+    "created_at": "2026-02-28T14:37:51Z"
+  },
+  "story_count": 0,
+  "stories": null
+}

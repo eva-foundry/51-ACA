@@ -1,13 +1,11 @@
 # EVA-STORY: ACA-03-004
 import pytest
-from unittest.mock import MagicMock
-from app.db.cosmos import upsert_item
-from app.main import AnalysisRun
+from unittest.mock import patch, MagicMock
 
-def test_analysis_status_lifecycle():
-    mock_upsert_item = MagicMock()
-    upsert_item = mock_upsert_item
-
+@patch('services.analysis.app.main.upsert_item')
+def test_analysis_status_lifecycle(mock_upsert):
+    from services.analysis.app.main import AnalysisRun
+    
     run_id = "test-run-001"
     subscription_id = "sub-123"
 
@@ -15,7 +13,7 @@ def test_analysis_status_lifecycle():
 
     # Initial status should be "queued"
     assert analysis_run.status == "queued"
-    mock_upsert_item.assert_called_with("analysis_runs", {
+    mock_upsert.assert_called_with("analysis_runs", {
         "id": run_id,
         "subscriptionId": subscription_id,
         "status": "queued",
@@ -24,7 +22,7 @@ def test_analysis_status_lifecycle():
     # Update status to "running"
     analysis_run.update_status("running")
     assert analysis_run.status == "running"
-    mock_upsert_item.assert_called_with("analysis_runs", {
+    mock_upsert.assert_called_with("analysis_runs", {
         "id": run_id,
         "subscriptionId": subscription_id,
         "status": "running",
@@ -33,7 +31,7 @@ def test_analysis_status_lifecycle():
     # Update status to "succeeded"
     analysis_run.update_status("succeeded")
     assert analysis_run.status == "succeeded"
-    mock_upsert_item.assert_called_with("analysis_runs", {
+    mock_upsert.assert_called_with("analysis_runs", {
         "id": run_id,
         "subscriptionId": subscription_id,
         "status": "succeeded",
@@ -42,7 +40,7 @@ def test_analysis_status_lifecycle():
     # Update status to "failed"
     analysis_run.update_status("failed")
     assert analysis_run.status == "failed"
-    mock_upsert_item.assert_called_with("analysis_runs", {
+    mock_upsert.assert_called_with("analysis_runs", {
         "id": run_id,
         "subscriptionId": subscription_id,
         "status": "failed",

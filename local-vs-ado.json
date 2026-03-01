@@ -1,0 +1,69 @@
+{
+  "storage": {
+    "local_sqlite": "C:\\AICOE\\eva-foundry\\51-ACA\\data-model\\aca-model.db",
+    "size_kb": 316.0
+  },
+  "ado_integration": {
+    "project_url": "https://dev.azure.com/marcopresta/51-aca",
+    "total_ado_mappings": 256,
+    "local_stories_with_ado_id": 256,
+    "ado_coverage_percent": 100.0,
+    "note": "All 256 stories have ADO work item IDs mapped"
+  },
+  "sprint_02_in_local_db": {
+    "id": "51-ACA-sprint-02",
+    "label": "Sprint 2 -- Analysis Rules",
+    "status": "active",
+    "goal": "Epic 3 rules (12 saving opportunity detectors) + GB-02/GB-03 fixes (auto-trigger, pagination)",
+    "ado_iteration_path": "51-aca\\Sprint 2",
+    "velocity_planned": 15,
+    "story_count_planned": 15,
+    "stories_completed": 0
+  },
+  "sprint_02_linkage_problem": {
+    "issue": "sprint_id field is null for all 256 WBS stories in local db",
+    "stories_linked_to_sprint_02": 0,
+    "expected": 15,
+    "impact": "Cannot query 'which stories are in Sprint 2' from local db"
+  },
+  "epic_3_analysis": {
+    "target_for_sprint_02": "Epic 3 -- Analysis Rules (12 rules + GB-02/GB-03)",
+    "total_epic3_stories": 33,
+    "done": 3,
+    "undone": 30,
+    "undone_story_ids": [
+      "ACA-03-001",
+      "ACA-03-002",
+      "ACA-03-003",
+      "ACA-03-004",
+      "ACA-03-005",
+      "ACA-03-007",
+      "ACA-03-008",
+      "ACA-03-009",
+      "ACA-03-010",
+      "ACA-03-011",
+      "ACA-03-012",
+      "ACA-03-013",
+      "ACA-03-014",
+      "ACA-03-015",
+      "ACA-03-016"
+    ],
+    "problem": "All Epic 3 undone stories have story_points=0",
+    "next_step": "Size stories in PLAN.md, then assign 15 to Sprint 2"
+  },
+  "ado_state_unknown": {
+    "note": "Cannot query ADO from this script without az CLI working",
+    "manual_check_required": [
+      "Open https://dev.azure.com/marcopresta/51-aca/_sprints",
+      "Check if Sprint 2 iteration exists",
+      "Check if any work items are assigned to Sprint 2 iteration",
+      "Check if work item IDs 2978-3009 (Epic 3) have iteration path set"
+    ]
+  },
+  "recommendation": {
+    "step_1": "Manually check ADO: do Sprint 2 work items exist with iteration path '51-aca\\Sprint 2'?",
+    "step_2": "If ADO Sprint 2 is empty: stories exist but not sprint-assigned",
+    "step_3": "If ADO Sprint 2 has work items: local db sprint_id needs updating to match ADO",
+    "step_4": "Create script to sync: read ADO iteration assignments -> update local db sprint_id field"
+  }
+}

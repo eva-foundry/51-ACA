@@ -1,0 +1,21 @@
+{
+  "candidate_stories": {
+    "id": null,
+    "label": null,
+    "status": null,
+    "story_points": null,
+    "parent_wbs_id": null
+  },
+  "sprint_metadata": {
+    "id": "51-ACA-sprint-02",
+    "label": "Sprint 2 -- Analysis Rules",
+    "status": "active",
+    "goal": "Epic 3 rules (12 saving opportunity detectors) + GB-02/GB-03 fixes (auto-trigger, pagination)",
+    "start_date": "2026-02-28",
+    "end_date": "2026-03-10",
+    "velocity_planned": 15,
+    "story_count": 15,
+    "stories_completed": 0
+  },
+  "note": "sprint_id field not yet populated in WBS stories - needs manual assignment"
+}

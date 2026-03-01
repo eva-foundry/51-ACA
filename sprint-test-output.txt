@@ -1,0 +1,2 @@
+usage: sprint_agent.py [-h] --issue ISSUE --repo REPO
+sprint_agent.py: error: the following arguments are required: --issue, --repo

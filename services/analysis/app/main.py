@@ -1,3 +1,5 @@
+# EVA-STORY: ACA-03-021
+# EVA-STORY: ACA-03-004
 # EVA-STORY: ACA-03-005
 from app.db.cosmos import upsert_item
 from app.settings import get_settings

@@ -1,0 +1,26 @@
+{
+  "storage_info": {
+    "database": "LOCAL SQLite (NOT Cosmos)",
+    "path": "C:\\AICOE\\eva-foundry\\51-ACA\\data-model\\aca-model.db",
+    "size_kb": 316.0
+  },
+  "sprint_02_metadata": {
+    "id": "51-ACA-sprint-02",
+    "label": "Sprint 2 -- Analysis Rules",
+    "status": "active",
+    "goal": "Epic 3 rules (12 saving opportunity detectors) + GB-02/GB-03 fixes (auto-trigger, pagination)",
+    "start_date": "2026-02-28",
+    "end_date": "2026-03-10",
+    "velocity_planned": 15,
+    "story_count": 15,
+    "stories_completed": 0,
+    "ado_iteration_path": "51-aca\\Sprint 2"
+  },
+  "critical_issue": "sprint_id field is null for all 256 WBS stories",
+  "epic_3_analysis_rules": {
+    "total_stories": 33,
+    "done": 3,
+    "undone_with_fp": 0,
+    "candidate_stories_for_sprint_02": []
+  }
+}

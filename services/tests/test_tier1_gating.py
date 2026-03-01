@@ -1,6 +1,6 @@
 # EVA-STORY: ACA-03-007
 import pytest
-from app.services.findings_gate import gate_findings
+from services.api.app.services.findings_gate import gate_findings
 
 def test_tier1_strips_sensitive_fields():
     mock_findings = [

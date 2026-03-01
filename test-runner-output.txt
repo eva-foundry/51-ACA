@@ -1,0 +1,39 @@
+[INFO] Test mode: executing single story ACA-03-001
+[INFO] Story: As the system I load all 12 rules from ALL_RULES and run each in sequence
+[INFO] Files to create: 13
+[INFO] Files to edit: 1
+
+[1/5] Preparing story context...
+[2/5] Reading spec references...
+  - Loaded docs/saving-opportunity-rules.md (8236 chars)
+[3/5] Analyzing existing code...
+  - Loaded services/analysis/app/main.py (2035 chars)
+[4/5] Generating implementation plan...
+  - ACA-03-001: As the system I load all 12 rules from ALL_RULES and run each in sequence
+  - Epic: ACA-03, Feature: Rule engine
+  - FP: 5
+
+[5/5] MANUAL EXECUTION REQUIRED
+
+The sprint agent is designed to run as a GitHub Action with LLM access.
+For local testing, you need to:
+
+Option A -- Manual Implementation:
+  1. Read spec: docs/saving-opportunity-rules.md
+  2. Create 13 rule files in services/analysis/app/rules/
+  3. Update services/analysis/app/main.py to load ALL_RULES
+  4. Run: pytest services/analysis/ -v
+  5. Verify: All 12 rules are imported and registered
+
+Option B -- GitHub Action:
+  1. Create GitHub issue with sprint manifest
+  2. Trigger sprint-agent workflow
+  3. Monitor workflow logs
+
+Option C -- LLM-Assisted (GitHub Copilot):
+  1. Open docs/saving-opportunity-rules.md
+  2. Ask Copilot to implement ACA-03-001
+  3. Run pytest to validate
+
+[INFO] Evidence receipt stub written: C:\AICOE\eva-foundry\51-ACA\.eva\evidence\ACA-03-001-receipt.json
+[PASS] Test runner complete -- manual implementation required
