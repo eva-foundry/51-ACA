@@ -221,6 +221,18 @@ UP006 [*] Use `dict` instead of `Dict` for type annotation
 help: Replace with `dict`
 
 I001 [*] Import block is un-sorted or un-formatted
+ --> services/analysis/app/rules/r03_defender_mismatch.py:2:1
+  |
+1 |   # EVA-STORY: ACA-03-013
+2 | / from app.db.cosmos import query_items
+3 | | from app.findings import persist_finding
+  | |________________________________________^
+4 |
+5 |   def evaluate_defender_costs(subscription_id: str, scan_id: str):
+  |
+help: Organize imports
+
+I001 [*] Import block is un-sorted or un-formatted
  --> services/analysis/app/rules/rule_01_dev_box_autostop.py:2:1
   |
 1 | # EVA-STORY: ACA-03-011
@@ -2607,6 +2619,43 @@ I001 [*] Import block is un-sorted or un-formatted
 5 |   def test_evaluate_log_retention_costs_positive():
   |
 help: Organize imports
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> services/tests/test_rule_r03_defender_mismatch.py:2:1
+  |
+1 |   # EVA-STORY: ACA-03-013
+2 | / import pytest
+3 | | from unittest.mock import MagicMock
+4 | | from app.db.cosmos import query_items
+5 | | from app.services.findings_gate import gate_findings
+6 | | from services.analysis.app.rules.r03_defender_mismatch import evaluate_defender_costs
+  | |_____________________________________________________________________________________^
+7 |
+8 |   def test_defender_costs_above_threshold():
+  |
+help: Organize imports
+
+F401 [*] `pytest` imported but unused
+ --> services/tests/test_rule_r03_defender_mismatch.py:2:8
+  |
+1 | # EVA-STORY: ACA-03-013
+2 | import pytest
+  |        ^^^^^^
+3 | from unittest.mock import MagicMock
+4 | from app.db.cosmos import query_items
+  |
+help: Remove unused import: `pytest`
+
+F401 [*] `app.services.findings_gate.gate_findings` imported but unused
+ --> services/tests/test_rule_r03_defender_mismatch.py:5:40
+  |
+3 | from unittest.mock import MagicMock
+4 | from app.db.cosmos import query_items
+5 | from app.services.findings_gate import gate_findings
+  |                                        ^^^^^^^^^^^^^
+6 | from services.analysis.app.rules.r03_defender_mismatch import evaluate_defender_costs
+  |
+help: Remove unused import: `app.services.findings_gate.gate_findings`
 
 I001 [*] Import block is un-sorted or un-formatted
  --> services/tests/test_tier1_gating.py:2:1

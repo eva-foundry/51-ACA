@@ -1,12 +1,18 @@
 {
   "story_id": "ACA-03-013",
-  "title": "Rule 11 -- APIM token budget",
-  "phase": "D|P|D|C|A",
-  "timestamp": "2026-02-28T17:56:45Z",
+  "title": "As the system I implement R-03 rule: returns finding when annual Defender cost > $2,000",
+  "phase": "A",
+  "timestamp": "2026-03-01T15:57:40Z",
   "artifacts": [
-    "services/analysis/app/rules/apim_token_budget.py"
+    "services/analysis/app/rules/r03_defender_mismatch.py",
+    "services/tests/test_rule_r03_defender_mismatch.py"
   ],
   "test_result": "WARN",
   "lint_result": "WARN",
-  "commit_sha": "2d08ba3fa21c2eb035f5121fca82c5b102bf3e6f"
+  "commit_sha": "31fdadc6fb64a1afa04e3cae6113d4a6ac50ea75",
+  "duration_ms": 7028,
+  "tokens_used": 0,
+  "test_count_before": 0,
+  "test_count_after": 0,
+  "files_changed": 2
 }
