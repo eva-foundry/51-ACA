@@ -1,12 +1,87 @@
 ACA -- Azure Cost Advisor -- STATUS
 ====================================
 
-Version: 1.17.0
-Updated: 2026-03-01 (Sprint 4 COMPLETE: 3 stories, 8 FP, MERGED, test regression FIXED)
+Version: 1.18.0
+Updated: 2026-03-01 (Sprint 5 PLANNED: 3 stories, 8 FP)
 Phase: Phase 1 -- Core Services Bootstrap
-Active Sprint: Sprint 5 (planning)
+Active Sprint: Sprint 5 (ready for execution)
 Completed Sprints: Sprint 1, Sprint 2, Sprint 3, Sprint 99 (Day 4 test), Sprint 4 (analysis-foundation)
 Active Epic: Epic 3 (Analysis Engine)
+
+=============================================================================
+SESSION SUMMARY -- 2026-03-01 (SPRINT 5 PLANNED: ANALYSIS COMPLETION + TIER GATING)
+=============================================================================
+
+SPRINT ADVANCE COMPLETE: 5-PHASE WORKFLOW EXECUTED
+
+Phase 1 - Validate Prior Sprint Evidence:
+  ✅ pytest gate: 24 tests passing in 1.43s
+  ✅ veritas audit: MTI=70, consistency=0, 18 gaps (acceptable for undone stories)
+  ✅ MTI check: 70 >= 30 gate (PASS)
+
+Phase 2 - Audit Repo and Data Model:
+  ✅ Data model live: 4,120 objects (cosmos store via ACA endpoint)
+  ✅ Epic 3: 30 undone stories available
+  ✅ Sprint 4 stories detected as undone in veritas-plan.json (needed update)
+
+Phase 3 - Update Data Model:
+  ✅ Marked Sprint 4 stories DONE in PLAN.md (ACA-03-002, ACA-03-003, ACA-03-011)
+  ✅ Reseeded veritas-plan.json: 76/257 done (29.6%, was 74/257)
+  ✅ Epic 3 progress: 5/33 done (15.2%)
+  ✅ Committed changes (commit c7f9531)
+
+Phase 4 - Determine Next Sprint Stories:
+  ✅ Selection criteria: complete run lifecycle + tier gating + findings summary
+  ✅ Stories selected (8 FP):
+     1. ACA-03-004 (M=3): AnalysisRun status tracking (queued->running->succeeded/failed)
+     2. ACA-03-005 (S=2): FindingsSummary aggregation (dashboard data)
+     3. ACA-03-007 (M=3): Tier 1 gating (strip narrative + template_id)
+  ✅ Model assignment: gpt-4o (ACA-03-004, ACA-03-007), gpt-4o-mini (ACA-03-005)
+  ✅ Rationale: Cosmos writes + security-critical gating require gpt-4o
+  ✅ Generated manifest: sprint-05-analysis-completion.md
+
+Phase 5 - Deliver Sprint Manifest:
+  ✅ Filled all TODO fields (model_rationale, files_to_create, acceptance, implementation_notes)
+  ✅ Committed manifest (commit 8a677df)
+  ✅ Created GitHub issue #21 with sprint-task label
+  ✅ Pushed to main (commit 20ccbb0)
+
+Sprint 5 Scope:
+  - Completes: analysis engine lifecycle (queued -> running -> succeeded/failed)
+  - Adds: findings aggregation for dashboard (findingsSummary)
+  - Secures: Tier 1 field gating (prevent narrative/template_id leak)
+  - Unblocks: Epic 5 (frontend Tier 1 integration)
+
+Sprint 5 Ready for Execution:
+  - Issue: #21 [SPRINT-05] analysis-completion
+  - Branch: sprint/05-analysis-completion (will be created by workflow)
+  - Stories: 3 (8 FP)
+  - Expected duration: ~20 seconds (based on Sprint 4 velocity)
+  - Target PR: #22 (predicted)
+
+Next Steps:
+  1. Execute Sprint 5 (trigger via issue #21 label)
+  2. Continue Day 6-10 audit plan
+  3. Plan Sprint 6 after Sprint 5 merge
+
+Data Model Status:
+  - Stories: 257 total, 76 done (29.6%, was 28.8%)
+  - MTI: 70 (gate: 30, PASS)
+  - Consistency: 0 (perfect)
+  - Test count: 24 passing
+
+10-Day Audit Progress:
+  - Day 1: ✅ Local validation
+  - Day 2: ✅ ADO integration
+  - Day 3: ⏸️ Skills testing (optional)
+  - Day 4: ✅ GitHub Actions test (first E2E)
+  - Day 5: ✅ Sprint 4 execution + merge + regression fix + Sprint 5 planning (ALL COMPLETE)
+  - Days 6-10: ⏳ Pending
+
+Commits This Session (3 total):
+  1. c7f9531 - chore(SPRINT-04): mark Sprint 4 stories done in PLAN.md
+  2. 8a677df - feat(SPRINT-05): create Sprint 5 manifest (3 stories, 8 FP)
+  3. 20ccbb0 - chore: update veritas trust files for Sprint 5 planning
 
 =============================================================================
 SESSION SUMMARY -- 2026-03-01 (SPRINT 4 COMPLETE, MERGED, REGRESSION FIXED)
