@@ -2447,6 +2447,28 @@ I001 [*] Import block is un-sorted or un-formatted
 help: Organize imports
 
 I001 [*] Import block is un-sorted or un-formatted
+ --> services/tests/test_tier1_gating.py:2:1
+  |
+1 |   # EVA-STORY: ACA-03-007
+2 | / import pytest
+3 | | from app.services.findings_gate import gate_findings
+  | |____________________________________________________^
+4 |
+5 |   def test_tier1_strips_sensitive_fields():
+  |
+help: Organize imports
+
+F401 [*] `pytest` imported but unused
+ --> services/tests/test_tier1_gating.py:2:8
+  |
+1 | # EVA-STORY: ACA-03-007
+2 | import pytest
+  |        ^^^^^^
+3 | from app.services.findings_gate import gate_findings
+  |
+help: Remove unused import: `pytest`
+
+I001 [*] Import block is un-sorted or un-formatted
   --> services/tests/test_token_service.py:8:1
    |
  6 |   Mocks msal.PublicClientApplication to avoid real MSAL network calls.

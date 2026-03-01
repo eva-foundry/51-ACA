@@ -4,7 +4,7 @@ rootdir: /home/runner/work/51-ACA/51-ACA
 configfile: pyproject.toml
 plugins: anyio-4.12.1, asyncio-1.3.0
 asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
-collected 21 items / 2 errors
+collected 22 items / 2 errors
 
 <Dir 51-ACA>
   <Dir services>
@@ -33,6 +33,8 @@ collected 21 items / 2 errors
         <Function test_no_token_raises_401>
         <Function test_invalid_token_raises_401>
         <Function test_valid_token_returns_payload>
+      <Module test_tier1_gating.py>
+        <Function test_tier1_strips_sensitive_fields>
       <Module test_token_service.py>
         <Function test_initiate_device_code_returns_expected_keys>
         <Function test_initiate_device_code_uses_common_authority>
@@ -104,4 +106,4 @@ STRIPE_WEBHOOK_SECRET
     For further information visit https://errors.pydantic.dev/2.12/v/missing
 ERROR services/tests/test_packager_sas.py
 !!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!
-==================== 21 tests collected, 2 errors in 0.67s =====================
+==================== 22 tests collected, 2 errors in 0.69s =====================

@@ -1,12 +1,18 @@
 {
   "story_id": "ACA-03-007",
-  "title": "Rule 05 -- Anomaly detection",
-  "phase": "D|P|D|C|A",
-  "timestamp": "2026-02-28T17:56:02Z",
+  "title": "As a Tier 1 client I do not receive narrative or deliverable_template_id",
+  "phase": "A",
+  "timestamp": "2026-03-01T14:29:55Z",
   "artifacts": [
-    "services/analysis/app/rules/anomaly_detection.py"
+    "services/api/app/services/findings_gate.py",
+    "services/tests/test_tier1_gating.py"
   ],
   "test_result": "WARN",
   "lint_result": "WARN",
-  "commit_sha": "87288ffffbafc8e7a401b1a2366094aca7cddc07"
+  "commit_sha": "6139b80e4987b582ecf40413654561a63c8fcffc",
+  "duration_ms": 5380,
+  "tokens_used": 0,
+  "test_count_before": 0,
+  "test_count_after": 0,
+  "files_changed": 2
 }

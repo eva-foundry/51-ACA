@@ -1,4 +1,4 @@
-# EVA-STORY: ACA-03-006
+# EVA-STORY: ACA-03-007
 """
 Findings tier-gating logic -- pure business rules, no I/O dependencies.
 Extracted so unit tests can import without pulling in Cosmos/settings chain.
