@@ -1,8 +1,6 @@
 # EVA-STORY: ACA-03-013
 import pytest
 from unittest.mock import MagicMock
-from app.db.cosmos import query_items
-from app.services.findings_gate import gate_findings
 from services.analysis.app.rules.r03_defender_mismatch import evaluate_defender_costs
 
 def test_defender_costs_above_threshold():

@@ -1,8 +1,6 @@
 # EVA-STORY: ACA-03-014
 import pytest
 from unittest.mock import MagicMock
-from app.db.cosmos import query_items
-from app.services.findings_gate import gate_findings
 from services.analysis.app.rules.r04_compute_scheduling import evaluate_r04_compute_scheduling
 
 def test_evaluate_r04_compute_scheduling():

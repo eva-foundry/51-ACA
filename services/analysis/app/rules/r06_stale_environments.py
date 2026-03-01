@@ -1,5 +1,4 @@
 # EVA-STORY: ACA-03-016
-from app.db.cosmos import query_items
 
 def evaluate_r06_stale_environments(subscription_id: str, scan_id: str) -> list[dict]:
     """

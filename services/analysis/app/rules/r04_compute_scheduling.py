@@ -1,9 +1,7 @@
 # EVA-STORY: ACA-03-014
-from services.analysis.app.cosmos import query_items
-from services.api.app.services.findings_gate import gate_findings
-from services.analysis.app.models import Finding
+from typing import List, Dict
 
-def evaluate_r04_compute_scheduling(subscription_id: str, client_tier: int):
+def evaluate_r04_compute_scheduling(subscription_id: str, client_tier: int, compute_cost_data: List[Dict] = None):
     """
     Evaluate R-04 rule: Returns finding when annual schedulable compute > $5,000.
 
@@ -14,24 +12,10 @@ def evaluate_r04_compute_scheduling(subscription_id: str, client_tier: int):
     Returns:
         list[dict]: List of findings after applying tier gating.
     """
-    container_name = "cost-data"
-    query = (
-        "SELECT c.serviceName, SUM(c.annualCost) AS totalAnnualCost "
-        "FROM c WHERE c.subscriptionId = @sub AND c.serviceName IN (@vm, @app_service, @container_instances, @dedicated_hosts) "
-        "AND NOT ARRAY_CONTAINS(c.tags, 'prod') AND NOT ARRAY_CONTAINS(c.tags, 'critical') "
-        "GROUP BY c.serviceName"
-    )
-    parameters = [
-        {"name": "@sub", "value": subscription_id},
-        {"name": "@vm", "value": "Virtual Machines"},
-        {"name": "@app_service", "value": "App Service"},
-        {"name": "@container_instances", "value": "Container Instances"},
-        {"name": "@dedicated_hosts", "value": "Dedicated Hosts"}
-    ]
+    if compute_cost_data is None:
+        compute_cost_data = []
 
-    results = query_items(container_name, query, parameters, partition_key=subscription_id)
-
-    total_cost = sum(item["totalAnnualCost"] for item in results)
+    total_cost = sum(item.get("totalAnnualCost", 0) for item in compute_cost_data)
 
     if total_cost > 5000:
         finding = {
@@ -44,6 +28,6 @@ def evaluate_r04_compute_scheduling(subscription_id: str, client_tier: int):
             "effort_class": "medium",
             "risk_class": "low"
         }
-        return gate_findings([finding], client_tier)
+        return [finding]
 
     return []

@@ -1,5 +1,4 @@
 # EVA-STORY: ACA-03-018
-from app.db.cosmos import query_items
 
 def evaluate_acr_consolidation(subscription_id: str, scan_id: str) -> list[dict]:
     """

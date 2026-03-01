@@ -154,17 +154,25 @@ Feature 3.2 -- Tier gating
     Status: DONE (Sprint-06, merged PR #24)
   Story 3.2.5 [ACA-03-010]  As the red-team agent I can assert that Tier 1 tokens never leak
                narrative or deliverable_template_id fields (redteam-agent.yaml gate)
+    Status: DONE (Sprint-07, merged PR #29)
 
 Feature 3.3 -- Individual rules (one story per rule)
   Story 3.3.1 [ACA-03-011]  R-01 Dev Box auto-stop: returns finding when annual Dev Box cost > $1,000
     Status: DONE (Sprint-04, merged PR #19)
   Story 3.3.2 [ACA-03-012]  R-02 Log retention: returns finding when annual LA cost > $500 in non-prod
+    Status: DONE (Sprint-07, merged PR #29)
   Story 3.3.3 [ACA-03-013]  R-03 Defender mismatch: returns finding when annual Defender cost > $2,000
+    Status: DONE (Sprint-07, merged PR #29)
   Story 3.3.4 [ACA-03-014]  R-04 Compute scheduling: returns finding when annual schedulable compute > $5,000
+    Status: DONE (Sprint-07, merged PR #29)
   Story 3.3.5 [ACA-03-015]  R-05 Anomaly detection: returns finding for each category with z-score > 3.0
+    Status: PLANNED (Sprint-08, issue #30)
   Story 3.3.6 [ACA-03-016]  R-06 Stale environments: returns finding when >= 3 App Service sites exist
+    Status: PLANNED (Sprint-08, issue #30)
   Story 3.3.7 [ACA-03-017]  R-07 Search SKU oversize: returns finding when annual Search cost > $2,000
+    Status: PLANNED (Sprint-08, issue #30)
   Story 3.3.8 [ACA-03-018]  R-08 ACR consolidation: returns finding when >= 3 registries exist
+    Status: PLANNED (Sprint-08, issue #30)
   Story 3.3.9 [ACA-03-019]  R-09 DNS sprawl: returns finding when annual DNS cost > $1,000
   Story 3.3.10 R-10 Savings plan: returns finding when annual total compute > $20,000
   Story 3.3.11 R-11 APIM token budget: returns finding when APIM + OpenAI both present

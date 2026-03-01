@@ -1,8 +1,5 @@
 # EVA-STORY: ACA-03-015
 import numpy as np
-from app.db.cosmos import query_items
-from app.models import Finding
-from app.findings import persist_finding
 
 def calculate_z_scores(cost_data):
     """

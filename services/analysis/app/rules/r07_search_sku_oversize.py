@@ -1,7 +1,5 @@
 # EVA-STORY: ACA-03-017
 from datetime import datetime, timedelta
-from app.db.cosmos import query_items
-from app.findings import persist_finding
 
 def analyze_search_costs(scan_id: str, subscription_id: str) -> None:
     """

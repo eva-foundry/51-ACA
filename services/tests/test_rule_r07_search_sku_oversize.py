@@ -2,7 +2,7 @@
 import pytest
 from unittest.mock import patch, MagicMock
 from datetime import datetime
-from app.analysis.app.rules.r07_search_sku_oversize import analyze_search_costs
+from services.analysis.app.rules.r07_search_sku_oversize import analyze_search_costs
 
 def test_analyze_search_costs_exceeds_threshold():
     scan_id = "test-scan-id"
