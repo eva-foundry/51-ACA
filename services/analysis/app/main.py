@@ -1,4 +1,5 @@
 # EVA-STORY: ACA-03-002
+# EVA-STORY: ACA-03-021
 from app.db.cosmos import upsert_item
 from app.settings import get_settings
 from app.services.findings_gate import gate_findings

@@ -1,7 +1,7 @@
 {
   "meta": {
     "schema": "eva.reconciliation.v2",
-    "generated_at": "2026-02-27T18:42:09.720Z",
+    "generated_at": "2026-03-01T13:12:35.411Z",
     "repo": "C:\\AICOE\\eva-foundry\\51-ACA",
     "discovery_path": "C:\\AICOE\\eva-foundry\\51-ACA\\.eva\\discovery.json"
   },
@@ -9,7 +9,7 @@
     "stories_total": 257,
     "stories_with_artifacts": 257,
     "stories_with_evidence": 257,
-    "consistency_score": 1
+    "consistency_score": 0
   },
   "features": [
     {
@@ -18,8 +18,8 @@
       "story_count": 21,
       "stories_with_artifacts": 21,
       "stories_with_evidence": 21,
-      "consistency_score": 1,
-      "mti": 100,
+      "consistency_score": 0,
+      "mti": 70,
       "gap_count": 0
     },
     {
@@ -28,8 +28,8 @@
       "story_count": 17,
       "stories_with_artifacts": 17,
       "stories_with_evidence": 17,
-      "consistency_score": 1,
-      "mti": 100,
+      "consistency_score": 0,
+      "mti": 70,
       "gap_count": 0
     },
     {
@@ -38,8 +38,8 @@
       "story_count": 33,
       "stories_with_artifacts": 33,
       "stories_with_evidence": 33,
-      "consistency_score": 1,
-      "mti": 100,
+      "consistency_score": 0,
+      "mti": 70,
       "gap_count": 0
     },
     {
@@ -48,8 +48,8 @@
       "story_count": 28,
       "stories_with_artifacts": 28,
       "stories_with_evidence": 28,
-      "consistency_score": 1,
-      "mti": 100,
+      "consistency_score": 0,
+      "mti": 70,
       "gap_count": 0
     },
     {
@@ -58,8 +58,8 @@
       "story_count": 42,
       "stories_with_artifacts": 42,
       "stories_with_evidence": 42,
-      "consistency_score": 1,
-      "mti": 100,
+      "consistency_score": 0,
+      "mti": 70,
       "gap_count": 0
     },
     {
@@ -68,8 +68,8 @@
       "story_count": 18,
       "stories_with_artifacts": 18,
       "stories_with_evidence": 18,
-      "consistency_score": 1,
-      "mti": 100,
+      "consistency_score": 0,
+      "mti": 70,
       "gap_count": 0
     },
     {
@@ -78,8 +78,8 @@
       "story_count": 9,
       "stories_with_artifacts": 9,
       "stories_with_evidence": 9,
-      "consistency_score": 1,
-      "mti": 100,
+      "consistency_score": 0,
+      "mti": 70,
       "gap_count": 0
     },
     {
@@ -88,8 +88,8 @@
       "story_count": 14,
       "stories_with_artifacts": 14,
       "stories_with_evidence": 14,
-      "consistency_score": 1,
-      "mti": 100,
+      "consistency_score": 0,
+      "mti": 70,
       "gap_count": 0
     },
     {
@@ -98,8 +98,8 @@
       "story_count": 18,
       "stories_with_artifacts": 18,
       "stories_with_evidence": 18,
-      "consistency_score": 1,
-      "mti": 100,
+      "consistency_score": 0,
+      "mti": 70,
       "gap_count": 0
     },
     {
@@ -108,8 +108,8 @@
       "story_count": 15,
       "stories_with_artifacts": 15,
       "stories_with_evidence": 15,
-      "consistency_score": 1,
-      "mti": 100,
+      "consistency_score": 0,
+      "mti": 70,
       "gap_count": 0
     },
     {
@@ -118,8 +118,8 @@
       "story_count": 9,
       "stories_with_artifacts": 9,
       "stories_with_evidence": 9,
-      "consistency_score": 1,
-      "mti": 100,
+      "consistency_score": 0,
+      "mti": 70,
       "gap_count": 0
     },
     {
@@ -128,8 +128,8 @@
       "story_count": 8,
       "stories_with_artifacts": 8,
       "stories_with_evidence": 8,
-      "consistency_score": 1,
-      "mti": 100,
+      "consistency_score": 0,
+      "mti": 70,
       "gap_count": 0
     },
     {
@@ -138,8 +138,8 @@
       "story_count": 11,
       "stories_with_artifacts": 11,
       "stories_with_evidence": 11,
-      "consistency_score": 1,
-      "mti": 100,
+      "consistency_score": 0,
+      "mti": 70,
       "gap_count": 0
     },
     {
@@ -148,8 +148,8 @@
       "story_count": 14,
       "stories_with_artifacts": 14,
       "stories_with_evidence": 14,
-      "consistency_score": 1,
-      "mti": 100,
+      "consistency_score": 0,
+      "mti": 70,
       "gap_count": 0
     }
   ],
@@ -157,6 +157,11 @@
     {
       "type": "orphan_story_tag",
       "story_id": "ACA-XX-XXX",
+      "title": null
+    },
+    {
+      "type": "orphan_story_tag",
+      "story_id": "ACA-12-023",
       "title": null
     },
     {

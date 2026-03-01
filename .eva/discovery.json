@@ -1,7 +1,7 @@
 {
   "meta": {
     "schema": "eva.discovery.v2",
-    "generated_at": "2026-02-27T18:42:09.700Z",
+    "generated_at": "2026-03-01T13:12:35.381Z",
     "repo": "C:\\AICOE\\eva-foundry\\51-ACA"
   },
   "project": null,
@@ -353,7 +353,7 @@
         "id": "ACA-03-001",
         "title": "As the system I load all 12 rules from ALL_RULES and run each in sequence",
         "feature_id": "ACA-03",
-        "done": false,
+        "done": true,
         "source": "veritas-plan.json"
       },
       {
@@ -1885,258 +1885,7 @@
     ],
     "tasks": [],
     "acceptance": [],
-    "declared_status": {
-      "STORY:ACA-01-001": "Done",
-      "STORY:ACA-01-002": "Done",
-      "STORY:ACA-01-003": "Done",
-      "STORY:ACA-01-004": "Done",
-      "STORY:ACA-01-005": "Done",
-      "STORY:ACA-01-006": "Done",
-      "STORY:ACA-01-007": "Done",
-      "STORY:ACA-01-008": "Done",
-      "STORY:ACA-01-009": "Done",
-      "STORY:ACA-01-010": "Done",
-      "STORY:ACA-01-011": "Done",
-      "STORY:ACA-01-012": "Done",
-      "STORY:ACA-01-013": "Done",
-      "STORY:ACA-01-014": "Done",
-      "STORY:ACA-01-015": "Done",
-      "STORY:ACA-01-016": "Done",
-      "STORY:ACA-01-017": "Done",
-      "STORY:ACA-01-018": "Done",
-      "STORY:ACA-01-019": "Done",
-      "STORY:ACA-01-020": "Done",
-      "STORY:ACA-01-021": "Done",
-      "STORY:ACA-02-001": "Done",
-      "STORY:ACA-02-002": "Done",
-      "STORY:ACA-02-003": "Done",
-      "STORY:ACA-02-004": "Done",
-      "STORY:ACA-02-005": "Done",
-      "STORY:ACA-02-006": "Done",
-      "STORY:ACA-02-007": "Done",
-      "STORY:ACA-02-008": "Done",
-      "STORY:ACA-02-009": "Done",
-      "STORY:ACA-02-010": "Done",
-      "STORY:ACA-02-011": "Done",
-      "STORY:ACA-02-012": "Done",
-      "STORY:ACA-02-013": "Done",
-      "STORY:ACA-02-014": "Done",
-      "STORY:ACA-02-015": "Done",
-      "STORY:ACA-02-016": "Done",
-      "STORY:ACA-03-001": "Not Started",
-      "STORY:ACA-03-002": "Not Started",
-      "STORY:ACA-03-003": "Not Started",
-      "STORY:ACA-03-004": "Not Started",
-      "STORY:ACA-03-005": "Not Started",
-      "STORY:ACA-03-006": "Not Started",
-      "STORY:ACA-03-007": "Not Started",
-      "STORY:ACA-03-008": "Not Started",
-      "STORY:ACA-03-009": "Not Started",
-      "STORY:ACA-03-010": "Not Started",
-      "STORY:ACA-03-011": "Not Started",
-      "STORY:ACA-03-012": "Not Started",
-      "STORY:ACA-03-013": "Not Started",
-      "STORY:ACA-03-014": "Not Started",
-      "STORY:ACA-03-015": "Not Started",
-      "STORY:ACA-03-016": "Not Started",
-      "STORY:ACA-03-017": "Not Started",
-      "STORY:ACA-03-018": "Not Started",
-      "STORY:ACA-03-019": "Not Started",
-      "STORY:ACA-03-020": "Not Started",
-      "STORY:ACA-03-021": "Not Started",
-      "STORY:ACA-03-022": "Not Started",
-      "STORY:ACA-03-023": "Not Started",
-      "STORY:ACA-03-024": "Not Started",
-      "STORY:ACA-03-025": "Not Started",
-      "STORY:ACA-03-026": "Not Started",
-      "STORY:ACA-03-027": "Not Started",
-      "STORY:ACA-03-028": "Not Started",
-      "STORY:ACA-03-029": "Not Started",
-      "STORY:ACA-03-030": "Not Started",
-      "STORY:ACA-03-031": "Not Started",
-      "STORY:ACA-03-032": "Not Started",
-      "STORY:ACA-03-033": "Not Started",
-      "STORY:ACA-04-001": "Not Started",
-      "STORY:ACA-04-002": "Not Started",
-      "STORY:ACA-04-003": "Not Started",
-      "STORY:ACA-04-004": "Not Started",
-      "STORY:ACA-04-005": "Not Started",
-      "STORY:ACA-04-006": "Not Started",
-      "STORY:ACA-04-007": "Not Started",
-      "STORY:ACA-04-008": "Not Started",
-      "STORY:ACA-04-009": "Not Started",
-      "STORY:ACA-04-010": "Not Started",
-      "STORY:ACA-04-011": "Not Started",
-      "STORY:ACA-04-012": "Not Started",
-      "STORY:ACA-04-013": "Not Started",
-      "STORY:ACA-04-014": "Not Started",
-      "STORY:ACA-04-015": "Not Started",
-      "STORY:ACA-04-016": "Not Started",
-      "STORY:ACA-04-017": "Not Started",
-      "STORY:ACA-04-018": "Not Started",
-      "STORY:ACA-04-019": "Not Started",
-      "STORY:ACA-04-020": "Not Started",
-      "STORY:ACA-04-021": "Not Started",
-      "STORY:ACA-04-022": "Not Started",
-      "STORY:ACA-04-023": "Not Started",
-      "STORY:ACA-04-024": "Not Started",
-      "STORY:ACA-04-025": "Not Started",
-      "STORY:ACA-04-026": "Not Started",
-      "STORY:ACA-04-027": "Not Started",
-      "STORY:ACA-05-001": "Not Started",
-      "STORY:ACA-05-002": "Not Started",
-      "STORY:ACA-05-003": "Not Started",
-      "STORY:ACA-05-004": "Not Started",
-      "STORY:ACA-05-005": "Not Started",
-      "STORY:ACA-05-006": "Not Started",
-      "STORY:ACA-05-007": "Not Started",
-      "STORY:ACA-05-008": "Not Started",
-      "STORY:ACA-05-009": "Not Started",
-      "STORY:ACA-05-010": "Not Started",
-      "STORY:ACA-05-011": "Not Started",
-      "STORY:ACA-05-012": "Not Started",
-      "STORY:ACA-05-013": "Not Started",
-      "STORY:ACA-05-014": "Not Started",
-      "STORY:ACA-05-015": "Not Started",
-      "STORY:ACA-05-016": "Not Started",
-      "STORY:ACA-05-017": "Not Started",
-      "STORY:ACA-05-018": "Not Started",
-      "STORY:ACA-05-019": "Not Started",
-      "STORY:ACA-05-020": "Not Started",
-      "STORY:ACA-05-021": "Not Started",
-      "STORY:ACA-05-022": "Not Started",
-      "STORY:ACA-05-023": "Not Started",
-      "STORY:ACA-05-024": "Not Started",
-      "STORY:ACA-05-025": "Not Started",
-      "STORY:ACA-05-026": "Not Started",
-      "STORY:ACA-05-027": "Not Started",
-      "STORY:ACA-05-028": "Not Started",
-      "STORY:ACA-05-029": "Not Started",
-      "STORY:ACA-05-030": "Not Started",
-      "STORY:ACA-05-031": "Not Started",
-      "STORY:ACA-05-032": "Not Started",
-      "STORY:ACA-05-033": "Not Started",
-      "STORY:ACA-05-034": "Not Started",
-      "STORY:ACA-05-035": "Not Started",
-      "STORY:ACA-05-036": "Not Started",
-      "STORY:ACA-05-037": "Not Started",
-      "STORY:ACA-05-038": "Not Started",
-      "STORY:ACA-05-039": "Not Started",
-      "STORY:ACA-05-040": "Not Started",
-      "STORY:ACA-05-041": "Not Started",
-      "STORY:ACA-05-042": "Not Started",
-      "STORY:ACA-06-001": "Done",
-      "STORY:ACA-06-002": "Done",
-      "STORY:ACA-06-003": "Done",
-      "STORY:ACA-06-004": "Done",
-      "STORY:ACA-06-005": "Done",
-      "STORY:ACA-06-006": "Done",
-      "STORY:ACA-06-007": "Done",
-      "STORY:ACA-06-008": "Done",
-      "STORY:ACA-06-009": "Done",
-      "STORY:ACA-06-010": "Done",
-      "STORY:ACA-06-011": "Done",
-      "STORY:ACA-06-012": "Done",
-      "STORY:ACA-06-013": "Done",
-      "STORY:ACA-06-014": "Done",
-      "STORY:ACA-06-015": "Done",
-      "STORY:ACA-06-016": "Done",
-      "STORY:ACA-06-017": "Done",
-      "STORY:ACA-07-001": "Not Started",
-      "STORY:ACA-07-002": "Not Started",
-      "STORY:ACA-07-003": "Not Started",
-      "STORY:ACA-07-004": "Not Started",
-      "STORY:ACA-07-005": "Not Started",
-      "STORY:ACA-07-006": "Not Started",
-      "STORY:ACA-07-007": "Not Started",
-      "STORY:ACA-07-008": "Not Started",
-      "STORY:ACA-07-009": "Not Started",
-      "STORY:ACA-08-001": "Not Started",
-      "STORY:ACA-08-002": "Not Started",
-      "STORY:ACA-08-003": "Not Started",
-      "STORY:ACA-08-004": "Not Started",
-      "STORY:ACA-08-005": "Not Started",
-      "STORY:ACA-08-006": "Not Started",
-      "STORY:ACA-08-007": "Not Started",
-      "STORY:ACA-08-008": "Not Started",
-      "STORY:ACA-08-009": "Not Started",
-      "STORY:ACA-08-010": "Not Started",
-      "STORY:ACA-08-011": "Not Started",
-      "STORY:ACA-08-012": "Not Started",
-      "STORY:ACA-08-013": "Not Started",
-      "STORY:ACA-08-014": "Not Started",
-      "STORY:ACA-09-001": "Not Started",
-      "STORY:ACA-09-002": "Not Started",
-      "STORY:ACA-09-003": "Not Started",
-      "STORY:ACA-09-004": "Not Started",
-      "STORY:ACA-09-005": "Not Started",
-      "STORY:ACA-09-006": "Not Started",
-      "STORY:ACA-09-007": "Not Started",
-      "STORY:ACA-09-008": "Not Started",
-      "STORY:ACA-09-009": "Not Started",
-      "STORY:ACA-09-010": "Not Started",
-      "STORY:ACA-09-011": "Not Started",
-      "STORY:ACA-09-012": "Not Started",
-      "STORY:ACA-09-013": "Not Started",
-      "STORY:ACA-09-014": "Not Started",
-      "STORY:ACA-09-015": "Not Started",
-      "STORY:ACA-09-016": "Not Started",
-      "STORY:ACA-09-017": "Not Started",
-      "STORY:ACA-09-018": "Not Started",
-      "STORY:ACA-10-001": "Not Started",
-      "STORY:ACA-10-002": "Not Started",
-      "STORY:ACA-10-003": "Not Started",
-      "STORY:ACA-10-004": "Not Started",
-      "STORY:ACA-10-005": "Not Started",
-      "STORY:ACA-10-006": "Not Started",
-      "STORY:ACA-10-007": "Not Started",
-      "STORY:ACA-10-008": "Not Started",
-      "STORY:ACA-10-009": "Not Started",
-      "STORY:ACA-10-010": "Not Started",
-      "STORY:ACA-10-011": "Not Started",
-      "STORY:ACA-10-012": "Not Started",
-      "STORY:ACA-10-013": "Not Started",
-      "STORY:ACA-10-014": "Not Started",
-      "STORY:ACA-10-015": "Not Started",
-      "STORY:ACA-11-001": "Not Started",
-      "STORY:ACA-11-002": "Not Started",
-      "STORY:ACA-11-003": "Not Started",
-      "STORY:ACA-11-004": "Not Started",
-      "STORY:ACA-11-005": "Not Started",
-      "STORY:ACA-11-006": "Not Started",
-      "STORY:ACA-11-007": "Not Started",
-      "STORY:ACA-11-008": "Not Started",
-      "STORY:ACA-11-009": "Not Started",
-      "STORY:ACA-12-001": "Not Started",
-      "STORY:ACA-12-002": "Not Started",
-      "STORY:ACA-12-003": "Not Started",
-      "STORY:ACA-12-004": "Not Started",
-      "STORY:ACA-12-005": "Not Started",
-      "STORY:ACA-12-006": "Not Started",
-      "STORY:ACA-12-007": "Not Started",
-      "STORY:ACA-12-008": "Not Started",
-      "STORY:ACA-13-009": "Not Started",
-      "STORY:ACA-13-010": "Not Started",
-      "STORY:ACA-13-011": "Not Started",
-      "STORY:ACA-13-012": "Not Started",
-      "STORY:ACA-13-013": "Not Started",
-      "STORY:ACA-13-014": "Not Started",
-      "STORY:ACA-13-015": "Not Started",
-      "STORY:ACA-13-016": "Not Started",
-      "STORY:ACA-13-017": "Not Started",
-      "STORY:ACA-13-018": "Not Started",
-      "STORY:ACA-13-019": "Not Started",
-      "STORY:ACA-14-001": "Done",
-      "STORY:ACA-14-002": "Done",
-      "STORY:ACA-14-003": "Done",
-      "STORY:ACA-14-004": "Done",
-      "STORY:ACA-14-005": "Done",
-      "STORY:ACA-14-006": "Done",
-      "STORY:ACA-14-007": "Done",
-      "STORY:ACA-14-008": "Not Started",
-      "STORY:ACA-14-009": "Not Started",
-      "STORY:ACA-14-010": "Not Started"
-    }
+    "declared_status": {}
   },
   "actual": {
     "artifacts": [
@@ -2271,6 +2020,11 @@
         "story_tags": []
       },
       {
+        "path": "ado-artifacts-full.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
         "path": "ado-artifacts.json",
         "type": "data",
         "story_tags": []
@@ -2281,7 +2035,67 @@
         "story_tags": []
       },
       {
+        "path": "AGENT-AUDIT-PLAN.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
         "path": "AGENTS.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "assign-sprint-2.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "CHANGELOG.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "check-ado-sprint2.ps1",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "check-cloud-schema.ps1",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "check-reqs.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "check-sprint2-status.ps1",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "check-state.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "compare-local-ado.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "complete-setup.ps1",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "DAY-2-COMPLETE.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "DAY-4-COMPLETE.md",
         "type": "doc",
         "story_tags": []
       },
@@ -2293,13 +2107,66 @@
         ]
       },
       {
+        "path": "DPDCA-SUMMARY.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "fix-cloud-ado-project.ps1",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "generate-sprint2-issue.ps1",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "get-sprint-02.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
         "path": "lint-result.txt",
         "type": "other",
         "story_tags": [
+          "ACA-03-003",
+          "ACA-03-002",
+          "ACA-03-010",
+          "ACA-03-007",
+          "ACA-03-011",
+          "ACA-03-008",
+          "ACA-03-015",
           "ACA-01-005",
+          "ACA-03-016",
           "ACA-07-009",
           "ACA-03-033"
         ]
+      },
+      {
+        "path": "local-vs-ado.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "manual-gate-check.ps1",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "MANUAL-VERIFICATION.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "manual-verify.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "NORTH-STAR-DASHBOARD.md",
+        "type": "doc",
+        "story_tags": []
       },
       {
         "path": "PLAN.md",
@@ -2309,6 +2176,21 @@
       {
         "path": "pyproject.toml",
         "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "pytest-gate-out.txt",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "quick-ado-check.ps1",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "QUICK-START.md",
+        "type": "doc",
         "story_tags": []
       },
       {
@@ -2327,8 +2209,78 @@
         "story_tags": []
       },
       {
+        "path": "run-verification.ps1",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "sprint-02-AFTER-assignment.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "SPRINT-02-ASSIGNMENT-SUMMARY.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "sprint-02-from-local-sqlite.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "sprint-02-manifest.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "sprint-02-query.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "SPRINT-2-EXECUTION-PLAN.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "sprint-test-output.txt",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "sprint2-issue-body-fixed.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "sprint2-issue-body.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "sprint2-preflight.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "sprint2-verify.ps1",
+        "type": "code",
+        "story_tags": []
+      },
+      {
         "path": "STATUS.md",
         "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "sync-ado-sprint2-improved.ps1",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "test-ado-sync.py",
+        "type": "code",
         "story_tags": []
       },
       {
@@ -2337,8 +2289,78 @@
         "story_tags": []
       },
       {
+        "path": "test-manifest-ACA-03-001.json",
+        "type": "data",
+        "story_tags": [
+          "ACA-03-001"
+        ],
+        "implicit_evidence_for": [
+          "ACA-03-001"
+        ]
+      },
+      {
+        "path": "test-one-story.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "test-runner-output.txt",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "test-runner.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "test-wrapper.ps1",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "update-ado-sprint2.ps1",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "VERIFICATION-REPORT.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "verify-ado-sprint2.ps1",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "verify-data-model.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "verify-wbs.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "verify-with-log.ps1",
+        "type": "code",
+        "story_tags": []
+      },
+      {
         "path": "veritas-audit-out.txt",
         "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "WORKFLOW-ENHANCEMENT-PLAN.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "WRAPPER-IMPLEMENTATION.md",
+        "type": "doc",
         "story_tags": []
       },
       {
@@ -2383,21 +2405,6 @@
       },
       {
         "path": ".github/SPRINT_ISSUE_TEMPLATE.md",
-        "type": "doc",
-        "story_tags": []
-      },
-      {
-        "path": ".pytest_cache/.gitignore",
-        "type": "other",
-        "story_tags": []
-      },
-      {
-        "path": ".pytest_cache/CACHEDIR.TAG",
-        "type": "other",
-        "story_tags": []
-      },
-      {
-        "path": ".pytest_cache/README.md",
         "type": "doc",
         "story_tags": []
       },
@@ -2489,7 +2496,37 @@
         "story_tags": []
       },
       {
+        "path": "docs/DATA-MODEL-ASSESSMENT.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/GAPS-AND-DECISIONS.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/INTEGRATED-SERVICES-IMPROVEMENT-PLAN.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/NEW-FEATURES-2026-02-28.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
         "path": "docs/saving-opportunity-rules.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/SEEDING-COMPLETE.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/SESSION-2026-02-28-SPRINT2-COMPLETION.md",
         "type": "doc",
         "story_tags": []
       },
@@ -2499,33 +2536,33 @@
         "story_tags": []
       },
       {
-        "path": "frontend/.env.example",
+        "path": "docs/SPRINT-3-ENHANCEMENTS.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/SPRINT-AUTOMATION-ARCHITECTURE.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/WORKFLOW-DATA-MODEL-INTEGRATION.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": ".pytest_cache/.gitignore",
         "type": "other",
         "story_tags": []
       },
       {
-        "path": "frontend/index.html",
+        "path": ".pytest_cache/CACHEDIR.TAG",
         "type": "other",
         "story_tags": []
       },
       {
-        "path": "frontend/package.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "frontend/tsconfig.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "frontend/tsconfig.node.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "frontend/vite.config.ts",
-        "type": "code",
+        "path": ".pytest_cache/README.md",
+        "type": "doc",
         "story_tags": []
       },
       {
@@ -4279,15 +4316,71 @@
         ]
       },
       {
+        "path": "frontend/.env.example",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/index.html",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/package.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/tsconfig.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/tsconfig.node.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/vite.config.ts",
+        "type": "code",
+        "story_tags": []
+      },
+      {
         "path": "scripts/ado-create-project.ps1",
         "type": "code",
         "story_tags": []
+      },
+      {
+        "path": "scripts/create-sprints.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "scripts/gen-full-ado-artifacts.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-12-022"
+        ]
       },
       {
         "path": "scripts/gen-sprint-manifest.py",
         "type": "code",
         "story_tags": [
           "ACA-14-005"
+        ]
+      },
+      {
+        "path": "scripts/parse-agent-log.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-14-010"
+        ]
+      },
+      {
+        "path": "scripts/put-schemas.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-12-007"
         ]
       },
       {
@@ -4352,7 +4445,22 @@
         "story_tags": []
       },
       {
+        "path": ".github/copilot-skills/gap-report.skill.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": ".github/copilot-skills/progress-report.skill.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
         "path": ".github/copilot-skills/sprint-advance.skill.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": ".github/copilot-skills/sprint-report.skill.md",
         "type": "doc",
         "story_tags": []
       },
@@ -4419,6 +4527,7 @@
         "story_tags": [
           "ACA-14-009",
           "ACA-12-022",
+          "ACA-12-023",
           "ACA-NN-NNN"
         ]
       },
@@ -4439,6 +4548,11 @@
       },
       {
         "path": ".github/sprints/sprint-02-bug-fixes-auth.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": ".github/sprints/sprint-04-analysis-foundation.md",
         "type": "doc",
         "story_tags": []
       },
@@ -4783,6 +4897,26 @@
         "story_tags": []
       },
       {
+        "path": "docs/architecture/application-architecture.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/architecture/infrastructure-architecture.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/architecture/security-architecture.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/architecture/solution-architecture.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
         "path": "frontend/src/App.tsx",
         "type": "code",
         "story_tags": [
@@ -5109,8 +5243,21 @@
         "path": "services/analysis/app/main.py",
         "type": "code",
         "story_tags": [
-          "ACA-03-004",
-          "ACA-03-021"
+          "ACA-03-002"
+        ]
+      },
+      {
+        "path": "services/analysis/app/models.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-03-003"
+        ]
+      },
+      {
+        "path": "services/analysis/app/trigger.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-03-015"
         ]
       },
       {
@@ -5161,6 +5308,13 @@
         "type": "code",
         "story_tags": [
           "ACA-02-001"
+        ]
+      },
+      {
+        "path": "services/collector/app/resource_graph.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-03-016"
         ]
       },
       {
@@ -5377,7 +5531,77 @@
         ]
       },
       {
+        "path": "services/analysis/app/rules/acr_consolidation.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-03-010"
+        ]
+      },
+      {
+        "path": "services/analysis/app/rules/anomaly_detection.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-03-007"
+        ]
+      },
+      {
+        "path": "services/analysis/app/rules/apim_token_budget.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-03-013"
+        ]
+      },
+      {
+        "path": "services/analysis/app/rules/chargeback_gap.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-03-014"
+        ]
+      },
+      {
+        "path": "services/analysis/app/rules/compute_scheduling.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-03-005"
+        ]
+      },
+      {
+        "path": "services/analysis/app/rules/defender_mismatch.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-03-004"
+        ]
+      },
+      {
+        "path": "services/analysis/app/rules/devbox_autostop.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-03-002"
+        ]
+      },
+      {
+        "path": "services/analysis/app/rules/dns_sprawl.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-03-011"
+        ]
+      },
+      {
+        "path": "services/analysis/app/rules/log_retention.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-03-003"
+        ]
+      },
+      {
         "path": "services/analysis/app/rules/rule_01_devbox_autostop.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-03-011"
+        ]
+      },
+      {
+        "path": "services/analysis/app/rules/rule_01_dev_box_autostop.py",
         "type": "code",
         "story_tags": [
           "ACA-03-011"
@@ -5461,6 +5685,27 @@
         ]
       },
       {
+        "path": "services/analysis/app/rules/savings_plan_coverage.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-03-012"
+        ]
+      },
+      {
+        "path": "services/analysis/app/rules/search_sku_oversize.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-03-009"
+        ]
+      },
+      {
+        "path": "services/analysis/app/rules/stale_environments.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-03-008"
+        ]
+      },
+      {
         "path": "services/analysis/app/rules/__init__.py",
         "type": "code",
         "story_tags": [
@@ -5487,6 +5732,20 @@
         "type": "code",
         "story_tags": [
           "ACA-04-002"
+        ]
+      },
+      {
+        "path": "services/api/app/middleware/timing.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-08-009"
+        ]
+      },
+      {
+        "path": "services/api/app/middleware/__init__.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-08-009"
         ]
       },
       {
@@ -5727,13 +5986,308 @@
           }
         ]
       },
+      "ACA-03-003": {
+        "artifacts": [
+          {
+            "path": "lint-result.txt",
+            "type": "other",
+            "story_tags": [
+              "ACA-03-003",
+              "ACA-03-002",
+              "ACA-03-010",
+              "ACA-03-007",
+              "ACA-03-011",
+              "ACA-03-008",
+              "ACA-03-015",
+              "ACA-01-005",
+              "ACA-03-016",
+              "ACA-07-009",
+              "ACA-03-033"
+            ]
+          },
+          {
+            "path": "evidence/ACA-03-003-receipt.py",
+            "type": "evidence",
+            "story_tags": [
+              "ACA-03-003"
+            ]
+          },
+          {
+            "path": "services/analysis/app/findings.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-003"
+            ]
+          },
+          {
+            "path": "services/analysis/app/models.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-003"
+            ]
+          },
+          {
+            "path": "services/analysis/app/rules/log_retention.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-003"
+            ]
+          }
+        ]
+      },
+      "ACA-03-002": {
+        "artifacts": [
+          {
+            "path": "lint-result.txt",
+            "type": "other",
+            "story_tags": [
+              "ACA-03-003",
+              "ACA-03-002",
+              "ACA-03-010",
+              "ACA-03-007",
+              "ACA-03-011",
+              "ACA-03-008",
+              "ACA-03-015",
+              "ACA-01-005",
+              "ACA-03-016",
+              "ACA-07-009",
+              "ACA-03-033"
+            ]
+          },
+          {
+            "path": "evidence/ACA-03-002-receipt.py",
+            "type": "evidence",
+            "story_tags": [
+              "ACA-03-002"
+            ]
+          },
+          {
+            "path": "services/analysis/app/main.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-002"
+            ]
+          },
+          {
+            "path": "services/analysis/app/rules/devbox_autostop.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-002"
+            ]
+          }
+        ]
+      },
+      "ACA-03-010": {
+        "artifacts": [
+          {
+            "path": "lint-result.txt",
+            "type": "other",
+            "story_tags": [
+              "ACA-03-003",
+              "ACA-03-002",
+              "ACA-03-010",
+              "ACA-03-007",
+              "ACA-03-011",
+              "ACA-03-008",
+              "ACA-03-015",
+              "ACA-01-005",
+              "ACA-03-016",
+              "ACA-07-009",
+              "ACA-03-033"
+            ]
+          },
+          {
+            "path": "evidence/ACA-03-010-receipt.py",
+            "type": "evidence",
+            "story_tags": [
+              "ACA-03-010"
+            ]
+          },
+          {
+            "path": "services/analysis/app/rules/acr_consolidation.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-010"
+            ]
+          }
+        ]
+      },
+      "ACA-03-007": {
+        "artifacts": [
+          {
+            "path": "lint-result.txt",
+            "type": "other",
+            "story_tags": [
+              "ACA-03-003",
+              "ACA-03-002",
+              "ACA-03-010",
+              "ACA-03-007",
+              "ACA-03-011",
+              "ACA-03-008",
+              "ACA-03-015",
+              "ACA-01-005",
+              "ACA-03-016",
+              "ACA-07-009",
+              "ACA-03-033"
+            ]
+          },
+          {
+            "path": "evidence/ACA-03-007-receipt.py",
+            "type": "evidence",
+            "story_tags": [
+              "ACA-03-007"
+            ]
+          },
+          {
+            "path": "services/analysis/app/rules/anomaly_detection.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-007"
+            ]
+          }
+        ]
+      },
+      "ACA-03-011": {
+        "artifacts": [
+          {
+            "path": "lint-result.txt",
+            "type": "other",
+            "story_tags": [
+              "ACA-03-003",
+              "ACA-03-002",
+              "ACA-03-010",
+              "ACA-03-007",
+              "ACA-03-011",
+              "ACA-03-008",
+              "ACA-03-015",
+              "ACA-01-005",
+              "ACA-03-016",
+              "ACA-07-009",
+              "ACA-03-033"
+            ]
+          },
+          {
+            "path": "evidence/ACA-03-011-receipt.py",
+            "type": "evidence",
+            "story_tags": [
+              "ACA-03-011"
+            ]
+          },
+          {
+            "path": "services/analysis/app/rules/dns_sprawl.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-011"
+            ]
+          },
+          {
+            "path": "services/analysis/app/rules/rule_01_devbox_autostop.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-011"
+            ]
+          },
+          {
+            "path": "services/analysis/app/rules/rule_01_dev_box_autostop.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-011"
+            ]
+          }
+        ]
+      },
+      "ACA-03-008": {
+        "artifacts": [
+          {
+            "path": "lint-result.txt",
+            "type": "other",
+            "story_tags": [
+              "ACA-03-003",
+              "ACA-03-002",
+              "ACA-03-010",
+              "ACA-03-007",
+              "ACA-03-011",
+              "ACA-03-008",
+              "ACA-03-015",
+              "ACA-01-005",
+              "ACA-03-016",
+              "ACA-07-009",
+              "ACA-03-033"
+            ]
+          },
+          {
+            "path": "evidence/ACA-03-008-receipt.py",
+            "type": "evidence",
+            "story_tags": [
+              "ACA-03-008"
+            ]
+          },
+          {
+            "path": "services/analysis/app/rules/stale_environments.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-008"
+            ]
+          }
+        ]
+      },
+      "ACA-03-015": {
+        "artifacts": [
+          {
+            "path": "lint-result.txt",
+            "type": "other",
+            "story_tags": [
+              "ACA-03-003",
+              "ACA-03-002",
+              "ACA-03-010",
+              "ACA-03-007",
+              "ACA-03-011",
+              "ACA-03-008",
+              "ACA-03-015",
+              "ACA-01-005",
+              "ACA-03-016",
+              "ACA-07-009",
+              "ACA-03-033"
+            ]
+          },
+          {
+            "path": "evidence/ACA-03-015-receipt.py",
+            "type": "evidence",
+            "story_tags": [
+              "ACA-03-015"
+            ]
+          },
+          {
+            "path": "services/analysis/app/trigger.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-015"
+            ]
+          },
+          {
+            "path": "services/analysis/app/rules/rule_05_anomaly_detection.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-015"
+            ]
+          }
+        ]
+      },
       "ACA-01-005": {
         "artifacts": [
           {
             "path": "lint-result.txt",
             "type": "other",
             "story_tags": [
+              "ACA-03-003",
+              "ACA-03-002",
+              "ACA-03-010",
+              "ACA-03-007",
+              "ACA-03-011",
+              "ACA-03-008",
+              "ACA-03-015",
               "ACA-01-005",
+              "ACA-03-016",
               "ACA-07-009",
               "ACA-03-033"
             ]
@@ -5754,13 +6308,63 @@
           }
         ]
       },
+      "ACA-03-016": {
+        "artifacts": [
+          {
+            "path": "lint-result.txt",
+            "type": "other",
+            "story_tags": [
+              "ACA-03-003",
+              "ACA-03-002",
+              "ACA-03-010",
+              "ACA-03-007",
+              "ACA-03-011",
+              "ACA-03-008",
+              "ACA-03-015",
+              "ACA-01-005",
+              "ACA-03-016",
+              "ACA-07-009",
+              "ACA-03-033"
+            ]
+          },
+          {
+            "path": "evidence/ACA-03-016-receipt.py",
+            "type": "evidence",
+            "story_tags": [
+              "ACA-03-016"
+            ]
+          },
+          {
+            "path": "services/collector/app/resource_graph.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-016"
+            ]
+          },
+          {
+            "path": "services/analysis/app/rules/rule_06_stale_environments.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-016"
+            ]
+          }
+        ]
+      },
       "ACA-07-009": {
         "artifacts": [
           {
             "path": "lint-result.txt",
             "type": "other",
             "story_tags": [
+              "ACA-03-003",
+              "ACA-03-002",
+              "ACA-03-010",
+              "ACA-03-007",
+              "ACA-03-011",
+              "ACA-03-008",
+              "ACA-03-015",
               "ACA-01-005",
+              "ACA-03-016",
               "ACA-07-009",
               "ACA-03-033"
             ]
@@ -5787,7 +6391,15 @@
             "path": "lint-result.txt",
             "type": "other",
             "story_tags": [
+              "ACA-03-003",
+              "ACA-03-002",
+              "ACA-03-010",
+              "ACA-03-007",
+              "ACA-03-011",
+              "ACA-03-008",
+              "ACA-03-015",
               "ACA-01-005",
+              "ACA-03-016",
               "ACA-07-009",
               "ACA-03-033"
             ]
@@ -5831,6 +6443,16 @@
       },
       "ACA-03-001": {
         "artifacts": [
+          {
+            "path": "test-manifest-ACA-03-001.json",
+            "type": "data",
+            "story_tags": [
+              "ACA-03-001"
+            ],
+            "implicit_evidence_for": [
+              "ACA-03-001"
+            ]
+          },
           {
             "path": "agents/analysis-agent.yaml",
             "type": "config",
@@ -6429,35 +7051,6 @@
           }
         ]
       },
-      "ACA-03-002": {
-        "artifacts": [
-          {
-            "path": "evidence/ACA-03-002-receipt.py",
-            "type": "evidence",
-            "story_tags": [
-              "ACA-03-002"
-            ]
-          }
-        ]
-      },
-      "ACA-03-003": {
-        "artifacts": [
-          {
-            "path": "evidence/ACA-03-003-receipt.py",
-            "type": "evidence",
-            "story_tags": [
-              "ACA-03-003"
-            ]
-          },
-          {
-            "path": "services/analysis/app/findings.py",
-            "type": "code",
-            "story_tags": [
-              "ACA-03-003"
-            ]
-          }
-        ]
-      },
       "ACA-03-004": {
         "artifacts": [
           {
@@ -6475,11 +7068,10 @@
             ]
           },
           {
-            "path": "services/analysis/app/main.py",
+            "path": "services/analysis/app/rules/defender_mismatch.py",
             "type": "code",
             "story_tags": [
-              "ACA-03-004",
-              "ACA-03-021"
+              "ACA-03-004"
             ]
           }
         ]
@@ -6489,6 +7081,13 @@
           {
             "path": "evidence/ACA-03-005-receipt.py",
             "type": "evidence",
+            "story_tags": [
+              "ACA-03-005"
+            ]
+          },
+          {
+            "path": "services/analysis/app/rules/compute_scheduling.py",
+            "type": "code",
             "story_tags": [
               "ACA-03-005"
             ]
@@ -6520,28 +7119,6 @@
           }
         ]
       },
-      "ACA-03-007": {
-        "artifacts": [
-          {
-            "path": "evidence/ACA-03-007-receipt.py",
-            "type": "evidence",
-            "story_tags": [
-              "ACA-03-007"
-            ]
-          }
-        ]
-      },
-      "ACA-03-008": {
-        "artifacts": [
-          {
-            "path": "evidence/ACA-03-008-receipt.py",
-            "type": "evidence",
-            "story_tags": [
-              "ACA-03-008"
-            ]
-          }
-        ]
-      },
       "ACA-03-009": {
         "artifacts": [
           {
@@ -6550,34 +7127,12 @@
             "story_tags": [
               "ACA-03-009"
             ]
-          }
-        ]
-      },
-      "ACA-03-010": {
-        "artifacts": [
-          {
-            "path": "evidence/ACA-03-010-receipt.py",
-            "type": "evidence",
-            "story_tags": [
-              "ACA-03-010"
-            ]
-          }
-        ]
-      },
-      "ACA-03-011": {
-        "artifacts": [
-          {
-            "path": "evidence/ACA-03-011-receipt.py",
-            "type": "evidence",
-            "story_tags": [
-              "ACA-03-011"
-            ]
           },
           {
-            "path": "services/analysis/app/rules/rule_01_devbox_autostop.py",
+            "path": "services/analysis/app/rules/search_sku_oversize.py",
             "type": "code",
             "story_tags": [
-              "ACA-03-011"
+              "ACA-03-009"
             ]
           }
         ]
@@ -6597,6 +7152,13 @@
             "story_tags": [
               "ACA-03-012"
             ]
+          },
+          {
+            "path": "services/analysis/app/rules/savings_plan_coverage.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-012"
+            ]
           }
         ]
       },
@@ -6605,6 +7167,13 @@
           {
             "path": "evidence/ACA-03-013-receipt.py",
             "type": "evidence",
+            "story_tags": [
+              "ACA-03-013"
+            ]
+          },
+          {
+            "path": "services/analysis/app/rules/apim_token_budget.py",
+            "type": "code",
             "story_tags": [
               "ACA-03-013"
             ]
@@ -6628,46 +7197,17 @@
             ]
           },
           {
-            "path": "services/analysis/app/rules/rule_04_compute_scheduling.py",
+            "path": "services/analysis/app/rules/chargeback_gap.py",
             "type": "code",
             "story_tags": [
               "ACA-03-014"
             ]
-          }
-        ]
-      },
-      "ACA-03-015": {
-        "artifacts": [
-          {
-            "path": "evidence/ACA-03-015-receipt.py",
-            "type": "evidence",
-            "story_tags": [
-              "ACA-03-015"
-            ]
           },
           {
-            "path": "services/analysis/app/rules/rule_05_anomaly_detection.py",
+            "path": "services/analysis/app/rules/rule_04_compute_scheduling.py",
             "type": "code",
             "story_tags": [
-              "ACA-03-015"
-            ]
-          }
-        ]
-      },
-      "ACA-03-016": {
-        "artifacts": [
-          {
-            "path": "evidence/ACA-03-016-receipt.py",
-            "type": "evidence",
-            "story_tags": [
-              "ACA-03-016"
-            ]
-          },
-          {
-            "path": "services/analysis/app/rules/rule_06_stale_environments.py",
-            "type": "code",
-            "story_tags": [
-              "ACA-03-016"
+              "ACA-03-014"
             ]
           }
         ]
@@ -6750,14 +7290,6 @@
             "path": "services/tests/test_analysis_main.py",
             "type": "code",
             "story_tags": [
-              "ACA-03-021"
-            ]
-          },
-          {
-            "path": "services/analysis/app/main.py",
-            "type": "code",
-            "story_tags": [
-              "ACA-03-004",
               "ACA-03-021"
             ]
           }
@@ -8577,6 +9109,20 @@
             "story_tags": [
               "ACA-08-009"
             ]
+          },
+          {
+            "path": "services/api/app/middleware/timing.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-08-009"
+            ]
+          },
+          {
+            "path": "services/api/app/middleware/__init__.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-08-009"
+            ]
           }
         ]
       },
@@ -9192,6 +9738,13 @@
             ]
           },
           {
+            "path": "scripts/put-schemas.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-12-007"
+            ]
+          },
+          {
             "path": "tools/update_data_model.py",
             "type": "code",
             "story_tags": [
@@ -9493,6 +10046,7 @@
             "story_tags": [
               "ACA-14-009",
               "ACA-12-022",
+              "ACA-12-023",
               "ACA-NN-NNN"
             ]
           }
@@ -9505,6 +10059,34 @@
             "type": "evidence",
             "story_tags": [
               "ACA-14-010"
+            ]
+          },
+          {
+            "path": "scripts/parse-agent-log.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-14-010"
+            ]
+          }
+        ]
+      },
+      "ACA-12-022": {
+        "artifacts": [
+          {
+            "path": "scripts/gen-full-ado-artifacts.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-12-022"
+            ]
+          },
+          {
+            "path": ".github/scripts/sprint_agent.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-14-009",
+              "ACA-12-022",
+              "ACA-12-023",
+              "ACA-NN-NNN"
             ]
           }
         ]
@@ -9533,7 +10115,7 @@
           }
         ]
       },
-      "ACA-12-022": {
+      "ACA-12-023": {
         "artifacts": [
           {
             "path": ".github/scripts/sprint_agent.py",
@@ -9541,6 +10123,7 @@
             "story_tags": [
               "ACA-14-009",
               "ACA-12-022",
+              "ACA-12-023",
               "ACA-NN-NNN"
             ]
           }
@@ -9554,6 +10137,7 @@
             "story_tags": [
               "ACA-14-009",
               "ACA-12-022",
+              "ACA-12-023",
               "ACA-NN-NNN"
             ]
           }
@@ -9884,43 +10468,157 @@
       }
     },
     "commit_evidence_map": {
-      "ACA-04-008": [
+      "ACA-03-001": [
         {
-          "sha": "da7f324",
-          "snippet": "feat(ACA-04-008): Sprint-02 complete -- 5 stories, 24 tests, MTI 100",
+          "sha": "1496a94",
+          "snippet": "chore(ACA-03-001): mark story done in veritas-plan",
+          "source": "commit"
+        },
+        {
+          "sha": "771a62c",
+          "snippet": "feat(ACA-03-001): As the system I load all 12 rules from ALL_RULES and run each ",
+          "source": "commit"
+        },
+        {
+          "sha": "4695206",
+          "snippet": "feat(ACA-03-001): Load and run all 12 rules in sequence",
+          "source": "commit"
+        },
+        {
+          "sha": "7dcc0df",
+          "snippet": "feat(ACA-03-001): Load and run all 12 rules in sequence",
+          "source": "commit"
+        },
+        {
+          "sha": "225a10a",
+          "snippet": "chore(veritas): ACA-01-001 ACA-02-001 ACA-03-001 ACA-04-001 ACA-05-001 ACA-06-00",
+          "source": "commit"
+        },
+        {
+          "sha": "test-manifest-ACA-03-001.json",
+          "snippet": "filename: test-manifest-ACA-03-001.json",
+          "source": "filename"
+        }
+      ],
+      "ACA-03-016": [
+        {
+          "sha": "8113b32",
+          "snippet": "feat(ACA-03-016): GB-03 -- Resource Graph pagination",
           "source": "commit"
         }
       ],
-      "ACA-14-007": [
+      "ACA-03-015": [
         {
-          "sha": "8ca0b4f",
-          "snippet": "feat(ACA-14-007): sprint-advance.skill.md -- 5-phase sprint handoff + planning s",
-          "source": "commit"
-        },
-        {
-          "sha": "ef7341f",
-          "snippet": "feat(plan): ACA-14-001 ACA-14-002 ACA-14-003 ACA-14-004 ACA-14-005 ACA-14-006 AC",
+          "sha": "2e2a93a",
+          "snippet": "feat(ACA-03-015): GB-02 -- Analysis auto-trigger",
           "source": "commit"
         }
       ],
-      "ACA-14-006": [
+      "ACA-03-014": [
         {
-          "sha": "624f350",
-          "snippet": "chore(ACA-14-006): STATUS.md v1.5.0 -- Sprint-02 issue #12 created",
+          "sha": "15519ac",
+          "snippet": "feat(ACA-03-014): Rule 12 -- Chargeback gap",
           "source": "commit"
-        },
+        }
+      ],
+      "ACA-03-013": [
         {
-          "sha": "de0bb2f",
-          "snippet": "feat(ACA-14-006): copilot-setup-steps.yml + sprint-executor.agent.md Copilot age",
+          "sha": "37101fc",
+          "snippet": "feat(ACA-03-013): Rule 11 -- APIM token budget",
           "source": "commit"
-        },
+        }
+      ],
+      "ACA-03-012": [
         {
-          "sha": "ef7341f",
-          "snippet": "feat(plan): ACA-14-001 ACA-14-002 ACA-14-003 ACA-14-004 ACA-14-005 ACA-14-006 AC",
+          "sha": "2d08ba3",
+          "snippet": "feat(ACA-03-012): Rule 10 -- Savings plan coverage",
+          "source": "commit"
+        }
+      ],
+      "ACA-03-011": [
+        {
+          "sha": "c79d37f",
+          "snippet": "feat(ACA-03-011): Rule 09 -- DNS sprawl",
+          "source": "commit"
+        }
+      ],
+      "ACA-03-010": [
+        {
+          "sha": "a3ddfad",
+          "snippet": "feat(ACA-03-010): Rule 08 -- ACR consolidation",
+          "source": "commit"
+        }
+      ],
+      "ACA-03-009": [
+        {
+          "sha": "488a348",
+          "snippet": "feat(ACA-03-009): Rule 07 -- Search SKU oversize",
+          "source": "commit"
+        }
+      ],
+      "ACA-03-008": [
+        {
+          "sha": "fd0430b",
+          "snippet": "feat(ACA-03-008): Rule 06 -- Stale environments",
+          "source": "commit"
+        }
+      ],
+      "ACA-03-007": [
+        {
+          "sha": "8a22d0b",
+          "snippet": "feat(ACA-03-007): Rule 05 -- Anomaly detection",
+          "source": "commit"
+        }
+      ],
+      "ACA-03-005": [
+        {
+          "sha": "87288ff",
+          "snippet": "feat(ACA-03-005): Rule 04 -- Compute scheduling",
+          "source": "commit"
+        }
+      ],
+      "ACA-03-004": [
+        {
+          "sha": "5fe4353",
+          "snippet": "feat(ACA-03-004): Rule 03 -- Defender mismatch",
+          "source": "commit"
+        }
+      ],
+      "ACA-03-003": [
+        {
+          "sha": "ae0a751",
+          "snippet": "feat(ACA-03-003): Rule 02 -- Log retention",
+          "source": "commit"
+        }
+      ],
+      "ACA-03-002": [
+        {
+          "sha": "6f650de",
+          "snippet": "feat(ACA-03-002): Rule 01 -- Dev Box autostop",
           "source": "commit"
         }
       ],
       "ACA-12-022": [
+        {
+          "sha": "31e8d50",
+          "snippet": "docs(ACA-12-022): CHANGELOG.md -- 72-hour narrative + 44-commit timeline 2026-02",
+          "source": "commit"
+        },
+        {
+          "sha": "b7801cf",
+          "snippet": "chore(ACA-12-022): update STATUS.md v1.8.0 -- full ADO import session summary",
+          "source": "commit"
+        },
+        {
+          "sha": "4a07520",
+          "snippet": "feat(ACA-12-022): full ADO import -- 256 unique story PBIs in 51-aca, ado-id-map",
+          "source": "commit"
+        },
+        {
+          "sha": "07aee1e",
+          "snippet": "chore(ACA-12-022): add ado-id-map.json -- 272 story->ADO work item mappings for ",
+          "source": "commit"
+        },
         {
           "sha": "a7e3dcf",
           "snippet": "chore(ACA-12-022): Sprint-02 manifest fully filled -- 5 stories, issue #12",
@@ -9939,6 +10637,141 @@
         {
           "sha": "e49227a",
           "snippet": "chore(ACA-12-022): update STATUS.md with Round 2 review results and pre-flight f",
+          "source": "commit"
+        }
+      ],
+      "ACA-08-009": [
+        {
+          "sha": "a1a659e",
+          "snippet": "feat(ACA-08-009): TimingMiddleware (all routes) + parse-agent-log + extended evi",
+          "source": "commit"
+        }
+      ],
+      "ACA-12-007": [
+        {
+          "sha": "7fff4eb",
+          "snippet": "feat(ACA-12-007): seed-from-plan auto-applies schemas after reseed",
+          "source": "commit"
+        },
+        {
+          "sha": "fad4247",
+          "snippet": "feat(ACA-12-007): populate request_schema + response_schema on all 27 endpoints",
+          "source": "commit"
+        }
+      ],
+      "ACA-12-021": [
+        {
+          "sha": "d676618",
+          "snippet": "chore(ACA-12-021): STATUS.md v1.7.0 -- wiring complete, zero gaps, Sprint-03 rea",
+          "source": "commit"
+        },
+        {
+          "sha": "53a2653",
+          "snippet": "feat(ACA-12-021): wire all cross-layer refs in seed script + spec-wiring.md",
+          "source": "commit"
+        },
+        {
+          "sha": "7e53eef",
+          "snippet": "chore(ACA-12-021): create spec docs + pre-flight sprint + lower MTI gate to 30",
+          "source": "commit"
+        }
+      ],
+      "ACA-04-008": [
+        {
+          "sha": "da7f324",
+          "snippet": "feat(ACA-04-008): Sprint-02 complete -- 5 stories, 24 tests, MTI 100",
+          "source": "commit"
+        },
+        {
+          "sha": "d0db9db",
+          "snippet": "feat(ACA-04-008): POST /v1/auth/connect: initiate MSAL device-code, store sessio",
+          "source": "commit"
+        }
+      ],
+      "ACA-14-007": [
+        {
+          "sha": "8ca0b4f",
+          "snippet": "feat(ACA-14-007): sprint-advance.skill.md -- 5-phase sprint handoff + planning s",
+          "source": "commit"
+        },
+        {
+          "sha": "ef7341f",
+          "snippet": "feat(plan): ACA-14-001 ACA-14-002 ACA-14-003 ACA-14-004 ACA-14-005 ACA-14-006 AC",
+          "source": "commit"
+        }
+      ],
+      "ACA-04-002": [
+        {
+          "sha": "b2ed579",
+          "snippet": "feat(ACA-04-002): JWT validation dependency: verify_token() FastAPI dep for auth",
+          "source": "commit"
+        }
+      ],
+      "ACA-04-006": [
+        {
+          "sha": "5cdbff6",
+          "snippet": "feat(ACA-04-006): auth.py MSAL rework: multi-tenant authority=common, token_serv",
+          "source": "commit"
+        }
+      ],
+      "ACA-07-021": [
+        {
+          "sha": "25f1469",
+          "snippet": "feat(ACA-07-021): Fix generate_blob_sas call and SAS_HOURS constant",
+          "source": "commit"
+        },
+        {
+          "sha": "4816baf",
+          "snippet": "fix(ACA-06-021,ACA-03-021,ACA-07-021): pre-flight sprint -- delete checkout stub",
+          "source": "commit"
+        },
+        {
+          "sha": "cd19353",
+          "snippet": "fix(ACA-06-021+ACA-03-021+ACA-07-021): preflight bugs -- rm checkout duplicate, ",
+          "source": "commit"
+        },
+        {
+          "sha": "000765b",
+          "snippet": "feat(ACA-07-021): Fix packager.py: SAS_HOURS=168 and user_delegation_key SAS gen",
+          "source": "commit"
+        }
+      ],
+      "ACA-03-021": [
+        {
+          "sha": "0461054",
+          "snippet": "feat(ACA-03-021): Fix FindingsAssembler missing cosmos_client argument",
+          "source": "commit"
+        },
+        {
+          "sha": "4816baf",
+          "snippet": "fix(ACA-06-021,ACA-03-021,ACA-07-021): pre-flight sprint -- delete checkout stub",
+          "source": "commit"
+        },
+        {
+          "sha": "cd19353",
+          "snippet": "fix(ACA-06-021+ACA-03-021+ACA-07-021): preflight bugs -- rm checkout duplicate, ",
+          "source": "commit"
+        },
+        {
+          "sha": "fe0f781",
+          "snippet": "feat(ACA-03-021): Fix FindingsAssembler instantiation -- add missing cosmos_clie",
+          "source": "commit"
+        }
+      ],
+      "ACA-14-006": [
+        {
+          "sha": "624f350",
+          "snippet": "chore(ACA-14-006): STATUS.md v1.5.0 -- Sprint-02 issue #12 created",
+          "source": "commit"
+        },
+        {
+          "sha": "de0bb2f",
+          "snippet": "feat(ACA-14-006): copilot-setup-steps.yml + sprint-executor.agent.md Copilot age",
+          "source": "commit"
+        },
+        {
+          "sha": "ef7341f",
+          "snippet": "feat(plan): ACA-14-001 ACA-14-002 ACA-14-003 ACA-14-004 ACA-14-005 ACA-14-006 AC",
           "source": "commit"
         }
       ],
@@ -10110,44 +10943,15 @@
           "source": "commit"
         }
       ],
-      "ACA-03-021": [
+      "ACA-14-008": [
         {
-          "sha": "4816baf",
-          "snippet": "fix(ACA-06-021,ACA-03-021,ACA-07-021): pre-flight sprint -- delete checkout stub",
+          "sha": "2d7dddb",
+          "snippet": "ACA-14-008 agent: scaffold + evidence receipt -- issue #1",
           "source": "commit"
         },
         {
-          "sha": "cd19353",
-          "snippet": "fix(ACA-06-021+ACA-03-021+ACA-07-021): preflight bugs -- rm checkout duplicate, ",
-          "source": "commit"
-        },
-        {
-          "sha": "fe0f781",
-          "snippet": "feat(ACA-03-021): Fix FindingsAssembler instantiation -- add missing cosmos_clie",
-          "source": "commit"
-        }
-      ],
-      "ACA-07-021": [
-        {
-          "sha": "4816baf",
-          "snippet": "fix(ACA-06-021,ACA-03-021,ACA-07-021): pre-flight sprint -- delete checkout stub",
-          "source": "commit"
-        },
-        {
-          "sha": "cd19353",
-          "snippet": "fix(ACA-06-021+ACA-03-021+ACA-07-021): preflight bugs -- rm checkout duplicate, ",
-          "source": "commit"
-        },
-        {
-          "sha": "000765b",
-          "snippet": "feat(ACA-07-021): Fix packager.py: SAS_HOURS=168 and user_delegation_key SAS gen",
-          "source": "commit"
-        }
-      ],
-      "ACA-12-021": [
-        {
-          "sha": "7e53eef",
-          "snippet": "chore(ACA-12-021): create spec docs + pre-flight sprint + lower MTI gate to 30",
+          "sha": "bc7e849",
+          "snippet": "ACA-14-008 agent: scaffold + evidence receipt -- issue #1",
           "source": "commit"
         }
       ],
@@ -10200,13 +11004,6 @@
         }
       ],
       "ACA-02-001": [
-        {
-          "sha": "225a10a",
-          "snippet": "chore(veritas): ACA-01-001 ACA-02-001 ACA-03-001 ACA-04-001 ACA-05-001 ACA-06-00",
-          "source": "commit"
-        }
-      ],
-      "ACA-03-001": [
         {
           "sha": "225a10a",
           "snippet": "chore(veritas): ACA-01-001 ACA-02-001 ACA-03-001 ACA-04-001 ACA-05-001 ACA-06-00",
