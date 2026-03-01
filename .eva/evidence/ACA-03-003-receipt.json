@@ -1,12 +1,18 @@
 {
   "story_id": "ACA-03-003",
-  "title": "Rule 02 -- Log retention",
-  "phase": "D|P|D|C|A",
-  "timestamp": "2026-02-28T17:55:50Z",
+  "title": "As the system I persist each Finding to Cosmos with full schema:",
+  "phase": "A",
+  "timestamp": "2026-03-01T13:07:17Z",
   "artifacts": [
-    "services/analysis/app/rules/log_retention.py"
+    "services/analysis/app/findings.py (new module for Finding persistence)",
+    "services/analysis/app/models.py (add Finding Pydantic model with all 11 fields)"
   ],
   "test_result": "WARN",
   "lint_result": "WARN",
-  "commit_sha": "6f650de3ad78912a9896161517b712118f8a1bbc"
+  "commit_sha": "3af5882fc198e4d837bdfe3c39267f830eef60e1",
+  "duration_ms": 4660,
+  "tokens_used": 0,
+  "test_count_before": 0,
+  "test_count_after": 0,
+  "files_changed": 2
 }
