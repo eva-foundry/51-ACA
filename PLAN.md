@@ -166,17 +166,21 @@ Feature 3.3 -- Individual rules (one story per rule)
   Story 3.3.4 [ACA-03-014]  R-04 Compute scheduling: returns finding when annual schedulable compute > $5,000
     Status: DONE (Sprint-07, merged PR #29)
   Story 3.3.5 [ACA-03-015]  R-05 Anomaly detection: returns finding for each category with z-score > 3.0
-    Status: PLANNED (Sprint-08, issue #30)
+    Status: DONE (Sprint-08, merged PR #31)
   Story 3.3.6 [ACA-03-016]  R-06 Stale environments: returns finding when >= 3 App Service sites exist
-    Status: PLANNED (Sprint-08, issue #30)
+    Status: DONE (Sprint-08, merged PR #31)
   Story 3.3.7 [ACA-03-017]  R-07 Search SKU oversize: returns finding when annual Search cost > $2,000
-    Status: PLANNED (Sprint-08, issue #30)
+    Status: DONE (Sprint-08, merged PR #31)
   Story 3.3.8 [ACA-03-018]  R-08 ACR consolidation: returns finding when >= 3 registries exist
-    Status: PLANNED (Sprint-08, issue #30)
+    Status: DONE (Sprint-08, merged PR #31)
   Story 3.3.9 [ACA-03-019]  R-09 DNS sprawl: returns finding when annual DNS cost > $1,000
-  Story 3.3.10 R-10 Savings plan: returns finding when annual total compute > $20,000
-  Story 3.3.11 R-11 APIM token budget: returns finding when APIM + OpenAI both present
-  Story 3.3.12 R-12 Chargeback gap: returns finding when total period cost > $5,000
+    Status: PLANNED (Sprint-09, issue #32)
+  Story 3.3.10 [ACA-03-020] R-10 Savings plan: returns finding when annual total compute > $20,000
+    Status: PLANNED (Sprint-09, issue #32)
+  Story 3.3.11 [ACA-03-021] R-11 APIM token budget: returns finding when APIM + OpenAI both present
+    Status: PLANNED (Sprint-09, issue #32)
+  Story 3.3.12 [ACA-03-022] R-12 Chargeback gap: returns finding when total period cost > $5,000
+    Status: PLANNED (Sprint-09, issue #32)
 
 Feature 3.4 -- Rule unit tests (DECISION LOCKED 2026-02-27: 95% coverage, hardcoded fixtures)
   One test file per rule. Tests use hardcoded JSON fixtures (no Cosmos calls).
