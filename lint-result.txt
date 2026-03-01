@@ -224,9 +224,9 @@ I001 [*] Import block is un-sorted or un-formatted
  --> services/analysis/app/rules/r03_defender_mismatch.py:2:1
   |
 1 |   # EVA-STORY: ACA-03-013
-2 | / from app.db.cosmos import query_items
-3 | | from app.findings import persist_finding
-  | |________________________________________^
+2 | / from services.analysis.app.cosmos import query_items
+3 | | from services.analysis.app.findings import persist_finding
+  | |__________________________________________________________^
 4 |
 5 |   def evaluate_defender_costs(subscription_id: str, scan_id: str):
   |
@@ -236,24 +236,49 @@ I001 [*] Import block is un-sorted or un-formatted
  --> services/analysis/app/rules/r04_compute_scheduling.py:2:1
   |
 1 |   # EVA-STORY: ACA-03-014
-2 | / from app.db.cosmos import query_items
-3 | | from app.services.findings_gate import gate_findings
-4 | | from app.models import Finding
-  | |______________________________^
+2 | / from services.analysis.app.cosmos import query_items
+3 | | from services.api.app.services.findings_gate import gate_findings
+4 | | from services.analysis.app.models import Finding
+  | |________________________________________________^
 5 |
 6 |   def evaluate_r04_compute_scheduling(subscription_id: str, client_tier: int):
   |
 help: Organize imports
 
-F401 [*] `app.models.Finding` imported but unused
- --> services/analysis/app/rules/r04_compute_scheduling.py:4:24
+F401 [*] `services.analysis.app.models.Finding` imported but unused
+ --> services/analysis/app/rules/r04_compute_scheduling.py:4:42
   |
-2 | from app.db.cosmos import query_items
-3 | from app.services.findings_gate import gate_findings
-4 | from app.models import Finding
-  |                        ^^^^^^^
+2 | from services.analysis.app.cosmos import query_items
+3 | from services.api.app.services.findings_gate import gate_findings
+4 | from services.analysis.app.models import Finding
+  |                                          ^^^^^^^
 5 |
 6 | def evaluate_r04_compute_scheduling(subscription_id: str, client_tier: int):
+  |
+help: Remove unused import: `services.analysis.app.models.Finding`
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> services/analysis/app/rules/r05_anomaly_detection.py:2:1
+  |
+1 |   # EVA-STORY: ACA-03-015
+2 | / import numpy as np
+3 | | from app.db.cosmos import query_items
+4 | | from app.models import Finding
+5 | | from app.findings import persist_finding
+  | |________________________________________^
+6 |
+7 |   def calculate_z_scores(cost_data):
+  |
+help: Organize imports
+
+F401 [*] `app.models.Finding` imported but unused
+ --> services/analysis/app/rules/r05_anomaly_detection.py:4:24
+  |
+2 | import numpy as np
+3 | from app.db.cosmos import query_items
+4 | from app.models import Finding
+  |                        ^^^^^^^
+5 | from app.findings import persist_finding
   |
 help: Remove unused import: `app.models.Finding`
 
@@ -2707,6 +2732,30 @@ F401 [*] `app.services.findings_gate.gate_findings` imported but unused
 6 | from services.analysis.app.rules.r04_compute_scheduling import evaluate_r04_compute_scheduling
   |
 help: Remove unused import: `app.services.findings_gate.gate_findings`
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> services/tests/test_rule_r05_anomaly_detection.py:2:1
+  |
+1 |   # EVA-STORY: ACA-03-015
+2 | / import pytest
+3 | | from unittest.mock import MagicMock
+4 | | from services.analysis.app.rules.r05_anomaly_detection import detect_anomalies
+  | |______________________________________________________________________________^
+5 |
+6 |   def test_detect_anomalies_outlier():
+  |
+help: Organize imports
+
+F401 [*] `pytest` imported but unused
+ --> services/tests/test_rule_r05_anomaly_detection.py:2:8
+  |
+1 | # EVA-STORY: ACA-03-015
+2 | import pytest
+  |        ^^^^^^
+3 | from unittest.mock import MagicMock
+4 | from services.analysis.app.rules.r05_anomaly_detection import detect_anomalies
+  |
+help: Remove unused import: `pytest`
 
 I001 [*] Import block is un-sorted or un-formatted
  --> services/tests/test_tier1_gating.py:2:1
