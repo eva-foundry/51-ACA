@@ -127,10 +127,12 @@ Feature 3.1 -- Rule engine
   Story 3.1.1 [ACA-03-001]  As the system I load all 12 rules from ALL_RULES and run each in sequence
   Story 3.1.2 [ACA-03-002]  As the system I handle a rule failure in isolation (one rule crash does not
                stop the engine; the error is logged and that rule is skipped)
+    Status: DONE (Sprint-04, merged PR #19)
   Story 3.1.3 [ACA-03-003]  As the system I persist each Finding to Cosmos with full schema:
                id, category, title, estimated_saving_low, estimated_saving_high,
                effort_class, risk_class, heuristic_source, narrative,
                deliverable_template_id, evidence_refs
+    Status: DONE (Sprint-04, merged PR #19)
   Story 3.1.4 [ACA-03-004]  As the system I update AnalysisRun status: queued -> running -> succeeded/failed
   Story 3.1.5 [ACA-03-005]  As the system I write findingsSummary to the analysis run record
                (findingCount, totalSavingLow, totalSavingHigh, categories[])
@@ -149,6 +151,7 @@ Feature 3.2 -- Tier gating
 
 Feature 3.3 -- Individual rules (one story per rule)
   Story 3.3.1 [ACA-03-011]  R-01 Dev Box auto-stop: returns finding when annual Dev Box cost > $1,000
+    Status: DONE (Sprint-04, merged PR #19)
   Story 3.3.2 [ACA-03-012]  R-02 Log retention: returns finding when annual LA cost > $500 in non-prod
   Story 3.3.3 [ACA-03-013]  R-03 Defender mismatch: returns finding when annual Defender cost > $2,000
   Story 3.3.4 [ACA-03-014]  R-04 Compute scheduling: returns finding when annual schedulable compute > $5,000
