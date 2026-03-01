@@ -586,6 +586,17 @@ I001 [*] Import block is un-sorted or un-formatted
 help: Organize imports
 
 I001 [*] Import block is un-sorted or un-formatted
+ --> services/analysis/app/rules/r11_apim_token_budget.py:2:1
+  |
+1 | # EVA-STORY: ACA-03-021
+2 | from app.db.cosmos import query_items
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+3 |
+4 | def r11_apim_token_budget(subscription_id: str) -> list[dict]:
+  |
+help: Organize imports
+
+I001 [*] Import block is un-sorted or un-formatted
  --> services/analysis/app/rules/rule_01_dev_box_autostop.py:2:1
   |
 1 | # EVA-STORY: ACA-03-011
@@ -3260,6 +3271,55 @@ T201 `print` found
    |     ^^^^^
    |
 help: Remove `print`
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> services/tests/test_rule_r11_apim_token_budget.py:2:1
+  |
+1 |   # EVA-STORY: ACA-03-021
+2 | / import pytest
+3 | | from unittest.mock import MagicMock
+4 | | from services.analysis.app.rules.r11_apim_token_budget import r11_apim_token_budget
+  | |___________________________________________________________________________________^
+5 |
+6 |   def test_r11_apim_token_budget():
+  |
+help: Organize imports
+
+F401 [*] `pytest` imported but unused
+ --> services/tests/test_rule_r11_apim_token_budget.py:2:8
+  |
+1 | # EVA-STORY: ACA-03-021
+2 | import pytest
+  |        ^^^^^^
+3 | from unittest.mock import MagicMock
+4 | from services.analysis.app.rules.r11_apim_token_budget import r11_apim_token_budget
+  |
+help: Remove unused import: `pytest`
+
+F811 Redefinition of unused `query_items` from line 33
+  --> services/tests/test_rule_r11_apim_token_budget.py:33:44
+   |
+32 |     # Patch the query_items function
+33 |     from services.api.app.db.cosmos import query_items
+   |                                            ----------- previous definition of `query_items` here
+34 |     query_items = mock_query_items
+   |     ^^^^^^^^^^^ `query_items` redefined here
+35 |
+36 |     findings = r11_apim_token_budget(subscription_id)
+   |
+help: Remove definition: `query_items`
+
+F841 Local variable `query_items` is assigned to but never used
+  --> services/tests/test_rule_r11_apim_token_budget.py:34:5
+   |
+32 |     # Patch the query_items function
+33 |     from services.api.app.db.cosmos import query_items
+34 |     query_items = mock_query_items
+   |     ^^^^^^^^^^^
+35 |
+36 |     findings = r11_apim_token_budget(subscription_id)
+   |
+help: Remove assignment to unused variable `query_items`
 
 I001 [*] Import block is un-sorted or un-formatted
  --> services/tests/test_tier1_gating.py:2:1
