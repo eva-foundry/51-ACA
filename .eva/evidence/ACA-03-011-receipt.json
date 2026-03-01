@@ -1,12 +1,17 @@
 {
   "story_id": "ACA-03-011",
-  "title": "Rule 09 -- DNS sprawl",
-  "phase": "D|P|D|C|A",
-  "timestamp": "2026-02-28T17:56:21Z",
+  "title": "R-01 Dev Box auto-stop: returns finding when annual Dev Box cost > $1,000",
+  "phase": "A",
+  "timestamp": "2026-03-01T13:07:24Z",
   "artifacts": [
-    "services/analysis/app/rules/dns_sprawl.py"
+    "services/analysis/app/rules/rule_01_dev_box_autostop.py (replace stub with full implementation)"
   ],
   "test_result": "WARN",
   "lint_result": "WARN",
-  "commit_sha": "a3ddfad8015055fb616270c65b34de0615cfe6b1"
+  "commit_sha": "68b39bc4b223862481456a6d437a1e0bdfaf4658",
+  "duration_ms": 5113,
+  "tokens_used": 0,
+  "test_count_before": 0,
+  "test_count_after": 0,
+  "files_changed": 1
 }

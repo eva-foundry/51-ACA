@@ -130,6 +130,17 @@ I001 [*] Import block is un-sorted or un-formatted
 help: Organize imports
 
 I001 [*] Import block is un-sorted or un-formatted
+ --> services/analysis/app/rules/rule_01_dev_box_autostop.py:2:1
+  |
+1 | # EVA-STORY: ACA-03-011
+2 | from app.db.cosmos import query_items
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+3 |
+4 | def rule_01_dev_box_autostop(subscription_id: str) -> list[dict]:
+  |
+help: Organize imports
+
+I001 [*] Import block is un-sorted or un-formatted
   --> services/analysis/app/rules/savings_plan_coverage.py:8:1
    |
  6 | monthly cost without a savings plan.
