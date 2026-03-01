@@ -1,12 +1,18 @@
 {
   "story_id": "ACA-03-015",
-  "title": "GB-02 -- Analysis auto-trigger",
-  "phase": "D|P|D|C|A",
-  "timestamp": "2026-02-28T17:56:54Z",
+  "title": "As the system I implement R-05 rule: returns finding for each category with z-score > 3.0",
+  "phase": "A",
+  "timestamp": "2026-03-01T16:15:51Z",
   "artifacts": [
-    "services/analysis/app/trigger.py"
+    "services/analysis/app/rules/r05_anomaly_detection.py",
+    "services/tests/test_rule_r05_anomaly_detection.py"
   ],
   "test_result": "WARN",
   "lint_result": "WARN",
-  "commit_sha": "15519ac62b931ed11ab5fa62c2c002a110d9bf2a"
+  "commit_sha": "ff796692c70f94cb8b42d621ade0fa7603740f76",
+  "duration_ms": 10211,
+  "tokens_used": 0,
+  "test_count_before": 0,
+  "test_count_after": 0,
+  "files_changed": 2
 }

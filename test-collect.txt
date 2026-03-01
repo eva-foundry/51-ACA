@@ -4,7 +4,7 @@ rootdir: /home/runner/work/51-ACA/51-ACA
 configfile: pyproject.toml
 plugins: anyio-4.12.1, asyncio-1.3.0
 asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
-collected 25 items / 5 errors
+collected 31 items / 6 errors
 
 <Dir 51-ACA>
   <Dir services>
@@ -39,6 +39,15 @@ collected 25 items / 5 errors
         <Function test_no_token_raises_401>
         <Function test_invalid_token_raises_401>
         <Function test_valid_token_returns_payload>
+      <Module test_rule_r02_log_retention.py>
+        <Function test_evaluate_log_retention_costs_positive>
+        <Function test_evaluate_log_retention_costs_negative>
+      <Module test_rule_r06_stale_environments.py>
+        <Function test_r06_stale_environments_positive[mock_query_items]>
+        <Function test_r06_stale_environments_negative[mock_query_items_negative]>
+      <Module test_rule_r08_acr_consolidation.py>
+        <Function test_evaluate_acr_consolidation_positive>
+        <Function test_evaluate_acr_consolidation_negative>
       <Module test_tier1_gating.py>
         <Function test_tier1_strips_sensitive_fields>
       <Module test_token_service.py>
@@ -90,18 +99,6 @@ E       For further information visit https://errors.pydantic.dev/2.12/v/missing
 E   STRIPE_WEBHOOK_SECRET
 E     Field required [type=missing, input_value={}, input_type=dict]
 E       For further information visit https://errors.pydantic.dev/2.12/v/missing
-________ ERROR collecting services/tests/test_rule_r02_log_retention.py ________
-ImportError while importing test module '/home/runner/work/51-ACA/51-ACA/services/tests/test_rule_r02_log_retention.py'.
-Hint: make sure your test modules/packages have valid Python names.
-Traceback:
-/opt/hostedtoolcache/Python/3.12.12/x64/lib/python3.12/importlib/__init__.py:90: in import_module
-    return _bootstrap._gcd_import(name[level:], package, level)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-services/tests/test_rule_r02_log_retention.py:3: in <module>
-    from services.analysis.app.rules.r02_log_retention import evaluate_log_retention_costs
-services/analysis/app/rules/__init__.py:5: in <module>
-    from app.rules.rule_01_devbox_autostop import rule_01_devbox_autostop
-E   ModuleNotFoundError: No module named 'app.rules'
 ______ ERROR collecting services/tests/test_rule_r03_defender_mismatch.py ______
 ImportError while importing test module '/home/runner/work/51-ACA/51-ACA/services/tests/test_rule_r03_defender_mismatch.py'.
 Hint: make sure your test modules/packages have valid Python names.
@@ -111,9 +108,9 @@ Traceback:
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 services/tests/test_rule_r03_defender_mismatch.py:6: in <module>
     from services.analysis.app.rules.r03_defender_mismatch import evaluate_defender_costs
-services/analysis/app/rules/__init__.py:5: in <module>
-    from app.rules.rule_01_devbox_autostop import rule_01_devbox_autostop
-E   ModuleNotFoundError: No module named 'app.rules'
+services/analysis/app/rules/r03_defender_mismatch.py:2: in <module>
+    from services.analysis.app.cosmos import query_items
+E   ImportError: cannot import name 'query_items' from 'services.analysis.app.cosmos' (/home/runner/work/51-ACA/51-ACA/services/analysis/app/cosmos.py)
 _____ ERROR collecting services/tests/test_rule_r04_compute_scheduling.py ______
 ImportError while importing test module '/home/runner/work/51-ACA/51-ACA/services/tests/test_rule_r04_compute_scheduling.py'.
 Hint: make sure your test modules/packages have valid Python names.
@@ -123,9 +120,31 @@ Traceback:
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 services/tests/test_rule_r04_compute_scheduling.py:6: in <module>
     from services.analysis.app.rules.r04_compute_scheduling import evaluate_r04_compute_scheduling
-services/analysis/app/rules/__init__.py:5: in <module>
-    from app.rules.rule_01_devbox_autostop import rule_01_devbox_autostop
-E   ModuleNotFoundError: No module named 'app.rules'
+services/analysis/app/rules/r04_compute_scheduling.py:2: in <module>
+    from services.analysis.app.cosmos import query_items
+E   ImportError: cannot import name 'query_items' from 'services.analysis.app.cosmos' (/home/runner/work/51-ACA/51-ACA/services/analysis/app/cosmos.py)
+______ ERROR collecting services/tests/test_rule_r05_anomaly_detection.py ______
+ImportError while importing test module '/home/runner/work/51-ACA/51-ACA/services/tests/test_rule_r05_anomaly_detection.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/opt/hostedtoolcache/Python/3.12.12/x64/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services/tests/test_rule_r05_anomaly_detection.py:4: in <module>
+    from services.analysis.app.rules.r05_anomaly_detection import detect_anomalies
+services/analysis/app/rules/r05_anomaly_detection.py:2: in <module>
+    import numpy as np
+E   ModuleNotFoundError: No module named 'numpy'
+_____ ERROR collecting services/tests/test_rule_r07_search_sku_oversize.py _____
+ImportError while importing test module '/home/runner/work/51-ACA/51-ACA/services/tests/test_rule_r07_search_sku_oversize.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/opt/hostedtoolcache/Python/3.12.12/x64/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services/tests/test_rule_r07_search_sku_oversize.py:5: in <module>
+    from app.analysis.app.rules.r07_search_sku_oversize import analyze_search_costs
+E   ModuleNotFoundError: No module named 'app.analysis'
 =========================== short test summary info ============================
 ERROR services/tests/test_packager_sas.py
 ERROR services/tests/test_redteam_tier1_leak.py - pydantic_core._pydantic_core.ValidationError: 6 validation errors for Settings
@@ -147,8 +166,9 @@ STRIPE_SECRET_KEY
 STRIPE_WEBHOOK_SECRET
   Field required [type=missing, input_value={}, input_type=dict]
     For further information visit https://errors.pydantic.dev/2.12/v/missing
-ERROR services/tests/test_rule_r02_log_retention.py
 ERROR services/tests/test_rule_r03_defender_mismatch.py
 ERROR services/tests/test_rule_r04_compute_scheduling.py
-!!!!!!!!!!!!!!!!!!! Interrupted: 5 errors during collection !!!!!!!!!!!!!!!!!!!!
-==================== 25 tests collected, 5 errors in 0.77s =====================
+ERROR services/tests/test_rule_r05_anomaly_detection.py
+ERROR services/tests/test_rule_r07_search_sku_oversize.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 6 errors during collection !!!!!!!!!!!!!!!!!!!!
+==================== 31 tests collected, 6 errors in 0.74s =====================

@@ -224,9 +224,9 @@ I001 [*] Import block is un-sorted or un-formatted
  --> services/analysis/app/rules/r03_defender_mismatch.py:2:1
   |
 1 |   # EVA-STORY: ACA-03-013
-2 | / from app.db.cosmos import query_items
-3 | | from app.findings import persist_finding
-  | |________________________________________^
+2 | / from services.analysis.app.cosmos import query_items
+3 | | from services.analysis.app.findings import persist_finding
+  | |__________________________________________________________^
 4 |
 5 |   def evaluate_defender_costs(subscription_id: str, scan_id: str):
   |
@@ -236,26 +236,152 @@ I001 [*] Import block is un-sorted or un-formatted
  --> services/analysis/app/rules/r04_compute_scheduling.py:2:1
   |
 1 |   # EVA-STORY: ACA-03-014
-2 | / from app.db.cosmos import query_items
-3 | | from app.services.findings_gate import gate_findings
-4 | | from app.models import Finding
-  | |______________________________^
+2 | / from services.analysis.app.cosmos import query_items
+3 | | from services.api.app.services.findings_gate import gate_findings
+4 | | from services.analysis.app.models import Finding
+  | |________________________________________________^
 5 |
 6 |   def evaluate_r04_compute_scheduling(subscription_id: str, client_tier: int):
   |
 help: Organize imports
 
-F401 [*] `app.models.Finding` imported but unused
- --> services/analysis/app/rules/r04_compute_scheduling.py:4:24
+F401 [*] `services.analysis.app.models.Finding` imported but unused
+ --> services/analysis/app/rules/r04_compute_scheduling.py:4:42
   |
-2 | from app.db.cosmos import query_items
-3 | from app.services.findings_gate import gate_findings
-4 | from app.models import Finding
-  |                        ^^^^^^^
+2 | from services.analysis.app.cosmos import query_items
+3 | from services.api.app.services.findings_gate import gate_findings
+4 | from services.analysis.app.models import Finding
+  |                                          ^^^^^^^
 5 |
 6 | def evaluate_r04_compute_scheduling(subscription_id: str, client_tier: int):
   |
+help: Remove unused import: `services.analysis.app.models.Finding`
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> services/analysis/app/rules/r05_anomaly_detection.py:2:1
+  |
+1 |   # EVA-STORY: ACA-03-015
+2 | / import numpy as np
+3 | | from app.db.cosmos import query_items
+4 | | from app.models import Finding
+5 | | from app.findings import persist_finding
+  | |________________________________________^
+6 |
+7 |   def calculate_z_scores(cost_data):
+  |
+help: Organize imports
+
+F401 [*] `app.models.Finding` imported but unused
+ --> services/analysis/app/rules/r05_anomaly_detection.py:4:24
+  |
+2 | import numpy as np
+3 | from app.db.cosmos import query_items
+4 | from app.models import Finding
+  |                        ^^^^^^^
+5 | from app.findings import persist_finding
+  |
 help: Remove unused import: `app.models.Finding`
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> services/analysis/app/rules/r06_stale_environments.py:2:1
+  |
+1 | # EVA-STORY: ACA-03-016
+2 | from app.db.cosmos import query_items
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+3 |
+4 | def evaluate_r06_stale_environments(subscription_id: str, scan_id: str) -> list[dict]:
+  |
+help: Organize imports
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> services/analysis/app/rules/r07_search_sku_oversize.py:2:1
+  |
+1 |   # EVA-STORY: ACA-03-017
+2 | / from datetime import datetime, timedelta
+3 | | from app.db.cosmos import query_items
+4 | | from app.findings import persist_finding
+  | |________________________________________^
+5 |
+6 |   def analyze_search_costs(scan_id: str, subscription_id: str) -> None:
+  |
+help: Organize imports
+
+F401 [*] `datetime.timedelta` imported but unused
+ --> services/analysis/app/rules/r07_search_sku_oversize.py:2:32
+  |
+1 | # EVA-STORY: ACA-03-017
+2 | from datetime import datetime, timedelta
+  |                                ^^^^^^^^^
+3 | from app.db.cosmos import query_items
+4 | from app.findings import persist_finding
+  |
+help: Remove unused import: `datetime.timedelta`
+
+T201 `print` found
+  --> services/analysis/app/rules/r07_search_sku_oversize.py:27:9
+   |
+26 |     if not cost_data:
+27 |         print("[INFO] No cost data found for scan_id:", scan_id)
+   |         ^^^^^
+28 |         return
+   |
+help: Remove `print`
+
+F541 [*] f-string without any placeholders
+  --> services/analysis/app/rules/r07_search_sku_oversize.py:52:17
+   |
+50 |             "title": "High Azure AI Search Costs",
+51 |             "description": (
+52 |                 f"The annualized cost for Azure AI Search services exceeds $2,000. "
+   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+53 |                 f"Consider optimizing your usage to reduce costs."
+54 |             ),
+   |
+help: Remove extraneous `f` prefix
+
+F541 [*] f-string without any placeholders
+  --> services/analysis/app/rules/r07_search_sku_oversize.py:53:17
+   |
+51 |             "description": (
+52 |                 f"The annualized cost for Azure AI Search services exceeds $2,000. "
+53 |                 f"Consider optimizing your usage to reduce costs."
+   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+54 |             ),
+55 |             "estimated_saving_low": 500,
+   |
+help: Remove extraneous `f` prefix
+
+T201 `print` found
+  --> services/analysis/app/rules/r07_search_sku_oversize.py:63:9
+   |
+62 |         persist_finding(None, finding)
+63 |         print("[INFO] Finding persisted for high Azure AI Search costs.")
+   |         ^^^^^
+64 |     else:
+65 |         print("[INFO] No findings generated for Azure AI Search costs.")
+   |
+help: Remove `print`
+
+T201 `print` found
+  --> services/analysis/app/rules/r07_search_sku_oversize.py:65:9
+   |
+63 |         print("[INFO] Finding persisted for high Azure AI Search costs.")
+64 |     else:
+65 |         print("[INFO] No findings generated for Azure AI Search costs.")
+   |         ^^^^^
+   |
+help: Remove `print`
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> services/analysis/app/rules/r08_acr_consolidation.py:2:1
+  |
+1 | # EVA-STORY: ACA-03-018
+2 | from app.db.cosmos import query_items
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+3 |
+4 | def evaluate_acr_consolidation(subscription_id: str, scan_id: str) -> list[dict]:
+  |
+help: Organize imports
 
 I001 [*] Import block is un-sorted or un-formatted
  --> services/analysis/app/rules/rule_01_dev_box_autostop.py:2:1
@@ -2707,6 +2833,140 @@ F401 [*] `app.services.findings_gate.gate_findings` imported but unused
 6 | from services.analysis.app.rules.r04_compute_scheduling import evaluate_r04_compute_scheduling
   |
 help: Remove unused import: `app.services.findings_gate.gate_findings`
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> services/tests/test_rule_r05_anomaly_detection.py:2:1
+  |
+1 |   # EVA-STORY: ACA-03-015
+2 | / import pytest
+3 | | from unittest.mock import MagicMock
+4 | | from services.analysis.app.rules.r05_anomaly_detection import detect_anomalies
+  | |______________________________________________________________________________^
+5 |
+6 |   def test_detect_anomalies_outlier():
+  |
+help: Organize imports
+
+F401 [*] `pytest` imported but unused
+ --> services/tests/test_rule_r05_anomaly_detection.py:2:8
+  |
+1 | # EVA-STORY: ACA-03-015
+2 | import pytest
+  |        ^^^^^^
+3 | from unittest.mock import MagicMock
+4 | from services.analysis.app.rules.r05_anomaly_detection import detect_anomalies
+  |
+help: Remove unused import: `pytest`
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> services/tests/test_rule_r06_stale_environments.py:2:1
+  |
+1 |   # EVA-STORY: ACA-03-016
+2 | / import pytest
+3 | | from unittest.mock import MagicMock
+4 | | from app.db.cosmos import query_items
+5 | | from services.analysis.app.rules.r06_stale_environments import evaluate_r06_stale_environments
+  | |______________________________________________________________________________________________^
+6 |
+7 |   @pytest.fixture
+  |
+help: Organize imports
+
+F401 [*] `unittest.mock.MagicMock` imported but unused
+ --> services/tests/test_rule_r06_stale_environments.py:3:27
+  |
+1 | # EVA-STORY: ACA-03-016
+2 | import pytest
+3 | from unittest.mock import MagicMock
+  |                           ^^^^^^^^^
+4 | from app.db.cosmos import query_items
+5 | from services.analysis.app.rules.r06_stale_environments import evaluate_r06_stale_environments
+  |
+help: Remove unused import: `unittest.mock.MagicMock`
+
+F401 [*] `app.db.cosmos.query_items` imported but unused
+ --> services/tests/test_rule_r06_stale_environments.py:4:27
+  |
+2 | import pytest
+3 | from unittest.mock import MagicMock
+4 | from app.db.cosmos import query_items
+  |                           ^^^^^^^^^^^
+5 | from services.analysis.app.rules.r06_stale_environments import evaluate_r06_stale_environments
+  |
+help: Remove unused import: `app.db.cosmos.query_items`
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> services/tests/test_rule_r07_search_sku_oversize.py:2:1
+  |
+1 |   # EVA-STORY: ACA-03-017
+2 | / import pytest
+3 | | from unittest.mock import patch, MagicMock
+4 | | from datetime import datetime
+5 | | from app.analysis.app.rules.r07_search_sku_oversize import analyze_search_costs
+  | |_______________________________________________________________________________^
+6 |
+7 |   def test_analyze_search_costs_exceeds_threshold():
+  |
+help: Organize imports
+
+F401 [*] `pytest` imported but unused
+ --> services/tests/test_rule_r07_search_sku_oversize.py:2:8
+  |
+1 | # EVA-STORY: ACA-03-017
+2 | import pytest
+  |        ^^^^^^
+3 | from unittest.mock import patch, MagicMock
+4 | from datetime import datetime
+  |
+help: Remove unused import: `pytest`
+
+F401 [*] `unittest.mock.MagicMock` imported but unused
+ --> services/tests/test_rule_r07_search_sku_oversize.py:3:34
+  |
+1 | # EVA-STORY: ACA-03-017
+2 | import pytest
+3 | from unittest.mock import patch, MagicMock
+  |                                  ^^^^^^^^^
+4 | from datetime import datetime
+5 | from app.analysis.app.rules.r07_search_sku_oversize import analyze_search_costs
+  |
+help: Remove unused import: `unittest.mock.MagicMock`
+
+F401 [*] `datetime.datetime` imported but unused
+ --> services/tests/test_rule_r07_search_sku_oversize.py:4:22
+  |
+2 | import pytest
+3 | from unittest.mock import patch, MagicMock
+4 | from datetime import datetime
+  |                      ^^^^^^^^
+5 | from app.analysis.app.rules.r07_search_sku_oversize import analyze_search_costs
+  |
+help: Remove unused import: `datetime.datetime`
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> services/tests/test_rule_r08_acr_consolidation.py:2:1
+  |
+1 |   # EVA-STORY: ACA-03-018
+2 | / import pytest
+3 | | from unittest.mock import MagicMock
+4 | | from app.db.cosmos import query_items
+5 | | from services.analysis.app.rules.r08_acr_consolidation import evaluate_acr_consolidation
+  | |________________________________________________________________________________________^
+6 |
+7 |   def test_evaluate_acr_consolidation_positive():
+  |
+help: Organize imports
+
+F401 [*] `pytest` imported but unused
+ --> services/tests/test_rule_r08_acr_consolidation.py:2:8
+  |
+1 | # EVA-STORY: ACA-03-018
+2 | import pytest
+  |        ^^^^^^
+3 | from unittest.mock import MagicMock
+4 | from app.db.cosmos import query_items
+  |
+help: Remove unused import: `pytest`
 
 I001 [*] Import block is un-sorted or un-formatted
  --> services/tests/test_tier1_gating.py:2:1

@@ -1,0 +1,18 @@
+{
+  "story_id": "ACA-03-018",
+  "title": "As the system I implement R-08 rule: returns finding when >= 3 registries exist",
+  "phase": "A",
+  "timestamp": "2026-03-01T16:16:16Z",
+  "artifacts": [
+    "services/analysis/app/rules/r08_acr_consolidation.py",
+    "services/tests/test_rule_r08_acr_consolidation.py"
+  ],
+  "test_result": "WARN",
+  "lint_result": "WARN",
+  "commit_sha": "98d70c7b158f3db174a4909ed70c0566ae17ab0e",
+  "duration_ms": 7900,
+  "tokens_used": 0,
+  "test_count_before": 0,
+  "test_count_after": 0,
+  "files_changed": 2
+}
