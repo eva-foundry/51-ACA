@@ -1,7 +1,7 @@
 {
   "meta": {
     "schema": "eva.discovery.v2",
-    "generated_at": "2026-03-01T14:26:04.921Z",
+    "generated_at": "2026-03-01T14:59:52.047Z",
     "repo": "C:\\AICOE\\eva-foundry\\51-ACA"
   },
   "project": null,
@@ -353,21 +353,21 @@
         "id": "ACA-03-001",
         "title": "As the system I load all 12 rules from ALL_RULES and run each in sequence",
         "feature_id": "ACA-03",
-        "done": true,
+        "done": false,
         "source": "veritas-plan.json"
       },
       {
         "id": "ACA-03-002",
         "title": "As the system I handle a rule failure in isolation (one rule crash does not",
         "feature_id": "ACA-03",
-        "done": false,
+        "done": true,
         "source": "veritas-plan.json"
       },
       {
         "id": "ACA-03-003",
         "title": "As the system I persist each Finding to Cosmos with full schema:",
         "feature_id": "ACA-03",
-        "done": false,
+        "done": true,
         "source": "veritas-plan.json"
       },
       {
@@ -423,7 +423,7 @@
         "id": "ACA-03-011",
         "title": "R-01 Dev Box auto-stop: returns finding when annual Dev Box cost > $1,000",
         "feature_id": "ACA-03",
-        "done": false,
+        "done": true,
         "source": "veritas-plan.json"
       },
       {
@@ -2131,7 +2131,7 @@
         "type": "other",
         "story_tags": [
           "ACA-03-003",
-          "ACA-03-002",
+          "ACA-03-005",
           "ACA-03-010",
           "ACA-03-007",
           "ACA-03-011",
@@ -2140,6 +2140,7 @@
           "ACA-01-005",
           "ACA-03-016",
           "ACA-07-009",
+          "ACA-03-004",
           "ACA-03-033"
         ]
       },
@@ -2563,6 +2564,36 @@
       {
         "path": "docs/WORKFLOW-DATA-MODEL-INTEGRATION.md",
         "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/.env.example",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/index.html",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/package.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/tsconfig.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/tsconfig.node.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/vite.config.ts",
+        "type": "code",
         "story_tags": []
       },
       {
@@ -4316,36 +4347,6 @@
         ]
       },
       {
-        "path": "frontend/.env.example",
-        "type": "other",
-        "story_tags": []
-      },
-      {
-        "path": "frontend/index.html",
-        "type": "other",
-        "story_tags": []
-      },
-      {
-        "path": "frontend/package.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "frontend/tsconfig.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "frontend/tsconfig.node.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "frontend/vite.config.ts",
-        "type": "code",
-        "story_tags": []
-      },
-      {
         "path": "scripts/ado-create-project.ps1",
         "type": "code",
         "story_tags": []
@@ -4553,6 +4554,11 @@
       },
       {
         "path": ".github/sprints/sprint-04-analysis-foundation.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": ".github/sprints/sprint-05-analysis-completion.md",
         "type": "doc",
         "story_tags": []
       },
@@ -4999,16 +5005,6 @@
         "story_tags": []
       },
       {
-        "path": "services/delivery/Dockerfile",
-        "type": "other",
-        "story_tags": []
-      },
-      {
-        "path": "services/delivery/requirements.txt",
-        "type": "other",
-        "story_tags": []
-      },
-      {
         "path": "services/collector/Dockerfile",
         "type": "other",
         "story_tags": []
@@ -5019,10 +5015,27 @@
         "story_tags": []
       },
       {
+        "path": "services/delivery/Dockerfile",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "services/delivery/requirements.txt",
+        "type": "other",
+        "story_tags": []
+      },
+      {
         "path": "services/tests/test_analysis_main.py",
         "type": "code",
         "story_tags": [
           "ACA-03-021"
+        ]
+      },
+      {
+        "path": "services/tests/test_analysis_status.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-03-004"
         ]
       },
       {
@@ -5054,6 +5067,13 @@
         ]
       },
       {
+        "path": "services/tests/test_findings_summary.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-03-005"
+        ]
+      },
+      {
         "path": "services/tests/test_jwt_dep.py",
         "type": "code",
         "story_tags": [
@@ -5065,6 +5085,13 @@
         "type": "code",
         "story_tags": [
           "ACA-07-021"
+        ]
+      },
+      {
+        "path": "services/tests/test_tier1_gating.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-03-007"
         ]
       },
       {
@@ -5243,8 +5270,9 @@
         "path": "services/analysis/app/main.py",
         "type": "code",
         "story_tags": [
-          "ACA-03-002",
-          "ACA-03-021"
+          "ACA-03-021",
+          "ACA-03-004",
+          "ACA-03-005"
         ]
       },
       {
@@ -5284,35 +5312,6 @@
         ]
       },
       {
-        "path": "services/delivery/app/cosmos.py",
-        "type": "code",
-        "story_tags": [
-          "ACA-07-009"
-        ]
-      },
-      {
-        "path": "services/delivery/app/generator.py",
-        "type": "code",
-        "story_tags": [
-          "ACA-07-003"
-        ]
-      },
-      {
-        "path": "services/delivery/app/main.py",
-        "type": "code",
-        "story_tags": [
-          "ACA-07-005"
-        ]
-      },
-      {
-        "path": "services/delivery/app/packager.py",
-        "type": "code",
-        "story_tags": [
-          "ACA-07-006",
-          "ACA-07-021"
-        ]
-      },
-      {
         "path": "services/collector/app/azure_client.py",
         "type": "code",
         "story_tags": [
@@ -5345,6 +5344,35 @@
         "type": "code",
         "story_tags": [
           "ACA-03-016"
+        ]
+      },
+      {
+        "path": "services/delivery/app/cosmos.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-07-009"
+        ]
+      },
+      {
+        "path": "services/delivery/app/generator.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-07-003"
+        ]
+      },
+      {
+        "path": "services/delivery/app/main.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-07-005"
+        ]
+      },
+      {
+        "path": "services/delivery/app/packager.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-07-006",
+          "ACA-07-021"
         ]
       },
       {
@@ -5532,14 +5560,6 @@
         ]
       },
       {
-        "path": "services/api/app/db/cosmos.py",
-        "type": "code",
-        "story_tags": [
-          "ACA-01-001",
-          "ACA-04-028"
-        ]
-      },
-      {
         "path": "services/analysis/app/rules/acr_consolidation.py",
         "type": "code",
         "story_tags": [
@@ -5722,6 +5742,14 @@
         ]
       },
       {
+        "path": "services/api/app/db/cosmos.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-01-001",
+          "ACA-04-028"
+        ]
+      },
+      {
         "path": "services/api/app/deps/auth.py",
         "type": "code",
         "story_tags": [
@@ -5819,7 +5847,7 @@
         "path": "services/api/app/services/findings_gate.py",
         "type": "code",
         "story_tags": [
-          "ACA-03-006"
+          "ACA-03-007"
         ]
       },
       {
@@ -5994,7 +6022,7 @@
             "type": "other",
             "story_tags": [
               "ACA-03-003",
-              "ACA-03-002",
+              "ACA-03-005",
               "ACA-03-010",
               "ACA-03-007",
               "ACA-03-011",
@@ -6003,6 +6031,7 @@
               "ACA-01-005",
               "ACA-03-016",
               "ACA-07-009",
+              "ACA-03-004",
               "ACA-03-033"
             ]
           },
@@ -6036,14 +6065,14 @@
           }
         ]
       },
-      "ACA-03-002": {
+      "ACA-03-005": {
         "artifacts": [
           {
             "path": "lint-result.txt",
             "type": "other",
             "story_tags": [
               "ACA-03-003",
-              "ACA-03-002",
+              "ACA-03-005",
               "ACA-03-010",
               "ACA-03-007",
               "ACA-03-011",
@@ -6052,29 +6081,38 @@
               "ACA-01-005",
               "ACA-03-016",
               "ACA-07-009",
+              "ACA-03-004",
               "ACA-03-033"
             ]
           },
           {
-            "path": "evidence/ACA-03-002-receipt.py",
+            "path": "evidence/ACA-03-005-receipt.py",
             "type": "evidence",
             "story_tags": [
-              "ACA-03-002"
+              "ACA-03-005"
+            ]
+          },
+          {
+            "path": "services/tests/test_findings_summary.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-005"
             ]
           },
           {
             "path": "services/analysis/app/main.py",
             "type": "code",
             "story_tags": [
-              "ACA-03-002",
-              "ACA-03-021"
+              "ACA-03-021",
+              "ACA-03-004",
+              "ACA-03-005"
             ]
           },
           {
-            "path": "services/analysis/app/rules/devbox_autostop.py",
+            "path": "services/analysis/app/rules/compute_scheduling.py",
             "type": "code",
             "story_tags": [
-              "ACA-03-002"
+              "ACA-03-005"
             ]
           }
         ]
@@ -6086,7 +6124,7 @@
             "type": "other",
             "story_tags": [
               "ACA-03-003",
-              "ACA-03-002",
+              "ACA-03-005",
               "ACA-03-010",
               "ACA-03-007",
               "ACA-03-011",
@@ -6095,6 +6133,7 @@
               "ACA-01-005",
               "ACA-03-016",
               "ACA-07-009",
+              "ACA-03-004",
               "ACA-03-033"
             ]
           },
@@ -6121,7 +6160,7 @@
             "type": "other",
             "story_tags": [
               "ACA-03-003",
-              "ACA-03-002",
+              "ACA-03-005",
               "ACA-03-010",
               "ACA-03-007",
               "ACA-03-011",
@@ -6130,6 +6169,7 @@
               "ACA-01-005",
               "ACA-03-016",
               "ACA-07-009",
+              "ACA-03-004",
               "ACA-03-033"
             ]
           },
@@ -6141,7 +6181,21 @@
             ]
           },
           {
+            "path": "services/tests/test_tier1_gating.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-007"
+            ]
+          },
+          {
             "path": "services/analysis/app/rules/anomaly_detection.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-007"
+            ]
+          },
+          {
+            "path": "services/api/app/services/findings_gate.py",
             "type": "code",
             "story_tags": [
               "ACA-03-007"
@@ -6156,7 +6210,7 @@
             "type": "other",
             "story_tags": [
               "ACA-03-003",
-              "ACA-03-002",
+              "ACA-03-005",
               "ACA-03-010",
               "ACA-03-007",
               "ACA-03-011",
@@ -6165,6 +6219,7 @@
               "ACA-01-005",
               "ACA-03-016",
               "ACA-07-009",
+              "ACA-03-004",
               "ACA-03-033"
             ]
           },
@@ -6205,7 +6260,7 @@
             "type": "other",
             "story_tags": [
               "ACA-03-003",
-              "ACA-03-002",
+              "ACA-03-005",
               "ACA-03-010",
               "ACA-03-007",
               "ACA-03-011",
@@ -6214,6 +6269,7 @@
               "ACA-01-005",
               "ACA-03-016",
               "ACA-07-009",
+              "ACA-03-004",
               "ACA-03-033"
             ]
           },
@@ -6240,7 +6296,7 @@
             "type": "other",
             "story_tags": [
               "ACA-03-003",
-              "ACA-03-002",
+              "ACA-03-005",
               "ACA-03-010",
               "ACA-03-007",
               "ACA-03-011",
@@ -6249,6 +6305,7 @@
               "ACA-01-005",
               "ACA-03-016",
               "ACA-07-009",
+              "ACA-03-004",
               "ACA-03-033"
             ]
           },
@@ -6282,7 +6339,7 @@
             "type": "other",
             "story_tags": [
               "ACA-03-003",
-              "ACA-03-002",
+              "ACA-03-005",
               "ACA-03-010",
               "ACA-03-007",
               "ACA-03-011",
@@ -6291,6 +6348,7 @@
               "ACA-01-005",
               "ACA-03-016",
               "ACA-07-009",
+              "ACA-03-004",
               "ACA-03-033"
             ]
           },
@@ -6317,7 +6375,7 @@
             "type": "other",
             "story_tags": [
               "ACA-03-003",
-              "ACA-03-002",
+              "ACA-03-005",
               "ACA-03-010",
               "ACA-03-007",
               "ACA-03-011",
@@ -6326,6 +6384,7 @@
               "ACA-01-005",
               "ACA-03-016",
               "ACA-07-009",
+              "ACA-03-004",
               "ACA-03-033"
             ]
           },
@@ -6359,7 +6418,7 @@
             "type": "other",
             "story_tags": [
               "ACA-03-003",
-              "ACA-03-002",
+              "ACA-03-005",
               "ACA-03-010",
               "ACA-03-007",
               "ACA-03-011",
@@ -6368,6 +6427,7 @@
               "ACA-01-005",
               "ACA-03-016",
               "ACA-07-009",
+              "ACA-03-004",
               "ACA-03-033"
             ]
           },
@@ -6387,14 +6447,14 @@
           }
         ]
       },
-      "ACA-03-033": {
+      "ACA-03-004": {
         "artifacts": [
           {
             "path": "lint-result.txt",
             "type": "other",
             "story_tags": [
               "ACA-03-003",
-              "ACA-03-002",
+              "ACA-03-005",
               "ACA-03-010",
               "ACA-03-007",
               "ACA-03-011",
@@ -6403,6 +6463,66 @@
               "ACA-01-005",
               "ACA-03-016",
               "ACA-07-009",
+              "ACA-03-004",
+              "ACA-03-033"
+            ]
+          },
+          {
+            "path": "evidence/ACA-03-004-receipt.py",
+            "type": "evidence",
+            "story_tags": [
+              "ACA-03-004"
+            ]
+          },
+          {
+            "path": "services/tests/test_analysis_status.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-004"
+            ]
+          },
+          {
+            "path": "services/analysis/app/cosmos.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-004"
+            ]
+          },
+          {
+            "path": "services/analysis/app/main.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-021",
+              "ACA-03-004",
+              "ACA-03-005"
+            ]
+          },
+          {
+            "path": "services/analysis/app/rules/defender_mismatch.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-004"
+            ]
+          }
+        ]
+      },
+      "ACA-03-033": {
+        "artifacts": [
+          {
+            "path": "lint-result.txt",
+            "type": "other",
+            "story_tags": [
+              "ACA-03-003",
+              "ACA-03-005",
+              "ACA-03-010",
+              "ACA-03-007",
+              "ACA-03-011",
+              "ACA-03-008",
+              "ACA-03-015",
+              "ACA-01-005",
+              "ACA-03-016",
+              "ACA-07-009",
+              "ACA-03-004",
               "ACA-03-033"
             ]
           },
@@ -7053,45 +7173,20 @@
           }
         ]
       },
-      "ACA-03-004": {
+      "ACA-03-002": {
         "artifacts": [
           {
-            "path": "evidence/ACA-03-004-receipt.py",
+            "path": "evidence/ACA-03-002-receipt.py",
             "type": "evidence",
             "story_tags": [
-              "ACA-03-004"
+              "ACA-03-002"
             ]
           },
           {
-            "path": "services/analysis/app/cosmos.py",
+            "path": "services/analysis/app/rules/devbox_autostop.py",
             "type": "code",
             "story_tags": [
-              "ACA-03-004"
-            ]
-          },
-          {
-            "path": "services/analysis/app/rules/defender_mismatch.py",
-            "type": "code",
-            "story_tags": [
-              "ACA-03-004"
-            ]
-          }
-        ]
-      },
-      "ACA-03-005": {
-        "artifacts": [
-          {
-            "path": "evidence/ACA-03-005-receipt.py",
-            "type": "evidence",
-            "story_tags": [
-              "ACA-03-005"
-            ]
-          },
-          {
-            "path": "services/analysis/app/rules/compute_scheduling.py",
-            "type": "code",
-            "story_tags": [
-              "ACA-03-005"
+              "ACA-03-002"
             ]
           }
         ]
@@ -7107,13 +7202,6 @@
           },
           {
             "path": "frontend/src/pages/Findings.tsx",
-            "type": "code",
-            "story_tags": [
-              "ACA-03-006"
-            ]
-          },
-          {
-            "path": "services/api/app/services/findings_gate.py",
             "type": "code",
             "story_tags": [
               "ACA-03-006"
@@ -7299,8 +7387,9 @@
             "path": "services/analysis/app/main.py",
             "type": "code",
             "story_tags": [
-              "ACA-03-002",
-              "ACA-03-021"
+              "ACA-03-021",
+              "ACA-03-004",
+              "ACA-03-005"
             ]
           }
         ]
@@ -10478,6 +10567,78 @@
       }
     },
     "commit_evidence_map": {
+      "ACA-03-004": [
+        {
+          "sha": "07ff958",
+          "snippet": "fix(ACA-03-004,ACA-03-005,ACA-03-007): correct Sprint 5 test import paths and mo",
+          "source": "commit"
+        },
+        {
+          "sha": "5fe4353",
+          "snippet": "feat(ACA-03-004): Rule 03 -- Defender mismatch",
+          "source": "commit"
+        }
+      ],
+      "ACA-03-005": [
+        {
+          "sha": "07ff958",
+          "snippet": "fix(ACA-03-004,ACA-03-005,ACA-03-007): correct Sprint 5 test import paths and mo",
+          "source": "commit"
+        },
+        {
+          "sha": "87288ff",
+          "snippet": "feat(ACA-03-005): Rule 04 -- Compute scheduling",
+          "source": "commit"
+        }
+      ],
+      "ACA-03-007": [
+        {
+          "sha": "07ff958",
+          "snippet": "fix(ACA-03-004,ACA-03-005,ACA-03-007): correct Sprint 5 test import paths and mo",
+          "source": "commit"
+        },
+        {
+          "sha": "8a22d0b",
+          "snippet": "feat(ACA-03-007): Rule 05 -- Anomaly detection",
+          "source": "commit"
+        }
+      ],
+      "ACA-03-002": [
+        {
+          "sha": "c7f9531",
+          "snippet": "chore(SPRINT-04): mark Sprint 4 stories done in PLAN.md (ACA-03-002, ACA-03-003,",
+          "source": "commit"
+        },
+        {
+          "sha": "6f650de",
+          "snippet": "feat(ACA-03-002): Rule 01 -- Dev Box autostop",
+          "source": "commit"
+        }
+      ],
+      "ACA-03-003": [
+        {
+          "sha": "c7f9531",
+          "snippet": "chore(SPRINT-04): mark Sprint 4 stories done in PLAN.md (ACA-03-002, ACA-03-003,",
+          "source": "commit"
+        },
+        {
+          "sha": "ae0a751",
+          "snippet": "feat(ACA-03-003): Rule 02 -- Log retention",
+          "source": "commit"
+        }
+      ],
+      "ACA-03-011": [
+        {
+          "sha": "c7f9531",
+          "snippet": "chore(SPRINT-04): mark Sprint 4 stories done in PLAN.md (ACA-03-002, ACA-03-003,",
+          "source": "commit"
+        },
+        {
+          "sha": "c79d37f",
+          "snippet": "feat(ACA-03-011): Rule 09 -- DNS sprawl",
+          "source": "commit"
+        }
+      ],
       "ACA-03-021": [
         {
           "sha": "5518938",
@@ -10572,13 +10733,6 @@
           "source": "commit"
         }
       ],
-      "ACA-03-011": [
-        {
-          "sha": "c79d37f",
-          "snippet": "feat(ACA-03-011): Rule 09 -- DNS sprawl",
-          "source": "commit"
-        }
-      ],
       "ACA-03-010": [
         {
           "sha": "a3ddfad",
@@ -10597,41 +10751,6 @@
         {
           "sha": "fd0430b",
           "snippet": "feat(ACA-03-008): Rule 06 -- Stale environments",
-          "source": "commit"
-        }
-      ],
-      "ACA-03-007": [
-        {
-          "sha": "8a22d0b",
-          "snippet": "feat(ACA-03-007): Rule 05 -- Anomaly detection",
-          "source": "commit"
-        }
-      ],
-      "ACA-03-005": [
-        {
-          "sha": "87288ff",
-          "snippet": "feat(ACA-03-005): Rule 04 -- Compute scheduling",
-          "source": "commit"
-        }
-      ],
-      "ACA-03-004": [
-        {
-          "sha": "5fe4353",
-          "snippet": "feat(ACA-03-004): Rule 03 -- Defender mismatch",
-          "source": "commit"
-        }
-      ],
-      "ACA-03-003": [
-        {
-          "sha": "ae0a751",
-          "snippet": "feat(ACA-03-003): Rule 02 -- Log retention",
-          "source": "commit"
-        }
-      ],
-      "ACA-03-002": [
-        {
-          "sha": "6f650de",
-          "snippet": "feat(ACA-03-002): Rule 01 -- Dev Box autostop",
           "source": "commit"
         }
       ],

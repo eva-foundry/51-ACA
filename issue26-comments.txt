@@ -1,0 +1,4 @@
+Sprint agent failed to start:
+```
+[FAIL] Could not parse sprint manifest: [FAIL] No SPRINT_MANIFEST block found in issue body.
+```

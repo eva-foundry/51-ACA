@@ -1,12 +1,18 @@
 {
   "story_id": "ACA-03-012",
-  "title": "Rule 10 -- Savings plan coverage",
-  "phase": "D|P|D|C|A",
-  "timestamp": "2026-02-28T17:56:40Z",
+  "title": "As the system I implement R-02 rule: returns finding when annual LA cost > $500 in non-prod environments",
+  "phase": "A",
+  "timestamp": "2026-03-01T15:57:32Z",
   "artifacts": [
-    "services/analysis/app/rules/savings_plan_coverage.py"
+    "services/analysis/app/rules/r02_log_retention.py",
+    "services/tests/test_rule_r02_log_retention.py"
   ],
   "test_result": "WARN",
   "lint_result": "WARN",
-  "commit_sha": "c79d37f3b70cf3170b26f5ab7c9a9398868dabf8"
+  "commit_sha": "ebb5eff2861d5995ded9790f66e75f10261b07c1",
+  "duration_ms": 5835,
+  "tokens_used": 0,
+  "test_count_before": 0,
+  "test_count_after": 0,
+  "files_changed": 2
 }

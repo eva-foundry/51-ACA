@@ -1,0 +1,26 @@
+# EVA-STORY: ACA-03-010
+stages:
+  - name: leak_test
+    steps:
+      - name: Check Tier 1 Findings for Leaks
+        run: |
+          REDTEAM_ENABLED=${REDTEAM_ENABLED:-false}
+          if [ "$REDTEAM_ENABLED" != "true" ]; then
+            echo "[INFO] Red team agent disabled. Skipping leak test."
+            exit 0
+          fi
+
+          # Fetch findings from the API
+          RESPONSE=$(curl -s -H "Authorization: Bearer $REDTEAM_TOKEN" "$API_URL/v1/findings")
+
+          # Check for forbidden fields
+          FORBIDDEN_FIELDS=("narrative" "deliverable_template_id" "evidence_refs")
+          for FIELD in "${FORBIDDEN_FIELDS[@]}"; do
+            if echo "$RESPONSE" | grep -q "$FIELD"; then
+              echo "[LEAK] Forbidden field '$FIELD' found in Tier 1 findings."
+              exit 1
+            fi
+          done
+
+          echo "[PASS] No forbidden fields found in Tier 1 findings."
+          exit 0

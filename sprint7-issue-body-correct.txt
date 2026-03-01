@@ -1,0 +1,119 @@
+<!-- SPRINT_MANIFEST
+{
+  "sprint_id": "SPRINT-07",
+  "sprint_title": "rules-and-redteam",
+  "target_branch": "sprint/07-rules-and-redteam",
+  "epic": "ACA-03",
+  "stories": [
+    {
+      "id": "ACA-03-010",
+      "title": "As the red-team agent I can assert that Tier 1 tokens never leak narrative or deliverable_template_id fields",
+      "wbs": "3.2.5",
+      "size": "S",
+      "model": "gpt-4o-mini",
+      "model_rationale": "Validation gate - straightforward mocking and field assertion logic",
+      "files_to_create": ["agents/red-team-agent.yaml", "services/tests/test_redteam_tier1_leak.py"],
+      "acceptance": [
+        "red-team-agent.yaml contains leak_test stage",
+        "Agent asserts absence of narrative, deliverable_template_id, evidence_refs",
+        "If any forbidden field found, exit code 1 with [LEAK] message",
+        "Gate skipped by default (runs only with REDTEAM_ENABLED=true)",
+        "Unit tests pass for leak_detected=true and leak_detected=false"
+      ],
+      "implementation_notes": "Use simple field list comparison, MSAL mock for Tier 1 token, mocked GET /v1/findings response"
+    },
+    {
+      "id": "ACA-03-012",
+      "title": "As the system I implement R-02 rule: returns finding when annual LA cost > $500 in non-prod environments",
+      "wbs": "3.3.2",
+      "size": "S",
+      "model": "gpt-4o-mini",
+      "model_rationale": "Simple rule pattern - filter LA costs, aggregate by env, compare threshold",
+      "files_to_create": ["services/analysis/app/rules/r02_log_retention.py", "services/tests/test_rule_r02_log_retention.py"],
+      "acceptance": [
+        "Rule module exists at services/analysis/app/rules/r02_log_retention.py",
+        "Sums daily LA costs by environment, excludes prod tag, checks annual total > $500",
+        "Returns Finding with category=logging-optimization if found, empty list if not",
+        "Unit test: hardcoded LA cost fixture > $500/year -> returns 1 finding",
+        "Negative test: annual < $500 -> returns 0 findings"
+      ],
+      "implementation_notes": "Copy pattern from r01_devbox_autostop.py, filter LA by service name, annualize costs, no DB calls"
+    },
+    {
+      "id": "ACA-03-013",
+      "title": "As the system I implement R-03 rule: returns finding when annual Defender cost > $2,000",
+      "wbs": "3.3.3",
+      "size": "S",
+      "model": "gpt-4o-mini",
+      "model_rationale": "Pattern rule - Defender cost aggregation, same filter/threshold approach as R-02",
+      "files_to_create": ["services/analysis/app/rules/r03_defender_mismatch.py", "services/tests/test_rule_r03_defender_mismatch.py"],
+      "acceptance": [
+        "Rule module exists at services/analysis/app/rules/r03_defender_mismatch.py",
+        "Aggregates Defender costs (Microsoft Defender for Cloud), annual total > $2,000",
+        "Returns Finding with category=security-cost-optimization if found",
+        "Unit test: fixture > $2K annual -> returns 1 finding",
+        "Negative test: annual < $2K -> returns 0 findings"
+      ],
+      "implementation_notes": "Same pattern as R-02, filter 'Microsoft Defender for Cloud' by service name, threshold $2,000/year"
+    },
+    {
+      "id": "ACA-03-014",
+      "title": "As the system I implement R-04 rule: returns finding when annual schedulable compute > $5,000",
+      "wbs": "3.3.4",
+      "size": "S",
+      "model": "gpt-4o-mini",
+      "model_rationale": "Compute aggregation - VM + App Service + Container costs, threshold $5K",
+      "files_to_create": ["services/analysis/app/rules/r04_compute_scheduling.py", "services/tests/test_rule_r04_compute_scheduling.py"],
+      "acceptance": [
+        "Rule module exists at services/analysis/app/rules/r04_compute_scheduling.py",
+        "Aggregates VM, App Service, Container Instances, Dedicated Hosts costs",
+        "Filters non-critical only (excludes prod or critical tags)",
+        "Returns Finding with category=compute-cost-optimization if annual > $5,000",
+        "Unit test: multi-service fixture (VMs + App Services) > $5K -> returns 1 finding"
+      ],
+      "implementation_notes": "Filter multiple services: [Virtual Machines, App Service, Container Instances], exclude prod tags, 5K threshold"
+    }
+  ]
+}
+-->
+
+## Sprint 07: Rules and Red-Team Validation Gate
+
+**Epic**: ACA-03 Analysis
+**Branch**: sprint/07-rules-and-redteam
+**Stories**: 4 (8 FP expected)
+**Expected Duration**: 25-30 seconds
+
+### Objectives
+
+Implement 3 additional analysis rules (R-02, R-03, R-04) with cost optimization focus:
+- R-02: Log Analytics cost > $500/year in non-prod
+- R-03: Microsoft Defender cost > $2,000/year
+- R-04: Compute scheduling (VM + App Service + Containers) > $5,000/year
+
+Plus red-team validation gate to assert Tier 1 findings never leak internal fields.
+
+### Acceptance Gate
+
+- All 4 story modules exist and pass import checks
+- Unit tests cover both finding and no-finding scenarios  
+- Red-team gate validates Tier 1 field masking
+- Total tests: 33/33 (29 baseline + 4 new)
+- Lint: ruff check exits 0
+
+### Progress Tracking
+
+| ID | Title | Status |
+|---|---|---|
+| ACA-03-010 | Red-team gate | TODO |
+| ACA-03-012 | R-02 Log Retention rule | TODO |
+| ACA-03-013 | R-03 Defender Mismatch rule | TODO |
+| ACA-03-014 | R-04 Compute Scheduling rule | TODO |
+
+### Success Criteria
+
+After merge to main:
+- PR applies cleanly
+- All tests pass (33/33)
+- No regressions
+- Coverage maintained
