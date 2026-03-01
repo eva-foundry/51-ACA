@@ -1,20 +1,20 @@
 ACA -- Azure Cost Advisor -- STATUS
 ====================================
 
-Version: 1.16.0
-Updated: 2026-03-01 (Sprint 4 COMPLETE: 3 stories, 8 FP)
+Version: 1.17.0
+Updated: 2026-03-01 (Sprint 4 COMPLETE: 3 stories, 8 FP, MERGED, test regression FIXED)
 Phase: Phase 1 -- Core Services Bootstrap
 Active Sprint: Sprint 5 (planning)
 Completed Sprints: Sprint 1, Sprint 2, Sprint 3, Sprint 99 (Day 4 test), Sprint 4 (analysis-foundation)
 Active Epic: Epic 3 (Analysis Engine)
 
 =============================================================================
-SESSION SUMMARY -- 2026-03-01 (SPRINT 4 COMPLETE: 3 STORIES SHIPPED)
+SESSION SUMMARY -- 2026-03-01 (SPRINT 4 COMPLETE, MERGED, REGRESSION FIXED)
 =============================================================================
 
-SPRINT 4 EXECUTION: FIRST MULTI-STORY PRODUCTION SPRINT
+SPRINT 4 FULL CYCLE: PLAN -> EXECUTE -> MERGE -> FIX -> READY
 
-Sprint Details:
+Sprint Execution (workflow run 22544036869):
   - Sprint ID: SPRINT-04 (analysis-foundation)
   - Stories: 3/3 completed (ACA-03-002, ACA-03-003, ACA-03-011)
   - Size: 8 FP total
@@ -53,18 +53,30 @@ Evidence Receipts:
   - 8/11 fields populated (tokens_used, test_count fields = 0)
   - Duration tracked: 6.1s, 6.5s, 5.4s per story
 
-Quality Metrics:
-  - Lint: WARN (import sorting issues - auto-fixable)
-  - Tests: WARN (1 collection error in test_packager_sas.py - pre-existing)
-  - PR Status: MERGEABLE, CLEAN
-  - **Post-merge: 23/24 tests passing (test_analysis_main_passes_cosmos_client FAILING)**
+Sprint 4 Merge (commit a5e4246):
+  - PR #19 merged to main (squash strategy)
+  - Branch deleted: sprint/04-analysis-foundation
+  - 9 files changed total (4 code + 3 evidence + 2 test/lint)
+  - Co-authored: ACA Sprint Agent
 
-Post-Merge Issue:
+Post-Merge Test Regression (commit f567a56 -> 5518938):
   - Test: test_analysis_main_passes_cosmos_client
-  - Cause: Sprint 4 refactored main.py, removed FindingsAssembler + cosmos_client kwarg
-  - Impact: C-04 regression guard bypassed
-  - Fix: Update test to validate new upsert_item() pattern OR restore cosmos_client kwarg
-  - Priority: HIGH (must fix before Sprint 5)
+  - Status: FAILING after merge (23/24 tests)
+  - Root Cause: Sprint 4 architectural change
+    * Pre-Sprint-4: FindingsAssembler pattern with cosmos_client kwarg
+    * Post-Sprint-4: Direct upsert_item() calls from app.db.cosmos
+  - Fix Applied (commit 5518938):
+    * Updated test to validate Sprint 4 upsert_item pattern
+    * Added EVA-STORY: ACA-03-021 tag to main.py for traceability
+    * Verified: 24/24 tests passing in 2.04s
+  - Status: ✅ RESOLVED (all tests green)
+
+Quality Metrics (Post-Fix):
+  - Tests: ✅ 24/24 passing in 1.63-2.04s
+  - Lint: WARN (import sorting - auto-fixable)
+  - MTI: 70 (gate: 30, PASS)
+  - Consistency: 0 (perfect)
+  - Blocking Issues: NONE
 
 Comparison to Day 4 Test:
   - Day 4 (Sprint 99): 1 story, 47s total, 13 files (stubs)
@@ -72,10 +84,11 @@ Comparison to Day 4 Test:
   - 3x stories in ~same time = true parallelization benefit
 
 Next Steps:
-  1. Merge PR #19 (code review + acceptance validation)
-  2. Plan Sprint 5 (continue Epic 3 analysis foundation)
-  3. Complete Day 5-10 audit plan
-  4. Fix azure.storage test dependency (Day 8 target)
+  1. ✅ Merge PR #19 - COMPLETE
+  2. ✅ Fix test regression - COMPLETE
+  3. Plan Sprint 5 (continue Epic 3 analysis foundation)
+  4. Complete Day 6-10 audit plan
+  5. Fix azure.storage test dependency (Day 8 target)
 
 Data Model Status:
   - Stories: 257 total, 74 done (28.8%)
@@ -88,8 +101,17 @@ Data Model Status:
   - Day 2: ✅ ADO integration
   - Day 3: ⏸️ Skills testing (optional)
   - Day 4: ✅ GitHub Actions test (first E2E)
-  - Day 5: ✅ Sprint advance + Sprint 4 execution (COMPLETE)
+  - Day 5: ✅ Sprint advance + Sprint 4 execution + merge + regression fix (ALL COMPLETE)
   - Days 6-10: ⏳ Pending
+
+Commits This Session (7 total):
+  1. 1496a94 - chore(ACA-03-001): mark story done in veritas-plan
+  2. 042cd10 - feat(SPRINT-04): create Sprint 4 manifest (3 stories, 8 FP)
+  3. e2b091c - chore: update STATUS.md for Sprint 4 planning complete
+  4. 6d99ab1 - chore: document Sprint 4 completion (3 stories, 8 FP, 18s)
+  5. a5e4246 - fix(SPRINT-04): analysis-foundation (#19) [MERGE]
+  6. f567a56 - chore: document Sprint 4 post-merge test regression
+  7. 5518938 - fix(ACA-03-021): update test to validate Sprint 4 upsert_item pattern (24/24 passing) [FIX]
 
 =============================================================================
 SESSION SUMMARY -- 2026-03-01 (SPRINT 4 PLANNED: ANALYSIS FOUNDATION)
