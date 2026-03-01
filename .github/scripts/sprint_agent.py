@@ -932,18 +932,14 @@ Working through {len(stories)} stories in sequence. Progress comments will follo
             story_result["files"] = written_files
 
             # === PHASE 2: PER-STORY COMPLETE -- Update data model ===
-            story_start = story_result.get("start_time", state["started"])
-            try:
-                story_start_dt = datetime.fromisoformat(story_start.replace("Z", "+00:00"))
-                story_duration_minutes = (datetime.now(timezone.utc) - story_start_dt).total_seconds() / 60
-            except Exception:
-                story_duration_minutes = 0.0
+            # Convert duration_ms to minutes (consistent unit)
+            actual_time_minutes = round(duration_ms / 1000 / 60, 1)
             
             update_story_status(
                 sid,
                 "done",
                 commit_sha=sha,
-                actual_time_minutes=round(story_duration_minutes, 1),
+                actual_time_minutes=actual_time_minutes,
                 files_created=",".join(written_files[:10]),  # limit length
                 test_result=test_status,
                 lint_result=lint_status,
