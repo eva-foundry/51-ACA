@@ -1,6 +1,6 @@
 {
   "schema": "eva.veritas-plan.v1",
-  "generated_at": "2026-02-28T20:17:20.699266+00:00",
+  "generated_at": "2026-02-28T15:17:20.699266-05:00",
   "generated_from": [
     "PLAN.md",
     "README.md",
@@ -376,7 +376,7 @@
           "wbs": "3.1.1",
           "title": "As the system I load all 12 rules from ALL_RULES and run each in sequence",
           "feature_id": "ACA-03",
-          "done": false,
+          "done": true,
           "source": "plan-md",
           "tasks": []
         },
