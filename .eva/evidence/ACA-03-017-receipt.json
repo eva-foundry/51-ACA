@@ -1,0 +1,18 @@
+{
+  "story_id": "ACA-03-017",
+  "title": "As the system I implement R-07 rule: returns finding when annual Search cost > $2,000",
+  "phase": "A",
+  "timestamp": "2026-03-01T16:16:08Z",
+  "artifacts": [
+    "services/analysis/app/rules/r07_search_sku_oversize.py",
+    "services/tests/test_rule_r07_search_sku_oversize.py"
+  ],
+  "test_result": "WARN",
+  "lint_result": "WARN",
+  "commit_sha": "e134a4f28bf0b864dae22e553ba3f720f3810e75",
+  "duration_ms": 8419,
+  "tokens_used": 0,
+  "test_count_before": 0,
+  "test_count_after": 0,
+  "files_changed": 2
+}

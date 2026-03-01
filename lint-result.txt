@@ -294,6 +294,85 @@ I001 [*] Import block is un-sorted or un-formatted
 help: Organize imports
 
 I001 [*] Import block is un-sorted or un-formatted
+ --> services/analysis/app/rules/r07_search_sku_oversize.py:2:1
+  |
+1 |   # EVA-STORY: ACA-03-017
+2 | / from datetime import datetime, timedelta
+3 | | from app.db.cosmos import query_items
+4 | | from app.findings import persist_finding
+  | |________________________________________^
+5 |
+6 |   def analyze_search_costs(scan_id: str, subscription_id: str) -> None:
+  |
+help: Organize imports
+
+F401 [*] `datetime.timedelta` imported but unused
+ --> services/analysis/app/rules/r07_search_sku_oversize.py:2:32
+  |
+1 | # EVA-STORY: ACA-03-017
+2 | from datetime import datetime, timedelta
+  |                                ^^^^^^^^^
+3 | from app.db.cosmos import query_items
+4 | from app.findings import persist_finding
+  |
+help: Remove unused import: `datetime.timedelta`
+
+T201 `print` found
+  --> services/analysis/app/rules/r07_search_sku_oversize.py:27:9
+   |
+26 |     if not cost_data:
+27 |         print("[INFO] No cost data found for scan_id:", scan_id)
+   |         ^^^^^
+28 |         return
+   |
+help: Remove `print`
+
+F541 [*] f-string without any placeholders
+  --> services/analysis/app/rules/r07_search_sku_oversize.py:52:17
+   |
+50 |             "title": "High Azure AI Search Costs",
+51 |             "description": (
+52 |                 f"The annualized cost for Azure AI Search services exceeds $2,000. "
+   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+53 |                 f"Consider optimizing your usage to reduce costs."
+54 |             ),
+   |
+help: Remove extraneous `f` prefix
+
+F541 [*] f-string without any placeholders
+  --> services/analysis/app/rules/r07_search_sku_oversize.py:53:17
+   |
+51 |             "description": (
+52 |                 f"The annualized cost for Azure AI Search services exceeds $2,000. "
+53 |                 f"Consider optimizing your usage to reduce costs."
+   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+54 |             ),
+55 |             "estimated_saving_low": 500,
+   |
+help: Remove extraneous `f` prefix
+
+T201 `print` found
+  --> services/analysis/app/rules/r07_search_sku_oversize.py:63:9
+   |
+62 |         persist_finding(None, finding)
+63 |         print("[INFO] Finding persisted for high Azure AI Search costs.")
+   |         ^^^^^
+64 |     else:
+65 |         print("[INFO] No findings generated for Azure AI Search costs.")
+   |
+help: Remove `print`
+
+T201 `print` found
+  --> services/analysis/app/rules/r07_search_sku_oversize.py:65:9
+   |
+63 |         print("[INFO] Finding persisted for high Azure AI Search costs.")
+64 |     else:
+65 |         print("[INFO] No findings generated for Azure AI Search costs.")
+   |         ^^^^^
+   |
+help: Remove `print`
+
+I001 [*] Import block is un-sorted or un-formatted
  --> services/analysis/app/rules/rule_01_dev_box_autostop.py:2:1
   |
 1 | # EVA-STORY: ACA-03-011
@@ -2804,6 +2883,54 @@ F401 [*] `app.db.cosmos.query_items` imported but unused
 5 | from services.analysis.app.rules.r06_stale_environments import evaluate_r06_stale_environments
   |
 help: Remove unused import: `app.db.cosmos.query_items`
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> services/tests/test_rule_r07_search_sku_oversize.py:2:1
+  |
+1 |   # EVA-STORY: ACA-03-017
+2 | / import pytest
+3 | | from unittest.mock import patch, MagicMock
+4 | | from datetime import datetime
+5 | | from app.analysis.app.rules.r07_search_sku_oversize import analyze_search_costs
+  | |_______________________________________________________________________________^
+6 |
+7 |   def test_analyze_search_costs_exceeds_threshold():
+  |
+help: Organize imports
+
+F401 [*] `pytest` imported but unused
+ --> services/tests/test_rule_r07_search_sku_oversize.py:2:8
+  |
+1 | # EVA-STORY: ACA-03-017
+2 | import pytest
+  |        ^^^^^^
+3 | from unittest.mock import patch, MagicMock
+4 | from datetime import datetime
+  |
+help: Remove unused import: `pytest`
+
+F401 [*] `unittest.mock.MagicMock` imported but unused
+ --> services/tests/test_rule_r07_search_sku_oversize.py:3:34
+  |
+1 | # EVA-STORY: ACA-03-017
+2 | import pytest
+3 | from unittest.mock import patch, MagicMock
+  |                                  ^^^^^^^^^
+4 | from datetime import datetime
+5 | from app.analysis.app.rules.r07_search_sku_oversize import analyze_search_costs
+  |
+help: Remove unused import: `unittest.mock.MagicMock`
+
+F401 [*] `datetime.datetime` imported but unused
+ --> services/tests/test_rule_r07_search_sku_oversize.py:4:22
+  |
+2 | import pytest
+3 | from unittest.mock import patch, MagicMock
+4 | from datetime import datetime
+  |                      ^^^^^^^^
+5 | from app.analysis.app.rules.r07_search_sku_oversize import analyze_search_costs
+  |
+help: Remove unused import: `datetime.datetime`
 
 I001 [*] Import block is un-sorted or un-formatted
  --> services/tests/test_tier1_gating.py:2:1
