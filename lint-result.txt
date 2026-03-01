@@ -11,39 +11,40 @@ I001 [*] Import block is un-sorted or un-formatted
 help: Organize imports
 
 I001 [*] Import block is un-sorted or un-formatted
- --> services/analysis/app/main.py:2:1
+ --> services/analysis/app/main.py:4:1
   |
-1 |   # EVA-STORY: ACA-03-005
-2 | / from app.db.cosmos import upsert_item
-3 | | from app.settings import get_settings
-4 | | from app.services.findings_gate import gate_findings
-5 | | import logging
+2 |   # EVA-STORY: ACA-03-004
+3 |   # EVA-STORY: ACA-03-005
+4 | / from app.db.cosmos import upsert_item
+5 | | from app.settings import get_settings
+6 | | from app.services.findings_gate import gate_findings
+7 | | import logging
   | |______________^
-6 |
-7 |   logger = logging.getLogger("analysis")
+8 |
+9 |   logger = logging.getLogger("analysis")
   |
 help: Organize imports
 
 F401 [*] `app.settings.get_settings` imported but unused
- --> services/analysis/app/main.py:3:26
+ --> services/analysis/app/main.py:5:26
   |
-1 | # EVA-STORY: ACA-03-005
-2 | from app.db.cosmos import upsert_item
-3 | from app.settings import get_settings
+3 | # EVA-STORY: ACA-03-005
+4 | from app.db.cosmos import upsert_item
+5 | from app.settings import get_settings
   |                          ^^^^^^^^^^^^
-4 | from app.services.findings_gate import gate_findings
-5 | import logging
+6 | from app.services.findings_gate import gate_findings
+7 | import logging
   |
 help: Remove unused import: `app.settings.get_settings`
 
 C401 Unnecessary generator (rewrite as a set comprehension)
-  --> services/analysis/app/main.py:29:32
+  --> services/analysis/app/main.py:31:32
    |
-27 |             "totalSavingLow": sum(f["estimated_saving_low"] for f in self.findings),
-28 |             "totalSavingHigh": sum(f["estimated_saving_high"] for f in self.findings),
-29 |             "categories": list(set(f["category"] for f in self.findings))
+29 |             "totalSavingLow": sum(f["estimated_saving_low"] for f in self.findings),
+30 |             "totalSavingHigh": sum(f["estimated_saving_high"] for f in self.findings),
+31 |             "categories": list(set(f["category"] for f in self.findings))
    |                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-30 |         }
+32 |         }
    |
 help: Rewrite as a set comprehension
 
@@ -2155,12 +2156,10 @@ I001 [*] Import block is un-sorted or un-formatted
   |
 1 |   # EVA-STORY: ACA-03-004
 2 | / import pytest
-3 | | from unittest.mock import MagicMock
-4 | | from app.db.cosmos import upsert_item
-5 | | from app.main import AnalysisRun
-  | |________________________________^
-6 |
-7 |   def test_analysis_status_lifecycle():
+3 | | from unittest.mock import patch, MagicMock
+  | |__________________________________________^
+4 |
+5 |   @patch('services.analysis.app.main.upsert_item')
   |
 help: Organize imports
 
@@ -2170,60 +2169,28 @@ F401 [*] `pytest` imported but unused
 1 | # EVA-STORY: ACA-03-004
 2 | import pytest
   |        ^^^^^^
-3 | from unittest.mock import MagicMock
-4 | from app.db.cosmos import upsert_item
+3 | from unittest.mock import patch, MagicMock
   |
 help: Remove unused import: `pytest`
 
-F401 [*] `app.db.cosmos.upsert_item` imported but unused
- --> services/tests/test_analysis_status.py:4:27
+F401 [*] `unittest.mock.MagicMock` imported but unused
+ --> services/tests/test_analysis_status.py:3:34
   |
+1 | # EVA-STORY: ACA-03-004
 2 | import pytest
-3 | from unittest.mock import MagicMock
-4 | from app.db.cosmos import upsert_item
-  |                           ^^^^^^^^^^^
-5 | from app.main import AnalysisRun
+3 | from unittest.mock import patch, MagicMock
+  |                                  ^^^^^^^^^
+4 |
+5 | @patch('services.analysis.app.main.upsert_item')
   |
-help: Remove unused import: `app.db.cosmos.upsert_item`
-
-F811 Redefinition of unused `upsert_item` from line 4
-  --> services/tests/test_analysis_status.py:9:5
-   |
- 7 | def test_analysis_status_lifecycle():
- 8 |     mock_upsert_item = MagicMock()
- 9 |     upsert_item = mock_upsert_item
-   |     ^^^^^^^^^^^ `upsert_item` redefined here
-10 |
-11 |     run_id = "test-run-001"
-   |
-  ::: services/tests/test_analysis_status.py:4:27
-   |
- 2 | import pytest
- 3 | from unittest.mock import MagicMock
- 4 | from app.db.cosmos import upsert_item
-   |                           ----------- previous definition of `upsert_item` here
- 5 | from app.main import AnalysisRun
-   |
-help: Remove definition: `upsert_item`
-
-F841 Local variable `upsert_item` is assigned to but never used
-  --> services/tests/test_analysis_status.py:9:5
-   |
- 7 | def test_analysis_status_lifecycle():
- 8 |     mock_upsert_item = MagicMock()
- 9 |     upsert_item = mock_upsert_item
-   |     ^^^^^^^^^^^
-10 |
-11 |     run_id = "test-run-001"
-   |
-help: Remove assignment to unused variable `upsert_item`
+help: Remove unused import: `unittest.mock.MagicMock`
 
 T201 `print` found
-  --> services/tests/test_analysis_status.py:51:5
+  --> services/tests/test_analysis_status.py:49:5
    |
-49 |     }, partition_key=subscription_id)
-50 |
-51 |     print("[PASS] test_analysis_status_lifecycle")
+47 |     }, partition_key=subscription_id)
+48 |
+49 |     print("[PASS] test_analysis_status_lifecycle")
    |     ^^^^^
    |
 help: Remove `print`
@@ -2400,11 +2367,10 @@ I001 [*] Import block is un-sorted or un-formatted
   |
 1 |   # EVA-STORY: ACA-03-005
 2 | / import pytest
-3 | | from unittest.mock import MagicMock
-4 | | from services.analysis.app.main import AnalysisRun
-  | |__________________________________________________^
-5 |
-6 |   def test_findings_summary_aggregation():
+3 | | from unittest.mock import patch, MagicMock
+  | |__________________________________________^
+4 |
+5 |   @patch('services.analysis.app.main.upsert_item')
   |
 help: Organize imports
 
@@ -2414,22 +2380,21 @@ F401 [*] `pytest` imported but unused
 1 | # EVA-STORY: ACA-03-005
 2 | import pytest
   |        ^^^^^^
-3 | from unittest.mock import MagicMock
-4 | from services.analysis.app.main import AnalysisRun
+3 | from unittest.mock import patch, MagicMock
   |
 help: Remove unused import: `pytest`
 
-C401 Unnecessary generator (rewrite as a set comprehension)
-  --> services/tests/test_findings_summary.py:24:32
-   |
-22 |             "totalSavingLow": sum(f["estimated_saving_low"] for f in self.findings),
-23 |             "totalSavingHigh": sum(f["estimated_saving_high"] for f in self.findings),
-24 |             "categories": list(set(f["category"] for f in self.findings))
-   |                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-25 |         }
-26 |     }, partition_key=self.subscription_id)
-   |
-help: Rewrite as a set comprehension
+F401 [*] `unittest.mock.MagicMock` imported but unused
+ --> services/tests/test_findings_summary.py:3:34
+  |
+1 | # EVA-STORY: ACA-03-005
+2 | import pytest
+3 | from unittest.mock import patch, MagicMock
+  |                                  ^^^^^^^^^
+4 |
+5 | @patch('services.analysis.app.main.upsert_item')
+  |
+help: Remove unused import: `unittest.mock.MagicMock`
 
 I001 [*] Import block is un-sorted or un-formatted
   --> services/tests/test_jwt_dep.py:8:1
@@ -2451,8 +2416,8 @@ I001 [*] Import block is un-sorted or un-formatted
   |
 1 |   # EVA-STORY: ACA-03-007
 2 | / import pytest
-3 | | from app.services.findings_gate import gate_findings
-  | |____________________________________________________^
+3 | | from services.api.app.services.findings_gate import gate_findings
+  | |_________________________________________________________________^
 4 |
 5 |   def test_tier1_strips_sensitive_fields():
   |
@@ -2464,7 +2429,7 @@ F401 [*] `pytest` imported but unused
 1 | # EVA-STORY: ACA-03-007
 2 | import pytest
   |        ^^^^^^
-3 | from app.services.findings_gate import gate_findings
+3 | from services.api.app.services.findings_gate import gate_findings
   |
 help: Remove unused import: `pytest`
 
