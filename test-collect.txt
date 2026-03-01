@@ -153,4 +153,4 @@ STRIPE_WEBHOOK_SECRET
     For further information visit https://errors.pydantic.dev/2.12/v/missing
 ERROR services/tests/test_rule_r05_anomaly_detection.py
 !!!!!!!!!!!!!!!!!!! Interrupted: 3 errors during collection !!!!!!!!!!!!!!!!!!!!
-==================== 43 tests collected, 3 errors in 0.98s =====================
+==================== 43 tests collected, 3 errors in 0.72s =====================

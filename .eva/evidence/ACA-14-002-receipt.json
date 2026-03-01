@@ -1,0 +1,18 @@
+{
+  "story_id": "ACA-14-002",
+  "title": "As the sprint agent I want a state lock mechanism that prevents duplicate sprint dispatch",
+  "phase": "A",
+  "timestamp": "2026-03-01T19:39:02Z",
+  "artifacts": [
+    ".eva/locks/.gitkeep (ensure directory exists in git)",
+    ".github/scripts/state_lock.py (acquire_lock, release_lock functions, ~80 lines)"
+  ],
+  "test_result": "WARN",
+  "lint_result": "WARN",
+  "commit_sha": "24ed2bf7e31acca117affb008328061cb3d4d875",
+  "duration_ms": 5565,
+  "tokens_used": 0,
+  "test_count_before": 0,
+  "test_count_after": 0,
+  "files_changed": 2
+}
