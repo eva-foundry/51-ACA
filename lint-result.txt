@@ -573,39 +573,181 @@ UP006 [*] Use `dict` instead of `Dict` for type annotation
   |
 help: Replace with `dict`
 
+UP035 `typing.List` is deprecated, use `list` instead
+ --> services/analysis/app/rules/r10_savings_plan_coverage.py:2:1
+  |
+1 | # EVA-STORY: ACA-03-020
+2 | from typing import Optional, List, Dict
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+3 |
+4 | def analyze_savings_plan_coverage(compute_cost_data: Optional[List[Dict]] = None, has_plan: bool = False) -> list[dict]:
+  |
+
+UP035 `typing.Dict` is deprecated, use `dict` instead
+ --> services/analysis/app/rules/r10_savings_plan_coverage.py:2:1
+  |
+1 | # EVA-STORY: ACA-03-020
+2 | from typing import Optional, List, Dict
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+3 |
+4 | def analyze_savings_plan_coverage(compute_cost_data: Optional[List[Dict]] = None, has_plan: bool = False) -> list[dict]:
+  |
+
 I001 [*] Import block is un-sorted or un-formatted
  --> services/analysis/app/rules/r10_savings_plan_coverage.py:2:1
   |
-1 |   # EVA-STORY: ACA-03-020
-2 | / from app.db.cosmos import query_items
-3 | | from app.services.findings_gate import gate_findings
-  | |____________________________________________________^
-4 |
-5 |   def analyze_savings_plan_coverage(subscription_id: str, tier: int) -> list[dict]:
+1 | # EVA-STORY: ACA-03-020
+2 | from typing import Optional, List, Dict
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+3 |
+4 | def analyze_savings_plan_coverage(compute_cost_data: Optional[List[Dict]] = None, has_plan: bool = False) -> list[dict]:
   |
 help: Organize imports
+
+UP045 [*] Use `X | None` for type annotations
+ --> services/analysis/app/rules/r10_savings_plan_coverage.py:4:54
+  |
+2 | from typing import Optional, List, Dict
+3 |
+4 | def analyze_savings_plan_coverage(compute_cost_data: Optional[List[Dict]] = None, has_plan: bool = False) -> list[dict]:
+  |                                                      ^^^^^^^^^^^^^^^^^^^^
+5 |     """
+6 |     Analyze savings plan coverage for compute resources.
+  |
+help: Convert to `X | None`
+
+UP006 [*] Use `list` instead of `List` for type annotation
+ --> services/analysis/app/rules/r10_savings_plan_coverage.py:4:63
+  |
+2 | from typing import Optional, List, Dict
+3 |
+4 | def analyze_savings_plan_coverage(compute_cost_data: Optional[List[Dict]] = None, has_plan: bool = False) -> list[dict]:
+  |                                                               ^^^^
+5 |     """
+6 |     Analyze savings plan coverage for compute resources.
+  |
+help: Replace with `list`
+
+UP006 [*] Use `dict` instead of `Dict` for type annotation
+ --> services/analysis/app/rules/r10_savings_plan_coverage.py:4:68
+  |
+2 | from typing import Optional, List, Dict
+3 |
+4 | def analyze_savings_plan_coverage(compute_cost_data: Optional[List[Dict]] = None, has_plan: bool = False) -> list[dict]:
+  |                                                                    ^^^^
+5 |     """
+6 |     Analyze savings plan coverage for compute resources.
+  |
+help: Replace with `dict`
+
+UP035 `typing.List` is deprecated, use `list` instead
+ --> services/analysis/app/rules/r11_apim_token_budget.py:2:1
+  |
+1 | # EVA-STORY: ACA-03-021
+2 | from typing import Optional, List, Dict
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+3 |
+4 | def r11_apim_token_budget(has_apim: bool = False, has_openai: bool = False) -> list[dict]:
+  |
+
+UP035 `typing.Dict` is deprecated, use `dict` instead
+ --> services/analysis/app/rules/r11_apim_token_budget.py:2:1
+  |
+1 | # EVA-STORY: ACA-03-021
+2 | from typing import Optional, List, Dict
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+3 |
+4 | def r11_apim_token_budget(has_apim: bool = False, has_openai: bool = False) -> list[dict]:
+  |
 
 I001 [*] Import block is un-sorted or un-formatted
  --> services/analysis/app/rules/r11_apim_token_budget.py:2:1
   |
 1 | # EVA-STORY: ACA-03-021
-2 | from app.db.cosmos import query_items
-  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2 | from typing import Optional, List, Dict
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 3 |
-4 | def r11_apim_token_budget(subscription_id: str) -> list[dict]:
+4 | def r11_apim_token_budget(has_apim: bool = False, has_openai: bool = False) -> list[dict]:
   |
 help: Organize imports
+
+F401 [*] `typing.Optional` imported but unused
+ --> services/analysis/app/rules/r11_apim_token_budget.py:2:20
+  |
+1 | # EVA-STORY: ACA-03-021
+2 | from typing import Optional, List, Dict
+  |                    ^^^^^^^^
+3 |
+4 | def r11_apim_token_budget(has_apim: bool = False, has_openai: bool = False) -> list[dict]:
+  |
+help: Remove unused import
+
+F401 [*] `typing.List` imported but unused
+ --> services/analysis/app/rules/r11_apim_token_budget.py:2:30
+  |
+1 | # EVA-STORY: ACA-03-021
+2 | from typing import Optional, List, Dict
+  |                              ^^^^
+3 |
+4 | def r11_apim_token_budget(has_apim: bool = False, has_openai: bool = False) -> list[dict]:
+  |
+help: Remove unused import
+
+F401 [*] `typing.Dict` imported but unused
+ --> services/analysis/app/rules/r11_apim_token_budget.py:2:36
+  |
+1 | # EVA-STORY: ACA-03-021
+2 | from typing import Optional, List, Dict
+  |                                    ^^^^
+3 |
+4 | def r11_apim_token_budget(has_apim: bool = False, has_openai: bool = False) -> list[dict]:
+  |
+help: Remove unused import
+
+UP035 `typing.Dict` is deprecated, use `dict` instead
+ --> services/analysis/app/rules/r12_chargeback_gap.py:2:1
+  |
+1 | # EVA-STORY: ACA-03-022
+2 | from typing import Optional, Dict
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+3 |
+4 | def identify_chargeback_gap(resource_cost: float = 0, allocation_tags: Optional[Dict] = None) -> list[dict]:
+  |
 
 I001 [*] Import block is un-sorted or un-formatted
  --> services/analysis/app/rules/r12_chargeback_gap.py:2:1
   |
 1 | # EVA-STORY: ACA-03-022
-2 | from app.db.cosmos import query_items
-  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2 | from typing import Optional, Dict
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 3 |
-4 | def identify_chargeback_gap(subscription_id: str, threshold: float = 5000.0) -> list[dict]:
+4 | def identify_chargeback_gap(resource_cost: float = 0, allocation_tags: Optional[Dict] = None) -> list[dict]:
   |
 help: Organize imports
+
+UP045 [*] Use `X | None` for type annotations
+ --> services/analysis/app/rules/r12_chargeback_gap.py:4:72
+  |
+2 | from typing import Optional, Dict
+3 |
+4 | def identify_chargeback_gap(resource_cost: float = 0, allocation_tags: Optional[Dict] = None) -> list[dict]:
+  |                                                                        ^^^^^^^^^^^^^^
+5 |     """
+6 |     Identify cost allocation gaps for chargeback.
+  |
+help: Convert to `X | None`
+
+UP006 [*] Use `dict` instead of `Dict` for type annotation
+ --> services/analysis/app/rules/r12_chargeback_gap.py:4:81
+  |
+2 | from typing import Optional, Dict
+3 |
+4 | def identify_chargeback_gap(resource_cost: float = 0, allocation_tags: Optional[Dict] = None) -> list[dict]:
+  |                                                                                 ^^^^
+5 |     """
+6 |     Identify cost allocation gaps for chargeback.
+  |
+help: Replace with `dict`
 
 I001 [*] Import block is un-sorted or un-formatted
  --> services/analysis/app/rules/rule_01_dev_box_autostop.py:2:1
@@ -3229,11 +3371,10 @@ I001 [*] Import block is un-sorted or un-formatted
   |
 1 |   # EVA-STORY: ACA-03-020
 2 | / import pytest
-3 | | from unittest.mock import MagicMock
-4 | | from app.analysis.app.rules.r10_savings_plan_coverage import analyze_savings_plan_coverage
-  | |__________________________________________________________________________________________^
-5 |
-6 |   def test_analyze_savings_plan_coverage():
+3 | | from services.analysis.app.rules.r10_savings_plan_coverage import analyze_savings_plan_coverage
+  | |_______________________________________________________________________________________________^
+4 |
+5 |   def test_analyze_savings_plan_coverage():
   |
 help: Organize imports
 
@@ -3243,56 +3384,19 @@ F401 [*] `pytest` imported but unused
 1 | # EVA-STORY: ACA-03-020
 2 | import pytest
   |        ^^^^^^
-3 | from unittest.mock import MagicMock
-4 | from app.analysis.app.rules.r10_savings_plan_coverage import analyze_savings_plan_coverage
+3 | from services.analysis.app.rules.r10_savings_plan_coverage import analyze_savings_plan_coverage
   |
 help: Remove unused import: `pytest`
-
-F811 Redefinition of unused `query_items` from line 33
-  --> services/tests/test_rule_r10_savings_plan_coverage.py:33:31
-   |
-32 |     # Patch the query_items function
-33 |     from app.db.cosmos import query_items
-   |                               ----------- previous definition of `query_items` here
-34 |     query_items = mock_query_items
-   |     ^^^^^^^^^^^ `query_items` redefined here
-35 |
-36 |     findings = analyze_savings_plan_coverage(subscription_id, tier)
-   |
-help: Remove definition: `query_items`
-
-F841 Local variable `query_items` is assigned to but never used
-  --> services/tests/test_rule_r10_savings_plan_coverage.py:34:5
-   |
-32 |     # Patch the query_items function
-33 |     from app.db.cosmos import query_items
-34 |     query_items = mock_query_items
-   |     ^^^^^^^^^^^
-35 |
-36 |     findings = analyze_savings_plan_coverage(subscription_id, tier)
-   |
-help: Remove assignment to unused variable `query_items`
-
-T201 `print` found
-  --> services/tests/test_rule_r10_savings_plan_coverage.py:49:5
-   |
-47 |     assert "heuristic_source" not in findings[0]  # Tier 2 gating removes heuristic_source
-48 |
-49 |     print("[PASS] test_analyze_savings_plan_coverage")
-   |     ^^^^^
-   |
-help: Remove `print`
 
 I001 [*] Import block is un-sorted or un-formatted
  --> services/tests/test_rule_r11_apim_token_budget.py:2:1
   |
 1 |   # EVA-STORY: ACA-03-021
 2 | / import pytest
-3 | | from unittest.mock import MagicMock
-4 | | from services.analysis.app.rules.r11_apim_token_budget import r11_apim_token_budget
+3 | | from services.analysis.app.rules.r11_apim_token_budget import r11_apim_token_budget
   | |___________________________________________________________________________________^
-5 |
-6 |   def test_r11_apim_token_budget():
+4 |
+5 |   def test_r11_apim_token_budget():
   |
 help: Organize imports
 
@@ -3302,47 +3406,19 @@ F401 [*] `pytest` imported but unused
 1 | # EVA-STORY: ACA-03-021
 2 | import pytest
   |        ^^^^^^
-3 | from unittest.mock import MagicMock
-4 | from services.analysis.app.rules.r11_apim_token_budget import r11_apim_token_budget
+3 | from services.analysis.app.rules.r11_apim_token_budget import r11_apim_token_budget
   |
 help: Remove unused import: `pytest`
-
-F811 Redefinition of unused `query_items` from line 33
-  --> services/tests/test_rule_r11_apim_token_budget.py:33:44
-   |
-32 |     # Patch the query_items function
-33 |     from services.api.app.db.cosmos import query_items
-   |                                            ----------- previous definition of `query_items` here
-34 |     query_items = mock_query_items
-   |     ^^^^^^^^^^^ `query_items` redefined here
-35 |
-36 |     findings = r11_apim_token_budget(subscription_id)
-   |
-help: Remove definition: `query_items`
-
-F841 Local variable `query_items` is assigned to but never used
-  --> services/tests/test_rule_r11_apim_token_budget.py:34:5
-   |
-32 |     # Patch the query_items function
-33 |     from services.api.app.db.cosmos import query_items
-34 |     query_items = mock_query_items
-   |     ^^^^^^^^^^^
-35 |
-36 |     findings = r11_apim_token_budget(subscription_id)
-   |
-help: Remove assignment to unused variable `query_items`
 
 I001 [*] Import block is un-sorted or un-formatted
  --> services/tests/test_rule_r12_chargeback_gap.py:2:1
   |
 1 |   # EVA-STORY: ACA-03-022
 2 | / import pytest
-3 | | from unittest.mock import MagicMock
-4 | | from app.db.cosmos import query_items
-5 | | from services.analysis.app.rules.r12_chargeback_gap import identify_chargeback_gap
+3 | | from services.analysis.app.rules.r12_chargeback_gap import identify_chargeback_gap
   | |__________________________________________________________________________________^
-6 |
-7 |   def test_identify_chargeback_gap():
+4 |
+5 |   def test_identify_chargeback_gap():
   |
 help: Organize imports
 
@@ -3352,8 +3428,7 @@ F401 [*] `pytest` imported but unused
 1 | # EVA-STORY: ACA-03-022
 2 | import pytest
   |        ^^^^^^
-3 | from unittest.mock import MagicMock
-4 | from app.db.cosmos import query_items
+3 | from services.analysis.app.rules.r12_chargeback_gap import identify_chargeback_gap
   |
 help: Remove unused import: `pytest`
 
