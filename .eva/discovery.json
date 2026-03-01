@@ -1,7 +1,7 @@
 {
   "meta": {
     "schema": "eva.discovery.v2",
-    "generated_at": "2026-03-01T13:12:35.381Z",
+    "generated_at": "2026-03-01T14:26:04.921Z",
     "repo": "C:\\AICOE\\eva-foundry\\51-ACA"
   },
   "project": null,
@@ -2409,6 +2409,21 @@
         "story_tags": []
       },
       {
+        "path": ".pytest_cache/.gitignore",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": ".pytest_cache/CACHEDIR.TAG",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": ".pytest_cache/README.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
         "path": "agents/analysis-agent.yaml",
         "type": "config",
         "story_tags": [
@@ -2547,21 +2562,6 @@
       },
       {
         "path": "docs/WORKFLOW-DATA-MODEL-INTEGRATION.md",
-        "type": "doc",
-        "story_tags": []
-      },
-      {
-        "path": ".pytest_cache/.gitignore",
-        "type": "other",
-        "story_tags": []
-      },
-      {
-        "path": ".pytest_cache/CACHEDIR.TAG",
-        "type": "other",
-        "story_tags": []
-      },
-      {
-        "path": ".pytest_cache/README.md",
         "type": "doc",
         "story_tags": []
       },
@@ -4999,22 +4999,22 @@
         "story_tags": []
       },
       {
-        "path": "services/collector/Dockerfile",
-        "type": "other",
-        "story_tags": []
-      },
-      {
-        "path": "services/collector/requirements.txt",
-        "type": "other",
-        "story_tags": []
-      },
-      {
         "path": "services/delivery/Dockerfile",
         "type": "other",
         "story_tags": []
       },
       {
         "path": "services/delivery/requirements.txt",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "services/collector/Dockerfile",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "services/collector/requirements.txt",
         "type": "other",
         "story_tags": []
       },
@@ -5243,7 +5243,8 @@
         "path": "services/analysis/app/main.py",
         "type": "code",
         "story_tags": [
-          "ACA-03-002"
+          "ACA-03-002",
+          "ACA-03-021"
         ]
       },
       {
@@ -5283,6 +5284,35 @@
         ]
       },
       {
+        "path": "services/delivery/app/cosmos.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-07-009"
+        ]
+      },
+      {
+        "path": "services/delivery/app/generator.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-07-003"
+        ]
+      },
+      {
+        "path": "services/delivery/app/main.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-07-005"
+        ]
+      },
+      {
+        "path": "services/delivery/app/packager.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-07-006",
+          "ACA-07-021"
+        ]
+      },
+      {
         "path": "services/collector/app/azure_client.py",
         "type": "code",
         "story_tags": [
@@ -5315,35 +5345,6 @@
         "type": "code",
         "story_tags": [
           "ACA-03-016"
-        ]
-      },
-      {
-        "path": "services/delivery/app/cosmos.py",
-        "type": "code",
-        "story_tags": [
-          "ACA-07-009"
-        ]
-      },
-      {
-        "path": "services/delivery/app/generator.py",
-        "type": "code",
-        "story_tags": [
-          "ACA-07-003"
-        ]
-      },
-      {
-        "path": "services/delivery/app/main.py",
-        "type": "code",
-        "story_tags": [
-          "ACA-07-005"
-        ]
-      },
-      {
-        "path": "services/delivery/app/packager.py",
-        "type": "code",
-        "story_tags": [
-          "ACA-07-006",
-          "ACA-07-021"
         ]
       },
       {
@@ -5531,6 +5532,14 @@
         ]
       },
       {
+        "path": "services/api/app/db/cosmos.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-01-001",
+          "ACA-04-028"
+        ]
+      },
+      {
         "path": "services/analysis/app/rules/acr_consolidation.py",
         "type": "code",
         "story_tags": [
@@ -5710,14 +5719,6 @@
         "type": "code",
         "story_tags": [
           "ACA-03-001"
-        ]
-      },
-      {
-        "path": "services/api/app/db/cosmos.py",
-        "type": "code",
-        "story_tags": [
-          "ACA-01-001",
-          "ACA-04-028"
         ]
       },
       {
@@ -6065,7 +6066,8 @@
             "path": "services/analysis/app/main.py",
             "type": "code",
             "story_tags": [
-              "ACA-03-002"
+              "ACA-03-002",
+              "ACA-03-021"
             ]
           },
           {
@@ -7290,6 +7292,14 @@
             "path": "services/tests/test_analysis_main.py",
             "type": "code",
             "story_tags": [
+              "ACA-03-021"
+            ]
+          },
+          {
+            "path": "services/analysis/app/main.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-002",
               "ACA-03-021"
             ]
           }
@@ -10468,6 +10478,33 @@
       }
     },
     "commit_evidence_map": {
+      "ACA-03-021": [
+        {
+          "sha": "5518938",
+          "snippet": "fix(ACA-03-021): update test to validate Sprint 4 upsert_item pattern (24/24 pas",
+          "source": "commit"
+        },
+        {
+          "sha": "0461054",
+          "snippet": "feat(ACA-03-021): Fix FindingsAssembler missing cosmos_client argument",
+          "source": "commit"
+        },
+        {
+          "sha": "4816baf",
+          "snippet": "fix(ACA-06-021,ACA-03-021,ACA-07-021): pre-flight sprint -- delete checkout stub",
+          "source": "commit"
+        },
+        {
+          "sha": "cd19353",
+          "snippet": "fix(ACA-06-021+ACA-03-021+ACA-07-021): preflight bugs -- rm checkout duplicate, ",
+          "source": "commit"
+        },
+        {
+          "sha": "fe0f781",
+          "snippet": "feat(ACA-03-021): Fix FindingsAssembler instantiation -- add missing cosmos_clie",
+          "source": "commit"
+        }
+      ],
       "ACA-03-001": [
         {
           "sha": "1496a94",
@@ -10733,28 +10770,6 @@
         {
           "sha": "000765b",
           "snippet": "feat(ACA-07-021): Fix packager.py: SAS_HOURS=168 and user_delegation_key SAS gen",
-          "source": "commit"
-        }
-      ],
-      "ACA-03-021": [
-        {
-          "sha": "0461054",
-          "snippet": "feat(ACA-03-021): Fix FindingsAssembler missing cosmos_client argument",
-          "source": "commit"
-        },
-        {
-          "sha": "4816baf",
-          "snippet": "fix(ACA-06-021,ACA-03-021,ACA-07-021): pre-flight sprint -- delete checkout stub",
-          "source": "commit"
-        },
-        {
-          "sha": "cd19353",
-          "snippet": "fix(ACA-06-021+ACA-03-021+ACA-07-021): preflight bugs -- rm checkout duplicate, ",
-          "source": "commit"
-        },
-        {
-          "sha": "fe0f781",
-          "snippet": "feat(ACA-03-021): Fix FindingsAssembler instantiation -- add missing cosmos_clie",
           "source": "commit"
         }
       ],
