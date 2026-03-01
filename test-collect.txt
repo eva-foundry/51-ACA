@@ -4,7 +4,7 @@ rootdir: /home/runner/work/51-ACA/51-ACA
 configfile: pyproject.toml
 plugins: anyio-4.12.1, asyncio-1.3.0
 asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
-collected 24 items / 1 error
+collected 25 items / 1 error
 
 <Dir 51-ACA>
   <Dir services>
@@ -33,6 +33,8 @@ collected 24 items / 1 error
         <Function test_findings_summary_aggregation>
       <Module test_findings_tier2_gating.py>
         <Function test_gate_findings_tier2>
+      <Module test_findings_tier3_gating.py>
+        <Function test_tier3_gating>
       <Module test_jwt_dep.py>
         <Function test_no_token_raises_401>
         <Function test_invalid_token_raises_401>
@@ -61,4 +63,4 @@ E   ModuleNotFoundError: No module named 'azure.storage'
 =========================== short test summary info ============================
 ERROR services/tests/test_packager_sas.py
 !!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
-===================== 24 tests collected, 1 error in 0.69s =====================
+===================== 25 tests collected, 1 error in 0.72s =====================

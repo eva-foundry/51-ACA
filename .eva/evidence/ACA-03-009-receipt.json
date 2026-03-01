@@ -1,12 +1,18 @@
 {
   "story_id": "ACA-03-009",
-  "title": "Rule 07 -- Search SKU oversize",
-  "phase": "D|P|D|C|A",
-  "timestamp": "2026-02-28T17:56:12Z",
+  "title": "As a Tier 3 client I receive the full finding including deliverable_template_id",
+  "phase": "A",
+  "timestamp": "2026-03-01T15:06:54Z",
   "artifacts": [
-    "services/analysis/app/rules/search_sku_oversize.py"
+    "services/api/app/services/findings_gate.py (add TIER3_FIELDS constant)",
+    "services/tests/test_findings_tier3_gating.py (new)"
   ],
   "test_result": "WARN",
   "lint_result": "WARN",
-  "commit_sha": "fd0430b9bd69e2cb2fb4ae8ce687b2a1f3f62aff"
+  "commit_sha": "329b2538889ec750bbc74c0140ee0cd941029811",
+  "duration_ms": 6532,
+  "tokens_used": 0,
+  "test_count_before": 0,
+  "test_count_after": 0,
+  "files_changed": 2
 }

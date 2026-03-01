@@ -2421,6 +2421,30 @@ F401 [*] `unittest.mock.patch` imported but unused
 help: Remove unused import: `unittest.mock.patch`
 
 I001 [*] Import block is un-sorted or un-formatted
+ --> services/tests/test_findings_tier3_gating.py:3:1
+  |
+1 |   # EVA-STORY: ACA-03-009
+2 |
+3 | / import pytest
+4 | | from app.services.findings_gate import gate_findings, TIER3_FIELDS
+  | |__________________________________________________________________^
+5 |
+6 |   def test_tier3_gating():
+  |
+help: Organize imports
+
+B905 `zip()` without an explicit `strict=` parameter
+  --> services/tests/test_findings_tier3_gating.py:37:28
+   |
+36 |     assert len(result) == len(findings)
+37 |     for original, gated in zip(findings, result):
+   |                            ^^^^^^^^^^^^^^^^^^^^^
+38 |         assert gated == original  # Tier 3 should return full findings
+39 |         for field in TIER3_FIELDS:
+   |
+help: Add explicit value for parameter `strict=`
+
+I001 [*] Import block is un-sorted or un-formatted
   --> services/tests/test_jwt_dep.py:8:1
    |
  6 |   No env vars required -- jwt.decode is patched.
