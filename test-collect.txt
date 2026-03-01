@@ -4,7 +4,7 @@ rootdir: /home/runner/work/51-ACA/51-ACA
 configfile: pyproject.toml
 plugins: anyio-4.12.1, asyncio-1.3.0
 asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
-collected 25 items / 1 error
+collected 25 items / 2 errors
 
 <Dir 51-ACA>
   <Dir services>
@@ -60,7 +60,56 @@ services/tests/test_packager_sas.py:10: in <module>
 services/delivery/app/packager.py:15: in <module>
     from azure.storage.blob import BlobServiceClient, BlobSasPermissions, generate_blob_sas
 E   ModuleNotFoundError: No module named 'azure.storage'
+__________ ERROR collecting services/tests/test_redteam_tier1_leak.py __________
+services/tests/test_redteam_tier1_leak.py:4: in <module>
+    from app.main import app
+services/api/app/main.py:15: in <module>
+    settings = get_settings()
+               ^^^^^^^^^^^^^^
+services/api/app/settings.py:56: in get_settings
+    return Settings()
+           ^^^^^^^^^^
+/opt/hostedtoolcache/Python/3.12.12/x64/lib/python3.12/site-packages/pydantic_settings/main.py:242: in __init__
+    super().__init__(**__pydantic_self__.__class__._settings_build_values(sources, init_kwargs))
+E   pydantic_core._pydantic_core.ValidationError: 6 validation errors for Settings
+E   ACA_COSMOS_URL
+E     Field required [type=missing, input_value={}, input_type=dict]
+E       For further information visit https://errors.pydantic.dev/2.12/v/missing
+E   ACA_COSMOS_KEY
+E     Field required [type=missing, input_value={}, input_type=dict]
+E       For further information visit https://errors.pydantic.dev/2.12/v/missing
+E   ACA_OPENAI_ENDPOINT
+E     Field required [type=missing, input_value={}, input_type=dict]
+E       For further information visit https://errors.pydantic.dev/2.12/v/missing
+E   ACA_OPENAI_KEY
+E     Field required [type=missing, input_value={}, input_type=dict]
+E       For further information visit https://errors.pydantic.dev/2.12/v/missing
+E   STRIPE_SECRET_KEY
+E     Field required [type=missing, input_value={}, input_type=dict]
+E       For further information visit https://errors.pydantic.dev/2.12/v/missing
+E   STRIPE_WEBHOOK_SECRET
+E     Field required [type=missing, input_value={}, input_type=dict]
+E       For further information visit https://errors.pydantic.dev/2.12/v/missing
 =========================== short test summary info ============================
 ERROR services/tests/test_packager_sas.py
-!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
-===================== 25 tests collected, 1 error in 0.72s =====================
+ERROR services/tests/test_redteam_tier1_leak.py - pydantic_core._pydantic_core.ValidationError: 6 validation errors for Settings
+ACA_COSMOS_URL
+  Field required [type=missing, input_value={}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+ACA_COSMOS_KEY
+  Field required [type=missing, input_value={}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+ACA_OPENAI_ENDPOINT
+  Field required [type=missing, input_value={}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+ACA_OPENAI_KEY
+  Field required [type=missing, input_value={}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+STRIPE_SECRET_KEY
+  Field required [type=missing, input_value={}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+STRIPE_WEBHOOK_SECRET
+  Field required [type=missing, input_value={}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!
+==================== 25 tests collected, 2 errors in 1.00s =====================

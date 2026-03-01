@@ -2460,6 +2460,64 @@ I001 [*] Import block is un-sorted or un-formatted
 help: Organize imports
 
 I001 [*] Import block is un-sorted or un-formatted
+ --> services/tests/test_redteam_tier1_leak.py:2:1
+  |
+1 |   # EVA-STORY: ACA-03-010
+2 | / import pytest
+3 | | from fastapi.testclient import TestClient
+4 | | from app.main import app
+  | |________________________^
+5 |
+6 |   @pytest.fixture
+  |
+help: Organize imports
+
+T201 `print` found
+  --> services/tests/test_redteam_tier1_leak.py:22:5
+   |
+20 |             assert field not in finding, f"[LEAK] Forbidden field '{field}' found in Tier 1 findings."
+21 |
+22 |     print("[PASS] No forbidden fields found in Tier 1 findings.")
+   |     ^^^^^
+23 |
+24 | def test_tier1_findings_with_leak(client):
+   |
+help: Remove `print`
+
+T201 `print` found
+  --> services/tests/test_redteam_tier1_leak.py:39:17
+   |
+37 |         for field in forbidden_fields:
+38 |             if field in finding:
+39 |                 print(f"[LEAK] Forbidden field '{field}' found in Tier 1 findings.")
+   |                 ^^^^^
+40 |                 assert False, f"[LEAK] Forbidden field '{field}' found in Tier 1 findings."
+   |
+help: Remove `print`
+
+B011 Do not `assert False` (`python -O` removes these calls), raise `AssertionError()`
+  --> services/tests/test_redteam_tier1_leak.py:40:24
+   |
+38 |             if field in finding:
+39 |                 print(f"[LEAK] Forbidden field '{field}' found in Tier 1 findings.")
+40 |                 assert False, f"[LEAK] Forbidden field '{field}' found in Tier 1 findings."
+   |                        ^^^^^
+41 |
+42 |     print("[PASS] No forbidden fields found in Tier 1 findings.")
+   |
+help: Replace `assert False`
+
+T201 `print` found
+  --> services/tests/test_redteam_tier1_leak.py:42:5
+   |
+40 |                 assert False, f"[LEAK] Forbidden field '{field}' found in Tier 1 findings."
+41 |
+42 |     print("[PASS] No forbidden fields found in Tier 1 findings.")
+   |     ^^^^^
+   |
+help: Remove `print`
+
+I001 [*] Import block is un-sorted or un-formatted
  --> services/tests/test_tier1_gating.py:2:1
   |
 1 |   # EVA-STORY: ACA-03-007
