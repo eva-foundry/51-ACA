@@ -2397,6 +2397,30 @@ F401 [*] `unittest.mock.MagicMock` imported but unused
 help: Remove unused import: `unittest.mock.MagicMock`
 
 I001 [*] Import block is un-sorted or un-formatted
+ --> services/tests/test_findings_tier2_gating.py:3:1
+  |
+1 |   # EVA-STORY: ACA-03-008
+2 |
+3 | / import pytest
+4 | | from unittest.mock import patch
+5 | | from app.services.findings_gate import gate_findings, TIER2_FIELDS
+  | |__________________________________________________________________^
+6 |
+7 |   def test_gate_findings_tier2():
+  |
+help: Organize imports
+
+F401 [*] `unittest.mock.patch` imported but unused
+ --> services/tests/test_findings_tier2_gating.py:4:27
+  |
+3 | import pytest
+4 | from unittest.mock import patch
+  |                           ^^^^^
+5 | from app.services.findings_gate import gate_findings, TIER2_FIELDS
+  |
+help: Remove unused import: `unittest.mock.patch`
+
+I001 [*] Import block is un-sorted or un-formatted
   --> services/tests/test_jwt_dep.py:8:1
    |
  6 |   No env vars required -- jwt.decode is patched.
