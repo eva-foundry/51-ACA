@@ -134,8 +134,10 @@ Feature 3.1 -- Rule engine
                deliverable_template_id, evidence_refs
     Status: DONE (Sprint-04, merged PR #19)
   Story 3.1.4 [ACA-03-004]  As the system I update AnalysisRun status: queued -> running -> succeeded/failed
+    Status: DONE (Sprint-05, merged PR #22)
   Story 3.1.5 [ACA-03-005]  As the system I write findingsSummary to the analysis run record
                (findingCount, totalSavingLow, totalSavingHigh, categories[])
+    Status: DONE (Sprint-05, merged PR #22)
 
 Feature 3.2 -- Tier gating
   Story 3.2.1 [ACA-03-006]  As a Tier 1 client calling GET /v1/findings/:scanId I receive findings
@@ -143,6 +145,7 @@ Feature 3.2 -- Tier gating
     Status: DONE (Sprint-01, merged PR #11)
   Story 3.2.2 [ACA-03-007]  As a Tier 1 client I do not receive narrative or deliverable_template_id
                even if they are stored in Cosmos
+    Status: DONE (Sprint-05, merged PR #22)
   Story 3.2.3 [ACA-03-008]  As a Tier 2 client I receive the full finding including narrative and
                evidence_refs but not deliverable_template_id
   Story 3.2.4 [ACA-03-009]  As a Tier 3 client I receive the full finding including deliverable_template_id

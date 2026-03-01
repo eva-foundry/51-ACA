@@ -1,6 +1,6 @@
 {
   "schema": "eva.veritas-plan.v1",
-  "generated_at": "2026-03-01T14:26:58.478960+00:00",
+  "generated_at": "2026-03-01T15:03:27.085396+00:00",
   "generated_from": [
     "PLAN.md",
     "README.md",
@@ -403,7 +403,7 @@
           "wbs": "3.1.4",
           "title": "As the system I update AnalysisRun status: queued -> running -> succeeded/failed",
           "feature_id": "ACA-03",
-          "done": false,
+          "done": true,
           "source": "plan-md",
           "tasks": []
         },
@@ -412,7 +412,7 @@
           "wbs": "3.1.5",
           "title": "As the system I write findingsSummary to the analysis run record",
           "feature_id": "ACA-03",
-          "done": false,
+          "done": true,
           "source": "plan-md",
           "tasks": []
         },
@@ -430,7 +430,7 @@
           "wbs": "3.2.2",
           "title": "As a Tier 1 client I do not receive narrative or deliverable_template_id",
           "feature_id": "ACA-03",
-          "done": false,
+          "done": true,
           "source": "plan-md",
           "tasks": []
         },
