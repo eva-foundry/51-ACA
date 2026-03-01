@@ -31,10 +31,33 @@ import subprocess
 import sys
 import textwrap
 import time
+import uuid
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Callable, Any
+from typing import Callable, Any, Optional
+
+# EVA-STORY: ACA-14-001 -- Import SprintContext for unified tracing
+try:
+    from sprint_context import SprintContext
+except ImportError:
+    SprintContext = None
+    print("[WARN] SprintContext not available -- LM tracing disabled")
+
+# EVA-STORY: ACA-14-002 -- Import state_lock for idempotency guard
+try:
+    from state_lock import acquire_lock, release_lock
+except ImportError:
+    acquire_lock = None
+    release_lock = None
+    print("[WARN] state_lock not available -- idempotency guard disabled")
+
+# EVA-STORY: ACA-14-003 -- Import phase_verifier for checkpoint validation
+try:
+    from phase_verifier import verify_phase
+except ImportError:
+    verify_phase = None
+    print("[WARN] phase_verifier not available -- phase checkpoints disabled")
 
 try:
     import requests
@@ -48,6 +71,13 @@ REPO_ROOT = Path(__file__).parent.parent.parent
 # Claude models (claude-sonnet-*) are NOT available via GITHUB_TOKEN -- use gpt-4o
 MODEL = "gpt-4o"
 GITHUB_MODELS_URL = "https://models.inference.ai.azure.com"
+
+
+def generate_correlation_id(sprint_num: str) -> str:
+    """Generate correlation ID in format ACA-S{NN}-{YYYYMMDD}-{uuid[:8]}."""
+    timestamp = datetime.now(timezone.utc).strftime("%Y%m%d")
+    unique = str(uuid.uuid4())[:8]
+    return f"ACA-S{sprint_num}-{timestamp}-{unique}"
 STATE_FILE = REPO_ROOT / "sprint-state.json"
 SUMMARY_FILE = REPO_ROOT / "sprint-summary.md"
 
@@ -442,10 +472,15 @@ def parse_manifest(body: str) -> dict:
 # LLM code generation
 # ---------------------------------------------------------------------------
 
-def _generate_code(story: dict, context: str) -> dict[str, str]:
+def _generate_code(story: dict, context: str, ctx: Optional[object] = None) -> dict[str, str]:
     """
-    Call Sonnet 4.6 to generate file contents for a story.
+    Call gpt-4o/gpt-4o-mini to generate file contents for a story.
     Returns {relative_path: content} dict.
+    
+    Args:
+        story: Story specification
+        context: Project context
+        ctx: SprintContext for tracing (optional)
     """
     github_token = os.environ.get("GITHUB_TOKEN", "")
     if not github_token:
@@ -558,6 +593,19 @@ Now generate the file contents. Remember:
             max_tokens=8192,
             temperature=0.1,
         )
+        
+        # EVA-STORY: ACA-14-001 -- Track LM call with cost
+        if ctx and hasattr(resp, 'usage'):
+            tokens_in = getattr(resp.usage, 'prompt_tokens', 0)
+            tokens_out = getattr(resp.usage, 'completion_tokens', 0)
+            ctx.record_lm_call(
+                model=MODEL,
+                tokens_in=tokens_in,
+                tokens_out=tokens_out,
+                phase="D2",
+                response_text=resp.choices[0].message.content or ""
+            )
+        
         raw = resp.choices[0].message.content or "{}"
         # Strip markdown fences if present
         raw = re.sub(r"^```(?:json)?\s*", "", raw.strip())
@@ -565,6 +613,8 @@ Now generate the file contents. Remember:
         return json.loads(raw)
     except Exception as exc:
         print(f"[WARN] LLM call failed for {story['id']}: {exc} -- writing stubs")
+        if ctx:
+            ctx.log("error", f"LLM call failed: {exc}")
         return _make_stubs(story)
 
 
@@ -842,15 +892,50 @@ def run_sprint(issue: int, repo: str) -> None:
         _gh_comment(issue, repo, f"[FAIL] Sprint manifest has no stories.")
         sys.exit(1)
 
+    # === EVA-STORY: ACA-14-002 -- State Lock / Idempotency Guard ===
+    # Acquire exclusive lock to prevent duplicate dispatch from network retry or re-trigger
+    workflow_run_id = os.environ.get("GITHUB_RUN_ID", "local-run")
+    sprint_num = sprint_id.split("-")[-1] if "-" in sprint_id else "0"
+    
+    # Lock acquisition happens before timeline, so we generate correlation_id early
+    lock_acquired = False
+    correlation_id = generate_correlation_id(sprint_num)  # Generate for lock and context
+    
+    if acquire_lock:
+        lock_acquired = acquire_lock(sprint_id, workflow_run_id, correlation_id, repo_root=str(REPO_ROOT))
+        if not lock_acquired:
+            msg = f"[FAIL] Sprint {sprint_id} already in progress (lock held by another workflow). Exiting."
+            print(msg)
+            _gh_comment(issue, repo, f"{msg}")
+            sys.exit(1)
+
     # Create sprint branch
-    branch = manifest.get("target_branch", f"sprint/{sprint_id.lower()}-{datetime.now(timezone.utc).strftime('%Y%m%d%H%M%S')}")
     _git(["checkout", "-b", branch])
     print(f"[INFO] Branch: {branch}")
+
+    # === EVA-STORY: ACA-14-001 -- Initialize SprintContext ===
+    # Extract sprint number from sprint_id (e.g., "SPRINT-11" -> "11")
+    sprint_num = sprint_id.split("-")[-1] if "-" in sprint_id else "0"
+    correlation_id = generate_correlation_id(sprint_num)
+    ctx = SprintContext(correlation_id, repo_root=str(REPO_ROOT)) if SprintContext else None
+    if ctx:
+        ctx.log("D1", f"Sprint context initialized: {correlation_id}")
 
     # === PHASE 1: PLANNING -- Update data model ===
     sprint_full_id = f"51-ACA-{sprint_id.lower()}"
     manifest["issue_number"] = issue  # add issue number for data model
     start_sprint(sprint_full_id, manifest)
+    if ctx:
+        ctx.mark_timeline("submitted")
+        ctx.log("D1", f"Sprint planning phase started: {sprint_full_id}")
+    
+    # === EVA-STORY: ACA-14-003 -- Verify D1 (Discover) phase ===
+    if verify_phase:
+        if not verify_phase("D1", sprint_id, repo_root=str(REPO_ROOT)):
+            msg = f"[FAIL] D1 verification failed -- evidence not collected"
+            print(msg)
+            _gh_comment(issue, repo, f"{msg}")
+            sys.exit(1)
 
     # Opening comment
     _gh_comment(issue, repo, textwrap.dedent(f"""
@@ -859,9 +944,26 @@ def run_sprint(issue: int, repo: str) -> None:
 **Branch**: `{branch}`
 **Stories**: {len(stories)}
 **Started**: {_now_iso()}
+**Correlation ID**: `{correlation_id}`
 
 Working through {len(stories)} stories in sequence. Progress comments will follow after each story.
     """).strip())
+
+    # === EVA-STORY: ACA-14-003 -- Verify D2 (Discover-repo) phase ===
+    if verify_phase:
+        if not verify_phase("D2", sprint_id, repo_root=str(REPO_ROOT)):
+            msg = f"[FAIL] D2 verification failed -- repository audit failed (no tests collected)"
+            print(msg)
+            _gh_comment(issue, repo, f"{msg}")
+            sys.exit(1)
+    
+    # === EVA-STORY: ACA-14-003 -- Verify P (Plan) phase ===
+    if verify_phase:
+        if not verify_phase("P", sprint_id, expected_checked=len(stories), repo_root=str(REPO_ROOT)):
+            msg = f"[FAIL] P verification failed -- PLAN.md not updated"
+            print(msg)
+            _gh_comment(issue, repo, f"{msg}")
+            sys.exit(1)
 
     # Load context once for all LLM calls
     context = _load_context()
@@ -878,6 +980,8 @@ Working through {len(stories)} stories in sequence. Progress comments will follo
     for idx, story in enumerate(stories, 1):
         sid = story.get("id", f"UNKNOWN-{idx}")
         print(f"\n[INFO] === Story {idx}/{len(stories)}: {sid} ===")
+        if ctx:
+            ctx.log("D2", f"Story {sid} execution starting")
 
         story_result = {"id": sid, "title": story.get("title", ""), "status": "FAIL", "sha": "", "start_time": _now_iso()}
 
@@ -899,14 +1003,22 @@ Working through {len(stories)} stories in sequence. Progress comments will follo
         try:
             # D2 -- Generate and write code (with retry)
             generated = retry_with_backoff(
-                lambda: _generate_code(story, context),
+                lambda: _generate_code(story, context, ctx),
+
+
                 operation_name=f"Code generation for {sid}",
                 max_attempts=MAX_RETRY_ATTEMPTS
             )
             written_files = write_files(generated)
+            if ctx:
+                ctx.mark_timeline("applied")
+                ctx.log("D2", f"Code written: {len(written_files)} files")
 
             # C -- Check
             lint_status, test_status = run_checks()
+            if ctx:
+                ctx.mark_timeline("tested")
+                ctx.log("Check", f"Checks complete: lint={lint_status}, test={test_status}")
 
             # Calculate metrics for Veritas evidence
             story_start_dt = datetime.fromisoformat(story_result["start_time"].replace("Z", "+00:00"))
@@ -924,6 +1036,9 @@ Working through {len(stories)} stories in sequence. Progress comments will follo
 
             # A -- Commit
             sha = commit_story(story, written_files, evidence_path)
+            if ctx:
+                ctx.mark_timeline("committed")
+                ctx.log("Act", f"Story committed: {sha[:8]}")
 
             story_result["status"] = "DONE"
             story_result["sha"] = sha
@@ -979,14 +1094,36 @@ Working through {len(stories)} stories in sequence. Progress comments will follo
         _gh_comment(issue, repo, comment)
         print(f"[INFO] Progress comment posted for {sid}")
 
+    # === EVA-STORY: ACA-14-003 -- Verify D3 (Do-execute) phase ===
+    if verify_phase:
+        if not verify_phase("D3", sprint_id, repo_root=str(REPO_ROOT)):
+            msg = f"[FAIL] D3 verification failed -- story selection manifest not found"
+            print(msg)
+            _gh_comment(issue, repo, f"{msg}")
+            sys.exit(1)
+
     # Push branch
     push_ok = push_branch(branch)
     state["pushed"] = push_ok
     state["completed"] = _now_iso()
     STATE_FILE.write_text(json.dumps(state, indent=2), encoding="utf-8")
+    if ctx:
+        ctx.log("Act", f"Branch pushed: {branch}")
+
+    # === EVA-STORY: ACA-14-003 -- Verify A (Act) phase ===
+    if verify_phase:
+        if not verify_phase("A", sprint_id, repo_root=str(REPO_ROOT)):
+            msg = f"[FAIL] A verification failed -- manifest JSON invalid"
+            print(msg)
+            _gh_comment(issue, repo, f"{msg}")
+            sys.exit(1)
 
     # === PHASE 3: COMPLETION -- Update data model ===
     complete_sprint(sprint_full_id, results, state["started"])
+    if ctx:
+        ctx.mark_timeline("completed" if all(r["status"] == "DONE" for r in results) else "failed")
+        ctx.log("Act", f"Sprint completed: {len([r for r in results if r['status'] == 'DONE'])}/{len(results)} stories done")
+        ctx.save()  # Save sprint context with all traces
 
     # Calculate sprint metrics
     try:
@@ -1031,6 +1168,12 @@ Working through {len(stories)} stories in sequence. Progress comments will follo
         print(f"[WARN] PR creation failed: {exc}")
 
     print(f"\n[PASS] Sprint {sprint_id} complete -- {sum(1 for r in results if r['status']=='DONE')}/{len(results)} stories done")
+
+    # === EVA-STORY: ACA-14-002 -- Release lock ===
+    if lock_acquired and release_lock:
+        release_lock(sprint_id, repo_root=str(REPO_ROOT))
+        if ctx:
+            ctx.log("Act", f"Lock released for {sprint_id}")
 
 
 # ---------------------------------------------------------------------------
