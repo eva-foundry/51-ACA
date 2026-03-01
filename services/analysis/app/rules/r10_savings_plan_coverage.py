@@ -1,40 +1,36 @@
 # EVA-STORY: ACA-03-020
-from app.db.cosmos import query_items
-from app.services.findings_gate import gate_findings
+from typing import Optional, List, Dict
 
-def analyze_savings_plan_coverage(subscription_id: str, tier: int) -> list[dict]:
+def analyze_savings_plan_coverage(compute_cost_data: Optional[List[Dict]] = None, has_plan: bool = False) -> list[dict]:
     """
-    Analyze savings plan coverage for a given subscription.
+    Analyze savings plan coverage for compute resources.
 
     Args:
-        subscription_id (str): The subscription ID to analyze.
-        tier (int): The tier of the client.
+        compute_cost_data (Optional[List[Dict]]): Compute cost data resources.
+        has_plan (bool): Whether subscription has savings plan.
 
     Returns:
-        list[dict]: Tier-gated findings.
+        list[dict]: Findings.
     """
-    container_name = "cost-data"
-    query = "SELECT * FROM c WHERE c.subscriptionId = @sub AND c.type = 'savings_plan'"
-    parameters = [{"name": "@sub", "value": subscription_id}]
-
-    # Fetch savings plan data scoped to the subscription
-    savings_plan_data = query_items(container_name, query, parameters, partition_key=subscription_id)
-
+    if compute_cost_data is None:
+        compute_cost_data = []
+    
     findings = []
-
-    for plan in savings_plan_data:
-        if plan.get("coverage") < 80:  # Example threshold for insufficient coverage
-            findings.append({
-                "id": plan["id"],
-                "title": "Low Savings Plan Coverage",
-                "category": "Savings Plan",
-                "estimated_saving_low": plan.get("estimatedSavingLow", 0),
-                "estimated_saving_high": plan.get("estimatedSavingHigh", 0),
-                "effort_class": "low",
-                "risk_class": "low",
-                "narrative": plan.get("narrative", "Savings plan coverage is below recommended levels."),
-                "heuristic_source": "r10_savings_plan_coverage"
-            })
-
-    # Apply tier gating to findings
-    return gate_findings(findings, tier)
+    
+    # Calculate total compute cost
+    total_compute = sum(item.get("cost", 0) for item in compute_cost_data if item.get("type") == "compute")
+    
+    # If compute cost exceeds threshold and no savings plan
+    if total_compute > 20000 and not has_plan:
+        findings.append({
+            "id": "savings-plan-gap",
+            "title": "Missing Savings Plan for High Compute Spend",
+            "category": "cost-optimization",
+            "estimated_saving_low": total_compute * 0.15,
+            "estimated_saving_high": total_compute * 0.25,
+            "effort_class": "easy",
+            "risk_class": "low",
+            "heuristic_source": "r10_savings_plan_coverage"
+        })
+    
+    return findings
