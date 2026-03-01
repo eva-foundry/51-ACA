@@ -1,6 +1,6 @@
 # EVA-STORY: ACA-03-013
-from app.db.cosmos import query_items
-from app.findings import persist_finding
+from services.analysis.app.cosmos import query_items
+from services.analysis.app.findings import persist_finding
 
 def evaluate_defender_costs(subscription_id: str, scan_id: str):
     """

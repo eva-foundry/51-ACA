@@ -1,7 +1,7 @@
 # EVA-STORY: ACA-03-014
-from app.db.cosmos import query_items
-from app.services.findings_gate import gate_findings
-from app.models import Finding
+from services.analysis.app.cosmos import query_items
+from services.api.app.services.findings_gate import gate_findings
+from services.analysis.app.models import Finding
 
 def evaluate_r04_compute_scheduling(subscription_id: str, client_tier: int):
     """

@@ -125,6 +125,7 @@ Goal: Analysis engine runs all 12 rules and persists tiered findings to Cosmos.
 
 Feature 3.1 -- Rule engine
   Story 3.1.1 [ACA-03-001]  As the system I load all 12 rules from ALL_RULES and run each in sequence
+    Status: DONE (Sprint-06, merged PR #24)
   Story 3.1.2 [ACA-03-002]  As the system I handle a rule failure in isolation (one rule crash does not
                stop the engine; the error is logged and that rule is skipped)
     Status: DONE (Sprint-04, merged PR #19)
@@ -148,7 +149,9 @@ Feature 3.2 -- Tier gating
     Status: DONE (Sprint-05, merged PR #22)
   Story 3.2.3 [ACA-03-008]  As a Tier 2 client I receive the full finding including narrative and
                evidence_refs but not deliverable_template_id
+    Status: DONE (Sprint-06, merged PR #24)
   Story 3.2.4 [ACA-03-009]  As a Tier 3 client I receive the full finding including deliverable_template_id
+    Status: DONE (Sprint-06, merged PR #24)
   Story 3.2.5 [ACA-03-010]  As the red-team agent I can assert that Tier 1 tokens never leak
                narrative or deliverable_template_id fields (redteam-agent.yaml gate)
 
