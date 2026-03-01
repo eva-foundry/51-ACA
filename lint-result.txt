@@ -13,7 +13,7 @@ help: Organize imports
 I001 [*] Import block is un-sorted or un-formatted
  --> services/analysis/app/main.py:2:1
   |
-1 |   # EVA-STORY: ACA-03-002
+1 |   # EVA-STORY: ACA-03-004
 2 | / from app.db.cosmos import upsert_item
 3 | | from app.settings import get_settings
 4 | | from app.services.findings_gate import gate_findings
@@ -27,7 +27,7 @@ help: Organize imports
 F401 [*] `app.settings.get_settings` imported but unused
  --> services/analysis/app/main.py:3:26
   |
-1 | # EVA-STORY: ACA-03-002
+1 | # EVA-STORY: ACA-03-004
 2 | from app.db.cosmos import upsert_item
 3 | from app.settings import get_settings
   |                          ^^^^^^^^^^^^
@@ -2130,14 +2130,92 @@ UP017 [*] Use `datetime.UTC` alias
 help: Convert to `datetime.UTC` alias
 
 I001 [*] Import block is un-sorted or un-formatted
- --> services/tests/test_analysis_main.py:8:1
+ --> services/tests/test_analysis_main.py:9:1
   |
-6 | to FindingsAssembler. Source-inspection tests -- no Cosmos env vars required.
-7 | """
-8 | from pathlib import Path
+7 | Source-inspection tests -- no Cosmos env vars required.
+8 | """
+9 | from pathlib import Path
   | ^^^^^^^^^^^^^^^^^^^^^^^^
   |
 help: Organize imports
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> services/tests/test_analysis_status.py:2:1
+  |
+1 |   # EVA-STORY: ACA-03-004
+2 | / import pytest
+3 | | from unittest.mock import MagicMock
+4 | | from app.db.cosmos import upsert_item
+5 | | from app.main import AnalysisRun
+  | |________________________________^
+6 |
+7 |   def test_analysis_status_lifecycle():
+  |
+help: Organize imports
+
+F401 [*] `pytest` imported but unused
+ --> services/tests/test_analysis_status.py:2:8
+  |
+1 | # EVA-STORY: ACA-03-004
+2 | import pytest
+  |        ^^^^^^
+3 | from unittest.mock import MagicMock
+4 | from app.db.cosmos import upsert_item
+  |
+help: Remove unused import: `pytest`
+
+F401 [*] `app.db.cosmos.upsert_item` imported but unused
+ --> services/tests/test_analysis_status.py:4:27
+  |
+2 | import pytest
+3 | from unittest.mock import MagicMock
+4 | from app.db.cosmos import upsert_item
+  |                           ^^^^^^^^^^^
+5 | from app.main import AnalysisRun
+  |
+help: Remove unused import: `app.db.cosmos.upsert_item`
+
+F811 Redefinition of unused `upsert_item` from line 4
+  --> services/tests/test_analysis_status.py:9:5
+   |
+ 7 | def test_analysis_status_lifecycle():
+ 8 |     mock_upsert_item = MagicMock()
+ 9 |     upsert_item = mock_upsert_item
+   |     ^^^^^^^^^^^ `upsert_item` redefined here
+10 |
+11 |     run_id = "test-run-001"
+   |
+  ::: services/tests/test_analysis_status.py:4:27
+   |
+ 2 | import pytest
+ 3 | from unittest.mock import MagicMock
+ 4 | from app.db.cosmos import upsert_item
+   |                           ----------- previous definition of `upsert_item` here
+ 5 | from app.main import AnalysisRun
+   |
+help: Remove definition: `upsert_item`
+
+F841 Local variable `upsert_item` is assigned to but never used
+  --> services/tests/test_analysis_status.py:9:5
+   |
+ 7 | def test_analysis_status_lifecycle():
+ 8 |     mock_upsert_item = MagicMock()
+ 9 |     upsert_item = mock_upsert_item
+   |     ^^^^^^^^^^^
+10 |
+11 |     run_id = "test-run-001"
+   |
+help: Remove assignment to unused variable `upsert_item`
+
+T201 `print` found
+  --> services/tests/test_analysis_status.py:51:5
+   |
+49 |     }, partition_key=subscription_id)
+50 |
+51 |     print("[PASS] test_analysis_status_lifecycle")
+   |     ^^^^^
+   |
+help: Remove `print`
 
 I001 [*] Import block is un-sorted or un-formatted
   --> services/tests/test_auth_connect.py:8:1

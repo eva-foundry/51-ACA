@@ -1,12 +1,18 @@
 {
   "story_id": "ACA-03-004",
-  "title": "Rule 03 -- Defender mismatch",
-  "phase": "D|P|D|C|A",
-  "timestamp": "2026-02-28T17:55:54Z",
+  "title": "As the system I update AnalysisRun status: queued -> running -> succeeded/failed",
+  "phase": "A",
+  "timestamp": "2026-03-01T14:29:41Z",
   "artifacts": [
-    "services/analysis/app/rules/defender_mismatch.py"
+    "services/analysis/app/main.py",
+    "services/tests/test_analysis_status.py"
   ],
   "test_result": "WARN",
   "lint_result": "WARN",
-  "commit_sha": "ae0a75146b612a34363f4a9d77324600d9261099"
+  "commit_sha": "20ccbb0447ad236e66150e65008ae2ef874e92a0",
+  "duration_ms": 8978,
+  "tokens_used": 0,
+  "test_count_before": 0,
+  "test_count_after": 0,
+  "files_changed": 2
 }
