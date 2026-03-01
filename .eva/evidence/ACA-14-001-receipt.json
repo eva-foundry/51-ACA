@@ -1,0 +1,18 @@
+{
+  "story_id": "ACA-14-001",
+  "title": "As the sprint agent I want a unified SprintContext class that merges correlation ID + LM tracer + timeline",
+  "phase": "A",
+  "timestamp": "2026-03-01T19:38:56Z",
+  "artifacts": [
+    ".github/scripts/sprint_context.py (SprintContext class, ~200 lines)",
+    ".github/scripts/aca_lm_tracer.py (ACALMTracer adapted from 37-data-model, ~180 lines)"
+  ],
+  "test_result": "WARN",
+  "lint_result": "WARN",
+  "commit_sha": "8d66f353451aa14878e11bb682e958f47a798393",
+  "duration_ms": 7342,
+  "tokens_used": 0,
+  "test_count_before": 0,
+  "test_count_after": 0,
+  "files_changed": 2
+}
