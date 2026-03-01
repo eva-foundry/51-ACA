@@ -1,12 +1,18 @@
 {
   "story_id": "ACA-03-014",
-  "title": "Rule 12 -- Chargeback gap",
-  "phase": "D|P|D|C|A",
-  "timestamp": "2026-02-28T17:56:49Z",
+  "title": "As the system I implement R-04 rule: returns finding when annual schedulable compute > $5,000",
+  "phase": "A",
+  "timestamp": "2026-03-01T15:57:48Z",
   "artifacts": [
-    "services/analysis/app/rules/chargeback_gap.py"
+    "services/analysis/app/rules/r04_compute_scheduling.py",
+    "services/tests/test_rule_r04_compute_scheduling.py"
   ],
   "test_result": "WARN",
   "lint_result": "WARN",
-  "commit_sha": "37101fce373a4d0a7055b5005d263d254e21c779"
+  "commit_sha": "a9ed5e7d5df150555808706b00707ec83cbd6225",
+  "duration_ms": 8822,
+  "tokens_used": 0,
+  "test_count_before": 0,
+  "test_count_after": 0,
+  "files_changed": 2
 }

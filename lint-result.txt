@@ -233,6 +233,31 @@ I001 [*] Import block is un-sorted or un-formatted
 help: Organize imports
 
 I001 [*] Import block is un-sorted or un-formatted
+ --> services/analysis/app/rules/r04_compute_scheduling.py:2:1
+  |
+1 |   # EVA-STORY: ACA-03-014
+2 | / from app.db.cosmos import query_items
+3 | | from app.services.findings_gate import gate_findings
+4 | | from app.models import Finding
+  | |______________________________^
+5 |
+6 |   def evaluate_r04_compute_scheduling(subscription_id: str, client_tier: int):
+  |
+help: Organize imports
+
+F401 [*] `app.models.Finding` imported but unused
+ --> services/analysis/app/rules/r04_compute_scheduling.py:4:24
+  |
+2 | from app.db.cosmos import query_items
+3 | from app.services.findings_gate import gate_findings
+4 | from app.models import Finding
+  |                        ^^^^^^^
+5 |
+6 | def evaluate_r04_compute_scheduling(subscription_id: str, client_tier: int):
+  |
+help: Remove unused import: `app.models.Finding`
+
+I001 [*] Import block is un-sorted or un-formatted
  --> services/analysis/app/rules/rule_01_dev_box_autostop.py:2:1
   |
 1 | # EVA-STORY: ACA-03-011
@@ -2654,6 +2679,32 @@ F401 [*] `app.services.findings_gate.gate_findings` imported but unused
 5 | from app.services.findings_gate import gate_findings
   |                                        ^^^^^^^^^^^^^
 6 | from services.analysis.app.rules.r03_defender_mismatch import evaluate_defender_costs
+  |
+help: Remove unused import: `app.services.findings_gate.gate_findings`
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> services/tests/test_rule_r04_compute_scheduling.py:2:1
+  |
+1 |   # EVA-STORY: ACA-03-014
+2 | / import pytest
+3 | | from unittest.mock import MagicMock
+4 | | from app.db.cosmos import query_items
+5 | | from app.services.findings_gate import gate_findings
+6 | | from services.analysis.app.rules.r04_compute_scheduling import evaluate_r04_compute_scheduling
+  | |______________________________________________________________________________________________^
+7 |
+8 |   def test_evaluate_r04_compute_scheduling():
+  |
+help: Organize imports
+
+F401 [*] `app.services.findings_gate.gate_findings` imported but unused
+ --> services/tests/test_rule_r04_compute_scheduling.py:5:40
+  |
+3 | from unittest.mock import MagicMock
+4 | from app.db.cosmos import query_items
+5 | from app.services.findings_gate import gate_findings
+  |                                        ^^^^^^^^^^^^^
+6 | from services.analysis.app.rules.r04_compute_scheduling import evaluate_r04_compute_scheduling
   |
 help: Remove unused import: `app.services.findings_gate.gate_findings`
 
