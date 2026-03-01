@@ -1,138 +1,51 @@
 I001 [*] Import block is un-sorted or un-formatted
- --> services/analysis/app/findings.py:5:1
+ --> services/analysis/app/findings.py:2:1
   |
-3 |   FindingsAssembler -- load collected data + persist findings to Cosmos.
-4 |   """
-5 | / from __future__ import annotations
-6 | | import logging
-7 | | from datetime import datetime, timezone
-  | |_______________________________________^
-8 |
-9 |   logger = logging.getLogger(__name__)
+1 |   # EVA-STORY: ACA-03-003
+2 | / from app.db.cosmos import upsert_item
+3 | | from app.models import Finding
+  | |______________________________^
+4 |
+5 |   def persist_finding(cosmos_client, finding_dict):
   |
 help: Organize imports
-
-UP017 [*] Use `datetime.UTC` alias
-  --> services/analysis/app/findings.py:90:45
-   |
-88 |                 "scanId": self.scan_id,
-89 |                 "subscriptionId": self.subscription_id,
-90 |                 "generatedAt": datetime.now(timezone.utc).isoformat(),
-   |                                             ^^^^^^^^^^^^
-91 |             }
-92 |             self.cosmos.upsert_item("findings", doc, subscription_id=self.subscription_id)
-   |
-help: Convert to `datetime.UTC` alias
-
-UP017 [*] Use `datetime.UTC` alias
-   --> services/analysis/app/findings.py:101:48
-    |
- 99 |             scan["status"] = "complete"
-100 |             scan["findingCount"] = count
-101 |             scan["completedAt"] = datetime.now(timezone.utc).isoformat()
-    |                                                ^^^^^^^^^^^^
-102 |             self.cosmos.upsert_item("scans", scan, subscription_id=self.subscription_id)
-103 |             logger.info("[%s] scan marked complete, %d findings", self.scan_id, count)
-    |
-help: Convert to `datetime.UTC` alias
 
 I001 [*] Import block is un-sorted or un-formatted
-  --> services/analysis/app/main.py:11:1
-   |
- 9 |   Writes findings JSON to Cosmos findings container.
-10 |   """
-11 | / import argparse
-12 | | import os
-13 | | import sys
-14 | |
-15 | | from app.rules import ALL_RULES
-16 | | from app.findings import FindingsAssembler
-17 | | from app.cosmos import get_cosmos_client
-   | |________________________________________^
-18 |
-19 |   def main() -> int:
-   |
+ --> services/analysis/app/main.py:2:1
+  |
+1 |   # EVA-STORY: ACA-03-002
+2 | / from app.db.cosmos import upsert_item
+3 | | from app.settings import get_settings
+4 | | from app.services.findings_gate import gate_findings
+5 | | import logging
+  | |______________^
+6 |
+7 |   logger = logging.getLogger("analysis")
+  |
 help: Organize imports
 
-F401 [*] `os` imported but unused
-  --> services/analysis/app/main.py:12:8
-   |
-10 | """
-11 | import argparse
-12 | import os
-   |        ^^
-13 | import sys
-   |
-help: Remove unused import: `os`
+F401 [*] `app.settings.get_settings` imported but unused
+ --> services/analysis/app/main.py:3:26
+  |
+1 | # EVA-STORY: ACA-03-002
+2 | from app.db.cosmos import upsert_item
+3 | from app.settings import get_settings
+  |                          ^^^^^^^^^^^^
+4 | from app.services.findings_gate import gate_findings
+5 | import logging
+  |
+help: Remove unused import: `app.settings.get_settings`
 
-T201 `print` found
-  --> services/analysis/app/main.py:28:5
-   |
-26 |     sub_id = args.subscription_id
-27 |
-28 |     print(f"[INFO] ACA Analysis Engine starting | scan={scan_id} sub={sub_id}")
-   |     ^^^^^
-29 |
-30 |     assembler = FindingsAssembler(scan_id=scan_id, subscription_id=sub_id,
-   |
-help: Remove `print`
-
-T201 `print` found
-  --> services/analysis/app/main.py:35:9
-   |
-34 |     if not data:
-35 |         print("[FAIL] No collected data found in Cosmos for this scan")
-   |         ^^^^^
-36 |         return 1
-   |
-help: Remove `print`
-
-T201 `print` found
-  --> services/analysis/app/main.py:44:17
-   |
-42 |             if result:
-43 |                 findings.extend(result if isinstance(result, list) else [result])
-44 |                 print(f"[INFO] Rule {rule.__name__}: {len(result) if isinstance(result, list) else 1} finding(s)")
-   |                 ^^^^^
-45 |         except Exception as e:
-46 |             print(f"[WARN] Rule {rule.__name__} failed: {e}")
-   |
-help: Remove `print`
-
-T201 `print` found
-  --> services/analysis/app/main.py:46:13
-   |
-44 |                 print(f"[INFO] Rule {rule.__name__}: {len(result) if isinstance(result, list) else 1} finding(s)")
-45 |         except Exception as e:
-46 |             print(f"[WARN] Rule {rule.__name__} failed: {e}")
-   |             ^^^^^
-47 |
-48 |     print(f"[INFO] Rules produced {len(findings)} findings")
-   |
-help: Remove `print`
-
-T201 `print` found
-  --> services/analysis/app/main.py:48:5
-   |
-46 |             print(f"[WARN] Rule {rule.__name__} failed: {e}")
-47 |
-48 |     print(f"[INFO] Rules produced {len(findings)} findings")
-   |     ^^^^^
-49 |
-50 |     # TODO: run 29-foundry analysis-agent and redteam-agent for beyond-rule findings
-   |
-help: Remove `print`
-
-T201 `print` found
-  --> services/analysis/app/main.py:56:5
-   |
-54 |     assembler.save_findings(findings)
-55 |     assembler.mark_analysis_complete(len(findings))
-56 |     print(f"[PASS] Analysis complete | findings={len(findings)}")
-   |     ^^^^^
-57 |     return 0
-   |
-help: Remove `print`
+I001 [*] Import block is un-sorted or un-formatted
+ --> services/analysis/app/models.py:2:1
+  |
+1 | # EVA-STORY: ACA-03-003
+2 | from pydantic import BaseModel
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+3 |
+4 | class Finding(BaseModel):
+  |
+help: Organize imports
 
 I001 [*] Import block is un-sorted or un-formatted
  --> services/analysis/app/rules/acr_consolidation.py:2:1
@@ -213,6 +126,17 @@ I001 [*] Import block is un-sorted or un-formatted
   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 4 |
 5 | def log_retention_rule(subscription_id: str) -> list[dict]:
+  |
+help: Organize imports
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> services/analysis/app/rules/rule_01_dev_box_autostop.py:2:1
+  |
+1 | # EVA-STORY: ACA-03-011
+2 | from app.db.cosmos import query_items
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+3 |
+4 | def rule_01_dev_box_autostop(subscription_id: str) -> list[dict]:
   |
 help: Organize imports
 

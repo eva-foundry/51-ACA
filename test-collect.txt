@@ -53,4 +53,4 @@ E   ModuleNotFoundError: No module named 'azure.storage'
 =========================== short test summary info ============================
 ERROR services/tests/test_packager_sas.py
 !!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
-===================== 20 tests collected, 1 error in 0.81s =====================
+===================== 20 tests collected, 1 error in 0.62s =====================

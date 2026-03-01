@@ -1,60 +1,44 @@
-"""
-# EVA-STORY: ACA-03-001
-ACA Analysis Engine -- Service 2
-Runs as an Azure Container App Job (triggered after collection completes).
+# EVA-STORY: ACA-03-002
+from app.db.cosmos import upsert_item
+from app.settings import get_settings
+from app.services.findings_gate import gate_findings
+import logging
 
-Entry point: python -m app.main --scan-id <id> --subscription-id <sub>
+logger = logging.getLogger("analysis")
 
-Runs 12 rule-based heuristics + 29-foundry AI agents.
-Writes findings JSON to Cosmos findings container.
-"""
-import argparse
-import os
-import sys
+class AnalysisRun:
+    def __init__(self, run_id: str, subscription_id: str):
+        self.run_id = run_id
+        self.subscription_id = subscription_id
+        self.failed_rules = []
+        self.findings = []
 
-from app.rules import ALL_RULES
-from app.findings import FindingsAssembler
-from app.cosmos import get_cosmos_client
+    def record_failure(self, rule_id: str):
+        self.failed_rules.append(rule_id)
 
-def main() -> int:
-    parser = argparse.ArgumentParser(description="ACA Analysis Engine")
-    parser.add_argument("--scan-id", required=True)
-    parser.add_argument("--subscription-id", required=True)
-    args = parser.parse_args()
+    def add_findings(self, findings):
+        self.findings.extend(findings)
 
-    scan_id = args.scan_id
-    sub_id = args.subscription_id
+    def persist(self):
+        doc = {
+            "id": self.run_id,
+            "subscriptionId": self.subscription_id,
+            "failed_rules": self.failed_rules,
+            "findings": self.findings,
+        }
+        upsert_item("analysis_runs", doc, partition_key=self.subscription_id)
 
-    print(f"[INFO] ACA Analysis Engine starting | scan={scan_id} sub={sub_id}")
+def run_analysis(run_id: str, subscription_id: str, rules: list):
+    analysis_run = AnalysisRun(run_id, subscription_id)
 
-    assembler = FindingsAssembler(scan_id=scan_id, subscription_id=sub_id,
-                                  cosmos_client=get_cosmos_client())
-    data = assembler.load_collected_data()
-
-    if not data:
-        print("[FAIL] No collected data found in Cosmos for this scan")
-        return 1
-
-    findings = []
-    for rule in ALL_RULES:
+    for rule in rules:
         try:
-            result = rule(data)
-            if result:
-                findings.extend(result if isinstance(result, list) else [result])
-                print(f"[INFO] Rule {rule.__name__}: {len(result) if isinstance(result, list) else 1} finding(s)")
+            findings = rule.execute(subscription_id)
+            gated_findings = gate_findings(findings, rule.tier)
+            analysis_run.add_findings(gated_findings)
         except Exception as e:
-            print(f"[WARN] Rule {rule.__name__} failed: {e}")
+            logger.error(f"[FAIL] Rule execution failed: {rule.id} - {str(e)}")
+            analysis_run.record_failure(rule.id)
 
-    print(f"[INFO] Rules produced {len(findings)} findings")
-
-    # TODO: run 29-foundry analysis-agent and redteam-agent for beyond-rule findings
-    # agent_findings = run_analysis_agent(data, findings)
-    # findings.extend(agent_findings)
-
-    assembler.save_findings(findings)
-    assembler.mark_analysis_complete(len(findings))
-    print(f"[PASS] Analysis complete | findings={len(findings)}")
-    return 0
-
-if __name__ == "__main__":
-    sys.exit(main())
+    analysis_run.persist()
+    logger.info(f"[INFO] Analysis run completed: {run_id}")
