@@ -1,27 +1,33 @@
-# EVA-STORY: ACA-03-007
-"""
-Findings tier-gating logic -- pure business rules, no I/O dependencies.
-Extracted so unit tests can import without pulling in Cosmos/settings chain.
-"""
-from typing import Any
+# EVA-STORY: ACA-03-009
 
-TIER1_FIELDS = frozenset({
-    "id", "category", "title",
-    "estimated_saving_low", "estimated_saving_high",
-    "effort_class", "risk_class",
-})
+TIER1_FIELDS = [
+    "id", "category", "title", "estimated_saving_low", "estimated_saving_high",
+    "effort_class", "risk_class"
+]
 
-TIER2_FIELDS = TIER1_FIELDS | frozenset({"narrative", "heuristic_source"})
-# Tier 3: all fields including deliverable_template_id
+TIER2_FIELDS = TIER1_FIELDS + ["narrative", "heuristic_source"]
 
+TIER3_FIELDS = [
+    "id", "category", "title", "estimated_saving_low", "estimated_saving_high",
+    "effort_class", "risk_class", "narrative", "evidence_refs", "deliverable_template_id"
+]
 
-def gate_findings(findings: list[dict[str, Any]], tier: str) -> list[dict[str, Any]]:
+def gate_findings(findings: list[dict], tier: str) -> list[dict]:
     """
-    Strip findings to tier-appropriate fields.
-    NEVER expose narrative or deliverable_template_id to Tier 1.
+    Filters findings based on client tier.
+
+    Args:
+        findings: List of findings (dicts).
+        tier: Client tier ("tier1", "tier2", "tier3").
+
+    Returns:
+        List of filtered findings.
     """
     if tier == "tier1":
-        return [{k: v for k, v in f.items() if k in TIER1_FIELDS} for f in findings]
-    if tier == "tier2":
-        return [{k: v for k, v in f.items() if k in TIER2_FIELDS} for f in findings]
-    return list(findings)  # tier3: full object
+        return [{key: finding[key] for key in TIER1_FIELDS if key in finding} for finding in findings]
+    elif tier == "tier2":
+        return [{key: finding[key] for key in TIER2_FIELDS if key in finding} for finding in findings]
+    elif tier == "tier3":
+        return findings  # Full pass-through for Tier 3
+    else:
+        raise ValueError(f"Unknown tier: {tier}")
