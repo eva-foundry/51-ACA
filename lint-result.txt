@@ -141,6 +141,85 @@ I001 [*] Import block is un-sorted or un-formatted
   |
 help: Organize imports
 
+UP035 `typing.List` is deprecated, use `list` instead
+ --> services/analysis/app/rules/r02_log_retention.py:2:1
+  |
+1 | # EVA-STORY: ACA-03-012
+2 | from typing import List, Dict
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+3 |
+4 | def evaluate_log_retention_costs(log_analytics_data: List[Dict], environment_tag: str = "non-prod") -> List[Dict]:
+  |
+
+UP035 `typing.Dict` is deprecated, use `dict` instead
+ --> services/analysis/app/rules/r02_log_retention.py:2:1
+  |
+1 | # EVA-STORY: ACA-03-012
+2 | from typing import List, Dict
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+3 |
+4 | def evaluate_log_retention_costs(log_analytics_data: List[Dict], environment_tag: str = "non-prod") -> List[Dict]:
+  |
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> services/analysis/app/rules/r02_log_retention.py:2:1
+  |
+1 | # EVA-STORY: ACA-03-012
+2 | from typing import List, Dict
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+3 |
+4 | def evaluate_log_retention_costs(log_analytics_data: List[Dict], environment_tag: str = "non-prod") -> List[Dict]:
+  |
+help: Organize imports
+
+UP006 [*] Use `list` instead of `List` for type annotation
+ --> services/analysis/app/rules/r02_log_retention.py:4:54
+  |
+2 | from typing import List, Dict
+3 |
+4 | def evaluate_log_retention_costs(log_analytics_data: List[Dict], environment_tag: str = "non-prod") -> List[Dict]:
+  |                                                      ^^^^
+5 |     """
+6 |     Evaluate log retention costs for non-production environments.
+  |
+help: Replace with `list`
+
+UP006 [*] Use `dict` instead of `Dict` for type annotation
+ --> services/analysis/app/rules/r02_log_retention.py:4:59
+  |
+2 | from typing import List, Dict
+3 |
+4 | def evaluate_log_retention_costs(log_analytics_data: List[Dict], environment_tag: str = "non-prod") -> List[Dict]:
+  |                                                           ^^^^
+5 |     """
+6 |     Evaluate log retention costs for non-production environments.
+  |
+help: Replace with `dict`
+
+UP006 [*] Use `list` instead of `List` for type annotation
+ --> services/analysis/app/rules/r02_log_retention.py:4:104
+  |
+2 | from typing import List, Dict
+3 |
+4 | def evaluate_log_retention_costs(log_analytics_data: List[Dict], environment_tag: str = "non-prod") -> List[Dict]:
+  |                                                                                                        ^^^^
+5 |     """
+6 |     Evaluate log retention costs for non-production environments.
+  |
+help: Replace with `list`
+
+UP006 [*] Use `dict` instead of `Dict` for type annotation
+ --> services/analysis/app/rules/r02_log_retention.py:4:109
+  |
+2 | from typing import List, Dict
+3 |
+4 | def evaluate_log_retention_costs(log_analytics_data: List[Dict], environment_tag: str = "non-prod") -> List[Dict]:
+  |                                                                                                             ^^^^
+5 |     """
+6 |     Evaluate log retention costs for non-production environments.
+  |
+help: Replace with `dict`
+
 I001 [*] Import block is un-sorted or un-formatted
  --> services/analysis/app/rules/rule_01_dev_box_autostop.py:2:1
   |
@@ -2516,6 +2595,18 @@ T201 `print` found
    |     ^^^^^
    |
 help: Remove `print`
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> services/tests/test_rule_r02_log_retention.py:2:1
+  |
+1 |   # EVA-STORY: ACA-03-012
+2 | / import pytest
+3 | | from services.analysis.app.rules.r02_log_retention import evaluate_log_retention_costs
+  | |______________________________________________________________________________________^
+4 |
+5 |   def test_evaluate_log_retention_costs_positive():
+  |
+help: Organize imports
 
 I001 [*] Import block is un-sorted or un-formatted
  --> services/tests/test_tier1_gating.py:2:1
