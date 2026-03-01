@@ -1,12 +1,17 @@
 {
   "story_id": "ACA-03-002",
-  "title": "Rule 01 -- Dev Box autostop",
-  "phase": "D|P|D|C|A",
-  "timestamp": "2026-02-28T17:55:46Z",
+  "title": "As the system I handle a rule failure in isolation (one rule crash does not",
+  "phase": "A",
+  "timestamp": "2026-03-01T13:07:12Z",
   "artifacts": [
-    "services/analysis/app/rules/devbox_autostop.py"
+    "services/analysis/app/main.py (update run_analysis to wrap each rule in try-except)"
   ],
   "test_result": "WARN",
   "lint_result": "WARN",
-  "commit_sha": "7dcc0dfda1d171f8c553e82a2fdb2b41b4884d7c"
+  "commit_sha": "e2b091c9941eb70d7c78c9c162af9806649b9d3b",
+  "duration_ms": 6088,
+  "tokens_used": 0,
+  "test_count_before": 0,
+  "test_count_after": 0,
+  "files_changed": 1
 }
