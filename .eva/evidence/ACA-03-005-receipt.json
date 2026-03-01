@@ -1,12 +1,18 @@
 {
   "story_id": "ACA-03-005",
-  "title": "Rule 04 -- Compute scheduling",
-  "phase": "D|P|D|C|A",
-  "timestamp": "2026-02-28T17:55:59Z",
+  "title": "As the system I write findingsSummary to the analysis run record",
+  "phase": "A",
+  "timestamp": "2026-03-01T14:29:49Z",
   "artifacts": [
-    "services/analysis/app/rules/compute_scheduling.py"
+    "services/analysis/app/main.py",
+    "services/tests/test_findings_summary.py"
   ],
   "test_result": "WARN",
   "lint_result": "WARN",
-  "commit_sha": "5fe4353d21faad2fe536ededfa913fb129612653"
+  "commit_sha": "a870a35505239437337c5eaf3d91190cd3315e4c",
+  "duration_ms": 7755,
+  "tokens_used": 0,
+  "test_count_before": 0,
+  "test_count_after": 0,
+  "files_changed": 2
 }

@@ -13,7 +13,7 @@ help: Organize imports
 I001 [*] Import block is un-sorted or un-formatted
  --> services/analysis/app/main.py:2:1
   |
-1 |   # EVA-STORY: ACA-03-004
+1 |   # EVA-STORY: ACA-03-005
 2 | / from app.db.cosmos import upsert_item
 3 | | from app.settings import get_settings
 4 | | from app.services.findings_gate import gate_findings
@@ -27,7 +27,7 @@ help: Organize imports
 F401 [*] `app.settings.get_settings` imported but unused
  --> services/analysis/app/main.py:3:26
   |
-1 | # EVA-STORY: ACA-03-004
+1 | # EVA-STORY: ACA-03-005
 2 | from app.db.cosmos import upsert_item
 3 | from app.settings import get_settings
   |                          ^^^^^^^^^^^^
@@ -35,6 +35,17 @@ F401 [*] `app.settings.get_settings` imported but unused
 5 | import logging
   |
 help: Remove unused import: `app.settings.get_settings`
+
+C401 Unnecessary generator (rewrite as a set comprehension)
+  --> services/analysis/app/main.py:29:32
+   |
+27 |             "totalSavingLow": sum(f["estimated_saving_low"] for f in self.findings),
+28 |             "totalSavingHigh": sum(f["estimated_saving_high"] for f in self.findings),
+29 |             "categories": list(set(f["category"] for f in self.findings))
+   |                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+30 |         }
+   |
+help: Rewrite as a set comprehension
 
 I001 [*] Import block is un-sorted or un-formatted
  --> services/analysis/app/models.py:2:1
@@ -2383,6 +2394,42 @@ F401 [*] `services.api.app.services.findings_gate.TIER2_FIELDS` imported but unu
 5 | FULL_FINDING = {
   |
 help: Remove unused import: `services.api.app.services.findings_gate.TIER2_FIELDS`
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> services/tests/test_findings_summary.py:2:1
+  |
+1 |   # EVA-STORY: ACA-03-005
+2 | / import pytest
+3 | | from unittest.mock import MagicMock
+4 | | from services.analysis.app.main import AnalysisRun
+  | |__________________________________________________^
+5 |
+6 |   def test_findings_summary_aggregation():
+  |
+help: Organize imports
+
+F401 [*] `pytest` imported but unused
+ --> services/tests/test_findings_summary.py:2:8
+  |
+1 | # EVA-STORY: ACA-03-005
+2 | import pytest
+  |        ^^^^^^
+3 | from unittest.mock import MagicMock
+4 | from services.analysis.app.main import AnalysisRun
+  |
+help: Remove unused import: `pytest`
+
+C401 Unnecessary generator (rewrite as a set comprehension)
+  --> services/tests/test_findings_summary.py:24:32
+   |
+22 |             "totalSavingLow": sum(f["estimated_saving_low"] for f in self.findings),
+23 |             "totalSavingHigh": sum(f["estimated_saving_high"] for f in self.findings),
+24 |             "categories": list(set(f["category"] for f in self.findings))
+   |                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+25 |         }
+26 |     }, partition_key=self.subscription_id)
+   |
+help: Rewrite as a set comprehension
 
 I001 [*] Import block is un-sorted or un-formatted
   --> services/tests/test_jwt_dep.py:8:1

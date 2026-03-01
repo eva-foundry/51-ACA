@@ -1,4 +1,4 @@
-# EVA-STORY: ACA-03-004
+# EVA-STORY: ACA-03-005
 from app.db.cosmos import upsert_item
 from app.settings import get_settings
 from app.services.findings_gate import gate_findings
@@ -22,12 +22,20 @@ class AnalysisRun:
         self.findings.extend(findings)
 
     def persist(self):
+        findings_summary = {
+            "findingCount": len(self.findings),
+            "totalSavingLow": sum(f["estimated_saving_low"] for f in self.findings),
+            "totalSavingHigh": sum(f["estimated_saving_high"] for f in self.findings),
+            "categories": list(set(f["category"] for f in self.findings))
+        }
+
         doc = {
             "id": self.run_id,
             "subscriptionId": self.subscription_id,
             "failed_rules": self.failed_rules,
             "findings": self.findings,
             "status": self.status,
+            "findingsSummary": findings_summary
         }
         upsert_item("analysis_runs", doc, partition_key=self.subscription_id)
 
