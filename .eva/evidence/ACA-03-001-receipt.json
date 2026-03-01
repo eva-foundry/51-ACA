@@ -1,13 +1,29 @@
 {
   "story_id": "ACA-03-001",
-  "title": "Load and run all 12 rules in sequence",
-  "phase": "D|P|D|C|A",
-  "timestamp": "2026-02-28T18:17:08Z",
+  "title": "As the system I load all 12 rules from ALL_RULES and run each in sequence",
+  "phase": "A",
+  "timestamp": "2026-03-01T12:48:44Z",
   "artifacts": [
     "services/analysis/app/rules/__init__.py",
-    "services/analysis/app/main.py"
+    "services/analysis/app/rules/rule_01_dev_box_autostop.py",
+    "services/analysis/app/rules/rule_02_vm_right_sizing.py",
+    "services/analysis/app/rules/rule_03_reserved_instances.py",
+    "services/analysis/app/rules/rule_04_storage_tiering.py",
+    "services/analysis/app/rules/rule_05_unattached_disks.py",
+    "services/analysis/app/rules/rule_06_snapshot_cleanup.py",
+    "services/analysis/app/rules/rule_07_idle_app_services.py",
+    "services/analysis/app/rules/rule_08_oversized_cosmos.py",
+    "services/analysis/app/rules/rule_09_network_optimization.py",
+    "services/analysis/app/rules/rule_10_openai_throttling.py",
+    "services/analysis/app/rules/rule_11_rbac_hygiene.py",
+    "services/analysis/app/rules/rule_12_zombie_resources.py"
   ],
   "test_result": "WARN",
   "lint_result": "WARN",
-  "commit_sha": "757e60a0fc28bbe9ee57573f6d24aad18b86a624"
+  "commit_sha": "d9f2a44c2780f173da16aaa8587e10f5e557e1bc",
+  "duration_ms": 13117,
+  "tokens_used": 0,
+  "test_count_before": 0,
+  "test_count_after": 0,
+  "files_changed": 13
 }
