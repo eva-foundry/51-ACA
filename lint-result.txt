@@ -373,6 +373,17 @@ T201 `print` found
 help: Remove `print`
 
 I001 [*] Import block is un-sorted or un-formatted
+ --> services/analysis/app/rules/r08_acr_consolidation.py:2:1
+  |
+1 | # EVA-STORY: ACA-03-018
+2 | from app.db.cosmos import query_items
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+3 |
+4 | def evaluate_acr_consolidation(subscription_id: str, scan_id: str) -> list[dict]:
+  |
+help: Organize imports
+
+I001 [*] Import block is un-sorted or un-formatted
  --> services/analysis/app/rules/rule_01_dev_box_autostop.py:2:1
   |
 1 | # EVA-STORY: ACA-03-011
@@ -2931,6 +2942,31 @@ F401 [*] `datetime.datetime` imported but unused
 5 | from app.analysis.app.rules.r07_search_sku_oversize import analyze_search_costs
   |
 help: Remove unused import: `datetime.datetime`
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> services/tests/test_rule_r08_acr_consolidation.py:2:1
+  |
+1 |   # EVA-STORY: ACA-03-018
+2 | / import pytest
+3 | | from unittest.mock import MagicMock
+4 | | from app.db.cosmos import query_items
+5 | | from services.analysis.app.rules.r08_acr_consolidation import evaluate_acr_consolidation
+  | |________________________________________________________________________________________^
+6 |
+7 |   def test_evaluate_acr_consolidation_positive():
+  |
+help: Organize imports
+
+F401 [*] `pytest` imported but unused
+ --> services/tests/test_rule_r08_acr_consolidation.py:2:8
+  |
+1 | # EVA-STORY: ACA-03-018
+2 | import pytest
+  |        ^^^^^^
+3 | from unittest.mock import MagicMock
+4 | from app.db.cosmos import query_items
+  |
+help: Remove unused import: `pytest`
 
 I001 [*] Import block is un-sorted or un-formatted
  --> services/tests/test_tier1_gating.py:2:1
