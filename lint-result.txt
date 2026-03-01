@@ -283,6 +283,17 @@ F401 [*] `app.models.Finding` imported but unused
 help: Remove unused import: `app.models.Finding`
 
 I001 [*] Import block is un-sorted or un-formatted
+ --> services/analysis/app/rules/r06_stale_environments.py:2:1
+  |
+1 | # EVA-STORY: ACA-03-016
+2 | from app.db.cosmos import query_items
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+3 |
+4 | def evaluate_r06_stale_environments(subscription_id: str, scan_id: str) -> list[dict]:
+  |
+help: Organize imports
+
+I001 [*] Import block is un-sorted or un-formatted
  --> services/analysis/app/rules/rule_01_dev_box_autostop.py:2:1
   |
 1 | # EVA-STORY: ACA-03-011
@@ -2756,6 +2767,43 @@ F401 [*] `pytest` imported but unused
 4 | from services.analysis.app.rules.r05_anomaly_detection import detect_anomalies
   |
 help: Remove unused import: `pytest`
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> services/tests/test_rule_r06_stale_environments.py:2:1
+  |
+1 |   # EVA-STORY: ACA-03-016
+2 | / import pytest
+3 | | from unittest.mock import MagicMock
+4 | | from app.db.cosmos import query_items
+5 | | from services.analysis.app.rules.r06_stale_environments import evaluate_r06_stale_environments
+  | |______________________________________________________________________________________________^
+6 |
+7 |   @pytest.fixture
+  |
+help: Organize imports
+
+F401 [*] `unittest.mock.MagicMock` imported but unused
+ --> services/tests/test_rule_r06_stale_environments.py:3:27
+  |
+1 | # EVA-STORY: ACA-03-016
+2 | import pytest
+3 | from unittest.mock import MagicMock
+  |                           ^^^^^^^^^
+4 | from app.db.cosmos import query_items
+5 | from services.analysis.app.rules.r06_stale_environments import evaluate_r06_stale_environments
+  |
+help: Remove unused import: `unittest.mock.MagicMock`
+
+F401 [*] `app.db.cosmos.query_items` imported but unused
+ --> services/tests/test_rule_r06_stale_environments.py:4:27
+  |
+2 | import pytest
+3 | from unittest.mock import MagicMock
+4 | from app.db.cosmos import query_items
+  |                           ^^^^^^^^^^^
+5 | from services.analysis.app.rules.r06_stale_environments import evaluate_r06_stale_environments
+  |
+help: Remove unused import: `app.db.cosmos.query_items`
 
 I001 [*] Import block is un-sorted or un-formatted
  --> services/tests/test_tier1_gating.py:2:1

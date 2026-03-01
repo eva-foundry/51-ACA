@@ -1,12 +1,18 @@
 {
   "story_id": "ACA-03-016",
-  "title": "GB-03 -- Resource Graph pagination",
-  "phase": "D|P|D|C|A",
-  "timestamp": "2026-02-28T17:56:59Z",
+  "title": "As the system I implement R-06 rule: returns finding when >= 3 App Service sites exist",
+  "phase": "A",
+  "timestamp": "2026-03-01T16:15:59Z",
   "artifacts": [
-    "services/collector/app/resource_graph.py"
+    "services/analysis/app/rules/r06_stale_environments.py",
+    "services/tests/test_rule_r06_stale_environments.py"
   ],
   "test_result": "WARN",
   "lint_result": "WARN",
-  "commit_sha": "2e2a93acacf22873d6df7962e7d2f7464a885365"
+  "commit_sha": "e4585132d285329466f98f9b16d146ab108b00ca",
+  "duration_ms": 7038,
+  "tokens_used": 0,
+  "test_count_before": 0,
+  "test_count_after": 0,
+  "files_changed": 2
 }

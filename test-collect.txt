@@ -4,7 +4,7 @@ rootdir: /home/runner/work/51-ACA/51-ACA
 configfile: pyproject.toml
 plugins: anyio-4.12.1, asyncio-1.3.0
 asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
-collected 27 items / 5 errors
+collected 29 items / 5 errors
 
 <Dir 51-ACA>
   <Dir services>
@@ -42,6 +42,9 @@ collected 27 items / 5 errors
       <Module test_rule_r02_log_retention.py>
         <Function test_evaluate_log_retention_costs_positive>
         <Function test_evaluate_log_retention_costs_negative>
+      <Module test_rule_r06_stale_environments.py>
+        <Function test_r06_stale_environments_positive[mock_query_items]>
+        <Function test_r06_stale_environments_negative[mock_query_items_negative]>
       <Module test_tier1_gating.py>
         <Function test_tier1_strips_sensitive_fields>
       <Module test_token_service.py>
@@ -154,4 +157,4 @@ ERROR services/tests/test_rule_r03_defender_mismatch.py
 ERROR services/tests/test_rule_r04_compute_scheduling.py
 ERROR services/tests/test_rule_r05_anomaly_detection.py
 !!!!!!!!!!!!!!!!!!! Interrupted: 5 errors during collection !!!!!!!!!!!!!!!!!!!!
-==================== 27 tests collected, 5 errors in 1.10s =====================
+==================== 29 tests collected, 5 errors in 0.74s =====================
