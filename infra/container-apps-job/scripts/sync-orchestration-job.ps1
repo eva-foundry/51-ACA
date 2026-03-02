@@ -34,7 +34,8 @@ $script:logFile = "/app/logs/sync-${CorrelationId}.log"
 
 # Import checkpoint-resume module
 . "/app/scripts/Checkpoint-Resume.ps1" -ErrorAction Stop
-
+# Import rollback manager module
+. "/app/scripts/Rollback-Manager.ps1" -ErrorAction Stop
 function Write-Log {
     param([string]$Message, [string]$Level = "INFO")
     $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss.fff"
@@ -168,8 +169,23 @@ function Invoke-EpicSyncOrchestration {
     
     $dataModelUrl = $env:DATA_MODEL_URL ?? "https://marco-eva-data-model.livelyflower-7990bc7b.canadacentral.azurecontainerapps.io"
     $checkpointDir = "/app/state/checkpoints"
+    $rollbackDir = "/app/state/rollback"
     
-    # Load last checkpoint to determine resume point
+    # >>> STEP 1: CREATE PRE-SYNC SNAPSHOT (for rollback capability)
+    Write-Log ""
+    Write-Log "STEP 1: Creating pre-sync snapshot..."
+    $snapshotResult = New-RollbackSnapshot -DataModelUrl $dataModelUrl -CorrelationId $CorrelationId -SnapshotDir $rollbackDir -LogFunction $script:retryLogger
+    if (-not $snapshotResult.success) {
+        Write-Log "⚠ Warning: Snapshot creation failed (non-fatal): $($snapshotResult.error)" "WARN"
+        $snapshotFile = $null
+    } else {
+        Write-Log "✓ Snapshot created: $($snapshotResult.storyCount) stories, file: $($snapshotResult.snapshotFile)" "PASS"
+        $snapshotFile = $snapshotResult.snapshotFile
+    }
+    
+    # >>> STEP 2: LOAD CHECKPOINT TO DETERMINE RESUME POINT
+    Write-Log ""
+    Write-Log "STEP 2: Loading checkpoint for resume detection..."
     $lastCheckpoint = Get-LastCheckpoint -CheckpointDir $checkpointDir -LogFunction $script:retryLogger
     $syncStartIndex = 0
     
@@ -177,12 +193,16 @@ function Invoke-EpicSyncOrchestration {
         $syncStartIndex = Get-ResumeStartIndex -StoryList $stories -Checkpoint $lastCheckpoint
         Write-Log "Resuming from checkpoint: continuing from story index $syncStartIndex (story: $($stories[$syncStartIndex]))" "INFO"
     } else {
-        Write-Log "No checkpoint found - starting fresh from beginning" "INFO"
+        Write-Log "No previous checkpoint found - starting fresh from beginning" "INFO"
     }
     
+    # >>> STEP 3: SYNC ORCHESTRATION LOOP
     $successCount = 0
     $failureCount = 0
     $retryStats = @{ totalRetries = 0; successAfterRetry = 0; failedAfterRetries = 0 }
+    
+    Write-Log ""
+    Write-Log "STEP 3: Beginning sync orchestration..."
     
     for ($i = $syncStartIndex; $i -lt $stories.Count; $i++) {
         $storyId = $stories[$i]
@@ -238,8 +258,33 @@ function Invoke-EpicSyncOrchestration {
         }
     }
     
+    # >>> STEP 4: HANDLE COMPLETION/FAILURE
+    Write-Log ""
+    Write-Log "STEP 4: Finalizing sync operation..."
+    
+    # If sync failed partway, restore from snapshot
+    if ($failureCount -gt 0 -and $null -ne $snapshotFile) {
+        Write-Log ""
+        Write-Log "Sync completed with failures ($failureCount). Attempting rollback to pre-sync state..." "WARN"
+        $rollbackResult = Restore-RollbackSnapshot -SnapshotFile $snapshotFile -DataModelUrl $dataModelUrl -LogFunction $script:retryLogger
+        if ($rollbackResult.success) {
+            Write-Log "✓ Rollback successful: $($rollbackResult.restored) stories restored" "PASS"
+        } else {
+            Write-Log "✗ Rollback failed: $($rollbackResult.error)" "FAIL"
+        }
+    } else {
+        # Sync success or no snapshot - cleanup snapshot file
+        if ($null -ne $snapshotFile) {
+            $clearResult = Clear-RollbackSnapshot -SnapshotFile $snapshotFile
+            if ($clearResult.success) {
+                Write-Log "Snapshot archived (for audit trail): $($clearResult.archivedTo)" "DEBUG"
+            }
+        }
+    }
+    
     # Log circuit breaker status
     $cbStatus = Get-CircuitBreakerStatus
+    Write-Log ""
     Write-Log "Circuit Breaker Status:"
     foreach ($cb in $cbStatus) {
         Write-Log "  - $($cb.name): state=$($cb.state), failures=$($cb.failure_count)/$($cb.failure_threshold)"
@@ -265,7 +310,17 @@ function Invoke-EpicSyncOrchestration {
         Write-Log "  No valid checkpoint found"
     }
     
-    return @{ success = $successCount; failed = $failureCount; retryStats = $retryStats }
+    # Log rollback status
+    Write-Log ""
+    Write-Log "Rollback Status:"
+    $rbStatus = Get-RollbackStatus -SnapshotDir $rollbackDir
+    Write-Log "  Active snapshots: $($rbStatus.snapshots)"
+    Write-Log "  Archived snapshots: $($rbStatus.archives)"
+    if ($rbStatus.latest) {
+        Write-Log "  Latest snapshot: $($rbStatus.latest.correlationId) ($($rbStatus.latest.storyCount) stories)"
+    }
+    
+    return @{ success = $successCount; failed = $failureCount; retryStats = $retryStats; snapshot = $snapshotFile }
 }
 
 # ============================================================================
