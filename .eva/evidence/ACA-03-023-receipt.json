@@ -1,0 +1,21 @@
+{
+  "story_id": "ACA-03-023",
+  "phase": "D",
+  "timestamp": "2026-03-02T13:19:58.004532+00:00",
+  "artifacts": [
+    "services/analysis/tests/rules/test_devbox_autostop.py",
+    "services/analysis/tests/rules/test_log_retention.py",
+    "services/analysis/tests/rules/test_defender_mismatch.py",
+    "services/analysis/tests/rules/test_compute_scheduling.py",
+    "services/analysis/tests/rules/test_anomaly_detection.py"
+  ],
+  "test_result": "FAIL",
+  "commit_sha": "1de026dd1c446f1d241d1f329783d6711b4b7e80",
+  "metrics": {
+    "duration_ms": 4592,
+    "tokens_used": 6200,
+    "test_count_before": 8,
+    "test_count_after": 23,
+    "files_changed": 5
+  }
+}
