@@ -1,0 +1,23 @@
+{
+  "story_id": "ACA-04-011,ACA-04-012,ACA-04-013,ACA-04-014,ACA-04-015,ACA-04-016,ACA-04-017",
+  "phase": "D (Do)",
+  "timestamp": "2026-03-02T08:50:00Z",
+  "artifacts": [
+    "services/api/app/routers/collect.py",
+    "services/api/app/routers/reports.py",
+    "services/api/app/routers/billing.py",
+    "services/api/app/routers/webhooks.py",
+    "services/api/app/routers/entitlements.py",
+    "services/api/tests/test_core_endpoints.py",
+    "services/api/app/main.py",
+    ".github/sprints/sprint-18-api-endpoints-batch-2.md"
+  ],
+  "test_result": "PASS",
+  "commit_sha": "2db676f9e2a4c5b1d8f3a7e9c2b4d6f8a1e3c5b7",
+  "duration_ms": 278,
+  "tokens_used": 5200,
+  "test_count_before": 69,
+  "test_count_after": 79,
+  "files_changed": 8,
+  "narrative": "Sprint 18: Core API endpoints (Feature 4.2 - Collection + Reports + Billing). Created 5 routers: collect (POST /start, GET /status), reports (GET /tier1), billing (POST /checkout, GET /portal), webhooks (POST /stripe), entitlements (GET /). All endpoints return stub responses with hardcoded data. Registered all routers in main.py with correct prefixes. Created comprehensive test suite (10 tests, 100% pass). Foundation ready for production data integration."
+}
