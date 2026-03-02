@@ -32,6 +32,9 @@ $script:logFile = "/app/logs/sync-${CorrelationId}.log"
 # Import health diagnostics module
 . "/app/scripts/Health-Diagnostics.ps1" -ErrorAction Stop
 
+# Import checkpoint-resume module
+. "/app/scripts/Checkpoint-Resume.ps1" -ErrorAction Stop
+
 function Write-Log {
     param([string]$Message, [string]$Level = "INFO")
     $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss.fff"
@@ -152,7 +155,7 @@ function Save-Checkpoint {
 # ============================================================================
 
 function Invoke-EpicSyncOrchestration {
-    param([string]$ResumFromStory)
+    param([string]$ResumeFromStory)
     
     # StubData: 21 Epic 15 stories (in real runtime, fetch from data model WBS)
     $stories = @(
@@ -164,10 +167,17 @@ function Invoke-EpicSyncOrchestration {
     )
     
     $dataModelUrl = $env:DATA_MODEL_URL ?? "https://marco-eva-data-model.livelyflower-7990bc7b.canadacentral.azurecontainerapps.io"
+    $checkpointDir = "/app/state/checkpoints"
+    
+    # Load last checkpoint to determine resume point
+    $lastCheckpoint = Get-LastCheckpoint -CheckpointDir $checkpointDir -LogFunction $script:retryLogger
     $syncStartIndex = 0
-    if ($ResumFromStory) {
-        $syncStartIndex = [array]::IndexOf($stories, $ResumFromStory) + 1
-        Write-Log "Resuming from story index $syncStartIndex ($ResumFromStory)" "INFO"
+    
+    if ($null -ne $lastCheckpoint) {
+        $syncStartIndex = Get-ResumeStartIndex -StoryList $stories -Checkpoint $lastCheckpoint
+        Write-Log "Resuming from checkpoint: continuing from story index $syncStartIndex (story: $($stories[$syncStartIndex]))" "INFO"
+    } else {
+        Write-Log "No checkpoint found - starting fresh from beginning" "INFO"
     }
     
     $successCount = 0
@@ -176,7 +186,8 @@ function Invoke-EpicSyncOrchestration {
     
     for ($i = $syncStartIndex; $i -lt $stories.Count; $i++) {
         $storyId = $stories[$i]
-        Write-Log "Syncing story: $storyId ($($i+1)/$($stories.Count))"
+        $currentProgress = $i + 1
+        Write-Log "Syncing story: $storyId ($currentProgress/$($stories.Count))" "INFO"
         
         # Check circuit breaker BEFORE attempting sync (prevents cascading failures)
         if (Test-CircuitBreakerOpen -Name "cosmos-sync" -FailureThreshold 5 -HalfOpenTimeout 60 -LogFunction $script:retryLogger) {
@@ -188,7 +199,8 @@ function Invoke-EpicSyncOrchestration {
         if ($DryRun) {
             Write-Log "  [DRY RUN] Would sync $storyId"
             $successCount++
-            Save-Checkpoint $storyId
+            # Save checkpoint after each story (including dry run)
+            Save-Checkpoint -StoryId $storyId -CorrelationId $CorrelationId -TotalCompleted $successCount -ExpectedTotal $stories.Count -CheckpointDir $checkpointDir -LogFunction $script:retryLogger
         } else {
             try {
                 # Wrap in Invoke-With-Retry with exponential backoff
@@ -212,7 +224,8 @@ function Invoke-EpicSyncOrchestration {
                     -LogFunction $script:retryLogger
                 
                 $successCount++
-                Save-Checkpoint $storyId
+                # Save checkpoint after successful sync (THIS IS KEY - per-story checkpoint)
+                Save-Checkpoint -StoryId $storyId -CorrelationId $CorrelationId -TotalCompleted $successCount -ExpectedTotal $stories.Count -CheckpointDir $checkpointDir -LogFunction $script:retryLogger
                 Write-Log "  ✓ Successfully synced: $storyId" "PASS"
                 Record-CircuitBreakerSuccess -Name "cosmos-sync" -LogFunction $script:retryLogger
                 
@@ -240,6 +253,17 @@ function Invoke-EpicSyncOrchestration {
     Write-Log "    - Total retry attempts: $($retryStats.totalRetries)"
     Write-Log "    - Succeeded after retry: $($retryStats.successAfterRetry)"
     Write-Log "    - Failed after retries: $($retryStats.failedAfterRetries)"
+    
+    # Log checkpoint status
+    Write-Log ""
+    Write-Log "Checkpoint Status:"
+    $cpStatus = Get-CheckpointStatus -CheckpointDir $checkpointDir
+    if ($cpStatus.valid) {
+        Write-Log "  Last checkpoint: $($cpStatus.last_story) ($($cpStatus.completed)/$($cpStatus.expected) completed)"
+        Write-Log "  File: $($cpStatus.file)"
+    } else {
+        Write-Log "  No valid checkpoint found"
+    }
     
     return @{ success = $successCount; failed = $failureCount; retryStats = $retryStats }
 }
