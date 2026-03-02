@@ -26,6 +26,9 @@ $script:logFile = "/app/logs/sync-${CorrelationId}.log"
 # Import retry module
 . "/app/scripts/Invoke-With-Retry.ps1" -ErrorAction Stop
 
+# Import circuit breaker module
+. "/app/scripts/Circuit-Breaker.ps1" -ErrorAction Stop
+
 function Write-Log {
     param([string]$Message, [string]$Level = "INFO")
     $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss.fff"
@@ -55,6 +58,12 @@ function Invoke-HealthCheck {
     
     $dataModelUrl = $env:DATA_MODEL_URL ?? "https://marco-eva-data-model.livelyflower-7990bc7b.canadacentral.azurecontainerapps.io"
     
+    # Check circuit breaker BEFORE attempting health checks
+    if (Test-CircuitBreakerOpen -Name "health-check" -FailureThreshold 3 -HalfOpenTimeout 60 -LogFunction $script:retryLogger) {
+        Write-Log "⚠ Health check circuit breaker OPEN - fast failing (service likely down)" "WARN"
+        return @{ healthy = $false; reason = "health_check_circuit_breaker_open" }
+    }
+    
     # Check 1: Data Model API reachability (with retry)
     $dataModelHealthy = $false
     try {
@@ -67,9 +76,11 @@ function Invoke-HealthCheck {
             Write-Log "⚠ Data Model storage: $($response.store) (expected cosmos)" "WARN"
         }
         $dataModelHealthy = $true
+        Record-CircuitBreakerSuccess -Name "health-check" -LogFunction $script:retryLogger
     } catch {
         Write-Log "✗ Data Model API: unreachable (error: $($_.Exception.Message))" "FAIL"
         $dataModelHealthy = $false
+        Record-CircuitBreakerFailure -Name "health-check" -FailureThreshold 3 -HalfOpenTimeout 60 -LogFunction $script:retryLogger
     }
     
     # Check 2: Cosmos DB connectivity (with retry)
@@ -85,6 +96,7 @@ function Invoke-HealthCheck {
     } catch {
         Write-Log "✗ Cosmos DB: unreachable or slow" "FAIL"
         $cosmosHealthy = $false
+        Record-CircuitBreakerFailure -Name "health-check" -FailureThreshold 3 -HalfOpenTimeout 60 -LogFunction $script:retryLogger
     }
     
     # Overall: fail fast if either check fails
@@ -174,6 +186,13 @@ function Invoke-EpicSyncOrchestration {
         $storyId = $stories[$i]
         Write-Log "Syncing story: $storyId ($($i+1)/$($stories.Count))"
         
+        # Check circuit breaker BEFORE attempting sync (prevents cascading failures)
+        if (Test-CircuitBreakerOpen -Name "cosmos-sync" -FailureThreshold 5 -HalfOpenTimeout 60 -LogFunction $script:retryLogger) {
+            Write-Log "  ⚠ Cosmos circuit breaker OPEN - fast failing $storyId (permanent failure detected)" "WARN"
+            $failureCount++
+            continue  # Skip to next story, no retry
+        }
+        
         if ($DryRun) {
             Write-Log "  [DRY RUN] Would sync $storyId"
             $successCount++
@@ -203,13 +222,22 @@ function Invoke-EpicSyncOrchestration {
                 $successCount++
                 Save-Checkpoint $storyId
                 Write-Log "  ✓ Successfully synced: $storyId" "PASS"
+                Record-CircuitBreakerSuccess -Name "cosmos-sync" -LogFunction $script:retryLogger
                 
             } catch {
                 Write-Log "  ✗ Failed after retries: $storyId (error: $($_.Exception.Message))" "FAIL"
                 $failureCount++
                 $retryStats.failedAfterRetries++
+                Record-CircuitBreakerFailure -Name "cosmos-sync" -FailureThreshold 5 -HalfOpenTimeout 60 -LogFunction $script:retryLogger
             }
         }
+    }
+    
+    # Log circuit breaker status
+    $cbStatus = Get-CircuitBreakerStatus
+    Write-Log "Circuit Breaker Status:"
+    foreach ($cb in $cbStatus) {
+        Write-Log "  - $($cb.name): state=$($cb.state), failures=$($cb.failure_count)/$($cb.failure_threshold)"
     }
     
     Write-Log ""
