@@ -1,0 +1,22 @@
+{
+  "story_id": "ACA-04-001,ACA-04-004,ACA-04-005,ACA-04-009,ACA-04-007",
+  "phase": "D (Do)",
+  "timestamp": "2026-03-02T08:42:00Z",
+  "artifacts": [
+    "services/api/app/auth/msal_client.py",
+    "services/api/app/auth/session.py",
+    "services/api/app/auth/probes.py",
+    "services/api/app/routers/auth.py",
+    "services/api/tests/test_auth.py",
+    "frontend/src/pages/LoginPage.tsx",
+    ".github/sprints/sprint-17-api-auth-routes-batch-1.md"
+  ],
+  "test_result": "PASS",
+  "commit_sha": "d20a43a06cc96c3a2d9a8f5e1c4b2d8e9faa0b1c",
+  "duration_ms": 312,
+  "tokens_used": 6800,
+  "test_count_before": 64,
+  "test_count_after": 69,
+  "files_changed": 7,
+  "narrative": "Sprint 17: API authentication routes (Feature 4.1 - Sign-in & Connect). Created multi-tenant MSAL client (authority=common), session extraction utilities, 5 preflight probes (RBAC/Cosmos/KV/Storage/AppInsights), auth router with 4 endpoints (connect/disconnect/preflight/health), API test suite (5 tests, 100% pass), and React LoginPage with MSAL.js integration. Foundation established for subscriber connection flow."
+}
