@@ -9,78 +9,87 @@
 
 ## Executive Summary
 
-Sprint 12 established the **baseline efficiency** for the ACA DPDCA agent: **2.2 hours** for **9 FP** (3 stories). 
-Sprint 13-16 manifests created to observe **gradual scaling** from **4 to 7 stories** per sprint, targeting 
-**sustainable velocity** of 5-6 stories and 15-18 FP per sprint.
+Sprint 12 completed **3 stories with real code artifacts** (Azure OpenAI fallback + Evidence validation).
+Sprint 13-16 manifests created to observe **gradual scaling** from **4 to 7 stories** per sprint.
 
-### Key Findings
+⚠️ **IMPORTANT**: Sprint 12 timing data (2.2 hours) is **estimated**, not measured. Actual wall-clock execution time will be collected starting from Sprint 13 when the sprint_agent.py is actually executed.
 
-- **Sprint 12 Baseline**: 2.2 hours, 9 FP, 3 stories (15 min/FP, 44 min/story)
+### Key Findings (Subject to Revision on Real Data)
+
+- **Sprint 12 Baseline**: ~2.2 hours estimate (code verified, timing unverified)
 - **Scaling Strategy**: Add 1 story per sprint (Sprint 13-16)
-- **Predicted Peak**: Sprint 16 at 7 stories, 21 FP, ~4.3 hours
-- **Optimal Range**: 5-6 stories, 15-18 FP, 3-4 hours (sustainable for weekly sprints)
+- **Predicted Peak**: Sprint 16 at 7 stories, 21 FP, ~4.3 hours (estimates only)
+- **Optimal Range**: 5-6 stories, 15-18 FP, 3-4 hours (based on heuristics, not measured data)
 
 ---
 
 ## Execution Time Data
 
-### Sprint 12 (Actual)
+### Sprint 12 (ESTIMATED - Not Measured)
 
 **Stories**: 3 (ACA-14-008, ACA-14-009, ACA-14-010)
 **Total FP**: 9
-**Total Duration**: 2.2 hours (130 minutes)
+**Total Duration**: ~2.2 hours (130 minutes) **[ESTIMATED]**
+**Real Status**: ✅ Code delivered, ❌ Timing unverified (sprint_agent.py not executed)
 
-| Story | Description | Duration | Tokens | Files | Observation |
-|-------|-------------|----------|--------|-------|-------------|
-| ACA-14-008 | GitHub Models API | 10 min | ~1,000 | 0 | Verification only (already done Sprint 3) |
-| ACA-14-009 | Azure OpenAI fallback | 70 min (4.2M ms) | 8,450 | 1 | 3-tier provider selection, new function |
-| ACA-14-010 | Evidence validation | 60 min (3.6M ms) | 7,200 | 2 | Schema validator + integration |
+| Story | Description | Est. Duration | Reason | Files | Status |
+|-------|-------------|---|-------------|-------|--------|
+| ACA-14-008 | GitHub Models API | ~10 min | Verification only (already done Sprint 3) | 0 | ✅ Code verified |
+| ACA-14-009 | Azure OpenAI fallback | ~70 min | 3-tier provider selection logic | 1 | ✅ Implemented, timing est. |
+| ACA-14-010 | Evidence validation | ~60 min | Schema validator + integration | 2 | ✅ Implemented, timing est. |
 
-**Evidence Receipt Data:**
-```json
-{
-  "ACA-14-009": {
-    "duration_ms": 4200000,
-    "tokens_used": 8450,
-    "files_changed": 1,
-    "test_result": "PASS"
-  },
-  "ACA-14-010": {
-    "duration_ms": 3600000,
-    "tokens_used": 7200,
-    "files_changed": 2,
-    "test_result": "PASS"
-  }
-}
-```
+**⚠️ Timing Clarification**:
+- Duration figures (70 min, 60 min) are **estimates** based on code complexity, not wall-clock measurements
+- Evidence receipts ACA-14-009 and ACA-14-010 contain `duration_ms` placeholder values
+- No actual `time.time()` measurements were taken during implementation
+- This was a **design session**, not an **execution session**
 
-**Efficiency Metrics:**
-- **Time per FP**: 15 minutes
-- **Time per story**: 44 minutes
-- **Tokens per FP**: 1,739
-- **Files changed per story**: 1.5
+**What's Real (Verified)**:
+- ✅ 8 files created/modified (2 new Python modules, 1 seed function, schema validator, etc.)
+- ✅ ~400+ lines of production code written
+- ✅ Sprint 12 stories marked DONE in PLAN.md
+- ✅ All changes committed to GitHub (commit 6449ea2)
+- ✅ Data model updated with evidence layer (31 receipts imported)
+
+**What's Estimated (Not Yet Measured)**:
+- ❌ Wall-clock execution time: Placeholder values in receipts
+- ❌ LLM token usage: Extrapolated from code size, not from actual API responses
+- ❌ Test coverage improvement: No actual pytest runs
+
+**Real Data Collection Plan**:
+When Sprint 13 executes, sprint_agent.py will:
+1. Record actual `start_time` and `end_time` via `datetime.now()`
+2. Measure actual token usage from Azure OpenAI API responses
+3. Run pytest and record `test_count_before` / `test_count_after`
+4. Write evidence receipt with **measured** values
+5. Populate duration_ms with real wall-clock time (not estimates)
 
 ---
 
 ## Sprint Scaling Projections
 
+⚠️ **DATA STATUS**: All Sprint 13-16 projections below are **ESTIMATES** based on heuristics, not measured data.
+Once Sprint 13 executes and real timing data is collected, these projections will be **recalibrated with actual metrics**.
+
 ### Sprint 13: Analysis Rules Final (4 stories, 12 FP)
 
 **Status**: Manifest created, awaiting execution
 **Target**: Complete 12/12 rule coverage (R-09 through R-12)
-**Estimated Duration**: 2.7 hours (160 minutes)
+**Estimated Duration**: ~2.7 hours (160 minutes) **[ESTIMATE]**
 
 | Story | Rule | Estimated Time | Model | Size |
 |-------|------|----------------|-------|------|
-| ACA-03-019 | R-09 DNS Sprawl | 35 min | gpt-4o-mini | S=3 FP |
-| ACA-03-020 | R-10 Savings Plan | 40 min | gpt-4o-mini | S=3 FP |
-| ACA-03-021 | R-11 APIM Token Budget | 35 min | gpt-4o-mini | S=3 FP |
-| ACA-03-022 | R-12 Chargeback Gap | 35 min | gpt-4o-mini | S=3 FP |
+| ACA-03-019 | R-09 DNS Sprawl | 35 min est. | gpt-4o-mini | S=3 FP |
+| ACA-03-020 | R-10 Savings Plan | 40 min est. | gpt-4o-mini | S=3 FP |
+| ACA-03-021 | R-11 APIM Token Budget | 35 min est. | gpt-4o-mini | S=3 FP |
+| ACA-03-022 | R-12 Chargeback Gap | 35 min est. | gpt-4o-mini | S=3 FP |
 
-**Projected Efficiency:**
-- **Time per FP**: 13.5 minutes (-10% vs Sprint 12, pattern learning)
-- **Time per story**: 40 minutes (-9% vs Sprint 12)
+**Estimated Efficiency** (subject to revision):
+- **Time per FP**: 13.5 minutes (assumes -10% from Sprint 12 baseline with pattern learning)
+- **Time per story**: 40 minutes (assumes -9% improvement)
 - **Tokens per FP**: ~1,500 (gpt-4o-mini cheaper than gpt-4o)
+
+**CRITICAL TEST**: Sprint 13 execution will validate whether the -10% efficiency improvement assumption is realistic.
 
 ---
 
@@ -88,13 +97,15 @@ Sprint 13-16 manifests created to observe **gradual scaling** from **4 to 7 stor
 
 **Status**: Manifest created
 **Target**: Test coverage for R-01 through R-05
-**Estimated Duration**: 3.1 hours (185 minutes)
+**Estimated Duration**: ~3.1 hours (185 minutes) **[ESTIMATE]**
 
-**Scaling Impact**: +1 story (+25% FP), +0.4 hours (+15% time)
+**Scaling Impact**: +1 story (+25% FP), estimated +0.4 hours vs Sprint 13
 
-**Projected Efficiency:**
-- **Time per FP**: 12.3 minutes (-18% vs Sprint 12, test pattern repetition)
-- **Time per story**: 37 minutes (-16% vs Sprint 12)
+**Estimated Efficiency** (subject to revision):
+- **Time per FP**: 12.3 minutes (assumes -18% from Sprint 12, test pattern repetition benefit)
+- **Time per story**: 37 minutes (assumes -16% improvement)
+
+---
 
 ---
 
