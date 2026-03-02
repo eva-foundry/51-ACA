@@ -36,6 +36,10 @@ $script:logFile = "/app/logs/sync-${CorrelationId}.log"
 . "/app/scripts/Checkpoint-Resume.ps1" -ErrorAction Stop
 # Import rollback manager module
 . "/app/scripts/Rollback-Manager.ps1" -ErrorAction Stop
+
+# Import Application Insights APM module
+. "/app/scripts/Application-Insights-Logger.ps1" -ErrorAction Stop
+
 function Write-Log {
     param([string]$Message, [string]$Level = "INFO")
     $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss.fff"
@@ -170,6 +174,17 @@ function Invoke-EpicSyncOrchestration {
     $dataModelUrl = $env:DATA_MODEL_URL ?? "https://marco-eva-data-model.livelyflower-7990bc7b.canadacentral.azurecontainerapps.io"
     $checkpointDir = "/app/state/checkpoints"
     $rollbackDir = "/app/state/rollback"
+    $appInsightsKey = $env:APPINSIGHTS_INSTRUMENTATION_KEY ?? ""
+    
+    # >>> STEP 0: TEST APM CONNECTION
+    Write-Log ""
+    Write-Log "STEP 0: Testing Application Insights connection..."
+    $apmTest = Test-AppInsightsConnection -InstrumentationKey $appInsightsKey -LogFunction $script:retryLogger
+    if (-not $apmTest.success) {
+        Write-Log "⚠ Warning: Application Insights unavailable (non-blocking): $($apmTest.error)" "WARN"
+    } else {
+        Write-Log "✓ Application Insights ready (latency: $($apmTest.latency)ms)" "PASS"
+    }
     
     # >>> STEP 1: CREATE PRE-SYNC SNAPSHOT (for rollback capability)
     Write-Log ""
@@ -196,10 +211,15 @@ function Invoke-EpicSyncOrchestration {
         Write-Log "No previous checkpoint found - starting fresh from beginning" "INFO"
     }
     
+    # >>> EMIT APM: SyncStart event
+    Emit-SyncStartEvent -CorrelationId $CorrelationId -TotalStories $stories.Count `
+        -ResumeFromIndex $syncStartIndex -InstrumentationKey $appInsightsKey -LogFunction $script:retryLogger
+    
     # >>> STEP 3: SYNC ORCHESTRATION LOOP
     $successCount = 0
     $failureCount = 0
     $retryStats = @{ totalRetries = 0; successAfterRetry = 0; failedAfterRetries = 0 }
+    $orchestrationTimer = [System.Diagnostics.Stopwatch]::StartNew()
     
     Write-Log ""
     Write-Log "STEP 3: Beginning sync orchestration..."
@@ -213,6 +233,9 @@ function Invoke-EpicSyncOrchestration {
         if (Test-CircuitBreakerOpen -Name "cosmos-sync" -FailureThreshold 5 -HalfOpenTimeout 60 -LogFunction $script:retryLogger) {
             Write-Log "  ⚠ Cosmos circuit breaker OPEN - fast failing $storyId (permanent failure detected)" "WARN"
             $failureCount++
+            # EMIT APM: Circuit breaker state
+            Emit-CircuitBreakerStateChange -CircuitBreakerName "cosmos-sync" -PreviousState "CLOSED" -NewState "OPEN" `
+                -FailureCount 5 -CorrelationId $CorrelationId -InstrumentationKey $appInsightsKey -LogFunction $script:retryLogger
             continue  # Skip to next story, no retry
         }
         
@@ -221,6 +244,9 @@ function Invoke-EpicSyncOrchestration {
             $successCount++
             # Save checkpoint after each story (including dry run)
             Save-Checkpoint -StoryId $storyId -CorrelationId $CorrelationId -TotalCompleted $successCount -ExpectedTotal $stories.Count -CheckpointDir $checkpointDir -LogFunction $script:retryLogger
+            # EMIT APM: Checkpoint saved
+            Emit-CheckpointEvent -EventType "saved" -StoryId $storyId -CompletedCount $successCount `
+                -TotalExpected $stories.Count -CorrelationId $CorrelationId -InstrumentationKey $appInsightsKey -LogFunction $script:retryLogger
         } else {
             try {
                 # Wrap in Invoke-With-Retry with exponential backoff
@@ -246,6 +272,9 @@ function Invoke-EpicSyncOrchestration {
                 $successCount++
                 # Save checkpoint after successful sync (THIS IS KEY - per-story checkpoint)
                 Save-Checkpoint -StoryId $storyId -CorrelationId $CorrelationId -TotalCompleted $successCount -ExpectedTotal $stories.Count -CheckpointDir $checkpointDir -LogFunction $script:retryLogger
+                # EMIT APM: Checkpoint saved
+                Emit-CheckpointEvent -EventType "saved" -StoryId $storyId -CompletedCount $successCount `
+                    -TotalExpected $stories.Count -CorrelationId $CorrelationId -InstrumentationKey $appInsightsKey -LogFunction $script:retryLogger
                 Write-Log "  ✓ Successfully synced: $storyId" "PASS"
                 Record-CircuitBreakerSuccess -Name "cosmos-sync" -LogFunction $script:retryLogger
                 
@@ -257,6 +286,8 @@ function Invoke-EpicSyncOrchestration {
             }
         }
     }
+    
+    $orchestrationTimer.Stop()
     
     # >>> STEP 4: HANDLE COMPLETION/FAILURE
     Write-Log ""
@@ -294,6 +325,7 @@ function Invoke-EpicSyncOrchestration {
     Write-Log "Sync Summary:"
     Write-Log "  SUCCESS: $successCount"
     Write-Log "  FAILED: $failureCount"
+    Write-Log "  Duration: $($orchestrationTimer.ElapsedMilliseconds)ms"
     Write-Log "  Retry statistics:"
     Write-Log "    - Total retry attempts: $($retryStats.totalRetries)"
     Write-Log "    - Succeeded after retry: $($retryStats.successAfterRetry)"
@@ -320,7 +352,21 @@ function Invoke-EpicSyncOrchestration {
         Write-Log "  Latest snapshot: $($rbStatus.latest.correlationId) ($($rbStatus.latest.storyCount) stories)"
     }
     
-    return @{ success = $successCount; failed = $failureCount; retryStats = $retryStats; snapshot = $snapshotFile }
+    # >>> EMIT APM: SyncComplete event
+    $finalCbState = if ($cbStatus.Count -gt 0) { $cbStatus[0].state } else { "UNKNOWN" }
+    Emit-SyncCompleteEvent -CorrelationId $CorrelationId -SuccessCount $successCount -FailureCount $failureCount `
+        -DurationMs $orchestrationTimer.ElapsedMilliseconds -RetryStats $retryStats `
+        -CircuitBreakerState $finalCbState -InstrumentationKey $appInsightsKey -LogFunction $script:retryLogger
+    
+    # Log APM status
+    Write-Log ""
+    Write-Log "Application Insights Status:"
+    $apmStatus = Get-AppInsightsStatus -InstrumentationKey $appInsightsKey
+    Write-Log "  Configured: $($apmStatus.configured)"
+    Write-Log "  Pending jobs: $($apmStatus.pendingJobs)"
+    Write-Log "  Status: $($apmStatus.status)"
+    
+    return @{ success = $successCount; failed = $failureCount; retryStats = $retryStats; snapshot = $snapshotFile; durationMs = $orchestrationTimer.ElapsedMilliseconds }
 }
 
 # ============================================================================
@@ -396,6 +442,17 @@ try {
     Write-Log "POST_SYNC_HEALTH_CHECK"
     Emit-TelemetryEvent "PostSyncHealthCheckPassed" @{} @{ duration_ms = ((Get-Date) - $script:startTime).TotalMilliseconds }
     
+    # Clean up pending APM jobs (wait for telemetry to send)
+    Write-Log ""
+    Write-Log "Waiting for pending Application Insights jobs to complete..."
+    $pendingJobs = @(Get-Job -ErrorAction SilentlyContinue | Where-Object { $_.State -eq "Running" })
+    if ($pendingJobs.Count -gt 0) {
+        Write-Log "  Waiting for $($pendingJobs.Count) pending telemetry jobs..."
+        $pendingJobs | Wait-Job -Timeout 10 | Out-Null
+        $pendingJobs | Remove-Job -ErrorAction SilentlyContinue
+        Write-Log "  ✓ Telemetry jobs completed"
+    }
+    
     Write-Log "========== Job Completed Successfully ==========" "PASS"
     Write-Log "Duration: $(((Get-Date) - $script:startTime).TotalSeconds)s"
     
@@ -407,5 +464,11 @@ try {
 } catch {
     Write-Log "Job failed with exception: $($_.Exception.Message)" "FAIL"
     Emit-TelemetryEvent "JobException" @{ error = $_.Exception.Message } @{ duration_ms = ((Get-Date) - $script:startTime).TotalMilliseconds }
+    
+    # Clean up pending APM jobs on failure too
+    $pendingJobs = @(Get-Job -ErrorAction SilentlyContinue)
+    $pendingJobs | Wait-Job -Timeout 5 -ErrorAction SilentlyContinue | Out-Null
+    $pendingJobs | Remove-Job -ErrorAction SilentlyContinue
+    
     exit 1
 }
