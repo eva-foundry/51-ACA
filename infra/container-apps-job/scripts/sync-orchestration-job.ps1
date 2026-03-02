@@ -23,6 +23,9 @@ $ErrorActionPreference = "Continue"
 $script:startTime = Get-Date
 $script:logFile = "/app/logs/sync-${CorrelationId}.log"
 
+# Import retry module
+. "/app/scripts/Invoke-With-Retry.ps1" -ErrorAction Stop
+
 function Write-Log {
     param([string]$Message, [string]$Level = "INFO")
     $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss.fff"
@@ -50,10 +53,15 @@ function Invoke-HealthCheck {
     
     Write-Log "Phase: PRE_SYNC_HEALTH_CHECK" "INFO"
     
-    # Check 1: Data Model API reachability
     $dataModelUrl = $env:DATA_MODEL_URL ?? "https://marco-eva-data-model.livelyflower-7990bc7b.canadacentral.azurecontainerapps.io"
+    
+    # Check 1: Data Model API reachability (with retry)
+    $dataModelHealthy = $false
     try {
-        $response = Invoke-RestMethod "$dataModelUrl/health" -TimeoutSec $TimeoutSec -ErrorAction Stop
+        $response = Invoke-WithRetry -ScriptBlock {
+            Invoke-RestMethod "$dataModelUrl/health" -TimeoutSec $TimeoutSec -ErrorAction Stop
+        } -MaxAttempts 2 -BaseDelayMs 500 -OperationName "health-check:data-model" -LogFunction $script:retryLogger
+        
         Write-Log "✓ Data Model API: reachable (status=$($response.status))"
         if ($response.store -ne "cosmos") {
             Write-Log "⚠ Data Model storage: $($response.store) (expected cosmos)" "WARN"
@@ -64,10 +72,14 @@ function Invoke-HealthCheck {
         $dataModelHealthy = $false
     }
     
-    # Check 2: Cosmos DB connectivity
+    # Check 2: Cosmos DB connectivity (with retry)
+    $cosmosHealthy = $false
     try {
         $summaryUrl = "$dataModelUrl/model/agent-summary"
-        $summary = Invoke-RestMethod $summaryUrl -TimeoutSec $TimeoutSec -ErrorAction Stop
+        $summary = Invoke-WithRetry -ScriptBlock {
+            Invoke-RestMethod $summaryUrl -TimeoutSec $TimeoutSec -ErrorAction Stop
+        } -MaxAttempts 2 -BaseDelayMs 500 -OperationName "health-check:cosmos" -LogFunction $script:retryLogger
+        
         Write-Log "✓ Cosmos DB: reachable (total objects: $($summary.total))"
         $cosmosHealthy = $true
     } catch {
@@ -86,40 +98,16 @@ function Invoke-HealthCheck {
 }
 
 # ============================================================================
-# RETRY LOGIC WITH EXPONENTIAL BACKOFF
+# RETRY LOGIC (now delegated to Invoke-With-Retry module)
 # ============================================================================
 
-function Invoke-WithRetry {
-    param(
-        [scriptblock]$ScriptBlock,
-        [int]$MaxAttempts = 3,
-        [int]$BaseDelayMs = 1000,
-        [string]$OperationName = "Operation"
-    )
-    
-    $attempt = 0
-    while ($attempt -lt $MaxAttempts) {
-        $attempt++
-        try {
-            Write-Log "Invoking: $OperationName (attempt $attempt/$MaxAttempts)"
-            $result = & $ScriptBlock
-            Write-Log "✓ $OperationName succeeded" "PASS"
-            return $result
-        } catch {
-            $error = $_.Exception.Message
-            Write-Log "✗ $OperationName failed: $error" "FAIL"
-            
-            if ($attempt -lt $MaxAttempts) {
-                # Exponential backoff: delay = baseDelay * 2^(attempt-1) + jitter
-                $delay = $BaseDelayMs * [Math]::Pow(2, $attempt - 1) + (Get-Random -Minimum 0 -Maximum 100)
-                Write-Log "Waiting ${delay}ms before retry..." "WARN"
-                Start-Sleep -Milliseconds $delay
-            } else {
-                Write-Log "$OperationName exhausted retries ($MaxAttempts)" "FAIL"
-                throw $_
-            }
-        }
-    }
+# Logger function for retry module
+$script:retryLogger = {
+    param([string]$Level, [string]$Message)
+    $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss.fff"
+    $logEntry = "[$timestamp] [$Level] [$CorrelationId] $Message"
+    Write-Host $logEntry
+    Add-Content -Path $script:logFile -Value $logEntry -ErrorAction SilentlyContinue
 }
 
 # ============================================================================
@@ -171,6 +159,7 @@ function Invoke-EpicSyncOrchestration {
         "ACA-15-019"
     )
     
+    $dataModelUrl = $env:DATA_MODEL_URL ?? "https://marco-eva-data-model.livelyflower-7990bc7b.canadacentral.azurecontainerapps.io"
     $syncStartIndex = 0
     if ($ResumFromStory) {
         $syncStartIndex = [array]::IndexOf($stories, $ResumFromStory) + 1
@@ -179,6 +168,7 @@ function Invoke-EpicSyncOrchestration {
     
     $successCount = 0
     $failureCount = 0
+    $retryStats = @{ totalRetries = 0; successAfterRetry = 0; failedAfterRetries = 0 }
     
     for ($i = $syncStartIndex; $i -lt $stories.Count; $i++) {
         $storyId = $stories[$i]
@@ -190,26 +180,48 @@ function Invoke-EpicSyncOrchestration {
             Save-Checkpoint $storyId
         } else {
             try {
-                # Invoke-WithRetry wraps the sync operation
-                Invoke-WithRetry -ScriptBlock {
+                # Wrap in Invoke-With-Retry with exponential backoff
+                # This handles transient failures automatically
+                $retryResult = Invoke-WithRetry -ScriptBlock {
+                    # Simulate Cosmos DB operation with small delay
                     # Real implementation: PUT to data model WBS layer
-                    # Invoke-RestMethod "$dataModelUrl/model/wbs/$storyId" -Method PUT ...
-                    Write-Log "  PUT WBS: $storyId"
-                    Start-Sleep -Milliseconds 100  # Simulate API latency
-                } -MaxAttempts $MaxRetries -BaseDelayMs $BaseDelayMs -OperationName "sync-$storyId"
+                    # Invoke-RestMethod "$dataModelUrl/model/wbs/$storyId" -Method PUT -TimeoutSec 10 ...
+                    
+                    Write-Log "  → PUT WBS: $storyId (simulated Cosmos operation)" "DEBUG"
+                    Start-Sleep -Milliseconds (Get-Random -Minimum 100 -Maximum 200)
+                    
+                    # Simulate occasional transient failures (5% chance)
+                    if ((Get-Random -Minimum 0 -Maximum 100) -lt 5) {
+                        throw "Temporary network timeout (simulated transient failure)"
+                    }
+                } `
+                    -MaxAttempts $MaxRetries `
+                    -BaseDelayMs $BaseDelayMs `
+                    -OperationName "sync-$storyId" `
+                    -LogFunction $script:retryLogger
                 
                 $successCount++
                 Save-Checkpoint $storyId
+                Write-Log "  ✓ Successfully synced: $storyId" "PASS"
+                
             } catch {
-                Write-Log "  ✗ Failed after retries: $storyId" "FAIL"
+                Write-Log "  ✗ Failed after retries: $storyId (error: $($_.Exception.Message))" "FAIL"
                 $failureCount++
-                # In real implementation: check circuit breaker, escalate if needed
+                $retryStats.failedAfterRetries++
             }
         }
     }
     
-    Write-Log "Sync Summary: SUCCESS=$successCount FAILED=$failureCount"
-    return @{ success = $successCount; failed = $failureCount }
+    Write-Log ""
+    Write-Log "Sync Summary:"
+    Write-Log "  SUCCESS: $successCount"
+    Write-Log "  FAILED: $failureCount"
+    Write-Log "  Retry statistics:"
+    Write-Log "    - Total retry attempts: $($retryStats.totalRetries)"
+    Write-Log "    - Succeeded after retry: $($retryStats.successAfterRetry)"
+    Write-Log "    - Failed after retries: $($retryStats.failedAfterRetries)"
+    
+    return @{ success = $successCount; failed = $failureCount; retryStats = $retryStats }
 }
 
 # ============================================================================
