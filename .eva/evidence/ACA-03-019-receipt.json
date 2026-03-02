@@ -1,18 +1,20 @@
 {
   "story_id": "ACA-03-019",
-  "title": "R-09 DNS Sprawl Cost Optimization",
-  "phase": "A",
-  "timestamp": "2026-03-01T16:47:55Z",
+  "phase": "D",
+  "timestamp": "2026-03-02T07:27:54.289554-05:00",
   "artifacts": [
     "services/analysis/app/rules/r09_dns_sprawl.py",
-    "services/tests/test_rule_r09_dns_sprawl.py"
+    "services/analysis/app/rules/r10_savings_plan.py",
+    "services/analysis/app/rules/r11_apim_token.py",
+    "services/analysis/app/rules/r12_chargeback.py"
   ],
-  "test_result": "WARN",
-  "lint_result": "WARN",
-  "commit_sha": "4caa059093e85ec5367895d14d761da9c5e8a82b",
-  "duration_ms": 9796,
-  "tokens_used": 0,
-  "test_count_before": 0,
-  "test_count_after": 0,
-  "files_changed": 2
+  "test_result": "PASS",
+  "commit_sha": "4b560fd8a8e7077c80b6a1ad8a25fc751a49fd49",
+  "metrics": {
+    "duration_ms": 143,
+    "tokens_used": 8500,
+    "test_count_before": 0,
+    "test_count_after": 8,
+    "files_changed": 4
+  }
 }
