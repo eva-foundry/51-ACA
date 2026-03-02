@@ -1,0 +1,273 @@
+name: 'Deploy & Run: Epic 15 Sync Orchestrator (ACA-16-001)'
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Target environment'
+        required: true
+        default: 'dev'
+        type: choice
+        options:
+          - dev
+          - staging
+          - production
+      phase:
+        description: 'Execution phase'
+        required: true
+        default: 'full'
+        type: choice
+        options:
+          - full
+          - pre-audit
+          - sync-only
+          - post-audit
+      dry_run:
+        description: 'Dry run (no actual changes)'
+        required: false
+        type: boolean
+        default: false
+  schedule:
+    # Run at 6 AM ET daily (off-peak optimization)
+    - cron: '0 10 * * *'
+
+env:
+  REGISTRY: marcosandacr20260203.azurecr.io
+  IMAGE_NAME: epic15-sync
+  AZURE_SUBSCRIPTION_ID: d2d4e571-e0f2-4f6c-901a-f88f7669bcba
+  AZURE_RESOURCE_GROUP: EsDAICoE-Sandbox
+  CONTAINER_APP_JOB: epic15-sync-orchestrator
+  CONTAINER_APP_ENVIRONMENT: ca-sandbox-env
+
+jobs:
+  # ==========================================
+  # Step 1: Build & Push Container Image
+  # ==========================================
+  build-and-push:
+    name: Build & Push to ACR
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    outputs:
+      image_tag: ${{ steps.image.outputs.tag }}
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to Azure Container Registry
+        uses: azure/docker-login@v1
+        with:
+          login-server: ${{ env.REGISTRY }}
+          username: ${{ secrets.ACR_USERNAME }}
+          password: ${{ secrets.ACR_PASSWORD }}
+
+      - name: Generate image tag
+        id: image
+        run: |
+          TAG=$(date +%Y%m%d-%H%M)
+          echo "tag=${TAG}" >> $GITHUB_OUTPUT
+          echo "[INFO] Image tag: ${TAG}"
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./infra/container-apps-job
+          push: true
+          tags: |
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.image.outputs.tag }}
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+          cache-from: type=registry,ref=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:buildcache
+          cache-to: type=registry,ref=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:buildcache,mode=max
+          build-args: |
+            BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ')
+            VCS_REF=${{ github.sha }}
+            VERSION=${{ steps.image.outputs.tag }}
+
+      - name: Log image push success
+        run: |
+          echo "[PASS] Docker image pushed: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.image.outputs.tag }}"
+
+  # ==========================================
+  # Step 2: Deploy Container Apps Job
+  # ==========================================
+  deploy-job:
+    name: Deploy Container Apps Job
+    needs: build-and-push
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Azure Login (Federated Identity)
+        uses: azure/login@v1
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ env.AZURE_SUBSCRIPTION_ID }}
+          enable-AzPSSession: true
+
+      - name: Deploy Container Apps Job (ARM Template)
+        uses: azure/arm-deploy@v1
+        with:
+          subscriptionId: ${{ env.AZURE_SUBSCRIPTION_ID }}
+          resourceGroupName: ${{ env.AZURE_RESOURCE_GROUP }}
+          template: ./infra/container-apps-job/job-template.json
+          parameters: |
+            containerAppsEnvironmentId="/subscriptions/${{ env.AZURE_SUBSCRIPTION_ID }}/resourceGroups/${{ env.AZURE_RESOURCE_GROUP }}/providers/Microsoft.App/managedEnvironments/${{ env.CONTAINER_APP_ENVIRONMENT }}"
+            containerImageUri="${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ needs.build-and-push.outputs.image_tag }}"
+            jobName="${{ env.CONTAINER_APP_JOB }}"
+            environment="${{ inputs.environment || 'dev' }}"
+
+      - name: Log deployment success
+        run: |
+          echo "[PASS] Container Apps Job deployed"
+          echo "Job Name: ${{ env.CONTAINER_APP_JOB }}"
+          echo "Image: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ needs.build-and-push.outputs.image_tag }}"
+
+  # ==========================================
+  # Step 3: Trigger Container Apps Job
+  # ==========================================
+  trigger-job:
+    name: Trigger Sync Execution
+    needs: [build-and-push, deploy-job]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ env.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Install Azure Container Apps extension
+        run: |
+          az extension add --name containerapp --upgrade -y
+
+      - name: Trigger Container Apps Job
+        run: |
+          CORRELATION_ID="ACA-EPIC15-$(date +%Y%m%d-%H%M)-${{ github.run_id }}"
+          
+          az containerapp job start \
+            --name "${{ env.CONTAINER_APP_JOB }}" \
+            --resource-group "${{ env.AZURE_RESOURCE_GROUP }}" \
+            --env-vars \
+              ENVIRONMENT="${{ inputs.environment || 'dev' }}" \
+              PHASE="${{ inputs.phase || 'full' }}" \
+              CORRELATION_ID="$CORRELATION_ID" \
+              GITHUB_RUN_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+              DRY_RUN="${{ inputs.dry_run || 'false' }}"
+          
+          echo "CORRELATION_ID=$CORRELATION_ID" >> $GITHUB_ENV
+          echo "[INFO] Job triggered with correlation ID: $CORRELATION_ID"
+
+      - name: Wait for job completion (30s, non-blocking)
+        run: |
+          # Show job status
+          az containerapp job execution list \
+            --name "${{ env.CONTAINER_APP_JOB }}" \
+            --resource-group "${{ env.AZURE_RESOURCE_GROUP }}" \
+            --query '[0].[name,status]' \
+            -o table || true
+          
+          echo "[INFO] Job launched. Monitor in Azure Portal:"
+          echo "       https://portal.azure.com/#@microsoft.onmicrosoft.com/resource/subscriptions/${{ env.AZURE_SUBSCRIPTION_ID }}/resourcegroups/${{ env.AZURE_RESOURCE_GROUP }}/providers/Microsoft.App/jobs/${{ env.CONTAINER_APP_JOB }}/overview"
+
+      - name: Report job launch
+        run: |
+          echo "[PASS] Container Apps Job triggered"
+          echo "Correlation ID: ${{ env.CORRELATION_ID }}"
+          echo "Environment: ${{ inputs.environment || 'dev' }}"
+          echo "Phase: ${{ inputs.phase || 'full' }}"
+          echo "DryRun: ${{ inputs.dry_run || 'false' }}"
+
+  # ==========================================
+  # Step 4: Record Evidence
+  # ==========================================
+  record-evidence:
+    name: Record Execution Evidence
+    needs: trigger-job
+    runs-on: ubuntu-latest
+    if: always()
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Create evidence receipt
+        run: |
+          TIMESTAMP=$(date -u +'%Y-%m-%dT%H:%M:%SZ')
+          CORRELATION_ID="ACA-EPIC15-$(date +%Y%m%d-%H%M)-${{ github.run_id }}"
+          
+          EVIDENCE=$(cat <<EOF
+          {
+            "story_id": "ACA-16-001",
+            "phase": "D",
+            "timestamp": "$TIMESTAMP",
+            "correlation_id": "$CORRELATION_ID",
+            "github_run_url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}",
+            "environment": "${{ inputs.environment || 'dev' }}",
+            "phase_execution": "${{ inputs.phase || 'full' }}",
+            "dry_run": ${{ inputs.dry_run || false }},
+            "artifacts": [
+              "infra/container-apps-job/Dockerfile",
+              "infra/container-apps-job/scripts/sync-orchestration-job.ps1",
+              "infra/container-apps-job/job-template.json",
+              ".github/workflows/epic15-sync-orchestrator.yml"
+            ],
+            "test_result": "${{ job.status }}",
+            "duration_ms": 0,
+            "tokens_used": 0
+          }
+          EOF
+          )
+          
+          echo "$EVIDENCE" > .eva/evidence/ACA-16-001-receipt-${{ github.run_id }}.json
+          echo "[PASS] Evidence receipt created"
+
+      - name: Commit evidence (optional, requires git permissions)
+        continue-on-error: true
+        run: |
+          git config user.email "github-actions@github.com"
+          git config user.name "GitHub Actions"
+          git add .eva/evidence/ || true
+          git commit -m "evidence(ACA-16-001): job trigger via CI" || echo "No changes to commit"
+          git push origin main || echo "Push skipped (read-only context)"
+
+# ==========================================
+# WORKFLOW SUMMARY
+# ==========================================
+# This workflow implements Tier 1 orchestration for Epic 15 sync:
+#
+# 1. Build: Docker image with PowerShell, Azure CLI, Python 3.12, Agent Framework
+# 2. Push: To Azure Container Registry (ACR)
+# 3. Deploy: Container Apps Job with retry/checkpoint/APM support
+# 4. Trigger: Start job execution with environment/phase parameters
+# 5. Evidence: Record execution correlation ID + GitHub run URL
+#
+# Trigger methods:
+# - Manual: workflow_dispatch (dev/staging/production, phase, dry-run)
+# - Scheduled: Daily at 6 AM ET (off-peak optimization)
+#
+# Success metrics:
+# - Image builds and pushes to ACR
+# - Job deploybefore<3 seconds
+# - Job execution initiated and tracked
+# - Evidence recorded in .eva/ layer

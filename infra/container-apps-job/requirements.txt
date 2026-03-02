@@ -1,0 +1,39 @@
+# Python dependencies for Epic 15 Sync Orchestrator
+# Pin versions to ensure reproducibility
+# Updated: 2026-03-02
+
+# Agent Framework (Microsoft - currently preview)
+agent-framework-azure-ai==1.0.0b260107
+agent-framework-core==1.0.0b260107
+
+# Azure SDK
+azure-identity==1.15.0
+azure-cosmos==4.5.0
+azure-keyvault-secrets==4.7.0
+azure-monitor-opentelemetry==1.1.0
+
+# API clients
+requests==2.31.0
+httpx==0.25.2
+aiohttp==3.9.1
+
+# Data & serialization
+pydantic==2.5.2
+pydantic-settings==2.1.0
+python-dateutil==2.8.2
+
+# Observability & logging
+pydantic-json-schema==1.0.0
+
+# LLM / OpenAI
+openai==1.6.1
+
+# Utilities
+python-dotenv==1.0.0
+typer==0.9.0
+rich==13.7.0
+
+# Testing (optional, for local dev)
+pytest==7.4.3
+pytest-asyncio==0.21.1
+pytest-cov==4.1.0

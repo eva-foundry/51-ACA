@@ -1,0 +1,168 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "description": "Azure Container Apps Job - Epic 15 Data Model Sync Orchestrator",
+    "epicId": "ACA-16-001",
+    "version": "1.0.0",
+    "author": "ACA Platform Team"
+  },
+  "parameters": {
+    "containerAppsEnvironmentId": {
+      "type": "string",
+      "description": "Resource ID of existing Container Apps Environment in EsDAICoE-Sandbox"
+    },
+    "containerImageUri": {
+      "type": "string",
+      "defaultValue": "marcosandacr20260203.azurecr.io/epic15-sync:latest",
+      "description": "Container image URI (ACR)"
+    },
+    "jobName": {
+      "type": "string",
+      "defaultValue": "epic15-sync-orchestrator",
+      "description": "Container Apps Job name"
+    },
+    "environment": {
+      "type": "string",
+      "defaultValue": "dev",
+      "allowedValues": ["dev", "staging", "production"],
+      "description": "Deployment environment"
+    },
+    "dataModelUrl": {
+      "type": "string",
+      "defaultValue": "https://marco-eva-data-model.livelyflower-7990bc7b.canadacentral.azurecontainerapps.io",
+      "description": "Data Model API endpoint"
+    },
+    "appInsightsInstrumentationKey": {
+      "type": "securestring",
+      "description": "Application Insights instrumentation key"
+    },
+    "keyVaultName": {
+      "type": "string",
+      "defaultValue": "marcosandkv20260203",
+      "description": "Azure Key Vault for secrets"
+    }
+  },
+  "variables": {
+    "location": "[resourceGroup().location]",
+    "containerRegistryServer": "marcosandacr20260203.azurecr.io",
+    "tags": {
+      "project": "51-ACA",
+      "epic": "ACA-16",
+      "tier": "2-resilience",
+      "createdDate": "[utcNow('u')]",
+      "environment": "[parameters('environment')]"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.App/jobs",
+      "apiVersion": "2023-05-02-preview",
+      "name": "[parameters('jobName')]",
+      "location": "[variables('location')]",
+      "tags": "[variables('tags')]",
+      "identity": {
+        "type": "SystemAssigned"
+      },
+      "properties": {
+        "environmentId": "[parameters('containerAppsEnvironmentId')]",
+        "configuration": {
+          "triggerType": "Manual",
+          "replicaRetryLimit": 0,
+          "replicaTimeout": 3600,
+          "parallelism": 1
+        },
+        "template": {
+          "containers": [
+            {
+              "image": "[parameters('containerImageUri')]",
+              "name": "sync-orchestrator",
+              "resources": {
+                "cpu": "1.0",
+                "memory": "2Gi"
+              },
+              "env": [
+                {
+                  "name": "ENVIRONMENT",
+                  "value": "[parameters('environment')]"
+                },
+                {
+                  "name": "PHASE",
+                  "value": "full"
+                },
+                {
+                  "name": "DATA_MODEL_URL",
+                  "value": "[parameters('dataModelUrl')]"
+                },
+                {
+                  "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
+                  "secureValue": "[parameters('appInsightsInstrumentationKey')]"
+                },
+                {
+                  "name": "DRY_RUN",
+                  "value": "false"
+                }
+              ],
+              "volumeMounts": [
+                {
+                  "mountPath": "/app/logs",
+                  "volumeName": "logs-volume"
+                },
+                {
+                  "mountPath": "/app/state",
+                  "volumeName": "state-volume"
+                }
+              ]
+            }
+          ],
+          "volumes": [
+            {
+              "name": "logs-volume",
+              "storageType": "EmptyDir"
+            },
+            {
+              "name": "state-volume",
+              "storageType": "EmptyDir"
+            }
+          ],
+          "scale": {
+            "maxReplicas": 1,
+            "minReplicas": 0
+          }
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Authorization/roleAssignments",
+      "apiVersion": "2022-04-01",
+      "scope": "[concat('Microsoft.App/jobs', '/', parameters('jobName'))]",
+      "name": "[guid(resourceGroup().id, parameters('jobName'), 'KeyVaultSecretsUser')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.App/jobs', parameters('jobName'))]"
+      ],
+      "properties": {
+        "roleDefinitionId": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', '4633458b-17de-408a-b874-0445c86db611')]",
+        "principalId": "[reference(resourceId('Microsoft.App/jobs', parameters('jobName')), '2023-05-02-preview', 'full').identity.principalId]",
+        "principalType": "ServicePrincipal"
+      }
+    }
+  ],
+  "outputs": {
+    "jobId": {
+      "type": "string",
+      "value": "[resourceId('Microsoft.App/jobs', parameters('jobName'))]"
+    },
+    "jobName": {
+      "type": "string",
+      "value": "[parameters('jobName')]"
+    },
+    "containerImageUri": {
+      "type": "string",
+      "value": "[parameters('containerImageUri')]"
+    },
+    "deploymentEnvironment": {
+      "type": "string",
+      "value": "[parameters('environment')]"
+    }
+  }
+}
