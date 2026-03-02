@@ -29,6 +29,9 @@ $script:logFile = "/app/logs/sync-${CorrelationId}.log"
 # Import circuit breaker module
 . "/app/scripts/Circuit-Breaker.ps1" -ErrorAction Stop
 
+# Import health diagnostics module
+. "/app/scripts/Health-Diagnostics.ps1" -ErrorAction Stop
+
 function Write-Log {
     param([string]$Message, [string]$Level = "INFO")
     $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss.fff"
@@ -57,56 +60,45 @@ function Invoke-HealthCheck {
     Write-Log "Phase: PRE_SYNC_HEALTH_CHECK" "INFO"
     
     $dataModelUrl = $env:DATA_MODEL_URL ?? "https://marco-eva-data-model.livelyflower-7990bc7b.canadacentral.azurecontainerapps.io"
+    $cosmosUrl = $env:COSMOS_URL ?? "https://marco-sandbox-cosmos.documents.azure.com"
     
     # Check circuit breaker BEFORE attempting health checks
     if (Test-CircuitBreakerOpen -Name "health-check" -FailureThreshold 3 -HalfOpenTimeout 60 -LogFunction $script:retryLogger) {
         Write-Log "⚠ Health check circuit breaker OPEN - fast failing (service likely down)" "WARN"
-        return @{ healthy = $false; reason = "health_check_circuit_breaker_open" }
+        return @{ healthy = $false; reason = "health_check_circuit_breaker_open"; is_critical = $true }
     }
     
-    # Check 1: Data Model API reachability (with retry)
-    $dataModelHealthy = $false
-    try {
-        $response = Invoke-WithRetry -ScriptBlock {
-            Invoke-RestMethod "$dataModelUrl/health" -TimeoutSec $TimeoutSec -ErrorAction Stop
-        } -MaxAttempts 2 -BaseDelayMs 500 -OperationName "health-check:data-model" -LogFunction $script:retryLogger
-        
-        Write-Log "✓ Data Model API: reachable (status=$($response.status))"
-        if ($response.store -ne "cosmos") {
-            Write-Log "⚠ Data Model storage: $($response.store) (expected cosmos)" "WARN"
-        }
-        $dataModelHealthy = $true
+    # Run comprehensive health diagnostics (concurrent checks)
+    Write-Log "Running health diagnostics (concurrent: API, Cosmos, TLS, DNS)" "INFO"
+    $diagnostics = Get-HealthDiagnostics -DataModelUrl $dataModelUrl -CosmosUrl $cosmosUrl -TimeoutSec $TimeoutSec -LogFunction $script:retryLogger
+    
+    # Format and display the health report
+    Format-HealthReport -HealthAnalysis $diagnostics -LogFunction $script:retryLogger
+    
+    # Update circuit breaker based on results
+    if ($diagnostics.is_healthy) {
+        Write-Log "✓ All health checks PASSED" "PASS"
         Record-CircuitBreakerSuccess -Name "health-check" -LogFunction $script:retryLogger
-    } catch {
-        Write-Log "✗ Data Model API: unreachable (error: $($_.Exception.Message))" "FAIL"
-        $dataModelHealthy = $false
+        return @{ healthy = $true; reason = "all_checks_passed"; diagnostics = $diagnostics }
+    } else {
+        # One or more checks failed
+        Write-Log "✗ Health check FAILED - $($diagnostics.fail_count) failure(s), $($diagnostics.warn_count) warning(s)" "FAIL"
         Record-CircuitBreakerFailure -Name "health-check" -FailureThreshold 3 -HalfOpenTimeout 60 -LogFunction $script:retryLogger
-    }
-    
-    # Check 2: Cosmos DB connectivity (with retry)
-    $cosmosHealthy = $false
-    try {
-        $summaryUrl = "$dataModelUrl/model/agent-summary"
-        $summary = Invoke-WithRetry -ScriptBlock {
-            Invoke-RestMethod $summaryUrl -TimeoutSec $TimeoutSec -ErrorAction Stop
-        } -MaxAttempts 2 -BaseDelayMs 500 -OperationName "health-check:cosmos" -LogFunction $script:retryLogger
         
-        Write-Log "✓ Cosmos DB: reachable (total objects: $($summary.total))"
-        $cosmosHealthy = $true
-    } catch {
-        Write-Log "✗ Cosmos DB: unreachable or slow" "FAIL"
-        $cosmosHealthy = $false
-        Record-CircuitBreakerFailure -Name "health-check" -FailureThreshold 3 -HalfOpenTimeout 60 -LogFunction $script:retryLogger
+        # Determine if this is a critical failure (complete outage) or partial (will retry)
+        $isCritical = ($diagnostics.fail_count -ge 2)  # 2+ failures = critical
+        
+        Write-Log "Recovery Priority: $(if ($isCritical) { 'CRITICAL' } else { 'MEDIUM' })" "WARN"
+        
+        return @{
+            healthy = $false
+            reason = "health_check_failures"
+            is_critical = $isCritical
+            diagnostics = $diagnostics
+            suggestions = @($diagnostics.suggestions)
+        }
     }
-    
-    # Overall: fail fast if either check fails
-    if (-not ($dataModelHealthy -and $cosmosHealthy)) {
-        Write-Log "PRE_SYNC_HEALTH_CHECK FAILED - returning FAIL" "FAIL"
-        return @{ healthy = $false; reason = "data_model_or_cosmos_unavailable" }
-    }
-    
-    Write-Log "PRE_SYNC_HEALTH_CHECK PASSED" "PASS"
-    return @{ healthy = $true; reason = "all_checks_passed" }
+}
 }
 
 # ============================================================================
@@ -285,11 +277,23 @@ function Emit-TelemetryEvent {
 # ============================================================================
 
 try {
-    # Phase 1: Health Check
+    # Phase 1: Health Check with Diagnostics
     $healthResult = Invoke-HealthCheck
     if (-not $healthResult.healthy) {
-        Emit-TelemetryEvent "HealthCheckFailed" @{ reason = $healthResult.reason } @{ duration_ms = ((Get-Date) - $script:startTime).TotalMilliseconds }
-        Write-Log "Health check failed - aborting sync" "FAIL"
+        $reason = $healthResult.reason
+        $suggestions = if ($healthResult.ContainsKey("suggestions")) { $healthResult.suggestions } else { @() }
+        
+        Emit-TelemetryEvent "HealthCheckFailed" @{ reason = $reason; is_critical = $healthResult.is_critical } @{ duration_ms = ((Get-Date) - $script:startTime).TotalMilliseconds }
+        
+        Write-Log "" "INFO"
+        Write-Log "Health check failed - cannot proceed with sync" "FAIL"
+        if ($suggestions.Count -gt 0) {
+            Write-Log "Recommended actions:" "WARN"
+            foreach ($suggestion in $suggestions) {
+                Write-Log "  • $suggestion" "WARN"
+            }
+        }
+        
         exit 1
     }
     
