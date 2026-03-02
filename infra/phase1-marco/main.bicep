@@ -1,11 +1,12 @@
 // EVA-STORY: ACA-01-010
-// EVA-STORY: ACA-13-002
-// EVA-STORY: ACA-13-003
-// EVA-STORY: ACA-13-004
-// EVA-STORY: ACA-13-005
-// EVA-STORY: ACA-13-006
-// EVA-STORY: ACA-13-007
-// EVA-STORY: ACA-13-008
+// EVA-STORY: ACA-12-009
+// EVA-STORY: ACA-12-010
+// EVA-STORY: ACA-12-011
+// EVA-STORY: ACA-12-012
+// EVA-STORY: ACA-12-013
+// EVA-STORY: ACA-12-014
+// EVA-STORY: ACA-12-015
+// EVA-STORY: ACA-12-016
 // Phase 1 -- marco* sandbox wiring
 // Creates: Cosmos DB containers, Key Vault references
 // Assumes: marco-cosmos, marco-kv already exist in EsDAICoE-Sandbox

@@ -1,7 +1,7 @@
 {
   "meta": {
     "schema": "eva.discovery.v2",
-    "generated_at": "2026-03-01T14:59:52.047Z",
+    "generated_at": "2026-03-02T14:50:21.816Z",
     "repo": "C:\\AICOE\\eva-foundry\\51-ACA"
   },
   "project": null,
@@ -353,7 +353,7 @@
         "id": "ACA-03-001",
         "title": "As the system I load all 12 rules from ALL_RULES and run each in sequence",
         "feature_id": "ACA-03",
-        "done": false,
+        "done": true,
         "source": "veritas-plan.json"
       },
       {
@@ -374,14 +374,14 @@
         "id": "ACA-03-004",
         "title": "As the system I update AnalysisRun status: queued -> running -> succeeded/failed",
         "feature_id": "ACA-03",
-        "done": false,
+        "done": true,
         "source": "veritas-plan.json"
       },
       {
         "id": "ACA-03-005",
         "title": "As the system I write findingsSummary to the analysis run record",
         "feature_id": "ACA-03",
-        "done": false,
+        "done": true,
         "source": "veritas-plan.json"
       },
       {
@@ -395,28 +395,28 @@
         "id": "ACA-03-007",
         "title": "As a Tier 1 client I do not receive narrative or deliverable_template_id",
         "feature_id": "ACA-03",
-        "done": false,
+        "done": true,
         "source": "veritas-plan.json"
       },
       {
         "id": "ACA-03-008",
         "title": "As a Tier 2 client I receive the full finding including narrative and",
         "feature_id": "ACA-03",
-        "done": false,
+        "done": true,
         "source": "veritas-plan.json"
       },
       {
         "id": "ACA-03-009",
         "title": "As a Tier 3 client I receive the full finding including deliverable_template_id",
         "feature_id": "ACA-03",
-        "done": false,
+        "done": true,
         "source": "veritas-plan.json"
       },
       {
         "id": "ACA-03-010",
         "title": "As the red-team agent I can assert that Tier 1 tokens never leak",
         "feature_id": "ACA-03",
-        "done": false,
+        "done": true,
         "source": "veritas-plan.json"
       },
       {
@@ -430,49 +430,49 @@
         "id": "ACA-03-012",
         "title": "R-02 Log retention: returns finding when annual LA cost > $500 in non-prod",
         "feature_id": "ACA-03",
-        "done": false,
+        "done": true,
         "source": "veritas-plan.json"
       },
       {
         "id": "ACA-03-013",
         "title": "R-03 Defender mismatch: returns finding when annual Defender cost > $2,000",
         "feature_id": "ACA-03",
-        "done": false,
+        "done": true,
         "source": "veritas-plan.json"
       },
       {
         "id": "ACA-03-014",
         "title": "R-04 Compute scheduling: returns finding when annual schedulable compute > $5,000",
         "feature_id": "ACA-03",
-        "done": false,
+        "done": true,
         "source": "veritas-plan.json"
       },
       {
         "id": "ACA-03-015",
         "title": "R-05 Anomaly detection: returns finding for each category with z-score > 3.0",
         "feature_id": "ACA-03",
-        "done": false,
+        "done": true,
         "source": "veritas-plan.json"
       },
       {
         "id": "ACA-03-016",
         "title": "R-06 Stale environments: returns finding when >= 3 App Service sites exist",
         "feature_id": "ACA-03",
-        "done": false,
+        "done": true,
         "source": "veritas-plan.json"
       },
       {
         "id": "ACA-03-017",
         "title": "R-07 Search SKU oversize: returns finding when annual Search cost > $2,000",
         "feature_id": "ACA-03",
-        "done": false,
+        "done": true,
         "source": "veritas-plan.json"
       },
       {
         "id": "ACA-03-018",
         "title": "R-08 ACR consolidation: returns finding when >= 3 registries exist",
         "feature_id": "ACA-03",
-        "done": false,
+        "done": true,
         "source": "veritas-plan.json"
       },
       {
@@ -1708,6 +1708,62 @@
         "source": "veritas-plan.json"
       },
       {
+        "id": "ACA-12-009",
+        "title": "Cosmos DB aca-db + scans container with 256-partition key on subscriptionId",
+        "feature_id": "ACA-12",
+        "done": false,
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "ACA-12-010",
+        "title": "inventories container for Azure resource snapshots (partition key: subscriptionId)",
+        "feature_id": "ACA-12",
+        "done": false,
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "ACA-12-011",
+        "title": "cost-data container for monthly cost export and FinOps hub landing zone",
+        "feature_id": "ACA-12",
+        "done": false,
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "ACA-12-012",
+        "title": "advisor container for Azure Advisor recommendations + scores",
+        "feature_id": "ACA-12",
+        "done": false,
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "ACA-12-013",
+        "title": "findings container for analysis rule output (indexed on risk_class, effort_class)",
+        "feature_id": "ACA-12",
+        "done": false,
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "ACA-12-014",
+        "title": "APIM ACA product + subscription key policy for tier-gated rate limiting",
+        "feature_id": "ACA-12",
+        "done": false,
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "ACA-12-015",
+        "title": "Key Vault secrets wiring (ACA-CLIENT-ID, ACA-OPENAI-KEY, ACA-COSMOS-CONN)",
+        "feature_id": "ACA-12",
+        "done": false,
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "ACA-12-016",
+        "title": "Container App Job definitions for collector, analysis, delivery workers",
+        "feature_id": "ACA-12",
+        "done": false,
+        "source": "veritas-plan.json"
+      },
+      {
         "id": "ACA-13-009",
         "title": "GET /v1/assessment/waf scores subscription against 5 WAF pillars",
         "feature_id": "ACA-13",
@@ -1837,21 +1893,42 @@
         "id": "ACA-14-008",
         "title": "GitHub Models API integration (GITHUB_TOKEN, endpoint, model param)",
         "feature_id": "ACA-14",
-        "done": false,
+        "done": true,
         "source": "veritas-plan.json"
       },
       {
         "id": "ACA-14-009",
         "title": "Azure OpenAI fallback wiring (AZURE_OPENAI_KEY + endpoint env vars)",
         "feature_id": "ACA-14",
-        "done": false,
+        "done": true,
         "source": "veritas-plan.json"
       },
       {
         "id": "ACA-14-010",
         "title": "Evidence receipt schema validation: story_id, wbs_id, epic,",
         "feature_id": "ACA-14",
-        "done": false,
+        "done": true,
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "ACA-14-001",
+        "title": "As the sprint agent I want a unified SprintContext class that merges",
+        "feature_id": "ACA-14",
+        "done": true,
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "ACA-14-002",
+        "title": "As the sprint agent I want a state lock mechanism that prevents duplicate",
+        "feature_id": "ACA-14",
+        "done": true,
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "ACA-14-003",
+        "title": "As the sprint agent I want phase verification checkpoints after each DPDCA",
+        "feature_id": "ACA-14",
+        "done": true,
         "source": "veritas-plan.json"
       },
       {
@@ -1890,7 +1967,17 @@
   "actual": {
     "artifacts": [
       {
+        "path": ".env",
+        "type": "other",
+        "story_tags": []
+      },
+      {
         "path": ".env.example",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": ".env.test",
         "type": "other",
         "story_tags": []
       },
@@ -2050,6 +2137,16 @@
         "story_tags": []
       },
       {
+        "path": "AUTOMATION-INFRASTRUCTURE-INVENTORY.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "BILLION-DOLLAR-PLAN.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
         "path": "CHANGELOG.md",
         "type": "doc",
         "story_tags": []
@@ -2080,6 +2177,11 @@
         "story_tags": []
       },
       {
+        "path": "CLOUD-AGENT-HANDOFF.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
         "path": "compare-local-ado.py",
         "type": "code",
         "story_tags": []
@@ -2107,7 +2209,17 @@
         ]
       },
       {
+        "path": "Dockerfile",
+        "type": "other",
+        "story_tags": []
+      },
+      {
         "path": "DPDCA-SUMMARY.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "EVIDENCE-LAYER-MOAT.md",
         "type": "doc",
         "story_tags": []
       },
@@ -2127,21 +2239,46 @@
         "story_tags": []
       },
       {
+        "path": "issue-create.txt",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "issue26-comments.txt",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "latest-run.txt",
+        "type": "other",
+        "story_tags": []
+      },
+      {
         "path": "lint-result.txt",
         "type": "other",
         "story_tags": [
           "ACA-03-003",
+          "ACA-03-004",
           "ACA-03-005",
           "ACA-03-010",
           "ACA-03-007",
+          "ACA-03-012",
+          "ACA-03-013",
+          "ACA-03-014",
+          "ACA-03-015",
+          "ACA-03-017",
+          "ACA-03-019",
+          "ACA-03-020",
+          "ACA-03-021",
+          "ACA-03-022",
           "ACA-03-011",
           "ACA-03-008",
-          "ACA-03-015",
           "ACA-01-005",
           "ACA-03-016",
           "ACA-07-009",
-          "ACA-03-004",
-          "ACA-03-033"
+          "ACA-03-033",
+          "ACA-03-009",
+          "ACA-03-018"
         ]
       },
       {
@@ -2240,6 +2377,21 @@
         "story_tags": []
       },
       {
+        "path": "SPRINT-13-EXECUTION-SUMMARY.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "sprint-13-execution.log",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "SPRINT-13-HANDOFF.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
         "path": "SPRINT-2-EXECUTION-PLAN.md",
         "type": "doc",
         "story_tags": []
@@ -2267,6 +2419,26 @@
       {
         "path": "sprint2-verify.ps1",
         "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "sprint7-issue-body-correct.txt",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "sprint7-issue-body.txt",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "sprint8-issue-body.txt",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "SPRINTS-13-14-SUMMARY.md",
+        "type": "doc",
         "story_tags": []
       },
       {
@@ -2352,6 +2524,11 @@
       {
         "path": "veritas-audit-out.txt",
         "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "VERITAS-CONSISTENCY-ISSUES.md",
+        "type": "doc",
         "story_tags": []
       },
       {
@@ -2446,6 +2623,13 @@
         ]
       },
       {
+        "path": "agents/red-team-agent.yaml",
+        "type": "config",
+        "story_tags": [
+          "ACA-03-010"
+        ]
+      },
+      {
         "path": "agents/redteam-agent.yaml",
         "type": "config",
         "story_tags": [
@@ -2473,6 +2657,20 @@
         "path": "data-model/requirements.txt",
         "type": "other",
         "story_tags": []
+      },
+      {
+        "path": "data-model/seed-evidence.ps1",
+        "type": "code",
+        "story_tags": [
+          "ACA-12-022"
+        ]
+      },
+      {
+        "path": "data-model/seed-evidence.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-12-022"
+        ]
       },
       {
         "path": "data-model/server.py",
@@ -2507,12 +2705,47 @@
         "story_tags": []
       },
       {
+        "path": "docs/AGENT-51-QUICKSTART.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
         "path": "docs/analytics-spec.md",
         "type": "doc",
         "story_tags": []
       },
       {
+        "path": "docs/ARCHITECTURE-ONBOARDING-SYSTEM.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/ARCHITECTURE-REVIEW-GAPS-IMPROVEMENTS.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/DATA-INTEGRITY-INCIDENT-20260302.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
         "path": "docs/DATA-MODEL-ASSESSMENT.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/EPIC-15-ONBOARDING-SYSTEM-BACKLOG.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/EVIDENCE-CATALOG-SPRINT11-PHASE2.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/finops-engagement-model.md",
         "type": "doc",
         "story_tags": []
       },
@@ -2527,7 +2760,22 @@
         "story_tags": []
       },
       {
+        "path": "docs/LOCAL-BASELINE-SPRINTS-13-18.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
         "path": "docs/NEW-FEATURES-2026-02-28.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/RCA-FABRICATED-EVIDENCE-20260302.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/README-ENGAGEMENT-MODEL.md",
         "type": "doc",
         "story_tags": []
       },
@@ -2552,12 +2800,47 @@
         "story_tags": []
       },
       {
+        "path": "docs/SPRINT-13-COMPLETION.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/SPRINT-14-COMPLETION.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/SPRINT-15-COMPLETION.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/SPRINT-16-COMPLETION.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/SPRINT-17-COMPLETION.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/SPRINT-18-COMPLETION.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
         "path": "docs/SPRINT-3-ENHANCEMENTS.md",
         "type": "doc",
         "story_tags": []
       },
       {
         "path": "docs/SPRINT-AUTOMATION-ARCHITECTURE.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/SPRINT-SCALING-ANALYSIS.md",
         "type": "doc",
         "story_tags": []
       },
@@ -4478,6 +4761,13 @@
         ]
       },
       {
+        "path": ".github/scripts/aca_lm_tracer.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-14-001"
+        ]
+      },
+      {
         "path": ".github/scripts/append-status-consistency.ps1",
         "type": "code",
         "story_tags": []
@@ -4509,10 +4799,31 @@
         ]
       },
       {
+        "path": ".github/scripts/evidence_generator.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-14-004"
+        ]
+      },
+      {
+        "path": ".github/scripts/evidence_schema.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-14-010"
+        ]
+      },
+      {
         "path": ".github/scripts/gen_pr_body.py",
         "type": "code",
         "story_tags": [
           "ACA-14-007"
+        ]
+      },
+      {
+        "path": ".github/scripts/phase_verifier.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-14-003"
         ]
       },
       {
@@ -4523,14 +4834,48 @@
         ]
       },
       {
+        "path": ".github/scripts/sprint-13-do-phase.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": ".github/scripts/sprint-14-do-phase.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
         "path": ".github/scripts/sprint_agent.py",
         "type": "code",
         "story_tags": [
           "ACA-14-009",
           "ACA-12-022",
           "ACA-12-023",
-          "ACA-NN-NNN"
+          "ACA-14-001",
+          "ACA-14-002",
+          "ACA-14-003",
+          "ACA-14-008",
+          "ACA-NN-NNN",
+          "ACA-14-010"
         ]
+      },
+      {
+        "path": ".github/scripts/sprint_context.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-14-001"
+        ]
+      },
+      {
+        "path": ".github/scripts/state_lock.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-14-002"
+        ]
+      },
+      {
+        "path": ".github/scripts/test_sprint11_e2e.py",
+        "type": "code",
+        "story_tags": []
       },
       {
         "path": ".github/sprints/README.md",
@@ -4560,6 +4905,71 @@
       {
         "path": ".github/sprints/sprint-05-analysis-completion.md",
         "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": ".github/sprints/sprint-06-analysis-foundation-and-tiers.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": ".github/sprints/sprint-07-rules-and-redteam.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": ".github/sprints/sprint-08-analysis-rules-batch-2.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": ".github/sprints/sprint-09-analysis-rules-batch-3.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": ".github/sprints/sprint-13-analysis-rules-final.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": ".github/sprints/SPRINT-13-EXECUTION-PLAN.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": ".github/sprints/sprint-14-rule-tests-batch-1.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": ".github/sprints/sprint-15-rule-tests-batch-2.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": ".github/sprints/sprint-16-rule-tests-final.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": ".github/sprints/sprint-17-api-auth-routes-batch-1.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": ".github/sprints/sprint-18-api-endpoints-batch-2.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": ".github/sprints/sprint-19-apim-policies-batch-3.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": ".github/workflows/build-sprint-agent.yml",
+        "type": "config",
         "story_tags": []
       },
       {
@@ -4946,13 +5356,14 @@
         "type": "infra",
         "story_tags": [
           "ACA-01-010",
-          "ACA-13-002",
-          "ACA-13-003",
-          "ACA-13-004",
-          "ACA-13-005",
-          "ACA-13-006",
-          "ACA-13-007",
-          "ACA-13-008"
+          "ACA-12-009",
+          "ACA-12-010",
+          "ACA-12-011",
+          "ACA-12-012",
+          "ACA-12-013",
+          "ACA-12-014",
+          "ACA-12-015",
+          "ACA-12-016"
         ]
       },
       {
@@ -4964,14 +5375,14 @@
         "path": "infra/phase2-private/main.tf",
         "type": "infra",
         "story_tags": [
-          "ACA-INFRA-001",
-          "ACA-INFRA-002",
-          "ACA-INFRA-003",
-          "ACA-INFRA-004",
-          "ACA-INFRA-005",
-          "ACA-INFRA-006",
-          "ACA-INFRA-007",
-          "ACA-INFRA-008"
+          "ACA-11-001",
+          "ACA-11-002",
+          "ACA-11-003",
+          "ACA-11-004",
+          "ACA-11-005",
+          "ACA-11-006",
+          "ACA-11-007",
+          "ACA-11-008"
         ]
       },
       {
@@ -5032,6 +5443,11 @@
         ]
       },
       {
+        "path": "services/tests/test_analysis_rule_loader.py (new)",
+        "type": "other",
+        "story_tags": []
+      },
+      {
         "path": "services/tests/test_analysis_status.py",
         "type": "code",
         "story_tags": [
@@ -5074,6 +5490,20 @@
         ]
       },
       {
+        "path": "services/tests/test_findings_tier2_gating.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-03-008"
+        ]
+      },
+      {
+        "path": "services/tests/test_findings_tier3_gating.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-03-009"
+        ]
+      },
+      {
         "path": "services/tests/test_jwt_dep.py",
         "type": "code",
         "story_tags": [
@@ -5085,6 +5515,90 @@
         "type": "code",
         "story_tags": [
           "ACA-07-021"
+        ]
+      },
+      {
+        "path": "services/tests/test_redteam_tier1_leak.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-03-010"
+        ]
+      },
+      {
+        "path": "services/tests/test_rule_r02_log_retention.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-03-012"
+        ]
+      },
+      {
+        "path": "services/tests/test_rule_r03_defender_mismatch.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-03-013"
+        ]
+      },
+      {
+        "path": "services/tests/test_rule_r04_compute_scheduling.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-03-014"
+        ]
+      },
+      {
+        "path": "services/tests/test_rule_r05_anomaly_detection.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-03-015"
+        ]
+      },
+      {
+        "path": "services/tests/test_rule_r06_stale_environments.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-03-016"
+        ]
+      },
+      {
+        "path": "services/tests/test_rule_r07_search_sku_oversize.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-03-017"
+        ]
+      },
+      {
+        "path": "services/tests/test_rule_r08_acr_consolidation.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-03-018"
+        ]
+      },
+      {
+        "path": "services/tests/test_rule_r09_dns_sprawl.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-03-019"
+        ]
+      },
+      {
+        "path": "services/tests/test_rule_r10_savings_plan_coverage.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-03-020"
+        ]
+      },
+      {
+        "path": "services/tests/test_rule_r11_apim_token_budget.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-03-021"
+        ]
+      },
+      {
+        "path": "services/tests/test_rule_r12_chargeback_gap.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-03-022"
         ]
       },
       {
@@ -5213,6 +5727,13 @@
         ]
       },
       {
+        "path": "frontend/src/pages/LoginPage.tsx",
+        "type": "code",
+        "story_tags": [
+          "ACA-04-007"
+        ]
+      },
+      {
         "path": "frontend/src/pages/PreFlight.tsx",
         "type": "code",
         "story_tags": [
@@ -5276,6 +5797,11 @@
         ]
       },
       {
+        "path": "services/analysis/app/main.py (update run_analysis to load ALL_RULES)",
+        "type": "other",
+        "story_tags": []
+      },
+      {
         "path": "services/analysis/app/models.py",
         "type": "code",
         "story_tags": [
@@ -5288,6 +5814,91 @@
         "story_tags": [
           "ACA-03-015"
         ]
+      },
+      {
+        "path": "services/analysis/tests/test_all_rules_integration.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/analysis/tests/test_edge_cases.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/analysis/tests/test_negative_batch_1.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/analysis/tests/test_negative_batch_2.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/analysis/tests/test_performance_scale.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/analysis/tests/test_r01_devbox.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/analysis/tests/test_r02_log_retention.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/analysis/tests/test_r03_defender.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/analysis/tests/test_r04_compute.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/analysis/tests/test_r05_anomaly.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/analysis/tests/test_r06_stale.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/analysis/tests/test_r07_search.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/analysis/tests/test_r08_acr.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/analysis/tests/test_r09_dns_sprawl.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/analysis/tests/test_r10_savings_plan.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/analysis/tests/test_r11_apim_token.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/analysis/tests/test_r12_chargeback.py",
+        "type": "code",
+        "story_tags": []
       },
       {
         "path": "services/api/app/main.py",
@@ -5309,6 +5920,24 @@
         "type": "code",
         "story_tags": [
           "ACA-01-005"
+        ]
+      },
+      {
+        "path": "services/api/tests/test_auth.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-04-004",
+          "ACA-04-005",
+          "ACA-04-009",
+          "ACA-04-001"
+        ]
+      },
+      {
+        "path": "services/api/tests/test_core_endpoints.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-04-011",
+          "ACA-04-012"
         ]
       },
       {
@@ -5623,6 +6252,96 @@
         ]
       },
       {
+        "path": "services/analysis/app/rules/r02_log_retention.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-03-012"
+        ]
+      },
+      {
+        "path": "services/analysis/app/rules/r03_defender_mismatch.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-03-013"
+        ]
+      },
+      {
+        "path": "services/analysis/app/rules/r04_compute_scheduling.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-03-014"
+        ]
+      },
+      {
+        "path": "services/analysis/app/rules/r05_anomaly_detection.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-03-015"
+        ]
+      },
+      {
+        "path": "services/analysis/app/rules/r06_stale_environments.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-03-016"
+        ]
+      },
+      {
+        "path": "services/analysis/app/rules/r07_search_sku_oversize.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-03-017"
+        ]
+      },
+      {
+        "path": "services/analysis/app/rules/r08_acr_consolidation.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-03-018"
+        ]
+      },
+      {
+        "path": "services/analysis/app/rules/r09_dns_sprawl.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/analysis/app/rules/r10_savings_plan.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/analysis/app/rules/r10_savings_plan_coverage.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-03-020"
+        ]
+      },
+      {
+        "path": "services/analysis/app/rules/r11_apim_token.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/analysis/app/rules/r11_apim_token_budget.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-03-021"
+        ]
+      },
+      {
+        "path": "services/analysis/app/rules/r12_chargeback.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/analysis/app/rules/r12_chargeback_gap.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-03-022"
+        ]
+      },
+      {
         "path": "services/analysis/app/rules/rule_01_devbox_autostop.py",
         "type": "code",
         "story_tags": [
@@ -5735,11 +6454,56 @@
         ]
       },
       {
+        "path": "services/analysis/app/rules/test_r09_r12.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
         "path": "services/analysis/app/rules/__init__.py",
         "type": "code",
         "story_tags": [
           "ACA-03-001"
         ]
+      },
+      {
+        "path": "services/analysis/tests/rules/test_anomaly_detection.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/analysis/tests/rules/test_compute_scheduling.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/analysis/tests/rules/test_defender_mismatch.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/analysis/tests/rules/test_devbox_autostop.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/analysis/tests/rules/test_log_retention.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/api/app/auth/msal_client.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/api/app/auth/probes.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/api/app/auth/session.py",
+        "type": "code",
+        "story_tags": []
       },
       {
         "path": "services/api/app/db/cosmos.py",
@@ -5788,11 +6552,19 @@
         "path": "services/api/app/routers/auth.py",
         "type": "code",
         "story_tags": [
-          "ACA-04-004",
           "ACA-04-001",
-          "ACA-04-006",
-          "ACA-04-008",
-          "ACA-05-001"
+          "ACA-04-003",
+          "ACA-04-004",
+          "ACA-04-005",
+          "ACA-04-009"
+        ]
+      },
+      {
+        "path": "services/api/app/routers/billing.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-04-014",
+          "ACA-04-015"
         ]
       },
       {
@@ -5803,6 +6575,21 @@
           "ACA-07-001",
           "ACA-08-001",
           "ACA-09-001"
+        ]
+      },
+      {
+        "path": "services/api/app/routers/collect.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-04-011",
+          "ACA-04-012"
+        ]
+      },
+      {
+        "path": "services/api/app/routers/entitlements.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-04-017"
         ]
       },
       {
@@ -5820,6 +6607,13 @@
         ]
       },
       {
+        "path": "services/api/app/routers/reports.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-04-013"
+        ]
+      },
+      {
         "path": "services/api/app/routers/scans.py",
         "type": "code",
         "story_tags": [
@@ -5827,6 +6621,13 @@
           "ACA-10-002",
           "ACA-12-001",
           "ACA-12-002"
+        ]
+      },
+      {
+        "path": "services/api/app/routers/webhooks.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-04-016"
         ]
       },
       {
@@ -5847,7 +6648,7 @@
         "path": "services/api/app/services/findings_gate.py",
         "type": "code",
         "story_tags": [
-          "ACA-03-007"
+          "ACA-03-009"
         ]
       },
       {
@@ -6022,17 +6823,27 @@
             "type": "other",
             "story_tags": [
               "ACA-03-003",
+              "ACA-03-004",
               "ACA-03-005",
               "ACA-03-010",
               "ACA-03-007",
+              "ACA-03-012",
+              "ACA-03-013",
+              "ACA-03-014",
+              "ACA-03-015",
+              "ACA-03-017",
+              "ACA-03-019",
+              "ACA-03-020",
+              "ACA-03-021",
+              "ACA-03-022",
               "ACA-03-011",
               "ACA-03-008",
-              "ACA-03-015",
               "ACA-01-005",
               "ACA-03-016",
               "ACA-07-009",
-              "ACA-03-004",
-              "ACA-03-033"
+              "ACA-03-033",
+              "ACA-03-009",
+              "ACA-03-018"
             ]
           },
           {
@@ -6065,388 +6876,6 @@
           }
         ]
       },
-      "ACA-03-005": {
-        "artifacts": [
-          {
-            "path": "lint-result.txt",
-            "type": "other",
-            "story_tags": [
-              "ACA-03-003",
-              "ACA-03-005",
-              "ACA-03-010",
-              "ACA-03-007",
-              "ACA-03-011",
-              "ACA-03-008",
-              "ACA-03-015",
-              "ACA-01-005",
-              "ACA-03-016",
-              "ACA-07-009",
-              "ACA-03-004",
-              "ACA-03-033"
-            ]
-          },
-          {
-            "path": "evidence/ACA-03-005-receipt.py",
-            "type": "evidence",
-            "story_tags": [
-              "ACA-03-005"
-            ]
-          },
-          {
-            "path": "services/tests/test_findings_summary.py",
-            "type": "code",
-            "story_tags": [
-              "ACA-03-005"
-            ]
-          },
-          {
-            "path": "services/analysis/app/main.py",
-            "type": "code",
-            "story_tags": [
-              "ACA-03-021",
-              "ACA-03-004",
-              "ACA-03-005"
-            ]
-          },
-          {
-            "path": "services/analysis/app/rules/compute_scheduling.py",
-            "type": "code",
-            "story_tags": [
-              "ACA-03-005"
-            ]
-          }
-        ]
-      },
-      "ACA-03-010": {
-        "artifacts": [
-          {
-            "path": "lint-result.txt",
-            "type": "other",
-            "story_tags": [
-              "ACA-03-003",
-              "ACA-03-005",
-              "ACA-03-010",
-              "ACA-03-007",
-              "ACA-03-011",
-              "ACA-03-008",
-              "ACA-03-015",
-              "ACA-01-005",
-              "ACA-03-016",
-              "ACA-07-009",
-              "ACA-03-004",
-              "ACA-03-033"
-            ]
-          },
-          {
-            "path": "evidence/ACA-03-010-receipt.py",
-            "type": "evidence",
-            "story_tags": [
-              "ACA-03-010"
-            ]
-          },
-          {
-            "path": "services/analysis/app/rules/acr_consolidation.py",
-            "type": "code",
-            "story_tags": [
-              "ACA-03-010"
-            ]
-          }
-        ]
-      },
-      "ACA-03-007": {
-        "artifacts": [
-          {
-            "path": "lint-result.txt",
-            "type": "other",
-            "story_tags": [
-              "ACA-03-003",
-              "ACA-03-005",
-              "ACA-03-010",
-              "ACA-03-007",
-              "ACA-03-011",
-              "ACA-03-008",
-              "ACA-03-015",
-              "ACA-01-005",
-              "ACA-03-016",
-              "ACA-07-009",
-              "ACA-03-004",
-              "ACA-03-033"
-            ]
-          },
-          {
-            "path": "evidence/ACA-03-007-receipt.py",
-            "type": "evidence",
-            "story_tags": [
-              "ACA-03-007"
-            ]
-          },
-          {
-            "path": "services/tests/test_tier1_gating.py",
-            "type": "code",
-            "story_tags": [
-              "ACA-03-007"
-            ]
-          },
-          {
-            "path": "services/analysis/app/rules/anomaly_detection.py",
-            "type": "code",
-            "story_tags": [
-              "ACA-03-007"
-            ]
-          },
-          {
-            "path": "services/api/app/services/findings_gate.py",
-            "type": "code",
-            "story_tags": [
-              "ACA-03-007"
-            ]
-          }
-        ]
-      },
-      "ACA-03-011": {
-        "artifacts": [
-          {
-            "path": "lint-result.txt",
-            "type": "other",
-            "story_tags": [
-              "ACA-03-003",
-              "ACA-03-005",
-              "ACA-03-010",
-              "ACA-03-007",
-              "ACA-03-011",
-              "ACA-03-008",
-              "ACA-03-015",
-              "ACA-01-005",
-              "ACA-03-016",
-              "ACA-07-009",
-              "ACA-03-004",
-              "ACA-03-033"
-            ]
-          },
-          {
-            "path": "evidence/ACA-03-011-receipt.py",
-            "type": "evidence",
-            "story_tags": [
-              "ACA-03-011"
-            ]
-          },
-          {
-            "path": "services/analysis/app/rules/dns_sprawl.py",
-            "type": "code",
-            "story_tags": [
-              "ACA-03-011"
-            ]
-          },
-          {
-            "path": "services/analysis/app/rules/rule_01_devbox_autostop.py",
-            "type": "code",
-            "story_tags": [
-              "ACA-03-011"
-            ]
-          },
-          {
-            "path": "services/analysis/app/rules/rule_01_dev_box_autostop.py",
-            "type": "code",
-            "story_tags": [
-              "ACA-03-011"
-            ]
-          }
-        ]
-      },
-      "ACA-03-008": {
-        "artifacts": [
-          {
-            "path": "lint-result.txt",
-            "type": "other",
-            "story_tags": [
-              "ACA-03-003",
-              "ACA-03-005",
-              "ACA-03-010",
-              "ACA-03-007",
-              "ACA-03-011",
-              "ACA-03-008",
-              "ACA-03-015",
-              "ACA-01-005",
-              "ACA-03-016",
-              "ACA-07-009",
-              "ACA-03-004",
-              "ACA-03-033"
-            ]
-          },
-          {
-            "path": "evidence/ACA-03-008-receipt.py",
-            "type": "evidence",
-            "story_tags": [
-              "ACA-03-008"
-            ]
-          },
-          {
-            "path": "services/analysis/app/rules/stale_environments.py",
-            "type": "code",
-            "story_tags": [
-              "ACA-03-008"
-            ]
-          }
-        ]
-      },
-      "ACA-03-015": {
-        "artifacts": [
-          {
-            "path": "lint-result.txt",
-            "type": "other",
-            "story_tags": [
-              "ACA-03-003",
-              "ACA-03-005",
-              "ACA-03-010",
-              "ACA-03-007",
-              "ACA-03-011",
-              "ACA-03-008",
-              "ACA-03-015",
-              "ACA-01-005",
-              "ACA-03-016",
-              "ACA-07-009",
-              "ACA-03-004",
-              "ACA-03-033"
-            ]
-          },
-          {
-            "path": "evidence/ACA-03-015-receipt.py",
-            "type": "evidence",
-            "story_tags": [
-              "ACA-03-015"
-            ]
-          },
-          {
-            "path": "services/analysis/app/trigger.py",
-            "type": "code",
-            "story_tags": [
-              "ACA-03-015"
-            ]
-          },
-          {
-            "path": "services/analysis/app/rules/rule_05_anomaly_detection.py",
-            "type": "code",
-            "story_tags": [
-              "ACA-03-015"
-            ]
-          }
-        ]
-      },
-      "ACA-01-005": {
-        "artifacts": [
-          {
-            "path": "lint-result.txt",
-            "type": "other",
-            "story_tags": [
-              "ACA-03-003",
-              "ACA-03-005",
-              "ACA-03-010",
-              "ACA-03-007",
-              "ACA-03-011",
-              "ACA-03-008",
-              "ACA-03-015",
-              "ACA-01-005",
-              "ACA-03-016",
-              "ACA-07-009",
-              "ACA-03-004",
-              "ACA-03-033"
-            ]
-          },
-          {
-            "path": "evidence/ACA-01-005-receipt.py",
-            "type": "evidence",
-            "story_tags": [
-              "ACA-01-005"
-            ]
-          },
-          {
-            "path": "services/api/app/settings.py",
-            "type": "code",
-            "story_tags": [
-              "ACA-01-005"
-            ]
-          }
-        ]
-      },
-      "ACA-03-016": {
-        "artifacts": [
-          {
-            "path": "lint-result.txt",
-            "type": "other",
-            "story_tags": [
-              "ACA-03-003",
-              "ACA-03-005",
-              "ACA-03-010",
-              "ACA-03-007",
-              "ACA-03-011",
-              "ACA-03-008",
-              "ACA-03-015",
-              "ACA-01-005",
-              "ACA-03-016",
-              "ACA-07-009",
-              "ACA-03-004",
-              "ACA-03-033"
-            ]
-          },
-          {
-            "path": "evidence/ACA-03-016-receipt.py",
-            "type": "evidence",
-            "story_tags": [
-              "ACA-03-016"
-            ]
-          },
-          {
-            "path": "services/collector/app/resource_graph.py",
-            "type": "code",
-            "story_tags": [
-              "ACA-03-016"
-            ]
-          },
-          {
-            "path": "services/analysis/app/rules/rule_06_stale_environments.py",
-            "type": "code",
-            "story_tags": [
-              "ACA-03-016"
-            ]
-          }
-        ]
-      },
-      "ACA-07-009": {
-        "artifacts": [
-          {
-            "path": "lint-result.txt",
-            "type": "other",
-            "story_tags": [
-              "ACA-03-003",
-              "ACA-03-005",
-              "ACA-03-010",
-              "ACA-03-007",
-              "ACA-03-011",
-              "ACA-03-008",
-              "ACA-03-015",
-              "ACA-01-005",
-              "ACA-03-016",
-              "ACA-07-009",
-              "ACA-03-004",
-              "ACA-03-033"
-            ]
-          },
-          {
-            "path": "evidence/ACA-07-009-receipt.py",
-            "type": "evidence",
-            "story_tags": [
-              "ACA-07-009"
-            ]
-          },
-          {
-            "path": "services/delivery/app/cosmos.py",
-            "type": "code",
-            "story_tags": [
-              "ACA-07-009"
-            ]
-          }
-        ]
-      },
       "ACA-03-004": {
         "artifacts": [
           {
@@ -6454,17 +6883,27 @@
             "type": "other",
             "story_tags": [
               "ACA-03-003",
+              "ACA-03-004",
               "ACA-03-005",
               "ACA-03-010",
               "ACA-03-007",
+              "ACA-03-012",
+              "ACA-03-013",
+              "ACA-03-014",
+              "ACA-03-015",
+              "ACA-03-017",
+              "ACA-03-019",
+              "ACA-03-020",
+              "ACA-03-021",
+              "ACA-03-022",
               "ACA-03-011",
               "ACA-03-008",
-              "ACA-03-015",
               "ACA-01-005",
               "ACA-03-016",
               "ACA-07-009",
-              "ACA-03-004",
-              "ACA-03-033"
+              "ACA-03-033",
+              "ACA-03-009",
+              "ACA-03-018"
             ]
           },
           {
@@ -6506,6 +6945,1009 @@
           }
         ]
       },
+      "ACA-03-005": {
+        "artifacts": [
+          {
+            "path": "lint-result.txt",
+            "type": "other",
+            "story_tags": [
+              "ACA-03-003",
+              "ACA-03-004",
+              "ACA-03-005",
+              "ACA-03-010",
+              "ACA-03-007",
+              "ACA-03-012",
+              "ACA-03-013",
+              "ACA-03-014",
+              "ACA-03-015",
+              "ACA-03-017",
+              "ACA-03-019",
+              "ACA-03-020",
+              "ACA-03-021",
+              "ACA-03-022",
+              "ACA-03-011",
+              "ACA-03-008",
+              "ACA-01-005",
+              "ACA-03-016",
+              "ACA-07-009",
+              "ACA-03-033",
+              "ACA-03-009",
+              "ACA-03-018"
+            ]
+          },
+          {
+            "path": "evidence/ACA-03-005-receipt.py",
+            "type": "evidence",
+            "story_tags": [
+              "ACA-03-005"
+            ]
+          },
+          {
+            "path": "services/tests/test_findings_summary.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-005"
+            ]
+          },
+          {
+            "path": "services/analysis/app/main.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-021",
+              "ACA-03-004",
+              "ACA-03-005"
+            ]
+          },
+          {
+            "path": "services/analysis/app/rules/compute_scheduling.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-005"
+            ]
+          }
+        ]
+      },
+      "ACA-03-010": {
+        "artifacts": [
+          {
+            "path": "lint-result.txt",
+            "type": "other",
+            "story_tags": [
+              "ACA-03-003",
+              "ACA-03-004",
+              "ACA-03-005",
+              "ACA-03-010",
+              "ACA-03-007",
+              "ACA-03-012",
+              "ACA-03-013",
+              "ACA-03-014",
+              "ACA-03-015",
+              "ACA-03-017",
+              "ACA-03-019",
+              "ACA-03-020",
+              "ACA-03-021",
+              "ACA-03-022",
+              "ACA-03-011",
+              "ACA-03-008",
+              "ACA-01-005",
+              "ACA-03-016",
+              "ACA-07-009",
+              "ACA-03-033",
+              "ACA-03-009",
+              "ACA-03-018"
+            ]
+          },
+          {
+            "path": "agents/red-team-agent.yaml",
+            "type": "config",
+            "story_tags": [
+              "ACA-03-010"
+            ]
+          },
+          {
+            "path": "evidence/ACA-03-010-receipt.py",
+            "type": "evidence",
+            "story_tags": [
+              "ACA-03-010"
+            ]
+          },
+          {
+            "path": "services/tests/test_redteam_tier1_leak.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-010"
+            ]
+          },
+          {
+            "path": "services/analysis/app/rules/acr_consolidation.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-010"
+            ]
+          }
+        ]
+      },
+      "ACA-03-007": {
+        "artifacts": [
+          {
+            "path": "lint-result.txt",
+            "type": "other",
+            "story_tags": [
+              "ACA-03-003",
+              "ACA-03-004",
+              "ACA-03-005",
+              "ACA-03-010",
+              "ACA-03-007",
+              "ACA-03-012",
+              "ACA-03-013",
+              "ACA-03-014",
+              "ACA-03-015",
+              "ACA-03-017",
+              "ACA-03-019",
+              "ACA-03-020",
+              "ACA-03-021",
+              "ACA-03-022",
+              "ACA-03-011",
+              "ACA-03-008",
+              "ACA-01-005",
+              "ACA-03-016",
+              "ACA-07-009",
+              "ACA-03-033",
+              "ACA-03-009",
+              "ACA-03-018"
+            ]
+          },
+          {
+            "path": "evidence/ACA-03-007-receipt.py",
+            "type": "evidence",
+            "story_tags": [
+              "ACA-03-007"
+            ]
+          },
+          {
+            "path": "services/tests/test_tier1_gating.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-007"
+            ]
+          },
+          {
+            "path": "services/analysis/app/rules/anomaly_detection.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-007"
+            ]
+          }
+        ]
+      },
+      "ACA-03-012": {
+        "artifacts": [
+          {
+            "path": "lint-result.txt",
+            "type": "other",
+            "story_tags": [
+              "ACA-03-003",
+              "ACA-03-004",
+              "ACA-03-005",
+              "ACA-03-010",
+              "ACA-03-007",
+              "ACA-03-012",
+              "ACA-03-013",
+              "ACA-03-014",
+              "ACA-03-015",
+              "ACA-03-017",
+              "ACA-03-019",
+              "ACA-03-020",
+              "ACA-03-021",
+              "ACA-03-022",
+              "ACA-03-011",
+              "ACA-03-008",
+              "ACA-01-005",
+              "ACA-03-016",
+              "ACA-07-009",
+              "ACA-03-033",
+              "ACA-03-009",
+              "ACA-03-018"
+            ]
+          },
+          {
+            "path": "evidence/ACA-03-012-receipt.py",
+            "type": "evidence",
+            "story_tags": [
+              "ACA-03-012"
+            ]
+          },
+          {
+            "path": "services/tests/test_rule_r02_log_retention.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-012"
+            ]
+          },
+          {
+            "path": "services/analysis/app/rules/r02_log_retention.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-012"
+            ]
+          },
+          {
+            "path": "services/analysis/app/rules/rule_02_log_retention.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-012"
+            ]
+          },
+          {
+            "path": "services/analysis/app/rules/savings_plan_coverage.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-012"
+            ]
+          }
+        ]
+      },
+      "ACA-03-013": {
+        "artifacts": [
+          {
+            "path": "lint-result.txt",
+            "type": "other",
+            "story_tags": [
+              "ACA-03-003",
+              "ACA-03-004",
+              "ACA-03-005",
+              "ACA-03-010",
+              "ACA-03-007",
+              "ACA-03-012",
+              "ACA-03-013",
+              "ACA-03-014",
+              "ACA-03-015",
+              "ACA-03-017",
+              "ACA-03-019",
+              "ACA-03-020",
+              "ACA-03-021",
+              "ACA-03-022",
+              "ACA-03-011",
+              "ACA-03-008",
+              "ACA-01-005",
+              "ACA-03-016",
+              "ACA-07-009",
+              "ACA-03-033",
+              "ACA-03-009",
+              "ACA-03-018"
+            ]
+          },
+          {
+            "path": "evidence/ACA-03-013-receipt.py",
+            "type": "evidence",
+            "story_tags": [
+              "ACA-03-013"
+            ]
+          },
+          {
+            "path": "services/tests/test_rule_r03_defender_mismatch.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-013"
+            ]
+          },
+          {
+            "path": "services/analysis/app/rules/apim_token_budget.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-013"
+            ]
+          },
+          {
+            "path": "services/analysis/app/rules/r03_defender_mismatch.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-013"
+            ]
+          },
+          {
+            "path": "services/analysis/app/rules/rule_03_defender_mismatch.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-013"
+            ]
+          }
+        ]
+      },
+      "ACA-03-014": {
+        "artifacts": [
+          {
+            "path": "lint-result.txt",
+            "type": "other",
+            "story_tags": [
+              "ACA-03-003",
+              "ACA-03-004",
+              "ACA-03-005",
+              "ACA-03-010",
+              "ACA-03-007",
+              "ACA-03-012",
+              "ACA-03-013",
+              "ACA-03-014",
+              "ACA-03-015",
+              "ACA-03-017",
+              "ACA-03-019",
+              "ACA-03-020",
+              "ACA-03-021",
+              "ACA-03-022",
+              "ACA-03-011",
+              "ACA-03-008",
+              "ACA-01-005",
+              "ACA-03-016",
+              "ACA-07-009",
+              "ACA-03-033",
+              "ACA-03-009",
+              "ACA-03-018"
+            ]
+          },
+          {
+            "path": "evidence/ACA-03-014-receipt.py",
+            "type": "evidence",
+            "story_tags": [
+              "ACA-03-014"
+            ]
+          },
+          {
+            "path": "services/tests/test_rule_r04_compute_scheduling.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-014"
+            ]
+          },
+          {
+            "path": "services/analysis/app/rules/chargeback_gap.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-014"
+            ]
+          },
+          {
+            "path": "services/analysis/app/rules/r04_compute_scheduling.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-014"
+            ]
+          },
+          {
+            "path": "services/analysis/app/rules/rule_04_compute_scheduling.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-014"
+            ]
+          }
+        ]
+      },
+      "ACA-03-015": {
+        "artifacts": [
+          {
+            "path": "lint-result.txt",
+            "type": "other",
+            "story_tags": [
+              "ACA-03-003",
+              "ACA-03-004",
+              "ACA-03-005",
+              "ACA-03-010",
+              "ACA-03-007",
+              "ACA-03-012",
+              "ACA-03-013",
+              "ACA-03-014",
+              "ACA-03-015",
+              "ACA-03-017",
+              "ACA-03-019",
+              "ACA-03-020",
+              "ACA-03-021",
+              "ACA-03-022",
+              "ACA-03-011",
+              "ACA-03-008",
+              "ACA-01-005",
+              "ACA-03-016",
+              "ACA-07-009",
+              "ACA-03-033",
+              "ACA-03-009",
+              "ACA-03-018"
+            ]
+          },
+          {
+            "path": "evidence/ACA-03-015-receipt.py",
+            "type": "evidence",
+            "story_tags": [
+              "ACA-03-015"
+            ]
+          },
+          {
+            "path": "services/tests/test_rule_r05_anomaly_detection.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-015"
+            ]
+          },
+          {
+            "path": "services/analysis/app/trigger.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-015"
+            ]
+          },
+          {
+            "path": "services/analysis/app/rules/r05_anomaly_detection.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-015"
+            ]
+          },
+          {
+            "path": "services/analysis/app/rules/rule_05_anomaly_detection.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-015"
+            ]
+          }
+        ]
+      },
+      "ACA-03-017": {
+        "artifacts": [
+          {
+            "path": "lint-result.txt",
+            "type": "other",
+            "story_tags": [
+              "ACA-03-003",
+              "ACA-03-004",
+              "ACA-03-005",
+              "ACA-03-010",
+              "ACA-03-007",
+              "ACA-03-012",
+              "ACA-03-013",
+              "ACA-03-014",
+              "ACA-03-015",
+              "ACA-03-017",
+              "ACA-03-019",
+              "ACA-03-020",
+              "ACA-03-021",
+              "ACA-03-022",
+              "ACA-03-011",
+              "ACA-03-008",
+              "ACA-01-005",
+              "ACA-03-016",
+              "ACA-07-009",
+              "ACA-03-033",
+              "ACA-03-009",
+              "ACA-03-018"
+            ]
+          },
+          {
+            "path": "evidence/ACA-03-017-receipt.py",
+            "type": "evidence",
+            "story_tags": [
+              "ACA-03-017"
+            ]
+          },
+          {
+            "path": "services/tests/test_rule_r07_search_sku_oversize.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-017"
+            ]
+          },
+          {
+            "path": "services/analysis/app/rules/r07_search_sku_oversize.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-017"
+            ]
+          },
+          {
+            "path": "services/analysis/app/rules/rule_07_search_sku_oversize.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-017"
+            ]
+          }
+        ]
+      },
+      "ACA-03-019": {
+        "artifacts": [
+          {
+            "path": "lint-result.txt",
+            "type": "other",
+            "story_tags": [
+              "ACA-03-003",
+              "ACA-03-004",
+              "ACA-03-005",
+              "ACA-03-010",
+              "ACA-03-007",
+              "ACA-03-012",
+              "ACA-03-013",
+              "ACA-03-014",
+              "ACA-03-015",
+              "ACA-03-017",
+              "ACA-03-019",
+              "ACA-03-020",
+              "ACA-03-021",
+              "ACA-03-022",
+              "ACA-03-011",
+              "ACA-03-008",
+              "ACA-01-005",
+              "ACA-03-016",
+              "ACA-07-009",
+              "ACA-03-033",
+              "ACA-03-009",
+              "ACA-03-018"
+            ]
+          },
+          {
+            "path": "evidence/ACA-03-019-receipt.py",
+            "type": "evidence",
+            "story_tags": [
+              "ACA-03-019"
+            ]
+          },
+          {
+            "path": "services/tests/test_rule_r09_dns_sprawl.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-019"
+            ]
+          },
+          {
+            "path": "services/analysis/app/rules/rule_09_dns_sprawl.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-019"
+            ]
+          }
+        ]
+      },
+      "ACA-03-020": {
+        "artifacts": [
+          {
+            "path": "lint-result.txt",
+            "type": "other",
+            "story_tags": [
+              "ACA-03-003",
+              "ACA-03-004",
+              "ACA-03-005",
+              "ACA-03-010",
+              "ACA-03-007",
+              "ACA-03-012",
+              "ACA-03-013",
+              "ACA-03-014",
+              "ACA-03-015",
+              "ACA-03-017",
+              "ACA-03-019",
+              "ACA-03-020",
+              "ACA-03-021",
+              "ACA-03-022",
+              "ACA-03-011",
+              "ACA-03-008",
+              "ACA-01-005",
+              "ACA-03-016",
+              "ACA-07-009",
+              "ACA-03-033",
+              "ACA-03-009",
+              "ACA-03-018"
+            ]
+          },
+          {
+            "path": "evidence/ACA-03-020-receipt.py",
+            "type": "evidence",
+            "story_tags": [
+              "ACA-03-020"
+            ]
+          },
+          {
+            "path": "services/tests/test_rule_r10_savings_plan_coverage.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-020"
+            ]
+          },
+          {
+            "path": "services/analysis/app/rules/r10_savings_plan_coverage.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-020"
+            ]
+          }
+        ]
+      },
+      "ACA-03-021": {
+        "artifacts": [
+          {
+            "path": "lint-result.txt",
+            "type": "other",
+            "story_tags": [
+              "ACA-03-003",
+              "ACA-03-004",
+              "ACA-03-005",
+              "ACA-03-010",
+              "ACA-03-007",
+              "ACA-03-012",
+              "ACA-03-013",
+              "ACA-03-014",
+              "ACA-03-015",
+              "ACA-03-017",
+              "ACA-03-019",
+              "ACA-03-020",
+              "ACA-03-021",
+              "ACA-03-022",
+              "ACA-03-011",
+              "ACA-03-008",
+              "ACA-01-005",
+              "ACA-03-016",
+              "ACA-07-009",
+              "ACA-03-033",
+              "ACA-03-009",
+              "ACA-03-018"
+            ]
+          },
+          {
+            "path": "evidence/ACA-03-021-receipt.py",
+            "type": "evidence",
+            "story_tags": [
+              "ACA-03-021"
+            ]
+          },
+          {
+            "path": "services/tests/test_analysis_main.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-021"
+            ]
+          },
+          {
+            "path": "services/tests/test_rule_r11_apim_token_budget.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-021"
+            ]
+          },
+          {
+            "path": "services/analysis/app/main.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-021",
+              "ACA-03-004",
+              "ACA-03-005"
+            ]
+          },
+          {
+            "path": "services/analysis/app/rules/r11_apim_token_budget.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-021"
+            ]
+          }
+        ]
+      },
+      "ACA-03-022": {
+        "artifacts": [
+          {
+            "path": "lint-result.txt",
+            "type": "other",
+            "story_tags": [
+              "ACA-03-003",
+              "ACA-03-004",
+              "ACA-03-005",
+              "ACA-03-010",
+              "ACA-03-007",
+              "ACA-03-012",
+              "ACA-03-013",
+              "ACA-03-014",
+              "ACA-03-015",
+              "ACA-03-017",
+              "ACA-03-019",
+              "ACA-03-020",
+              "ACA-03-021",
+              "ACA-03-022",
+              "ACA-03-011",
+              "ACA-03-008",
+              "ACA-01-005",
+              "ACA-03-016",
+              "ACA-07-009",
+              "ACA-03-033",
+              "ACA-03-009",
+              "ACA-03-018"
+            ]
+          },
+          {
+            "path": "evidence/ACA-03-022-receipt.py",
+            "type": "evidence",
+            "story_tags": [
+              "ACA-03-022"
+            ]
+          },
+          {
+            "path": "services/tests/test_rule_r12_chargeback_gap.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-022"
+            ]
+          },
+          {
+            "path": "services/analysis/app/rules/r12_chargeback_gap.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-022"
+            ]
+          }
+        ]
+      },
+      "ACA-03-011": {
+        "artifacts": [
+          {
+            "path": "lint-result.txt",
+            "type": "other",
+            "story_tags": [
+              "ACA-03-003",
+              "ACA-03-004",
+              "ACA-03-005",
+              "ACA-03-010",
+              "ACA-03-007",
+              "ACA-03-012",
+              "ACA-03-013",
+              "ACA-03-014",
+              "ACA-03-015",
+              "ACA-03-017",
+              "ACA-03-019",
+              "ACA-03-020",
+              "ACA-03-021",
+              "ACA-03-022",
+              "ACA-03-011",
+              "ACA-03-008",
+              "ACA-01-005",
+              "ACA-03-016",
+              "ACA-07-009",
+              "ACA-03-033",
+              "ACA-03-009",
+              "ACA-03-018"
+            ]
+          },
+          {
+            "path": "evidence/ACA-03-011-receipt.py",
+            "type": "evidence",
+            "story_tags": [
+              "ACA-03-011"
+            ]
+          },
+          {
+            "path": "services/analysis/app/rules/dns_sprawl.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-011"
+            ]
+          },
+          {
+            "path": "services/analysis/app/rules/rule_01_devbox_autostop.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-011"
+            ]
+          },
+          {
+            "path": "services/analysis/app/rules/rule_01_dev_box_autostop.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-011"
+            ]
+          }
+        ]
+      },
+      "ACA-03-008": {
+        "artifacts": [
+          {
+            "path": "lint-result.txt",
+            "type": "other",
+            "story_tags": [
+              "ACA-03-003",
+              "ACA-03-004",
+              "ACA-03-005",
+              "ACA-03-010",
+              "ACA-03-007",
+              "ACA-03-012",
+              "ACA-03-013",
+              "ACA-03-014",
+              "ACA-03-015",
+              "ACA-03-017",
+              "ACA-03-019",
+              "ACA-03-020",
+              "ACA-03-021",
+              "ACA-03-022",
+              "ACA-03-011",
+              "ACA-03-008",
+              "ACA-01-005",
+              "ACA-03-016",
+              "ACA-07-009",
+              "ACA-03-033",
+              "ACA-03-009",
+              "ACA-03-018"
+            ]
+          },
+          {
+            "path": "evidence/ACA-03-008-receipt.py",
+            "type": "evidence",
+            "story_tags": [
+              "ACA-03-008"
+            ]
+          },
+          {
+            "path": "services/tests/test_findings_tier2_gating.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-008"
+            ]
+          },
+          {
+            "path": "services/analysis/app/rules/stale_environments.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-008"
+            ]
+          }
+        ]
+      },
+      "ACA-01-005": {
+        "artifacts": [
+          {
+            "path": "lint-result.txt",
+            "type": "other",
+            "story_tags": [
+              "ACA-03-003",
+              "ACA-03-004",
+              "ACA-03-005",
+              "ACA-03-010",
+              "ACA-03-007",
+              "ACA-03-012",
+              "ACA-03-013",
+              "ACA-03-014",
+              "ACA-03-015",
+              "ACA-03-017",
+              "ACA-03-019",
+              "ACA-03-020",
+              "ACA-03-021",
+              "ACA-03-022",
+              "ACA-03-011",
+              "ACA-03-008",
+              "ACA-01-005",
+              "ACA-03-016",
+              "ACA-07-009",
+              "ACA-03-033",
+              "ACA-03-009",
+              "ACA-03-018"
+            ]
+          },
+          {
+            "path": "evidence/ACA-01-005-receipt.py",
+            "type": "evidence",
+            "story_tags": [
+              "ACA-01-005"
+            ]
+          },
+          {
+            "path": "services/api/app/settings.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-01-005"
+            ]
+          }
+        ]
+      },
+      "ACA-03-016": {
+        "artifacts": [
+          {
+            "path": "lint-result.txt",
+            "type": "other",
+            "story_tags": [
+              "ACA-03-003",
+              "ACA-03-004",
+              "ACA-03-005",
+              "ACA-03-010",
+              "ACA-03-007",
+              "ACA-03-012",
+              "ACA-03-013",
+              "ACA-03-014",
+              "ACA-03-015",
+              "ACA-03-017",
+              "ACA-03-019",
+              "ACA-03-020",
+              "ACA-03-021",
+              "ACA-03-022",
+              "ACA-03-011",
+              "ACA-03-008",
+              "ACA-01-005",
+              "ACA-03-016",
+              "ACA-07-009",
+              "ACA-03-033",
+              "ACA-03-009",
+              "ACA-03-018"
+            ]
+          },
+          {
+            "path": "evidence/ACA-03-016-receipt.py",
+            "type": "evidence",
+            "story_tags": [
+              "ACA-03-016"
+            ]
+          },
+          {
+            "path": "services/tests/test_rule_r06_stale_environments.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-016"
+            ]
+          },
+          {
+            "path": "services/collector/app/resource_graph.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-016"
+            ]
+          },
+          {
+            "path": "services/analysis/app/rules/r06_stale_environments.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-016"
+            ]
+          },
+          {
+            "path": "services/analysis/app/rules/rule_06_stale_environments.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-016"
+            ]
+          }
+        ]
+      },
+      "ACA-07-009": {
+        "artifacts": [
+          {
+            "path": "lint-result.txt",
+            "type": "other",
+            "story_tags": [
+              "ACA-03-003",
+              "ACA-03-004",
+              "ACA-03-005",
+              "ACA-03-010",
+              "ACA-03-007",
+              "ACA-03-012",
+              "ACA-03-013",
+              "ACA-03-014",
+              "ACA-03-015",
+              "ACA-03-017",
+              "ACA-03-019",
+              "ACA-03-020",
+              "ACA-03-021",
+              "ACA-03-022",
+              "ACA-03-011",
+              "ACA-03-008",
+              "ACA-01-005",
+              "ACA-03-016",
+              "ACA-07-009",
+              "ACA-03-033",
+              "ACA-03-009",
+              "ACA-03-018"
+            ]
+          },
+          {
+            "path": "evidence/ACA-07-009-receipt.py",
+            "type": "evidence",
+            "story_tags": [
+              "ACA-07-009"
+            ]
+          },
+          {
+            "path": "services/delivery/app/cosmos.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-07-009"
+            ]
+          }
+        ]
+      },
       "ACA-03-033": {
         "artifacts": [
           {
@@ -6513,17 +7955,27 @@
             "type": "other",
             "story_tags": [
               "ACA-03-003",
+              "ACA-03-004",
               "ACA-03-005",
               "ACA-03-010",
               "ACA-03-007",
+              "ACA-03-012",
+              "ACA-03-013",
+              "ACA-03-014",
+              "ACA-03-015",
+              "ACA-03-017",
+              "ACA-03-019",
+              "ACA-03-020",
+              "ACA-03-021",
+              "ACA-03-022",
               "ACA-03-011",
               "ACA-03-008",
-              "ACA-03-015",
               "ACA-01-005",
               "ACA-03-016",
               "ACA-07-009",
-              "ACA-03-004",
-              "ACA-03-033"
+              "ACA-03-033",
+              "ACA-03-009",
+              "ACA-03-018"
             ]
           },
           {
@@ -6559,6 +8011,126 @@
             "type": "code",
             "story_tags": [
               "ACA-03-033"
+            ]
+          }
+        ]
+      },
+      "ACA-03-009": {
+        "artifacts": [
+          {
+            "path": "lint-result.txt",
+            "type": "other",
+            "story_tags": [
+              "ACA-03-003",
+              "ACA-03-004",
+              "ACA-03-005",
+              "ACA-03-010",
+              "ACA-03-007",
+              "ACA-03-012",
+              "ACA-03-013",
+              "ACA-03-014",
+              "ACA-03-015",
+              "ACA-03-017",
+              "ACA-03-019",
+              "ACA-03-020",
+              "ACA-03-021",
+              "ACA-03-022",
+              "ACA-03-011",
+              "ACA-03-008",
+              "ACA-01-005",
+              "ACA-03-016",
+              "ACA-07-009",
+              "ACA-03-033",
+              "ACA-03-009",
+              "ACA-03-018"
+            ]
+          },
+          {
+            "path": "evidence/ACA-03-009-receipt.py",
+            "type": "evidence",
+            "story_tags": [
+              "ACA-03-009"
+            ]
+          },
+          {
+            "path": "services/tests/test_findings_tier3_gating.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-009"
+            ]
+          },
+          {
+            "path": "services/analysis/app/rules/search_sku_oversize.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-009"
+            ]
+          },
+          {
+            "path": "services/api/app/services/findings_gate.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-009"
+            ]
+          }
+        ]
+      },
+      "ACA-03-018": {
+        "artifacts": [
+          {
+            "path": "lint-result.txt",
+            "type": "other",
+            "story_tags": [
+              "ACA-03-003",
+              "ACA-03-004",
+              "ACA-03-005",
+              "ACA-03-010",
+              "ACA-03-007",
+              "ACA-03-012",
+              "ACA-03-013",
+              "ACA-03-014",
+              "ACA-03-015",
+              "ACA-03-017",
+              "ACA-03-019",
+              "ACA-03-020",
+              "ACA-03-021",
+              "ACA-03-022",
+              "ACA-03-011",
+              "ACA-03-008",
+              "ACA-01-005",
+              "ACA-03-016",
+              "ACA-07-009",
+              "ACA-03-033",
+              "ACA-03-009",
+              "ACA-03-018"
+            ]
+          },
+          {
+            "path": "evidence/ACA-03-018-receipt.py",
+            "type": "evidence",
+            "story_tags": [
+              "ACA-03-018"
+            ]
+          },
+          {
+            "path": "services/tests/test_rule_r08_acr_consolidation.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-018"
+            ]
+          },
+          {
+            "path": "services/analysis/app/rules/r08_acr_consolidation.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-018"
+            ]
+          },
+          {
+            "path": "services/analysis/app/rules/rule_08_acr_consolidation.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-03-018"
             ]
           }
         ]
@@ -6717,6 +8289,46 @@
           }
         ]
       },
+      "ACA-12-022": {
+        "artifacts": [
+          {
+            "path": "data-model/seed-evidence.ps1",
+            "type": "code",
+            "story_tags": [
+              "ACA-12-022"
+            ]
+          },
+          {
+            "path": "data-model/seed-evidence.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-12-022"
+            ]
+          },
+          {
+            "path": "scripts/gen-full-ado-artifacts.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-12-022"
+            ]
+          },
+          {
+            "path": ".github/scripts/sprint_agent.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-14-009",
+              "ACA-12-022",
+              "ACA-12-023",
+              "ACA-14-001",
+              "ACA-14-002",
+              "ACA-14-003",
+              "ACA-14-008",
+              "ACA-NN-NNN",
+              "ACA-14-010"
+            ]
+          }
+        ]
+      },
       "ACA-12-004": {
         "artifacts": [
           {
@@ -6848,13 +8460,14 @@
             "type": "infra",
             "story_tags": [
               "ACA-01-010",
-              "ACA-13-002",
-              "ACA-13-003",
-              "ACA-13-004",
-              "ACA-13-005",
-              "ACA-13-006",
-              "ACA-13-007",
-              "ACA-13-008"
+              "ACA-12-009",
+              "ACA-12-010",
+              "ACA-12-011",
+              "ACA-12-012",
+              "ACA-12-013",
+              "ACA-12-014",
+              "ACA-12-015",
+              "ACA-12-016"
             ]
           }
         ]
@@ -7209,202 +8822,6 @@
           }
         ]
       },
-      "ACA-03-009": {
-        "artifacts": [
-          {
-            "path": "evidence/ACA-03-009-receipt.py",
-            "type": "evidence",
-            "story_tags": [
-              "ACA-03-009"
-            ]
-          },
-          {
-            "path": "services/analysis/app/rules/search_sku_oversize.py",
-            "type": "code",
-            "story_tags": [
-              "ACA-03-009"
-            ]
-          }
-        ]
-      },
-      "ACA-03-012": {
-        "artifacts": [
-          {
-            "path": "evidence/ACA-03-012-receipt.py",
-            "type": "evidence",
-            "story_tags": [
-              "ACA-03-012"
-            ]
-          },
-          {
-            "path": "services/analysis/app/rules/rule_02_log_retention.py",
-            "type": "code",
-            "story_tags": [
-              "ACA-03-012"
-            ]
-          },
-          {
-            "path": "services/analysis/app/rules/savings_plan_coverage.py",
-            "type": "code",
-            "story_tags": [
-              "ACA-03-012"
-            ]
-          }
-        ]
-      },
-      "ACA-03-013": {
-        "artifacts": [
-          {
-            "path": "evidence/ACA-03-013-receipt.py",
-            "type": "evidence",
-            "story_tags": [
-              "ACA-03-013"
-            ]
-          },
-          {
-            "path": "services/analysis/app/rules/apim_token_budget.py",
-            "type": "code",
-            "story_tags": [
-              "ACA-03-013"
-            ]
-          },
-          {
-            "path": "services/analysis/app/rules/rule_03_defender_mismatch.py",
-            "type": "code",
-            "story_tags": [
-              "ACA-03-013"
-            ]
-          }
-        ]
-      },
-      "ACA-03-014": {
-        "artifacts": [
-          {
-            "path": "evidence/ACA-03-014-receipt.py",
-            "type": "evidence",
-            "story_tags": [
-              "ACA-03-014"
-            ]
-          },
-          {
-            "path": "services/analysis/app/rules/chargeback_gap.py",
-            "type": "code",
-            "story_tags": [
-              "ACA-03-014"
-            ]
-          },
-          {
-            "path": "services/analysis/app/rules/rule_04_compute_scheduling.py",
-            "type": "code",
-            "story_tags": [
-              "ACA-03-014"
-            ]
-          }
-        ]
-      },
-      "ACA-03-017": {
-        "artifacts": [
-          {
-            "path": "evidence/ACA-03-017-receipt.py",
-            "type": "evidence",
-            "story_tags": [
-              "ACA-03-017"
-            ]
-          },
-          {
-            "path": "services/analysis/app/rules/rule_07_search_sku_oversize.py",
-            "type": "code",
-            "story_tags": [
-              "ACA-03-017"
-            ]
-          }
-        ]
-      },
-      "ACA-03-018": {
-        "artifacts": [
-          {
-            "path": "evidence/ACA-03-018-receipt.py",
-            "type": "evidence",
-            "story_tags": [
-              "ACA-03-018"
-            ]
-          },
-          {
-            "path": "services/analysis/app/rules/rule_08_acr_consolidation.py",
-            "type": "code",
-            "story_tags": [
-              "ACA-03-018"
-            ]
-          }
-        ]
-      },
-      "ACA-03-019": {
-        "artifacts": [
-          {
-            "path": "evidence/ACA-03-019-receipt.py",
-            "type": "evidence",
-            "story_tags": [
-              "ACA-03-019"
-            ]
-          },
-          {
-            "path": "services/analysis/app/rules/rule_09_dns_sprawl.py",
-            "type": "code",
-            "story_tags": [
-              "ACA-03-019"
-            ]
-          }
-        ]
-      },
-      "ACA-03-020": {
-        "artifacts": [
-          {
-            "path": "evidence/ACA-03-020-receipt.py",
-            "type": "evidence",
-            "story_tags": [
-              "ACA-03-020"
-            ]
-          }
-        ]
-      },
-      "ACA-03-021": {
-        "artifacts": [
-          {
-            "path": "evidence/ACA-03-021-receipt.py",
-            "type": "evidence",
-            "story_tags": [
-              "ACA-03-021"
-            ]
-          },
-          {
-            "path": "services/tests/test_analysis_main.py",
-            "type": "code",
-            "story_tags": [
-              "ACA-03-021"
-            ]
-          },
-          {
-            "path": "services/analysis/app/main.py",
-            "type": "code",
-            "story_tags": [
-              "ACA-03-021",
-              "ACA-03-004",
-              "ACA-03-005"
-            ]
-          }
-        ]
-      },
-      "ACA-03-022": {
-        "artifacts": [
-          {
-            "path": "evidence/ACA-03-022-receipt.py",
-            "type": "evidence",
-            "story_tags": [
-              "ACA-03-022"
-            ]
-          }
-        ]
-      },
       "ACA-03-023": {
         "artifacts": [
           {
@@ -7546,14 +8963,24 @@
             ]
           },
           {
-            "path": "services/api/app/routers/auth.py",
+            "path": "services/api/tests/test_auth.py",
             "type": "code",
             "story_tags": [
               "ACA-04-004",
+              "ACA-04-005",
+              "ACA-04-009",
+              "ACA-04-001"
+            ]
+          },
+          {
+            "path": "services/api/app/routers/auth.py",
+            "type": "code",
+            "story_tags": [
               "ACA-04-001",
-              "ACA-04-006",
-              "ACA-04-008",
-              "ACA-05-001"
+              "ACA-04-003",
+              "ACA-04-004",
+              "ACA-04-005",
+              "ACA-04-009"
             ]
           }
         ]
@@ -7600,6 +9027,17 @@
             ]
           },
           {
+            "path": "services/api/app/routers/auth.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-04-001",
+              "ACA-04-003",
+              "ACA-04-004",
+              "ACA-04-005",
+              "ACA-04-009"
+            ]
+          },
+          {
             "path": "services/api/app/db/repos/clients_repo.py",
             "type": "code",
             "story_tags": [
@@ -7618,14 +9056,24 @@
             ]
           },
           {
-            "path": "services/api/app/routers/auth.py",
+            "path": "services/api/tests/test_auth.py",
             "type": "code",
             "story_tags": [
               "ACA-04-004",
+              "ACA-04-005",
+              "ACA-04-009",
+              "ACA-04-001"
+            ]
+          },
+          {
+            "path": "services/api/app/routers/auth.py",
+            "type": "code",
+            "story_tags": [
               "ACA-04-001",
-              "ACA-04-006",
-              "ACA-04-008",
-              "ACA-05-001"
+              "ACA-04-003",
+              "ACA-04-004",
+              "ACA-04-005",
+              "ACA-04-009"
             ]
           }
         ]
@@ -7637,6 +9085,27 @@
             "type": "evidence",
             "story_tags": [
               "ACA-04-005"
+            ]
+          },
+          {
+            "path": "services/api/tests/test_auth.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-04-004",
+              "ACA-04-005",
+              "ACA-04-009",
+              "ACA-04-001"
+            ]
+          },
+          {
+            "path": "services/api/app/routers/auth.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-04-001",
+              "ACA-04-003",
+              "ACA-04-004",
+              "ACA-04-005",
+              "ACA-04-009"
             ]
           }
         ]
@@ -7658,17 +9127,6 @@
             ]
           },
           {
-            "path": "services/api/app/routers/auth.py",
-            "type": "code",
-            "story_tags": [
-              "ACA-04-004",
-              "ACA-04-001",
-              "ACA-04-006",
-              "ACA-04-008",
-              "ACA-05-001"
-            ]
-          },
-          {
             "path": "services/api/app/services/token_service.py",
             "type": "code",
             "story_tags": [
@@ -7683,6 +9141,13 @@
           {
             "path": "evidence/ACA-04-007-receipt.py",
             "type": "evidence",
+            "story_tags": [
+              "ACA-04-007"
+            ]
+          },
+          {
+            "path": "frontend/src/pages/LoginPage.tsx",
+            "type": "code",
             "story_tags": [
               "ACA-04-007"
             ]
@@ -7703,17 +9168,6 @@
             "type": "code",
             "story_tags": [
               "ACA-04-008"
-            ]
-          },
-          {
-            "path": "services/api/app/routers/auth.py",
-            "type": "code",
-            "story_tags": [
-              "ACA-04-004",
-              "ACA-04-001",
-              "ACA-04-006",
-              "ACA-04-008",
-              "ACA-05-001"
             ]
           },
           {
@@ -7739,6 +9193,27 @@
             "path": "frontend/src/pages/PreFlight.tsx",
             "type": "code",
             "story_tags": [
+              "ACA-04-009"
+            ]
+          },
+          {
+            "path": "services/api/tests/test_auth.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-04-004",
+              "ACA-04-005",
+              "ACA-04-009",
+              "ACA-04-001"
+            ]
+          },
+          {
+            "path": "services/api/app/routers/auth.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-04-001",
+              "ACA-04-003",
+              "ACA-04-004",
+              "ACA-04-005",
               "ACA-04-009"
             ]
           }
@@ -7779,6 +9254,22 @@
             ]
           },
           {
+            "path": "services/api/tests/test_core_endpoints.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-04-011",
+              "ACA-04-012"
+            ]
+          },
+          {
+            "path": "services/api/app/routers/collect.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-04-011",
+              "ACA-04-012"
+            ]
+          },
+          {
             "path": "services/api/app/routers/scans.py",
             "type": "code",
             "story_tags": [
@@ -7805,6 +9296,22 @@
             "story_tags": [
               "ACA-04-012"
             ]
+          },
+          {
+            "path": "services/api/tests/test_core_endpoints.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-04-011",
+              "ACA-04-012"
+            ]
+          },
+          {
+            "path": "services/api/app/routers/collect.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-04-011",
+              "ACA-04-012"
+            ]
           }
         ]
       },
@@ -7823,6 +9330,13 @@
             "story_tags": [
               "ACA-04-013"
             ]
+          },
+          {
+            "path": "services/api/app/routers/reports.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-04-013"
+            ]
           }
         ]
       },
@@ -7834,6 +9348,14 @@
             "story_tags": [
               "ACA-04-014"
             ]
+          },
+          {
+            "path": "services/api/app/routers/billing.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-04-014",
+              "ACA-04-015"
+            ]
           }
         ]
       },
@@ -7843,6 +9365,14 @@
             "path": "evidence/ACA-04-015-receipt.py",
             "type": "evidence",
             "story_tags": [
+              "ACA-04-015"
+            ]
+          },
+          {
+            "path": "services/api/app/routers/billing.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-04-014",
               "ACA-04-015"
             ]
           }
@@ -7856,6 +9386,13 @@
             "story_tags": [
               "ACA-04-016"
             ]
+          },
+          {
+            "path": "services/api/app/routers/webhooks.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-04-016"
+            ]
           }
         ]
       },
@@ -7864,6 +9401,13 @@
           {
             "path": "evidence/ACA-04-017-receipt.py",
             "type": "evidence",
+            "story_tags": [
+              "ACA-04-017"
+            ]
+          },
+          {
+            "path": "services/api/app/routers/entitlements.py",
+            "type": "code",
             "story_tags": [
               "ACA-04-017"
             ]
@@ -8007,17 +9551,6 @@
             "path": "frontend/src/app/auth/roles.ts",
             "type": "code",
             "story_tags": [
-              "ACA-05-001"
-            ]
-          },
-          {
-            "path": "services/api/app/routers/auth.py",
-            "type": "code",
-            "story_tags": [
-              "ACA-04-004",
-              "ACA-04-001",
-              "ACA-04-006",
-              "ACA-04-008",
               "ACA-05-001"
             ]
           }
@@ -9674,6 +11207,20 @@
             "story_tags": [
               "ACA-11-001"
             ]
+          },
+          {
+            "path": "infra/phase2-private/main.tf",
+            "type": "infra",
+            "story_tags": [
+              "ACA-11-001",
+              "ACA-11-002",
+              "ACA-11-003",
+              "ACA-11-004",
+              "ACA-11-005",
+              "ACA-11-006",
+              "ACA-11-007",
+              "ACA-11-008"
+            ]
           }
         ]
       },
@@ -9684,6 +11231,20 @@
             "type": "evidence",
             "story_tags": [
               "ACA-11-002"
+            ]
+          },
+          {
+            "path": "infra/phase2-private/main.tf",
+            "type": "infra",
+            "story_tags": [
+              "ACA-11-001",
+              "ACA-11-002",
+              "ACA-11-003",
+              "ACA-11-004",
+              "ACA-11-005",
+              "ACA-11-006",
+              "ACA-11-007",
+              "ACA-11-008"
             ]
           }
         ]
@@ -9696,6 +11257,20 @@
             "story_tags": [
               "ACA-11-003"
             ]
+          },
+          {
+            "path": "infra/phase2-private/main.tf",
+            "type": "infra",
+            "story_tags": [
+              "ACA-11-001",
+              "ACA-11-002",
+              "ACA-11-003",
+              "ACA-11-004",
+              "ACA-11-005",
+              "ACA-11-006",
+              "ACA-11-007",
+              "ACA-11-008"
+            ]
           }
         ]
       },
@@ -9706,6 +11281,20 @@
             "type": "evidence",
             "story_tags": [
               "ACA-11-004"
+            ]
+          },
+          {
+            "path": "infra/phase2-private/main.tf",
+            "type": "infra",
+            "story_tags": [
+              "ACA-11-001",
+              "ACA-11-002",
+              "ACA-11-003",
+              "ACA-11-004",
+              "ACA-11-005",
+              "ACA-11-006",
+              "ACA-11-007",
+              "ACA-11-008"
             ]
           }
         ]
@@ -9718,6 +11307,20 @@
             "story_tags": [
               "ACA-11-005"
             ]
+          },
+          {
+            "path": "infra/phase2-private/main.tf",
+            "type": "infra",
+            "story_tags": [
+              "ACA-11-001",
+              "ACA-11-002",
+              "ACA-11-003",
+              "ACA-11-004",
+              "ACA-11-005",
+              "ACA-11-006",
+              "ACA-11-007",
+              "ACA-11-008"
+            ]
           }
         ]
       },
@@ -9728,6 +11331,20 @@
             "type": "evidence",
             "story_tags": [
               "ACA-11-006"
+            ]
+          },
+          {
+            "path": "infra/phase2-private/main.tf",
+            "type": "infra",
+            "story_tags": [
+              "ACA-11-001",
+              "ACA-11-002",
+              "ACA-11-003",
+              "ACA-11-004",
+              "ACA-11-005",
+              "ACA-11-006",
+              "ACA-11-007",
+              "ACA-11-008"
             ]
           }
         ]
@@ -9740,6 +11357,20 @@
             "story_tags": [
               "ACA-11-007"
             ]
+          },
+          {
+            "path": "infra/phase2-private/main.tf",
+            "type": "infra",
+            "story_tags": [
+              "ACA-11-001",
+              "ACA-11-002",
+              "ACA-11-003",
+              "ACA-11-004",
+              "ACA-11-005",
+              "ACA-11-006",
+              "ACA-11-007",
+              "ACA-11-008"
+            ]
           }
         ]
       },
@@ -9749,6 +11380,20 @@
             "path": "evidence/ACA-11-008-receipt.py",
             "type": "evidence",
             "story_tags": [
+              "ACA-11-008"
+            ]
+          },
+          {
+            "path": "infra/phase2-private/main.tf",
+            "type": "infra",
+            "story_tags": [
+              "ACA-11-001",
+              "ACA-11-002",
+              "ACA-11-003",
+              "ACA-11-004",
+              "ACA-11-005",
+              "ACA-11-006",
+              "ACA-11-007",
               "ACA-11-008"
             ]
           }
@@ -9992,6 +11637,35 @@
             "story_tags": [
               "ACA-14-001"
             ]
+          },
+          {
+            "path": ".github/scripts/aca_lm_tracer.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-14-001"
+            ]
+          },
+          {
+            "path": ".github/scripts/sprint_agent.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-14-009",
+              "ACA-12-022",
+              "ACA-12-023",
+              "ACA-14-001",
+              "ACA-14-002",
+              "ACA-14-003",
+              "ACA-14-008",
+              "ACA-NN-NNN",
+              "ACA-14-010"
+            ]
+          },
+          {
+            "path": ".github/scripts/sprint_context.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-14-001"
+            ]
           }
         ]
       },
@@ -10000,6 +11674,28 @@
           {
             "path": "evidence/ACA-14-002-receipt.py",
             "type": "evidence",
+            "story_tags": [
+              "ACA-14-002"
+            ]
+          },
+          {
+            "path": ".github/scripts/sprint_agent.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-14-009",
+              "ACA-12-022",
+              "ACA-12-023",
+              "ACA-14-001",
+              "ACA-14-002",
+              "ACA-14-003",
+              "ACA-14-008",
+              "ACA-NN-NNN",
+              "ACA-14-010"
+            ]
+          },
+          {
+            "path": ".github/scripts/state_lock.py",
+            "type": "code",
             "story_tags": [
               "ACA-14-002"
             ]
@@ -10013,6 +11709,28 @@
             "type": "evidence",
             "story_tags": [
               "ACA-14-003"
+            ]
+          },
+          {
+            "path": ".github/scripts/phase_verifier.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-14-003"
+            ]
+          },
+          {
+            "path": ".github/scripts/sprint_agent.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-14-009",
+              "ACA-12-022",
+              "ACA-12-023",
+              "ACA-14-001",
+              "ACA-14-002",
+              "ACA-14-003",
+              "ACA-14-008",
+              "ACA-NN-NNN",
+              "ACA-14-010"
             ]
           }
         ]
@@ -10028,6 +11746,13 @@
           },
           {
             "path": ".github/scripts/dpdca_plan.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-14-004"
+            ]
+          },
+          {
+            "path": ".github/scripts/evidence_generator.py",
             "type": "code",
             "story_tags": [
               "ACA-14-004"
@@ -10122,6 +11847,21 @@
             ]
           },
           {
+            "path": ".github/scripts/sprint_agent.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-14-009",
+              "ACA-12-022",
+              "ACA-12-023",
+              "ACA-14-001",
+              "ACA-14-002",
+              "ACA-14-003",
+              "ACA-14-008",
+              "ACA-NN-NNN",
+              "ACA-14-010"
+            ]
+          },
+          {
             "path": ".github/workflows/sonnet-review.yml",
             "type": "config",
             "story_tags": [
@@ -10146,7 +11886,12 @@
               "ACA-14-009",
               "ACA-12-022",
               "ACA-12-023",
-              "ACA-NN-NNN"
+              "ACA-14-001",
+              "ACA-14-002",
+              "ACA-14-003",
+              "ACA-14-008",
+              "ACA-NN-NNN",
+              "ACA-14-010"
             ]
           }
         ]
@@ -10166,16 +11911,12 @@
             "story_tags": [
               "ACA-14-010"
             ]
-          }
-        ]
-      },
-      "ACA-12-022": {
-        "artifacts": [
+          },
           {
-            "path": "scripts/gen-full-ado-artifacts.py",
+            "path": ".github/scripts/evidence_schema.py",
             "type": "code",
             "story_tags": [
-              "ACA-12-022"
+              "ACA-14-010"
             ]
           },
           {
@@ -10185,7 +11926,12 @@
               "ACA-14-009",
               "ACA-12-022",
               "ACA-12-023",
-              "ACA-NN-NNN"
+              "ACA-14-001",
+              "ACA-14-002",
+              "ACA-14-003",
+              "ACA-14-008",
+              "ACA-NN-NNN",
+              "ACA-14-010"
             ]
           }
         ]
@@ -10223,7 +11969,12 @@
               "ACA-14-009",
               "ACA-12-022",
               "ACA-12-023",
-              "ACA-NN-NNN"
+              "ACA-14-001",
+              "ACA-14-002",
+              "ACA-14-003",
+              "ACA-14-008",
+              "ACA-NN-NNN",
+              "ACA-14-010"
             ]
           }
         ]
@@ -10237,277 +11988,164 @@
               "ACA-14-009",
               "ACA-12-022",
               "ACA-12-023",
-              "ACA-NN-NNN"
+              "ACA-14-001",
+              "ACA-14-002",
+              "ACA-14-003",
+              "ACA-14-008",
+              "ACA-NN-NNN",
+              "ACA-14-010"
             ]
           }
         ]
       },
-      "ACA-13-002": {
+      "ACA-12-009": {
         "artifacts": [
           {
             "path": "infra/phase1-marco/main.bicep",
             "type": "infra",
             "story_tags": [
               "ACA-01-010",
-              "ACA-13-002",
-              "ACA-13-003",
-              "ACA-13-004",
-              "ACA-13-005",
-              "ACA-13-006",
-              "ACA-13-007",
-              "ACA-13-008"
+              "ACA-12-009",
+              "ACA-12-010",
+              "ACA-12-011",
+              "ACA-12-012",
+              "ACA-12-013",
+              "ACA-12-014",
+              "ACA-12-015",
+              "ACA-12-016"
             ]
           }
         ]
       },
-      "ACA-13-003": {
+      "ACA-12-010": {
         "artifacts": [
           {
             "path": "infra/phase1-marco/main.bicep",
             "type": "infra",
             "story_tags": [
               "ACA-01-010",
-              "ACA-13-002",
-              "ACA-13-003",
-              "ACA-13-004",
-              "ACA-13-005",
-              "ACA-13-006",
-              "ACA-13-007",
-              "ACA-13-008"
+              "ACA-12-009",
+              "ACA-12-010",
+              "ACA-12-011",
+              "ACA-12-012",
+              "ACA-12-013",
+              "ACA-12-014",
+              "ACA-12-015",
+              "ACA-12-016"
             ]
           }
         ]
       },
-      "ACA-13-004": {
+      "ACA-12-011": {
         "artifacts": [
           {
             "path": "infra/phase1-marco/main.bicep",
             "type": "infra",
             "story_tags": [
               "ACA-01-010",
-              "ACA-13-002",
-              "ACA-13-003",
-              "ACA-13-004",
-              "ACA-13-005",
-              "ACA-13-006",
-              "ACA-13-007",
-              "ACA-13-008"
+              "ACA-12-009",
+              "ACA-12-010",
+              "ACA-12-011",
+              "ACA-12-012",
+              "ACA-12-013",
+              "ACA-12-014",
+              "ACA-12-015",
+              "ACA-12-016"
             ]
           }
         ]
       },
-      "ACA-13-005": {
+      "ACA-12-012": {
         "artifacts": [
           {
             "path": "infra/phase1-marco/main.bicep",
             "type": "infra",
             "story_tags": [
               "ACA-01-010",
-              "ACA-13-002",
-              "ACA-13-003",
-              "ACA-13-004",
-              "ACA-13-005",
-              "ACA-13-006",
-              "ACA-13-007",
-              "ACA-13-008"
+              "ACA-12-009",
+              "ACA-12-010",
+              "ACA-12-011",
+              "ACA-12-012",
+              "ACA-12-013",
+              "ACA-12-014",
+              "ACA-12-015",
+              "ACA-12-016"
             ]
           }
         ]
       },
-      "ACA-13-006": {
+      "ACA-12-013": {
         "artifacts": [
           {
             "path": "infra/phase1-marco/main.bicep",
             "type": "infra",
             "story_tags": [
               "ACA-01-010",
-              "ACA-13-002",
-              "ACA-13-003",
-              "ACA-13-004",
-              "ACA-13-005",
-              "ACA-13-006",
-              "ACA-13-007",
-              "ACA-13-008"
+              "ACA-12-009",
+              "ACA-12-010",
+              "ACA-12-011",
+              "ACA-12-012",
+              "ACA-12-013",
+              "ACA-12-014",
+              "ACA-12-015",
+              "ACA-12-016"
             ]
           }
         ]
       },
-      "ACA-13-007": {
+      "ACA-12-014": {
         "artifacts": [
           {
             "path": "infra/phase1-marco/main.bicep",
             "type": "infra",
             "story_tags": [
               "ACA-01-010",
-              "ACA-13-002",
-              "ACA-13-003",
-              "ACA-13-004",
-              "ACA-13-005",
-              "ACA-13-006",
-              "ACA-13-007",
-              "ACA-13-008"
+              "ACA-12-009",
+              "ACA-12-010",
+              "ACA-12-011",
+              "ACA-12-012",
+              "ACA-12-013",
+              "ACA-12-014",
+              "ACA-12-015",
+              "ACA-12-016"
             ]
           }
         ]
       },
-      "ACA-13-008": {
+      "ACA-12-015": {
         "artifacts": [
           {
             "path": "infra/phase1-marco/main.bicep",
             "type": "infra",
             "story_tags": [
               "ACA-01-010",
-              "ACA-13-002",
-              "ACA-13-003",
-              "ACA-13-004",
-              "ACA-13-005",
-              "ACA-13-006",
-              "ACA-13-007",
-              "ACA-13-008"
+              "ACA-12-009",
+              "ACA-12-010",
+              "ACA-12-011",
+              "ACA-12-012",
+              "ACA-12-013",
+              "ACA-12-014",
+              "ACA-12-015",
+              "ACA-12-016"
             ]
           }
         ]
       },
-      "ACA-INFRA-001": {
+      "ACA-12-016": {
         "artifacts": [
           {
-            "path": "infra/phase2-private/main.tf",
+            "path": "infra/phase1-marco/main.bicep",
             "type": "infra",
             "story_tags": [
-              "ACA-INFRA-001",
-              "ACA-INFRA-002",
-              "ACA-INFRA-003",
-              "ACA-INFRA-004",
-              "ACA-INFRA-005",
-              "ACA-INFRA-006",
-              "ACA-INFRA-007",
-              "ACA-INFRA-008"
-            ]
-          }
-        ]
-      },
-      "ACA-INFRA-002": {
-        "artifacts": [
-          {
-            "path": "infra/phase2-private/main.tf",
-            "type": "infra",
-            "story_tags": [
-              "ACA-INFRA-001",
-              "ACA-INFRA-002",
-              "ACA-INFRA-003",
-              "ACA-INFRA-004",
-              "ACA-INFRA-005",
-              "ACA-INFRA-006",
-              "ACA-INFRA-007",
-              "ACA-INFRA-008"
-            ]
-          }
-        ]
-      },
-      "ACA-INFRA-003": {
-        "artifacts": [
-          {
-            "path": "infra/phase2-private/main.tf",
-            "type": "infra",
-            "story_tags": [
-              "ACA-INFRA-001",
-              "ACA-INFRA-002",
-              "ACA-INFRA-003",
-              "ACA-INFRA-004",
-              "ACA-INFRA-005",
-              "ACA-INFRA-006",
-              "ACA-INFRA-007",
-              "ACA-INFRA-008"
-            ]
-          }
-        ]
-      },
-      "ACA-INFRA-004": {
-        "artifacts": [
-          {
-            "path": "infra/phase2-private/main.tf",
-            "type": "infra",
-            "story_tags": [
-              "ACA-INFRA-001",
-              "ACA-INFRA-002",
-              "ACA-INFRA-003",
-              "ACA-INFRA-004",
-              "ACA-INFRA-005",
-              "ACA-INFRA-006",
-              "ACA-INFRA-007",
-              "ACA-INFRA-008"
-            ]
-          }
-        ]
-      },
-      "ACA-INFRA-005": {
-        "artifacts": [
-          {
-            "path": "infra/phase2-private/main.tf",
-            "type": "infra",
-            "story_tags": [
-              "ACA-INFRA-001",
-              "ACA-INFRA-002",
-              "ACA-INFRA-003",
-              "ACA-INFRA-004",
-              "ACA-INFRA-005",
-              "ACA-INFRA-006",
-              "ACA-INFRA-007",
-              "ACA-INFRA-008"
-            ]
-          }
-        ]
-      },
-      "ACA-INFRA-006": {
-        "artifacts": [
-          {
-            "path": "infra/phase2-private/main.tf",
-            "type": "infra",
-            "story_tags": [
-              "ACA-INFRA-001",
-              "ACA-INFRA-002",
-              "ACA-INFRA-003",
-              "ACA-INFRA-004",
-              "ACA-INFRA-005",
-              "ACA-INFRA-006",
-              "ACA-INFRA-007",
-              "ACA-INFRA-008"
-            ]
-          }
-        ]
-      },
-      "ACA-INFRA-007": {
-        "artifacts": [
-          {
-            "path": "infra/phase2-private/main.tf",
-            "type": "infra",
-            "story_tags": [
-              "ACA-INFRA-001",
-              "ACA-INFRA-002",
-              "ACA-INFRA-003",
-              "ACA-INFRA-004",
-              "ACA-INFRA-005",
-              "ACA-INFRA-006",
-              "ACA-INFRA-007",
-              "ACA-INFRA-008"
-            ]
-          }
-        ]
-      },
-      "ACA-INFRA-008": {
-        "artifacts": [
-          {
-            "path": "infra/phase2-private/main.tf",
-            "type": "infra",
-            "story_tags": [
-              "ACA-INFRA-001",
-              "ACA-INFRA-002",
-              "ACA-INFRA-003",
-              "ACA-INFRA-004",
-              "ACA-INFRA-005",
-              "ACA-INFRA-006",
-              "ACA-INFRA-007",
-              "ACA-INFRA-008"
+              "ACA-01-010",
+              "ACA-12-009",
+              "ACA-12-010",
+              "ACA-12-011",
+              "ACA-12-012",
+              "ACA-12-013",
+              "ACA-12-014",
+              "ACA-12-015",
+              "ACA-12-016"
             ]
           }
         ]
@@ -10567,6 +12205,285 @@
       }
     },
     "commit_evidence_map": {
+      "ACA-04-011": [
+        {
+          "sha": "2db676f",
+          "snippet": "feat(ACA-04-011,012,013,014,015,016,017): Sprint 18 core API endpoints - collect",
+          "source": "commit"
+        }
+      ],
+      "ACA-04-001": [
+        {
+          "sha": "d20a43a",
+          "snippet": "feat(ACA-04-001,004,005,009,007): Sprint 17 API auth endpoints - sign-in, connec",
+          "source": "commit"
+        },
+        {
+          "sha": "8ddfc23",
+          "snippet": "feat(ACA-04-001): Sprint 17 backend auth foundation - MSAL, session, probes modu",
+          "source": "commit"
+        },
+        {
+          "sha": "225a10a",
+          "snippet": "chore(veritas): ACA-01-001 ACA-02-001 ACA-03-001 ACA-04-001 ACA-05-001 ACA-06-00",
+          "source": "commit"
+        }
+      ],
+      "ACA-03-028": [
+        {
+          "sha": "c5577e0",
+          "snippet": "docs(ACA-03-028): Sprint 15 completion report with metrics validation",
+          "source": "commit"
+        },
+        {
+          "sha": "0cdd318",
+          "snippet": "feat(ACA-03-028): Sprint 15 unit tests for R-06 through R-11 (19 tests, all PASS",
+          "source": "commit"
+        }
+      ],
+      "ACA-03-023": [
+        {
+          "sha": "61ed1ca",
+          "snippet": "docs(ACA-03-023): Sprint 14 completion report with metrics validation",
+          "source": "commit"
+        },
+        {
+          "sha": "703d9d2",
+          "snippet": "feat(ACA-03-023): Sprint 14 unit tests for R-01 through R-05 (15 tests, all PASS",
+          "source": "commit"
+        }
+      ],
+      "ACA-03-019": [
+        {
+          "sha": "1de026d",
+          "snippet": "docs(ACA-03-019): Sprint 13 complete - handoff report with full metrics validati",
+          "source": "commit"
+        },
+        {
+          "sha": "0d19f93",
+          "snippet": "docs(ACA-03-019): Sprint 13 completion summary and evidence verification",
+          "source": "commit"
+        },
+        {
+          "sha": "29cd348",
+          "snippet": "feat(ACA-03-019): implement analysis rules R-09 through R-12 (Sprint 13 complete",
+          "source": "commit"
+        }
+      ],
+      "ACA-14-009": [
+        {
+          "sha": "6449ea2",
+          "snippet": "feat(ACA-14-009,ACA-14-010): Sprint 12 - Azure OpenAI fallback + Evidence schema",
+          "source": "commit"
+        },
+        {
+          "sha": "6ca3541",
+          "snippet": "feat(ACA-14-009): expand cloud agent context -- _load_story_files, full P2.5 pat",
+          "source": "commit"
+        },
+        {
+          "sha": "686d0c9",
+          "snippet": "fix(ACA-14-009): add models:read permission + auto-PR creation in sprint agent",
+          "source": "commit"
+        },
+        {
+          "sha": "328e298",
+          "snippet": "chore(ACA-14-009): add sprint-00 preflight manifest (3 blocking bugs)",
+          "source": "commit"
+        },
+        {
+          "sha": "76e1806",
+          "snippet": "feat(ACA-14-009): cloud-first sprint execution -- sprint-agent + sonnet-review w",
+          "source": "commit"
+        }
+      ],
+      "ACA-14-010": [
+        {
+          "sha": "6449ea2",
+          "snippet": "feat(ACA-14-009,ACA-14-010): Sprint 12 - Azure OpenAI fallback + Evidence schema",
+          "source": "commit"
+        }
+      ],
+      "ACA-14-001": [
+        {
+          "sha": "0e0a8d4",
+          "snippet": "feat(51-ACA): implement Sprint 11 Phase 1+2 foundation (ACA-14-001 through ACA-1",
+          "source": "commit"
+        },
+        {
+          "sha": "3ac6775",
+          "snippet": "chore(ACA-14-001): Sprint-01 A step -- 5 stories marked done, STATUS.md v1.4.0, ",
+          "source": "commit"
+        },
+        {
+          "sha": "e041b3f",
+          "snippet": "chore(ACA-14-001): update review draft to Sonnet 4.6 + embed live endpoint table",
+          "source": "commit"
+        },
+        {
+          "sha": "ef7341f",
+          "snippet": "feat(plan): ACA-14-001 ACA-14-002 ACA-14-003 ACA-14-004 ACA-14-005 ACA-14-006 AC",
+          "source": "commit"
+        }
+      ],
+      "ACA-14-004": [
+        {
+          "sha": "0e0a8d4",
+          "snippet": "feat(51-ACA): implement Sprint 11 Phase 1+2 foundation (ACA-14-001 through ACA-1",
+          "source": "commit"
+        },
+        {
+          "sha": "4a96e38",
+          "snippet": "fix(dpdca): ACA-14-004 remove model field for Azure OpenAI requests",
+          "source": "commit"
+        },
+        {
+          "sha": "9b189e7",
+          "snippet": "fix(dpdca): ACA-14-004 strip trailing slash from AZURE_OPENAI_ENDPOINT",
+          "source": "commit"
+        },
+        {
+          "sha": "735ea51",
+          "snippet": "fix(dpdca): ACA-14-003 ACA-14-004 ACA-14-005 fix YAML workflow -- no inline Pyth",
+          "source": "commit"
+        },
+        {
+          "sha": "ef7341f",
+          "snippet": "feat(plan): ACA-14-001 ACA-14-002 ACA-14-003 ACA-14-004 ACA-14-005 ACA-14-006 AC",
+          "source": "commit"
+        }
+      ],
+      "ACA-03-020": [
+        {
+          "sha": "fe288a5",
+          "snippet": "fix(ACA-03-020,021,022): correct import paths and function signatures for Sprint",
+          "source": "commit"
+        }
+      ],
+      "ACA-03-014": [
+        {
+          "sha": "d00bdb0",
+          "snippet": "feat(ACA-03-014): As the system I implement R-04 rule: returns finding when annu",
+          "source": "commit"
+        },
+        {
+          "sha": "15519ac",
+          "snippet": "feat(ACA-03-014): Rule 12 -- Chargeback gap",
+          "source": "commit"
+        }
+      ],
+      "ACA-03-013": [
+        {
+          "sha": "a9ed5e7",
+          "snippet": "feat(ACA-03-013): As the system I implement R-03 rule: returns finding when annu",
+          "source": "commit"
+        },
+        {
+          "sha": "37101fc",
+          "snippet": "feat(ACA-03-013): Rule 11 -- APIM token budget",
+          "source": "commit"
+        }
+      ],
+      "ACA-03-012": [
+        {
+          "sha": "31fdadc",
+          "snippet": "feat(ACA-03-012): As the system I implement R-02 rule: returns finding when annu",
+          "source": "commit"
+        },
+        {
+          "sha": "2d08ba3",
+          "snippet": "feat(ACA-03-012): Rule 10 -- Savings plan coverage",
+          "source": "commit"
+        }
+      ],
+      "ACA-03-010": [
+        {
+          "sha": "ebb5eff",
+          "snippet": "feat(ACA-03-010): As the red-team agent I can assert that Tier 1 tokens never le",
+          "source": "commit"
+        },
+        {
+          "sha": "a3ddfad",
+          "snippet": "feat(ACA-03-010): Rule 08 -- ACR consolidation",
+          "source": "commit"
+        }
+      ],
+      "ACA-03-009": [
+        {
+          "sha": "27e9dbd",
+          "snippet": "feat(ACA-03-009): As a Tier 3 client I receive the full finding including delive",
+          "source": "commit"
+        },
+        {
+          "sha": "05c2d30",
+          "snippet": "chore(ACA-03-001,ACA-03-008,ACA-03-009): Sprint 6 manifest filled -- 3 stories, ",
+          "source": "commit"
+        },
+        {
+          "sha": "488a348",
+          "snippet": "feat(ACA-03-009): Rule 07 -- Search SKU oversize",
+          "source": "commit"
+        }
+      ],
+      "ACA-03-008": [
+        {
+          "sha": "329b253",
+          "snippet": "feat(ACA-03-008): As a Tier 2 client I receive the full finding including narrat",
+          "source": "commit"
+        },
+        {
+          "sha": "05c2d30",
+          "snippet": "chore(ACA-03-001,ACA-03-008,ACA-03-009): Sprint 6 manifest filled -- 3 stories, ",
+          "source": "commit"
+        },
+        {
+          "sha": "fd0430b",
+          "snippet": "feat(ACA-03-008): Rule 06 -- Stale environments",
+          "source": "commit"
+        }
+      ],
+      "ACA-03-001": [
+        {
+          "sha": "26cb622",
+          "snippet": "feat(ACA-03-001): As the system I load all 12 rules from ALL_RULES and run each ",
+          "source": "commit"
+        },
+        {
+          "sha": "05c2d30",
+          "snippet": "chore(ACA-03-001,ACA-03-008,ACA-03-009): Sprint 6 manifest filled -- 3 stories, ",
+          "source": "commit"
+        },
+        {
+          "sha": "1496a94",
+          "snippet": "chore(ACA-03-001): mark story done in veritas-plan",
+          "source": "commit"
+        },
+        {
+          "sha": "771a62c",
+          "snippet": "feat(ACA-03-001): As the system I load all 12 rules from ALL_RULES and run each ",
+          "source": "commit"
+        },
+        {
+          "sha": "4695206",
+          "snippet": "feat(ACA-03-001): Load and run all 12 rules in sequence",
+          "source": "commit"
+        },
+        {
+          "sha": "7dcc0df",
+          "snippet": "feat(ACA-03-001): Load and run all 12 rules in sequence",
+          "source": "commit"
+        },
+        {
+          "sha": "225a10a",
+          "snippet": "chore(veritas): ACA-01-001 ACA-02-001 ACA-03-001 ACA-04-001 ACA-05-001 ACA-06-00",
+          "source": "commit"
+        },
+        {
+          "sha": "test-manifest-ACA-03-001.json",
+          "snippet": "filename: test-manifest-ACA-03-001.json",
+          "source": "filename"
+        }
+      ],
       "ACA-03-004": [
         {
           "sha": "07ff958",
@@ -10666,38 +12583,6 @@
           "source": "commit"
         }
       ],
-      "ACA-03-001": [
-        {
-          "sha": "1496a94",
-          "snippet": "chore(ACA-03-001): mark story done in veritas-plan",
-          "source": "commit"
-        },
-        {
-          "sha": "771a62c",
-          "snippet": "feat(ACA-03-001): As the system I load all 12 rules from ALL_RULES and run each ",
-          "source": "commit"
-        },
-        {
-          "sha": "4695206",
-          "snippet": "feat(ACA-03-001): Load and run all 12 rules in sequence",
-          "source": "commit"
-        },
-        {
-          "sha": "7dcc0df",
-          "snippet": "feat(ACA-03-001): Load and run all 12 rules in sequence",
-          "source": "commit"
-        },
-        {
-          "sha": "225a10a",
-          "snippet": "chore(veritas): ACA-01-001 ACA-02-001 ACA-03-001 ACA-04-001 ACA-05-001 ACA-06-00",
-          "source": "commit"
-        },
-        {
-          "sha": "test-manifest-ACA-03-001.json",
-          "snippet": "filename: test-manifest-ACA-03-001.json",
-          "source": "filename"
-        }
-      ],
       "ACA-03-016": [
         {
           "sha": "8113b32",
@@ -10709,48 +12594,6 @@
         {
           "sha": "2e2a93a",
           "snippet": "feat(ACA-03-015): GB-02 -- Analysis auto-trigger",
-          "source": "commit"
-        }
-      ],
-      "ACA-03-014": [
-        {
-          "sha": "15519ac",
-          "snippet": "feat(ACA-03-014): Rule 12 -- Chargeback gap",
-          "source": "commit"
-        }
-      ],
-      "ACA-03-013": [
-        {
-          "sha": "37101fc",
-          "snippet": "feat(ACA-03-013): Rule 11 -- APIM token budget",
-          "source": "commit"
-        }
-      ],
-      "ACA-03-012": [
-        {
-          "sha": "2d08ba3",
-          "snippet": "feat(ACA-03-012): Rule 10 -- Savings plan coverage",
-          "source": "commit"
-        }
-      ],
-      "ACA-03-010": [
-        {
-          "sha": "a3ddfad",
-          "snippet": "feat(ACA-03-010): Rule 08 -- ACR consolidation",
-          "source": "commit"
-        }
-      ],
-      "ACA-03-009": [
-        {
-          "sha": "488a348",
-          "snippet": "feat(ACA-03-009): Rule 07 -- Search SKU oversize",
-          "source": "commit"
-        }
-      ],
-      "ACA-03-008": [
-        {
-          "sha": "fd0430b",
-          "snippet": "feat(ACA-03-008): Rule 06 -- Stale environments",
           "source": "commit"
         }
       ],
@@ -10926,23 +12769,6 @@
           "source": "commit"
         }
       ],
-      "ACA-14-001": [
-        {
-          "sha": "3ac6775",
-          "snippet": "chore(ACA-14-001): Sprint-01 A step -- 5 stories marked done, STATUS.md v1.4.0, ",
-          "source": "commit"
-        },
-        {
-          "sha": "e041b3f",
-          "snippet": "chore(ACA-14-001): update review draft to Sonnet 4.6 + embed live endpoint table",
-          "source": "commit"
-        },
-        {
-          "sha": "ef7341f",
-          "snippet": "feat(plan): ACA-14-001 ACA-14-002 ACA-14-003 ACA-14-004 ACA-14-005 ACA-14-006 AC",
-          "source": "commit"
-        }
-      ],
       "ACA-03-033": [
         {
           "sha": "fef132d",
@@ -11055,28 +12881,6 @@
           "source": "commit"
         }
       ],
-      "ACA-14-009": [
-        {
-          "sha": "6ca3541",
-          "snippet": "feat(ACA-14-009): expand cloud agent context -- _load_story_files, full P2.5 pat",
-          "source": "commit"
-        },
-        {
-          "sha": "686d0c9",
-          "snippet": "fix(ACA-14-009): add models:read permission + auto-PR creation in sprint agent",
-          "source": "commit"
-        },
-        {
-          "sha": "328e298",
-          "snippet": "chore(ACA-14-009): add sprint-00 preflight manifest (3 blocking bugs)",
-          "source": "commit"
-        },
-        {
-          "sha": "76e1806",
-          "snippet": "feat(ACA-14-009): cloud-first sprint execution -- sprint-agent + sonnet-review w",
-          "source": "commit"
-        }
-      ],
       "ACA-14-008": [
         {
           "sha": "2d7dddb",
@@ -11086,28 +12890,6 @@
         {
           "sha": "bc7e849",
           "snippet": "ACA-14-008 agent: scaffold + evidence receipt -- issue #1",
-          "source": "commit"
-        }
-      ],
-      "ACA-14-004": [
-        {
-          "sha": "4a96e38",
-          "snippet": "fix(dpdca): ACA-14-004 remove model field for Azure OpenAI requests",
-          "source": "commit"
-        },
-        {
-          "sha": "9b189e7",
-          "snippet": "fix(dpdca): ACA-14-004 strip trailing slash from AZURE_OPENAI_ENDPOINT",
-          "source": "commit"
-        },
-        {
-          "sha": "735ea51",
-          "snippet": "fix(dpdca): ACA-14-003 ACA-14-004 ACA-14-005 fix YAML workflow -- no inline Pyth",
-          "source": "commit"
-        },
-        {
-          "sha": "ef7341f",
-          "snippet": "feat(plan): ACA-14-001 ACA-14-002 ACA-14-003 ACA-14-004 ACA-14-005 ACA-14-006 AC",
           "source": "commit"
         }
       ],
@@ -11138,13 +12920,6 @@
         }
       ],
       "ACA-02-001": [
-        {
-          "sha": "225a10a",
-          "snippet": "chore(veritas): ACA-01-001 ACA-02-001 ACA-03-001 ACA-04-001 ACA-05-001 ACA-06-00",
-          "source": "commit"
-        }
-      ],
-      "ACA-04-001": [
         {
           "sha": "225a10a",
           "snippet": "chore(veritas): ACA-01-001 ACA-02-001 ACA-03-001 ACA-04-001 ACA-05-001 ACA-06-00",

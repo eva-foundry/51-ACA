@@ -1,11 +1,11 @@
-# EVA-STORY: ACA-INFRA-001
-# EVA-STORY: ACA-INFRA-002
-# EVA-STORY: ACA-INFRA-003
-# EVA-STORY: ACA-INFRA-004
-# EVA-STORY: ACA-INFRA-005
-# EVA-STORY: ACA-INFRA-006
-# EVA-STORY: ACA-INFRA-007
-# EVA-STORY: ACA-INFRA-008
+# EVA-STORY: ACA-11-001
+# EVA-STORY: ACA-11-002
+# EVA-STORY: ACA-11-003
+# EVA-STORY: ACA-11-004
+# EVA-STORY: ACA-11-005
+# EVA-STORY: ACA-11-006
+# EVA-STORY: ACA-11-007
+# EVA-STORY: ACA-11-008
 // Phase 2 -- private ACA subscription
 // Creates full stack: Container Apps env, Cosmos, OpenAI, APIM, ACR, KV, Storage, App Insights
 // Deploy: terraform init && terraform apply -var-file=production.tfvars

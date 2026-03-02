@@ -1,14 +1,14 @@
 {
   "meta": {
     "schema": "eva.reconciliation.v2",
-    "generated_at": "2026-03-01T14:59:52.070Z",
+    "generated_at": "2026-03-02T14:50:21.834Z",
     "repo": "C:\\AICOE\\eva-foundry\\51-ACA",
     "discovery_path": "C:\\AICOE\\eva-foundry\\51-ACA\\.eva\\discovery.json"
   },
   "coverage": {
-    "stories_total": 257,
-    "stories_with_artifacts": 257,
-    "stories_with_evidence": 257,
+    "stories_total": 268,
+    "stories_with_artifacts": 268,
+    "stories_with_evidence": 260,
     "consistency_score": 0
   },
   "features": [
@@ -125,11 +125,11 @@
     {
       "id": "ACA-12",
       "title": "DATA MODEL SUPPORT",
-      "story_count": 8,
-      "stories_with_artifacts": 8,
+      "story_count": 16,
+      "stories_with_artifacts": 16,
       "stories_with_evidence": 8,
       "consistency_score": 0,
-      "mti": 70,
+      "mti": 60,
       "gap_count": 0
     },
     {
@@ -145,9 +145,9 @@
     {
       "id": "ACA-14",
       "title": "DPDCA CLOUD AGENT",
-      "story_count": 14,
-      "stories_with_artifacts": 14,
-      "stories_with_evidence": 14,
+      "story_count": 17,
+      "stories_with_artifacts": 17,
+      "stories_with_evidence": 17,
       "consistency_score": 0,
       "mti": 70,
       "gap_count": 0
@@ -167,81 +167,6 @@
     {
       "type": "orphan_story_tag",
       "story_id": "ACA-NN-NNN",
-      "title": null
-    },
-    {
-      "type": "orphan_story_tag",
-      "story_id": "ACA-13-002",
-      "title": null
-    },
-    {
-      "type": "orphan_story_tag",
-      "story_id": "ACA-13-003",
-      "title": null
-    },
-    {
-      "type": "orphan_story_tag",
-      "story_id": "ACA-13-004",
-      "title": null
-    },
-    {
-      "type": "orphan_story_tag",
-      "story_id": "ACA-13-005",
-      "title": null
-    },
-    {
-      "type": "orphan_story_tag",
-      "story_id": "ACA-13-006",
-      "title": null
-    },
-    {
-      "type": "orphan_story_tag",
-      "story_id": "ACA-13-007",
-      "title": null
-    },
-    {
-      "type": "orphan_story_tag",
-      "story_id": "ACA-13-008",
-      "title": null
-    },
-    {
-      "type": "orphan_story_tag",
-      "story_id": "ACA-INFRA-001",
-      "title": null
-    },
-    {
-      "type": "orphan_story_tag",
-      "story_id": "ACA-INFRA-002",
-      "title": null
-    },
-    {
-      "type": "orphan_story_tag",
-      "story_id": "ACA-INFRA-003",
-      "title": null
-    },
-    {
-      "type": "orphan_story_tag",
-      "story_id": "ACA-INFRA-004",
-      "title": null
-    },
-    {
-      "type": "orphan_story_tag",
-      "story_id": "ACA-INFRA-005",
-      "title": null
-    },
-    {
-      "type": "orphan_story_tag",
-      "story_id": "ACA-INFRA-006",
-      "title": null
-    },
-    {
-      "type": "orphan_story_tag",
-      "story_id": "ACA-INFRA-007",
-      "title": null
-    },
-    {
-      "type": "orphan_story_tag",
-      "story_id": "ACA-INFRA-008",
       "title": null
     }
   ]

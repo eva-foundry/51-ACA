@@ -1,6 +1,6 @@
 {
   "schema": "eva.veritas-plan.v1",
-  "generated_at": "2026-03-01T15:03:27.085396+00:00",
+  "generated_at": "2026-03-02T14:50:03.588313+00:00",
   "generated_from": [
     "PLAN.md",
     "README.md",
@@ -376,7 +376,7 @@
           "wbs": "3.1.1",
           "title": "As the system I load all 12 rules from ALL_RULES and run each in sequence",
           "feature_id": "ACA-03",
-          "done": false,
+          "done": true,
           "source": "plan-md",
           "tasks": []
         },
@@ -439,7 +439,7 @@
           "wbs": "3.2.3",
           "title": "As a Tier 2 client I receive the full finding including narrative and",
           "feature_id": "ACA-03",
-          "done": false,
+          "done": true,
           "source": "plan-md",
           "tasks": []
         },
@@ -448,7 +448,7 @@
           "wbs": "3.2.4",
           "title": "As a Tier 3 client I receive the full finding including deliverable_template_id",
           "feature_id": "ACA-03",
-          "done": false,
+          "done": true,
           "source": "plan-md",
           "tasks": []
         },
@@ -457,7 +457,7 @@
           "wbs": "3.2.5",
           "title": "As the red-team agent I can assert that Tier 1 tokens never leak",
           "feature_id": "ACA-03",
-          "done": false,
+          "done": true,
           "source": "plan-md",
           "tasks": []
         },
@@ -475,7 +475,7 @@
           "wbs": "3.3.2",
           "title": "R-02 Log retention: returns finding when annual LA cost > $500 in non-prod",
           "feature_id": "ACA-03",
-          "done": false,
+          "done": true,
           "source": "plan-md",
           "tasks": []
         },
@@ -484,7 +484,7 @@
           "wbs": "3.3.3",
           "title": "R-03 Defender mismatch: returns finding when annual Defender cost > $2,000",
           "feature_id": "ACA-03",
-          "done": false,
+          "done": true,
           "source": "plan-md",
           "tasks": []
         },
@@ -493,7 +493,7 @@
           "wbs": "3.3.4",
           "title": "R-04 Compute scheduling: returns finding when annual schedulable compute > $5,000",
           "feature_id": "ACA-03",
-          "done": false,
+          "done": true,
           "source": "plan-md",
           "tasks": []
         },
@@ -502,7 +502,7 @@
           "wbs": "3.3.5",
           "title": "R-05 Anomaly detection: returns finding for each category with z-score > 3.0",
           "feature_id": "ACA-03",
-          "done": false,
+          "done": true,
           "source": "plan-md",
           "tasks": []
         },
@@ -511,7 +511,7 @@
           "wbs": "3.3.6",
           "title": "R-06 Stale environments: returns finding when >= 3 App Service sites exist",
           "feature_id": "ACA-03",
-          "done": false,
+          "done": true,
           "source": "plan-md",
           "tasks": []
         },
@@ -520,7 +520,7 @@
           "wbs": "3.3.7",
           "title": "R-07 Search SKU oversize: returns finding when annual Search cost > $2,000",
           "feature_id": "ACA-03",
-          "done": false,
+          "done": true,
           "source": "plan-md",
           "tasks": []
         },
@@ -529,7 +529,7 @@
           "wbs": "3.3.8",
           "title": "R-08 ACR consolidation: returns finding when >= 3 registries exist",
           "feature_id": "ACA-03",
-          "done": false,
+          "done": true,
           "source": "plan-md",
           "tasks": []
         },
@@ -2179,6 +2179,78 @@
           "done": false,
           "source": "plan-md",
           "tasks": []
+        },
+        {
+          "id": "ACA-12-009",
+          "wbs": "12.3.1",
+          "title": "Cosmos DB aca-db + scans container with 256-partition key on subscriptionId",
+          "feature_id": "ACA-12",
+          "done": false,
+          "source": "plan-md",
+          "tasks": []
+        },
+        {
+          "id": "ACA-12-010",
+          "wbs": "12.3.2",
+          "title": "inventories container for Azure resource snapshots (partition key: subscriptionId)",
+          "feature_id": "ACA-12",
+          "done": false,
+          "source": "plan-md",
+          "tasks": []
+        },
+        {
+          "id": "ACA-12-011",
+          "wbs": "12.3.3",
+          "title": "cost-data container for monthly cost export and FinOps hub landing zone",
+          "feature_id": "ACA-12",
+          "done": false,
+          "source": "plan-md",
+          "tasks": []
+        },
+        {
+          "id": "ACA-12-012",
+          "wbs": "12.3.4",
+          "title": "advisor container for Azure Advisor recommendations + scores",
+          "feature_id": "ACA-12",
+          "done": false,
+          "source": "plan-md",
+          "tasks": []
+        },
+        {
+          "id": "ACA-12-013",
+          "wbs": "12.3.5",
+          "title": "findings container for analysis rule output (indexed on risk_class, effort_class)",
+          "feature_id": "ACA-12",
+          "done": false,
+          "source": "plan-md",
+          "tasks": []
+        },
+        {
+          "id": "ACA-12-014",
+          "wbs": "12.3.6",
+          "title": "APIM ACA product + subscription key policy for tier-gated rate limiting",
+          "feature_id": "ACA-12",
+          "done": false,
+          "source": "plan-md",
+          "tasks": []
+        },
+        {
+          "id": "ACA-12-015",
+          "wbs": "12.3.7",
+          "title": "Key Vault secrets wiring (ACA-CLIENT-ID, ACA-OPENAI-KEY, ACA-COSMOS-CONN)",
+          "feature_id": "ACA-12",
+          "done": false,
+          "source": "plan-md",
+          "tasks": []
+        },
+        {
+          "id": "ACA-12-016",
+          "wbs": "12.3.8",
+          "title": "Container App Job definitions for collector, analysis, delivery workers",
+          "feature_id": "ACA-12",
+          "done": false,
+          "source": "plan-md",
+          "tasks": []
         }
       ]
     },
@@ -2361,7 +2433,7 @@
           "wbs": "ACA-14-008",
           "title": "GitHub Models API integration (GITHUB_TOKEN, endpoint, model param)",
           "feature_id": "ACA-14",
-          "done": false,
+          "done": true,
           "source": "plan-md",
           "tasks": []
         },
@@ -2370,7 +2442,7 @@
           "wbs": "ACA-14-009",
           "title": "Azure OpenAI fallback wiring (AZURE_OPENAI_KEY + endpoint env vars)",
           "feature_id": "ACA-14",
-          "done": false,
+          "done": true,
           "source": "plan-md",
           "tasks": []
         },
@@ -2379,7 +2451,34 @@
           "wbs": "ACA-14-010",
           "title": "Evidence receipt schema validation: story_id, wbs_id, epic,",
           "feature_id": "ACA-14",
-          "done": false,
+          "done": true,
+          "source": "plan-md",
+          "tasks": []
+        },
+        {
+          "id": "ACA-14-001",
+          "wbs": "14.5.1",
+          "title": "As the sprint agent I want a unified SprintContext class that merges",
+          "feature_id": "ACA-14",
+          "done": true,
+          "source": "plan-md",
+          "tasks": []
+        },
+        {
+          "id": "ACA-14-002",
+          "wbs": "14.5.2",
+          "title": "As the sprint agent I want a state lock mechanism that prevents duplicate",
+          "feature_id": "ACA-14",
+          "done": true,
+          "source": "plan-md",
+          "tasks": []
+        },
+        {
+          "id": "ACA-14-003",
+          "wbs": "14.5.3",
+          "title": "As the sprint agent I want phase verification checkpoints after each DPDCA",
+          "feature_id": "ACA-14",
+          "done": true,
           "source": "plan-md",
           "tasks": []
         },

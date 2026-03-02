@@ -599,6 +599,17 @@ Feature 12.2 -- Runtime use
   Story 12.2.3 [ACA-12-007]  Endpoints layer is kept in sync with every shipped route (PUT on ship)
   Story 12.2.4 [ACA-12-008]  Containers layer reflects the actual Cosmos schema (fields, partition keys)
 
+Feature 12.3 -- Phase 1 Core Infrastructure & Containers
+  Story 12.3.1 [ACA-12-009]  Cosmos DB aca-db + scans container with 256-partition key on subscriptionId
+                (Phase 1 marco* sandbox, infra/phase1-marco/main.bicep)
+  Story 12.3.2 [ACA-12-010]  inventories container for Azure resource snapshots (partition key: subscriptionId)
+  Story 12.3.3 [ACA-12-011]  cost-data container for monthly cost export and FinOps hub landing zone
+  Story 12.3.4 [ACA-12-012]  advisor container for Azure Advisor recommendations + scores
+  Story 12.3.5 [ACA-12-013]  findings container for analysis rule output (indexed on risk_class, effort_class)
+  Story 12.3.6 [ACA-12-014]  APIM ACA product + subscription key policy for tier-gated rate limiting
+  Story 12.3.7 [ACA-12-015]  Key Vault secrets wiring (ACA-CLIENT-ID, ACA-OPENAI-KEY, ACA-COSMOS-CONN)
+  Story 12.3.8 [ACA-12-016]  Container App Job definitions for collector, analysis, delivery workers
+
 =============================================================================
 MILESTONES
 =============================================================================
@@ -684,10 +695,10 @@ Epic Function Point Totals (estimated):
 |  9   | i18n and a11y                    |  21     |  85    |  4-5   | IN PROGRESS |
 | 10   | Commercial Hardening             |  15     |  90    |  5-6   | NOT STARTED |
 | 11   | Phase 2 Infrastructure           |   9     | 100    |  7-9   | NOT STARTED |
-| 12   | Data Model Support               |   8     |  30    |  ongo  | ONGOING     |
+| 12   | Data Model Support               |  16     |  50    |  ongo  | ONGOING     |
 | 13   | Azure Best Practices Catalog     |  12     |  55    |  4-5   | PLANNED     |
 | 14   | DPDCA Cloud Agent                |  10     |  65    |  3-5   | IN PROGRESS |
-| TOTAL|                                  | ~238    | ~1215  |        |             |
+| TOTAL|                                  | ~246    | ~1235  |        |             |
 
 Sprint Velocity:
 | Sprint | Dates              | Scope                                     | FP Completed | Notes            |
@@ -715,14 +726,14 @@ Story ID Roster (all 22 shipped stories, EVA-STORY tags confirmed):
   ACA-11-001  GET /health readiness probe (health.py)
   ACA-12-001  FastAPI app factory + CORS middleware (main.py)
   ACA-12-002  Settings and env config (main.py)
-  ACA-13-001  Cosmos DB aca-db + scans container (main.bicep)
-  ACA-13-002  inventories container (main.bicep)
-  ACA-13-003  cost-data container (main.bicep)
-  ACA-13-004  advisor container (main.bicep)
-  ACA-13-005  findings container (main.bicep)
-  ACA-13-006  APIM ACA product + subscription policy (main.bicep)
-  ACA-13-007  Key Vault secrets wiring (main.bicep)
-  ACA-13-008  Container App Job definitions (main.bicep)
+  ACA-12-009  Cosmos DB aca-db + scans container (main.bicep)
+  ACA-12-010  inventories container (main.bicep)
+  ACA-12-011  cost-data container (main.bicep)
+  ACA-12-012  advisor container (main.bicep)
+  ACA-12-013  findings container (main.bicep)
+  ACA-12-014  APIM ACA product + subscription policy (main.bicep)
+  ACA-12-015  Key Vault secrets wiring (main.bicep)
+  ACA-12-016  Container App Job definitions (main.bicep)
 
 =============================================================================
 EPIC 13 -- AZURE BEST PRACTICES SERVICE CATALOG
