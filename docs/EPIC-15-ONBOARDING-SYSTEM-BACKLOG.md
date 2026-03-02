@@ -296,6 +296,125 @@ REVISED EFFORT SUMMARY (Gap Analysis Update)
 
 ---
 
+## MINOR GAPS (10 items) - Resolution Plan ⚠️
+
+These are backlog refinements identified during architecture review. Each is tracked separately but does NOT block Epic 15 Sprint 14 kickoff. Flag for Sprint 14-16 planning.
+
+### GAP-1: Missing OpenAPI/Swagger Specification
+**Status**: PLANNED (for Sprint 15, Story ACA-15-003a, 2 FP)  
+**Description**: ACA Onboarding API lacks machine-readable OpenAPI 3.0 spec  
+**Impact**: Client SDKs cannot auto-generate; integration testing relies on manual curl  
+**Resolution**:
+- Generate OpenAPI 3.0 spec from FastAPI routes (FastAPI auto-generates via `/openapi.json`)
+- Story ACA-15-003a: Document `/openapi.json` endpoint, validate schema completeness
+- Publish spec to GitHub releases for SDK generation (Python client, TypeScript client)
+- Test: Generate SDK from spec, verify all endpoints work (2 FP)
+- Files: `services/aca-onboarding/openapi.yaml` (generated), `docs/api-spec.md`
+
+### GAP-2: No Unified Error Response Schema (Error Codes)
+**Status**: PLANNED (for Sprint 15, Story ACA-15-003b, 1 FP)  
+**Description**: Errors use generic HTTP status codes; no machine-parseable error codes (ACA-ERR-001, etc)  
+**Impact**: Clients cannot reliably distinguish "role missing" (403) vs "quota exceeded" (429)  
+**Resolution**:
+- Define error code enum: ACA-ERR-001 (ROLE_MISSING), ACA-ERR-002 (QUOTA_EXCEEDED), etc.
+- Response schema: `{"error": "ACA-ERR-001", "message": "...", "details": {...}}`
+- Story: Add error schema to all endpoints, test 20+ error scenarios (1 FP)
+- Files: `services/aca-onboarding/errors.py` (error enum), `models.py` (response schema)
+
+### GAP-3: Token Refresh During Long Extractions Not Detailed
+**Status**: PLANNED (for Sprint 15, Story ACA-15-006a, 2 FP)  
+**Description**: Extraction can run 20+ minutes; delegated token expires after 15 min (default)  
+**Impact**: Extraction fails mid-stream if token not refreshed; user must retry  
+**Resolution**:
+- Implement token refresh loop: check expiry before each Azure SDK call
+- Use MSAL `acquire_token_by_refresh_token()` if access token within 2-min expiry
+- Store refresh token securely (Cosmos encrypted field, not in logs)
+- Story ACA-15-006a: Add token refresh logic, test with short-lived tokens (2 FP)
+- Files: `services/aca-onboarding/auth.py` (refresh loop), `models.py` (add refresh_token field)
+- Test: Simulate 15-min token expiry mid-extraction, verify extraction completes
+
+### GAP-4: No SLA Monitoring / Alerting Plan
+**Status**: PLANNED (for Sprint 16, Story ACA-15-010b, 3 FP)  
+**Description**: No defined SLAs or alerting when extraction fails silently  
+**Impact**: Support team unaware of systemic failures until client reports  
+**Resolution**:
+- Define SLAs: P50 extraction <5min, P99 <15min, P99.9 <25min (90-day lookback)
+- Application Insights: custom metrics (extraction_duration_ms, error_rate_pct, api_error_count)
+- Alert rules: extraction fails 3+ times/hour, cost API rate limit exceeded
+- Story ACA-15-010b: Add App Insights instrumentation, test alert firing (3 FP)
+- Files: `services/aca-onboarding/telemetry.py` (metrics), `.github/alerts/onboarding.yaml` (alert rules)
+
+### GAP-5: Data Residency Constraints (GDPR/PIPEDA Canada-Only) Not Specified
+**Status**: PLANNED (for Sprint 14, Story ACA-15-001a, 1 FP)  
+**Description**: Architecture doesn't enforce Canada-only data residency  
+**Impact**: Architecture assumes multi-region; violates GDPR/PIPEDA articles 44, 49  
+**Resolution**:
+- Constraint: All Cosmos writes must be to `canadacentral` region only (no geo-replication)
+- Bicep: enforce `"allowRegionForGeoRepFlag": false` on Cosmos account
+- Code: add storage policy check (GET /model/endpoints/POST /init adds GDPR consent)
+- Story ACA-15-001a: Bicep geo-replication constraint, GDPR consent prompt (1 FP)
+- Files: `infra/cosmos.bicep` (geo-replication policy), `services/aca-onboarding/models.py` (add gdpr_consent_timestamp field)
+- Test: Verify Cosmos replication disabled, consent captured
+
+### GAP-6: Partial Failure Handling (e.g., 1 API Fails, Others Succeed)
+**Status**: PLANNED (for Sprint 15, Story ACA-15-006b, 3 FP)  
+**Description**: If Advisor API times out, entire extraction fails; should skip and continue  
+**Impact**: Missing Advisor recommendations stops all analysis (could be deferred)  
+**Resolution**:
+- Extraction should succeed even if 1/3 APIs fails (inventory + costs succeeds, Advisor times out)
+- Log failure to extraction-logs, note "advisor_skipped=true" in manifest
+- Analysis: accept partial findings (cost + heuristics work without Advisor)
+- Story ACA-15-006b: Add partial-failure resilience, test each API timeout scenario (3 FP)
+- Files: `services/aca-onboarding/extraction.py` (try/except per API), `logging.py` (failure logging)
+- Test: Simulate Advisor 504, verify extraction succeeds with cost data only
+
+### GAP-7: Evidence-Receipts Search/Indexing Strategy Unclear
+**Status**: PLANNED (for Sprint 16, Story ACA-15-009a, 2 FP)  
+**Description**: Evidence-receipts container has no search-friendly indexes  
+**Impact**: Cannot query "find all evidence for subscriptionXYZ signed after 2026-01-01"  
+**Resolution**:
+- Add composite indexes: (subscriptionId, signedAt), (subscriptionId, status), (subscriptionId, heuristic_count)
+- Cosmos: create indexes in Bicep (cosmosIndexPolicy)
+- Story ACA-15-009a: Add evidence search indexes, test retrieval performance (2 FP)
+- Files: `infra/cosmos.bicep` (add evidence-receipts indexes), `services/aca-onboarding/evidence.py` (add search methods)
+- Test: Query evidence by subscription + date range, measure RU/s consumption
+
+### GAP-8: User Consent / Terms Acceptance Flow Missing
+**Status**: PLANNED (for Sprint 14, Story ACA-15-002a, 2 FP)  
+**Description**: No explicit consent flow for extracting cost data, Advisor recommendations  
+**Impact**: Violates service ToS (implicit consent insufficient), compliance audit fail  
+**Resolution**:
+- Add GATE_0 (before GATE_1): "Accept data extraction and analysis ToS"
+- Frontend: checkbox + read-more button (embedded terms, 2-3 page)
+- Backend: store consent timestamp + version (terms_version_accepted: "2026-03-01")
+- Story ACA-15-002a: Add consent gate, UI checkbox, consent persistence (2 FP)
+- Files: `services/aca-onboarding/models.py` (add consent fields), `state_machine.py` (gate 0 transition rule)
+- Test: Verify flow fails if consent not accepted, consent persists across sessions
+
+### GAP-9: Delegated Token Expiry Handling During 20+ Min Extraction
+**Status**: PLANNED (for Sprint 15, Story ACA-15-006a, 1 FP -- bundled with GAP-3)  
+**Description**: Azure delegated tokens expire 15-60 min (varies by tenant config); extraction can run 20+ min  
+**Impact**: Extraction hangs mid-stream if token expires; no graceful retry  
+**Resolution**:
+- Same as GAP-3: implement token refresh before each Azure SDK call
+- Add exponential backoff if refresh fails (assume network issue, retry 3x)
+- Bundled with Story ACA-15-006a (1 FP included in GAP-3 estimate)
+- Test: Simulate token expiry at 10-min mark, verify extraction auto-refreshes and completes
+
+### GAP-10: Export Formats (PDF/CSV/Excel) Not Defined
+**Status**: PLANNED (for Sprint 17, Story ACA-15-012a, 3 FP)  
+**Description**: Findings report exports only as PDF; no CSV/Excel for pivot analysis  
+**Impact**: Clients must manually re-enter data into Excel for cost-center budgeting  
+**Resolution**:
+- PDF export: findings + savings bar chart + evidence summary (existing)
+- CSV export: one row per finding (id, category, saving_low, saving_high, effort, heuristic)
+- Excel export: CSV + second sheet (pivot: category×effort with counts, savings totals)
+- Story ACA-15-012a: Add CSV/Excel generation, test with sample data (3 FP)
+- Files: `services/aca-onboarding/export.py` (CSV/Excel helpers), Route: `GET /findings/export?format=csv|excel|pdf`
+- Test: Export 100 findings, verify data integrity and pivot calculations
+
+---
+
 ## NOTES FOR SPRINTS
 
 **For all sprints**: 

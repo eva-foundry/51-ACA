@@ -32,6 +32,7 @@ PLANNED 11    Phase 2 Infrastructure                        M3.0       7-9
 ACTIVE  12    Data Model Support (app runtime)              ongoing    -
 NEW     13    Azure Best Practices Service Catalog          M2.3       4-5
 NEW     14    DPDCA Cloud Agent (GitHub Actions)            M2.4       3-5
+NEW     15    Onboarding System (Client Onboarding SaaS)    M4.0       6-10
 
 =============================================================================
 EPIC 1 -- FOUNDATION AND INFRASTRUCTURE (M1.0)
@@ -698,7 +699,8 @@ Epic Function Point Totals (estimated):
 | 12   | Data Model Support               |  16     |  50    |  ongo  | ONGOING     |
 | 13   | Azure Best Practices Catalog     |  12     |  55    |  4-5   | PLANNED     |
 | 14   | DPDCA Cloud Agent                |  10     |  65    |  3-5   | IN PROGRESS |
-| TOTAL|                                  | ~246    | ~1235  |        |             |
+| 15   | Onboarding System (Client SaaS)  |  22     |  72    | 14-17  | PLANNED     |
+| TOTAL|                                  | ~276    | ~1357  |        |             |
 
 Sprint Velocity:
 | Sprint | Dates              | Scope                                     | FP Completed | Notes            |
@@ -976,6 +978,323 @@ Feature 14.5 -- Sprint Workflow V2 Foundation (Observability Infrastructure)
       - On failure: log error, halt workflow, return exit code 1
 
 Total Epic 14 FP estimate: 50 FP (13 stories)
+
+=============================================================================
+EPIC 15 -- ONBOARDING SYSTEM (M4.0)
+=============================================================================
+
+Goal: Comprehensive client onboarding automation. CLI + SaaS backend + React UI.
+Retrieve inventory, costs, Azure Advisor + analysis. Generate immutable evidence.
+
+Status: PLANNED (Architecture: ARCHITECTURE-ONBOARDING-SYSTEM.md, v2.0.0, Grade A-)
+Revised Effort: 52 FP (5.2 sprints @ 10 FP/sprint) [gap analysis added 7 FP]
+Dependencies: 18-azure-best library (patterns integration), 31-eva-faces (React UI)
+
+Feature 15.1 -- Infrastructure & Cosmos DB Setup
+  Story 15.1.1 [ACA-15-000]  Infrastructure provisioning: Bicep for Cosmos (9 containers)
+    FP: 2  Sprint: 14  Status: PLANNED
+    EVA-STORY tag: # EVA-STORY: ACA-15-000
+    Files to create:
+      - infra/onboarding.bicep (Cosmos containers, TTL, indexes, RBAC)
+      - infra/keyvault.bicep (HMAC signing key)
+      - infra/rbac.bicep (ACA Managed Identity role assignments)
+    Acceptance:
+      - [ ] 9 Cosmos containers created: onboarding-sessions, role-assessments, extraction-manifests,
+            inventories, cost-data, advisor-recommendations, findings, extraction-logs, evidence-receipts
+      - [ ] All containers have partition key /subscriptionId
+      - [ ] TTL policies: 90 days (operational), 365 days (findings), NEVER (evidence-receipts)
+      - [ ] Indexes on: engagementId, subscriptionId, currentGate, status
+      - [ ] RU/s: 400 shared (MVP), autoscale production
+      - [ ] ACA MI has Reader + Cost Management Reader roles
+
+  Story 15.1.2 [ACA-15-001]  Cosmos DB schema implementation (9 containers all deployed)
+    FP: 3  Sprint: 14  Status: PLANNED
+    EVA-STORY tag: # EVA-STORY: ACA-15-001
+    Files:
+      - services/aca-onboarding/cosmos_schema.py (container initialization, indexed fields)
+    Acceptance:
+      - [ ] All 9 containers exist with correct partition key
+      - [ ] TTL policies applied per Section 1.3 of arch spec
+      - [ ] Schema document validates against actual Cosmos DB
+      - [ ] Test: Insert documents in each container, verify partition isolation
+
+  Story 15.1.2a [ACA-15-001a]  GDPR/PIPEDA data residency constraint (Canada-only enforcement)
+    FP: 1  Sprint: 14  Status: PLANNED
+    EVA-STORY tag: # EVA-STORY: ACA-15-001a
+    Files:
+      - infra/cosmos.bicep (geo-replication disable policy)
+      - services/aca-onboarding/models.py (add gdpr_consent_timestamp field)
+    GAP-5 Resolution:
+      - [ ] Bicep enforces: allowRegionForGeoRepFlag = false (no multi-region replication)
+      - [ ] GDPR consent timestamp captured on GATE_0
+      - [ ] All Cosmos writes restricted to canadacentral (policy enforced)
+      - [ ] Test: Verify Cosmos replication disabled, consent captured
+
+Feature 15.2 -- Gate State Machine & FastAPI Backend
+  Story 15.2.1 [ACA-15-002]  Gate state machine (7-gate workflow with timeout/retry logic)
+    FP: 3  Sprint: 14  Status: PLANNED
+    EVA-STORY tag: # EVA-STORY: ACA-15-002
+    Files:
+      - services/aca-onboarding/state_machine.py (200 lines, gate transitions, timeouts)
+      - services/aca-onboarding/models.py (Enums: Gate, GateStatus, state transition rules)
+    Acceptance:
+      - [ ] Enum: Gate (1-7), GateStatus (PASSED, FAILED, TIMEOUT, RETRY_REQUESTED, etc)
+      - [ ] State machine class with transition rules + timeout handling
+      - [ ] All 7 gate transitions defined: GATE_1 → GATE_2 → ... → COMPLETED
+      - [ ] Timeout on GATE_2 (client decision): 4 hours
+      - [ ] GATE_1 retry on role elevation: supported
+      - [ ] Test: Verify all state transitions, timeout firing
+
+  Story 15.2.1a [ACA-15-002a]  User consent & terms acceptance flow (GATE_0 pre-flight consent)
+    FP: 2  Sprint: 14  Status: PLANNED
+    EVA-STORY tag: # EVA-STORY: ACA-15-002a
+    Files:
+      - services/aca-onboarding/models.py (add consent fields: terms_version_accepted, consent_timestamp)
+      - services/aca-onboarding/state_machine.py (add GATE_0 transition rule)
+    GAP-8 Resolution:
+      - [ ] GATE_0 (before GATE_1): "Accept data extraction and analysis ToS"
+      - [ ] Consent timestamp + version stored (terms_version_accepted: "2026-03-01")
+      - [ ] Flow fails if consent not accepted
+      - [ ] Consent persists across sessions
+      - [ ] Test: Verify flow fails without consent, persists with consent
+
+  Story 15.2.2 [ACA-15-003]  FastAPI backend routes (POST /init, GET /{id}, decision handling)
+    FP: 4  Sprint: 15  Status: PLANNED
+    EVA-STORY tag: # EVA-STORY: ACA-15-003
+    Files:
+      - services/aca-onboarding/main.py (FastAPI app, routes with auth)
+      - services/aca-onboarding/auth.py (JWT validation, delegated token refresh)
+    Acceptance:
+      - [ ] POST /api/v1/onboarding/init (create session, start GATE_1)
+      - [ ] GET /api/v1/onboarding/{engagementId} (retrieve session state)
+      - [ ] POST /api/v1/onboarding/{engagementId}/decision (record gate decision)
+      - [ ] Bearer token validation on all endpoints
+      - [ ] Rate limiting: 100 req/min per subscription (APIM policy)
+      - [ ] Health endpoint: GET /health → {"status": "ok"}
+      - [ ] All routes support tenant isolation (partition_key=subscriptionId)
+
+  Story 15.2.2a [ACA-15-003a]  OpenAPI/Swagger specification (auto-generated from FastAPI)
+    FP: 2  Sprint: 15  Status: PLANNED
+    EVA-STORY tag: # EVA-STORY: ACA-15-003a
+    Files:
+      - services/aca-onboarding/openapi.yaml (generated from FastAPI, checked into repo)
+      - docs/api-spec.md (OpenAPI reference and SDK generation guide)
+    GAP-1 Resolution:
+      - [ ] Generate OpenAPI 3.0 spec from FastAPI routes (auto-generates via /openapi.json)
+      - [ ] Document OpenAPI spec endpoint, validate schema completeness
+      - [ ] Publish spec to GitHub releases for SDK generation (Python, TypeScript clients)
+      - [ ] Test: Generate SDK from spec, verify all endpoints work
+
+  Story 15.2.2b [ACA-15-003b]  Unified error response schema with error codes (ACA-ERR-001, etc)
+    FP: 1  Sprint: 15  Status: PLANNED
+    EVA-STORY tag: # EVA-STORY: ACA-15-003b
+    Files:
+      - services/aca-onboarding/errors.py (error code enum: ACA-ERR-001, ACA-ERR-002, ...)
+      - services/aca-onboarding/models.py (ErrorResponse schema)
+    GAP-2 Resolution:
+      - [ ] Error code enum: ACA-ERR-001 (ROLE_MISSING), ACA-ERR-002 (QUOTA_EXCEEDED), etc
+      - [ ] Response schema: {"error": "ACA-ERR-001", "message": "...", "details": {...}}
+      - [ ] Add error schema to all endpoints
+      - [ ] Test: Verify 20+ error scenarios return correct error codes
+
+Feature 15.3 -- Azure SDK Wrappers (Paginated, Rate-Limit Aware)
+  Story 15.3.1 [ACA-15-004]  Azure SDK wrappers + pagination + retry logic
+    FP: 6  Sprint: 15  Status: PLANNED
+    EVA-STORY tag: # EVA-STORY: ACA-15-004
+    Files:
+      - services/aca-onboarding/azure_sdk.py (600 lines: Resource Graph, Cost API, Advisor)
+    CRITICAL:
+      - Resource Graph pagination (1,000 items/page, 15 req/sec limit)
+      - Cost Management pagination (1,000 rows/page, 10 req/min, 30-day windows)
+      - Advisor pagination (100 items/page, 5 req/sec)
+      - Exponential backoff for 429 (4s, 8s, 16s, 32s, 64s)
+      - 3 concurrent workers for cost data (respect 10 req/min)
+      - Batch writes to Cosmos (100 items/batch)
+    Acceptance:
+      - [ ] Resource Graph query wrapper (paginated, respects rate limit)
+      - [ ] Cost API wrapper (91-day query, 30-day windows, 3 workers)
+      - [ ] Advisor wrapper (paginated, handles 403 gracefully)
+      - [ ] Retry logic: 429 retried with exponential backoff
+      - [ ] Batch write: write_cost_data_batch(100 items/batch)
+      - [ ] Integration test: extract 500+ resources, 45K cost rows from marco-sandbox
+      - [ ] Performance test: extract 45K rows in <10 minutes
+      - [ ] Simulate 429: verify retry succeeds
+
+Feature 15.4 -- CLI & Extraction Pipeline
+  Story 15.4.1 [ACA-15-005]  CLI command structure (init, resume, list, get, logs, retry-extract)
+    FP: 3  Sprint: 15  Status: PLANNED
+    EVA-STORY tag: # EVA-STORY: ACA-15-005
+    Files:
+      - cli/aca_cli.py (400 lines, command structure)
+      - cli/auth.py (Azure CLI tok acquisition + device code fallback)
+    CRITICAL:
+      - Azure CLI token: `az account get-access-token`
+      - Device code fallback: if Azure CLI not installed
+      - Token refresh: auto-refresh if expires
+    Acceptance:
+      - [ ] Commands: init, resume, list, get, extract-logs, retry-extraction
+      - [ ] Auth: Azure CLI integration, device code fallback, token refresh
+      - [ ] Prompts: yes/no decisions, progress display, estimated times
+      - [ ] Output: table, json, text formats
+      - [ ] Test: CLI end-to-end (interactive, no actual extraction)
+      - [ ] Test: Device code flow (no Azure CLI requirement)
+
+  Story 15.4.2 [ACA-15-006]  Extraction pipeline (inventory + costs + advisor with recovery)
+    FP: 5  Sprint: 16  Status: PLANNED
+    EVA-STORY tag: # EVA-STORY: ACA-15-006
+    Files:
+      - services/aca-onboarding/extraction.py (700 lines, 3 extraction phases)
+    Acceptance:
+      - [ ] extract_inventory() with pagination, logs progress
+      - [ ] extract_cost_data() with 3 parallel workers, logs progress (respect 10 req/min)
+      - [ ] extract_advisor() with pagination, skip if role missing (not a failure)
+      - [ ] Recovery checkpoints: lastSuccessfulPage, lastSuccessfulWindow
+      - [ ] All operations log to extraction-logs container (phase, operation, progress, checkpoint)
+      - [ ] Integration test: extract from marco-sandbox, verify Cosmos write
+      - [ ] Performance test: 500+ resources in <2min, 45K cost rows in <10min
+
+  Story 15.4.2a [ACA-15-006a]  Token refresh during long extractions (20+ min extraction window)
+    FP: 2  Sprint: 15  Status: PLANNED
+    EVA-STORY tag: # EVA-STORY: ACA-15-006a
+    Files:
+      - services/aca-onboarding/auth.py (add token refresh loop)
+      - services/aca-onboarding/models.py (add refresh_token field, token_expires_at)
+    GAP-3 & GAP-9 Resolution:
+      - [ ] Implement token refresh loop: check expiry before each Azure SDK call
+      - [ ] Use MSAL acquire_token_by_refresh_token() if access token within 2-min expiry
+      - [ ] Store refresh token securely (Cosmos encrypted field, not in logs)
+      - [ ] Exponential backoff if refresh fails (retry 3x)
+      - [ ] Test: Simulate 15-min token expiry mid-extraction, verify extraction completes
+
+  Story 15.4.2b [ACA-15-006b]  Partial failure handling (API timeout resilience)
+    FP: 3  Sprint: 15  Status: PLANNED
+    EVA-STORY tag: # EVA-STORY: ACA-15-006b
+    Files:
+      - services/aca-onboarding/extraction.py (add try/except per API)
+      - services/aca-onboarding/logging.py (failure logging with skip-flag)
+    GAP-6 Resolution:
+      - [ ] Extraction succeeds even if 1/3 APIs fails (inventory + costs succeeds, Advisor times out)
+      - [ ] Log failure to extraction-logs, note "advisor_skipped=true" in manifest
+      - [ ] Analysis accepts partial findings (cost + heuristics work without Advisor)
+      - [ ] Test: Simulate Advisor 504, verify extraction succeeds with cost data only
+
+  Story 15.4.3 [ACA-15-007]  Logging + recovery mechanism (detailed operation logs, resume)
+    FP: 2  Sprint: 16  Status: PLANNED
+    EVA-STORY tag: # EVA-STORY: ACA-15-007
+    Files:
+      - services/aca-onboarding/logging.py (200 lines, extraction-logs writes)
+    Acceptance:
+      - [ ] Every operation logs to extraction-logs container
+      - [ ] Recovery checkpoint stored with each log (lastSuccessfulPage, nextPage, resumeAt)
+      - [ ] GET /extract-logs returns paginated logs with checkpoints
+      - [ ] POST /extract/retry resumes from last checkpoint
+      - [ ] Test: Simulate extraction failure, verify resume succeeds
+
+Feature 15.5 -- Analysis + Evidence
+  Story 15.5.1 [ACA-15-008]  Analysis rules engine (18-azure-best pattern integration)
+    FP: 6  Sprint: 16  Status: PLANNED
+    EVA-STORY tag: # EVA-STORY: ACA-15-008
+    Files:
+      - services/aca-onboarding/analysis.py (600 lines)
+      - services/aca-onboarding/heuristics/*.py (7 pattern modules)
+    CRITICAL:
+      - Integration with 18-azure-best patterns (cost-optimization, anti-patterns)
+      - 7 heuristics: vm-rightsizing, reserved-capacity, storage-tiering, orphan-resources,
+        unattached-disks, idle-resources, cost-anomalies
+      - Narrative generation (explain WHY recommendation applies, reference 18-azure-best)
+    Acceptance:
+      - [ ] Heuristics: right-sizing (CPU <30%), reserved capacity, storage tiering
+      - [ ] Anti-pattern detection (10 patterns from 18-azure-best)
+      - [ ] Findings: ranked by savings (DESC), filtered by effort (easy/medium/hard)
+      - [ ] Narratives reference 18-azure-best documentation URLs
+      - [ ] Test: Apply rules to 100-item test dataset, verify 12+ findings
+      - [ ] Test: Validate narratives reference 18-azure-best
+
+  Story 15.5.2 [ACA-15-009]  Evidence receipt generation (HMAC-SHA256 cryptographic signing)
+    FP: 2  Sprint: 16  Status: PLANNED
+    EVA-STORY tag: # EVA-STORY: ACA-15-009
+    Files:
+      - services/aca-onboarding/evidence.py (200 lines, HMAC signing)
+    CRITICAL:
+      - HMAC-SHA256 signature computed over canonical JSON (sorted keys, no whitespace)
+      - Key Vault integration: retrieve ACA-HMAC-SigningKey
+      - Verification function: verify_evidence_receipt returns True/False
+    Acceptance:
+      - [ ] Build immutable evidence-receipt per ARCHITECTURE Section 7.2
+      - [ ] HMAC-SHA256 signature computed + appended
+      - [ ] Key Vault integration (retrieve signing key via DefaultAzureCredential)
+      - [ ] Signature fields: signature, signedAt, signatureAlgorithm, keyVaultKeyId
+      - [ ] Verification: detect tampered receipts
+      - [ ] Cosmos write: evidence-receipts container, NO TTL (permanent retention)
+      - [ ] GET /evidence returns full receipt + tamper_check (is_valid=True/False)
+      - [ ] Test: Modify receipt, verify verification fails
+      - [ ] Test: Rotate HMAC key, verify old receipts still verify
+
+  Story 15.5.2a [ACA-15-009a]  Evidence-receipts search/indexing strategy (composite indexes)
+    FP: 2  Sprint: 16  Status: PLANNED
+    EVA-STORY tag: # EVA-STORY: ACA-15-009a
+    Files:
+      - infra/cosmos.bicep (add evidence-receipts indexes)
+      - services/aca-onboarding/evidence.py (add search methods: query_by_subscription_date)
+    GAP-7 Resolution:
+      - [ ] Add composite indexes: (subscriptionId, signedAt), (subscriptionId, status), (subscriptionId, heuristic_count)
+      - [ ] Cosmos create indexes in Bicep (cosmosIndexPolicy)
+      - [ ] Implement search methods: query_evidence_by_subscription_date(subscriptionId, startDate, endDate)
+      - [ ] Test: Query evidence by subscription + date range, measure RU/s consumption
+
+  Story 15.5.3 [ACA-15-010]  Integration tests (all gates, security, performance)
+    FP: 4  Sprint: 16  Status: PLANNED
+    EVA-STORY tag: # EVA-STORY: ACA-15-010
+    Files:
+      - tests/test_onboarding_gates.py (500 lines, end-to-end flow)
+      - tests/test_security.py (200 lines, GDPR, token validation, RBAC)
+      - tests/test_performance.py (150 lines, latency, extraction time, RU/s)
+    Acceptance:
+      - [ ] End-to-end test: init → role assessment → decision → preflight → extraction → analysis → evidence
+      - [ ] Test with marco-sandbox subscription
+      - [ ] All 7 gates pass with no errors
+      - [ ] Evidence receipt valid (signature verification passes)
+      - [ ] Security: GDPR delete removes PII from 8 operational containers
+      - [ ] Security: Evidence receipt PII redacted (not deleted)
+      - [ ] Security: Invalid token returns 401, cross-tenant access returns 403
+      - [ ] Performance: POST /init latency <500ms
+      - [ ] Performance: Extract 500 resources in <2min, 45K cost rows in <10min
+      - [ ] Performance: Analysis completes in <5min
+
+Feature 15.6 -- React UI Integration (via 31-eva-faces)
+  Story 15.6.1 [ACA-15-011]  React components (role assessment, preflight, extraction progress)
+    FP: 5  Sprint: 17  Status: PLANNED
+    EVA-STORY tag: # EVA-STORY: ACA-15-011
+    Files: 31-eva-faces/src/components/onboarding/*.tsx
+    Acceptance:
+      - [ ] Role assessment report card (show discovered roles, recommendation)
+      - [ ] Preflight manifest card (extraction plan, sizes, duration)
+      - [ ] Extraction progress card (real-time logs, progress bar, ETA)
+      - [ ] Polling: GET /extract-logs every 2 seconds during extraction
+
+  Story 15.6.2 [ACA-15-012]  Findings report UI (savings display, PDF export, tier selector)
+    FP: 5  Sprint: 17  Status: PLANNED
+    EVA-STORY tag: # EVA-STORY: ACA-15-012
+    Files: 31-eva-faces/src/pages/findings.tsx
+    Acceptance:
+      - [ ] Display savings opportunities (ranked, effort, risk)
+      - [ ] PDF export (findings + evidence summary)
+      - [ ] Service menu tier selector (Tier 1/2/3 gating)
+      - [ ] Evidence receipt display (with tamper check)
+
+  Story 15.6.2a [ACA-15-012a]  Export formats (CSV/Excel/PDF) for findings report
+    FP: 3  Sprint: 17  Status: PLANNED
+    EVA-STORY tag: # EVA-STORY: ACA-15-012a
+    Files:
+      - services/aca-onboarding/export.py (CSV/Excel helpers, ~200 lines)
+      - Route: GET /findings/export?format=csv|excel|pdf
+    GAP-10 Resolution:
+      - [ ] PDF export: findings + savings bar chart + evidence summary (existing)
+      - [ ] CSV export: one row per finding (id, category, saving_low, saving_high, effort, heuristic)
+      - [ ] Excel export: CSV + second sheet (pivot: category x effort with counts, savings totals)
+      - [ ] Test: Export 100 findings, verify data integrity and pivot calculations
+
+Total Epic 15 FP estimate: 72 FP (22 stories: 12 original + 10 gaps)
 
 =============================================================================
 SPRINT: PRE-FLIGHT
