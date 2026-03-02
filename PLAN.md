@@ -877,26 +877,94 @@ Feature 14.2 -- GitHub Actions DPDCA Workflow
 
 Feature 14.3 -- Agent Context and Model Wiring
   Story ACA-14-008  GitHub Models API integration (GITHUB_TOKEN, endpoint, model param)
-    FP: S=3  Sprint: 4
-    Status: PLANNED
-    EVA-STORY tag: // EVA-STORY: ACA-14-008
+    FP: S=3  Sprint: 12
+    Status: DONE
+    EVA-STORY tag: # EVA-STORY: ACA-14-008
     Acceptance: Plan step returns structured JSON with phases, files, acceptance_check fields
 
   Story ACA-14-009  Azure OpenAI fallback wiring (AZURE_OPENAI_KEY + endpoint env vars)
-    FP: S=3  Sprint: 4
-    Status: PLANNED
-    EVA-STORY tag: // EVA-STORY: ACA-14-009
+    FP: S=3  Sprint: 12
+    Status: DONE
+    EVA-STORY tag: # EVA-STORY: ACA-14-009
     Acceptance: if GITHUB_TOKEN absent, fallback activates with no code change required
 
 Feature 14.4 -- Evidence and Veritas Integration
   Story ACA-14-010  Evidence receipt schema validation: story_id, wbs_id, epic,
     branch, model, test_result fields all required
-    FP: S=3  Sprint: 4
-    Status: PLANNED
-    EVA-STORY tag: // EVA-STORY: ACA-14-010
+    FP: S=3  Sprint: 12
+    Status: DONE
+    EVA-STORY tag: # EVA-STORY: ACA-14-010
     Acceptance: malformed receipt causes workflow FAIL; Veritas confirms .eva/evidence/ readable
 
-Total Epic 14 FP estimate: 36 FP (10 stories)
+Feature 14.5 -- Sprint Workflow V2 Foundation (Observability Infrastructure)
+  Story 14.5.1 [ACA-14-001]  As the sprint agent I want a unified SprintContext class that merges
+    correlation ID, LM tracer, and timeline tracking so that I can eliminate 100+
+    manual propagation points and ensure complete audit trail coverage
+    FP: M=5  Sprint: 11
+    Status: DONE
+    EVA-STORY tag: # EVA-STORY: ACA-14-011
+    Files to create:
+      - .github/scripts/sprint_context.py (SprintContext class, ~200 lines)
+      - .github/scripts/aca_lm_tracer.py (ACALMTracer adapted from 37-data-model, ~180 lines)
+    Files to modify:
+      - .github/scripts/sprint_agent.py (initialize SprintContext, pass to all story functions)
+    Acceptance:
+      - SprintContext("SPRINT-11") generates correlation_id in format ACA-S11-YYYYMMDD-uuid8
+      - ctx.log("D1", "test") outputs [TRACE:ACA-S11-...] [D1] test
+      - ctx.record_lm_call(model="gpt-4o-mini", tokens_in=1000, tokens_out=500, phase="D1") stores LMCall
+      - ctx.save() writes .eva/sprints/SPRINT-11-context.json with correlation_id + timeline + lm_calls
+      - Sprint 11 execution logs show 50+ [TRACE:...] lines
+    Implementation notes:
+      - Correlation ID format simplified per Opus review: ACA-S{NN}-{YYYYMMDD}-{uuid[:8]}
+      - The context object is passed through all DPDCA phases
+      - Every log line, LM call, and timeline mark goes through SprintContext methods
+      - Zero manual propagation needed
+
+  Story 14.5.2 [ACA-14-002]  As the sprint agent I want a state lock mechanism that prevents duplicate
+    sprint dispatch so that concurrent workflow triggers do not corrupt evidence or data model
+    FP: S=3  Sprint: 11
+    Status: DONE
+    EVA-STORY tag: # EVA-STORY: ACA-14-012
+    Files to create:
+      - .eva/locks/.gitkeep (ensure directory exists in git)
+      - .github/scripts/state_lock.py (acquire_lock, release_lock functions, ~80 lines)
+    Files to modify:
+      - .github/scripts/sprint_agent.py (add lock acquisition at start, release in finally block)
+    Acceptance:
+      - First acquire_lock("SPRINT-11", "12345", "ACA-S11-...") creates .eva/locks/SPRINT-11.lock, returns True
+      - Second acquire_lock("SPRINT-11", "67890", "ACA-S11-...") returns False (lock exists)
+      - release_lock("SPRINT-11") deletes .eva/locks/SPRINT-11.lock
+      - Sprint agent workflow fails immediately (exit 1) if lock acquisition fails
+      - Lock is released on both success and exception (finally block)
+    Implementation notes:
+      - Lock file contains: sprint_id, workflow_run_id, started_at, correlation_id, locked_by
+      - This is the idempotency guard recommended by Opus (Risk #2)
+      - Prevents data corruption from user re-trigger, network retry, agent restart
+
+  Story 14.5.3 [ACA-14-003]  As the sprint agent I want phase verification checkpoints after each DPDCA
+    phase so that silent failures are caught early before multi-agent handoffs in Phase 3
+    FP: M=6  Sprint: 11
+    Status: DONE
+    EVA-STORY tag: # EVA-STORY: ACA-14-013
+    Files to create:
+      - .github/scripts/phase_verifier.py (5 verification functions, ~120 lines)
+      - .github/scripts/test_phase_verifier.py (pytest tests for all 5 checkpoints)
+    Files to modify:
+      - .github/scripts/sprint_agent.py (call verify functions after each DPDCA phase)
+      - .github/workflows/dpdca-agent.yml (add --skip-checkpoint flag for transient issues)
+    Acceptance:
+      - verify_d1_evidence("SPRINT-10", 6) returns True (Sprint 10 has 6 evidence files)
+      - verify_d2_repo_audit(ctx) parses pytest output, returns True if test_count > 0
+      - verify_p_plan_update(ctx, "SPRINT-10", 4) checks PLAN.md for 4 [x] marks
+      - verify_d3_story_selection(ctx, "SPRINT-11") checks docs/SPRINT-11-MANIFEST.md exists
+      - Intentional failure (break pytest) causes workflow to stop with clear error message
+    Implementation notes:
+      - Moved from Phase 4 to Phase 1 per Opus recommendation
+      - Needed before multi-agent handoffs (Phase 3) to ensure safe context transfer
+      - Allow override via --skip-checkpoint flag for known transient issues (e.g., data model temporarily unreachable)
+      - On failure: log error, halt workflow, return exit code 1
+
+Total Epic 14 FP estimate: 50 FP (13 stories)
 
 =============================================================================
 SPRINT: PRE-FLIGHT

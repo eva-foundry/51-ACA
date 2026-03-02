@@ -197,6 +197,53 @@ def total_active() -> int:
 
 
 # ---------------------------------------------------------------------------
+# Evidence seeding
+# ---------------------------------------------------------------------------
+
+def seed_evidence(repo_root: Optional[Path] = None, actor: str = "seed:evidence") -> dict:
+    """
+    Import all evidence receipt files from .eva/evidence/ into the evidence layer.
+    Returns {imported: int, skipped: int, errors: list}.
+    """
+    if repo_root is None:
+        repo_root = Path(__file__).parent.parent  # 51-ACA root
+    evidence_dir = repo_root / ".eva" / "evidence"
+    
+    if not evidence_dir.exists():
+        return {"imported": 0, "skipped": 0, "errors": ["Evidence dir does not exist"]}
+    
+    imported = 0
+    skipped = 0
+    errors = []
+    
+    for receipt_file in evidence_dir.glob("*-receipt.json"):
+        try:
+            with open(receipt_file, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            
+            # story_id is the primary key
+            story_id = data.get("story_id")
+            if not story_id:
+                errors.append(f"{receipt_file.name}: missing story_id")
+                skipped += 1
+                continue
+            
+            # Upsert into evidence layer
+            data["id"] = story_id
+            upsert_object("evidence", data, actor=actor)
+            imported += 1
+            
+        except json.JSONDecodeError as e:
+            errors.append(f"{receipt_file.name}: JSON decode error: {e}")
+            skipped += 1
+        except Exception as e:
+            errors.append(f"{receipt_file.name}: {e}")
+            skipped += 1
+    
+    return {"imported": imported, "skipped": skipped, "errors": errors}
+
+
+# ---------------------------------------------------------------------------
 # Startup
 # ---------------------------------------------------------------------------
 init_db()

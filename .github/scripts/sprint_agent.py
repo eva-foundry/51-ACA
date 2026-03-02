@@ -66,11 +66,16 @@ except ImportError:
     print("[WARN] requests not available -- data model integration disabled")
 
 REPO_ROOT = Path(__file__).parent.parent.parent
-# GitHub Models endpoint -- GITHUB_TOKEN in CI grants access to these models:
-# gpt-4o, gpt-4o-mini, Meta-Llama-3.1-405B-Instruct, Mistral-large-2407
+# EVA-STORY: ACA-14-008 -- GitHub Models endpoint (GITHUB_TOKEN in CI grants access to these models:
+# gpt-4o, gpt-4o-mini, Meta-Llama-3.1-405B-Instruct, Mistral-large-2407)
 # Claude models (claude-sonnet-*) are NOT available via GITHUB_TOKEN -- use gpt-4o
 MODEL = "gpt-4o"
 GITHUB_MODELS_URL = "https://models.inference.ai.azure.com"
+
+# EVA-STORY: ACA-14-009 -- Azure OpenAI fallback (when GITHUB_TOKEN absent)
+AZURE_OPENAI_ENDPOINT = os.getenv("AZURE_OPENAI_ENDPOINT", "")
+AZURE_OPENAI_KEY = os.getenv("AZURE_OPENAI_KEY", "")
+AZURE_OPENAI_DEPLOYMENT = os.getenv("AZURE_OPENAI_DEPLOYMENT", "gpt-4o")
 
 
 def generate_correlation_id(sprint_num: str) -> str:
@@ -472,9 +477,47 @@ def parse_manifest(body: str) -> dict:
 # LLM code generation
 # ---------------------------------------------------------------------------
 
+def _get_llm_client() -> tuple[Optional[object], str]:
+    """
+    EVA-STORY: ACA-14-009 -- Get LLM client with fallback logic.
+    
+    Priority:
+    1. GitHub Models (if GITHUB_TOKEN present)
+    2. Azure OpenAI (if AZURE_OPENAI_KEY + ENDPOINT present)
+    3. None (use stubs)
+    
+    Returns:
+        (client, provider) tuple where provider is "github", "azure", or "none"
+    """
+    try:
+        from openai import OpenAI, AzureOpenAI
+    except ImportError:
+        print("[WARN] openai not installed")
+        return (None, "none")
+    
+    github_token = os.getenv("GITHUB_TOKEN", "")
+    if github_token:
+        client = OpenAI(base_url=GITHUB_MODELS_URL, api_key=github_token)
+        print(f"[INFO] Using GitHub Models API (model={MODEL})")
+        return (client, "github")
+    
+    if AZURE_OPENAI_KEY and AZURE_OPENAI_ENDPOINT:
+        client = AzureOpenAI(
+            api_key=AZURE_OPENAI_KEY,
+            api_version="2024-02-15-preview",
+            azure_endpoint=AZURE_OPENAI_ENDPOINT
+        )
+        print(f"[INFO] Using Azure OpenAI fallback (deployment={AZURE_OPENAI_DEPLOYMENT})")
+        return (client, "azure")
+    
+    print("[WARN] No LLM credentials (GITHUB_TOKEN or AZURE_OPENAI_*)")
+    return (None, "none")
+
+
 def _generate_code(story: dict, context: str, ctx: Optional[object] = None) -> dict[str, str]:
     """
-    Call gpt-4o/gpt-4o-mini to generate file contents for a story.
+    EVA-STORY: ACA-14-009 -- Call GitHub Models API (or Azure OpenAI fallback)
+    to generate file contents for a story.
     Returns {relative_path: content} dict.
     
     Args:
@@ -482,16 +525,9 @@ def _generate_code(story: dict, context: str, ctx: Optional[object] = None) -> d
         context: Project context
         ctx: SprintContext for tracing (optional)
     """
-    github_token = os.environ.get("GITHUB_TOKEN", "")
-    if not github_token:
-        print("[WARN] GITHUB_TOKEN not set -- skipping code generation, writing stubs")
-        return _make_stubs(story)
-
-    try:
-        from openai import OpenAI
-        client = OpenAI(base_url=GITHUB_MODELS_URL, api_key=github_token)
-    except ImportError:
-        print("[WARN] openai not installed -- writing stubs")
+    client, provider = _get_llm_client()
+    if not client:
+        print("[WARN] No LLM client available -- generating stubs")
         return _make_stubs(story)
 
     files_to_create = story.get("files_to_create", [])
@@ -584,8 +620,11 @@ Now generate the file contents. Remember:
 """
 
     try:
+        # EVA-STORY: ACA-14-009 -- Use provider-specific model name
+        model_name = AZURE_OPENAI_DEPLOYMENT if provider == "azure" else MODEL
+        
         resp = client.chat.completions.create(
-            model=MODEL,
+            model=model_name,
             messages=[
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_prompt},
@@ -599,7 +638,7 @@ Now generate the file contents. Remember:
             tokens_in = getattr(resp.usage, 'prompt_tokens', 0)
             tokens_out = getattr(resp.usage, 'completion_tokens', 0)
             ctx.record_lm_call(
-                model=MODEL,
+                model=f"{provider}:{model_name}",
                 tokens_in=tokens_in,
                 tokens_out=tokens_out,
                 phase="D2",
@@ -661,7 +700,7 @@ def write_evidence(story: dict, test_result: str, lint_result: str,
                    test_count_before: int = 0, test_count_after: int = 0,
                    files_changed: int = 0) -> str:
     """
-    Write Veritas-compatible evidence receipt.
+    EVA-STORY: ACA-14-010 -- Write Veritas-compatible evidence receipt with schema validation.
     
     Args:
         story: Story dict with id, title, files_to_create
@@ -675,10 +714,14 @@ def write_evidence(story: dict, test_result: str, lint_result: str,
     
     Returns:
         Path to receipt file (relative to REPO_ROOT)
+    
+    Raises:
+        ValueError: If receipt fails schema validation
     """
     evidence_dir = REPO_ROOT / ".eva" / "evidence"
     evidence_dir.mkdir(parents=True, exist_ok=True)
     receipt_path = evidence_dir / f"{story['id']}-receipt.json"
+    
     receipt = {
         "story_id": story["id"],
         "title": story.get("title", ""),
@@ -694,6 +737,20 @@ def write_evidence(story: dict, test_result: str, lint_result: str,
         "test_count_after": test_count_after,
         "files_changed": files_changed,
     }
+    
+    # EVA-STORY: ACA-14-010 -- Validate before writing
+    try:
+        from evidence_schema import validate_evidence_schema
+        is_valid, errors = validate_evidence_schema(receipt)
+        if not is_valid:
+            error_msg = "; ".join(errors)
+            print(f"[FAIL] Evidence schema validation failed for {story['id']}")
+            for err in errors:
+                print(f"  - {err}")
+            raise ValueError(f"Evidence receipt schema invalid: {error_msg}")
+    except ImportError:
+        print("[WARN] evidence_schema not available -- skipping validation")
+    
     receipt_path.write_text(json.dumps(receipt, indent=2), encoding="utf-8")
     return str(receipt_path.relative_to(REPO_ROOT))
 

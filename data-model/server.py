@@ -30,7 +30,7 @@ ALL_LAYERS = [
     "requirements", "endpoints", "containers", "screens", "agents",
     "services", "personas", "decisions", "schemas", "hooks",
     "components", "literals", "infrastructure", "feature_flags",
-    "sprints", "milestones", "wbs",
+    "sprints", "milestones", "wbs", "evidence",
 ]
 
 
@@ -239,6 +239,16 @@ def validate(authorization: Optional[str] = Header(default=None)):
 def export(authorization: Optional[str] = Header(default=None)):
     counts = db.count_all()
     return {"status": "PASS", "exported": sum(counts.values())}
+
+
+@app.post("/model/admin/seed-evidence")
+def seed_evidence_endpoint(authorization: Optional[str] = Header(default=None)):
+    """Re-seed evidence layer from .eva/evidence/*.json files."""
+    if authorization != "Bearer dev-admin":
+        raise HTTPException(status_code=401, detail="Authorization required")
+    repo_root = Path(__file__).parent.parent
+    result = db.seed_evidence(repo_root, actor="seed:admin")
+    return result
 
 
 # ---------------------------------------------------------------------------

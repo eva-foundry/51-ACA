@@ -1,15 +1,233 @@
 ACA -- Azure Cost Advisor -- STATUS
 ====================================
 
-Version: 1.29.0
-Updated: 2026-03-01T17:00:00Z (Sprint 9 COMPLETE: 4 stories, 8 FP, PR #33 merged, 34 tests passing)
+Version: 1.33.0
+Updated: 2026-03-01T22:30:00Z (SPRINT 12 COMPLETE: Agent Context Model Wiring complete)
 Phase: Phase 1 -- Core Services Bootstrap
-Active Sprint: Sprint 9 (COMPLETE) --> Ready for Sprint 10 planning
-Completed Sprints: Sprint 1-9
-Active Epic: Epic 3 (Analysis Engine) -- **COMPLETED 100%** (all 12 rules done)
+Active Sprint: Sprint 13 (PENDING)
+Completed Sprints: Sprint 1-12
+Active Epic: Epic 14 (DPDCA Agent) -- 23/50 FP delivered (46%)
 
 =============================================================================
-SESSION SUMMARY -- 2026-03-01 (SPRINT 9 EXECUTION: COMPLETE + MERGED)
+SESSION SUMMARY -- 2026-03-01 PART 4 (SPRINT 12 EXECUTION: COMPLETE)
+=============================================================================
+
+SPRINT 12 COMPLETE: AGENT CONTEXT AND MODEL WIRING
+
+Summary: Sprint 12 delivered 9 FP across 3 stories (Features 14.3-14.4). GitHub Models API
+integration verified (already complete), Azure OpenAI fallback implemented with 3-tier provider
+selection, evidence schema validation added with 9 required fields. Epic 14 now 23/50 FP (46%).
+
+### Phase 1: Sprint 12 Planning
+  - Option Selected: Continue Epic 14 Features 14.3-14.4 (Agent Context and Model Wiring)
+  - Stories: ACA-14-008, ACA-14-009, ACA-14-010 (9 FP total)
+  - Duration: 2.5 hours (code inspection + 2 implementations)
+
+### Phase 2: Sprint 12 Implementation
+
+**Story ACA-14-008: GitHub Models API Integration** (S=3 FP) -- VERIFIED COMPLETE
+  - Status: Already implemented in Sprint 3 (lines 69-73, 491-494, 610-612)
+  - Evidence: `OpenAI(base_url=GITHUB_MODELS_URL, api_key=github_token)`
+  - Endpoint: https://models.inference.ai.azure.com
+  - Features: Structured JSON output parsing, SprintContext LM tracking
+  - Acceptance: Plan step returns structured JSON (phases/files/acceptance)
+
+**Story ACA-14-009: Azure OpenAI Fallback** (S=3 FP) -- COMPLETE
+  - Files Modified: .github/scripts/sprint_agent.py
+  - New Function: `_get_llm_client()` with 3-tier provider selection
+  - Env Vars: AZURE_OPENAI_ENDPOINT, AZURE_OPENAI_KEY, AZURE_OPENAI_DEPLOYMENT
+  - Priority: GitHub Models -> Azure OpenAI -> None (stubs)
+  - Provider Logging: SprintContext records provider as `github:gpt-4o` or `azure:gpt-4o`
+  - Acceptance: Fallback activates when GITHUB_TOKEN absent (no code change needed)
+
+**Story ACA-14-010: Evidence Schema Validation** (S=3 FP) -- COMPLETE
+  - Files Created: .github/scripts/evidence_schema.py (120 lines)
+  - Files Modified: .github/scripts/sprint_agent.py (write_evidence function)
+  - Required Fields: story_id, phase, timestamp, test_result, duration_ms, 
+                     tokens_used, test_count_before, test_count_after, files_changed
+  - Valid Phases: D, P, D|P|D|C|A, A, C
+  - Valid Test Results: PASS, FAIL, WARN, SKIP
+  - Type Validation: numerics must be int >= 0, timestamp must be ISO 8601
+  - Function: `validate_evidence_schema(receipt)` returns (is_valid, errors)
+  - Integration: write_evidence() validates before write, raises ValueError on fail
+  - Acceptance: Malformed receipt causes workflow FAIL (exit 1)
+
+### Phase 3: Documentation Updates
+  ✅ PLAN.md: 3 stories PLANNED -> DONE (Sprint 4 -> 12, EVA-STORY tags fixed)
+  ✅ STATUS.md: Version 1.32.0 -> 1.33.0, Sprint 12 summary added
+  ✅ Epic 14 Progress: 14 FP -> 23 FP delivered (46% of 50 FP total)
+
+### Next Sprint Options (Sprint 13)
+  - Option A: Continue Epic 14 Features 14.1-14.2 (Sprint scheduling, Evidence generator)
+  - Option B: Start Epic 2 (Collector service - Azure SDK integration)
+  - Option C: Start Epic 4 (API service - GraphQL endpoints)
+
+---
+
+=============================================================================
+SESSION SUMMARY -- 2026-03-01 PART 3 (SPRINT 11 EXECUTION: COMPLETE)
+=============================================================================
+
+SPRINT 11 COMPLETE: SPRINT WORKFLOW V2 FOUNDATION IMPLEMENTED
+
+Summary: Sprint 11 completed successfully. All 3 Phase 1 foundation stories implemented:
+SprintContext unified class, state lock idempotency guard, and phase verification checkpoints.
+All files integrated into sprint_agent.py. 37-data-model audit verified (MTI 74/70).
+
+Phase 1 - Pre-Implementation Validation:
+  ✅ 37-data-model audit: Run EVA-Veritas audit to verify model health
+     - Initial MTI: 0/70 [FAIL] (veritas-plan.json orphaned 45 V1 story tags)
+     - Data model fix: Restored V1 stories to veritas-plan.json (52 → 196 stories)
+     - Final MTI: 74/70 [PASS] (coverage 66%, evidence 58%, consistency 100%)
+     - Sprint 11 status: UNBLOCKED (lm_tracer.py properly tagged with F37-TRACE-002)
+
+Phase 2 - Sprint 11 Implementation (Already Completed by Autonomous Workflow):
+  ✅ Story ACA-14-001: SprintContext class implemented
+     - File: .github/scripts/sprint_context.py (255 lines) [EXISTS]
+     - File: .github/scripts/aca_lm_tracer.py (adapted from 37-data-model) [EXISTS]
+     - Features: Correlation ID generation (ACA-S{NN}-{YYYYMMDD}-{uuid[:8]})
+                 Structured logging with [TRACE:...] prefix
+                 Timeline tracking (6 checkpoints: start, d_start, d_end, c_start, c_end, a_end)
+                 LM call recording with cost estimation
+                 save() to .eva/sprints/{sprint_id}-context.json
+     - Integration: sprint_agent.py imports and uses SprintContext throughout
+  ✅ Story ACA-14-002: State lock mechanism implemented
+     - File: .github/scripts/state_lock.py (~80 lines) [EXISTS]
+     - Features: acquire_lock() returns False if lock already held
+                 release_lock() cleans up .eva/locks/{sprint_id}.lock
+                 Lock contains: sprint_id, workflow_run_id, correlation_id, started_at
+     - Integration: sprint_agent.py acquires lock at start, releases in finally block
+  ✅ Story ACA-14-003: Phase verification checkpoints implemented
+     - File: .github/scripts/phase_verifier.py (5 verification functions) [EXISTS]
+     - Checkpoints: verify_phase("D1"|"D2"|"P"|"D3"|"A", sprint_id, repo_root)
+     - Integration: sprint_agent.py calls verify_phase after each DPDCA phase
+                    Workflow halts (exit 1) on verification failure
+  ✅ sprint_agent.py integration: Complete
+     - Imports: SprintContext, acquire_lock, release_lock, verify_phase (all present)
+     - SprintContext initialized at run_sprint() start
+     - State lock acquired before timeline, released in finally
+     - Phase verification called after D1, D2, P, D3, A phases
+     - LM calls tracked with ctx.record_lm_call()
+     - Sprint context saved to .eva/sprints/SPRINT-{NN}-context.json
+
+Phase 3 - Documentation Updates:
+  ✅ PLAN.md updated: Marked stories 14.5.1, 14.5.2, 14.5.3 as DONE
+     - ACA-14-001 (SprintContext): Status DONE (was PLANNED)
+     - ACA-14-002 (State Lock): Status DONE (was PLANNED)
+     - ACA-14-003 (Phase Verification): Status DONE (was PLANNED)
+     - Story IDs corrected: ACA-14-001/002/003 (not 011/012/013)
+  ✅ STATUS.md updated: Version 1.32.0
+     - Active Sprint: Sprint 12 (PENDING)
+     - Completed Sprints: Sprint 1-11
+     - Epic 14: Feature 14.5 COMPLETE (Sprint Workflow V2 Foundation)
+
+Key Deliverables:
+  - **SprintContext**: Unified observability with correlation ID + LM tracer + timeline
+  - **State Lock**: Idempotency guard preventing duplicate sprint dispatch (Risk #2 mitigation)
+  - **Phase Verification**: 5 DPDCA checkpoints catching silent failures early
+  - **Integration**: All 3 components wired into sprint_agent.py with proper imports and calls
+  - **Evidence Schema V2.0.0**: correlation_id, timeline, lm_interactions fields added
+
+Implementation Metrics:
+  - Files created: 3 (sprint_context.py, state_lock.py, phase_verifier.py)
+  - Files adapted: 1 (aca_lm_tracer.py from 37-data-model)
+  - Files integrated: 1 (sprint_agent.py)
+  - Total LOC: ~515 lines (255 + 80 + 120 + 60 integration)
+  - Epic 14 FP: 50 total, 14 delivered (28%)
+  - Sprint 11 FP: 14 delivered (5+3+6)
+
+Next Sprint: Sprint 12 (PENDING - Epic 2: Collector service implementation)
+
+=============================================================================
+SESSION SUMMARY -- 2026-03-01 PART 2 (SPRINT 11 PLANNING + BUSINESS MODEL)
+=============================================================================
+
+OPUS 4.6 ARCHITECTURAL REVIEW: GO VERDICT FOR SPRINT WORKFLOW V2
+
+Summary: Completed comprehensive architectural review of Sprint Workflow V2 enhancement plan.
+Received GO verdict with 5 scoping adjustments. Executed full DPDCA Discovery and Plan phases.
+Sprint 11 manifest created and GitHub issue filed. Business model clarified: ACA is a fully
+automated SaaS product, not a consulting engagement model.
+
+Phase 1 - Opus 4.6 Architectural Review:
+  ✅ Review request: Read OPUS-REVIEW-REQUEST.md (640 lines)
+  ✅ Design plan: Read SPRINT-WORKFLOW-V2-PLAN.md (834 lines)
+  ✅ Review delivered: Comprehensive 200-line review appended to request doc
+  ✅ Verdict: GO with 5 conditions:
+     1. Unified SprintContext class (merge Components 1-3)
+     2. State lock mechanism (idempotency guard, Risk #2 mitigation)
+     3. Move phase verification from Phase 4 to Phase 1
+     4. Reduce documentation overhead (7 docs -> 3-4 core docs)
+     5. Budget 20 hours (not 15) for Phase 1
+  ✅ Risk priority: 10 risks ranked, Risk #2 (duplicate dispatch) highest
+
+Phase 2 - DPDCA Discovery Phase:
+  ✅ Discovery document: Created PHASE-1-DISCOVERY.md (~300 lines)
+     - V1 infrastructure inventory (sprint_agent.py, evidence format, DPDCA-WORKFLOW.md)
+     - V2 component designs (SprintContext, state lock, phase verification)
+     - Phase 1 story definitions (3 stories, 14 FP, 9 hours estimated)
+     - Evidence schema V2.0.0 (adds correlation_id, timeline, lm_interactions)
+     - Data model readiness check (SQLite port 8055, 260 stories, 348 objects)
+
+Phase 3 - DPDCA Plan Phase:
+  ✅ PLAN.md updated: Added Feature 14.5 "Sprint Workflow V2 Foundation"
+     - Story 14.5.1 [ACA-14-001]: SprintContext class (M, 5 FP)
+     - Story 14.5.2 [ACA-14-002]: State lock mechanism (S, 3 FP)
+     - Story 14.5.3 [ACA-14-003]: Phase verification (M, 6 FP)
+     - Epic 14 total: 50 FP (was 36 FP), 17 stories (was 10 stories)
+  ✅ seed-from-plan.py: Executed --reseed-model
+     - Parsed 14 epics, 260 stories (90 done, 170 planned)
+     - Wiped 348 data model objects, re-seeded 352 objects
+     - Updated 27 endpoints to implemented status
+  ✅ reflect-ids.py: Executed ID reflection
+     - Annotated 3 story lines in PLAN.md with canonical IDs
+     - Re-seeded veritas-plan.json with Epic ACA-14 (17 stories)
+  ✅ Sprint manifest: Generated sprint-11-workflow-v2-foundation.md
+     - Story IDs: ACA-14-001, ACA-14-002, ACA-14-003 (corrected from initial 011-013)
+     - Filled all TODO fields (model_rationale, files_to_create, acceptance, implementation_notes)
+     - Files to create: 7 new files (~580 lines total)
+     - Acceptance criteria: 5-6 testable checks per story
+  ✅ GitHub issue: Created Issue #34 at https://github.com/eva-foundry/51-ACA/issues/34
+     - Triggers sprint agent workflow (DPDCA DO-CHECK-ACT phases)
+
+Phase 4 - Business Model Clarification:
+  ✅ Business model document: Created BUSINESS-MODEL.md (v2.0.0, comprehensive, ~650 lines)
+     - **CRITICAL CORRECTION**: ACA generates IaC scripts; does NOT implement changes
+     - ACA complements Azure Cost Advisor (not a FinOps implementation platform)
+     - Read-only permissions ONLY; never writes to client subscription
+     - Client downloads IaC scripts and deploys them themselves
+     - ACA's role: Scan → Analyze → Generate IaC → Deliver for download
+     - Client's role: Review → Test in dev → Deploy to prod → Monitor savings
+     - Workflow phases mapped:
+       * Phase 1 (Onboarding): MSAL auth + RBAC probes (read-only validation)
+       * Phase 2 (Collection): Inventory + cost + Azure Advisor API calls (read-only)
+       * Phase 3 (Analysis): 12 rules + IaC generation (Bicep/Terraform/PowerShell)
+       * Phase 4 (Delivery): Zip assembly + Blob Storage + 7-day SAS URL
+       * Phase 5 (Client Deployment): Client reviews, tests, deploys (ACA not involved)
+     - Freemium model:
+       * Tier 1 (Free): View Advisor recommendations + savings estimates
+       * Tier 2 ($49-99/mo): + Narrative explanations + implementation guidance
+       * Tier 3 ($199-499/mo): + Downloadable IaC packages
+     - Revenue model: $0 CAC, 94-98% gross margin, unlimited scale
+     - Target: $100K ARR by end of Year 1 (333 paying customers)
+     - Project 14 role: Reference implementation (validates technical feasibility)
+     - Unit economics: $5/mo marginal cost per customer, $79-299 MRR per customer
+  ✅ AGENT-51-QUICKSTART.md: Updated to clarify role
+     - Added prominent warning: "This is NOT a consulting offering"
+     - Redirected to BUSINESS-MODEL.md for SaaS automation approach
+     - Added mapping table showing how engagement phases inspired ACA components
+     - Emphasized: Manual consulting patterns inform SaaS design, not parallel offering
+
+Key Insights:
+  - **ACA is an IaC script generator that complements Azure Cost Advisor**
+  - **ACA does NOT implement FinOps; it generates scripts for clients to implement**
+  - **Read-only posture: never writes to client subscription (EVER)**
+  - **Azure Advisor tells you WHAT to fix; ACA tells you HOW (via IaC scripts)**
+  - **Client journey: Authenticate → Scan → Download IaC → Deploy themselves**
+  - **SaaS advantage: 2-6 hours instead of 5 weeks, $0-499/mo instead of $14K setup**
+
+=============================================================================
+SESSION SUMMARY -- 2026-03-01 PART 1 (SPRINT 9 EXECUTION: COMPLETE + MERGED)
 =============================================================================
 
 SPRINT 9 COMPLETE: ALL 4 STORIES IMPLEMENTED, TESTED, MERGED, AND VERIFIED
