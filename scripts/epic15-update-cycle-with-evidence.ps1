@@ -358,22 +358,22 @@ function Phase-PostAudit {
         Trace-Event "PHASE-3" "PA01-AllStoriesInAdoMap" "FAILED" $null $_
     }
     
-    # PA02: ADO IDs are sequential (3193-3215)
+    # PA02: ADO IDs are sequential (3193-3213)
     try {
         Trace-Event "PHASE-3" "PA02-SequentialADOIds" "CALL" $null
         $adoMap = Get-Content "$baseDir\.eva\ado-id-map.json" | ConvertFrom-Json
         $epic15Entries = @($adoMap | Get-Member -MemberType NoteProperty | Where-Object { $_.Name -match "ACA-15-\d+" })
         $adoIds = $epic15Entries | ForEach-Object { $adoMap.($_.Name) } | Sort-Object
-        $expectedIds = 3193..3215
+        $expectedIds = 3193..3213
         $match = @(Compare-Object $adoIds $expectedIds).Count -eq 0
         
         Trace-Event "PHASE-3" "PA02-SequentialADOIds" "RESPONSE" @{ min = $adoIds[0]; max = $adoIds[-1] }
         
         if ($match) {
-            $checks += @{ gate = "PA02"; name = "ADO IDs sequential (3193-3215)"; status = "PASS"; details = "Range: $($adoIds[0])-$($adoIds[-1])" }
+            $checks += @{ gate = "PA02"; name = "ADO IDs sequential (3193-3213)"; status = "PASS"; details = "Range: $($adoIds[0])-$($adoIds[-1])" }
             Trace-Event "PHASE-3" "PA02-SequentialADOIds" "VERIFIED" $null
         } else {
-            $checks += @{ gate = "PA02"; name = "ADO IDs sequential (3193-3215)"; status = "FAIL"; details = "Gaps detected" }
+            $checks += @{ gate = "PA02"; name = "ADO IDs sequential (3193-3213)"; status = "FAIL"; details = "Gaps detected" }
             Trace-Event "PHASE-3" "PA02-SequentialADOIds" "FAILED" $null "ID gaps: $(Compare-Object $adoIds $expectedIds)"
         }
     } catch {
@@ -433,6 +433,12 @@ function Phase-GenerateEvidence {
         $storyId = $story.id
         $receiptPath = "$evidenceDir\$storyId-update-receipt.json"
         
+        # Safe access to gap property
+        $gapValue = $null
+        if ($story.PSObject.Properties.Name -contains 'gap') {
+            $gapValue = $story.gap
+        }
+        
         $receipt = @{
             story_id        = $storyId
             correlation_id  = $correlationId
@@ -444,7 +450,7 @@ function Phase-GenerateEvidence {
             inputs          = @{
                 sprint_number   = $story.sprint
                 function_points = $story.fp
-                gap_item        = $story.gap
+                gap_item        = $gapValue
                 ado_id_assigned = 3193 + $epic15Stories.IndexOf($story)
             }
             

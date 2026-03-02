@@ -1,1 +1,37 @@
-null
+{
+  "validation": {
+    "pa01_all_in_map": true,
+    "pa03_deterministic": true,
+    "pa02_sequential_ids": true,
+    "pre_audit": true,
+    "post_audit": true
+  },
+  "fingerprint": {
+    "correlation_id": "ACA-EPIC15-20260302-131828-cd775ef2",
+    "sha256_payload": "98873d994ba06cc3dae7e54b9c243d14628e8eadc73f7727e08448db57b1403a"
+  },
+  "operation": "epic15-data-model-sync",
+  "status": "PASS",
+  "correlation_id": "ACA-EPIC15-20260302-131828-cd775ef2",
+  "phase": "P",
+  "timestamp": "2026-03-02T13:18:28.1238702-05:00",
+  "outputs": {
+    "data_model_entry": {
+      "status": "PLANNED",
+      "row_version": "1",
+      "layer": "wbs",
+      "id": "ACA-15-000"
+    },
+    "ado_map_entry": {
+      "ado_id": 3193,
+      "story_id": "ACA-15-000"
+    }
+  },
+  "story_id": "ACA-15-000",
+  "inputs": {
+    "function_points": 2,
+    "gap_item": null,
+    "sprint_number": 14,
+    "ado_id_assigned": 3193
+  }
+}

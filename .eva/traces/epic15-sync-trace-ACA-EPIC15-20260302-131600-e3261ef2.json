@@ -1,0 +1,1357 @@
+{
+  "errors_and_warnings": {
+    "warnings": [],
+    "errors": []
+  },
+  "epic": "ACA-15",
+  "title": "Epic 15 Data Model Synchronization Trace",
+  "detailed_phases": [
+    {
+      "timestamp": "2026-03-02T13:16:00.6538629-05:00",
+      "phase": "PHASE-1",
+      "data": null,
+      "seq": 1,
+      "status": "CALL",
+      "error_message": "",
+      "operation": "G01-DataModel-Health"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:00.7615527-05:00",
+      "phase": "PHASE-1",
+      "data": "{\"status\":\"ok\"}",
+      "seq": 2,
+      "status": "RESPONSE",
+      "error_message": "",
+      "operation": "G01-DataModel-Health"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:00.7690303-05:00",
+      "phase": "PHASE-1",
+      "data": null,
+      "seq": 3,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "G01-DataModel-Health"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:00.7691961-05:00",
+      "phase": "PHASE-1",
+      "data": null,
+      "seq": 4,
+      "status": "CALL",
+      "error_message": "",
+      "operation": "G02-PlanContainsEpic15"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:00.7825615-05:00",
+      "phase": "PHASE-1",
+      "data": "{\"uniqueStories\":\"[ACA-15-000], [ACA-15-001], [ACA-15-001a], [ACA-15-002], [ACA-15-002a], [ACA-15-003], [ACA-15-003a], [ACA-15-003b], [ACA-15-004], [ACA-15-005], [ACA-15-006], [ACA-15-006a], [ACA-15-006b], [ACA-15-007], [ACA-15-008], [ACA-15-009], [ACA-15-009a], [ACA-15-010], [ACA-15-011], [ACA-15-012], [ACA-15-012a]\",\"storyCount\":21}",
+      "seq": 5,
+      "status": "RESPONSE",
+      "error_message": "",
+      "operation": "G02-PlanContainsEpic15"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:00.7836599-05:00",
+      "phase": "PHASE-1",
+      "data": null,
+      "seq": 6,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "G02-PlanContainsEpic15"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:00.7838036-05:00",
+      "phase": "PHASE-1",
+      "data": null,
+      "seq": 7,
+      "status": "CALL",
+      "error_message": "",
+      "operation": "G03-ADO-IdMapExists"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:00.7981342-05:00",
+      "phase": "PHASE-1",
+      "data": "{\"lastStoryId\":\"ACA-15-012a\",\"lastADOId\":3213}",
+      "seq": 8,
+      "status": "RESPONSE",
+      "error_message": "",
+      "operation": "G03-ADO-IdMapExists"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:00.7990352-05:00",
+      "phase": "PHASE-1",
+      "data": null,
+      "seq": 9,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "G03-ADO-IdMapExists"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:00.7991759-05:00",
+      "phase": "PHASE-1",
+      "data": null,
+      "seq": 10,
+      "status": "CALL",
+      "error_message": "",
+      "operation": "G04-NoEpic15InADOMap"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:00.8085240-05:00",
+      "phase": "PHASE-1",
+      "data": "{\"epic15Entries\":25}",
+      "seq": 11,
+      "status": "RESPONSE",
+      "error_message": "",
+      "operation": "G04-NoEpic15InADOMap"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:00.8088140-05:00",
+      "phase": "PHASE-1",
+      "data": null,
+      "seq": 12,
+      "status": "SKIPPED",
+      "error_message": "Already present, will skip updates",
+      "operation": "G04-NoEpic15InADOMap"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:00.8302560-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3193,\"storyId\":\"ACA-15-000\"}",
+      "seq": 13,
+      "status": "CALL",
+      "error_message": "",
+      "operation": "ACA-15-000-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:00.9328307-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"row_version\":2}",
+      "seq": 14,
+      "status": "RESPONSE",
+      "error_message": "",
+      "operation": "ACA-15-000-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:00.9343411-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"timestamp\":\"2026-03-02T13:16:00.915112-05:00\",\"id\":\"ACA-15-000\"}",
+      "seq": 15,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-000-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:00.9375483-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3193,\"storyId\":\"ACA-15-000\"}",
+      "seq": 16,
+      "status": "CALL",
+      "error_message": "",
+      "operation": "ACA-15-000-UPDATE-ADO-MAP"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:00.9502252-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3193,\"storyId\":\"ACA-15-000\"}",
+      "seq": 17,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-000-UPDATE-ADO-MAP"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:00.9537711-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3194,\"storyId\":\"ACA-15-001\"}",
+      "seq": 18,
+      "status": "CALL",
+      "error_message": "",
+      "operation": "ACA-15-001-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.0274657-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"row_version\":2}",
+      "seq": 19,
+      "status": "RESPONSE",
+      "error_message": "",
+      "operation": "ACA-15-001-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.0279240-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"timestamp\":\"2026-03-02T13:16:01.014218-05:00\",\"id\":\"ACA-15-001\"}",
+      "seq": 20,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-001-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.0290190-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3194,\"storyId\":\"ACA-15-001\"}",
+      "seq": 21,
+      "status": "CALL",
+      "error_message": "",
+      "operation": "ACA-15-001-UPDATE-ADO-MAP"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.0364507-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3194,\"storyId\":\"ACA-15-001\"}",
+      "seq": 22,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-001-UPDATE-ADO-MAP"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.0380301-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3195,\"storyId\":\"ACA-15-001a\"}",
+      "seq": 23,
+      "status": "CALL",
+      "error_message": "",
+      "operation": "ACA-15-001a-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.1015711-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"row_version\":2}",
+      "seq": 24,
+      "status": "RESPONSE",
+      "error_message": "",
+      "operation": "ACA-15-001a-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.1018793-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"timestamp\":\"2026-03-02T13:16:01.089812-05:00\",\"id\":\"ACA-15-001a\"}",
+      "seq": 25,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-001a-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.1028098-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3195,\"storyId\":\"ACA-15-001a\"}",
+      "seq": 26,
+      "status": "CALL",
+      "error_message": "",
+      "operation": "ACA-15-001a-UPDATE-ADO-MAP"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.1103508-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3195,\"storyId\":\"ACA-15-001a\"}",
+      "seq": 27,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-001a-UPDATE-ADO-MAP"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.1120825-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3196,\"storyId\":\"ACA-15-002\"}",
+      "seq": 28,
+      "status": "CALL",
+      "error_message": "",
+      "operation": "ACA-15-002-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.1945835-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"row_version\":2}",
+      "seq": 29,
+      "status": "RESPONSE",
+      "error_message": "",
+      "operation": "ACA-15-002-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.1950373-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"timestamp\":\"2026-03-02T13:16:01.184018-05:00\",\"id\":\"ACA-15-002\"}",
+      "seq": 30,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-002-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.1966753-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3196,\"storyId\":\"ACA-15-002\"}",
+      "seq": 31,
+      "status": "CALL",
+      "error_message": "",
+      "operation": "ACA-15-002-UPDATE-ADO-MAP"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.2064470-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3196,\"storyId\":\"ACA-15-002\"}",
+      "seq": 32,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-002-UPDATE-ADO-MAP"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.2323957-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3197,\"storyId\":\"ACA-15-002a\"}",
+      "seq": 33,
+      "status": "CALL",
+      "error_message": "",
+      "operation": "ACA-15-002a-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.3107846-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"row_version\":2}",
+      "seq": 34,
+      "status": "RESPONSE",
+      "error_message": "",
+      "operation": "ACA-15-002a-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.3111991-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"timestamp\":\"2026-03-02T13:16:01.28595-05:00\",\"id\":\"ACA-15-002a\"}",
+      "seq": 35,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-002a-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.3122439-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3197,\"storyId\":\"ACA-15-002a\"}",
+      "seq": 36,
+      "status": "CALL",
+      "error_message": "",
+      "operation": "ACA-15-002a-UPDATE-ADO-MAP"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.3213861-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3197,\"storyId\":\"ACA-15-002a\"}",
+      "seq": 37,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-002a-UPDATE-ADO-MAP"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.3237776-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3198,\"storyId\":\"ACA-15-003\"}",
+      "seq": 38,
+      "status": "CALL",
+      "error_message": "",
+      "operation": "ACA-15-003-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.3872870-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"row_version\":2}",
+      "seq": 39,
+      "status": "RESPONSE",
+      "error_message": "",
+      "operation": "ACA-15-003-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.3876791-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"timestamp\":\"2026-03-02T13:16:01.375941-05:00\",\"id\":\"ACA-15-003\"}",
+      "seq": 40,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-003-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.3887015-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3198,\"storyId\":\"ACA-15-003\"}",
+      "seq": 41,
+      "status": "CALL",
+      "error_message": "",
+      "operation": "ACA-15-003-UPDATE-ADO-MAP"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.3973620-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3198,\"storyId\":\"ACA-15-003\"}",
+      "seq": 42,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-003-UPDATE-ADO-MAP"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.3990218-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3199,\"storyId\":\"ACA-15-003a\"}",
+      "seq": 43,
+      "status": "CALL",
+      "error_message": "",
+      "operation": "ACA-15-003a-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.4698169-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"row_version\":2}",
+      "seq": 44,
+      "status": "RESPONSE",
+      "error_message": "",
+      "operation": "ACA-15-003a-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.4701961-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"timestamp\":\"2026-03-02T13:16:01.45834-05:00\",\"id\":\"ACA-15-003a\"}",
+      "seq": 45,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-003a-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.4711676-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3199,\"storyId\":\"ACA-15-003a\"}",
+      "seq": 46,
+      "status": "CALL",
+      "error_message": "",
+      "operation": "ACA-15-003a-UPDATE-ADO-MAP"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.4801497-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3199,\"storyId\":\"ACA-15-003a\"}",
+      "seq": 47,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-003a-UPDATE-ADO-MAP"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.4818195-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3200,\"storyId\":\"ACA-15-003b\"}",
+      "seq": 48,
+      "status": "CALL",
+      "error_message": "",
+      "operation": "ACA-15-003b-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.5477439-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"row_version\":2}",
+      "seq": 49,
+      "status": "RESPONSE",
+      "error_message": "",
+      "operation": "ACA-15-003b-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.5480934-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"timestamp\":\"2026-03-02T13:16:01.535796-05:00\",\"id\":\"ACA-15-003b\"}",
+      "seq": 50,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-003b-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.5491396-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3200,\"storyId\":\"ACA-15-003b\"}",
+      "seq": 51,
+      "status": "CALL",
+      "error_message": "",
+      "operation": "ACA-15-003b-UPDATE-ADO-MAP"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.5580705-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3200,\"storyId\":\"ACA-15-003b\"}",
+      "seq": 52,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-003b-UPDATE-ADO-MAP"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.5597546-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3201,\"storyId\":\"ACA-15-004\"}",
+      "seq": 53,
+      "status": "CALL",
+      "error_message": "",
+      "operation": "ACA-15-004-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.6241174-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"row_version\":2}",
+      "seq": 54,
+      "status": "RESPONSE",
+      "error_message": "",
+      "operation": "ACA-15-004-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.6246127-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"timestamp\":\"2026-03-02T13:16:01.612774-05:00\",\"id\":\"ACA-15-004\"}",
+      "seq": 55,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-004-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.6257974-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3201,\"storyId\":\"ACA-15-004\"}",
+      "seq": 56,
+      "status": "CALL",
+      "error_message": "",
+      "operation": "ACA-15-004-UPDATE-ADO-MAP"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.6363947-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3201,\"storyId\":\"ACA-15-004\"}",
+      "seq": 57,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-004-UPDATE-ADO-MAP"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.6382149-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3202,\"storyId\":\"ACA-15-005\"}",
+      "seq": 58,
+      "status": "CALL",
+      "error_message": "",
+      "operation": "ACA-15-005-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.6997454-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"row_version\":2}",
+      "seq": 59,
+      "status": "RESPONSE",
+      "error_message": "",
+      "operation": "ACA-15-005-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.7000727-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"timestamp\":\"2026-03-02T13:16:01.68882-05:00\",\"id\":\"ACA-15-005\"}",
+      "seq": 60,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-005-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.7011415-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3202,\"storyId\":\"ACA-15-005\"}",
+      "seq": 61,
+      "status": "CALL",
+      "error_message": "",
+      "operation": "ACA-15-005-UPDATE-ADO-MAP"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.7100868-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3202,\"storyId\":\"ACA-15-005\"}",
+      "seq": 62,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-005-UPDATE-ADO-MAP"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.7117897-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3203,\"storyId\":\"ACA-15-006\"}",
+      "seq": 63,
+      "status": "CALL",
+      "error_message": "",
+      "operation": "ACA-15-006-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.7776596-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"row_version\":2}",
+      "seq": 64,
+      "status": "RESPONSE",
+      "error_message": "",
+      "operation": "ACA-15-006-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.7780009-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"timestamp\":\"2026-03-02T13:16:01.764719-05:00\",\"id\":\"ACA-15-006\"}",
+      "seq": 65,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-006-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.7790868-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3203,\"storyId\":\"ACA-15-006\"}",
+      "seq": 66,
+      "status": "CALL",
+      "error_message": "",
+      "operation": "ACA-15-006-UPDATE-ADO-MAP"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.7878197-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3203,\"storyId\":\"ACA-15-006\"}",
+      "seq": 67,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-006-UPDATE-ADO-MAP"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.7894399-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3204,\"storyId\":\"ACA-15-006a\"}",
+      "seq": 68,
+      "status": "CALL",
+      "error_message": "",
+      "operation": "ACA-15-006a-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.8513578-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"row_version\":2}",
+      "seq": 69,
+      "status": "RESPONSE",
+      "error_message": "",
+      "operation": "ACA-15-006a-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.8516830-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"timestamp\":\"2026-03-02T13:16:01.840708-05:00\",\"id\":\"ACA-15-006a\"}",
+      "seq": 70,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-006a-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.8526971-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3204,\"storyId\":\"ACA-15-006a\"}",
+      "seq": 71,
+      "status": "CALL",
+      "error_message": "",
+      "operation": "ACA-15-006a-UPDATE-ADO-MAP"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.8616705-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3204,\"storyId\":\"ACA-15-006a\"}",
+      "seq": 72,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-006a-UPDATE-ADO-MAP"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.8635594-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3205,\"storyId\":\"ACA-15-006b\"}",
+      "seq": 73,
+      "status": "CALL",
+      "error_message": "",
+      "operation": "ACA-15-006b-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.9266978-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"row_version\":2}",
+      "seq": 74,
+      "status": "RESPONSE",
+      "error_message": "",
+      "operation": "ACA-15-006b-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.9270106-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"timestamp\":\"2026-03-02T13:16:01.914866-05:00\",\"id\":\"ACA-15-006b\"}",
+      "seq": 75,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-006b-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.9279294-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3205,\"storyId\":\"ACA-15-006b\"}",
+      "seq": 76,
+      "status": "CALL",
+      "error_message": "",
+      "operation": "ACA-15-006b-UPDATE-ADO-MAP"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.9365904-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3205,\"storyId\":\"ACA-15-006b\"}",
+      "seq": 77,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-006b-UPDATE-ADO-MAP"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:01.9382064-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3206,\"storyId\":\"ACA-15-007\"}",
+      "seq": 78,
+      "status": "CALL",
+      "error_message": "",
+      "operation": "ACA-15-007-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.0072508-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"row_version\":2}",
+      "seq": 79,
+      "status": "RESPONSE",
+      "error_message": "",
+      "operation": "ACA-15-007-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.0075584-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"timestamp\":\"2026-03-02T13:16:01.990178-05:00\",\"id\":\"ACA-15-007\"}",
+      "seq": 80,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-007-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.0084818-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3206,\"storyId\":\"ACA-15-007\"}",
+      "seq": 81,
+      "status": "CALL",
+      "error_message": "",
+      "operation": "ACA-15-007-UPDATE-ADO-MAP"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.0211541-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3206,\"storyId\":\"ACA-15-007\"}",
+      "seq": 82,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-007-UPDATE-ADO-MAP"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.0228277-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3207,\"storyId\":\"ACA-15-008\"}",
+      "seq": 83,
+      "status": "CALL",
+      "error_message": "",
+      "operation": "ACA-15-008-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.0845070-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"row_version\":2}",
+      "seq": 84,
+      "status": "RESPONSE",
+      "error_message": "",
+      "operation": "ACA-15-008-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.0848155-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"timestamp\":\"2026-03-02T13:16:02.073044-05:00\",\"id\":\"ACA-15-008\"}",
+      "seq": 85,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-008-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.0857841-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3207,\"storyId\":\"ACA-15-008\"}",
+      "seq": 86,
+      "status": "CALL",
+      "error_message": "",
+      "operation": "ACA-15-008-UPDATE-ADO-MAP"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.0943363-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3207,\"storyId\":\"ACA-15-008\"}",
+      "seq": 87,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-008-UPDATE-ADO-MAP"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.0958448-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3208,\"storyId\":\"ACA-15-009\"}",
+      "seq": 88,
+      "status": "CALL",
+      "error_message": "",
+      "operation": "ACA-15-009-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.1724481-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"row_version\":2}",
+      "seq": 89,
+      "status": "RESPONSE",
+      "error_message": "",
+      "operation": "ACA-15-009-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.1727792-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"timestamp\":\"2026-03-02T13:16:02.16082-05:00\",\"id\":\"ACA-15-009\"}",
+      "seq": 90,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-009-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.1737347-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3208,\"storyId\":\"ACA-15-009\"}",
+      "seq": 91,
+      "status": "CALL",
+      "error_message": "",
+      "operation": "ACA-15-009-UPDATE-ADO-MAP"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.1823611-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3208,\"storyId\":\"ACA-15-009\"}",
+      "seq": 92,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-009-UPDATE-ADO-MAP"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.1840073-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3209,\"storyId\":\"ACA-15-009a\"}",
+      "seq": 93,
+      "status": "CALL",
+      "error_message": "",
+      "operation": "ACA-15-009a-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.2486093-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"row_version\":2}",
+      "seq": 94,
+      "status": "RESPONSE",
+      "error_message": "",
+      "operation": "ACA-15-009a-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.2490037-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"timestamp\":\"2026-03-02T13:16:02.23476-05:00\",\"id\":\"ACA-15-009a\"}",
+      "seq": 95,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-009a-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.2500814-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3209,\"storyId\":\"ACA-15-009a\"}",
+      "seq": 96,
+      "status": "CALL",
+      "error_message": "",
+      "operation": "ACA-15-009a-UPDATE-ADO-MAP"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.2596856-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3209,\"storyId\":\"ACA-15-009a\"}",
+      "seq": 97,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-009a-UPDATE-ADO-MAP"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.2616133-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3210,\"storyId\":\"ACA-15-010\"}",
+      "seq": 98,
+      "status": "CALL",
+      "error_message": "",
+      "operation": "ACA-15-010-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.3256645-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"row_version\":2}",
+      "seq": 99,
+      "status": "RESPONSE",
+      "error_message": "",
+      "operation": "ACA-15-010-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.3259727-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"timestamp\":\"2026-03-02T13:16:02.314073-05:00\",\"id\":\"ACA-15-010\"}",
+      "seq": 100,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-010-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.3268813-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3210,\"storyId\":\"ACA-15-010\"}",
+      "seq": 101,
+      "status": "CALL",
+      "error_message": "",
+      "operation": "ACA-15-010-UPDATE-ADO-MAP"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.3355451-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3210,\"storyId\":\"ACA-15-010\"}",
+      "seq": 102,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-010-UPDATE-ADO-MAP"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.3370289-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3211,\"storyId\":\"ACA-15-011\"}",
+      "seq": 103,
+      "status": "CALL",
+      "error_message": "",
+      "operation": "ACA-15-011-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.4032360-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"row_version\":2}",
+      "seq": 104,
+      "status": "RESPONSE",
+      "error_message": "",
+      "operation": "ACA-15-011-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.4035340-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"timestamp\":\"2026-03-02T13:16:02.391884-05:00\",\"id\":\"ACA-15-011\"}",
+      "seq": 105,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-011-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.4044268-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3211,\"storyId\":\"ACA-15-011\"}",
+      "seq": 106,
+      "status": "CALL",
+      "error_message": "",
+      "operation": "ACA-15-011-UPDATE-ADO-MAP"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.4126920-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3211,\"storyId\":\"ACA-15-011\"}",
+      "seq": 107,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-011-UPDATE-ADO-MAP"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.4142555-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3212,\"storyId\":\"ACA-15-012\"}",
+      "seq": 108,
+      "status": "CALL",
+      "error_message": "",
+      "operation": "ACA-15-012-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.4822780-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"row_version\":2}",
+      "seq": 109,
+      "status": "RESPONSE",
+      "error_message": "",
+      "operation": "ACA-15-012-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.4826276-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"timestamp\":\"2026-03-02T13:16:02.469127-05:00\",\"id\":\"ACA-15-012\"}",
+      "seq": 110,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-012-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.4837123-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3212,\"storyId\":\"ACA-15-012\"}",
+      "seq": 111,
+      "status": "CALL",
+      "error_message": "",
+      "operation": "ACA-15-012-UPDATE-ADO-MAP"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.4927063-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3212,\"storyId\":\"ACA-15-012\"}",
+      "seq": 112,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-012-UPDATE-ADO-MAP"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.4944374-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3213,\"storyId\":\"ACA-15-012a\"}",
+      "seq": 113,
+      "status": "CALL",
+      "error_message": "",
+      "operation": "ACA-15-012a-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.5594379-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"row_version\":2}",
+      "seq": 114,
+      "status": "RESPONSE",
+      "error_message": "",
+      "operation": "ACA-15-012a-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.5597600-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"timestamp\":\"2026-03-02T13:16:02.547807-05:00\",\"id\":\"ACA-15-012a\"}",
+      "seq": 115,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-012a-PUT-WBS"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.5609548-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3213,\"storyId\":\"ACA-15-012a\"}",
+      "seq": 116,
+      "status": "CALL",
+      "error_message": "",
+      "operation": "ACA-15-012a-UPDATE-ADO-MAP"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.5725044-05:00",
+      "phase": "PHASE-2",
+      "data": "{\"adoId\":3213,\"storyId\":\"ACA-15-012a\"}",
+      "seq": 117,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-012a-UPDATE-ADO-MAP"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.5832766-05:00",
+      "phase": "PHASE-3",
+      "data": null,
+      "seq": 118,
+      "status": "CALL",
+      "error_message": "",
+      "operation": "PA01-AllStoriesInAdoMap"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.5985217-05:00",
+      "phase": "PHASE-3",
+      "data": "{\"count\":25}",
+      "seq": 119,
+      "status": "RESPONSE",
+      "error_message": "",
+      "operation": "PA01-AllStoriesInAdoMap"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.5988368-05:00",
+      "phase": "PHASE-3",
+      "data": null,
+      "seq": 120,
+      "status": "FAILED",
+      "error_message": "Expected 21, found 25",
+      "operation": "PA01-AllStoriesInAdoMap"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.5989759-05:00",
+      "phase": "PHASE-3",
+      "data": null,
+      "seq": 121,
+      "status": "CALL",
+      "error_message": "",
+      "operation": "PA02-SequentialADOIds"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.6802622-05:00",
+      "phase": "PHASE-3",
+      "data": "{\"max\":3213,\"min\":3193}",
+      "seq": 122,
+      "status": "RESPONSE",
+      "error_message": "",
+      "operation": "PA02-SequentialADOIds"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.6813713-05:00",
+      "phase": "PHASE-3",
+      "data": null,
+      "seq": 123,
+      "status": "FAILED",
+      "error_message": "ID gaps:      ",
+      "operation": "PA02-SequentialADOIds"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.6815316-05:00",
+      "phase": "PHASE-3",
+      "data": null,
+      "seq": 124,
+      "status": "CALL",
+      "error_message": "",
+      "operation": "PA03-PLANmdUnchanged"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.6858223-05:00",
+      "phase": "PHASE-3",
+      "data": "{\"filehash\":\"E1B2B344940F21E96F4DE5DBE473B6BC3523C2C9F88AA132F15769ABFE4555ED\"}",
+      "seq": 125,
+      "status": "RESPONSE",
+      "error_message": "",
+      "operation": "PA03-PLANmdUnchanged"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.6861667-05:00",
+      "phase": "PHASE-3",
+      "data": null,
+      "seq": 126,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "PA03-PLANmdUnchanged"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.8155202-05:00",
+      "phase": "PHASE-4",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-000-update-receipt.json\"}",
+      "seq": 127,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-000-EVIDENCE-RECEIPT"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.8215161-05:00",
+      "phase": "PHASE-4",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-001-update-receipt.json\"}",
+      "seq": 128,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-001-EVIDENCE-RECEIPT"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.8358398-05:00",
+      "phase": "PHASE-4",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-001a-update-receipt.json\"}",
+      "seq": 129,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-001a-EVIDENCE-RECEIPT"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.8421842-05:00",
+      "phase": "PHASE-4",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-002-update-receipt.json\"}",
+      "seq": 130,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-002-EVIDENCE-RECEIPT"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.8471765-05:00",
+      "phase": "PHASE-4",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-002a-update-receipt.json\"}",
+      "seq": 131,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-002a-EVIDENCE-RECEIPT"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.8536989-05:00",
+      "phase": "PHASE-4",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-003-update-receipt.json\"}",
+      "seq": 132,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-003-EVIDENCE-RECEIPT"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.8583244-05:00",
+      "phase": "PHASE-4",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-003a-update-receipt.json\"}",
+      "seq": 133,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-003a-EVIDENCE-RECEIPT"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.8627816-05:00",
+      "phase": "PHASE-4",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-003b-update-receipt.json\"}",
+      "seq": 134,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-003b-EVIDENCE-RECEIPT"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.8695363-05:00",
+      "phase": "PHASE-4",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-004-update-receipt.json\"}",
+      "seq": 135,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-004-EVIDENCE-RECEIPT"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.8761951-05:00",
+      "phase": "PHASE-4",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-005-update-receipt.json\"}",
+      "seq": 136,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-005-EVIDENCE-RECEIPT"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.8825853-05:00",
+      "phase": "PHASE-4",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-006-update-receipt.json\"}",
+      "seq": 137,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-006-EVIDENCE-RECEIPT"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.8867402-05:00",
+      "phase": "PHASE-4",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-006a-update-receipt.json\"}",
+      "seq": 138,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-006a-EVIDENCE-RECEIPT"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.8911979-05:00",
+      "phase": "PHASE-4",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-006b-update-receipt.json\"}",
+      "seq": 139,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-006b-EVIDENCE-RECEIPT"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.8971842-05:00",
+      "phase": "PHASE-4",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-007-update-receipt.json\"}",
+      "seq": 140,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-007-EVIDENCE-RECEIPT"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.9048589-05:00",
+      "phase": "PHASE-4",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-008-update-receipt.json\"}",
+      "seq": 141,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-008-EVIDENCE-RECEIPT"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.9124173-05:00",
+      "phase": "PHASE-4",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-009-update-receipt.json\"}",
+      "seq": 142,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-009-EVIDENCE-RECEIPT"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.9217901-05:00",
+      "phase": "PHASE-4",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-009a-update-receipt.json\"}",
+      "seq": 143,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-009a-EVIDENCE-RECEIPT"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.9402251-05:00",
+      "phase": "PHASE-4",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-010-update-receipt.json\"}",
+      "seq": 144,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-010-EVIDENCE-RECEIPT"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.9475399-05:00",
+      "phase": "PHASE-4",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-011-update-receipt.json\"}",
+      "seq": 145,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-011-EVIDENCE-RECEIPT"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.9552097-05:00",
+      "phase": "PHASE-4",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-012-update-receipt.json\"}",
+      "seq": 146,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-012-EVIDENCE-RECEIPT"
+    },
+    {
+      "timestamp": "2026-03-02T13:16:02.9616496-05:00",
+      "phase": "PHASE-4",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-012a-update-receipt.json\"}",
+      "seq": 147,
+      "status": "VERIFIED",
+      "error_message": "",
+      "operation": "ACA-15-012a-EVIDENCE-RECEIPT"
+    }
+  ],
+  "audit_gates": {
+    "pre_audit_passed": true,
+    "post_audit_passed": false
+  },
+  "dry_run": {
+    "IsPresent": false
+  },
+  "mode": "full",
+  "timestamp": "2026-03-02T13:16:00.6279574-05:00",
+  "correlation_id": "ACA-EPIC15-20260302-131600-e3261ef2",
+  "execution_summary": {
+    "evidence_receipts_generated": 21,
+    "total_stories": 21,
+    "warnings": 0,
+    "ado_map_updates": 21,
+    "data_model_operations": 21,
+    "errors": 0
+  },
+  "verification_status": {
+    "all_operations_traced": "VERIFIED",
+    "correlation_tracking": "ENABLED",
+    "idempotency_safe": "VERIFIED",
+    "deterministic_behavior": "VERIFIED"
+  }
+}

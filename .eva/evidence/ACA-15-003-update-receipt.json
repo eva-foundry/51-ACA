@@ -1,37 +1,37 @@
 {
+  "validation": {
+    "pa01_all_in_map": true,
+    "pa03_deterministic": true,
+    "pa02_sequential_ids": true,
+    "pre_audit": true,
+    "post_audit": true
+  },
+  "fingerprint": {
+    "correlation_id": "ACA-EPIC15-20260302-131828-cd775ef2",
+    "sha256_payload": "dd78453b4c2c6f56795ce18634d0607d4627c349575a6cfeac663cfa9fd2ea53"
+  },
+  "operation": "epic15-data-model-sync",
+  "status": "PASS",
+  "correlation_id": "ACA-EPIC15-20260302-131828-cd775ef2",
+  "phase": "P",
+  "timestamp": "2026-03-02T13:18:28.1238702-05:00",
   "outputs": {
     "data_model_entry": {
+      "status": "PLANNED",
       "row_version": "1",
       "layer": "wbs",
-      "status": "PLANNED",
-      "id": "ACA-15-002a"
+      "id": "ACA-15-003"
     },
     "ado_map_entry": {
-      "ado_id": 3197,
-      "story_id": "ACA-15-002a"
+      "ado_id": 3198,
+      "story_id": "ACA-15-003"
     }
   },
-  "correlation_id": "ACA-EPIC15-20260302-122453-3d581540",
-  "status": "PASS",
-  "operation": "epic15-data-model-sync",
+  "story_id": "ACA-15-003",
   "inputs": {
-    "gap_item": "GAP-2",
-    "ado_id_assigned": 3197,
+    "function_points": 4,
+    "gap_item": null,
     "sprint_number": 14,
-    "function_points": 2
-  },
-  "story_id": "ACA-15-002a",
-  "phase": "P",
-  "timestamp": "2026-03-02T12:24:53.9084825-05:00",
-  "fingerprint": {
-    "correlation_id": "ACA-EPIC15-20260302-122453-3d581540",
-    "sha256_payload": "722341f0b5ce965c3060763eab885548378722a72096416b0a1ab0c6c3619065"
-  },
-  "validation": {
-    "post_audit": false,
-    "pre_audit": true,
-    "pa03_deterministic": true,
-    "pa01_all_in_map": true,
-    "pa02_sequential_ids": true
+    "ado_id_assigned": 3198
   }
 }
