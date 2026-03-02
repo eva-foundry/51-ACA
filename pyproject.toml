@@ -20,6 +20,21 @@ exclude = ["infra/", "frontend/"]
 source = ["services"]
 omit = ["*/tests/*", "*/__init__.py"]
 
+[tool.coverage.report]
+fail_under = 95
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+]
+
+[tool.coverage.paths]
+source = [
+    "services/analysis/app/rules",
+]
+
 [build-system]
 requires = ["setuptools>=68"]
 build-backend = "setuptools.backends.legacy:build"

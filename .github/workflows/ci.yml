@@ -22,7 +22,7 @@ jobs:
 
       - name: Install all service deps
         run: |
-          pip install ruff mypy pytest
+          pip install ruff mypy pytest pytest-cov
           pip install -r services/api/requirements.txt
           pip install -r services/collector/requirements.txt
           pip install -r services/analysis/requirements.txt
@@ -34,7 +34,12 @@ jobs:
       - name: mypy type-check
         run: mypy services/ --ignore-missing-imports --no-error-summary
 
-      - name: pytest
+      - name: pytest with coverage
+        env:
+          PYTHONPATH: services/api
+        run: pytest services/analysis/app/rules --cov=services/analysis/app/rules --cov-report=term --cov-fail-under=95 -v --tb=short
+
+      - name: pytest full suite
         env:
           PYTHONPATH: services/api
         run: pytest services/ -x -q --tb=short
