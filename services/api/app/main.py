@@ -10,7 +10,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.settings import get_settings
 from app.middleware.timing import TimingMiddleware
-from app.routers import auth, scans, findings, checkout, admin, health
+from app.routers import auth, scans, findings, checkout, admin, health, collect, reports, billing, webhooks, entitlements
 
 settings = get_settings()
 
@@ -41,6 +41,11 @@ def create_app() -> FastAPI:
 
     app.include_router(health.router)
     app.include_router(auth.router, prefix="/v1/auth")
+    app.include_router(collect.router, prefix="/v1/collect")
+    app.include_router(reports.router, prefix="/v1/reports")
+    app.include_router(billing.router, prefix="/v1/billing")
+    app.include_router(webhooks.router, prefix="/v1/webhooks")
+    app.include_router(entitlements.router, prefix="/v1/entitlements")
     app.include_router(scans.router, prefix="/v1/scans")
     app.include_router(findings.router, prefix="/v1/findings")
     app.include_router(checkout.router, prefix="/v1/checkout")
