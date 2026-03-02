@@ -1,7 +1,7 @@
 {
   "meta": {
     "schema": "eva.discovery.v2",
-    "generated_at": "2026-03-02T14:50:21.816Z",
+    "generated_at": "2026-03-02T17:04:02.162Z",
     "repo": "C:\\AICOE\\eva-foundry\\51-ACA"
   },
   "project": null,
@@ -2142,11 +2142,6 @@
         "story_tags": []
       },
       {
-        "path": "BILLION-DOLLAR-PLAN.md",
-        "type": "doc",
-        "story_tags": []
-      },
-      {
         "path": "CHANGELOG.md",
         "type": "doc",
         "story_tags": []
@@ -2215,11 +2210,6 @@
       },
       {
         "path": "DPDCA-SUMMARY.md",
-        "type": "doc",
-        "story_tags": []
-      },
-      {
-        "path": "EVIDENCE-LAYER-MOAT.md",
         "type": "doc",
         "story_tags": []
       },
@@ -2735,7 +2725,17 @@
         "story_tags": []
       },
       {
+        "path": "docs/EPIC-15-COMPLETE-SUMMARY.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
         "path": "docs/EPIC-15-ONBOARDING-SYSTEM-BACKLOG.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "docs/EPIC-15-VELOCITY-AND-SPRINTS.md",
         "type": "doc",
         "story_tags": []
       },
@@ -2847,36 +2847,6 @@
       {
         "path": "docs/WORKFLOW-DATA-MODEL-INTEGRATION.md",
         "type": "doc",
-        "story_tags": []
-      },
-      {
-        "path": "frontend/.env.example",
-        "type": "other",
-        "story_tags": []
-      },
-      {
-        "path": "frontend/index.html",
-        "type": "other",
-        "story_tags": []
-      },
-      {
-        "path": "frontend/package.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "frontend/tsconfig.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "frontend/tsconfig.node.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "frontend/vite.config.ts",
-        "type": "code",
         "story_tags": []
       },
       {
@@ -4630,9 +4600,46 @@
         ]
       },
       {
+        "path": "frontend/.env.example",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/index.html",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/package.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/tsconfig.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/tsconfig.node.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/vite.config.ts",
+        "type": "code",
+        "story_tags": []
+      },
+      {
         "path": "scripts/ado-create-project.ps1",
         "type": "code",
         "story_tags": []
+      },
+      {
+        "path": "scripts/create-epic15-github-issues.ps1",
+        "type": "code",
+        "story_tags": [
+          "ACA-"
+        ]
       },
       {
         "path": "scripts/create-sprints.py",
@@ -5436,6 +5443,11 @@
         "story_tags": []
       },
       {
+        "path": "sessions/artifact-deployment/session_state.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
         "path": "services/tests/test_analysis_main.py",
         "type": "code",
         "story_tags": [
@@ -5623,9 +5635,11 @@
         ]
       },
       {
-        "path": "sessions/artifact-deployment/session_state.json",
-        "type": "data",
-        "story_tags": []
+        "path": "frontend/src/app/AppShell.tsx",
+        "type": "code",
+        "story_tags": [
+          "ACA-05-010"
+        ]
       },
       {
         "path": ".pytest_cache/v/cache/lastfailed",
@@ -5641,13 +5655,6 @@
         "path": ".pytest_cache/v/cache/stepwise",
         "type": "other",
         "story_tags": []
-      },
-      {
-        "path": "frontend/src/app/AppShell.tsx",
-        "type": "code",
-        "story_tags": [
-          "ACA-05-010"
-        ]
       },
       {
         "path": "frontend/src/components/ConsentBanner.tsx",
@@ -5923,24 +5930,6 @@
         ]
       },
       {
-        "path": "services/api/tests/test_auth.py",
-        "type": "code",
-        "story_tags": [
-          "ACA-04-004",
-          "ACA-04-005",
-          "ACA-04-009",
-          "ACA-04-001"
-        ]
-      },
-      {
-        "path": "services/api/tests/test_core_endpoints.py",
-        "type": "code",
-        "story_tags": [
-          "ACA-04-011",
-          "ACA-04-012"
-        ]
-      },
-      {
         "path": "services/collector/app/azure_client.py",
         "type": "code",
         "story_tags": [
@@ -5976,6 +5965,24 @@
         ]
       },
       {
+        "path": "services/api/tests/test_auth.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-04-004",
+          "ACA-04-005",
+          "ACA-04-009",
+          "ACA-04-001"
+        ]
+      },
+      {
+        "path": "services/api/tests/test_core_endpoints.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-04-011",
+          "ACA-04-012"
+        ]
+      },
+      {
         "path": "services/delivery/app/cosmos.py",
         "type": "code",
         "story_tags": [
@@ -6003,6 +6010,11 @@
           "ACA-07-006",
           "ACA-07-021"
         ]
+      },
+      {
+        "path": "frontend/public/locales/en/translation.json",
+        "type": "data",
+        "story_tags": []
       },
       {
         "path": "sessions/artifact-deployment/checkpoints/checkpoint_analysis_complete_20260226_184028.json",
@@ -6056,11 +6068,6 @@
       },
       {
         "path": "sessions/artifact-deployment/checkpoints/checkpoint_source_validated_20260226_184046.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "frontend/public/locales/en/translation.json",
         "type": "data",
         "story_tags": []
       },
@@ -6119,34 +6126,6 @@
         ]
       },
       {
-        "path": "frontend/src/app/components/EffortBadge.tsx",
-        "type": "code",
-        "story_tags": [
-          "ACA-05-034"
-        ]
-      },
-      {
-        "path": "frontend/src/app/components/ErrorState.tsx",
-        "type": "code",
-        "story_tags": [
-          "ACA-05-031"
-        ]
-      },
-      {
-        "path": "frontend/src/app/components/Loading.tsx",
-        "type": "code",
-        "story_tags": [
-          "ACA-05-030"
-        ]
-      },
-      {
-        "path": "frontend/src/app/components/MoneyRangeBar.tsx",
-        "type": "code",
-        "story_tags": [
-          "ACA-05-033"
-        ]
-      },
-      {
         "path": "frontend/src/app/layout/AdminLayout.tsx",
         "type": "code",
         "story_tags": [
@@ -6172,6 +6151,34 @@
         "type": "code",
         "story_tags": [
           "ACA-05-008"
+        ]
+      },
+      {
+        "path": "frontend/src/app/components/EffortBadge.tsx",
+        "type": "code",
+        "story_tags": [
+          "ACA-05-034"
+        ]
+      },
+      {
+        "path": "frontend/src/app/components/ErrorState.tsx",
+        "type": "code",
+        "story_tags": [
+          "ACA-05-031"
+        ]
+      },
+      {
+        "path": "frontend/src/app/components/Loading.tsx",
+        "type": "code",
+        "story_tags": [
+          "ACA-05-030"
+        ]
+      },
+      {
+        "path": "frontend/src/app/components/MoneyRangeBar.tsx",
+        "type": "code",
+        "story_tags": [
+          "ACA-05-033"
         ]
       },
       {
@@ -11932,6 +11939,17 @@
               "ACA-14-008",
               "ACA-NN-NNN",
               "ACA-14-010"
+            ]
+          }
+        ]
+      },
+      "ACA-": {
+        "artifacts": [
+          {
+            "path": "scripts/create-epic15-github-issues.ps1",
+            "type": "code",
+            "story_tags": [
+              "ACA-"
             ]
           }
         ]
