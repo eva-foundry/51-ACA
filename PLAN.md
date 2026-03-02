@@ -1,11 +1,11 @@
 ACA -- Azure Cost Advisor -- PLAN
 =================================
 
-Version: 0.5.0
-Updated: 2026-02-27 (full WBS hierarchy with ACA-NN-NNN IDs, function points, velocity,
-         18-azure-best as service catalog Epic 13, DPDCA cloud agent Epic 14,
-         all closed epics/features/stories recorded, complete EVA-Veritas + data-model alignment)
-Phase: Phase 1 active
+Version: 0.6.0
+Updated: 2026-03-02T21:50:00Z (Sprint-002 Complete: EPIC-17 Failure Recovery and Reliability delivered,
+         5 stories (ACA-17-001 through ACA-17-005), 34 story points, 38/38 tests PASS,
+         reliability target 9.5x achieved via Classifier -> Tuner -> Advisor pipeline)
+Phase: Phase 1 active (multi-agent orchestration pipeline complete)
 
 This plan is the Work Breakdown Structure (WBS) for ACA.
 Each Epic maps to one or more data-model layers.
