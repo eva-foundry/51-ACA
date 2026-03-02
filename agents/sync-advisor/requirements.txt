@@ -1,0 +1,25 @@
+# ACA-17-004: Sync Advisor Agent Dependencies
+# Pin all versions for reproducibility
+
+# Agent Framework (Microsoft Agent Framework)
+agent-framework-azure-ai==1.0.0b260107
+agent-framework-core==1.0.0b260107
+
+# Azure SDK
+azure-identity==1.14.0
+azure-storage-blob==12.20.0
+
+# Web Framework
+fastapi==0.115.0
+uvicorn==0.27.0
+pydantic==2.5.0
+
+# HTTP Client
+httpx==0.27.0
+
+# Testing
+pytest==7.4.4
+pytest-asyncio==0.23.3
+
+# Observability (optional, for Application Insights integration)
+# opencensus-ext-azure==1.1.13
