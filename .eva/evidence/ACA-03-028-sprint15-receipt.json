@@ -1,0 +1,20 @@
+{
+  "story_id": "ACA-03-028",
+  "phase": "D",
+  "timestamp": "2026-03-02T08:23:30Z",
+  "artifacts": [
+    "services/analysis/tests/test_r06_stale.py",
+    "services/analysis/tests/test_r07_search.py",
+    "services/analysis/tests/test_r08_acr.py",
+    "services/analysis/tests/test_r09_dns_sprawl.py",
+    "services/analysis/tests/test_r10_savings_plan.py",
+    "services/analysis/tests/test_r11_apim_token.py"
+  ],
+  "test_result": "PASS",
+  "commit_sha": "pending",
+  "duration_ms": 347,
+  "tokens_used": 5800,
+  "test_count_before": 23,
+  "test_count_after": 42,
+  "files_changed": 6
+}
