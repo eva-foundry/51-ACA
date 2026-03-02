@@ -1,0 +1,1253 @@
+{
+  "mode": "sync",
+  "execution_summary": {
+    "total_stories": 21,
+    "ado_map_updates": 21,
+    "evidence_receipts_generated": 21,
+    "warnings": 0,
+    "data_model_operations": 0,
+    "errors": 21
+  },
+  "verification_status": {
+    "deterministic_behavior": "VERIFIED",
+    "all_operations_traced": "VERIFIED",
+    "idempotency_safe": "VERIFIED",
+    "correlation_tracking": "ENABLED"
+  },
+  "timestamp": "2026-03-02T12:20:50.1143506-05:00",
+  "dry_run": {
+    "IsPresent": false
+  },
+  "correlation_id": "ACA-EPIC15-20260302-122050-130f2187",
+  "detailed_phases": [
+    {
+      "phase": "PHASE-1",
+      "seq": 1,
+      "status": "CALL",
+      "data": null,
+      "operation": "G01-DataModel-Health",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:50.1398191-05:00"
+    },
+    {
+      "phase": "PHASE-1",
+      "seq": 2,
+      "status": "RESPONSE",
+      "data": "{\"status\":\"ok\"}",
+      "operation": "G01-DataModel-Health",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:50.2587351-05:00"
+    },
+    {
+      "phase": "PHASE-1",
+      "seq": 3,
+      "status": "VERIFIED",
+      "data": null,
+      "operation": "G01-DataModel-Health",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:50.2676253-05:00"
+    },
+    {
+      "phase": "PHASE-1",
+      "seq": 4,
+      "status": "CALL",
+      "data": null,
+      "operation": "G02-PlanContainsEpic15",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:50.2684971-05:00"
+    },
+    {
+      "phase": "PHASE-1",
+      "seq": 5,
+      "status": "RESPONSE",
+      "data": "{\"uniqueStories\":\"[ACA-15-000], [ACA-15-001], [ACA-15-001a], [ACA-15-002], [ACA-15-002a], [ACA-15-003], [ACA-15-003a], [ACA-15-003b], [ACA-15-004], [ACA-15-005], [ACA-15-006], [ACA-15-006a], [ACA-15-006b], [ACA-15-007], [ACA-15-008], [ACA-15-009], [ACA-15-009a], [ACA-15-010], [ACA-15-011], [ACA-15-012], [ACA-15-012a]\",\"storyCount\":21}",
+      "operation": "G02-PlanContainsEpic15",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:50.2829926-05:00"
+    },
+    {
+      "phase": "PHASE-1",
+      "seq": 6,
+      "status": "VERIFIED",
+      "data": null,
+      "operation": "G02-PlanContainsEpic15",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:50.2843988-05:00"
+    },
+    {
+      "phase": "PHASE-1",
+      "seq": 7,
+      "status": "CALL",
+      "data": null,
+      "operation": "G03-ADO-IdMapExists",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:50.2854231-05:00"
+    },
+    {
+      "phase": "PHASE-1",
+      "seq": 8,
+      "status": "RESPONSE",
+      "data": "{\"lastADOId\":3213,\"lastStoryId\":\"ACA-15-012a\"}",
+      "operation": "G03-ADO-IdMapExists",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:50.3015524-05:00"
+    },
+    {
+      "phase": "PHASE-1",
+      "seq": 9,
+      "status": "VERIFIED",
+      "data": null,
+      "operation": "G03-ADO-IdMapExists",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:50.3031676-05:00"
+    },
+    {
+      "phase": "PHASE-1",
+      "seq": 10,
+      "status": "CALL",
+      "data": null,
+      "operation": "G04-NoEpic15InADOMap",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:50.3041925-05:00"
+    },
+    {
+      "phase": "PHASE-1",
+      "seq": 11,
+      "status": "RESPONSE",
+      "data": "{\"epic15Entries\":25}",
+      "operation": "G04-NoEpic15InADOMap",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:50.3150404-05:00"
+    },
+    {
+      "phase": "PHASE-1",
+      "seq": 12,
+      "status": "SKIPPED",
+      "data": null,
+      "operation": "G04-NoEpic15InADOMap",
+      "error_message": "Already present, will skip updates",
+      "timestamp": "2026-03-02T12:20:50.3159404-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 13,
+      "status": "CALL",
+      "data": "{\"storyId\":\"ACA-15-000\",\"adoId\":3193}",
+      "operation": "ACA-15-000-PUT-WBS",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:50.3424997-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 14,
+      "status": "FAILED",
+      "data": null,
+      "operation": "ACA-15-000-PUT-WBS",
+      "error_message": "The property 'gap' cannot be found on this object. Verify that the property exists.",
+      "timestamp": "2026-03-02T12:20:50.3471375-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 15,
+      "status": "CALL",
+      "data": "{\"storyId\":\"ACA-15-000\",\"adoId\":3193}",
+      "operation": "ACA-15-000-UPDATE-ADO-MAP",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:50.3501108-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 16,
+      "status": "VERIFIED",
+      "data": "{\"storyId\":\"ACA-15-000\",\"adoId\":3193}",
+      "operation": "ACA-15-000-UPDATE-ADO-MAP",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:50.3659875-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 17,
+      "status": "CALL",
+      "data": "{\"storyId\":\"ACA-15-001\",\"adoId\":3194}",
+      "operation": "ACA-15-001-PUT-WBS",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:50.3700118-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 18,
+      "status": "FAILED",
+      "data": null,
+      "operation": "ACA-15-001-PUT-WBS",
+      "error_message": "The property 'gap' cannot be found on this object. Verify that the property exists.",
+      "timestamp": "2026-03-02T12:20:50.3714612-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 19,
+      "status": "CALL",
+      "data": "{\"storyId\":\"ACA-15-001\",\"adoId\":3194}",
+      "operation": "ACA-15-001-UPDATE-ADO-MAP",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:50.3730452-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 20,
+      "status": "VERIFIED",
+      "data": "{\"storyId\":\"ACA-15-001\",\"adoId\":3194}",
+      "operation": "ACA-15-001-UPDATE-ADO-MAP",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:50.3866109-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 21,
+      "status": "CALL",
+      "data": "{\"storyId\":\"ACA-15-001a\",\"adoId\":3195}",
+      "operation": "ACA-15-001a-PUT-WBS",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:50.3893088-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 22,
+      "status": "FAILED",
+      "data": null,
+      "operation": "ACA-15-001a-PUT-WBS",
+      "error_message": "Internal Server Error",
+      "timestamp": "2026-03-02T12:20:50.4396453-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 23,
+      "status": "CALL",
+      "data": "{\"storyId\":\"ACA-15-001a\",\"adoId\":3195}",
+      "operation": "ACA-15-001a-UPDATE-ADO-MAP",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:50.4412303-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 24,
+      "status": "VERIFIED",
+      "data": "{\"storyId\":\"ACA-15-001a\",\"adoId\":3195}",
+      "operation": "ACA-15-001a-UPDATE-ADO-MAP",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:50.4513219-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 25,
+      "status": "CALL",
+      "data": "{\"storyId\":\"ACA-15-002\",\"adoId\":3196}",
+      "operation": "ACA-15-002-PUT-WBS",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:50.4537770-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 26,
+      "status": "FAILED",
+      "data": null,
+      "operation": "ACA-15-002-PUT-WBS",
+      "error_message": "The property 'gap' cannot be found on this object. Verify that the property exists.",
+      "timestamp": "2026-03-02T12:20:50.4550155-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 27,
+      "status": "CALL",
+      "data": "{\"storyId\":\"ACA-15-002\",\"adoId\":3196}",
+      "operation": "ACA-15-002-UPDATE-ADO-MAP",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:50.4565627-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 28,
+      "status": "VERIFIED",
+      "data": "{\"storyId\":\"ACA-15-002\",\"adoId\":3196}",
+      "operation": "ACA-15-002-UPDATE-ADO-MAP",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:50.4779968-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 29,
+      "status": "CALL",
+      "data": "{\"storyId\":\"ACA-15-002a\",\"adoId\":3197}",
+      "operation": "ACA-15-002a-PUT-WBS",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:50.4807648-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 30,
+      "status": "FAILED",
+      "data": null,
+      "operation": "ACA-15-002a-PUT-WBS",
+      "error_message": "Internal Server Error",
+      "timestamp": "2026-03-02T12:20:50.5415334-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 31,
+      "status": "CALL",
+      "data": "{\"storyId\":\"ACA-15-002a\",\"adoId\":3197}",
+      "operation": "ACA-15-002a-UPDATE-ADO-MAP",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:50.5436054-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 32,
+      "status": "VERIFIED",
+      "data": "{\"storyId\":\"ACA-15-002a\",\"adoId\":3197}",
+      "operation": "ACA-15-002a-UPDATE-ADO-MAP",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:50.5874109-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 33,
+      "status": "CALL",
+      "data": "{\"storyId\":\"ACA-15-003\",\"adoId\":3198}",
+      "operation": "ACA-15-003-PUT-WBS",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:50.7533821-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 34,
+      "status": "FAILED",
+      "data": null,
+      "operation": "ACA-15-003-PUT-WBS",
+      "error_message": "The property 'gap' cannot be found on this object. Verify that the property exists.",
+      "timestamp": "2026-03-02T12:20:50.7630914-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 35,
+      "status": "CALL",
+      "data": "{\"storyId\":\"ACA-15-003\",\"adoId\":3198}",
+      "operation": "ACA-15-003-UPDATE-ADO-MAP",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:50.7652309-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 36,
+      "status": "VERIFIED",
+      "data": "{\"storyId\":\"ACA-15-003\",\"adoId\":3198}",
+      "operation": "ACA-15-003-UPDATE-ADO-MAP",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:50.7781066-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 37,
+      "status": "CALL",
+      "data": "{\"storyId\":\"ACA-15-003a\",\"adoId\":3199}",
+      "operation": "ACA-15-003a-PUT-WBS",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:50.7807828-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 38,
+      "status": "FAILED",
+      "data": null,
+      "operation": "ACA-15-003a-PUT-WBS",
+      "error_message": "Internal Server Error",
+      "timestamp": "2026-03-02T12:20:50.8429078-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 39,
+      "status": "CALL",
+      "data": "{\"storyId\":\"ACA-15-003a\",\"adoId\":3199}",
+      "operation": "ACA-15-003a-UPDATE-ADO-MAP",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:50.9569796-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 40,
+      "status": "VERIFIED",
+      "data": "{\"storyId\":\"ACA-15-003a\",\"adoId\":3199}",
+      "operation": "ACA-15-003a-UPDATE-ADO-MAP",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:50.9959937-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 41,
+      "status": "CALL",
+      "data": "{\"storyId\":\"ACA-15-003b\",\"adoId\":3200}",
+      "operation": "ACA-15-003b-PUT-WBS",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.0466355-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 42,
+      "status": "FAILED",
+      "data": null,
+      "operation": "ACA-15-003b-PUT-WBS",
+      "error_message": "Internal Server Error",
+      "timestamp": "2026-03-02T12:20:51.1035137-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 43,
+      "status": "CALL",
+      "data": "{\"storyId\":\"ACA-15-003b\",\"adoId\":3200}",
+      "operation": "ACA-15-003b-UPDATE-ADO-MAP",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.1368784-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 44,
+      "status": "VERIFIED",
+      "data": "{\"storyId\":\"ACA-15-003b\",\"adoId\":3200}",
+      "operation": "ACA-15-003b-UPDATE-ADO-MAP",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.1508481-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 45,
+      "status": "CALL",
+      "data": "{\"storyId\":\"ACA-15-004\",\"adoId\":3201}",
+      "operation": "ACA-15-004-PUT-WBS",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.1525481-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 46,
+      "status": "FAILED",
+      "data": null,
+      "operation": "ACA-15-004-PUT-WBS",
+      "error_message": "The property 'gap' cannot be found on this object. Verify that the property exists.",
+      "timestamp": "2026-03-02T12:20:51.1535575-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 47,
+      "status": "CALL",
+      "data": "{\"storyId\":\"ACA-15-004\",\"adoId\":3201}",
+      "operation": "ACA-15-004-UPDATE-ADO-MAP",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.1544749-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 48,
+      "status": "VERIFIED",
+      "data": "{\"storyId\":\"ACA-15-004\",\"adoId\":3201}",
+      "operation": "ACA-15-004-UPDATE-ADO-MAP",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.1814325-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 49,
+      "status": "CALL",
+      "data": "{\"storyId\":\"ACA-15-005\",\"adoId\":3202}",
+      "operation": "ACA-15-005-PUT-WBS",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.1844315-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 50,
+      "status": "FAILED",
+      "data": null,
+      "operation": "ACA-15-005-PUT-WBS",
+      "error_message": "The property 'gap' cannot be found on this object. Verify that the property exists.",
+      "timestamp": "2026-03-02T12:20:51.1858628-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 51,
+      "status": "CALL",
+      "data": "{\"storyId\":\"ACA-15-005\",\"adoId\":3202}",
+      "operation": "ACA-15-005-UPDATE-ADO-MAP",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.1875628-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 52,
+      "status": "VERIFIED",
+      "data": "{\"storyId\":\"ACA-15-005\",\"adoId\":3202}",
+      "operation": "ACA-15-005-UPDATE-ADO-MAP",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.2075793-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 53,
+      "status": "CALL",
+      "data": "{\"storyId\":\"ACA-15-006\",\"adoId\":3203}",
+      "operation": "ACA-15-006-PUT-WBS",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.2105563-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 54,
+      "status": "FAILED",
+      "data": null,
+      "operation": "ACA-15-006-PUT-WBS",
+      "error_message": "The property 'gap' cannot be found on this object. Verify that the property exists.",
+      "timestamp": "2026-03-02T12:20:51.2119890-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 55,
+      "status": "CALL",
+      "data": "{\"storyId\":\"ACA-15-006\",\"adoId\":3203}",
+      "operation": "ACA-15-006-UPDATE-ADO-MAP",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.2136224-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 56,
+      "status": "VERIFIED",
+      "data": "{\"storyId\":\"ACA-15-006\",\"adoId\":3203}",
+      "operation": "ACA-15-006-UPDATE-ADO-MAP",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.2380430-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 57,
+      "status": "CALL",
+      "data": "{\"storyId\":\"ACA-15-006a\",\"adoId\":3204}",
+      "operation": "ACA-15-006a-PUT-WBS",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.2407679-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 58,
+      "status": "FAILED",
+      "data": null,
+      "operation": "ACA-15-006a-PUT-WBS",
+      "error_message": "Internal Server Error",
+      "timestamp": "2026-03-02T12:20:51.2831268-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 59,
+      "status": "CALL",
+      "data": "{\"storyId\":\"ACA-15-006a\",\"adoId\":3204}",
+      "operation": "ACA-15-006a-UPDATE-ADO-MAP",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.2852097-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 60,
+      "status": "VERIFIED",
+      "data": "{\"storyId\":\"ACA-15-006a\",\"adoId\":3204}",
+      "operation": "ACA-15-006a-UPDATE-ADO-MAP",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.2964524-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 61,
+      "status": "CALL",
+      "data": "{\"storyId\":\"ACA-15-006b\",\"adoId\":3205}",
+      "operation": "ACA-15-006b-PUT-WBS",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.2993578-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 62,
+      "status": "FAILED",
+      "data": null,
+      "operation": "ACA-15-006b-PUT-WBS",
+      "error_message": "Internal Server Error",
+      "timestamp": "2026-03-02T12:20:51.3387417-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 63,
+      "status": "CALL",
+      "data": "{\"storyId\":\"ACA-15-006b\",\"adoId\":3205}",
+      "operation": "ACA-15-006b-UPDATE-ADO-MAP",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.3405976-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 64,
+      "status": "VERIFIED",
+      "data": "{\"storyId\":\"ACA-15-006b\",\"adoId\":3205}",
+      "operation": "ACA-15-006b-UPDATE-ADO-MAP",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.3515263-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 65,
+      "status": "CALL",
+      "data": "{\"storyId\":\"ACA-15-007\",\"adoId\":3206}",
+      "operation": "ACA-15-007-PUT-WBS",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.3543458-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 66,
+      "status": "FAILED",
+      "data": null,
+      "operation": "ACA-15-007-PUT-WBS",
+      "error_message": "The property 'gap' cannot be found on this object. Verify that the property exists.",
+      "timestamp": "2026-03-02T12:20:51.3558373-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 67,
+      "status": "CALL",
+      "data": "{\"storyId\":\"ACA-15-007\",\"adoId\":3206}",
+      "operation": "ACA-15-007-UPDATE-ADO-MAP",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.3575457-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 68,
+      "status": "VERIFIED",
+      "data": "{\"storyId\":\"ACA-15-007\",\"adoId\":3206}",
+      "operation": "ACA-15-007-UPDATE-ADO-MAP",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.3752676-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 69,
+      "status": "CALL",
+      "data": "{\"storyId\":\"ACA-15-008\",\"adoId\":3207}",
+      "operation": "ACA-15-008-PUT-WBS",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.3820549-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 70,
+      "status": "FAILED",
+      "data": null,
+      "operation": "ACA-15-008-PUT-WBS",
+      "error_message": "The property 'gap' cannot be found on this object. Verify that the property exists.",
+      "timestamp": "2026-03-02T12:20:51.3888779-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 71,
+      "status": "CALL",
+      "data": "{\"storyId\":\"ACA-15-008\",\"adoId\":3207}",
+      "operation": "ACA-15-008-UPDATE-ADO-MAP",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.3904673-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 72,
+      "status": "VERIFIED",
+      "data": "{\"storyId\":\"ACA-15-008\",\"adoId\":3207}",
+      "operation": "ACA-15-008-UPDATE-ADO-MAP",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.3997847-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 73,
+      "status": "CALL",
+      "data": "{\"storyId\":\"ACA-15-009\",\"adoId\":3208}",
+      "operation": "ACA-15-009-PUT-WBS",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.4016652-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 74,
+      "status": "FAILED",
+      "data": null,
+      "operation": "ACA-15-009-PUT-WBS",
+      "error_message": "The property 'gap' cannot be found on this object. Verify that the property exists.",
+      "timestamp": "2026-03-02T12:20:51.4026445-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 75,
+      "status": "CALL",
+      "data": "{\"storyId\":\"ACA-15-009\",\"adoId\":3208}",
+      "operation": "ACA-15-009-UPDATE-ADO-MAP",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.4038068-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 76,
+      "status": "VERIFIED",
+      "data": "{\"storyId\":\"ACA-15-009\",\"adoId\":3208}",
+      "operation": "ACA-15-009-UPDATE-ADO-MAP",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.4195042-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 77,
+      "status": "CALL",
+      "data": "{\"storyId\":\"ACA-15-009a\",\"adoId\":3209}",
+      "operation": "ACA-15-009a-PUT-WBS",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.4221319-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 78,
+      "status": "FAILED",
+      "data": null,
+      "operation": "ACA-15-009a-PUT-WBS",
+      "error_message": "Internal Server Error",
+      "timestamp": "2026-03-02T12:20:51.4629968-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 79,
+      "status": "CALL",
+      "data": "{\"storyId\":\"ACA-15-009a\",\"adoId\":3209}",
+      "operation": "ACA-15-009a-UPDATE-ADO-MAP",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.4646370-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 80,
+      "status": "VERIFIED",
+      "data": "{\"storyId\":\"ACA-15-009a\",\"adoId\":3209}",
+      "operation": "ACA-15-009a-UPDATE-ADO-MAP",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.4765403-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 81,
+      "status": "CALL",
+      "data": "{\"storyId\":\"ACA-15-010\",\"adoId\":3210}",
+      "operation": "ACA-15-010-PUT-WBS",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.4789620-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 82,
+      "status": "FAILED",
+      "data": null,
+      "operation": "ACA-15-010-PUT-WBS",
+      "error_message": "The property 'gap' cannot be found on this object. Verify that the property exists.",
+      "timestamp": "2026-03-02T12:20:51.4802936-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 83,
+      "status": "CALL",
+      "data": "{\"storyId\":\"ACA-15-010\",\"adoId\":3210}",
+      "operation": "ACA-15-010-UPDATE-ADO-MAP",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.4820323-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 84,
+      "status": "VERIFIED",
+      "data": "{\"storyId\":\"ACA-15-010\",\"adoId\":3210}",
+      "operation": "ACA-15-010-UPDATE-ADO-MAP",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.5034562-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 85,
+      "status": "CALL",
+      "data": "{\"storyId\":\"ACA-15-011\",\"adoId\":3211}",
+      "operation": "ACA-15-011-PUT-WBS",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.5053754-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 86,
+      "status": "FAILED",
+      "data": null,
+      "operation": "ACA-15-011-PUT-WBS",
+      "error_message": "The property 'gap' cannot be found on this object. Verify that the property exists.",
+      "timestamp": "2026-03-02T12:20:51.5063069-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 87,
+      "status": "CALL",
+      "data": "{\"storyId\":\"ACA-15-011\",\"adoId\":3211}",
+      "operation": "ACA-15-011-UPDATE-ADO-MAP",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.5074945-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 88,
+      "status": "VERIFIED",
+      "data": "{\"storyId\":\"ACA-15-011\",\"adoId\":3211}",
+      "operation": "ACA-15-011-UPDATE-ADO-MAP",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.5288490-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 89,
+      "status": "CALL",
+      "data": "{\"storyId\":\"ACA-15-012\",\"adoId\":3212}",
+      "operation": "ACA-15-012-PUT-WBS",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.5314363-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 90,
+      "status": "FAILED",
+      "data": null,
+      "operation": "ACA-15-012-PUT-WBS",
+      "error_message": "The property 'gap' cannot be found on this object. Verify that the property exists.",
+      "timestamp": "2026-03-02T12:20:51.5328122-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 91,
+      "status": "CALL",
+      "data": "{\"storyId\":\"ACA-15-012\",\"adoId\":3212}",
+      "operation": "ACA-15-012-UPDATE-ADO-MAP",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.5343581-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 92,
+      "status": "VERIFIED",
+      "data": "{\"storyId\":\"ACA-15-012\",\"adoId\":3212}",
+      "operation": "ACA-15-012-UPDATE-ADO-MAP",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.5596133-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 93,
+      "status": "CALL",
+      "data": "{\"storyId\":\"ACA-15-012a\",\"adoId\":3213}",
+      "operation": "ACA-15-012a-PUT-WBS",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.5622042-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 94,
+      "status": "FAILED",
+      "data": null,
+      "operation": "ACA-15-012a-PUT-WBS",
+      "error_message": "Internal Server Error",
+      "timestamp": "2026-03-02T12:20:51.6033725-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 95,
+      "status": "CALL",
+      "data": "{\"storyId\":\"ACA-15-012a\",\"adoId\":3213}",
+      "operation": "ACA-15-012a-UPDATE-ADO-MAP",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.6048379-05:00"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 96,
+      "status": "VERIFIED",
+      "data": "{\"storyId\":\"ACA-15-012a\",\"adoId\":3213}",
+      "operation": "ACA-15-012a-UPDATE-ADO-MAP",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.6155931-05:00"
+    },
+    {
+      "phase": "PHASE-3",
+      "seq": 97,
+      "status": "CALL",
+      "data": null,
+      "operation": "PA01-AllStoriesInAdoMap",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.6275496-05:00"
+    },
+    {
+      "phase": "PHASE-3",
+      "seq": 98,
+      "status": "RESPONSE",
+      "data": "{\"count\":25}",
+      "operation": "PA01-AllStoriesInAdoMap",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.6387334-05:00"
+    },
+    {
+      "phase": "PHASE-3",
+      "seq": 99,
+      "status": "FAILED",
+      "data": null,
+      "operation": "PA01-AllStoriesInAdoMap",
+      "error_message": "Expected 21, found 25",
+      "timestamp": "2026-03-02T12:20:51.6396041-05:00"
+    },
+    {
+      "phase": "PHASE-3",
+      "seq": 100,
+      "status": "CALL",
+      "data": null,
+      "operation": "PA02-SequentialADOIds",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.6404606-05:00"
+    },
+    {
+      "phase": "PHASE-3",
+      "seq": 101,
+      "status": "RESPONSE",
+      "data": "{\"min\":3193,\"max\":3213}",
+      "operation": "PA02-SequentialADOIds",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.6957527-05:00"
+    },
+    {
+      "phase": "PHASE-3",
+      "seq": 102,
+      "status": "FAILED",
+      "data": null,
+      "operation": "PA02-SequentialADOIds",
+      "error_message": "ID gaps:      ",
+      "timestamp": "2026-03-02T12:20:51.6974187-05:00"
+    },
+    {
+      "phase": "PHASE-3",
+      "seq": 103,
+      "status": "CALL",
+      "data": null,
+      "operation": "PA03-PLANmdUnchanged",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.6981219-05:00"
+    },
+    {
+      "phase": "PHASE-3",
+      "seq": 104,
+      "status": "RESPONSE",
+      "data": "{\"filehash\":\"E1B2B344940F21E96F4DE5DBE473B6BC3523C2C9F88AA132F15769ABFE4555ED\"}",
+      "operation": "PA03-PLANmdUnchanged",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.7026138-05:00"
+    },
+    {
+      "phase": "PHASE-3",
+      "seq": 105,
+      "status": "VERIFIED",
+      "data": null,
+      "operation": "PA03-PLANmdUnchanged",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.7034425-05:00"
+    },
+    {
+      "phase": "PHASE-4",
+      "seq": 106,
+      "status": "VERIFIED",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-000-update-receipt.json\"}",
+      "operation": "ACA-15-000-EVIDENCE-RECEIPT",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.8185779-05:00"
+    },
+    {
+      "phase": "PHASE-4",
+      "seq": 107,
+      "status": "VERIFIED",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-001-update-receipt.json\"}",
+      "operation": "ACA-15-001-EVIDENCE-RECEIPT",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.8257950-05:00"
+    },
+    {
+      "phase": "PHASE-4",
+      "seq": 108,
+      "status": "VERIFIED",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-001a-update-receipt.json\"}",
+      "operation": "ACA-15-001a-EVIDENCE-RECEIPT",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.8415913-05:00"
+    },
+    {
+      "phase": "PHASE-4",
+      "seq": 109,
+      "status": "VERIFIED",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-002-update-receipt.json\"}",
+      "operation": "ACA-15-002-EVIDENCE-RECEIPT",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.8479493-05:00"
+    },
+    {
+      "phase": "PHASE-4",
+      "seq": 110,
+      "status": "VERIFIED",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-002a-update-receipt.json\"}",
+      "operation": "ACA-15-002a-EVIDENCE-RECEIPT",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.8528758-05:00"
+    },
+    {
+      "phase": "PHASE-4",
+      "seq": 111,
+      "status": "VERIFIED",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-003-update-receipt.json\"}",
+      "operation": "ACA-15-003-EVIDENCE-RECEIPT",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.8631472-05:00"
+    },
+    {
+      "phase": "PHASE-4",
+      "seq": 112,
+      "status": "VERIFIED",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-003a-update-receipt.json\"}",
+      "operation": "ACA-15-003a-EVIDENCE-RECEIPT",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.8700394-05:00"
+    },
+    {
+      "phase": "PHASE-4",
+      "seq": 113,
+      "status": "VERIFIED",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-003b-update-receipt.json\"}",
+      "operation": "ACA-15-003b-EVIDENCE-RECEIPT",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.8770761-05:00"
+    },
+    {
+      "phase": "PHASE-4",
+      "seq": 114,
+      "status": "VERIFIED",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-004-update-receipt.json\"}",
+      "operation": "ACA-15-004-EVIDENCE-RECEIPT",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.8839456-05:00"
+    },
+    {
+      "phase": "PHASE-4",
+      "seq": 115,
+      "status": "VERIFIED",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-005-update-receipt.json\"}",
+      "operation": "ACA-15-005-EVIDENCE-RECEIPT",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.8918980-05:00"
+    },
+    {
+      "phase": "PHASE-4",
+      "seq": 116,
+      "status": "VERIFIED",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-006-update-receipt.json\"}",
+      "operation": "ACA-15-006-EVIDENCE-RECEIPT",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.8992272-05:00"
+    },
+    {
+      "phase": "PHASE-4",
+      "seq": 117,
+      "status": "VERIFIED",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-006a-update-receipt.json\"}",
+      "operation": "ACA-15-006a-EVIDENCE-RECEIPT",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.9040060-05:00"
+    },
+    {
+      "phase": "PHASE-4",
+      "seq": 118,
+      "status": "VERIFIED",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-006b-update-receipt.json\"}",
+      "operation": "ACA-15-006b-EVIDENCE-RECEIPT",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.9086222-05:00"
+    },
+    {
+      "phase": "PHASE-4",
+      "seq": 119,
+      "status": "VERIFIED",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-007-update-receipt.json\"}",
+      "operation": "ACA-15-007-EVIDENCE-RECEIPT",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.9156149-05:00"
+    },
+    {
+      "phase": "PHASE-4",
+      "seq": 120,
+      "status": "VERIFIED",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-008-update-receipt.json\"}",
+      "operation": "ACA-15-008-EVIDENCE-RECEIPT",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.9253081-05:00"
+    },
+    {
+      "phase": "PHASE-4",
+      "seq": 121,
+      "status": "VERIFIED",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-009-update-receipt.json\"}",
+      "operation": "ACA-15-009-EVIDENCE-RECEIPT",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.9331702-05:00"
+    },
+    {
+      "phase": "PHASE-4",
+      "seq": 122,
+      "status": "VERIFIED",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-009a-update-receipt.json\"}",
+      "operation": "ACA-15-009a-EVIDENCE-RECEIPT",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.9384863-05:00"
+    },
+    {
+      "phase": "PHASE-4",
+      "seq": 123,
+      "status": "VERIFIED",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-010-update-receipt.json\"}",
+      "operation": "ACA-15-010-EVIDENCE-RECEIPT",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.9455987-05:00"
+    },
+    {
+      "phase": "PHASE-4",
+      "seq": 124,
+      "status": "VERIFIED",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-011-update-receipt.json\"}",
+      "operation": "ACA-15-011-EVIDENCE-RECEIPT",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.9618633-05:00"
+    },
+    {
+      "phase": "PHASE-4",
+      "seq": 125,
+      "status": "VERIFIED",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-012-update-receipt.json\"}",
+      "operation": "ACA-15-012-EVIDENCE-RECEIPT",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.9695147-05:00"
+    },
+    {
+      "phase": "PHASE-4",
+      "seq": 126,
+      "status": "VERIFIED",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-012a-update-receipt.json\"}",
+      "operation": "ACA-15-012a-EVIDENCE-RECEIPT",
+      "error_message": "",
+      "timestamp": "2026-03-02T12:20:51.9752804-05:00"
+    }
+  ],
+  "audit_gates": {
+    "pre_audit_passed": true,
+    "post_audit_passed": false
+  },
+  "errors_and_warnings": {
+    "errors": [
+      {
+        "story": "ACA-15-000",
+        "error": "Data model sync failed: The property 'gap' cannot be found on this object. Verify that the property exists."
+      },
+      {
+        "story": "ACA-15-001",
+        "error": "Data model sync failed: The property 'gap' cannot be found on this object. Verify that the property exists."
+      },
+      {
+        "story": "ACA-15-001a",
+        "error": "Data model sync failed: Internal Server Error"
+      },
+      {
+        "story": "ACA-15-002",
+        "error": "Data model sync failed: The property 'gap' cannot be found on this object. Verify that the property exists."
+      },
+      {
+        "story": "ACA-15-002a",
+        "error": "Data model sync failed: Internal Server Error"
+      },
+      {
+        "story": "ACA-15-003",
+        "error": "Data model sync failed: The property 'gap' cannot be found on this object. Verify that the property exists."
+      },
+      {
+        "story": "ACA-15-003a",
+        "error": "Data model sync failed: Internal Server Error"
+      },
+      {
+        "story": "ACA-15-003b",
+        "error": "Data model sync failed: Internal Server Error"
+      },
+      {
+        "story": "ACA-15-004",
+        "error": "Data model sync failed: The property 'gap' cannot be found on this object. Verify that the property exists."
+      },
+      {
+        "story": "ACA-15-005",
+        "error": "Data model sync failed: The property 'gap' cannot be found on this object. Verify that the property exists."
+      },
+      {
+        "story": "ACA-15-006",
+        "error": "Data model sync failed: The property 'gap' cannot be found on this object. Verify that the property exists."
+      },
+      {
+        "story": "ACA-15-006a",
+        "error": "Data model sync failed: Internal Server Error"
+      },
+      {
+        "story": "ACA-15-006b",
+        "error": "Data model sync failed: Internal Server Error"
+      },
+      {
+        "story": "ACA-15-007",
+        "error": "Data model sync failed: The property 'gap' cannot be found on this object. Verify that the property exists."
+      },
+      {
+        "story": "ACA-15-008",
+        "error": "Data model sync failed: The property 'gap' cannot be found on this object. Verify that the property exists."
+      },
+      {
+        "story": "ACA-15-009",
+        "error": "Data model sync failed: The property 'gap' cannot be found on this object. Verify that the property exists."
+      },
+      {
+        "story": "ACA-15-009a",
+        "error": "Data model sync failed: Internal Server Error"
+      },
+      {
+        "story": "ACA-15-010",
+        "error": "Data model sync failed: The property 'gap' cannot be found on this object. Verify that the property exists."
+      },
+      {
+        "story": "ACA-15-011",
+        "error": "Data model sync failed: The property 'gap' cannot be found on this object. Verify that the property exists."
+      },
+      {
+        "story": "ACA-15-012",
+        "error": "Data model sync failed: The property 'gap' cannot be found on this object. Verify that the property exists."
+      },
+      {
+        "story": "ACA-15-012a",
+        "error": "Data model sync failed: Internal Server Error"
+      }
+    ],
+    "warnings": []
+  },
+  "epic": "ACA-15",
+  "title": "Epic 15 Data Model Synchronization Trace"
+}

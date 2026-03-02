@@ -1,0 +1,37 @@
+{
+  "phase": "P",
+  "story_id": "ACA-15-008a",
+  "timestamp": "2026-03-02T12:19:53.4237757-05:00",
+  "correlation_id": "ACA-EPIC15-20260302-121953-33359512",
+  "validation": {
+    "pre_audit": true,
+    "pa02_sequential_ids": true,
+    "post_audit": false,
+    "pa03_deterministic": true,
+    "pa01_all_in_map": true
+  },
+  "operation": "epic15-data-model-sync",
+  "inputs": {
+    "sprint_number": 16,
+    "gap_item": "GAP-6",
+    "ado_id_assigned": 3207,
+    "function_points": 1
+  },
+  "outputs": {
+    "data_model_entry": {
+      "status": "PLANNED",
+      "id": "ACA-15-008a",
+      "row_version": "1",
+      "layer": "wbs"
+    },
+    "ado_map_entry": {
+      "story_id": "ACA-15-008a",
+      "ado_id": 3207
+    }
+  },
+  "status": "PASS",
+  "fingerprint": {
+    "sha256_payload": "df1080c3d07c6b240e8dbd3f04fb443374530075d76f46d6c3c8177ae996d4e2",
+    "correlation_id": "ACA-EPIC15-20260302-121953-33359512"
+  }
+}

@@ -1,0 +1,1253 @@
+{
+  "epic": "ACA-15",
+  "timestamp": "2026-03-02T12:24:53.9084825-05:00",
+  "errors_and_warnings": {
+    "warnings": [],
+    "errors": [
+      {
+        "story": "ACA-15-000",
+        "error": "Data model sync failed: Internal Server Error"
+      },
+      {
+        "story": "ACA-15-001",
+        "error": "Data model sync failed: Internal Server Error"
+      },
+      {
+        "story": "ACA-15-001a",
+        "error": "Data model sync failed: Internal Server Error"
+      },
+      {
+        "story": "ACA-15-002",
+        "error": "Data model sync failed: Internal Server Error"
+      },
+      {
+        "story": "ACA-15-002a",
+        "error": "Data model sync failed: Internal Server Error"
+      },
+      {
+        "story": "ACA-15-003",
+        "error": "Data model sync failed: Internal Server Error"
+      },
+      {
+        "story": "ACA-15-003a",
+        "error": "Data model sync failed: Internal Server Error"
+      },
+      {
+        "story": "ACA-15-003b",
+        "error": "Data model sync failed: Internal Server Error"
+      },
+      {
+        "story": "ACA-15-004",
+        "error": "Data model sync failed: Internal Server Error"
+      },
+      {
+        "story": "ACA-15-005",
+        "error": "Data model sync failed: Internal Server Error"
+      },
+      {
+        "story": "ACA-15-006",
+        "error": "Data model sync failed: Internal Server Error"
+      },
+      {
+        "story": "ACA-15-006a",
+        "error": "Data model sync failed: Internal Server Error"
+      },
+      {
+        "story": "ACA-15-006b",
+        "error": "Data model sync failed: Internal Server Error"
+      },
+      {
+        "story": "ACA-15-007",
+        "error": "Data model sync failed: Internal Server Error"
+      },
+      {
+        "story": "ACA-15-008",
+        "error": "Data model sync failed: Internal Server Error"
+      },
+      {
+        "story": "ACA-15-009",
+        "error": "Data model sync failed: Internal Server Error"
+      },
+      {
+        "story": "ACA-15-009a",
+        "error": "Data model sync failed: Internal Server Error"
+      },
+      {
+        "story": "ACA-15-010",
+        "error": "Data model sync failed: Internal Server Error"
+      },
+      {
+        "story": "ACA-15-011",
+        "error": "Data model sync failed: Internal Server Error"
+      },
+      {
+        "story": "ACA-15-012",
+        "error": "Data model sync failed: Internal Server Error"
+      },
+      {
+        "story": "ACA-15-012a",
+        "error": "Data model sync failed: Internal Server Error"
+      }
+    ]
+  },
+  "detailed_phases": [
+    {
+      "phase": "PHASE-1",
+      "seq": 1,
+      "status": "CALL",
+      "timestamp": "2026-03-02T12:24:53.9396244-05:00",
+      "data": null,
+      "error_message": "",
+      "operation": "G01-DataModel-Health"
+    },
+    {
+      "phase": "PHASE-1",
+      "seq": 2,
+      "status": "RESPONSE",
+      "timestamp": "2026-03-02T12:24:54.0572990-05:00",
+      "data": "{\"status\":\"ok\"}",
+      "error_message": "",
+      "operation": "G01-DataModel-Health"
+    },
+    {
+      "phase": "PHASE-1",
+      "seq": 3,
+      "status": "VERIFIED",
+      "timestamp": "2026-03-02T12:24:54.0671830-05:00",
+      "data": null,
+      "error_message": "",
+      "operation": "G01-DataModel-Health"
+    },
+    {
+      "phase": "PHASE-1",
+      "seq": 4,
+      "status": "CALL",
+      "timestamp": "2026-03-02T12:24:54.0674346-05:00",
+      "data": null,
+      "error_message": "",
+      "operation": "G02-PlanContainsEpic15"
+    },
+    {
+      "phase": "PHASE-1",
+      "seq": 5,
+      "status": "RESPONSE",
+      "timestamp": "2026-03-02T12:24:54.0826562-05:00",
+      "data": "{\"storyCount\":21,\"uniqueStories\":\"[ACA-15-000], [ACA-15-001], [ACA-15-001a], [ACA-15-002], [ACA-15-002a], [ACA-15-003], [ACA-15-003a], [ACA-15-003b], [ACA-15-004], [ACA-15-005], [ACA-15-006], [ACA-15-006a], [ACA-15-006b], [ACA-15-007], [ACA-15-008], [ACA-15-009], [ACA-15-009a], [ACA-15-010], [ACA-15-011], [ACA-15-012], [ACA-15-012a]\"}",
+      "error_message": "",
+      "operation": "G02-PlanContainsEpic15"
+    },
+    {
+      "phase": "PHASE-1",
+      "seq": 6,
+      "status": "VERIFIED",
+      "timestamp": "2026-03-02T12:24:54.0838829-05:00",
+      "data": null,
+      "error_message": "",
+      "operation": "G02-PlanContainsEpic15"
+    },
+    {
+      "phase": "PHASE-1",
+      "seq": 7,
+      "status": "CALL",
+      "timestamp": "2026-03-02T12:24:54.0840759-05:00",
+      "data": null,
+      "error_message": "",
+      "operation": "G03-ADO-IdMapExists"
+    },
+    {
+      "phase": "PHASE-1",
+      "seq": 8,
+      "status": "RESPONSE",
+      "timestamp": "2026-03-02T12:24:54.1035809-05:00",
+      "data": "{\"lastADOId\":3213,\"lastStoryId\":\"ACA-15-012a\"}",
+      "error_message": "",
+      "operation": "G03-ADO-IdMapExists"
+    },
+    {
+      "phase": "PHASE-1",
+      "seq": 9,
+      "status": "VERIFIED",
+      "timestamp": "2026-03-02T12:24:54.1049288-05:00",
+      "data": null,
+      "error_message": "",
+      "operation": "G03-ADO-IdMapExists"
+    },
+    {
+      "phase": "PHASE-1",
+      "seq": 10,
+      "status": "CALL",
+      "timestamp": "2026-03-02T12:24:54.1051311-05:00",
+      "data": null,
+      "error_message": "",
+      "operation": "G04-NoEpic15InADOMap"
+    },
+    {
+      "phase": "PHASE-1",
+      "seq": 11,
+      "status": "RESPONSE",
+      "timestamp": "2026-03-02T12:24:54.1181716-05:00",
+      "data": "{\"epic15Entries\":25}",
+      "error_message": "",
+      "operation": "G04-NoEpic15InADOMap"
+    },
+    {
+      "phase": "PHASE-1",
+      "seq": 12,
+      "status": "SKIPPED",
+      "timestamp": "2026-03-02T12:24:54.1185926-05:00",
+      "data": null,
+      "error_message": "Already present, will skip updates",
+      "operation": "G04-NoEpic15InADOMap"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 13,
+      "status": "CALL",
+      "timestamp": "2026-03-02T12:24:54.1428328-05:00",
+      "data": "{\"storyId\":\"ACA-15-000\",\"adoId\":3193}",
+      "error_message": "",
+      "operation": "ACA-15-000-PUT-WBS"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 14,
+      "status": "FAILED",
+      "timestamp": "2026-03-02T12:24:54.2195369-05:00",
+      "data": null,
+      "error_message": "Internal Server Error",
+      "operation": "ACA-15-000-PUT-WBS"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 15,
+      "status": "CALL",
+      "timestamp": "2026-03-02T12:24:54.2233051-05:00",
+      "data": "{\"storyId\":\"ACA-15-000\",\"adoId\":3193}",
+      "error_message": "",
+      "operation": "ACA-15-000-UPDATE-ADO-MAP"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 16,
+      "status": "VERIFIED",
+      "timestamp": "2026-03-02T12:24:54.2423440-05:00",
+      "data": "{\"storyId\":\"ACA-15-000\",\"adoId\":3193}",
+      "error_message": "",
+      "operation": "ACA-15-000-UPDATE-ADO-MAP"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 17,
+      "status": "CALL",
+      "timestamp": "2026-03-02T12:24:54.2476417-05:00",
+      "data": "{\"storyId\":\"ACA-15-001\",\"adoId\":3194}",
+      "error_message": "",
+      "operation": "ACA-15-001-PUT-WBS"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 18,
+      "status": "FAILED",
+      "timestamp": "2026-03-02T12:24:54.2920125-05:00",
+      "data": null,
+      "error_message": "Internal Server Error",
+      "operation": "ACA-15-001-PUT-WBS"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 19,
+      "status": "CALL",
+      "timestamp": "2026-03-02T12:24:54.2933039-05:00",
+      "data": "{\"storyId\":\"ACA-15-001\",\"adoId\":3194}",
+      "error_message": "",
+      "operation": "ACA-15-001-UPDATE-ADO-MAP"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 20,
+      "status": "VERIFIED",
+      "timestamp": "2026-03-02T12:24:54.3074189-05:00",
+      "data": "{\"storyId\":\"ACA-15-001\",\"adoId\":3194}",
+      "error_message": "",
+      "operation": "ACA-15-001-UPDATE-ADO-MAP"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 21,
+      "status": "CALL",
+      "timestamp": "2026-03-02T12:24:54.3094434-05:00",
+      "data": "{\"storyId\":\"ACA-15-001a\",\"adoId\":3195}",
+      "error_message": "",
+      "operation": "ACA-15-001a-PUT-WBS"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 22,
+      "status": "FAILED",
+      "timestamp": "2026-03-02T12:24:54.3619238-05:00",
+      "data": null,
+      "error_message": "Internal Server Error",
+      "operation": "ACA-15-001a-PUT-WBS"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 23,
+      "status": "CALL",
+      "timestamp": "2026-03-02T12:24:54.3630274-05:00",
+      "data": "{\"storyId\":\"ACA-15-001a\",\"adoId\":3195}",
+      "error_message": "",
+      "operation": "ACA-15-001a-UPDATE-ADO-MAP"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 24,
+      "status": "VERIFIED",
+      "timestamp": "2026-03-02T12:24:54.3724316-05:00",
+      "data": "{\"storyId\":\"ACA-15-001a\",\"adoId\":3195}",
+      "error_message": "",
+      "operation": "ACA-15-001a-UPDATE-ADO-MAP"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 25,
+      "status": "CALL",
+      "timestamp": "2026-03-02T12:24:54.3745648-05:00",
+      "data": "{\"storyId\":\"ACA-15-002\",\"adoId\":3196}",
+      "error_message": "",
+      "operation": "ACA-15-002-PUT-WBS"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 26,
+      "status": "FAILED",
+      "timestamp": "2026-03-02T12:24:54.4145658-05:00",
+      "data": null,
+      "error_message": "Internal Server Error",
+      "operation": "ACA-15-002-PUT-WBS"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 27,
+      "status": "CALL",
+      "timestamp": "2026-03-02T12:24:54.4157207-05:00",
+      "data": "{\"storyId\":\"ACA-15-002\",\"adoId\":3196}",
+      "error_message": "",
+      "operation": "ACA-15-002-UPDATE-ADO-MAP"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 28,
+      "status": "VERIFIED",
+      "timestamp": "2026-03-02T12:24:54.4252393-05:00",
+      "data": "{\"storyId\":\"ACA-15-002\",\"adoId\":3196}",
+      "error_message": "",
+      "operation": "ACA-15-002-UPDATE-ADO-MAP"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 29,
+      "status": "CALL",
+      "timestamp": "2026-03-02T12:24:54.4279741-05:00",
+      "data": "{\"storyId\":\"ACA-15-002a\",\"adoId\":3197}",
+      "error_message": "",
+      "operation": "ACA-15-002a-PUT-WBS"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 30,
+      "status": "FAILED",
+      "timestamp": "2026-03-02T12:24:54.4980364-05:00",
+      "data": null,
+      "error_message": "Internal Server Error",
+      "operation": "ACA-15-002a-PUT-WBS"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 31,
+      "status": "CALL",
+      "timestamp": "2026-03-02T12:24:54.4990248-05:00",
+      "data": "{\"storyId\":\"ACA-15-002a\",\"adoId\":3197}",
+      "error_message": "",
+      "operation": "ACA-15-002a-UPDATE-ADO-MAP"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 32,
+      "status": "VERIFIED",
+      "timestamp": "2026-03-02T12:24:54.5077134-05:00",
+      "data": "{\"storyId\":\"ACA-15-002a\",\"adoId\":3197}",
+      "error_message": "",
+      "operation": "ACA-15-002a-UPDATE-ADO-MAP"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 33,
+      "status": "CALL",
+      "timestamp": "2026-03-02T12:24:54.5099196-05:00",
+      "data": "{\"storyId\":\"ACA-15-003\",\"adoId\":3198}",
+      "error_message": "",
+      "operation": "ACA-15-003-PUT-WBS"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 34,
+      "status": "FAILED",
+      "timestamp": "2026-03-02T12:24:54.5476546-05:00",
+      "data": null,
+      "error_message": "Internal Server Error",
+      "operation": "ACA-15-003-PUT-WBS"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 35,
+      "status": "CALL",
+      "timestamp": "2026-03-02T12:24:54.5486844-05:00",
+      "data": "{\"storyId\":\"ACA-15-003\",\"adoId\":3198}",
+      "error_message": "",
+      "operation": "ACA-15-003-UPDATE-ADO-MAP"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 36,
+      "status": "VERIFIED",
+      "timestamp": "2026-03-02T12:24:54.5655670-05:00",
+      "data": "{\"storyId\":\"ACA-15-003\",\"adoId\":3198}",
+      "error_message": "",
+      "operation": "ACA-15-003-UPDATE-ADO-MAP"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 37,
+      "status": "CALL",
+      "timestamp": "2026-03-02T12:24:54.5678657-05:00",
+      "data": "{\"storyId\":\"ACA-15-003a\",\"adoId\":3199}",
+      "error_message": "",
+      "operation": "ACA-15-003a-PUT-WBS"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 38,
+      "status": "FAILED",
+      "timestamp": "2026-03-02T12:24:54.6361954-05:00",
+      "data": null,
+      "error_message": "Internal Server Error",
+      "operation": "ACA-15-003a-PUT-WBS"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 39,
+      "status": "CALL",
+      "timestamp": "2026-03-02T12:24:54.6370657-05:00",
+      "data": "{\"storyId\":\"ACA-15-003a\",\"adoId\":3199}",
+      "error_message": "",
+      "operation": "ACA-15-003a-UPDATE-ADO-MAP"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 40,
+      "status": "VERIFIED",
+      "timestamp": "2026-03-02T12:24:54.6450981-05:00",
+      "data": "{\"storyId\":\"ACA-15-003a\",\"adoId\":3199}",
+      "error_message": "",
+      "operation": "ACA-15-003a-UPDATE-ADO-MAP"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 41,
+      "status": "CALL",
+      "timestamp": "2026-03-02T12:24:54.6472163-05:00",
+      "data": "{\"storyId\":\"ACA-15-003b\",\"adoId\":3200}",
+      "error_message": "",
+      "operation": "ACA-15-003b-PUT-WBS"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 42,
+      "status": "FAILED",
+      "timestamp": "2026-03-02T12:24:54.6863141-05:00",
+      "data": null,
+      "error_message": "Internal Server Error",
+      "operation": "ACA-15-003b-PUT-WBS"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 43,
+      "status": "CALL",
+      "timestamp": "2026-03-02T12:24:54.6871571-05:00",
+      "data": "{\"storyId\":\"ACA-15-003b\",\"adoId\":3200}",
+      "error_message": "",
+      "operation": "ACA-15-003b-UPDATE-ADO-MAP"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 44,
+      "status": "VERIFIED",
+      "timestamp": "2026-03-02T12:24:54.6994777-05:00",
+      "data": "{\"storyId\":\"ACA-15-003b\",\"adoId\":3200}",
+      "error_message": "",
+      "operation": "ACA-15-003b-UPDATE-ADO-MAP"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 45,
+      "status": "CALL",
+      "timestamp": "2026-03-02T12:24:54.7013547-05:00",
+      "data": "{\"storyId\":\"ACA-15-004\",\"adoId\":3201}",
+      "error_message": "",
+      "operation": "ACA-15-004-PUT-WBS"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 46,
+      "status": "FAILED",
+      "timestamp": "2026-03-02T12:24:54.7433253-05:00",
+      "data": null,
+      "error_message": "Internal Server Error",
+      "operation": "ACA-15-004-PUT-WBS"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 47,
+      "status": "CALL",
+      "timestamp": "2026-03-02T12:24:54.7442213-05:00",
+      "data": "{\"storyId\":\"ACA-15-004\",\"adoId\":3201}",
+      "error_message": "",
+      "operation": "ACA-15-004-UPDATE-ADO-MAP"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 48,
+      "status": "VERIFIED",
+      "timestamp": "2026-03-02T12:24:54.7524149-05:00",
+      "data": "{\"storyId\":\"ACA-15-004\",\"adoId\":3201}",
+      "error_message": "",
+      "operation": "ACA-15-004-UPDATE-ADO-MAP"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 49,
+      "status": "CALL",
+      "timestamp": "2026-03-02T12:24:54.7543813-05:00",
+      "data": "{\"storyId\":\"ACA-15-005\",\"adoId\":3202}",
+      "error_message": "",
+      "operation": "ACA-15-005-PUT-WBS"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 50,
+      "status": "FAILED",
+      "timestamp": "2026-03-02T12:24:54.7930448-05:00",
+      "data": null,
+      "error_message": "Internal Server Error",
+      "operation": "ACA-15-005-PUT-WBS"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 51,
+      "status": "CALL",
+      "timestamp": "2026-03-02T12:24:54.8000960-05:00",
+      "data": "{\"storyId\":\"ACA-15-005\",\"adoId\":3202}",
+      "error_message": "",
+      "operation": "ACA-15-005-UPDATE-ADO-MAP"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 52,
+      "status": "VERIFIED",
+      "timestamp": "2026-03-02T12:24:54.8110368-05:00",
+      "data": "{\"storyId\":\"ACA-15-005\",\"adoId\":3202}",
+      "error_message": "",
+      "operation": "ACA-15-005-UPDATE-ADO-MAP"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 53,
+      "status": "CALL",
+      "timestamp": "2026-03-02T12:24:54.8133691-05:00",
+      "data": "{\"storyId\":\"ACA-15-006\",\"adoId\":3203}",
+      "error_message": "",
+      "operation": "ACA-15-006-PUT-WBS"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 54,
+      "status": "FAILED",
+      "timestamp": "2026-03-02T12:24:54.8591973-05:00",
+      "data": null,
+      "error_message": "Internal Server Error",
+      "operation": "ACA-15-006-PUT-WBS"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 55,
+      "status": "CALL",
+      "timestamp": "2026-03-02T12:24:54.8601007-05:00",
+      "data": "{\"storyId\":\"ACA-15-006\",\"adoId\":3203}",
+      "error_message": "",
+      "operation": "ACA-15-006-UPDATE-ADO-MAP"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 56,
+      "status": "VERIFIED",
+      "timestamp": "2026-03-02T12:24:54.8682407-05:00",
+      "data": "{\"storyId\":\"ACA-15-006\",\"adoId\":3203}",
+      "error_message": "",
+      "operation": "ACA-15-006-UPDATE-ADO-MAP"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 57,
+      "status": "CALL",
+      "timestamp": "2026-03-02T12:24:54.8701935-05:00",
+      "data": "{\"storyId\":\"ACA-15-006a\",\"adoId\":3204}",
+      "error_message": "",
+      "operation": "ACA-15-006a-PUT-WBS"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 58,
+      "status": "FAILED",
+      "timestamp": "2026-03-02T12:24:54.9128465-05:00",
+      "data": null,
+      "error_message": "Internal Server Error",
+      "operation": "ACA-15-006a-PUT-WBS"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 59,
+      "status": "CALL",
+      "timestamp": "2026-03-02T12:24:54.9137747-05:00",
+      "data": "{\"storyId\":\"ACA-15-006a\",\"adoId\":3204}",
+      "error_message": "",
+      "operation": "ACA-15-006a-UPDATE-ADO-MAP"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 60,
+      "status": "VERIFIED",
+      "timestamp": "2026-03-02T12:24:54.9264942-05:00",
+      "data": "{\"storyId\":\"ACA-15-006a\",\"adoId\":3204}",
+      "error_message": "",
+      "operation": "ACA-15-006a-UPDATE-ADO-MAP"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 61,
+      "status": "CALL",
+      "timestamp": "2026-03-02T12:24:54.9287405-05:00",
+      "data": "{\"storyId\":\"ACA-15-006b\",\"adoId\":3205}",
+      "error_message": "",
+      "operation": "ACA-15-006b-PUT-WBS"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 62,
+      "status": "FAILED",
+      "timestamp": "2026-03-02T12:24:54.9715143-05:00",
+      "data": null,
+      "error_message": "Internal Server Error",
+      "operation": "ACA-15-006b-PUT-WBS"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 63,
+      "status": "CALL",
+      "timestamp": "2026-03-02T12:24:54.9725468-05:00",
+      "data": "{\"storyId\":\"ACA-15-006b\",\"adoId\":3205}",
+      "error_message": "",
+      "operation": "ACA-15-006b-UPDATE-ADO-MAP"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 64,
+      "status": "VERIFIED",
+      "timestamp": "2026-03-02T12:24:54.9808467-05:00",
+      "data": "{\"storyId\":\"ACA-15-006b\",\"adoId\":3205}",
+      "error_message": "",
+      "operation": "ACA-15-006b-UPDATE-ADO-MAP"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 65,
+      "status": "CALL",
+      "timestamp": "2026-03-02T12:24:54.9829665-05:00",
+      "data": "{\"storyId\":\"ACA-15-007\",\"adoId\":3206}",
+      "error_message": "",
+      "operation": "ACA-15-007-PUT-WBS"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 66,
+      "status": "FAILED",
+      "timestamp": "2026-03-02T12:24:55.0215877-05:00",
+      "data": null,
+      "error_message": "Internal Server Error",
+      "operation": "ACA-15-007-PUT-WBS"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 67,
+      "status": "CALL",
+      "timestamp": "2026-03-02T12:24:55.0224365-05:00",
+      "data": "{\"storyId\":\"ACA-15-007\",\"adoId\":3206}",
+      "error_message": "",
+      "operation": "ACA-15-007-UPDATE-ADO-MAP"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 68,
+      "status": "VERIFIED",
+      "timestamp": "2026-03-02T12:24:55.0389493-05:00",
+      "data": "{\"storyId\":\"ACA-15-007\",\"adoId\":3206}",
+      "error_message": "",
+      "operation": "ACA-15-007-UPDATE-ADO-MAP"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 69,
+      "status": "CALL",
+      "timestamp": "2026-03-02T12:24:55.0408646-05:00",
+      "data": "{\"storyId\":\"ACA-15-008\",\"adoId\":3207}",
+      "error_message": "",
+      "operation": "ACA-15-008-PUT-WBS"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 70,
+      "status": "FAILED",
+      "timestamp": "2026-03-02T12:24:55.0868379-05:00",
+      "data": null,
+      "error_message": "Internal Server Error",
+      "operation": "ACA-15-008-PUT-WBS"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 71,
+      "status": "CALL",
+      "timestamp": "2026-03-02T12:24:55.0877070-05:00",
+      "data": "{\"storyId\":\"ACA-15-008\",\"adoId\":3207}",
+      "error_message": "",
+      "operation": "ACA-15-008-UPDATE-ADO-MAP"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 72,
+      "status": "VERIFIED",
+      "timestamp": "2026-03-02T12:24:55.0962270-05:00",
+      "data": "{\"storyId\":\"ACA-15-008\",\"adoId\":3207}",
+      "error_message": "",
+      "operation": "ACA-15-008-UPDATE-ADO-MAP"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 73,
+      "status": "CALL",
+      "timestamp": "2026-03-02T12:24:55.0984728-05:00",
+      "data": "{\"storyId\":\"ACA-15-009\",\"adoId\":3208}",
+      "error_message": "",
+      "operation": "ACA-15-009-PUT-WBS"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 74,
+      "status": "FAILED",
+      "timestamp": "2026-03-02T12:24:55.1366497-05:00",
+      "data": null,
+      "error_message": "Internal Server Error",
+      "operation": "ACA-15-009-PUT-WBS"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 75,
+      "status": "CALL",
+      "timestamp": "2026-03-02T12:24:55.1376554-05:00",
+      "data": "{\"storyId\":\"ACA-15-009\",\"adoId\":3208}",
+      "error_message": "",
+      "operation": "ACA-15-009-UPDATE-ADO-MAP"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 76,
+      "status": "VERIFIED",
+      "timestamp": "2026-03-02T12:24:55.1546139-05:00",
+      "data": "{\"storyId\":\"ACA-15-009\",\"adoId\":3208}",
+      "error_message": "",
+      "operation": "ACA-15-009-UPDATE-ADO-MAP"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 77,
+      "status": "CALL",
+      "timestamp": "2026-03-02T12:24:55.1567733-05:00",
+      "data": "{\"storyId\":\"ACA-15-009a\",\"adoId\":3209}",
+      "error_message": "",
+      "operation": "ACA-15-009a-PUT-WBS"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 78,
+      "status": "FAILED",
+      "timestamp": "2026-03-02T12:24:55.1968595-05:00",
+      "data": null,
+      "error_message": "Internal Server Error",
+      "operation": "ACA-15-009a-PUT-WBS"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 79,
+      "status": "CALL",
+      "timestamp": "2026-03-02T12:24:55.1977630-05:00",
+      "data": "{\"storyId\":\"ACA-15-009a\",\"adoId\":3209}",
+      "error_message": "",
+      "operation": "ACA-15-009a-UPDATE-ADO-MAP"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 80,
+      "status": "VERIFIED",
+      "timestamp": "2026-03-02T12:24:55.2069437-05:00",
+      "data": "{\"storyId\":\"ACA-15-009a\",\"adoId\":3209}",
+      "error_message": "",
+      "operation": "ACA-15-009a-UPDATE-ADO-MAP"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 81,
+      "status": "CALL",
+      "timestamp": "2026-03-02T12:24:55.2091649-05:00",
+      "data": "{\"storyId\":\"ACA-15-010\",\"adoId\":3210}",
+      "error_message": "",
+      "operation": "ACA-15-010-PUT-WBS"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 82,
+      "status": "FAILED",
+      "timestamp": "2026-03-02T12:24:55.2588971-05:00",
+      "data": null,
+      "error_message": "Internal Server Error",
+      "operation": "ACA-15-010-PUT-WBS"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 83,
+      "status": "CALL",
+      "timestamp": "2026-03-02T12:24:55.2598308-05:00",
+      "data": "{\"storyId\":\"ACA-15-010\",\"adoId\":3210}",
+      "error_message": "",
+      "operation": "ACA-15-010-UPDATE-ADO-MAP"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 84,
+      "status": "VERIFIED",
+      "timestamp": "2026-03-02T12:24:55.2706999-05:00",
+      "data": "{\"storyId\":\"ACA-15-010\",\"adoId\":3210}",
+      "error_message": "",
+      "operation": "ACA-15-010-UPDATE-ADO-MAP"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 85,
+      "status": "CALL",
+      "timestamp": "2026-03-02T12:24:55.2731913-05:00",
+      "data": "{\"storyId\":\"ACA-15-011\",\"adoId\":3211}",
+      "error_message": "",
+      "operation": "ACA-15-011-PUT-WBS"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 86,
+      "status": "FAILED",
+      "timestamp": "2026-03-02T12:24:55.3163191-05:00",
+      "data": null,
+      "error_message": "Internal Server Error",
+      "operation": "ACA-15-011-PUT-WBS"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 87,
+      "status": "CALL",
+      "timestamp": "2026-03-02T12:24:55.3172284-05:00",
+      "data": "{\"storyId\":\"ACA-15-011\",\"adoId\":3211}",
+      "error_message": "",
+      "operation": "ACA-15-011-UPDATE-ADO-MAP"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 88,
+      "status": "VERIFIED",
+      "timestamp": "2026-03-02T12:24:55.3257066-05:00",
+      "data": "{\"storyId\":\"ACA-15-011\",\"adoId\":3211}",
+      "error_message": "",
+      "operation": "ACA-15-011-UPDATE-ADO-MAP"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 89,
+      "status": "CALL",
+      "timestamp": "2026-03-02T12:24:55.3275558-05:00",
+      "data": "{\"storyId\":\"ACA-15-012\",\"adoId\":3212}",
+      "error_message": "",
+      "operation": "ACA-15-012-PUT-WBS"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 90,
+      "status": "FAILED",
+      "timestamp": "2026-03-02T12:24:55.3728791-05:00",
+      "data": null,
+      "error_message": "Internal Server Error",
+      "operation": "ACA-15-012-PUT-WBS"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 91,
+      "status": "CALL",
+      "timestamp": "2026-03-02T12:24:55.3737286-05:00",
+      "data": "{\"storyId\":\"ACA-15-012\",\"adoId\":3212}",
+      "error_message": "",
+      "operation": "ACA-15-012-UPDATE-ADO-MAP"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 92,
+      "status": "VERIFIED",
+      "timestamp": "2026-03-02T12:24:55.3820194-05:00",
+      "data": "{\"storyId\":\"ACA-15-012\",\"adoId\":3212}",
+      "error_message": "",
+      "operation": "ACA-15-012-UPDATE-ADO-MAP"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 93,
+      "status": "CALL",
+      "timestamp": "2026-03-02T12:24:55.3841059-05:00",
+      "data": "{\"storyId\":\"ACA-15-012a\",\"adoId\":3213}",
+      "error_message": "",
+      "operation": "ACA-15-012a-PUT-WBS"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 94,
+      "status": "FAILED",
+      "timestamp": "2026-03-02T12:24:55.4251324-05:00",
+      "data": null,
+      "error_message": "Internal Server Error",
+      "operation": "ACA-15-012a-PUT-WBS"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 95,
+      "status": "CALL",
+      "timestamp": "2026-03-02T12:24:55.4262726-05:00",
+      "data": "{\"storyId\":\"ACA-15-012a\",\"adoId\":3213}",
+      "error_message": "",
+      "operation": "ACA-15-012a-UPDATE-ADO-MAP"
+    },
+    {
+      "phase": "PHASE-2",
+      "seq": 96,
+      "status": "VERIFIED",
+      "timestamp": "2026-03-02T12:24:55.4344594-05:00",
+      "data": "{\"storyId\":\"ACA-15-012a\",\"adoId\":3213}",
+      "error_message": "",
+      "operation": "ACA-15-012a-UPDATE-ADO-MAP"
+    },
+    {
+      "phase": "PHASE-3",
+      "seq": 97,
+      "status": "CALL",
+      "timestamp": "2026-03-02T12:24:55.4460937-05:00",
+      "data": null,
+      "error_message": "",
+      "operation": "PA01-AllStoriesInAdoMap"
+    },
+    {
+      "phase": "PHASE-3",
+      "seq": 98,
+      "status": "RESPONSE",
+      "timestamp": "2026-03-02T12:24:55.4565683-05:00",
+      "data": "{\"count\":25}",
+      "error_message": "",
+      "operation": "PA01-AllStoriesInAdoMap"
+    },
+    {
+      "phase": "PHASE-3",
+      "seq": 99,
+      "status": "FAILED",
+      "timestamp": "2026-03-02T12:24:55.4568543-05:00",
+      "data": null,
+      "error_message": "Expected 21, found 25",
+      "operation": "PA01-AllStoriesInAdoMap"
+    },
+    {
+      "phase": "PHASE-3",
+      "seq": 100,
+      "status": "CALL",
+      "timestamp": "2026-03-02T12:24:55.4569805-05:00",
+      "data": null,
+      "error_message": "",
+      "operation": "PA02-SequentialADOIds"
+    },
+    {
+      "phase": "PHASE-3",
+      "seq": 101,
+      "status": "RESPONSE",
+      "timestamp": "2026-03-02T12:24:55.5256558-05:00",
+      "data": "{\"min\":3193,\"max\":3213}",
+      "error_message": "",
+      "operation": "PA02-SequentialADOIds"
+    },
+    {
+      "phase": "PHASE-3",
+      "seq": 102,
+      "status": "FAILED",
+      "timestamp": "2026-03-02T12:24:55.5266353-05:00",
+      "data": null,
+      "error_message": "ID gaps:      ",
+      "operation": "PA02-SequentialADOIds"
+    },
+    {
+      "phase": "PHASE-3",
+      "seq": 103,
+      "status": "CALL",
+      "timestamp": "2026-03-02T12:24:55.5267756-05:00",
+      "data": null,
+      "error_message": "",
+      "operation": "PA03-PLANmdUnchanged"
+    },
+    {
+      "phase": "PHASE-3",
+      "seq": 104,
+      "status": "RESPONSE",
+      "timestamp": "2026-03-02T12:24:55.5312054-05:00",
+      "data": "{\"filehash\":\"E1B2B344940F21E96F4DE5DBE473B6BC3523C2C9F88AA132F15769ABFE4555ED\"}",
+      "error_message": "",
+      "operation": "PA03-PLANmdUnchanged"
+    },
+    {
+      "phase": "PHASE-3",
+      "seq": 105,
+      "status": "VERIFIED",
+      "timestamp": "2026-03-02T12:24:55.5315345-05:00",
+      "data": null,
+      "error_message": "",
+      "operation": "PA03-PLANmdUnchanged"
+    },
+    {
+      "phase": "PHASE-4",
+      "seq": 106,
+      "status": "VERIFIED",
+      "timestamp": "2026-03-02T12:24:55.6566264-05:00",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-000-update-receipt.json\"}",
+      "error_message": "",
+      "operation": "ACA-15-000-EVIDENCE-RECEIPT"
+    },
+    {
+      "phase": "PHASE-4",
+      "seq": 107,
+      "status": "VERIFIED",
+      "timestamp": "2026-03-02T12:24:55.6629006-05:00",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-001-update-receipt.json\"}",
+      "error_message": "",
+      "operation": "ACA-15-001-EVIDENCE-RECEIPT"
+    },
+    {
+      "phase": "PHASE-4",
+      "seq": 108,
+      "status": "VERIFIED",
+      "timestamp": "2026-03-02T12:24:55.6789136-05:00",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-001a-update-receipt.json\"}",
+      "error_message": "",
+      "operation": "ACA-15-001a-EVIDENCE-RECEIPT"
+    },
+    {
+      "phase": "PHASE-4",
+      "seq": 109,
+      "status": "VERIFIED",
+      "timestamp": "2026-03-02T12:24:55.6858506-05:00",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-002-update-receipt.json\"}",
+      "error_message": "",
+      "operation": "ACA-15-002-EVIDENCE-RECEIPT"
+    },
+    {
+      "phase": "PHASE-4",
+      "seq": 110,
+      "status": "VERIFIED",
+      "timestamp": "2026-03-02T12:24:55.6904963-05:00",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-002a-update-receipt.json\"}",
+      "error_message": "",
+      "operation": "ACA-15-002a-EVIDENCE-RECEIPT"
+    },
+    {
+      "phase": "PHASE-4",
+      "seq": 111,
+      "status": "VERIFIED",
+      "timestamp": "2026-03-02T12:24:55.6981221-05:00",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-003-update-receipt.json\"}",
+      "error_message": "",
+      "operation": "ACA-15-003-EVIDENCE-RECEIPT"
+    },
+    {
+      "phase": "PHASE-4",
+      "seq": 112,
+      "status": "VERIFIED",
+      "timestamp": "2026-03-02T12:24:55.7032093-05:00",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-003a-update-receipt.json\"}",
+      "error_message": "",
+      "operation": "ACA-15-003a-EVIDENCE-RECEIPT"
+    },
+    {
+      "phase": "PHASE-4",
+      "seq": 113,
+      "status": "VERIFIED",
+      "timestamp": "2026-03-02T12:24:55.7080236-05:00",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-003b-update-receipt.json\"}",
+      "error_message": "",
+      "operation": "ACA-15-003b-EVIDENCE-RECEIPT"
+    },
+    {
+      "phase": "PHASE-4",
+      "seq": 114,
+      "status": "VERIFIED",
+      "timestamp": "2026-03-02T12:24:55.7142735-05:00",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-004-update-receipt.json\"}",
+      "error_message": "",
+      "operation": "ACA-15-004-EVIDENCE-RECEIPT"
+    },
+    {
+      "phase": "PHASE-4",
+      "seq": 115,
+      "status": "VERIFIED",
+      "timestamp": "2026-03-02T12:24:55.7205405-05:00",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-005-update-receipt.json\"}",
+      "error_message": "",
+      "operation": "ACA-15-005-EVIDENCE-RECEIPT"
+    },
+    {
+      "phase": "PHASE-4",
+      "seq": 116,
+      "status": "VERIFIED",
+      "timestamp": "2026-03-02T12:24:55.7320809-05:00",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-006-update-receipt.json\"}",
+      "error_message": "",
+      "operation": "ACA-15-006-EVIDENCE-RECEIPT"
+    },
+    {
+      "phase": "PHASE-4",
+      "seq": 117,
+      "status": "VERIFIED",
+      "timestamp": "2026-03-02T12:24:55.7365438-05:00",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-006a-update-receipt.json\"}",
+      "error_message": "",
+      "operation": "ACA-15-006a-EVIDENCE-RECEIPT"
+    },
+    {
+      "phase": "PHASE-4",
+      "seq": 118,
+      "status": "VERIFIED",
+      "timestamp": "2026-03-02T12:24:55.7414054-05:00",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-006b-update-receipt.json\"}",
+      "error_message": "",
+      "operation": "ACA-15-006b-EVIDENCE-RECEIPT"
+    },
+    {
+      "phase": "PHASE-4",
+      "seq": 119,
+      "status": "VERIFIED",
+      "timestamp": "2026-03-02T12:24:55.7508472-05:00",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-007-update-receipt.json\"}",
+      "error_message": "",
+      "operation": "ACA-15-007-EVIDENCE-RECEIPT"
+    },
+    {
+      "phase": "PHASE-4",
+      "seq": 120,
+      "status": "VERIFIED",
+      "timestamp": "2026-03-02T12:24:55.7674947-05:00",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-008-update-receipt.json\"}",
+      "error_message": "",
+      "operation": "ACA-15-008-EVIDENCE-RECEIPT"
+    },
+    {
+      "phase": "PHASE-4",
+      "seq": 121,
+      "status": "VERIFIED",
+      "timestamp": "2026-03-02T12:24:55.7752707-05:00",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-009-update-receipt.json\"}",
+      "error_message": "",
+      "operation": "ACA-15-009-EVIDENCE-RECEIPT"
+    },
+    {
+      "phase": "PHASE-4",
+      "seq": 122,
+      "status": "VERIFIED",
+      "timestamp": "2026-03-02T12:24:55.7820385-05:00",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-009a-update-receipt.json\"}",
+      "error_message": "",
+      "operation": "ACA-15-009a-EVIDENCE-RECEIPT"
+    },
+    {
+      "phase": "PHASE-4",
+      "seq": 123,
+      "status": "VERIFIED",
+      "timestamp": "2026-03-02T12:24:55.7904707-05:00",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-010-update-receipt.json\"}",
+      "error_message": "",
+      "operation": "ACA-15-010-EVIDENCE-RECEIPT"
+    },
+    {
+      "phase": "PHASE-4",
+      "seq": 124,
+      "status": "VERIFIED",
+      "timestamp": "2026-03-02T12:24:55.8011082-05:00",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-011-update-receipt.json\"}",
+      "error_message": "",
+      "operation": "ACA-15-011-EVIDENCE-RECEIPT"
+    },
+    {
+      "phase": "PHASE-4",
+      "seq": 125,
+      "status": "VERIFIED",
+      "timestamp": "2026-03-02T12:24:55.8123999-05:00",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-012-update-receipt.json\"}",
+      "error_message": "",
+      "operation": "ACA-15-012-EVIDENCE-RECEIPT"
+    },
+    {
+      "phase": "PHASE-4",
+      "seq": 126,
+      "status": "VERIFIED",
+      "timestamp": "2026-03-02T12:24:55.8185888-05:00",
+      "data": "{\"receiptPath\":\"C:\\\\AICOE\\\\eva-foundry\\\\51-ACA\\\\.eva\\\\evidence\\\\ACA-15-012a-update-receipt.json\"}",
+      "error_message": "",
+      "operation": "ACA-15-012a-EVIDENCE-RECEIPT"
+    }
+  ],
+  "dry_run": {
+    "IsPresent": false
+  },
+  "mode": "full",
+  "correlation_id": "ACA-EPIC15-20260302-122453-3d581540",
+  "verification_status": {
+    "deterministic_behavior": "VERIFIED",
+    "all_operations_traced": "VERIFIED",
+    "idempotency_safe": "VERIFIED",
+    "correlation_tracking": "ENABLED"
+  },
+  "execution_summary": {
+    "ado_map_updates": 21,
+    "total_stories": 21,
+    "errors": 21,
+    "evidence_receipts_generated": 21,
+    "warnings": 0,
+    "data_model_operations": 0
+  },
+  "title": "Epic 15 Data Model Synchronization Trace",
+  "audit_gates": {
+    "post_audit_passed": false,
+    "pre_audit_passed": true
+  }
+}

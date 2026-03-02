@@ -36,25 +36,23 @@ $epic15Stories = @(
     @{ id = "ACA-15-002a"; fp = 2; sprint = 14; gap = "GAP-2"; },
     @{ id = "ACA-15-003"; fp = 4; sprint = 14; },
     @{ id = "ACA-15-003a"; fp = 2; sprint = 14; gap = "GAP-3"; },
+    @{ id = "ACA-15-003b"; fp = 2; sprint = 15; gap = "GAP-31"; },
     @{ id = "ACA-15-004"; fp = 5; sprint = 15; },
-    @{ id = "ACA-15-004a"; fp = 2; sprint = 15; gap = "GAP-4"; },
     @{ id = "ACA-15-005"; fp = 3; sprint = 15; },
     @{ id = "ACA-15-006"; fp = 4; sprint = 15; },
     @{ id = "ACA-15-006a"; fp = 2; sprint = 15; gap = "GAP-5"; },
+    @{ id = "ACA-15-006b"; fp = 2; sprint = 15; gap = "GAP-51"; },
     @{ id = "ACA-15-007"; fp = 3; sprint = 16; },
     @{ id = "ACA-15-008"; fp = 3; sprint = 16; },
-    @{ id = "ACA-15-008a"; fp = 1; sprint = 16; gap = "GAP-6"; },
     @{ id = "ACA-15-009"; fp = 2; sprint = 16; },
     @{ id = "ACA-15-009a"; fp = 2; sprint = 16; gap = "GAP-7"; },
     @{ id = "ACA-15-010"; fp = 4; sprint = 16; },
-    @{ id = "ACA-15-010a"; fp = 2; sprint = 16; gap = "GAP-8"; },
     @{ id = "ACA-15-011"; fp = 3; sprint = 17; },
-    @{ id = "ACA-15-011a"; fp = 2; sprint = 17; gap = "GAP-9"; },
     @{ id = "ACA-15-012"; fp = 3; sprint = 17; },
     @{ id = "ACA-15-012a"; fp = 1; sprint = 17; gap = "GAP-10"; }
 )
 
-# ADO ID allocation: 3193-3215 (sequential)
+# ADO ID allocation: 3193-3213 (sequential for 21 stories)
 $adoStartId = 3193
 
 # ============================================================================
@@ -147,7 +145,7 @@ function Phase-PreAudit {
         Trace-Event "PHASE-1" "G01-DataModel-Health" "FAILED" $null $_
     }
     
-    # G02: PLAN.md contains 22 Epic 15 stories
+    # G02: PLAN.md contains 21 Epic 15 stories
     try {
         Trace-Event "PHASE-1" "G02-PlanContainsEpic15" "CALL" $null
         $planPath = "$baseDir\PLAN.md"
@@ -155,18 +153,20 @@ function Phase-PreAudit {
             throw "PLAN.md not found at $planPath"
         }
         $planContent = Get-Content $planPath -Raw
-        $epic15Count = ($planContent | Select-String "ACA-15-\d+" -AllMatches).Matches.Count
-        Trace-Event "PHASE-1" "G02-PlanContainsEpic15" "RESPONSE" @{ storyCount = $epic15Count }
+        # Count unique story IDs from EVA-STORY tags: [ACA-15-NNN] or [ACA-15-NNNx]
+        $uniqueStories = @($planContent | Select-String "\[ACA-15-\d+[a-z]?\]" -AllMatches).Matches | ForEach-Object { $_.Value } | Sort-Object -Unique
+        $epic15Count = $uniqueStories.Count
+        Trace-Event "PHASE-1" "G02-PlanContainsEpic15" "RESPONSE" @{ storyCount = $epic15Count; uniqueStories = ($uniqueStories -join ", ") }
         
-        if ($epic15Count -eq 22) {
-            $checks += @{ gate = "G02"; name = "PLAN.md contains 22 Epic 15 stories"; status = "PASS"; details = "Found $epic15Count stories" }
+        if ($epic15Count -eq 21) {
+            $checks += @{ gate = "G02"; name = "PLAN.md contains 21 Epic 15 stories"; status = "PASS"; details = "Found $epic15Count stories" }
             Trace-Event "PHASE-1" "G02-PlanContainsEpic15" "VERIFIED" $null
         } else {
-            $checks += @{ gate = "G02"; name = "PLAN.md contains 22 Epic 15 stories"; status = "FAIL"; details = "Expected 22, found $epic15Count" }
-            Trace-Event "PHASE-1" "G02-PlanContainsEpic15" "FAILED" $null "Found $epic15Count, expected 22"
+            $checks += @{ gate = "G02"; name = "PLAN.md contains 21 Epic 15 stories"; status = "FAIL"; details = "Expected 21, found $epic15Count" }
+            Trace-Event "PHASE-1" "G02-PlanContainsEpic15" "FAILED" $null "Found $epic15Count, expected 21"
         }
     } catch {
-        $checks += @{ gate = "G02"; name = "PLAN.md contains 22 Epic 15 stories"; status = "FAIL"; details = $_}
+        $checks += @{ gate = "G02"; name = "PLAN.md contains 21 Epic 15 stories"; status = "FAIL"; details = $_}
         Trace-Event "PHASE-1" "G02-PlanContainsEpic15" "FAILED" $null $_
     }
     
@@ -259,15 +259,14 @@ function Phase-Sync {
         try {
             Trace-Event "PHASE-2" "$storyId-PUT-WBS" "CALL" @{ storyId = $storyId; adoId = $adoId }
             
+            # Build WBS payload with REQUIRED fields: id, level, status
+            # Note: WBS layer does NOT support gap-related fields; gap tracking is separate
             $wbsPayload = @{
                 id           = $storyId
-                epic         = "ACA-15"
-                fp           = $story.fp
-                sprint       = $story.sprint
-                status       = "PLANNED"
+                level        = "deliverable"  # All Epic 15 stories are deliverables within the onboarding project
+                status       = "planned"      # Valid WBS status values: active, in_progress, planned
                 is_active    = $true
-                gap_reference = $story.gap
-                ado_id       = $adoId
+                ado_epic_id  = $adoId
             } | ConvertTo-Json -Depth 10
             
             if (-not $DryRun) {
@@ -347,15 +346,15 @@ function Phase-PostAudit {
         $epic15InMap = @($adoMap | Get-Member -MemberType NoteProperty | Where-Object { $_.Name -match "ACA-15-\d+" }).Count
         Trace-Event "PHASE-3" "PA01-AllStoriesInAdoMap" "RESPONSE" @{ count = $epic15InMap }
         
-        if ($epic15InMap -eq 22) {
-            $checks += @{ gate = "PA01"; name = "All 22 Epic 15 stories in ADO map"; status = "PASS"; details = "Found $epic15InMap" }
+        if ($epic15InMap -eq 21) {
+            $checks += @{ gate = "PA01"; name = "All 21 Epic 15 stories in ADO map"; status = "PASS"; details = "Found $epic15InMap" }
             Trace-Event "PHASE-3" "PA01-AllStoriesInAdoMap" "VERIFIED" $null
         } else {
-            $checks += @{ gate = "PA01"; name = "All 22 Epic 15 stories in ADO map"; status = "FAIL"; details = "Expected 22, found $epic15InMap" }
-            Trace-Event "PHASE-3" "PA01-AllStoriesInAdoMap" "FAILED" $null "Expected 22, found $epic15InMap"
+            $checks += @{ gate = "PA01"; name = "All 21 Epic 15 stories in ADO map"; status = "FAIL"; details = "Expected 21, found $epic15InMap" }
+            Trace-Event "PHASE-3" "PA01-AllStoriesInAdoMap" "FAILED" $null "Expected 21, found $epic15InMap"
         }
     } catch {
-        $checks += @{ gate = "PA01"; name = "All 22 Epic 15 stories in ADO map"; status = "FAIL"; details = $_ }
+        $checks += @{ gate = "PA01"; name = "All 21 Epic 15 stories in ADO map"; status = "FAIL"; details = $_ }
         Trace-Event "PHASE-3" "PA01-AllStoriesInAdoMap" "FAILED" $null $_
     }
     
