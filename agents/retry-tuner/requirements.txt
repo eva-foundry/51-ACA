@@ -1,0 +1,7 @@
+agent-framework-azure-ai==1.0.0b260107
+agent-framework-core==1.0.0b260107
+azure-identity==1.14.0
+fastapi==0.115.0
+uvicorn==0.27.0
+pydantic==2.5.0
+httpx==0.25.2
