@@ -358,6 +358,56 @@ function Emit-CheckpointEvent {
     }
 }
 
+function Emit-FailureClassifiedEvent {
+    <#
+    .SYNOPSIS
+    Emit error classification event to Application Insights (ACA-17-001)
+    
+    .DESCRIPTION
+    Logs when Failure Classifier Agent has classified an error as transient or permanent.
+    
+    .EXAMPLE
+    Emit-FailureClassifiedEvent -ErrorCode "429" -Classification "transient" -Confidence 0.98 `
+        -RecommendedAction "retry" -CorrelationId "..." -InstrumentationKey "..."
+    #>
+    param(
+        [string]$ErrorCode,
+        [string]$Classification,            # "transient" | "permanent"
+        [double]$Confidence,                # 0.0-1.0
+        [string]$RecommendedAction,         # "retry" | "skip" | "escalate"
+        [string]$CorrelationId,
+        [string]$InstrumentationKey,
+        [scriptblock]$LogFunction
+    )
+    
+    try {
+        if ([string]::IsNullOrEmpty($InstrumentationKey)) {
+            return @{ success = $false }
+        }
+        
+        $event = [AppInsightsEvent]::new("FailureClassified", $InstrumentationKey)
+        $event.AddProperty("errorCode", $ErrorCode)
+        $event.AddProperty("classification", $Classification)
+        $event.AddProperty("recommendedAction", $RecommendedAction)
+        $event.AddProperty("correlationId", $CorrelationId)
+        $event.AddMeasurement("confidence", $Confidence)
+        
+        $body = $event.ToJSON() | ConvertTo-Json -Depth 10 -Compress
+        Start-Job -ScriptBlock {
+            try {
+                Invoke-RestMethod -Uri $using:event.AppInsightsEndpoint `
+                    -Method POST -ContentType "application/json" -Body $body `
+                    -TimeoutSec 5 -ErrorAction SilentlyContinue | Out-Null
+            } catch { }
+        } | Out-Null
+        
+        & $LogFunction "Emitted: FailureClassifiedEvent ($Classification, action: $RecommendedAction, confidence: $Confidence)" "DEBUG" -ErrorAction SilentlyContinue
+        return @{ success = $true }
+    } catch {
+        return @{ success = $false }
+    }
+}
+
 function Get-AppInsightsStatus {
     <#
     .SYNOPSIS

@@ -37,6 +37,9 @@ $script:logFile = "/app/logs/sync-${CorrelationId}.log"
 # Import rollback manager module
 . "/app/scripts/Rollback-Manager.ps1" -ErrorAction Stop
 
+# Import Failure Classifier Agent module (ACA-17-001)
+. "/app/scripts/Failure-Classifier-Agent.ps1" -ErrorAction Stop
+
 # Import Application Insights APM module
 . "/app/scripts/Application-Insights-Logger.ps1" -ErrorAction Stop
 
@@ -178,7 +181,16 @@ function Invoke-EpicSyncOrchestration {
     
     # >>> STEP 0: TEST APM CONNECTION
     Write-Log ""
-    Write-Log "STEP 0: Testing Application Insights connection..."
+    Write-Log "STEP 0: Testing Failure Classifier connection..."
+    $classifierReady = Test-ClassifierConnection -TimeoutSeconds 5
+    if ($classifierReady) {
+        Write-Log "✓ Failure Classifier Agent ready" "PASS"
+    } else {
+        Write-Log "⚠ Failure Classifier unavailable - using fallback rules-based classifier" "WARN"
+    }
+    
+    Write-Log ""
+    Write-Log "STEP 0b: Testing Application Insights connection..."
     $apmTest = Test-AppInsightsConnection -InstrumentationKey $appInsightsKey -LogFunction $script:retryLogger
     if (-not $apmTest.success) {
         Write-Log "⚠ Warning: Application Insights unavailable (non-blocking): $($apmTest.error)" "WARN"
@@ -279,6 +291,25 @@ function Invoke-EpicSyncOrchestration {
                 Record-CircuitBreakerSuccess -Name "cosmos-sync" -LogFunction $script:retryLogger
                 
             } catch {
+                # Classify the error using Failure Classifier Agent
+                Write-Log "  → Classifying error: $($_.Exception.Message)" "DEBUG"
+                $errorResult = Invoke-ClassifierAgent -ErrorMessage $_.Exception.Message `
+                                                       -ErrorCode $_.Exception.ErrorCode `
+                                                       -RetryCount ($MaxRetries) `
+                                                       -ElapsedMs $orchestrationTimer.ElapsedMilliseconds
+                
+                Write-Log "  Classification: $($errorResult.classification) (confidence: $($errorResult.confidence), source: $($errorResult.source))" "WARN"
+                Write-Log "  Action: $($errorResult.action) | Rationale: $($errorResult.rationale)" "WARN"
+                
+                # Emit APM: Error classified event
+                Emit-FailureClassifiedEvent -ErrorCode $_.Exception.ErrorCode `
+                                           -Classification $errorResult.classification `
+                                           -Confidence $errorResult.confidence `
+                                           -RecommendedAction $errorResult.action `
+                                           -CorrelationId $CorrelationId `
+                                           -InstrumentationKey $appInsightsKey `
+                                           -LogFunction $script:retryLogger
+                
                 Write-Log "  ✗ Failed after retries: $storyId (error: $($_.Exception.Message))" "FAIL"
                 $failureCount++
                 $retryStats.failedAfterRetries++
