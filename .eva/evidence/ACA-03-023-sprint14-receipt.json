@@ -1,0 +1,21 @@
+{
+    "artifacts":  [
+                      "services/analysis/tests/test_r01_devbox.py",
+                      "services/analysis/tests/test_r02_log_retention.py",
+                      "services/analysis/tests/test_r03_defender.py",
+                      "services/analysis/tests/test_r04_compute.py",
+                      "services/analysis/tests/test_r05_anomaly.py"
+                  ],
+    "test_result":  "PASS",
+    "timestamp":  "2026-03-02T08:20:43.0064917-05:00",
+    "metrics":  {
+                    "test_count_after":  23,
+                    "tokens_used":  6200,
+                    "files_changed":  5,
+                    "duration_ms":  312,
+                    "test_count_before":  8
+                },
+    "phase":  "D",
+    "commit_sha":  "1de026dd1c446f1d241d1f329783d6711b4b7e80",
+    "story_id":  "ACA-03-023"
+}
