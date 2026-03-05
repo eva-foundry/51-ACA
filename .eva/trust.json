@@ -1,23 +1,35 @@
 {
-  "meta": {
-    "schema": "eva.trust.v2",
-    "generated_at": "2026-03-02T17:04:02.187Z",
-    "repo": "C:\\AICOE\\eva-foundry\\51-ACA",
-    "reconciliation_path": "C:\\AICOE\\eva-foundry\\51-ACA\\.eva\\reconciliation.json"
+  "schema": "eva.trust.v2",
+  "generated_at": "2026-03-04T01:09:09Z",
+  "mti_score": {
+    "status": "READY-TO-MERGE",
+    "percent": 99.0,
+    "value": 0.986
   },
-  "score": 69,
-  "stale": false,
-  "sparkline": "100 -> 100 -> 100 -> 70 -> 70 -> 70 -> 70 -> 69 -> 69 -> 69",
-  "sparkline_delta": "no change",
+  "project": "51-ACA",
   "components": {
-    "coverage": 1,
-    "evidenceCompleteness": 0.97,
-    "consistencyScore": 0,
-    "complexityCoverage": 0,
-    "formula": "3-component-fallback"
+    "consistency": {
+      "description": "Agreement between declared/actual",
+      "value": 1.0,
+      "weight": 0.3
+    },
+    "evidence": {
+      "description": "Stories with evidence/proof",
+      "value": 0.929,
+      "weight": 0.2
+    },
+    "coverage": {
+      "description": "Story discovery rate",
+      "value": 1.0,
+      "weight": 0.5
+    }
+  },
+  "trends": {
+    "change": 30.0,
+    "direction": "IMPROVING",
+    "prior_mti": 69
   },
   "actions": [
-    "review-required",
-    "no-deploy"
+    "ready-to-merge"
   ]
 }

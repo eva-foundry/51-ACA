@@ -5,7 +5,7 @@
 
 | Tool | Purpose | How to Use |
 |------|---------|------------|
-| 37-data-model | Single source of truth for all project entities | GET http://localhost:8010/model/projects/51-ACA |
+| 37-data-model | Central source of truth (port 8010): All 51-ACA stories, services, infrastructure | GET http://localhost:8010/model/projects/51-ACA |
 | 29-foundry | Agentic capabilities (search, RAG, eval, observability) | C:\AICOE\eva-foundation\29-foundry |
 | 48-eva-veritas | Trust score and coverage audit | MCP tool: audit_repo / get_trust_score |
 | 07-foundation-layer | Copilot instructions primer + governance templates | MCP tool: apply_primer / audit_project |
@@ -13,7 +13,8 @@
 **Agent rule**: Query the data model API before reading source files.
 ```powershell
 Invoke-RestMethod "http://localhost:8010/model/agent-guide"   # complete protocol
-Invoke-RestMethod "http://localhost:8010/model/agent-summary" # all layer counts
+Invoke-RestMethod "http://localhost:8010/model/projects/51-ACA" # project metadata
+Invoke-RestMethod "http://localhost:8010/model/requirements/" | Where-Object {$_.id -like "ACA-*"} # all stories
 ```
 
 ---
@@ -22,7 +23,7 @@ ACA -- Azure Cost Advisor
 =========================
 
 Version: 0.7.0
-Updated: 2026-03-05T09:10:00Z (Governance Alignment: Project registered in central model, all 8055 refs removed, port 8010 centralized)
+Updated: 2026-03-05T09:20:00Z (Data Migration Complete: All 370 ACA objects moved from port 8055 SQLite to port 8010 Cosmos. Unified data model.)
 Maturity: active -- Phase 1 multi-agent failure recovery pipeline complete; Sprint-003 ready to start
 
 =============================================================================

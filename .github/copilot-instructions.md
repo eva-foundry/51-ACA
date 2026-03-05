@@ -21,10 +21,10 @@
 
 Before answering any question or writing any code:
 
-1. **Establish $base** (51-ACA local data model -- run the bootstrap block in Section 3.1 first):
-   - Local ACA data model (port 8055, SQLite): `http://localhost:8055`
-   - Start if not running: `pwsh -File C:\AICOE\eva-foundry\51-ACA\data-model\start.ps1`
-   - DB file: `C:\AICOE\eva-foundry\51-ACA\data-model\aca-model.db` (persists across restarts)
+1. **Establish $base** (Central EVA data model on port 8010 -- managed by project 37):
+   - Central EVA data model: `http://localhost:8010` (all workspace projects, unified data store)
+   - 51-ACA data is now in central Cosmos (migrated from local SQLite 2026-03-05)
+   - Depends on: Project 37 (`C:\AICOE\eva-foundry\37-data-model\`) running on port 8010
    - `$base` must be set before any model query in this session.
 
 2. **Read this project's governance docs** (in order):
@@ -80,16 +80,11 @@ Loop      --> return to Discover if tasks remain
 #### 3.1  Bootstrap
 
 ```powershell
-# 51-ACA local data model (port 8055, SQLite -- persistent, no Cosmos required)
-$base = "http://localhost:8055"
+# Central EVA data model (port 8010) -- managed by project 37-data-model
+# Do NOT start local 51-ACA data model; rely on project 37 exclusively
+$base = "http://localhost:8010"
 $h = Invoke-RestMethod "$base/health" -ErrorAction SilentlyContinue
-# Start if not running
-if (-not $h) {
-    pwsh -File "C:\AICOE\eva-foundry\51-ACA\data-model\start.ps1"
-    Start-Sleep 4
-    $h = Invoke-RestMethod "$base/health" -ErrorAction SilentlyContinue
-}
-if (-not $h) { Write-Warning "[WARN] data-model not responding on port 8055 -- check start.ps1" }
+if (-not $h) { Write-Warning "[WARN] port 8010 not responding -- ensure project 37 is running" }
 # The API self-documents -- read the agent guide before doing anything
 Invoke-RestMethod "$base/model/agent-guide"
 # One-call state check -- all layer counts + total objects
@@ -98,6 +93,7 @@ Invoke-RestMethod "$base/model/agent-summary"
 
 **Azure APIM (CI / cloud agents):**
 ```powershell
+# Cloud agents: use APIM gateway (delegates to project 37 backend in Cosmos)
 $base = "https://marco-sandbox-apim.azure-api.net/data-model"
 $hdrs = @{"Ocp-Apim-Subscription-Key" = $env:EVA_APIM_KEY}
 Invoke-RestMethod "$base/model/agent-summary" -Headers $hdrs
@@ -725,13 +721,13 @@ az deployment group create \
 
 ### P2.7 Data Model Notes
 
-51-ACA owns its data model completely. No dependency on any external EVA data model.
-- **Local**: SQLite at `data-model/aca-model.db`, served via `data-model/server.py` on port 8055
-- **Cloud agents (GitHub Actions)**: import `data-model/db.py` directly from the checked-out repo -- no HTTP server needed
-- **Rebuild**: `python scripts/seed-from-plan.py --reseed-model` -- wipes + reseeds all layers from PLAN.md
-- **Quick query**: `python -c "import sys; sys.path.insert(0,'data-model'); import db; print(db.total_active(), db.count_all())"`
-- The seed script imports `data-model/db.py` directly -- no HTTP call needed for seeding
-- Phase 2: deploy `data-model/server.py` as a separate ACA container for 51-ACA exclusively (no shared EVA endpoint)
+51-ACA uses the central EVA data model (project 37) as the single source of truth.
+- **Local dev**: HTTP API on port 8010 managed by project 37-data-model (Cosmos-backed in prod, memory-backed in dev)
+- **Query pattern**: Always use `$base = "http://localhost:8010"` -- never start a local 51-ACA data model
+- **Legacy code**: The `data-model/` folder in this project is DEPRECATED. It is no longer seeded or deployed.
+- **Cloud agents (GitHub Actions)**: Use HTTP API at port 8010 (or APIM in CI). Do not import `data-model/db.py`
+- **Dependency injection**: Every agent flow must establish `$base` pointing to port 8010 before any model query
+- Phase 2: All project data models will consolidate to project 37 exclusively; per-project models will be retired
 
 ---
 
@@ -823,33 +819,37 @@ After all sprint issues are merged, post a sprint summary comment on the
 sprint planning issue with: stories merged, FP delivered, MTI score, test count,
 next sprint recommendation. Do NOT start next sprint without human confirmation.
 
-### CA.4 Data Model API (51-ACA standalone -- no shared EVA endpoint)
+### CA.4 Data Model API (Central 37-data-model on port 8010)
 
-51-ACA has its own data model. Do NOT use any external EVA data model URL.
+All 51-ACA agents use the central EVA data model. Do NOT use project-local endpoints or legacy db.py imports.
 
-**Local dev (port 8055):**
+**Local dev (port 8010 -- managed by project 37):**
+```powershell
+$base = "http://localhost:8010"
+# Do NOT use port 8055 -- that local server is deprecated
 ```
-base = "http://localhost:8055"
-```
 
-**Cloud agents (GitHub Actions):** Import db.py directly from the checked-out repo:
+**Cloud agents (GitHub Actions):** Use HTTP API at port 8010 (or APIM in CI):
 ```python
-import sys, os
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '../../data-model'))
-import db
-endpoints = db.list_layer("endpoints")
-ep = db.get_object("endpoints", "GET /v1/scans")
+import requests
+base = "http://localhost:8010"  # or "https://marco-sandbox-apim.azure-api.net/data-model" in CI
+headers = {"Ocp-Apim-Subscription-Key": os.getenv("EVA_APIM_KEY")} if "apim" in base else {}
+endpoints = requests.get(f"{base}/model/endpoints/", headers=headers).json()
+ep = requests.get(f"{base}/model/endpoints/GET /v1/scans", headers=headers).json()
 ```
 
 Before implementing any endpoint, fetch its model record:
 ```python
-ep = db.get_object("endpoints", "GET /v1/scans/")
+ep = requests.get(f"{base}/model/endpoints/GET /v1/scans/", headers=headers).json()
 # Read: ep["status"] (must be "stub"), ep["implemented_in"], ep["repo_line"]
 ```
 
-After implementing, update the record:
+After implementing, update the record via PUT:
 ```python
-db.put_object("endpoints", "GET /v1/scans/", {**ep, "status": "implemented", "implemented_in": "services/api/app/routers/scans.py", "repo_line": 42})
+ep["status"] = "implemented"
+ep["implemented_in"] = "services/api/app/routers/scans.py"
+ep["repo_line"] = 42
+requests.put(f"{base}/model/endpoints/GET /v1/scans/", json=ep, headers={**headers, "X-Actor": "agent:copilot"})
 ```
 
 ### CA.5 Veritas Integration

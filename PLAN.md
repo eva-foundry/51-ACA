@@ -2,7 +2,7 @@
 
 ## EVA Ecosystem Tools
 
-- Data model: GET http://localhost:8010/model/projects/51-ACA
+- Data model (central, port 8010): GET http://localhost:8010/model/projects/51-ACA
 - 29-foundry agents: C:\AICOE\eva-foundation\29-foundry\agents\
 - 48-eva-veritas audit: run audit_repo MCP tool
 
@@ -12,7 +12,7 @@ ACA -- Azure Cost Advisor -- PLAN
 =================================
 
 Version: 0.6.0
-Updated: 2026-03-05T09:10:00Z (Governance Alignment: Centralized data model port 8010, deprecated local 8055 refs, project registered)
+Updated: 2026-03-05T09:20:00Z (Data Migration Complete: All 281 ACA stories + infrastructure migrated from port 8055 to port 8010 Cosmos. Single unified data model.)
 Phase: Phase 1 active (multi-agent orchestration pipeline complete)
 
 This plan is the Work Breakdown Structure (WBS) for ACA.

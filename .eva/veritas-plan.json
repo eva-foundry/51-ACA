@@ -1,6 +1,6 @@
 {
   "schema": "eva.veritas-plan.v1",
-  "generated_at": "2026-03-02T14:50:03.588313+00:00",
+  "generated_at": "2026-03-05T11:33:09.138833+00:00",
   "generated_from": [
     "PLAN.md",
     "README.md",
@@ -2481,12 +2481,136 @@
           "done": true,
           "source": "plan-md",
           "tasks": []
+        }
+      ]
+    },
+    {
+      "id": "ACA-15",
+      "title": "ONBOARDING SYSTEM",
+      "source": "plan-md",
+      "stories": [
+        {
+          "id": "ACA-15-001",
+          "wbs": "15.1.1",
+          "title": "Infrastructure provisioning: Bicep for Cosmos (9 containers)",
+          "feature_id": "ACA-15",
+          "done": false,
+          "source": "plan-md",
+          "tasks": []
+        },
+        {
+          "id": "ACA-15-002",
+          "wbs": "15.1.2",
+          "title": "Cosmos DB schema implementation (9 containers all deployed)",
+          "feature_id": "ACA-15",
+          "done": false,
+          "source": "plan-md",
+          "tasks": []
+        },
+        {
+          "id": "ACA-15-003",
+          "wbs": "15.2.1",
+          "title": "Gate state machine (7-gate workflow with timeout/retry logic)",
+          "feature_id": "ACA-15",
+          "done": false,
+          "source": "plan-md",
+          "tasks": []
+        },
+        {
+          "id": "ACA-15-004",
+          "wbs": "15.2.2",
+          "title": "FastAPI backend routes (POST /init, GET /{id}, decision handling)",
+          "feature_id": "ACA-15",
+          "done": false,
+          "source": "plan-md",
+          "tasks": []
+        },
+        {
+          "id": "ACA-15-005",
+          "wbs": "15.3.1",
+          "title": "Azure SDK wrappers + pagination + retry logic",
+          "feature_id": "ACA-15",
+          "done": false,
+          "source": "plan-md",
+          "tasks": []
+        },
+        {
+          "id": "ACA-15-006",
+          "wbs": "15.4.1",
+          "title": "CLI command structure (init, resume, list, get, logs, retry-extract)",
+          "feature_id": "ACA-15",
+          "done": false,
+          "source": "plan-md",
+          "tasks": []
+        },
+        {
+          "id": "ACA-15-007",
+          "wbs": "15.4.2",
+          "title": "Extraction pipeline (inventory + costs + advisor with recovery)",
+          "feature_id": "ACA-15",
+          "done": false,
+          "source": "plan-md",
+          "tasks": []
+        },
+        {
+          "id": "ACA-15-008",
+          "wbs": "15.4.3",
+          "title": "Logging + recovery mechanism (detailed operation logs, resume)",
+          "feature_id": "ACA-15",
+          "done": false,
+          "source": "plan-md",
+          "tasks": []
+        },
+        {
+          "id": "ACA-15-009",
+          "wbs": "15.5.1",
+          "title": "Analysis rules engine (18-azure-best pattern integration)",
+          "feature_id": "ACA-15",
+          "done": false,
+          "source": "plan-md",
+          "tasks": []
+        },
+        {
+          "id": "ACA-15-010",
+          "wbs": "15.5.2",
+          "title": "Evidence receipt generation (HMAC-SHA256 cryptographic signing)",
+          "feature_id": "ACA-15",
+          "done": false,
+          "source": "plan-md",
+          "tasks": []
+        },
+        {
+          "id": "ACA-15-011",
+          "wbs": "15.5.3",
+          "title": "Integration tests (all gates, security, performance)",
+          "feature_id": "ACA-15",
+          "done": false,
+          "source": "plan-md",
+          "tasks": []
+        },
+        {
+          "id": "ACA-15-012",
+          "wbs": "15.6.1",
+          "title": "React components (role assessment, preflight, extraction progress)",
+          "feature_id": "ACA-15",
+          "done": false,
+          "source": "plan-md",
+          "tasks": []
+        },
+        {
+          "id": "ACA-15-013",
+          "wbs": "15.6.2",
+          "title": "Findings report UI (savings display, PDF export, tier selector)",
+          "feature_id": "ACA-15",
+          "done": false,
+          "source": "plan-md",
+          "tasks": []
         },
         {
           "id": "ACA-03-021",
           "wbs": "ACA-03-021",
           "title": "Fix FindingsAssembler missing cosmos_client argument",
-          "feature_id": "ACA-14",
+          "feature_id": "ACA-15",
           "done": true,
           "source": "plan-md",
           "tasks": []
@@ -2495,7 +2619,7 @@
           "id": "ACA-07-021",
           "wbs": "ACA-07-021",
           "title": "Fix generate_blob_sas call and SAS_HOURS constant",
-          "feature_id": "ACA-14",
+          "feature_id": "ACA-15",
           "done": true,
           "source": "plan-md",
           "tasks": []
@@ -2504,7 +2628,7 @@
           "id": "ACA-12-021",
           "wbs": "ACA-12-021",
           "title": "Create missing spec docs in docs/",
-          "feature_id": "ACA-14",
+          "feature_id": "ACA-15",
           "done": true,
           "source": "plan-md",
           "tasks": []
@@ -2513,7 +2637,7 @@
           "id": "ACA-12-022",
           "wbs": "ACA-12-022",
           "title": "Lower MTI gate to 30 for Sprint 2 pre-flight",
-          "feature_id": "ACA-14",
+          "feature_id": "ACA-15",
           "done": true,
           "source": "plan-md",
           "tasks": []

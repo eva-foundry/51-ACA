@@ -1,0 +1,16 @@
+{
+  "primed_at": "2026-03-03T19:49:55-05:00",
+  "primed_by": "agent:copilot",
+  "results": {
+    "folder": "51-ACA",
+    "steps": [
+      "copilot-instructions:PASS",
+      "PLAN.md:SKIP",
+      "STATUS.md:SKIP",
+      "ACCEPTANCE.md:SKIP",
+      "README.md:CHECKED"
+    ]
+  },
+  "template_version": "v3.1.0",
+  "dry_run": false
+}
