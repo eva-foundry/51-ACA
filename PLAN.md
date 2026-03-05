@@ -1,10 +1,18 @@
+<!-- eva-primed-plan -->
+
+## EVA Ecosystem Tools
+
+- Data model: GET http://localhost:8010/model/projects/51-ACA
+- 29-foundry agents: C:\AICOE\eva-foundation\29-foundry\agents\
+- 48-eva-veritas audit: run audit_repo MCP tool
+
+---
+
 ACA -- Azure Cost Advisor -- PLAN
 =================================
 
 Version: 0.6.0
-Updated: 2026-03-02T21:50:00Z (Sprint-002 Complete: EPIC-17 Failure Recovery and Reliability delivered,
-         5 stories (ACA-17-001 through ACA-17-005), 34 story points, 38/38 tests PASS,
-         reliability target 9.5x achieved via Classifier -> Tuner -> Advisor pipeline)
+Updated: 2026-03-05T09:10:00Z (Governance Alignment: Centralized data model port 8010, deprecated local 8055 refs, project registered)
 Phase: Phase 1 active (multi-agent orchestration pipeline complete)
 
 This plan is the Work Breakdown Structure (WBS) for ACA.
@@ -44,7 +52,7 @@ Feature 1.1 -- Local dev environment
   Story 1.1.1 [ACA-01-001]  As a developer I can run `docker-compose up` and all services start
   Story 1.1.2 [ACA-01-002]  As a developer I can run `pytest services/ -x -q` and all tests pass
   Story 1.1.3 [ACA-01-003]  As a developer I can hit http://localhost:8080/health and get status=ok
-  Story 1.1.4 [ACA-01-004]  As a developer I can run the data-model on port 8011 (start.ps1)
+  Story 1.1.4 [ACA-01-004]  As a developer I can query the central data model (port 8010, managed by project 37)
   Story 1.1.5 [ACA-01-005]  As a developer I can use the .env.example as a complete checklist
 
 Feature 1.2 -- CI pipeline
@@ -1040,7 +1048,7 @@ Feature 15.2 -- Gate State Machine & FastAPI Backend
     Acceptance:
       - [ ] Enum: Gate (1-7), GateStatus (PASSED, FAILED, TIMEOUT, RETRY_REQUESTED, etc)
       - [ ] State machine class with transition rules + timeout handling
-      - [ ] All 7 gate transitions defined: GATE_1 → GATE_2 → ... → COMPLETED
+      - [ ] All 7 gate transitions defined: GATE_1 ? GATE_2 ? ... ? COMPLETED
       - [ ] Timeout on GATE_2 (client decision): 4 hours
       - [ ] GATE_1 retry on role elevation: supported
       - [ ] Test: Verify all state transitions, timeout firing
@@ -1070,7 +1078,7 @@ Feature 15.2 -- Gate State Machine & FastAPI Backend
       - [ ] POST /api/v1/onboarding/{engagementId}/decision (record gate decision)
       - [ ] Bearer token validation on all endpoints
       - [ ] Rate limiting: 100 req/min per subscription (APIM policy)
-      - [ ] Health endpoint: GET /health → {"status": "ok"}
+      - [ ] Health endpoint: GET /health ? {"status": "ok"}
       - [ ] All routes support tenant isolation (partition_key=subscriptionId)
 
   Story 15.2.2a [ACA-15-003a]  OpenAPI/Swagger specification (auto-generated from FastAPI)
@@ -1250,7 +1258,7 @@ Feature 15.5 -- Analysis + Evidence
       - tests/test_security.py (200 lines, GDPR, token validation, RBAC)
       - tests/test_performance.py (150 lines, latency, extraction time, RU/s)
     Acceptance:
-      - [ ] End-to-end test: init → role assessment → decision → preflight → extraction → analysis → evidence
+      - [ ] End-to-end test: init ? role assessment ? decision ? preflight ? extraction ? analysis ? evidence
       - [ ] Test with marco-sandbox subscription
       - [ ] All 7 gates pass with no errors
       - [ ] Evidence receipt valid (signature verification passes)

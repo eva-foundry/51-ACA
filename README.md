@@ -1,8 +1,28 @@
+<!-- eva-primed -->
+<!-- foundation-primer: 2026-03-03 by agent:copilot -->
+
+## EVA Ecosystem Integration
+
+| Tool | Purpose | How to Use |
+|------|---------|------------|
+| 37-data-model | Single source of truth for all project entities | GET http://localhost:8010/model/projects/51-ACA |
+| 29-foundry | Agentic capabilities (search, RAG, eval, observability) | C:\AICOE\eva-foundation\29-foundry |
+| 48-eva-veritas | Trust score and coverage audit | MCP tool: audit_repo / get_trust_score |
+| 07-foundation-layer | Copilot instructions primer + governance templates | MCP tool: apply_primer / audit_project |
+
+**Agent rule**: Query the data model API before reading source files.
+```powershell
+Invoke-RestMethod "http://localhost:8010/model/agent-guide"   # complete protocol
+Invoke-RestMethod "http://localhost:8010/model/agent-summary" # all layer counts
+```
+
+---
+
 ACA -- Azure Cost Advisor
 =========================
 
 Version: 0.7.0
-Updated: 2026-03-02T21:50:00Z (Sprint-002 Complete: Multi-Agent Orchestration delivered, 5 stories, 34 FP, 100% acceptance criteria)
+Updated: 2026-03-05T09:10:00Z (Governance Alignment: Project registered in central model, all 8055 refs removed, port 8010 centralized)
 Maturity: active -- Phase 1 multi-agent failure recovery pipeline complete; Sprint-003 ready to start
 
 =============================================================================
@@ -418,8 +438,8 @@ Quick start:
   3. python -m pytest services/ -x   # all service tests
   4. cd frontend && npm run dev       # Vite dev server
 
-Data model (local port 8011):
-  pwsh C:\AICOE\eva-foundry\51-ACA\data-model\start.ps1
+Data model (centralized, port 8010):
+  Managed by project 37-data-model. No local startup needed.
 
 =============================================================================
 PROJECT FILES MAP
