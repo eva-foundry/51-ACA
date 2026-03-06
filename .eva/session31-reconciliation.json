@@ -1,0 +1,3854 @@
+{
+  "reconciliation_date": "2026-03-06T16:40:16.538827Z",
+  "project_id": "51-ACA",
+  "sources": [
+    "veritas-plan.json",
+    "session31-harvest-evidence.json",
+    "ado-id-map.json"
+  ],
+  "records": [
+    {
+      "story_id": "ACA-01-001",
+      "wbs_status": "UNKNOWN",
+      "title": "As a developer I can run `docker-compose up` and all services start",
+      "epic_id": "ACA-01",
+      "feature_id": "ACA-01.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-01-002",
+      "wbs_status": "UNKNOWN",
+      "title": "As a developer I can run `pytest services/ -x -q` and all tests pass",
+      "epic_id": "ACA-01",
+      "feature_id": "ACA-01.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-01-003",
+      "wbs_status": "UNKNOWN",
+      "title": "As a developer I can hit http://localhost:8080/health and get status=ok",
+      "epic_id": "ACA-01",
+      "feature_id": "ACA-01.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-01-004",
+      "wbs_status": "UNKNOWN",
+      "title": "As a developer I can query the central data model (port 8010, managed by project 37)",
+      "epic_id": "ACA-01",
+      "feature_id": "ACA-01.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-01-005",
+      "wbs_status": "UNKNOWN",
+      "title": "As a developer I can use the .env.example as a complete checklist",
+      "epic_id": "ACA-01",
+      "feature_id": "ACA-01.1",
+      "evidence_count": 2,
+      "evidence_types": {
+        "test": 1,
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.2,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-01-006",
+      "wbs_status": "UNKNOWN",
+      "title": "As a developer, every PR triggers ruff lint. Zero lint errors = green.",
+      "epic_id": "ACA-01",
+      "feature_id": "ACA-01.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-01-007",
+      "wbs_status": "UNKNOWN",
+      "title": "As a developer, every PR triggers mypy type check. No unresolved types.",
+      "epic_id": "ACA-01",
+      "feature_id": "ACA-01.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-01-008",
+      "wbs_status": "UNKNOWN",
+      "title": "As a developer, every PR triggers pytest. No test failures = merge allowed.",
+      "epic_id": "ACA-01",
+      "feature_id": "ACA-01.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-01-009",
+      "wbs_status": "UNKNOWN",
+      "title": "As a developer, main branch push triggers axe-core a11y check on frontend.",
+      "epic_id": "ACA-01",
+      "feature_id": "ACA-01.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-01-010",
+      "wbs_status": "UNKNOWN",
+      "title": "As an operator I can run infra/phase1-marco/main.bicep and get 7 Cosmos containers",
+      "epic_id": "ACA-01",
+      "feature_id": "ACA-01.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-01-011",
+      "wbs_status": "UNKNOWN",
+      "title": "As an operator all secrets are in marcosandkv20260203 (no .env in production)",
+      "epic_id": "ACA-01",
+      "feature_id": "ACA-01.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-01-012",
+      "wbs_status": "UNKNOWN",
+      "title": "As an operator the API Container App has managed identity approved on KV",
+      "epic_id": "ACA-01",
+      "feature_id": "ACA-01.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-01-013",
+      "wbs_status": "UNKNOWN",
+      "title": "As an operator the collector job has managed identity with Cosmos read/write",
+      "epic_id": "ACA-01",
+      "feature_id": "ACA-01.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-01-014",
+      "wbs_status": "UNKNOWN",
+      "title": "As an operator OIDC is configured on the GitHub Actions workflow for EsDAICoE-Sandbox",
+      "epic_id": "ACA-01",
+      "feature_id": "ACA-01.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-01-015",
+      "wbs_status": "UNKNOWN",
+      "title": "As an operator infra/phase1-marco/bootstrap.sh exists and provisions all",
+      "epic_id": "ACA-01",
+      "feature_id": "ACA-01.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-01-016",
+      "wbs_status": "UNKNOWN",
+      "title": "As a developer all 4 Dockerfiles build without error on ubuntu-latest",
+      "epic_id": "ACA-01",
+      "feature_id": "ACA-01.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-01-017",
+      "wbs_status": "UNKNOWN",
+      "title": "As an operator deploy-phase1.yml pushes 4 images to marcosandacr20260203",
+      "epic_id": "ACA-01",
+      "feature_id": "ACA-01.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-01-018",
+      "wbs_status": "UNKNOWN",
+      "title": "As an operator collector-schedule.yml triggers nightly at 02:00 UTC",
+      "epic_id": "ACA-01",
+      "feature_id": "ACA-01.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-01-019",
+      "wbs_status": "UNKNOWN",
+      "title": "As an operator PUBLIC_APP_URL and PUBLIC_API_URL are read from env vars;",
+      "epic_id": "ACA-01",
+      "feature_id": "ACA-01.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-01-020",
+      "wbs_status": "UNKNOWN",
+      "title": "As a developer .env.example documents the Azure free hostname pattern",
+      "epic_id": "ACA-01",
+      "feature_id": "ACA-01.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-01-021",
+      "wbs_status": "UNKNOWN",
+      "title": "As an operator ACA_ALLOWED_ORIGINS is seeded from the Phase 1 free hostname",
+      "epic_id": "ACA-01",
+      "feature_id": "ACA-01.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-02-001",
+      "wbs_status": "UNKNOWN",
+      "title": "As a client using Mode A (delegated) I see a PASS/FAIL/WARN status",
+      "epic_id": "ACA-02",
+      "feature_id": "ACA-02.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-02-002",
+      "wbs_status": "UNKNOWN",
+      "title": "As a client with missing Cost Management Reader role I see a clear",
+      "epic_id": "ACA-02",
+      "feature_id": "ACA-02.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-02-003",
+      "wbs_status": "UNKNOWN",
+      "title": "As a client with PASS_WITH_WARNINGS I can still proceed with collection",
+      "epic_id": "ACA-02",
+      "feature_id": "ACA-02.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-02-004",
+      "wbs_status": "UNKNOWN",
+      "title": "As an operator I can pass --preflight-only to the collector to validate",
+      "epic_id": "ACA-02",
+      "feature_id": "ACA-02.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-02-005",
+      "wbs_status": "UNKNOWN",
+      "title": "As the system I collect all Azure resources via Resource Graph in < 60s",
+      "epic_id": "ACA-02",
+      "feature_id": "ACA-02.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-02-006",
+      "wbs_status": "UNKNOWN",
+      "title": "As the system I save inventory to Cosmos with partition_key=subscriptionId",
+      "epic_id": "ACA-02",
+      "feature_id": "ACA-02.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-02-007",
+      "wbs_status": "UNKNOWN",
+      "title": "As the system I capture: resource type, name, SKU, region, resource group, tags",
+      "epic_id": "ACA-02",
+      "feature_id": "ACA-02.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-02-008",
+      "wbs_status": "UNKNOWN",
+      "title": "As the system I collect 91 days of daily cost rows via Cost Management Query API",
+      "epic_id": "ACA-02",
+      "feature_id": "ACA-02.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-02-009",
+      "wbs_status": "UNKNOWN",
+      "title": "As the system I capture: date, MeterCategory, MeterName, resourceGroup,",
+      "epic_id": "ACA-02",
+      "feature_id": "ACA-02.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-02-010",
+      "wbs_status": "UNKNOWN",
+      "title": "As the system I handle rate limiting (429) with exponential backoff + retry",
+      "epic_id": "ACA-02",
+      "feature_id": "ACA-02.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-02-011",
+      "wbs_status": "UNKNOWN",
+      "title": "As the system I collect all Advisor recommendations across all categories",
+      "epic_id": "ACA-02",
+      "feature_id": "ACA-02.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-02-012",
+      "wbs_status": "UNKNOWN",
+      "title": "As the system I collect Policy compliance state (compliant / non-compliant counts)",
+      "epic_id": "ACA-02",
+      "feature_id": "ACA-02.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-02-013",
+      "wbs_status": "UNKNOWN",
+      "title": "As the system I collect network signals: NSG rule counts, private DNS zones,",
+      "epic_id": "ACA-02",
+      "feature_id": "ACA-02.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-02-014",
+      "wbs_status": "UNKNOWN",
+      "title": "As the system I update scan status in Cosmos: queued -> running -> succeeded/failed",
+      "epic_id": "ACA-02",
+      "feature_id": "ACA-02.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-02-015",
+      "wbs_status": "UNKNOWN",
+      "title": "As the system I write stats to the scan record (inventoryCount, costRows, advisorRecs)",
+      "epic_id": "ACA-02",
+      "feature_id": "ACA-02.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-02-016",
+      "wbs_status": "UNKNOWN",
+      "title": "As the API I expose GET /v1/scans/:scanId so the frontend can poll status",
+      "epic_id": "ACA-02",
+      "feature_id": "ACA-02.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-02-017",
+      "wbs_status": "UNKNOWN",
+      "title": "As the system, after mark_collection_complete sets status=collected, the analysis",
+      "epic_id": "ACA-02",
+      "feature_id": "ACA-02.1",
+      "evidence_count": 0,
+      "evidence_types": {},
+      "has_evidence": false,
+      "evidence_confidence": 0.0,
+      "consistency_score": 0.5,
+      "verified": false
+    },
+    {
+      "story_id": "ACA-03-001",
+      "wbs_status": "UNKNOWN",
+      "title": "As the system I load all 12 rules from ALL_RULES and run each in sequence",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "evidence_count": 3,
+      "evidence_types": {
+        "code": 1,
+        "test": 1,
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.23333333333333336,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-03-002",
+      "wbs_status": "UNKNOWN",
+      "title": "As the system I handle a rule failure in isolation (one rule crash does not",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-03-003",
+      "wbs_status": "UNKNOWN",
+      "title": "As the system I persist each Finding to Cosmos with full schema:",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "evidence_count": 2,
+      "evidence_types": {
+        "test": 1,
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.2,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-03-004",
+      "wbs_status": "UNKNOWN",
+      "title": "As the system I update AnalysisRun status: queued -> running -> succeeded/failed",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "evidence_count": 3,
+      "evidence_types": {
+        "code": 1,
+        "test": 1,
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.23333333333333336,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-03-005",
+      "wbs_status": "UNKNOWN",
+      "title": "As the system I write findingsSummary to the analysis run record",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "evidence_count": 3,
+      "evidence_types": {
+        "code": 1,
+        "test": 1,
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.23333333333333336,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-03-006",
+      "wbs_status": "UNKNOWN",
+      "title": "As a Tier 1 client calling GET /v1/findings/:scanId I receive findings",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-03-007",
+      "wbs_status": "UNKNOWN",
+      "title": "As a Tier 1 client I do not receive narrative or deliverable_template_id",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "evidence_count": 3,
+      "evidence_types": {
+        "code": 1,
+        "test": 1,
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.23333333333333336,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-03-008",
+      "wbs_status": "UNKNOWN",
+      "title": "As a Tier 2 client I receive the full finding including narrative and",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "evidence_count": 3,
+      "evidence_types": {
+        "code": 1,
+        "test": 1,
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.23333333333333336,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-03-009",
+      "wbs_status": "UNKNOWN",
+      "title": "As a Tier 3 client I receive the full finding including deliverable_template_id",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "evidence_count": 3,
+      "evidence_types": {
+        "code": 1,
+        "test": 1,
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.23333333333333336,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-03-010",
+      "wbs_status": "UNKNOWN",
+      "title": "As the red-team agent I can assert that Tier 1 tokens never leak",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "evidence_count": 3,
+      "evidence_types": {
+        "code": 1,
+        "test": 1,
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.23333333333333336,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-03-011",
+      "wbs_status": "UNKNOWN",
+      "title": "R-01 Dev Box auto-stop: returns finding when annual Dev Box cost > $1,000",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "evidence_count": 3,
+      "evidence_types": {
+        "code": 1,
+        "test": 1,
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.23333333333333336,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-03-012",
+      "wbs_status": "UNKNOWN",
+      "title": "R-02 Log retention: returns finding when annual LA cost > $500 in non-prod",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "evidence_count": 3,
+      "evidence_types": {
+        "code": 1,
+        "test": 1,
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.23333333333333336,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-03-013",
+      "wbs_status": "UNKNOWN",
+      "title": "R-03 Defender mismatch: returns finding when annual Defender cost > $2,000",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "evidence_count": 3,
+      "evidence_types": {
+        "code": 1,
+        "test": 1,
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.23333333333333336,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-03-014",
+      "wbs_status": "UNKNOWN",
+      "title": "R-04 Compute scheduling: returns finding when annual schedulable compute > $5,000",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "evidence_count": 3,
+      "evidence_types": {
+        "code": 1,
+        "test": 1,
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.23333333333333336,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-03-015",
+      "wbs_status": "UNKNOWN",
+      "title": "R-05 Anomaly detection: returns finding for each category with z-score > 3.0",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "evidence_count": 3,
+      "evidence_types": {
+        "code": 1,
+        "test": 1,
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.23333333333333336,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-03-016",
+      "wbs_status": "UNKNOWN",
+      "title": "R-06 Stale environments: returns finding when >= 3 App Service sites exist",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "evidence_count": 3,
+      "evidence_types": {
+        "code": 1,
+        "test": 1,
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.23333333333333336,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-03-017",
+      "wbs_status": "UNKNOWN",
+      "title": "R-07 Search SKU oversize: returns finding when annual Search cost > $2,000",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "evidence_count": 2,
+      "evidence_types": {
+        "test": 1,
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.2,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-03-018",
+      "wbs_status": "UNKNOWN",
+      "title": "R-08 ACR consolidation: returns finding when >= 3 registries exist",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "evidence_count": 2,
+      "evidence_types": {
+        "test": 1,
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.2,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-03-019",
+      "wbs_status": "UNKNOWN",
+      "title": "R-09 DNS sprawl: returns finding when annual DNS cost > $1,000",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "evidence_count": 3,
+      "evidence_types": {
+        "code": 1,
+        "test": 1,
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.23333333333333336,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-03-020",
+      "wbs_status": "UNKNOWN",
+      "title": "Unit test for R-01 devbox_autostop: fixture with Dev Box cost > $1,000 -> finding",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "evidence_count": 2,
+      "evidence_types": {
+        "test": 1,
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.2,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-03-021",
+      "wbs_status": "UNKNOWN",
+      "title": "Unit test for R-02 log_retention: fixture with LA cost > $500 -> finding",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "evidence_count": 3,
+      "evidence_types": {
+        "code": 1,
+        "test": 1,
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.23333333333333336,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-03-022",
+      "wbs_status": "UNKNOWN",
+      "title": "Unit test for R-03 defender_mismatch: fixture with Defender cost > $2,000 -> finding",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "evidence_count": 2,
+      "evidence_types": {
+        "test": 1,
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.2,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-03-023",
+      "wbs_status": "UNKNOWN",
+      "title": "Unit test for R-04 compute_scheduling: fixture with schedulable > $5,000 -> finding",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "evidence_count": 2,
+      "evidence_types": {
+        "code": 1,
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.22499999999999998,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-03-024",
+      "wbs_status": "UNKNOWN",
+      "title": "Unit test for R-05 anomaly_detection: fixture with z-score > 3.0 -> finding",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-03-025",
+      "wbs_status": "UNKNOWN",
+      "title": "Unit test for R-06 stale_environments: fixture with >= 3 App Services -> finding",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-03-026",
+      "wbs_status": "UNKNOWN",
+      "title": "Unit test for R-07 search_sku_oversize: fixture with Search cost > $2,000 -> finding",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-03-027",
+      "wbs_status": "UNKNOWN",
+      "title": "Unit test for R-08 acr_consolidation: fixture with >= 3 registries -> finding",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-03-028",
+      "wbs_status": "UNKNOWN",
+      "title": "Unit test for R-09 dns_sprawl: fixture with DNS cost > $1,000 -> finding",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "evidence_count": 2,
+      "evidence_types": {
+        "code": 1,
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.22499999999999998,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-03-029",
+      "wbs_status": "UNKNOWN",
+      "title": "Unit test for R-10 savings_plan_coverage: fixture with compute > $20,000 -> finding",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-03-030",
+      "wbs_status": "UNKNOWN",
+      "title": "Unit test for R-11 apim_token_budget: fixture with APIM + OpenAI -> finding",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-03-031",
+      "wbs_status": "UNKNOWN",
+      "title": "Unit test for R-12 chargeback_gap: fixture with total cost > $5,000 -> finding",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-03-032",
+      "wbs_status": "UNKNOWN",
+      "title": "Negative tests for each rule: below-threshold fixture -> no finding returned",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-03-033",
+      "wbs_status": "UNKNOWN",
+      "title": "FindingsAssembler unit test: mock rule list -> correct Cosmos upsert payload",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "evidence_count": 2,
+      "evidence_types": {
+        "test": 1,
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.2,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-04-001",
+      "wbs_status": "UNKNOWN",
+      "title": "As a client I can sign in via Microsoft Identity (any Microsoft tenant);",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "evidence_count": 2,
+      "evidence_types": {
+        "code": 1,
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.22499999999999998,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-04-002",
+      "wbs_status": "UNKNOWN",
+      "title": "As the API I validate the JWT on every authenticated endpoint using",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-04-003",
+      "wbs_status": "UNKNOWN",
+      "title": "As the API I extract subscriptionId from the session (stored after connect);",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-04-004",
+      "wbs_status": "UNKNOWN",
+      "title": "As a client I can connect my Azure subscription (POST /v1/auth/connect)",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-04-005",
+      "wbs_status": "UNKNOWN",
+      "title": "As a client I can disconnect (POST /v1/auth/disconnect) and all access",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-04-006",
+      "wbs_status": "UNKNOWN",
+      "title": "As a developer auth.py is reworked: MSAL authority=common, no EsDAICoE",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-04-007",
+      "wbs_status": "UNKNOWN",
+      "title": "As the frontend LoginPage, sign-in CTA calls MSAL.js with",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-04-008",
+      "wbs_status": "UNKNOWN",
+      "title": "POST /v1/auth/connect         -- Connect Azure subscription",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "evidence_count": 2,
+      "evidence_types": {
+        "test": 1,
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.2,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-04-009",
+      "wbs_status": "UNKNOWN",
+      "title": "POST /v1/auth/preflight       -- Run pre-flight probes",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-04-010",
+      "wbs_status": "UNKNOWN",
+      "title": "POST /v1/auth/disconnect      -- Disconnect subscription",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-04-011",
+      "wbs_status": "UNKNOWN",
+      "title": "POST /v1/collect/start        -- Trigger collector job (was /v1/scans)",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-04-012",
+      "wbs_status": "UNKNOWN",
+      "title": "GET  /v1/collect/status       -- Poll collection progress (was /v1/scans/:scanId)",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-04-013",
+      "wbs_status": "UNKNOWN",
+      "title": "GET  /v1/reports/tier1        -- Tier 1 findings report (was /v1/findings/:scanId)",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-04-014",
+      "wbs_status": "UNKNOWN",
+      "title": "POST /v1/billing/checkout     -- Stripe checkout (tier2 or tier3 in body)",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-04-015",
+      "wbs_status": "UNKNOWN",
+      "title": "GET  /v1/billing/portal       -- Stripe billing portal redirect URL",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-04-016",
+      "wbs_status": "UNKNOWN",
+      "title": "POST /v1/webhooks/stripe      -- Stripe event handler",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-04-017",
+      "wbs_status": "UNKNOWN",
+      "title": "As the gateway I validate JWT signature on all /v1/* routes",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-04-018",
+      "wbs_status": "UNKNOWN",
+      "title": "As the gateway I cache /v1/entitlements response for 60s per subscriptionId",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-04-019",
+      "wbs_status": "UNKNOWN",
+      "title": "As the gateway I return 403 with TIER_REQUIRED error when a Tier 1",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-04-020",
+      "wbs_status": "UNKNOWN",
+      "title": "As the gateway I enforce subscription key throttling (100 req/min default)",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-04-021",
+      "wbs_status": "UNKNOWN",
+      "title": "As the gateway I forward X-Subscription-Id header to the API on all calls",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-04-022",
+      "wbs_status": "UNKNOWN",
+      "title": "GET  /v1/admin/kpis",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-04-023",
+      "wbs_status": "UNKNOWN",
+      "title": "GET  /v1/admin/customers?query=",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-04-024",
+      "wbs_status": "UNKNOWN",
+      "title": "POST /v1/admin/entitlements/grant",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-04-025",
+      "wbs_status": "UNKNOWN",
+      "title": "POST /v1/admin/subscriptions/:subscriptionId/lock",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-04-026",
+      "wbs_status": "UNKNOWN",
+      "title": "POST /v1/admin/stripe/reconcile",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-04-027",
+      "wbs_status": "UNKNOWN",
+      "title": "GET  /v1/admin/runs?type=scan|analysis|delivery",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-04-028",
+      "wbs_status": "UNKNOWN",
+      "title": "services/api/app/db/cosmos.py upsert_item() must accept partition_key as a",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "evidence_count": 0,
+      "evidence_types": {},
+      "has_evidence": false,
+      "evidence_confidence": 0.0,
+      "consistency_score": 0.5,
+      "verified": false
+    },
+    {
+      "story_id": "ACA-05-001",
+      "wbs_status": "UNKNOWN",
+      "title": "roles.ts defines ACA_Admin, ACA_Support, ACA_FinOps role constants",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-05-002",
+      "wbs_status": "UNKNOWN",
+      "title": "useAuth.ts wraps MSAL PublicClientApplication; exposes user, roles,",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-05-003",
+      "wbs_status": "UNKNOWN",
+      "title": "RequireAuth.tsx: if !isAuthenticated redirect to /",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-05-004",
+      "wbs_status": "UNKNOWN",
+      "title": "RequireRole.tsx: if user lacks anyOf roles, redirect to /app/connect",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-05-005",
+      "wbs_status": "UNKNOWN",
+      "title": "All admin routes require RequireAuth + RequireRole (ACA_Admin|Support|FinOps)",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-05-006",
+      "wbs_status": "UNKNOWN",
+      "title": "CustomerLayout.tsx: top nav with logo, LanguageSelector, user menu",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-05-007",
+      "wbs_status": "UNKNOWN",
+      "title": "AdminLayout.tsx: top nav + left sidebar with admin nav items",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-05-008",
+      "wbs_status": "UNKNOWN",
+      "title": "NavCustomer.tsx: links to /app/connect, /app/status, /app/findings",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-05-009",
+      "wbs_status": "UNKNOWN",
+      "title": "NavAdmin.tsx: links to /admin/dashboard, /admin/customers,",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-05-010",
+      "wbs_status": "UNKNOWN",
+      "title": "AppShell.tsx: root component with FluentProvider + ConsentBanner +",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-05-011",
+      "wbs_status": "UNKNOWN",
+      "title": "router.tsx uses createBrowserRouter (not BrowserRouter + <Routes>)",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-05-012",
+      "wbs_status": "UNKNOWN",
+      "title": "Route / -> LoginPage (no auth required)",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-05-013",
+      "wbs_status": "UNKNOWN",
+      "title": "Routes /app/* -> RequireAuth -> CustomerLayout -> Outlet",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-05-014",
+      "wbs_status": "UNKNOWN",
+      "title": "Routes /admin/* -> RequireAuth -> RequireRole -> AdminLayout -> Outlet",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-05-015",
+      "wbs_status": "UNKNOWN",
+      "title": "Code-split: all page components lazy-loaded with React.lazy",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-05-016",
+      "wbs_status": "UNKNOWN",
+      "title": "LoginPage (/) -- Entra ID login CTA + dev bypass link",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-05-017",
+      "wbs_status": "UNKNOWN",
+      "title": "ConnectSubscriptionPage (/app/connect) -- Mode A/B/C radio group;",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-05-018",
+      "wbs_status": "UNKNOWN",
+      "title": "CollectionStatusPage (/app/status/:subscriptionId) -- polls",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-05-019",
+      "wbs_status": "UNKNOWN",
+      "title": "FindingsTier1Page (/app/findings/:subscriptionId) -- renders Tier 1",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-05-020",
+      "wbs_status": "UNKNOWN",
+      "title": "UpgradePage (/app/upgrade/:subscriptionId) -- Tier 2 vs Tier 3 cards;",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-05-021",
+      "wbs_status": "UNKNOWN",
+      "title": "AdminDashboardPage (/admin/dashboard) -- calls GET /v1/admin/kpis;",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-05-022",
+      "wbs_status": "UNKNOWN",
+      "title": "AdminCustomersPage (/admin/customers) -- search input calls",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-05-023",
+      "wbs_status": "UNKNOWN",
+      "title": "AdminBillingPage (/admin/billing) -- Stripe billing portal link;",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-05-024",
+      "wbs_status": "UNKNOWN",
+      "title": "AdminRunsPage (/admin/runs) -- lists runs from GET /v1/admin/runs;",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-05-025",
+      "wbs_status": "UNKNOWN",
+      "title": "AdminControlsPage (/admin/controls) -- grant tier form (subscriptionId,",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-05-026",
+      "wbs_status": "UNKNOWN",
+      "title": "frontend/src/app/api/client.ts -- base http<T> function; includes",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-05-027",
+      "wbs_status": "UNKNOWN",
+      "title": "frontend/src/app/api/appApi.ts -- customer API calls:",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-05-028",
+      "wbs_status": "UNKNOWN",
+      "title": "frontend/src/app/api/adminApi.ts -- admin API calls:",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-05-029",
+      "wbs_status": "UNKNOWN",
+      "title": "frontend/src/app/types/models.ts -- TypeScript DTOs:",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-05-030",
+      "wbs_status": "UNKNOWN",
+      "title": "Loading.tsx -- full-page or inline Fluent Spinner with aria-label",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-05-031",
+      "wbs_status": "UNKNOWN",
+      "title": "ErrorState.tsx -- Fluent MessageBar (error) with retry callback",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-05-032",
+      "wbs_status": "UNKNOWN",
+      "title": "DataTable.tsx -- accessible Fluent Table wrapper (th scope=col)",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-05-033",
+      "wbs_status": "UNKNOWN",
+      "title": "MoneyRangeBar.tsx -- visual low/high saving range bar with currency label",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-05-034",
+      "wbs_status": "UNKNOWN",
+      "title": "EffortBadge.tsx -- colour-coded badge: trivial/easy/medium/involved/strategic",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-05-035",
+      "wbs_status": "UNKNOWN",
+      "title": "As a user I see a consent banner on first visit (ConsentBanner reused)",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-05-036",
+      "wbs_status": "UNKNOWN",
+      "title": "TelemetryProvider.tsx wraps CustomerLayout; loads GTM + Clarity scripts",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-05-037",
+      "wbs_status": "UNKNOWN",
+      "title": "All 16 AnalyticsEventName events fire at correct points in customer flow",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-05-038",
+      "wbs_status": "UNKNOWN",
+      "title": "Admin surface does NOT load telemetry (no GA4 in admin pages)",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-05-039",
+      "wbs_status": "UNKNOWN",
+      "title": "Skip-to-content link is first focusable element on every page",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-05-040",
+      "wbs_status": "UNKNOWN",
+      "title": "Full keyboard navigation in all customer and admin pages",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-05-041",
+      "wbs_status": "UNKNOWN",
+      "title": "All form fields have associated label elements",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-05-042",
+      "wbs_status": "UNKNOWN",
+      "title": "Admin confirmation modals trap focus and close on Escape",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-06-001",
+      "wbs_status": "UNKNOWN",
+      "title": "POST /v1/checkout/tier2 returns a Stripe checkout session URL",
+      "epic_id": "ACA-06",
+      "feature_id": "ACA-06.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-06-002",
+      "wbs_status": "UNKNOWN",
+      "title": "POST /v1/checkout/tier3 returns a Stripe checkout session URL",
+      "epic_id": "ACA-06",
+      "feature_id": "ACA-06.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-06-003",
+      "wbs_status": "UNKNOWN",
+      "title": "mode=subscription creates a Stripe subscription (Tier 2 monthly)",
+      "epic_id": "ACA-06",
+      "feature_id": "ACA-06.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-06-004",
+      "wbs_status": "UNKNOWN",
+      "title": "mode=one_time creates a one-time session (Tier 2 one-time, Tier 3)",
+      "epic_id": "ACA-06",
+      "feature_id": "ACA-06.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-06-005",
+      "wbs_status": "UNKNOWN",
+      "title": "Checkout metadata contains subscriptionId and analysisId",
+      "epic_id": "ACA-06",
+      "feature_id": "ACA-06.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-06-006",
+      "wbs_status": "UNKNOWN",
+      "title": "As a client with a coupon code I can enter it at Stripe checkout",
+      "epic_id": "ACA-06",
+      "feature_id": "ACA-06.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-06-007",
+      "wbs_status": "UNKNOWN",
+      "title": "settings.py has STRIPE_COUPON_ENABLED: bool = True field",
+      "epic_id": "ACA-06",
+      "feature_id": "ACA-06.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-06-008",
+      "wbs_status": "UNKNOWN",
+      "title": "As an admin I can create Stripe promotion codes for trial clients",
+      "epic_id": "ACA-06",
+      "feature_id": "ACA-06.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-06-009",
+      "wbs_status": "UNKNOWN",
+      "title": "checkout.session.completed -> write entitlement to Cosmos, trigger delivery",
+      "epic_id": "ACA-06",
+      "feature_id": "ACA-06.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-06-010",
+      "wbs_status": "UNKNOWN",
+      "title": "invoice.paid -> renew Tier 2 subscription entitlement for next period",
+      "epic_id": "ACA-06",
+      "feature_id": "ACA-06.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-06-011",
+      "wbs_status": "UNKNOWN",
+      "title": "customer.subscription.updated -> update Tier in Cosmos clients container",
+      "epic_id": "ACA-06",
+      "feature_id": "ACA-06.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-06-012",
+      "wbs_status": "UNKNOWN",
+      "title": "customer.subscription.deleted -> downgrade to Tier 1 in Cosmos unless Tier 3 permanent",
+      "epic_id": "ACA-06",
+      "feature_id": "ACA-06.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-06-013",
+      "wbs_status": "UNKNOWN",
+      "title": "All webhook events written to payments container for audit trail",
+      "epic_id": "ACA-06",
+      "feature_id": "ACA-06.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-06-014",
+      "wbs_status": "UNKNOWN",
+      "title": "GET /v1/entitlements?subscriptionId=X returns { tier, validUntil, features[] }",
+      "epic_id": "ACA-06",
+      "feature_id": "ACA-06.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-06-015",
+      "wbs_status": "UNKNOWN",
+      "title": "Tier gate evaluates entitlement from Cosmos (with APIM 60s cache)",
+      "epic_id": "ACA-06",
+      "feature_id": "ACA-06.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-06-016",
+      "wbs_status": "UNKNOWN",
+      "title": "StripeCustomerMapRepo resolves stripeCustomerId -> subscriptionId for webhooks",
+      "epic_id": "ACA-06",
+      "feature_id": "ACA-06.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-06-017",
+      "wbs_status": "UNKNOWN",
+      "title": "Billing portal endpoint derives stripeCustomerId from Cosmos clients container",
+      "epic_id": "ACA-06",
+      "feature_id": "ACA-06.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-06-018",
+      "wbs_status": "UNKNOWN",
+      "title": "As a Tier 3 customer, when my Tier 2 subscription is canceled (subscription.deleted)",
+      "epic_id": "ACA-06",
+      "feature_id": "ACA-06.1",
+      "evidence_count": 0,
+      "evidence_types": {},
+      "has_evidence": false,
+      "evidence_confidence": 0.0,
+      "consistency_score": 0.5,
+      "verified": false
+    },
+    {
+      "story_id": "ACA-07-001",
+      "wbs_status": "UNKNOWN",
+      "title": "12 Jinja2 template folders exist in services/delivery/app/templates/",
+      "epic_id": "ACA-07",
+      "feature_id": "ACA-07.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-07-002",
+      "wbs_status": "UNKNOWN",
+      "title": "Each folder has main.bicep and README.md (Bicep Phase 1 only;",
+      "epic_id": "ACA-07",
+      "feature_id": "ACA-07.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-07-003",
+      "wbs_status": "UNKNOWN",
+      "title": "Templates are parameterized with scan_id, subscription_id, and finding fields",
+      "epic_id": "ACA-07",
+      "feature_id": "ACA-07.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-07-004",
+      "wbs_status": "UNKNOWN",
+      "title": "Template content sourced from 12-IaCscript.md patterns",
+      "epic_id": "ACA-07",
+      "feature_id": "ACA-07.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-07-005",
+      "wbs_status": "UNKNOWN",
+      "title": "Delivery service generates all IaC artifacts for a scan's findings",
+      "epic_id": "ACA-07",
+      "feature_id": "ACA-07.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-07-006",
+      "wbs_status": "UNKNOWN",
+      "title": "ZIP is assembled with findings.json manifest at root",
+      "epic_id": "ACA-07",
+      "feature_id": "ACA-07.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-07-007",
+      "wbs_status": "UNKNOWN",
+      "title": "ZIP is signed with SHA-256 and the hash stored in the deliverables container",
+      "epic_id": "ACA-07",
+      "feature_id": "ACA-07.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-07-008",
+      "wbs_status": "UNKNOWN",
+      "title": "ZIP is uploaded to Azure Blob Storage with 24h SAS URL",
+      "epic_id": "ACA-07",
+      "feature_id": "ACA-07.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-07-009",
+      "wbs_status": "UNKNOWN",
+      "title": "Deliverable record is written to Cosmos with sasUrl, sha256, artifactCount",
+      "epic_id": "ACA-07",
+      "feature_id": "ACA-07.1",
+      "evidence_count": 2,
+      "evidence_types": {
+        "test": 1,
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.2,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-08-001",
+      "wbs_status": "UNKNOWN",
+      "title": "GTM container is loaded in index.html with consent gating",
+      "epic_id": "ACA-08",
+      "feature_id": "ACA-08.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-08-002",
+      "wbs_status": "UNKNOWN",
+      "title": "GA4 tag fires after consent accepted",
+      "epic_id": "ACA-08",
+      "feature_id": "ACA-08.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-08-003",
+      "wbs_status": "UNKNOWN",
+      "title": "Clarity tag fires after consent accepted with form field masking ON",
+      "epic_id": "ACA-08",
+      "feature_id": "ACA-08.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-08-004",
+      "wbs_status": "UNKNOWN",
+      "title": "All 16 AnalyticsEventName events are fired at correct points in the UI",
+      "epic_id": "ACA-08",
+      "feature_id": "ACA-08.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-08-005",
+      "wbs_status": "UNKNOWN",
+      "title": "Consent banner allows accept/reject: rejected state suppresses all tags",
+      "epic_id": "ACA-08",
+      "feature_id": "ACA-08.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-08-006",
+      "wbs_status": "UNKNOWN",
+      "title": "Consent preference is respected across page reloads (localStorage)",
+      "epic_id": "ACA-08",
+      "feature_id": "ACA-08.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-08-007",
+      "wbs_status": "UNKNOWN",
+      "title": "App Insights connection string is set in all Container Apps via KV reference",
+      "epic_id": "ACA-08",
+      "feature_id": "ACA-08.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-08-008",
+      "wbs_status": "UNKNOWN",
+      "title": "All service logs are structured JSON and appear in Azure Monitor",
+      "epic_id": "ACA-08",
+      "feature_id": "ACA-08.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-08-009",
+      "wbs_status": "UNKNOWN",
+      "title": "Scan duration, analysis duration, delivery duration are emitted as custom metrics",
+      "epic_id": "ACA-08",
+      "feature_id": "ACA-08.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-08-010",
+      "wbs_status": "UNKNOWN",
+      "title": "All API errors (4xx, 5xx) are logged with error_category enum (no raw messages)",
+      "epic_id": "ACA-08",
+      "feature_id": "ACA-08.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-08-011",
+      "wbs_status": "UNKNOWN",
+      "title": "Stripe webhook events are logged with event type + subscriptionId (hashed)",
+      "epic_id": "ACA-08",
+      "feature_id": "ACA-08.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-08-012",
+      "wbs_status": "UNKNOWN",
+      "title": "Alert: API service 5xx rate > 5% in 5 minutes -> PagerDuty / email",
+      "epic_id": "ACA-08",
+      "feature_id": "ACA-08.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-08-013",
+      "wbs_status": "UNKNOWN",
+      "title": "Alert: Collector job failure -> email + Cosmos audit record",
+      "epic_id": "ACA-08",
+      "feature_id": "ACA-08.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-08-014",
+      "wbs_status": "UNKNOWN",
+      "title": "Alert: Anomaly detection rule fires -> owner notified (Story R-05 output)",
+      "epic_id": "ACA-08",
+      "feature_id": "ACA-08.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-09-001",
+      "wbs_status": "UNKNOWN",
+      "title": "i18next is configured with 5 locale namespaces in frontend/src/i18n/",
+      "epic_id": "ACA-09",
+      "feature_id": "ACA-09.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-09-002",
+      "wbs_status": "UNKNOWN",
+      "title": "All user-visible strings are extracted to translation files (no hardcoded EN text)",
+      "epic_id": "ACA-09",
+      "feature_id": "ACA-09.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-09-003",
+      "wbs_status": "UNKNOWN",
+      "title": "Language selector is visible in the nav with locale names in their own language:",
+      "epic_id": "ACA-09",
+      "feature_id": "ACA-09.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-09-004",
+      "wbs_status": "UNKNOWN",
+      "title": "Locale preference is persisted in localStorage",
+      "epic_id": "ACA-09",
+      "feature_id": "ACA-09.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-09-005",
+      "wbs_status": "UNKNOWN",
+      "title": "Date formats use Intl.DateTimeFormat -- locale-aware, no hardcoded format",
+      "epic_id": "ACA-09",
+      "feature_id": "ACA-09.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-09-006",
+      "wbs_status": "UNKNOWN",
+      "title": "Number/currency formats use Intl.NumberFormat with locale and currency options:",
+      "epic_id": "ACA-09",
+      "feature_id": "ACA-09.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-09-007",
+      "wbs_status": "UNKNOWN",
+      "title": "fr (fr-CA) translations are completed before Phase 1 go-live",
+      "epic_id": "ACA-09",
+      "feature_id": "ACA-09.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-09-008",
+      "wbs_status": "UNKNOWN",
+      "title": "pt-BR, es, and de translations are completed before Phase 1 go-live",
+      "epic_id": "ACA-09",
+      "feature_id": "ACA-09.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-09-009",
+      "wbs_status": "UNKNOWN",
+      "title": "API error messages returned with Accept-Language header support for the",
+      "epic_id": "ACA-09",
+      "feature_id": "ACA-09.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-09-010",
+      "wbs_status": "UNKNOWN",
+      "title": "axe-core CI check runs on every PR -- zero critical or serious violations gate",
+      "epic_id": "ACA-09",
+      "feature_id": "ACA-09.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-09-011",
+      "wbs_status": "UNKNOWN",
+      "title": "All icon-only buttons have aria-label in all 5 locales",
+      "epic_id": "ACA-09",
+      "feature_id": "ACA-09.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-09-012",
+      "wbs_status": "UNKNOWN",
+      "title": "All form fields have associated <label> elements (no placeholder-as-label)",
+      "epic_id": "ACA-09",
+      "feature_id": "ACA-09.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-09-013",
+      "wbs_status": "UNKNOWN",
+      "title": "Findings table has proper <th scope=\"col\"> headers",
+      "epic_id": "ACA-09",
+      "feature_id": "ACA-09.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-09-014",
+      "wbs_status": "UNKNOWN",
+      "title": "PreFlight status indicators use both colour and icon/text (not colour-only)",
+      "epic_id": "ACA-09",
+      "feature_id": "ACA-09.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-09-015",
+      "wbs_status": "UNKNOWN",
+      "title": "Colour contrast ratio >= 4.5:1 for all body text (verified in Figma + axe)",
+      "epic_id": "ACA-09",
+      "feature_id": "ACA-09.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-09-016",
+      "wbs_status": "UNKNOWN",
+      "title": "Focus ring is visible and high-contrast on all focusable elements",
+      "epic_id": "ACA-09",
+      "feature_id": "ACA-09.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-09-017",
+      "wbs_status": "UNKNOWN",
+      "title": "Skip-to-content link is the first focusable element on every page",
+      "epic_id": "ACA-09",
+      "feature_id": "ACA-09.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-09-018",
+      "wbs_status": "UNKNOWN",
+      "title": "Consent banner is keyboard-accessible and screen-reader-labelled",
+      "epic_id": "ACA-09",
+      "feature_id": "ACA-09.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-10-001",
+      "wbs_status": "UNKNOWN",
+      "title": "Red-team agent runs Tier 1 token against findings API and asserts",
+      "epic_id": "ACA-10",
+      "feature_id": "ACA-10.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-10-002",
+      "wbs_status": "UNKNOWN",
+      "title": "All endpoints validated: no tenant A can access tenant B data",
+      "epic_id": "ACA-10",
+      "feature_id": "ACA-10.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-10-003",
+      "wbs_status": "UNKNOWN",
+      "title": "Stripe webhook signature verified on every event (whsec_ secret)",
+      "epic_id": "ACA-10",
+      "feature_id": "ACA-10.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-10-004",
+      "wbs_status": "UNKNOWN",
+      "title": "Admin endpoints protected by bearer token rotation schedule",
+      "epic_id": "ACA-10",
+      "feature_id": "ACA-10.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-10-005",
+      "wbs_status": "UNKNOWN",
+      "title": "All Cosmos queries parameterized (no string concatenation in queries)",
+      "epic_id": "ACA-10",
+      "feature_id": "ACA-10.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-10-006",
+      "wbs_status": "UNKNOWN",
+      "title": "CSP header enforced: scripts from GTM/Stripe/Clarity only, no inline",
+      "epic_id": "ACA-10",
+      "feature_id": "ACA-10.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-10-007",
+      "wbs_status": "UNKNOWN",
+      "title": "Privacy policy published at /privacy in all 5 locales",
+      "epic_id": "ACA-10",
+      "feature_id": "ACA-10.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-10-008",
+      "wbs_status": "UNKNOWN",
+      "title": "Terms of service published at /terms in all 5 locales",
+      "epic_id": "ACA-10",
+      "feature_id": "ACA-10.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-10-009",
+      "wbs_status": "UNKNOWN",
+      "title": "Data retention policy: collected Azure data purged after 90 days",
+      "epic_id": "ACA-10",
+      "feature_id": "ACA-10.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-10-010",
+      "wbs_status": "UNKNOWN",
+      "title": "Client can request data deletion via DELETE /v1/auth/disconnect which",
+      "epic_id": "ACA-10",
+      "feature_id": "ACA-10.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-10-011",
+      "wbs_status": "UNKNOWN",
+      "title": "GA4 data retention set to 14 months. IP anonymization enabled.",
+      "epic_id": "ACA-10",
+      "feature_id": "ACA-10.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-10-012",
+      "wbs_status": "UNKNOWN",
+      "title": "Clarity data retention respects GDPR right-to-be-forgotten via Clarity API",
+      "epic_id": "ACA-10",
+      "feature_id": "ACA-10.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-10-013",
+      "wbs_status": "UNKNOWN",
+      "title": "docs/client-access-guide.md published at /docs/access-guide in all 5 locales",
+      "epic_id": "ACA-10",
+      "feature_id": "ACA-10.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-10-014",
+      "wbs_status": "UNKNOWN",
+      "title": "FAQ page covers top 10 support questions (from preflight failure analysis)",
+      "epic_id": "ACA-10",
+      "feature_id": "ACA-10.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-10-015",
+      "wbs_status": "UNKNOWN",
+      "title": "Status page (uptime) linked from footer",
+      "epic_id": "ACA-10",
+      "feature_id": "ACA-10.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-11-001",
+      "wbs_status": "UNKNOWN",
+      "title": "`terraform apply` on infra/phase2-private completes without error",
+      "epic_id": "ACA-11",
+      "feature_id": "ACA-11.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-11-002",
+      "wbs_status": "UNKNOWN",
+      "title": "ACA-specific APIM instance is deployed with Tier enforcement policies",
+      "epic_id": "ACA-11",
+      "feature_id": "ACA-11.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-11-003",
+      "wbs_status": "UNKNOWN",
+      "title": "GitHub Actions deploy-phase2.yml is wired to private subscription via OIDC",
+      "epic_id": "ACA-11",
+      "feature_id": "ACA-11.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-11-004",
+      "wbs_status": "UNKNOWN",
+      "title": "Custom domain (app.aca.example.com / api.aca.example.com) configured with",
+      "epic_id": "ACA-11",
+      "feature_id": "ACA-11.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-11-005",
+      "wbs_status": "UNKNOWN",
+      "title": "Phase 2 Cosmos has 3 geo-replicas (canadacentral primary + failover)",
+      "epic_id": "ACA-11",
+      "feature_id": "ACA-11.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-11-006",
+      "wbs_status": "UNKNOWN",
+      "title": "DNS TTL lowered 48h before cutover",
+      "epic_id": "ACA-11",
+      "feature_id": "ACA-11.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-11-007",
+      "wbs_status": "UNKNOWN",
+      "title": "Phase 1 marco* infra remains live as rollback for 30 days post-cutover",
+      "epic_id": "ACA-11",
+      "feature_id": "ACA-11.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-11-008",
+      "wbs_status": "UNKNOWN",
+      "title": "Phase 2 smoke test: full Tier 1 -> Tier 3 flow on Phase 2 infra",
+      "epic_id": "ACA-11",
+      "feature_id": "ACA-11.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-11-009",
+      "wbs_status": "UNKNOWN",
+      "title": "APIM configuration exported and version-controlled",
+      "epic_id": "ACA-11",
+      "feature_id": "ACA-11.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-12-001",
+      "wbs_status": "UNKNOWN",
+      "title": "All epics, features, and stories from this PLAN are seeded into",
+      "epic_id": "ACA-12",
+      "feature_id": "ACA-12.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-12-002",
+      "wbs_status": "UNKNOWN",
+      "title": "Each story has status: not-started / in-progress / done",
+      "epic_id": "ACA-12",
+      "feature_id": "ACA-12.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-12-003",
+      "wbs_status": "UNKNOWN",
+      "title": "Story status is updated by the agent at start and end of each work item",
+      "epic_id": "ACA-12",
+      "feature_id": "ACA-12.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-12-004",
+      "wbs_status": "UNKNOWN",
+      "title": "data-model agent-summary reflects current overall completion percentage",
+      "epic_id": "ACA-12",
+      "feature_id": "ACA-12.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-12-005",
+      "wbs_status": "UNKNOWN",
+      "title": "API service reads feature_flags layer to gate unreleased features",
+      "epic_id": "ACA-12",
+      "feature_id": "ACA-12.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-12-006",
+      "wbs_status": "UNKNOWN",
+      "title": "Analysis service reads the rules layer to discover enabled/disabled rules",
+      "epic_id": "ACA-12",
+      "feature_id": "ACA-12.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-12-007",
+      "wbs_status": "UNKNOWN",
+      "title": "Endpoints layer is kept in sync with every shipped route (PUT on ship)",
+      "epic_id": "ACA-12",
+      "feature_id": "ACA-12.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-12-008",
+      "wbs_status": "UNKNOWN",
+      "title": "Containers layer reflects the actual Cosmos schema (fields, partition keys)",
+      "epic_id": "ACA-12",
+      "feature_id": "ACA-12.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-12-009",
+      "wbs_status": "UNKNOWN",
+      "title": "Cosmos DB aca-db + scans container with 256-partition key on subscriptionId",
+      "epic_id": "ACA-12",
+      "feature_id": "ACA-12.1",
+      "evidence_count": 0,
+      "evidence_types": {},
+      "has_evidence": false,
+      "evidence_confidence": 0.0,
+      "consistency_score": 0.5,
+      "verified": false
+    },
+    {
+      "story_id": "ACA-12-010",
+      "wbs_status": "UNKNOWN",
+      "title": "inventories container for Azure resource snapshots (partition key: subscriptionId)",
+      "epic_id": "ACA-12",
+      "feature_id": "ACA-12.1",
+      "evidence_count": 0,
+      "evidence_types": {},
+      "has_evidence": false,
+      "evidence_confidence": 0.0,
+      "consistency_score": 0.5,
+      "verified": false
+    },
+    {
+      "story_id": "ACA-12-011",
+      "wbs_status": "UNKNOWN",
+      "title": "cost-data container for monthly cost export and FinOps hub landing zone",
+      "epic_id": "ACA-12",
+      "feature_id": "ACA-12.1",
+      "evidence_count": 0,
+      "evidence_types": {},
+      "has_evidence": false,
+      "evidence_confidence": 0.0,
+      "consistency_score": 0.5,
+      "verified": false
+    },
+    {
+      "story_id": "ACA-12-012",
+      "wbs_status": "UNKNOWN",
+      "title": "advisor container for Azure Advisor recommendations + scores",
+      "epic_id": "ACA-12",
+      "feature_id": "ACA-12.1",
+      "evidence_count": 0,
+      "evidence_types": {},
+      "has_evidence": false,
+      "evidence_confidence": 0.0,
+      "consistency_score": 0.5,
+      "verified": false
+    },
+    {
+      "story_id": "ACA-12-013",
+      "wbs_status": "UNKNOWN",
+      "title": "findings container for analysis rule output (indexed on risk_class, effort_class)",
+      "epic_id": "ACA-12",
+      "feature_id": "ACA-12.1",
+      "evidence_count": 0,
+      "evidence_types": {},
+      "has_evidence": false,
+      "evidence_confidence": 0.0,
+      "consistency_score": 0.5,
+      "verified": false
+    },
+    {
+      "story_id": "ACA-12-014",
+      "wbs_status": "UNKNOWN",
+      "title": "APIM ACA product + subscription key policy for tier-gated rate limiting",
+      "epic_id": "ACA-12",
+      "feature_id": "ACA-12.1",
+      "evidence_count": 0,
+      "evidence_types": {},
+      "has_evidence": false,
+      "evidence_confidence": 0.0,
+      "consistency_score": 0.5,
+      "verified": false
+    },
+    {
+      "story_id": "ACA-12-015",
+      "wbs_status": "UNKNOWN",
+      "title": "Key Vault secrets wiring (ACA-CLIENT-ID, ACA-OPENAI-KEY, ACA-COSMOS-CONN)",
+      "epic_id": "ACA-12",
+      "feature_id": "ACA-12.1",
+      "evidence_count": 0,
+      "evidence_types": {},
+      "has_evidence": false,
+      "evidence_confidence": 0.0,
+      "consistency_score": 0.5,
+      "verified": false
+    },
+    {
+      "story_id": "ACA-12-016",
+      "wbs_status": "UNKNOWN",
+      "title": "Container App Job definitions for collector, analysis, delivery workers",
+      "epic_id": "ACA-12",
+      "feature_id": "ACA-12.1",
+      "evidence_count": 0,
+      "evidence_types": {},
+      "has_evidence": false,
+      "evidence_confidence": 0.0,
+      "consistency_score": 0.5,
+      "verified": false
+    },
+    {
+      "story_id": "ACA-14-001",
+      "wbs_status": "UNKNOWN",
+      "title": "As the sprint agent I want a unified SprintContext class that merges",
+      "epic_id": "ACA-14",
+      "feature_id": "ACA-14.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-14-002",
+      "wbs_status": "UNKNOWN",
+      "title": "As the sprint agent I want a state lock mechanism that prevents duplicate",
+      "epic_id": "ACA-14",
+      "feature_id": "ACA-14.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-14-003",
+      "wbs_status": "UNKNOWN",
+      "title": "As the sprint agent I want phase verification checkpoints after each DPDCA",
+      "epic_id": "ACA-14",
+      "feature_id": "ACA-14.1",
+      "evidence_count": 1,
+      "evidence_types": {
+        "receipt": 1
+      },
+      "has_evidence": true,
+      "evidence_confidence": 0.15,
+      "consistency_score": 1.0,
+      "verified": true
+    },
+    {
+      "story_id": "ACA-15-000",
+      "wbs_status": "UNKNOWN",
+      "title": "Infrastructure provisioning: Bicep for Cosmos (9 containers)",
+      "epic_id": "ACA-15",
+      "feature_id": "ACA-15.1",
+      "evidence_count": 0,
+      "evidence_types": {},
+      "has_evidence": false,
+      "evidence_confidence": 0.0,
+      "consistency_score": 0.5,
+      "verified": false
+    },
+    {
+      "story_id": "ACA-15-001",
+      "wbs_status": "UNKNOWN",
+      "title": "Cosmos DB schema implementation (9 containers all deployed)",
+      "epic_id": "ACA-15",
+      "feature_id": "ACA-15.1",
+      "evidence_count": 0,
+      "evidence_types": {},
+      "has_evidence": false,
+      "evidence_confidence": 0.0,
+      "consistency_score": 0.5,
+      "verified": false
+    },
+    {
+      "story_id": "ACA-15-002",
+      "wbs_status": "UNKNOWN",
+      "title": "Gate state machine (7-gate workflow with timeout/retry logic)",
+      "epic_id": "ACA-15",
+      "feature_id": "ACA-15.1",
+      "evidence_count": 0,
+      "evidence_types": {},
+      "has_evidence": false,
+      "evidence_confidence": 0.0,
+      "consistency_score": 0.5,
+      "verified": false
+    },
+    {
+      "story_id": "ACA-15-003",
+      "wbs_status": "UNKNOWN",
+      "title": "FastAPI backend routes (POST /init, GET /{id}, decision handling)",
+      "epic_id": "ACA-15",
+      "feature_id": "ACA-15.1",
+      "evidence_count": 0,
+      "evidence_types": {},
+      "has_evidence": false,
+      "evidence_confidence": 0.0,
+      "consistency_score": 0.5,
+      "verified": false
+    },
+    {
+      "story_id": "ACA-15-004",
+      "wbs_status": "UNKNOWN",
+      "title": "Azure SDK wrappers + pagination + retry logic",
+      "epic_id": "ACA-15",
+      "feature_id": "ACA-15.1",
+      "evidence_count": 0,
+      "evidence_types": {},
+      "has_evidence": false,
+      "evidence_confidence": 0.0,
+      "consistency_score": 0.5,
+      "verified": false
+    },
+    {
+      "story_id": "ACA-15-005",
+      "wbs_status": "UNKNOWN",
+      "title": "CLI command structure (init, resume, list, get, logs, retry-extract)",
+      "epic_id": "ACA-15",
+      "feature_id": "ACA-15.1",
+      "evidence_count": 0,
+      "evidence_types": {},
+      "has_evidence": false,
+      "evidence_confidence": 0.0,
+      "consistency_score": 0.5,
+      "verified": false
+    },
+    {
+      "story_id": "ACA-15-006",
+      "wbs_status": "UNKNOWN",
+      "title": "Extraction pipeline (inventory + costs + advisor with recovery)",
+      "epic_id": "ACA-15",
+      "feature_id": "ACA-15.1",
+      "evidence_count": 0,
+      "evidence_types": {},
+      "has_evidence": false,
+      "evidence_confidence": 0.0,
+      "consistency_score": 0.5,
+      "verified": false
+    },
+    {
+      "story_id": "ACA-15-007",
+      "wbs_status": "UNKNOWN",
+      "title": "Logging + recovery mechanism (detailed operation logs, resume)",
+      "epic_id": "ACA-15",
+      "feature_id": "ACA-15.1",
+      "evidence_count": 0,
+      "evidence_types": {},
+      "has_evidence": false,
+      "evidence_confidence": 0.0,
+      "consistency_score": 0.5,
+      "verified": false
+    },
+    {
+      "story_id": "ACA-15-008",
+      "wbs_status": "UNKNOWN",
+      "title": "Analysis rules engine (18-azure-best pattern integration)",
+      "epic_id": "ACA-15",
+      "feature_id": "ACA-15.1",
+      "evidence_count": 0,
+      "evidence_types": {},
+      "has_evidence": false,
+      "evidence_confidence": 0.0,
+      "consistency_score": 0.5,
+      "verified": false
+    },
+    {
+      "story_id": "ACA-15-009",
+      "wbs_status": "UNKNOWN",
+      "title": "Evidence receipt generation (HMAC-SHA256 cryptographic signing)",
+      "epic_id": "ACA-15",
+      "feature_id": "ACA-15.1",
+      "evidence_count": 0,
+      "evidence_types": {},
+      "has_evidence": false,
+      "evidence_confidence": 0.0,
+      "consistency_score": 0.5,
+      "verified": false
+    },
+    {
+      "story_id": "ACA-15-010",
+      "wbs_status": "UNKNOWN",
+      "title": "Integration tests (all gates, security, performance)",
+      "epic_id": "ACA-15",
+      "feature_id": "ACA-15.1",
+      "evidence_count": 0,
+      "evidence_types": {},
+      "has_evidence": false,
+      "evidence_confidence": 0.0,
+      "consistency_score": 0.5,
+      "verified": false
+    },
+    {
+      "story_id": "ACA-15-011",
+      "wbs_status": "UNKNOWN",
+      "title": "React components (role assessment, preflight, extraction progress)",
+      "epic_id": "ACA-15",
+      "feature_id": "ACA-15.1",
+      "evidence_count": 0,
+      "evidence_types": {},
+      "has_evidence": false,
+      "evidence_confidence": 0.0,
+      "consistency_score": 0.5,
+      "verified": false
+    },
+    {
+      "story_id": "ACA-15-012",
+      "wbs_status": "UNKNOWN",
+      "title": "Findings report UI (savings display, PDF export, tier selector)",
+      "epic_id": "ACA-15",
+      "feature_id": "ACA-15.1",
+      "evidence_count": 0,
+      "evidence_types": {},
+      "has_evidence": false,
+      "evidence_confidence": 0.0,
+      "consistency_score": 0.5,
+      "verified": false
+    }
+  ],
+  "statistics": {
+    "total_stories": 256,
+    "stories_with_evidence": 232,
+    "evidence_coverage_%": 90.625,
+    "consistency_score": 0.953125,
+    "conflicts_detected": 0,
+    "conflicts": [],
+    "mti_score": 92.0
+  }
+}

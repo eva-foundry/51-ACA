@@ -1,4 +1,3 @@
-# EVA-STORY: ACA-17-004
 # ACA-17-004: Invoke-SyncAdvisor PowerShell Module
 # Integration wrapper for Sync Orchestration Job
 # Called on critical failure to get AI-driven recovery recommendations
@@ -229,3 +228,4 @@ Export-ModuleMember -Function @(
     'Invoke-FallbackSyncAdvisor',
     'Emit-AdvisorRecommendationEvent'
 )
+

@@ -1,23 +1,277 @@
 {
   "meta": {
     "schema": "eva.trust.v2",
-    "generated_at": "2026-03-02T14:50:21.840Z",
+    "generated_at": "2026-03-05T13:42:53.798Z",
     "repo": "C:\\AICOE\\eva-foundry\\51-ACA",
     "reconciliation_path": "C:\\AICOE\\eva-foundry\\51-ACA\\.eva\\reconciliation.json"
   },
-  "score": 69,
+  "score": 57,
   "stale": false,
-  "sparkline": "100 -> 100 -> 100 -> 100 -> 70 -> 70 -> 70 -> 70 -> 69 -> 69",
+  "sparkline": "70 -> 70 -> 69 -> 69 -> 69 -> 57 -> 57 -> 57 -> 57 -> 57",
   "sparkline_delta": "no change",
   "components": {
-    "coverage": 1,
-    "evidenceCompleteness": 0.97,
+    "coverage": 0.96,
+    "evidenceCompleteness": 0.93,
     "consistencyScore": 0,
     "complexityCoverage": 0,
-    "formula": "3-component-fallback"
+    "fieldPopulationScore": 0.03,
+    "formula": "4-component-field-population"
   },
   "actions": [
     "review-required",
     "no-deploy"
-  ]
+  ],
+  "quality_gates": {
+    "pass": false,
+    "violations": [
+      {
+        "story_id": "ACA-03-001",
+        "title": "As the system I load all 12 rules from ALL_RULES and run each in sequence",
+        "missing_fields": [
+          "sprint",
+          "assignee",
+          "ado_id"
+        ],
+        "message": "Story ACA-03-001 cannot be marked done: sprint, assignee, ado_id required"
+      },
+      {
+        "story_id": "ACA-03-002",
+        "title": "As the system I handle a rule failure in isolation (one rule crash does not",
+        "missing_fields": [
+          "sprint",
+          "assignee",
+          "ado_id"
+        ],
+        "message": "Story ACA-03-002 cannot be marked done: sprint, assignee, ado_id required"
+      },
+      {
+        "story_id": "ACA-03-003",
+        "title": "As the system I persist each Finding to Cosmos with full schema:",
+        "missing_fields": [
+          "sprint",
+          "assignee",
+          "ado_id"
+        ],
+        "message": "Story ACA-03-003 cannot be marked done: sprint, assignee, ado_id required"
+      },
+      {
+        "story_id": "ACA-03-011",
+        "title": "R-01 Dev Box auto-stop: returns finding when annual Dev Box cost > $1,000",
+        "missing_fields": [
+          "sprint",
+          "assignee",
+          "ado_id"
+        ],
+        "message": "Story ACA-03-011 cannot be marked done: sprint, assignee, ado_id required"
+      },
+      {
+        "story_id": "ACA-03-004",
+        "title": "As the system I update AnalysisRun status: queued -> running -> succeeded/failed",
+        "missing_fields": [
+          "sprint",
+          "assignee",
+          "ado_id"
+        ],
+        "message": "Story ACA-03-004 cannot be marked done: sprint, assignee, ado_id required"
+      },
+      {
+        "story_id": "ACA-03-005",
+        "title": "As the system I write findingsSummary to the analysis run record",
+        "missing_fields": [
+          "sprint",
+          "assignee",
+          "ado_id"
+        ],
+        "message": "Story ACA-03-005 cannot be marked done: sprint, assignee, ado_id required"
+      },
+      {
+        "story_id": "ACA-03-007",
+        "title": "As a Tier 1 client I do not receive narrative or deliverable_template_id",
+        "missing_fields": [
+          "sprint",
+          "assignee",
+          "ado_id"
+        ],
+        "message": "Story ACA-03-007 cannot be marked done: sprint, assignee, ado_id required"
+      },
+      {
+        "story_id": "ACA-03-008",
+        "title": "As a Tier 2 client I receive the full finding including narrative and",
+        "missing_fields": [
+          "sprint",
+          "assignee",
+          "ado_id"
+        ],
+        "message": "Story ACA-03-008 cannot be marked done: sprint, assignee, ado_id required"
+      },
+      {
+        "story_id": "ACA-03-009",
+        "title": "As a Tier 3 client I receive the full finding including deliverable_template_id",
+        "missing_fields": [
+          "sprint",
+          "assignee",
+          "ado_id"
+        ],
+        "message": "Story ACA-03-009 cannot be marked done: sprint, assignee, ado_id required"
+      },
+      {
+        "story_id": "ACA-03-010",
+        "title": "As the red-team agent I can assert that Tier 1 tokens never leak narrative or deliverable_template_id fields",
+        "missing_fields": [
+          "sprint",
+          "assignee",
+          "ado_id"
+        ],
+        "message": "Story ACA-03-010 cannot be marked done: sprint, assignee, ado_id required"
+      },
+      {
+        "story_id": "ACA-03-012",
+        "title": "As the system I implement R-02 rule: returns finding when annual LA cost > $500 in non-prod environments",
+        "missing_fields": [
+          "sprint",
+          "assignee",
+          "ado_id"
+        ],
+        "message": "Story ACA-03-012 cannot be marked done: sprint, assignee, ado_id required"
+      },
+      {
+        "story_id": "ACA-03-013",
+        "title": "As the system I implement R-03 rule: returns finding when annual Defender cost > $2,000",
+        "missing_fields": [
+          "sprint",
+          "assignee",
+          "ado_id"
+        ],
+        "message": "Story ACA-03-013 cannot be marked done: sprint, assignee, ado_id required"
+      },
+      {
+        "story_id": "ACA-03-014",
+        "title": "As the system I implement R-04 rule: returns finding when annual schedulable compute > $5,000",
+        "missing_fields": [
+          "sprint",
+          "assignee",
+          "ado_id"
+        ],
+        "message": "Story ACA-03-014 cannot be marked done: sprint, assignee, ado_id required"
+      },
+      {
+        "story_id": "ACA-03-015",
+        "title": "As the system I implement R-05 rule: returns finding for each category with z-score > 3.0",
+        "missing_fields": [
+          "sprint",
+          "assignee",
+          "ado_id"
+        ],
+        "message": "Story ACA-03-015 cannot be marked done: sprint, assignee, ado_id required"
+      },
+      {
+        "story_id": "ACA-03-016",
+        "title": "As the system I implement R-06 rule: returns finding when >= 3 App Service sites exist",
+        "missing_fields": [
+          "sprint",
+          "assignee",
+          "ado_id"
+        ],
+        "message": "Story ACA-03-016 cannot be marked done: sprint, assignee, ado_id required"
+      },
+      {
+        "story_id": "ACA-03-017",
+        "title": "As the system I implement R-07 rule: returns finding when annual Search cost > $2,000",
+        "missing_fields": [
+          "sprint",
+          "assignee",
+          "ado_id"
+        ],
+        "message": "Story ACA-03-017 cannot be marked done: sprint, assignee, ado_id required"
+      },
+      {
+        "story_id": "ACA-03-018",
+        "title": "As the system I implement R-08 rule: returns finding when >= 3 registries exist",
+        "missing_fields": [
+          "sprint",
+          "assignee",
+          "ado_id"
+        ],
+        "message": "Story ACA-03-018 cannot be marked done: sprint, assignee, ado_id required"
+      },
+      {
+        "story_id": "ACA-03-019",
+        "title": "R-09 DNS Sprawl Cost Optimization",
+        "missing_fields": [
+          "sprint",
+          "assignee"
+        ],
+        "message": "Story ACA-03-019 cannot be marked done: sprint, assignee required"
+      },
+      {
+        "story_id": "ACA-03-020",
+        "title": "R-10 Savings Plan Coverage Analysis",
+        "missing_fields": [
+          "sprint",
+          "assignee"
+        ],
+        "message": "Story ACA-03-020 cannot be marked done: sprint, assignee required"
+      },
+      {
+        "story_id": "ACA-03-021",
+        "title": "R-11 APIM Token Budget Review",
+        "missing_fields": [
+          "sprint",
+          "assignee"
+        ],
+        "message": "Story ACA-03-021 cannot be marked done: sprint, assignee required"
+      },
+      {
+        "story_id": "ACA-03-022",
+        "title": "R-12 Chargeback Cost Allocation Gap",
+        "missing_fields": [
+          "sprint",
+          "assignee"
+        ],
+        "message": "Story ACA-03-022 cannot be marked done: sprint, assignee required"
+      },
+      {
+        "story_id": "ACA-14-001",
+        "title": "As the sprint agent I want a unified SprintContext class that merges correlation ID + LM tracer + timeline",
+        "missing_fields": [
+          "sprint",
+          "assignee",
+          "ado_id"
+        ],
+        "message": "Story ACA-14-001 cannot be marked done: sprint, assignee, ado_id required"
+      },
+      {
+        "story_id": "ACA-14-002",
+        "title": "As the sprint agent I want a state lock mechanism that prevents duplicate sprint dispatch",
+        "missing_fields": [
+          "sprint",
+          "assignee",
+          "ado_id"
+        ],
+        "message": "Story ACA-14-002 cannot be marked done: sprint, assignee, ado_id required"
+      },
+      {
+        "story_id": "ACA-14-003",
+        "title": "As the sprint agent I want phase verification checkpoints after each DPDCA phase",
+        "missing_fields": [
+          "sprint",
+          "assignee",
+          "ado_id"
+        ],
+        "message": "Story ACA-14-003 cannot be marked done: sprint, assignee, ado_id required"
+      }
+    ],
+    "metrics": {
+      "total": 45,
+      "done": 24,
+      "sprint_populated": 0,
+      "sprint_rate": 0,
+      "assignee_populated": 0,
+      "assignee_rate": 0,
+      "ado_id_populated": 4,
+      "ado_id_rate": 0.17,
+      "field_population_score": 0.06,
+      "threshold": 0.9
+    }
+  }
 }

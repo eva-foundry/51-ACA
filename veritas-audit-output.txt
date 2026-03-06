@@ -1,0 +1,391 @@
+[INFO] Discovering: C:\AICOE\eva-foundry\51-ACA
+[INFO] Using veritas-plan.json (format: auto-seeded, 281 stories, 0 tasks)
+[INFO] Planned: 15 features, 281 stories
+[INFO] Actual: 838 artifacts, 279 stories tagged
+[INFO] Evidence: 58 from commits, 0 from PRs, 8 from filenames
+[PASS] discovery written: C:\AICOE\eva-foundry\51-ACA\.eva\discovery.json
+[PASS] reconciliation written: C:\AICOE\eva-foundry\51-ACA\.eva\reconciliation.json
+[INFO] Gaps: 26
+[INFO] Running WBS quality gates for project: 51-ACA
+[FAIL] WBS Quality Gate Violations (24 done stories):
+  - ACA-03-001: missing sprint, assignee, ado_id
+  - ACA-03-002: missing sprint, assignee, ado_id
+  - ACA-03-003: missing sprint, assignee, ado_id
+  - ACA-03-011: missing sprint, assignee, ado_id
+  - ACA-03-004: missing sprint, assignee, ado_id
+  - ACA-03-005: missing sprint, assignee, ado_id
+  - ACA-03-007: missing sprint, assignee, ado_id
+  - ACA-03-008: missing sprint, assignee, ado_id
+  - ACA-03-009: missing sprint, assignee, ado_id
+  - ACA-03-010: missing sprint, assignee, ado_id
+  ... and 14 more
+[INFO] Field population rates: sprint=0%, assignee=0%, ado_id=17%
+[INFO] Field population score: 3% (sprint, assignee, ado_id)
+[PASS] trust written: C:\AICOE\eva-foundry\51-ACA\.eva\trust.json (score: 57)
+
+=======================================
+EVA Veritas Report: 51-ACA
+=======================================
+Repo:    C:\AICOE\eva-foundry\51-ACA
+Planned: 15 features, 281 stories
+
+Coverage
+---------------------------------------
+Stories total:          281
+Stories with artifacts: 269
+Stories with evidence:  261
+Consistency score:      0.00
+
+Gaps
+---------------------------------------
+[FAIL] missing_implementation :: ACA-15-001 -- Infrastructure provisioning: Bicep for Cosmos (9 containers)
+[FAIL] missing_implementation :: ACA-15-002 -- Cosmos DB schema implementation (9 containers all deployed)
+[FAIL] missing_implementation :: ACA-15-003 -- Gate state machine (7-gate workflow with timeout/retry logic)
+[FAIL] missing_implementation :: ACA-15-004 -- FastAPI backend routes (POST /init, GET /{id}, decision handling)
+[FAIL] missing_implementation :: ACA-15-005 -- Azure SDK wrappers + pagination + retry logic
+[FAIL] missing_implementation :: ACA-15-006 -- CLI command structure (init, resume, list, get, logs, retry-extract)
+[FAIL] missing_implementation :: ACA-15-007 -- Extraction pipeline (inventory + costs + advisor with recovery)
+[FAIL] missing_implementation :: ACA-15-008 -- Logging + recovery mechanism (detailed operation logs, resume)
+[FAIL] missing_implementation :: ACA-15-009 -- Analysis rules engine (18-azure-best pattern integration)
+[FAIL] missing_implementation :: ACA-15-010 -- Evidence receipt generation (HMAC-SHA256 cryptographic signing)
+[FAIL] missing_implementation :: ACA-15-011 -- Integration tests (all gates, security, performance)
+[FAIL] missing_implementation :: ACA-15-012 -- React components (role assessment, preflight, extraction progress)
+[FAIL] orphan_story_tag :: ACA-16-
+[FAIL] orphan_story_tag :: ACA-
+[FAIL] orphan_story_tag :: ACA-16-001
+[FAIL] orphan_story_tag :: ACA-16-002
+[FAIL] orphan_story_tag :: ACA-16-003
+[FAIL] orphan_story_tag :: ACA-16-004
+[FAIL] orphan_story_tag :: ACA-XX-XXX
+[FAIL] orphan_story_tag :: ACA-12-023
+[FAIL] orphan_story_tag :: ACA-NN-NNN
+[FAIL] orphan_story_tag :: ACA-17-005
+[FAIL] orphan_story_tag :: ACA-17-004
+[FAIL] orphan_story_tag :: ACA-16-005
+[FAIL] orphan_story_tag :: ACA-16-006
+[FAIL] orphan_story_tag :: ACA-16-007
+
+Feature Breakdown
+---------------------------------------
+[ 21] ACA-15     ONBOARDING SYSTEM               5/17 artifacts  5/17 evidence  12 gaps
+[ 70] ACA-01     FOUNDATION AND INFRASTRUCTURE   21/21 artifacts  21/21 evidence  0 gaps
+[ 70] ACA-02     Epic 2                          17/17 artifacts  17/17 evidence  0 gaps
+[ 70] ACA-03     ANALYSIS ENGINE AND RULES       33/33 artifacts  33/33 evidence  0 gaps
+[ 70] ACA-04     Epic 4                          28/28 artifacts  28/28 evidence  0 gaps
+[ 70] ACA-05     FRONTEND SPARK ARCHITECTURE     42/42 artifacts  42/42 evidence  0 gaps
+[ 70] ACA-06     MONETIZATION AND BILLING        18/18 artifacts  18/18 evidence  0 gaps
+[ 70] ACA-07     DELIVERY PACKAGER               9/9 artifacts  9/9 evidence  0 gaps
+[ 70] ACA-08     OBSERVABILITY AND TELEMETRY     14/14 artifacts  14/14 evidence  0 gaps
+[ 70] ACA-09     i18n AND a11y                   18/18 artifacts  18/18 evidence  0 gaps
+[ 70] ACA-10     COMMERCIAL HARDENING            15/15 artifacts  15/15 evidence  0 gaps
+[ 70] ACA-11     PHASE 2 INFRASTRUCTURE          9/9 artifacts  9/9 evidence  0 gaps
+[ 60] ACA-12     DATA MODEL SUPPORT              16/16 artifacts  8/16 evidence  0 gaps
+[ 70] ACA-13     AZURE BEST PRACTICES SERVICE C  11/11 artifacts  11/11 evidence  0 gaps
+[ 70] ACA-14     DPDCA CLOUD AGENT               13/13 artifacts  13/13 evidence  0 gaps
+
+Implemented
+---------------------------------------
+[EVIDENCE] ACA-01-001 -- As a developer I can run `docker-compose up` and all services start (4 artifacts)
+[EVIDENCE] ACA-01-002 -- As a developer I can run `pytest services/ -x -q` and all tests pass (1 artifact)
+[EVIDENCE] ACA-01-003 -- As a developer I can hit http://localhost:8080/health and get status=ok (3 artifacts)
+[EVIDENCE] ACA-01-004 -- As a developer I can run the data-model on port 8011 (start.ps1) (1 artifact)
+[EVIDENCE] ACA-01-005 -- As a developer I can use the .env.example as a complete checklist (3 artifacts)
+[EVIDENCE] ACA-01-006 -- As a developer, every PR triggers ruff lint. Zero lint errors = green. (2 artifacts)
+[EVIDENCE] ACA-01-007 -- As a developer, every PR triggers mypy type check. No unresolved types. (1 artifact)
+[EVIDENCE] ACA-01-008 -- As a developer, every PR triggers pytest. No test failures = merge allowed. (1 artifact)
+[EVIDENCE] ACA-01-009 -- As a developer, main branch push triggers axe-core a11y check on frontend. (1 artifact)
+[EVIDENCE] ACA-01-010 -- As an operator I can run infra/phase1-marco/main.bicep and get 7 Cosmos containers (2 artifacts)
+[EVIDENCE] ACA-01-011 -- As an operator all secrets are in marcosandkv20260203 (no .env in production) (1 artifact)
+[EVIDENCE] ACA-01-012 -- As an operator the API Container App has managed identity approved on KV (1 artifact)
+[EVIDENCE] ACA-01-013 -- As an operator the collector job has managed identity with Cosmos read/write (1 artifact)
+[EVIDENCE] ACA-01-014 -- As an operator OIDC is configured on the GitHub Actions workflow for EsDAICoE-Sandbox (1 artifact)
+[EVIDENCE] ACA-01-015 -- As an operator infra/phase1-marco/bootstrap.sh exists and provisions all (1 artifact)
+[EVIDENCE] ACA-01-016 -- As a developer all 4 Dockerfiles build without error on ubuntu-latest (1 artifact)
+[EVIDENCE] ACA-01-017 -- As an operator deploy-phase1.yml pushes 4 images to marcosandacr20260203 (2 artifacts)
+[EVIDENCE] ACA-01-018 -- As an operator collector-schedule.yml triggers nightly at 02:00 UTC (2 artifacts)
+[EVIDENCE] ACA-01-019 -- As an operator PUBLIC_APP_URL and PUBLIC_API_URL are read from env vars; (1 artifact)
+[EVIDENCE] ACA-01-020 -- As a developer .env.example documents the Azure free hostname pattern (1 artifact)
+[EVIDENCE] ACA-01-021 -- As an operator ACA_ALLOWED_ORIGINS is seeded from the Phase 1 free hostname (1 artifact)
+[EVIDENCE] ACA-02-001 -- As a client using Mode A (delegated) I see a PASS/FAIL/WARN status (2 artifacts)
+[EVIDENCE] ACA-02-002 -- As a client with missing Cost Management Reader role I see a clear (1 artifact)
+[EVIDENCE] ACA-02-003 -- As a client with PASS_WITH_WARNINGS I can still proceed with collection (1 artifact)
+[EVIDENCE] ACA-02-004 -- As an operator I can pass --preflight-only to the collector to validate (1 artifact)
+[EVIDENCE] ACA-02-005 -- As the system I collect all Azure resources via Resource Graph in < 60s (3 artifacts)
+[EVIDENCE] ACA-02-006 -- As the system I save inventory to Cosmos with partition_key=subscriptionId (1 artifact)
+[EVIDENCE] ACA-02-007 -- As the system I capture: resource type, name, SKU, region, resource group, tags (1 artifact)
+[EVIDENCE] ACA-02-008 -- As the system I collect 91 days of daily cost rows via Cost Management Query API (1 artifact)
+[EVIDENCE] ACA-02-009 -- As the system I capture: date, MeterCategory, MeterName, resourceGroup, (1 artifact)
+[EVIDENCE] ACA-02-010 -- As the system I handle rate limiting (429) with exponential backoff + retry (1 artifact)
+[EVIDENCE] ACA-02-011 -- As the system I collect all Advisor recommendations across all categories (1 artifact)
+[EVIDENCE] ACA-02-012 -- As the system I collect Policy compliance state (compliant / non-compliant counts) (1 artifact)
+[EVIDENCE] ACA-02-013 -- As the system I collect network signals: NSG rule counts, private DNS zones, (1 artifact)
+[EVIDENCE] ACA-02-014 -- As the system I update scan status in Cosmos: queued -> running -> succeeded/failed (2 artifacts)
+[EVIDENCE] ACA-02-015 -- As the system I write stats to the scan record (inventoryCount, costRows, advisorRecs) (1 artifact)
+[EVIDENCE] ACA-02-016 -- As the API I expose GET /v1/scans/:scanId so the frontend can poll status (1 artifact)
+[IMPL] ACA-02-017 -- As the system, after mark_collection_complete sets status=collected, the analysis (1 artifact)
+[EVIDENCE] ACA-03-001 -- As the system I load all 12 rules from ALL_RULES and run each in sequence (4 artifacts)
+[EVIDENCE] ACA-03-002 -- As the system I handle a rule failure in isolation (one rule crash does not (2 artifacts)
+[EVIDENCE] ACA-03-003 -- As the system I persist each Finding to Cosmos with full schema: (5 artifacts)
+[EVIDENCE] ACA-03-004 -- As the system I update AnalysisRun status: queued -> running -> succeeded/failed (6 artifacts)
+[EVIDENCE] ACA-03-005 -- As the system I write findingsSummary to the analysis run record (5 artifacts)
+[EVIDENCE] ACA-03-006 -- As a Tier 1 client calling GET /v1/findings/:scanId I receive findings (2 artifacts)
+[EVIDENCE] ACA-03-007 -- As a Tier 1 client I do not receive narrative or deliverable_template_id (4 artifacts)
+[EVIDENCE] ACA-03-008 -- As a Tier 2 client I receive the full finding including narrative and (4 artifacts)
+[EVIDENCE] ACA-03-009 -- As a Tier 3 client I receive the full finding including deliverable_template_id (5 artifacts)
+[EVIDENCE] ACA-03-010 -- As the red-team agent I can assert that Tier 1 tokens never leak (5 artifacts)
+[EVIDENCE] ACA-03-011 -- R-01 Dev Box auto-stop: returns finding when annual Dev Box cost > $1,000 (5 artifacts)
+[EVIDENCE] ACA-03-012 -- R-02 Log retention: returns finding when annual LA cost > $500 in non-prod (6 artifacts)
+[EVIDENCE] ACA-03-013 -- R-03 Defender mismatch: returns finding when annual Defender cost > $2,000 (6 artifacts)
+[EVIDENCE] ACA-03-014 -- R-04 Compute scheduling: returns finding when annual schedulable compute > $5,000 (6 artifacts)
+[EVIDENCE] ACA-03-015 -- R-05 Anomaly detection: returns finding for each category with z-score > 3.0 (6 artifacts)
+[EVIDENCE] ACA-03-016 -- R-06 Stale environments: returns finding when >= 3 App Service sites exist (6 artifacts)
+[EVIDENCE] ACA-03-017 -- R-07 Search SKU oversize: returns finding when annual Search cost > $2,000 (5 artifacts)
+[EVIDENCE] ACA-03-018 -- R-08 ACR consolidation: returns finding when >= 3 registries exist (5 artifacts)
+[EVIDENCE] ACA-03-019 -- R-09 DNS sprawl: returns finding when annual DNS cost > $1,000 (4 artifacts)
+[EVIDENCE] ACA-03-020 -- Unit test for R-01 devbox_autostop: fixture with Dev Box cost > $1,000 -> finding (4 artifacts)
+[EVIDENCE] ACA-03-021 -- Unit test for R-02 log_retention: fixture with LA cost > $500 -> finding (6 artifacts)
+[EVIDENCE] ACA-03-022 -- Unit test for R-03 defender_mismatch: fixture with Defender cost > $2,000 -> finding (4 artifacts)
+[EVIDENCE] ACA-03-023 -- Unit test for R-04 compute_scheduling: fixture with schedulable > $5,000 -> finding (1 artifact)
+[EVIDENCE] ACA-03-024 -- Unit test for R-05 anomaly_detection: fixture with z-score > 3.0 -> finding (1 artifact)
+[EVIDENCE] ACA-03-025 -- Unit test for R-06 stale_environments: fixture with >= 3 App Services -> finding (1 artifact)
+[EVIDENCE] ACA-03-026 -- Unit test for R-07 search_sku_oversize: fixture with Search cost > $2,000 -> finding (1 artifact)
+[EVIDENCE] ACA-03-027 -- Unit test for R-08 acr_consolidation: fixture with >= 3 registries -> finding (1 artifact)
+[EVIDENCE] ACA-03-028 -- Unit test for R-09 dns_sprawl: fixture with DNS cost > $1,000 -> finding (1 artifact)
+[EVIDENCE] ACA-03-029 -- Unit test for R-10 savings_plan_coverage: fixture with compute > $20,000 -> finding (2 artifacts)
+[EVIDENCE] ACA-03-030 -- Unit test for R-11 apim_token_budget: fixture with APIM + OpenAI -> finding (2 artifacts)
+[EVIDENCE] ACA-03-031 -- Unit test for R-12 chargeback_gap: fixture with total cost > $5,000 -> finding (2 artifacts)
+[EVIDENCE] ACA-03-032 -- Negative tests for each rule: below-threshold fixture -> no finding returned (1 artifact)
+[EVIDENCE] ACA-03-033 -- FindingsAssembler unit test: mock rule list -> correct Cosmos upsert payload (6 artifacts)
+[EVIDENCE] ACA-04-001 -- As a client I can sign in via Microsoft Identity (any Microsoft tenant); (3 artifacts)
+[EVIDENCE] ACA-04-002 -- As the API I validate the JWT on every authenticated endpoint using (4 artifacts)
+[EVIDENCE] ACA-04-003 -- As the API I extract subscriptionId from the session (stored after connect); (3 artifacts)
+[EVIDENCE] ACA-04-004 -- As a client I can connect my Azure subscription (POST /v1/auth/connect) (3 artifacts)
+[EVIDENCE] ACA-04-005 -- As a client I can disconnect (POST /v1/auth/disconnect) and all access (3 artifacts)
+[EVIDENCE] ACA-04-006 -- As a developer auth.py is reworked: MSAL authority=common, no EsDAICoE (3 artifacts)
+[EVIDENCE] ACA-04-007 -- As the frontend LoginPage, sign-in CTA calls MSAL.js with (2 artifacts)
+[EVIDENCE] ACA-04-008 -- POST /v1/auth/connect         -- Connect Azure subscription (3 artifacts)
+[EVIDENCE] ACA-04-009 -- POST /v1/auth/preflight       -- Run pre-flight probes (4 artifacts)
+[EVIDENCE] ACA-04-010 -- POST /v1/auth/disconnect      -- Disconnect subscription (1 artifact)
+[EVIDENCE] ACA-04-011 -- POST /v1/collect/start        -- Trigger collector job (was /v1/scans) (6 artifacts)
+[EVIDENCE] ACA-04-012 -- GET  /v1/collect/status       -- Poll collection progress (was /v1/scans/:scanId) (4 artifacts)
+[EVIDENCE] ACA-04-013 -- GET  /v1/reports/tier1        -- Tier 1 findings report (was /v1/findings/:scanId) (3 artifacts)
+[EVIDENCE] ACA-04-014 -- POST /v1/billing/checkout     -- Stripe checkout (tier2 or tier3 in body) (2 artifacts)
+[EVIDENCE] ACA-04-015 -- GET  /v1/billing/portal       -- Stripe billing portal redirect URL (2 artifacts)
+[EVIDENCE] ACA-04-016 -- POST /v1/webhooks/stripe      -- Stripe event handler (2 artifacts)
+[EVIDENCE] ACA-04-017 -- As the gateway I validate JWT signature on all /v1/* routes (2 artifacts)
+[EVIDENCE] ACA-04-018 -- As the gateway I cache /v1/entitlements response for 60s per subscriptionId (1 artifact)
+[EVIDENCE] ACA-04-019 -- As the gateway I return 403 with TIER_REQUIRED error when a Tier 1 (1 artifact)
+[EVIDENCE] ACA-04-020 -- As the gateway I enforce subscription key throttling (100 req/min default) (1 artifact)
+[EVIDENCE] ACA-04-021 -- As the gateway I forward X-Subscription-Id header to the API on all calls (1 artifact)
+[EVIDENCE] ACA-04-022 -- GET  /v1/admin/kpis (3 artifacts)
+[EVIDENCE] ACA-04-023 -- GET  /v1/admin/customers?query= (1 artifact)
+[EVIDENCE] ACA-04-024 -- POST /v1/admin/entitlements/grant (1 artifact)
+[EVIDENCE] ACA-04-025 -- POST /v1/admin/subscriptions/:subscriptionId/lock (1 artifact)
+[EVIDENCE] ACA-04-026 -- POST /v1/admin/stripe/reconcile (1 artifact)
+[EVIDENCE] ACA-04-027 -- GET  /v1/admin/runs?type=scan|analysis|delivery (1 artifact)
+[IMPL] ACA-04-028 -- services/api/app/db/cosmos.py upsert_item() must accept partition_key as a (1 artifact)
+[EVIDENCE] ACA-05-001 -- roles.ts defines ACA_Admin, ACA_Support, ACA_FinOps role constants (2 artifacts)
+[EVIDENCE] ACA-05-002 -- useAuth.ts wraps MSAL PublicClientApplication; exposes user, roles, (2 artifacts)
+[EVIDENCE] ACA-05-003 -- RequireAuth.tsx: if !isAuthenticated redirect to / (2 artifacts)
+[EVIDENCE] ACA-05-004 -- RequireRole.tsx: if user lacks anyOf roles, redirect to /app/connect (2 artifacts)
+[EVIDENCE] ACA-05-005 -- All admin routes require RequireAuth + RequireRole (ACA_Admin|Support|FinOps) (1 artifact)
+[EVIDENCE] ACA-05-006 -- CustomerLayout.tsx: top nav with logo, LanguageSelector, user menu (2 artifacts)
+[EVIDENCE] ACA-05-007 -- AdminLayout.tsx: top nav + left sidebar with admin nav items (2 artifacts)
+[EVIDENCE] ACA-05-008 -- NavCustomer.tsx: links to /app/connect, /app/status, /app/findings (2 artifacts)
+[EVIDENCE] ACA-05-009 -- NavAdmin.tsx: links to /admin/dashboard, /admin/customers, (2 artifacts)
+[EVIDENCE] ACA-05-010 -- AppShell.tsx: root component with FluentProvider + ConsentBanner + (4 artifacts)
+[EVIDENCE] ACA-05-011 -- router.tsx uses createBrowserRouter (not BrowserRouter + <Routes>) (2 artifacts)
+[EVIDENCE] ACA-05-012 -- Route / -> LoginPage (no auth required) (1 artifact)
+[EVIDENCE] ACA-05-013 -- Routes /app/* -> RequireAuth -> CustomerLayout -> Outlet (1 artifact)
+[EVIDENCE] ACA-05-014 -- Routes /admin/* -> RequireAuth -> RequireRole -> AdminLayout -> Outlet (1 artifact)
+[EVIDENCE] ACA-05-015 -- Code-split: all page components lazy-loaded with React.lazy (1 artifact)
+[EVIDENCE] ACA-05-016 -- LoginPage (/) -- Entra ID login CTA + dev bypass link (4 artifacts)
+[EVIDENCE] ACA-05-017 -- ConnectSubscriptionPage (/app/connect) -- Mode A/B/C radio group; (3 artifacts)
+[EVIDENCE] ACA-05-018 -- CollectionStatusPage (/app/status/:subscriptionId) -- polls (3 artifacts)
+[EVIDENCE] ACA-05-019 -- FindingsTier1Page (/app/findings/:subscriptionId) -- renders Tier 1 (2 artifacts)
+[EVIDENCE] ACA-05-020 -- UpgradePage (/app/upgrade/:subscriptionId) -- Tier 2 vs Tier 3 cards; (2 artifacts)
+[EVIDENCE] ACA-05-021 -- AdminDashboardPage (/admin/dashboard) -- calls GET /v1/admin/kpis; (3 artifacts)
+[EVIDENCE] ACA-05-022 -- AdminCustomersPage (/admin/customers) -- search input calls (2 artifacts)
+[EVIDENCE] ACA-05-023 -- AdminBillingPage (/admin/billing) -- Stripe billing portal link; (2 artifacts)
+[EVIDENCE] ACA-05-024 -- AdminRunsPage (/admin/runs) -- lists runs from GET /v1/admin/runs; (2 artifacts)
+[EVIDENCE] ACA-05-025 -- AdminControlsPage (/admin/controls) -- grant tier form (subscriptionId, (2 artifacts)
+[EVIDENCE] ACA-05-026 -- frontend/src/app/api/client.ts -- base http<T> function; includes (2 artifacts)
+[EVIDENCE] ACA-05-027 -- frontend/src/app/api/appApi.ts -- customer API calls: (2 artifacts)
+[EVIDENCE] ACA-05-028 -- frontend/src/app/api/adminApi.ts -- admin API calls: (2 artifacts)
+[EVIDENCE] ACA-05-029 -- frontend/src/app/types/models.ts -- TypeScript DTOs: (2 artifacts)
+[EVIDENCE] ACA-05-030 -- Loading.tsx -- full-page or inline Fluent Spinner with aria-label (2 artifacts)
+[EVIDENCE] ACA-05-031 -- ErrorState.tsx -- Fluent MessageBar (error) with retry callback (2 artifacts)
+[EVIDENCE] ACA-05-032 -- DataTable.tsx -- accessible Fluent Table wrapper (th scope=col) (1 artifact)
+[EVIDENCE] ACA-05-033 -- MoneyRangeBar.tsx -- visual low/high saving range bar with currency label (2 artifacts)
+[EVIDENCE] ACA-05-034 -- EffortBadge.tsx -- colour-coded badge: trivial/easy/medium/involved/strategic (2 artifacts)
+[EVIDENCE] ACA-05-035 -- As a user I see a consent banner on first visit (ConsentBanner reused) (2 artifacts)
+[EVIDENCE] ACA-05-036 -- TelemetryProvider.tsx wraps CustomerLayout; loads GTM + Clarity scripts (1 artifact)
+[EVIDENCE] ACA-05-037 -- All 16 AnalyticsEventName events fire at correct points in customer flow (1 artifact)
+[EVIDENCE] ACA-05-038 -- Admin surface does NOT load telemetry (no GA4 in admin pages) (1 artifact)
+[EVIDENCE] ACA-05-039 -- Skip-to-content link is first focusable element on every page (1 artifact)
+[EVIDENCE] ACA-05-040 -- Full keyboard navigation in all customer and admin pages (1 artifact)
+[EVIDENCE] ACA-05-041 -- All form fields have associated label elements (1 artifact)
+[EVIDENCE] ACA-05-042 -- Admin confirmation modals trap focus and close on Escape (1 artifact)
+[EVIDENCE] ACA-06-001 -- POST /v1/checkout/tier2 returns a Stripe checkout session URL (4 artifacts)
+[EVIDENCE] ACA-06-002 -- POST /v1/checkout/tier3 returns a Stripe checkout session URL (1 artifact)
+[EVIDENCE] ACA-06-003 -- mode=subscription creates a Stripe subscription (Tier 2 monthly) (1 artifact)
+[EVIDENCE] ACA-06-004 -- mode=one_time creates a one-time session (Tier 2 one-time, Tier 3) (1 artifact)
+[EVIDENCE] ACA-06-005 -- Checkout metadata contains subscriptionId and analysisId (1 artifact)
+[EVIDENCE] ACA-06-006 -- As a client with a coupon code I can enter it at Stripe checkout (1 artifact)
+[EVIDENCE] ACA-06-007 -- settings.py has STRIPE_COUPON_ENABLED: bool = True field (1 artifact)
+[EVIDENCE] ACA-06-008 -- As an admin I can create Stripe promotion codes for trial clients (1 artifact)
+[EVIDENCE] ACA-06-009 -- checkout.session.completed -> write entitlement to Cosmos, trigger delivery (1 artifact)
+[EVIDENCE] ACA-06-010 -- invoice.paid -> renew Tier 2 subscription entitlement for next period (1 artifact)
+[EVIDENCE] ACA-06-011 -- customer.subscription.updated -> update Tier in Cosmos clients container (1 artifact)
+[EVIDENCE] ACA-06-012 -- customer.subscription.deleted -> downgrade to Tier 1 in Cosmos unless Tier 3 permanent (1 artifact)
+[EVIDENCE] ACA-06-013 -- All webhook events written to payments container for audit trail (2 artifacts)
+[EVIDENCE] ACA-06-014 -- GET /v1/entitlements?subscriptionId=X returns { tier, validUntil, features[] } (2 artifacts)
+[EVIDENCE] ACA-06-015 -- Tier gate evaluates entitlement from Cosmos (with APIM 60s cache) (1 artifact)
+[EVIDENCE] ACA-06-016 -- StripeCustomerMapRepo resolves stripeCustomerId -> subscriptionId for webhooks (2 artifacts)
+[EVIDENCE] ACA-06-017 -- Billing portal endpoint derives stripeCustomerId from Cosmos clients container (2 artifacts)
+[IMPL] ACA-06-018 -- As a Tier 3 customer, when my Tier 2 subscription is canceled (subscription.deleted) (1 artifact)
+[EVIDENCE] ACA-07-001 -- 12 Jinja2 template folders exist in services/delivery/app/templates/ (2 artifacts)
+[EVIDENCE] ACA-07-002 -- Each folder has main.bicep and README.md (Bicep Phase 1 only; (1 artifact)
+[EVIDENCE] ACA-07-003 -- Templates are parameterized with scan_id, subscription_id, and finding fields (2 artifacts)
+[EVIDENCE] ACA-07-004 -- Template content sourced from 12-IaCscript.md patterns (1 artifact)
+[EVIDENCE] ACA-07-005 -- Delivery service generates all IaC artifacts for a scan's findings (3 artifacts)
+[EVIDENCE] ACA-07-006 -- ZIP is assembled with findings.json manifest at root (2 artifacts)
+[EVIDENCE] ACA-07-007 -- ZIP is signed with SHA-256 and the hash stored in the deliverables container (1 artifact)
+[EVIDENCE] ACA-07-008 -- ZIP is uploaded to Azure Blob Storage with 24h SAS URL (3 artifacts)
+[EVIDENCE] ACA-07-009 -- Deliverable record is written to Cosmos with sasUrl, sha256, artifactCount (3 artifacts)
+[EVIDENCE] ACA-08-001 -- GTM container is loaded in index.html with consent gating (3 artifacts)
+[EVIDENCE] ACA-08-002 -- GA4 tag fires after consent accepted (1 artifact)
+[EVIDENCE] ACA-08-003 -- Clarity tag fires after consent accepted with form field masking ON (1 artifact)
+[EVIDENCE] ACA-08-004 -- All 16 AnalyticsEventName events are fired at correct points in the UI (2 artifacts)
+[EVIDENCE] ACA-08-005 -- Consent banner allows accept/reject: rejected state suppresses all tags (2 artifacts)
+[EVIDENCE] ACA-08-006 -- Consent preference is respected across page reloads (localStorage) (1 artifact)
+[EVIDENCE] ACA-08-007 -- App Insights connection string is set in all Container Apps via KV reference (1 artifact)
+[EVIDENCE] ACA-08-008 -- All service logs are structured JSON and appear in Azure Monitor (1 artifact)
+[EVIDENCE] ACA-08-009 -- Scan duration, analysis duration, delivery duration are emitted as custom metrics (4 artifacts)
+[EVIDENCE] ACA-08-010 -- All API errors (4xx, 5xx) are logged with error_category enum (no raw messages) (1 artifact)
+[EVIDENCE] ACA-08-011 -- Stripe webhook events are logged with event type + subscriptionId (hashed) (1 artifact)
+[EVIDENCE] ACA-08-012 -- Alert: API service 5xx rate > 5% in 5 minutes -> PagerDuty / email (1 artifact)
+[EVIDENCE] ACA-08-013 -- Alert: Collector job failure -> email + Cosmos audit record (1 artifact)
+[EVIDENCE] ACA-08-014 -- Alert: Anomaly detection rule fires -> owner notified (Story R-05 output) (1 artifact)
+[EVIDENCE] ACA-09-001 -- i18next is configured with 5 locale namespaces in frontend/src/i18n/ (3 artifacts)
+[EVIDENCE] ACA-09-002 -- All user-visible strings are extracted to translation files (no hardcoded EN text) (1 artifact)
+[EVIDENCE] ACA-09-003 -- Language selector is visible in the nav with locale names in their own language: (2 artifacts)
+[EVIDENCE] ACA-09-004 -- Locale preference is persisted in localStorage (1 artifact)
+[EVIDENCE] ACA-09-005 -- Date formats use Intl.DateTimeFormat -- locale-aware, no hardcoded format (1 artifact)
+[EVIDENCE] ACA-09-006 -- Number/currency formats use Intl.NumberFormat with locale and currency options: (1 artifact)
+[EVIDENCE] ACA-09-007 -- fr (fr-CA) translations are completed before Phase 1 go-live (1 artifact)
+[EVIDENCE] ACA-09-008 -- pt-BR, es, and de translations are completed before Phase 1 go-live (1 artifact)
+[EVIDENCE] ACA-09-009 -- API error messages returned with Accept-Language header support for the (1 artifact)
+[EVIDENCE] ACA-09-010 -- axe-core CI check runs on every PR -- zero critical or serious violations gate (1 artifact)
+[EVIDENCE] ACA-09-011 -- All icon-only buttons have aria-label in all 5 locales (1 artifact)
+[EVIDENCE] ACA-09-012 -- All form fields have associated <label> elements (no placeholder-as-label) (1 artifact)
+[EVIDENCE] ACA-09-013 -- Findings table has proper <th scope="col"> headers (1 artifact)
+[EVIDENCE] ACA-09-014 -- PreFlight status indicators use both colour and icon/text (not colour-only) (1 artifact)
+[EVIDENCE] ACA-09-015 -- Colour contrast ratio >= 4.5:1 for all body text (verified in Figma + axe) (1 artifact)
+[EVIDENCE] ACA-09-016 -- Focus ring is visible and high-contrast on all focusable elements (1 artifact)
+[EVIDENCE] ACA-09-017 -- Skip-to-content link is the first focusable element on every page (1 artifact)
+[EVIDENCE] ACA-09-018 -- Consent banner is keyboard-accessible and screen-reader-labelled (1 artifact)
+[EVIDENCE] ACA-10-001 -- Red-team agent runs Tier 1 token against findings API and asserts (2 artifacts)
+[EVIDENCE] ACA-10-002 -- All endpoints validated: no tenant A can access tenant B data (2 artifacts)
+[EVIDENCE] ACA-10-003 -- Stripe webhook signature verified on every event (whsec_ secret) (1 artifact)
+[EVIDENCE] ACA-10-004 -- Admin endpoints protected by bearer token rotation schedule (1 artifact)
+[EVIDENCE] ACA-10-005 -- All Cosmos queries parameterized (no string concatenation in queries) (1 artifact)
+[EVIDENCE] ACA-10-006 -- CSP header enforced: scripts from GTM/Stripe/Clarity only, no inline (1 artifact)
+[EVIDENCE] ACA-10-007 -- Privacy policy published at /privacy in all 5 locales (1 artifact)
+[EVIDENCE] ACA-10-008 -- Terms of service published at /terms in all 5 locales (1 artifact)
+[EVIDENCE] ACA-10-009 -- Data retention policy: collected Azure data purged after 90 days (1 artifact)
+[EVIDENCE] ACA-10-010 -- Client can request data deletion via DELETE /v1/auth/disconnect which (1 artifact)
+[EVIDENCE] ACA-10-011 -- GA4 data retention set to 14 months. IP anonymization enabled. (1 artifact)
+[EVIDENCE] ACA-10-012 -- Clarity data retention respects GDPR right-to-be-forgotten via Clarity API (1 artifact)
+[EVIDENCE] ACA-10-013 -- docs/client-access-guide.md published at /docs/access-guide in all 5 locales (1 artifact)
+[EVIDENCE] ACA-10-014 -- FAQ page covers top 10 support questions (from preflight failure analysis) (1 artifact)
+[EVIDENCE] ACA-10-015 -- Status page (uptime) linked from footer (1 artifact)
+[EVIDENCE] ACA-11-001 -- `terraform apply` on infra/phase2-private completes without error (2 artifacts)
+[EVIDENCE] ACA-11-002 -- ACA-specific APIM instance is deployed with Tier enforcement policies (2 artifacts)
+[EVIDENCE] ACA-11-003 -- GitHub Actions deploy-phase2.yml is wired to private subscription via OIDC (2 artifacts)
+[EVIDENCE] ACA-11-004 -- Custom domain (app.aca.example.com / api.aca.example.com) configured with (2 artifacts)
+[EVIDENCE] ACA-11-005 -- Phase 2 Cosmos has 3 geo-replicas (canadacentral primary + failover) (2 artifacts)
+[EVIDENCE] ACA-11-006 -- DNS TTL lowered 48h before cutover (2 artifacts)
+[EVIDENCE] ACA-11-007 -- Phase 1 marco* infra remains live as rollback for 30 days post-cutover (2 artifacts)
+[EVIDENCE] ACA-11-008 -- Phase 2 smoke test: full Tier 1 -> Tier 3 flow on Phase 2 infra (2 artifacts)
+[EVIDENCE] ACA-11-009 -- APIM configuration exported and version-controlled (1 artifact)
+[EVIDENCE] ACA-12-001 -- All epics, features, and stories from this PLAN are seeded into (6 artifacts)
+[EVIDENCE] ACA-12-002 -- Each story has status: not-started / in-progress / done (3 artifacts)
+[EVIDENCE] ACA-12-003 -- Story status is updated by the agent at start and end of each work item (1 artifact)
+[EVIDENCE] ACA-12-004 -- data-model agent-summary reflects current overall completion percentage (2 artifacts)
+[EVIDENCE] ACA-12-005 -- API service reads feature_flags layer to gate unreleased features (1 artifact)
+[EVIDENCE] ACA-12-006 -- Analysis service reads the rules layer to discover enabled/disabled rules (1 artifact)
+[EVIDENCE] ACA-12-007 -- Endpoints layer is kept in sync with every shipped route (PUT on ship) (3 artifacts)
+[EVIDENCE] ACA-12-008 -- Containers layer reflects the actual Cosmos schema (fields, partition keys) (1 artifact)
+[IMPL] ACA-12-009 -- Cosmos DB aca-db + scans container with 256-partition key on subscriptionId (1 artifact)
+[IMPL] ACA-12-010 -- inventories container for Azure resource snapshots (partition key: subscriptionId) (1 artifact)
+[IMPL] ACA-12-011 -- cost-data container for monthly cost export and FinOps hub landing zone (1 artifact)
+[IMPL] ACA-12-012 -- advisor container for Azure Advisor recommendations + scores (1 artifact)
+[IMPL] ACA-12-013 -- findings container for analysis rule output (indexed on risk_class, effort_class) (1 artifact)
+[IMPL] ACA-12-014 -- APIM ACA product + subscription key policy for tier-gated rate limiting (1 artifact)
+[IMPL] ACA-12-015 -- Key Vault secrets wiring (ACA-CLIENT-ID, ACA-OPENAI-KEY, ACA-COSMOS-CONN) (1 artifact)
+[IMPL] ACA-12-016 -- Container App Job definitions for collector, analysis, delivery workers (1 artifact)
+[EVIDENCE] ACA-13-009 -- GET /v1/assessment/waf scores subscription against 5 WAF pillars (1 artifact)
+[EVIDENCE] ACA-13-010 -- WAF reliability pillar rules (APRL checklist integration) (1 artifact)
+[EVIDENCE] ACA-13-011 -- FinOps advisor rules R-13 to R-17 from best-practices library (1 artifact)
+[EVIDENCE] ACA-13-012 -- Idle resource detection rule (classic cost waste) (1 artifact)
+[EVIDENCE] ACA-13-013 -- RBAC hygiene check (over-scoped contributor assignments) (1 artifact)
+[EVIDENCE] ACA-13-014 -- Key Vault access policy audit (legacy vs RBAC mode) (1 artifact)
+[EVIDENCE] ACA-13-015 -- MCSB control compliance check (Defender for Cloud) (1 artifact)
+[EVIDENCE] ACA-13-016 -- APIM rate-limit policy health check (1 artifact)
+[EVIDENCE] ACA-13-017 -- API design compliance check (versioning, idempotency, error codes) (1 artifact)
+[EVIDENCE] ACA-13-018 -- PSRule for Azure gate on all Bicep templates (1 artifact)
+[EVIDENCE] ACA-13-019 -- Best-practice tag enforcement (cost-center, environment, owner) (1 artifact)
+[EVIDENCE] ACA-14-001 -- .github/ISSUE_TEMPLATE/agent-task.yml captures Story ID, WBS ID, (4 artifacts)
+[EVIDENCE] ACA-14-002 -- Issue template validation: Story ID must match ACA-NN-NNN format (3 artifacts)
+[EVIDENCE] ACA-14-003 -- .github/workflows/dpdca-agent.yml D1 phase: parse issue, load (3 artifacts)
+[EVIDENCE] ACA-14-004 -- P phase: Python Plan-step calls gpt-4o-mini with context, (3 artifacts)
+[EVIDENCE] ACA-14-005 -- D2 phase: create branch agent/ACA-NN-NNN-TIMESTAMP, write (4 artifacts)
+[EVIDENCE] ACA-14-006 -- C phase: run ruff check + pytest --co; fail workflow on error (2 artifacts)
+[EVIDENCE] ACA-14-007 -- A phase: commit with Story ID in message, run Veritas audit, (2 artifacts)
+[EVIDENCE] ACA-14-008 -- GitHub Models API integration (GITHUB_TOKEN, endpoint, model param) (4 artifacts)
+[EVIDENCE] ACA-14-009 -- Azure OpenAI fallback wiring (AZURE_OPENAI_KEY + endpoint env vars) (2 artifacts)
+[EVIDENCE] ACA-14-010 -- Evidence receipt schema validation: story_id, wbs_id, epic, (4 artifacts)
+[EVIDENCE] ACA-14-001 -- As the sprint agent I want a unified SprintContext class that merges (4 artifacts)
+[EVIDENCE] ACA-14-002 -- As the sprint agent I want a state lock mechanism that prevents duplicate (3 artifacts)
+[EVIDENCE] ACA-14-003 -- As the sprint agent I want phase verification checkpoints after each DPDCA (3 artifacts)
+[IMPL] ACA-15-013 -- Findings report UI (savings display, PDF export, tier selector) (1 artifact)
+[EVIDENCE] ACA-03-021 -- Fix FindingsAssembler missing cosmos_client argument (6 artifacts)
+[IMPL] ACA-07-021 -- Fix generate_blob_sas call and SAS_HOURS constant (2 artifacts)
+[IMPL] ACA-12-021 -- Create missing spec docs in docs/ (1 artifact)
+[IMPL] ACA-12-022 -- Lower MTI gate to 30 for Sprint 2 pre-flight (4 artifacts)
+
+Trust (MTI)
+---------------------------------------
+Score:   57 (no change)
+Trend:   70 -> 69 -> 69 -> 69 -> 57 -> 57 -> 57 -> 57 -> 57 -> 57
+Actions: review-required, no-deploy
+Components: coverage=0.96 evidence=0.93 consistency=0
+Weights:    coverage=0.5 evidence=0.2 consistency=0.3
+
+Improvement Hints
+---------------------------------------
+[ACT] To reach MTI 70 (merge-with-approval): tag 20 more stories with # EVA-STORY
+      To reach MTI 90 (deploy): tag 133 more stories with # EVA-STORY
+
+[ACT] 12 unimplemented stories by feature (highest priority first):
+      ACA-15 ONBOARDING SYSTEM (12 gaps)
+        - ACA-15-001 -- Infrastructure provisioning: Bicep for Cosmos (9 containers)
+        - ACA-15-002 -- Cosmos DB schema implementation (9 containers all deployed)
+        - ACA-15-003 -- Gate state machine (7-gate workflow with timeout/retry logic)
+        - ACA-15-004 -- FastAPI backend routes (POST /init, GET /{id}, decision handling)
+        - ACA-15-005 -- Azure SDK wrappers + pagination + retry logic
+        - ACA-15-006 -- CLI command structure (init, resume, list, get, logs, retry-extract)
+        - ACA-15-007 -- Extraction pipeline (inventory + costs + advisor with recovery)
+        - ACA-15-008 -- Logging + recovery mechanism (detailed operation logs, resume)
+        - ACA-15-009 -- Analysis rules engine (18-azure-best pattern integration)
+        - ACA-15-010 -- Evidence receipt generation (HMAC-SHA256 cryptographic signing)
+        - ACA-15-011 -- Integration tests (all gates, security, performance)
+        - ACA-15-012 -- React components (role assessment, preflight, extraction progress)
+
+[ACT] How to close each gap type:
+      missing_implementation  -- Add a tagged source file:
+        Option A: tag an existing file  -->  add  # EVA-STORY: <ID>  at the top
+        Option B: create a receipt       -->  evidence/<feature-id>.py  with  # EVA-STORY: <ID>
+
+[FAIL] MTI 57 is below threshold 70. Raise score or use --warn-only.

@@ -1,0 +1,34 @@
+{
+  "verification_date": "2026-03-06T16:41:30.314725Z",
+  "project_id": "51-ACA",
+  "checks": {
+    "completeness": {
+      "passed": true,
+      "issues": []
+    },
+    "consistency": {
+      "passed": true,
+      "issues": []
+    },
+    "traceability": {
+      "passed": true,
+      "issues": []
+    },
+    "data_quality": {
+      "passed": true,
+      "issues": []
+    }
+  },
+  "statistics": {
+    "wbs_stories": 256,
+    "evidence_records": 232,
+    "reconciliation_records": 256,
+    "evidence_coverage_%": 90.625,
+    "consistency_score": 0.953125,
+    "mti_score": 92.0,
+    "traceability_rate_%": 100.0,
+    "data_quality_score": 100.0
+  },
+  "issues": [],
+  "status": "PENDING"
+}

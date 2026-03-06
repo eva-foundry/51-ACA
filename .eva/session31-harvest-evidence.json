@@ -1,0 +1,2386 @@
+{
+  "harvest_date": "2026-03-06T16:39:29.492442Z",
+  "source": [
+    "git",
+    "tests",
+    "receipts"
+  ],
+  "project_id": "51-ACA",
+  "evidence_records": [
+    {
+      "story_id": "51",
+      "evidence_type": "code",
+      "source": "git",
+      "commit": "7d09280",
+      "message": "docs(51): add Sprint 16 story completion evidence",
+      "timestamp": "2026-03-03 11:37:32 -0500",
+      "proof": "Commit 7d09280: docs(51): add Sprint 16 story completion evidence"
+    },
+    {
+      "story_id": "ACA-17-005",
+      "evidence_type": "code",
+      "source": "git",
+      "commit": "4f9c37e",
+      "message": "feat(ACA-17-005): implement multi-agent orchestration workflow for failure recovery",
+      "timestamp": "2026-03-02 17:49:34 -0500",
+      "proof": "Commit 4f9c37e: feat(ACA-17-005): implement multi-agent orchestration workflow for failure recovery"
+    },
+    {
+      "story_id": "ACA-17-004",
+      "evidence_type": "code",
+      "source": "git",
+      "commit": "bc849a6",
+      "message": "feat(ACA-17-004): implement sync advisor agent with 4-scenario fallback rules and PowerShell integration",
+      "timestamp": "2026-03-02 17:42:19 -0500",
+      "proof": "Commit bc849a6: feat(ACA-17-004): implement sync advisor agent with 4-scenario fallback rules and PowerShell integration"
+    },
+    {
+      "story_id": "ACA-17-003",
+      "evidence_type": "code",
+      "source": "git",
+      "commit": "a011b33",
+      "message": "feat(ACA-17-003): implement async orchestration engine with parallel job spawning",
+      "timestamp": "2026-03-02 17:31:59 -0500",
+      "proof": "Commit a011b33: feat(ACA-17-003): implement async orchestration engine with parallel job spawning"
+    },
+    {
+      "story_id": "ACA-17-002",
+      "evidence_type": "code",
+      "source": "git",
+      "commit": "223c46d",
+      "message": "feat(ACA-17-002): implement intelligent retry tuning agent",
+      "timestamp": "2026-03-02 17:21:03 -0500",
+      "proof": "Commit 223c46d: feat(ACA-17-002): implement intelligent retry tuning agent"
+    },
+    {
+      "story_id": "ACA-16-007",
+      "evidence_type": "code",
+      "source": "git",
+      "commit": "045fdeb",
+      "message": "feat(ACA-16-007): APM integration - Application Insights telemetry & dashboards [SPRINT-001 COMPLETE]",
+      "timestamp": "2026-03-02 14:46:34 -0500",
+      "proof": "Commit 045fdeb: feat(ACA-16-007): APM integration - Application Insights telemetry & dashboards [SPRINT-001 COMPLETE]"
+    },
+    {
+      "story_id": "ACA-16-006",
+      "evidence_type": "code",
+      "source": "git",
+      "commit": "27a90d9",
+      "message": "feat(ACA-16-006): rollback capability - pre-sync snapshot & atomic restore",
+      "timestamp": "2026-03-02 14:43:59 -0500",
+      "proof": "Commit 27a90d9: feat(ACA-16-006): rollback capability - pre-sync snapshot & atomic restore"
+    },
+    {
+      "story_id": "ACA-16-005",
+      "evidence_type": "code",
+      "source": "git",
+      "commit": "db6d74b",
+      "message": "feat(ACA-16-005): checkpoint/resume enhancement - crash recovery without data loss",
+      "timestamp": "2026-03-02 14:41:57 -0500",
+      "proof": "Commit db6d74b: feat(ACA-16-005): checkpoint/resume enhancement - crash recovery without data loss"
+    },
+    {
+      "story_id": "ACA-16-004",
+      "evidence_type": "code",
+      "source": "git",
+      "commit": "2fbc0d0",
+      "message": "feat(ACA-16-004): health checks with diagnostics and recovery suggestions",
+      "timestamp": "2026-03-02 14:36:18 -0500",
+      "proof": "Commit 2fbc0d0: feat(ACA-16-004): health checks with diagnostics and recovery suggestions"
+    },
+    {
+      "story_id": "ACA-16-003",
+      "evidence_type": "code",
+      "source": "git",
+      "commit": "a693404",
+      "message": "feat(ACA-16-003): circuit breaker pattern implementation",
+      "timestamp": "2026-03-02 14:33:17 -0500",
+      "proof": "Commit a693404: feat(ACA-16-003): circuit breaker pattern implementation"
+    },
+    {
+      "story_id": "ACA-16-002",
+      "evidence_type": "code",
+      "source": "git",
+      "commit": "93458d7",
+      "message": "feat(ACA-16-002): retry + exponential backoff logic",
+      "timestamp": "2026-03-02 14:03:21 -0500",
+      "proof": "Commit 93458d7: feat(ACA-16-002): retry + exponential backoff logic"
+    },
+    {
+      "story_id": "ACA-16-001",
+      "evidence_type": "code",
+      "source": "git",
+      "commit": "2160d7a",
+      "message": "feat(ACA-16-001): baseline Container Apps Job infrastructure",
+      "timestamp": "2026-03-02 13:59:56 -0500",
+      "proof": "Commit 2160d7a: feat(ACA-16-001): baseline Container Apps Job infrastructure"
+    },
+    {
+      "story_id": "ACA-15-013",
+      "evidence_type": "code",
+      "source": "git",
+      "commit": "77da220",
+      "message": "feat(ACA-15-013): add comprehensive verification, evidence, and traceability framework for Epic 15 sync",
+      "timestamp": "2026-03-02 12:12:06 -0500",
+      "proof": "Commit 77da220: feat(ACA-15-013): add comprehensive verification, evidence, and traceability framework for Epic 15 sync"
+    },
+    {
+      "story_id": "51-ACA",
+      "evidence_type": "code",
+      "source": "git",
+      "commit": "1081640",
+      "message": "feat(51-ACA): complete veritas audit, create data model sync script and report",
+      "timestamp": "2026-03-02 12:05:36 -0500",
+      "proof": "Commit 1081640: feat(51-ACA): complete veritas audit, create data model sync script and report"
+    },
+    {
+      "story_id": "ACA-12",
+      "evidence_type": "code",
+      "source": "git",
+      "commit": "02e983d",
+      "message": "fix(ACA-12): reconcile orphan infrastructure story IDs with veritas-plan",
+      "timestamp": "2026-03-02 09:52:02 -0500",
+      "proof": "Commit 02e983d: fix(ACA-12): reconcile orphan infrastructure story IDs with veritas-plan"
+    },
+    {
+      "story_id": "ACA-04",
+      "evidence_type": "code",
+      "source": "git",
+      "commit": "7d420a5",
+      "message": "chore(ACA-04): record Sprint 18 evidence receipt + completion report",
+      "timestamp": "2026-03-02 09:05:53 -0500",
+      "proof": "Commit 7d420a5: chore(ACA-04): record Sprint 18 evidence receipt + completion report"
+    },
+    {
+      "story_id": "ACA-04-001",
+      "evidence_type": "code",
+      "source": "git",
+      "commit": "8ddfc23",
+      "message": "feat(ACA-04-001): Sprint 17 backend auth foundation - MSAL, session, probes modules",
+      "timestamp": "2026-03-02 08:35:08 -0500",
+      "proof": "Commit 8ddfc23: feat(ACA-04-001): Sprint 17 backend auth foundation - MSAL, session, probes modules"
+    },
+    {
+      "story_id": "ACA-03-034",
+      "evidence_type": "code",
+      "source": "git",
+      "commit": "626e025",
+      "message": "docs(ACA-03-034): Sprint 16 completion report - all 7 stories done, 22 tests pass, CI gate active",
+      "timestamp": "2026-03-02 08:30:28 -0500",
+      "proof": "Commit 626e025: docs(ACA-03-034): Sprint 16 completion report - all 7 stories done, 22 tests pass, CI gate active"
+    },
+    {
+      "story_id": "ACA-03-038",
+      "evidence_type": "code",
+      "source": "git",
+      "commit": "6de26f6",
+      "message": "chore(ACA-03-038): add CI coverage gate - enforce 95% line coverage on analysis rules",
+      "timestamp": "2026-03-02 08:29:18 -0500",
+      "proof": "Commit 6de26f6: chore(ACA-03-038): add CI coverage gate - enforce 95% line coverage on analysis rules"
+    },
+    {
+      "story_id": "ACA-03-028",
+      "evidence_type": "code",
+      "source": "git",
+      "commit": "c5577e0",
+      "message": "docs(ACA-03-028): Sprint 15 completion report with metrics validation",
+      "timestamp": "2026-03-02 08:27:04 -0500",
+      "proof": "Commit c5577e0: docs(ACA-03-028): Sprint 15 completion report with metrics validation"
+    },
+    {
+      "story_id": "ACA-03-023",
+      "evidence_type": "code",
+      "source": "git",
+      "commit": "61ed1ca",
+      "message": "docs(ACA-03-023): Sprint 14 completion report with metrics validation",
+      "timestamp": "2026-03-02 08:21:22 -0500",
+      "proof": "Commit 61ed1ca: docs(ACA-03-023): Sprint 14 completion report with metrics validation"
+    },
+    {
+      "story_id": "ACA-03-019",
+      "evidence_type": "code",
+      "source": "git",
+      "commit": "1de026d",
+      "message": "docs(ACA-03-019): Sprint 13 complete - handoff report with full metrics validation",
+      "timestamp": "2026-03-02 07:30:30 -0500",
+      "proof": "Commit 1de026d: docs(ACA-03-019): Sprint 13 complete - handoff report with full metrics validation"
+    },
+    {
+      "story_id": "51-ACA-25",
+      "evidence_type": "code",
+      "source": "git",
+      "commit": "4b560fd",
+      "message": "fix(51-ACA-25): clarify Sprint 12 timing is estimated, not measured - accuracy correction",
+      "timestamp": "2026-03-01 22:08:43 -0500",
+      "proof": "Commit 4b560fd: fix(51-ACA-25): clarify Sprint 12 timing is estimated, not measured - accuracy correction"
+    },
+    {
+      "story_id": "ACA-03",
+      "evidence_type": "code",
+      "source": "git",
+      "commit": "0acd26a",
+      "message": "feat(ACA-03): Sprint 13-16 manifests + scaling analysis",
+      "timestamp": "2026-03-01 22:02:23 -0500",
+      "proof": "Commit 0acd26a: feat(ACA-03): Sprint 13-16 manifests + scaling analysis"
+    },
+    {
+      "story_id": "ACA",
+      "evidence_type": "code",
+      "source": "git",
+      "commit": "8d66f35",
+      "message": "fix(ACA): duration unit consistency - use duration_ms directly for minutes conversion",
+      "timestamp": "2026-03-01 12:15:53 -0500",
+      "proof": "Commit 8d66f35: fix(ACA): duration unit consistency - use duration_ms directly for minutes conversion"
+    },
+    {
+      "story_id": "STATUS",
+      "evidence_type": "code",
+      "source": "git",
+      "commit": "c995542",
+      "message": "chore(STATUS): v1.29.0 - Sprint 9 complete (4 stories, 8 FP, epic 3 complete, 34 tests passing)",
+      "timestamp": "2026-03-01 12:11:27 -0500",
+      "proof": "Commit c995542: chore(STATUS): v1.29.0 - Sprint 9 complete (4 stories, 8 FP, epic 3 complete, 34 tests passing)"
+    },
+    {
+      "story_id": "SPRINT-09",
+      "evidence_type": "code",
+      "source": "git",
+      "commit": "758ff9e",
+      "message": "fix(SPRINT-09):  (#33)",
+      "timestamp": "2026-03-01 11:49:03 -0500",
+      "proof": "Commit 758ff9e: fix(SPRINT-09):  (#33)"
+    },
+    {
+      "story_id": "SPRINT-08",
+      "evidence_type": "code",
+      "source": "git",
+      "commit": "7d54e06",
+      "message": "fix(SPRINT-08): analysis-rules-batch-2 (#31)",
+      "timestamp": "2026-03-01 11:17:52 -0500",
+      "proof": "Commit 7d54e06: fix(SPRINT-08): analysis-rules-batch-2 (#31)"
+    },
+    {
+      "story_id": "SPRINT-07",
+      "evidence_type": "code",
+      "source": "git",
+      "commit": "e583ed7",
+      "message": "fix(SPRINT-07): rules-and-redteam (#29)",
+      "timestamp": "2026-03-01 11:12:56 -0500",
+      "proof": "Commit e583ed7: fix(SPRINT-07): rules-and-redteam (#29)"
+    },
+    {
+      "story_id": "SPRINT-06",
+      "evidence_type": "code",
+      "source": "git",
+      "commit": "468cf9f",
+      "message": "fix(SPRINT-06): analysis-foundation-and-tiers (#24)",
+      "timestamp": "2026-03-01 10:15:06 -0500",
+      "proof": "Commit 468cf9f: fix(SPRINT-06): analysis-foundation-and-tiers (#24)"
+    },
+    {
+      "story_id": "SPRINT-05",
+      "evidence_type": "code",
+      "source": "git",
+      "commit": "51d876d",
+      "message": "fix(SPRINT-05): analysis-completion (#22)",
+      "timestamp": "2026-03-01 09:40:34 -0500",
+      "proof": "Commit 51d876d: fix(SPRINT-05): analysis-completion (#22)"
+    },
+    {
+      "story_id": "SPRINT-04",
+      "evidence_type": "code",
+      "source": "git",
+      "commit": "c7f9531",
+      "message": "chore(SPRINT-04): mark Sprint 4 stories done in PLAN.md (ACA-03-002, ACA-03-003, ACA-03-011)",
+      "timestamp": "2026-03-01 09:28:21 -0500",
+      "proof": "Commit c7f9531: chore(SPRINT-04): mark Sprint 4 stories done in PLAN.md (ACA-03-002, ACA-03-003, ACA-03-011)"
+    },
+    {
+      "story_id": "ACA-03-021",
+      "evidence_type": "code",
+      "source": "git",
+      "commit": "5518938",
+      "message": "fix(ACA-03-021): update test to validate Sprint 4 upsert_item pattern (24/24 passing)",
+      "timestamp": "2026-03-01 08:36:18 -0500",
+      "proof": "Commit 5518938: fix(ACA-03-021): update test to validate Sprint 4 upsert_item pattern (24/24 passing)"
+    },
+    {
+      "story_id": "ACA-03-001",
+      "evidence_type": "code",
+      "source": "git",
+      "commit": "1496a94",
+      "message": "chore(ACA-03-001): mark story done in veritas-plan",
+      "timestamp": "2026-03-01 08:01:46 -0500",
+      "proof": "Commit 1496a94: chore(ACA-03-001): mark story done in veritas-plan"
+    },
+    {
+      "story_id": "ACA-12-023",
+      "evidence_type": "code",
+      "source": "git",
+      "commit": "9edd095",
+      "message": "feat(ACA-12-023): Complete Sprint 3 enhancements + 5-skill system",
+      "timestamp": "2026-02-28 15:24:56 -0500",
+      "proof": "Commit 9edd095: feat(ACA-12-023): Complete Sprint 3 enhancements + 5-skill system"
+    },
+    {
+      "story_id": "ACA-03-016",
+      "evidence_type": "code",
+      "source": "git",
+      "commit": "8113b32",
+      "message": "feat(ACA-03-016): GB-03 -- Resource Graph pagination",
+      "timestamp": "2026-02-28 17:56:59 +0000",
+      "proof": "Commit 8113b32: feat(ACA-03-016): GB-03 -- Resource Graph pagination"
+    },
+    {
+      "story_id": "ACA-03-015",
+      "evidence_type": "code",
+      "source": "git",
+      "commit": "2e2a93a",
+      "message": "feat(ACA-03-015): GB-02 -- Analysis auto-trigger",
+      "timestamp": "2026-02-28 17:56:54 +0000",
+      "proof": "Commit 2e2a93a: feat(ACA-03-015): GB-02 -- Analysis auto-trigger"
+    },
+    {
+      "story_id": "ACA-03-014",
+      "evidence_type": "code",
+      "source": "git",
+      "commit": "15519ac",
+      "message": "feat(ACA-03-014): Rule 12 -- Chargeback gap",
+      "timestamp": "2026-02-28 17:56:49 +0000",
+      "proof": "Commit 15519ac: feat(ACA-03-014): Rule 12 -- Chargeback gap"
+    },
+    {
+      "story_id": "ACA-03-013",
+      "evidence_type": "code",
+      "source": "git",
+      "commit": "37101fc",
+      "message": "feat(ACA-03-013): Rule 11 -- APIM token budget",
+      "timestamp": "2026-02-28 17:56:45 +0000",
+      "proof": "Commit 37101fc: feat(ACA-03-013): Rule 11 -- APIM token budget"
+    },
+    {
+      "story_id": "ACA-03-012",
+      "evidence_type": "code",
+      "source": "git",
+      "commit": "2d08ba3",
+      "message": "feat(ACA-03-012): Rule 10 -- Savings plan coverage",
+      "timestamp": "2026-02-28 17:56:40 +0000",
+      "proof": "Commit 2d08ba3: feat(ACA-03-012): Rule 10 -- Savings plan coverage"
+    },
+    {
+      "story_id": "ACA-03-011",
+      "evidence_type": "code",
+      "source": "git",
+      "commit": "c79d37f",
+      "message": "feat(ACA-03-011): Rule 09 -- DNS sprawl",
+      "timestamp": "2026-02-28 17:56:21 +0000",
+      "proof": "Commit c79d37f: feat(ACA-03-011): Rule 09 -- DNS sprawl"
+    },
+    {
+      "story_id": "ACA-03-010",
+      "evidence_type": "code",
+      "source": "git",
+      "commit": "a3ddfad",
+      "message": "feat(ACA-03-010): Rule 08 -- ACR consolidation",
+      "timestamp": "2026-02-28 17:56:17 +0000",
+      "proof": "Commit a3ddfad: feat(ACA-03-010): Rule 08 -- ACR consolidation"
+    },
+    {
+      "story_id": "ACA-03-009",
+      "evidence_type": "code",
+      "source": "git",
+      "commit": "488a348",
+      "message": "feat(ACA-03-009): Rule 07 -- Search SKU oversize",
+      "timestamp": "2026-02-28 17:56:12 +0000",
+      "proof": "Commit 488a348: feat(ACA-03-009): Rule 07 -- Search SKU oversize"
+    },
+    {
+      "story_id": "ACA-03-008",
+      "evidence_type": "code",
+      "source": "git",
+      "commit": "fd0430b",
+      "message": "feat(ACA-03-008): Rule 06 -- Stale environments",
+      "timestamp": "2026-02-28 17:56:07 +0000",
+      "proof": "Commit fd0430b: feat(ACA-03-008): Rule 06 -- Stale environments"
+    },
+    {
+      "story_id": "ACA-03-007",
+      "evidence_type": "code",
+      "source": "git",
+      "commit": "8a22d0b",
+      "message": "feat(ACA-03-007): Rule 05 -- Anomaly detection",
+      "timestamp": "2026-02-28 17:56:02 +0000",
+      "proof": "Commit 8a22d0b: feat(ACA-03-007): Rule 05 -- Anomaly detection"
+    },
+    {
+      "story_id": "ACA-03-005",
+      "evidence_type": "code",
+      "source": "git",
+      "commit": "87288ff",
+      "message": "feat(ACA-03-005): Rule 04 -- Compute scheduling",
+      "timestamp": "2026-02-28 17:55:59 +0000",
+      "proof": "Commit 87288ff: feat(ACA-03-005): Rule 04 -- Compute scheduling"
+    },
+    {
+      "story_id": "ACA-03-004",
+      "evidence_type": "code",
+      "source": "git",
+      "commit": "5fe4353",
+      "message": "feat(ACA-03-004): Rule 03 -- Defender mismatch",
+      "timestamp": "2026-02-28 17:55:54 +0000",
+      "proof": "Commit 5fe4353: feat(ACA-03-004): Rule 03 -- Defender mismatch"
+    },
+    {
+      "story_id": "ACA-03-001",
+      "evidence_type": "test",
+      "source": "test-runner-output.txt",
+      "timestamp": "2026-03-02T20:24:39.125154",
+      "proof": "Found in test-runner-output.txt"
+    },
+    {
+      "story_id": "ACA-03-001-",
+      "evidence_type": "test",
+      "source": "test-runner-output.txt",
+      "timestamp": "2026-03-02T20:24:39.125154",
+      "proof": "Found in test-runner-output.txt"
+    },
+    {
+      "story_id": "ACA-03-003",
+      "evidence_type": "test",
+      "source": "lint-result.txt",
+      "timestamp": "2026-03-02T20:24:38.991155",
+      "proof": "Found in lint-result.txt"
+    },
+    {
+      "story_id": "ACA-03-004",
+      "evidence_type": "test",
+      "source": "lint-result.txt",
+      "timestamp": "2026-03-02T20:24:38.991155",
+      "proof": "Found in lint-result.txt"
+    },
+    {
+      "story_id": "ACA-03-005",
+      "evidence_type": "test",
+      "source": "lint-result.txt",
+      "timestamp": "2026-03-02T20:24:38.991155",
+      "proof": "Found in lint-result.txt"
+    },
+    {
+      "story_id": "ACA-03-010",
+      "evidence_type": "test",
+      "source": "lint-result.txt",
+      "timestamp": "2026-03-02T20:24:38.991155",
+      "proof": "Found in lint-result.txt"
+    },
+    {
+      "story_id": "ACA-03-007",
+      "evidence_type": "test",
+      "source": "lint-result.txt",
+      "timestamp": "2026-03-02T20:24:38.991155",
+      "proof": "Found in lint-result.txt"
+    },
+    {
+      "story_id": "ACA-03-012",
+      "evidence_type": "test",
+      "source": "lint-result.txt",
+      "timestamp": "2026-03-02T20:24:38.991155",
+      "proof": "Found in lint-result.txt"
+    },
+    {
+      "story_id": "ACA-03-013",
+      "evidence_type": "test",
+      "source": "lint-result.txt",
+      "timestamp": "2026-03-02T20:24:38.991155",
+      "proof": "Found in lint-result.txt"
+    },
+    {
+      "story_id": "ACA-03-014",
+      "evidence_type": "test",
+      "source": "lint-result.txt",
+      "timestamp": "2026-03-02T20:24:38.991155",
+      "proof": "Found in lint-result.txt"
+    },
+    {
+      "story_id": "ACA-03-015",
+      "evidence_type": "test",
+      "source": "lint-result.txt",
+      "timestamp": "2026-03-02T20:24:38.991155",
+      "proof": "Found in lint-result.txt"
+    },
+    {
+      "story_id": "ACA-03-017",
+      "evidence_type": "test",
+      "source": "lint-result.txt",
+      "timestamp": "2026-03-02T20:24:38.991155",
+      "proof": "Found in lint-result.txt"
+    },
+    {
+      "story_id": "ACA-03-019",
+      "evidence_type": "test",
+      "source": "lint-result.txt",
+      "timestamp": "2026-03-02T20:24:38.991155",
+      "proof": "Found in lint-result.txt"
+    },
+    {
+      "story_id": "ACA-03-020",
+      "evidence_type": "test",
+      "source": "lint-result.txt",
+      "timestamp": "2026-03-02T20:24:38.991155",
+      "proof": "Found in lint-result.txt"
+    },
+    {
+      "story_id": "ACA-03-021",
+      "evidence_type": "test",
+      "source": "lint-result.txt",
+      "timestamp": "2026-03-02T20:24:38.991155",
+      "proof": "Found in lint-result.txt"
+    },
+    {
+      "story_id": "ACA-03-022",
+      "evidence_type": "test",
+      "source": "lint-result.txt",
+      "timestamp": "2026-03-02T20:24:38.991155",
+      "proof": "Found in lint-result.txt"
+    },
+    {
+      "story_id": "ACA-03-011",
+      "evidence_type": "test",
+      "source": "lint-result.txt",
+      "timestamp": "2026-03-02T20:24:38.991155",
+      "proof": "Found in lint-result.txt"
+    },
+    {
+      "story_id": "ACA-03-008",
+      "evidence_type": "test",
+      "source": "lint-result.txt",
+      "timestamp": "2026-03-02T20:24:38.991155",
+      "proof": "Found in lint-result.txt"
+    },
+    {
+      "story_id": "ACA-01-005",
+      "evidence_type": "test",
+      "source": "lint-result.txt",
+      "timestamp": "2026-03-02T20:24:38.991155",
+      "proof": "Found in lint-result.txt"
+    },
+    {
+      "story_id": "ACA-03-016",
+      "evidence_type": "test",
+      "source": "lint-result.txt",
+      "timestamp": "2026-03-02T20:24:38.991155",
+      "proof": "Found in lint-result.txt"
+    },
+    {
+      "story_id": "ACA-07-009",
+      "evidence_type": "test",
+      "source": "lint-result.txt",
+      "timestamp": "2026-03-02T20:24:38.991155",
+      "proof": "Found in lint-result.txt"
+    },
+    {
+      "story_id": "ACA-04-008",
+      "evidence_type": "test",
+      "source": "lint-result.txt",
+      "timestamp": "2026-03-02T20:24:38.991155",
+      "proof": "Found in lint-result.txt"
+    },
+    {
+      "story_id": "ACA-03-033",
+      "evidence_type": "test",
+      "source": "lint-result.txt",
+      "timestamp": "2026-03-02T20:24:38.991155",
+      "proof": "Found in lint-result.txt"
+    },
+    {
+      "story_id": "ACA-03-009",
+      "evidence_type": "test",
+      "source": "lint-result.txt",
+      "timestamp": "2026-03-02T20:24:38.991155",
+      "proof": "Found in lint-result.txt"
+    },
+    {
+      "story_id": "ACA-03-018",
+      "evidence_type": "test",
+      "source": "lint-result.txt",
+      "timestamp": "2026-03-02T20:24:38.991155",
+      "proof": "Found in lint-result.txt"
+    },
+    {
+      "story_id": "ACA-01-001",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-01-001-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.717395",
+      "proof": "Receipt: ACA-01-001-receipt.py"
+    },
+    {
+      "story_id": "ACA-01-002",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-01-002-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.718393",
+      "proof": "Receipt: ACA-01-002-receipt.py"
+    },
+    {
+      "story_id": "ACA-01-003",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-01-003-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.719392",
+      "proof": "Receipt: ACA-01-003-receipt.py"
+    },
+    {
+      "story_id": "ACA-01-004",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-01-004-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.720395",
+      "proof": "Receipt: ACA-01-004-receipt.py"
+    },
+    {
+      "story_id": "ACA-01-005",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-01-005-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.721395",
+      "proof": "Receipt: ACA-01-005-receipt.py"
+    },
+    {
+      "story_id": "ACA-01-006",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-01-006-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.722393",
+      "proof": "Receipt: ACA-01-006-receipt.py"
+    },
+    {
+      "story_id": "ACA-01-007",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-01-007-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.723395",
+      "proof": "Receipt: ACA-01-007-receipt.py"
+    },
+    {
+      "story_id": "ACA-01-008",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-01-008-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.724396",
+      "proof": "Receipt: ACA-01-008-receipt.py"
+    },
+    {
+      "story_id": "ACA-01-009",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-01-009-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.725392",
+      "proof": "Receipt: ACA-01-009-receipt.py"
+    },
+    {
+      "story_id": "ACA-01-010",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-01-010-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.725392",
+      "proof": "Receipt: ACA-01-010-receipt.py"
+    },
+    {
+      "story_id": "ACA-01-011",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-01-011-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.727395",
+      "proof": "Receipt: ACA-01-011-receipt.py"
+    },
+    {
+      "story_id": "ACA-01-012",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-01-012-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.728395",
+      "proof": "Receipt: ACA-01-012-receipt.py"
+    },
+    {
+      "story_id": "ACA-01-013",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-01-013-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.728395",
+      "proof": "Receipt: ACA-01-013-receipt.py"
+    },
+    {
+      "story_id": "ACA-01-014",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-01-014-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.729396",
+      "proof": "Receipt: ACA-01-014-receipt.py"
+    },
+    {
+      "story_id": "ACA-01-015",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-01-015-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.730395",
+      "proof": "Receipt: ACA-01-015-receipt.py"
+    },
+    {
+      "story_id": "ACA-01-016",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-01-016-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.731395",
+      "proof": "Receipt: ACA-01-016-receipt.py"
+    },
+    {
+      "story_id": "ACA-01-017",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-01-017-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.732395",
+      "proof": "Receipt: ACA-01-017-receipt.py"
+    },
+    {
+      "story_id": "ACA-01-018",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-01-018-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.734394",
+      "proof": "Receipt: ACA-01-018-receipt.py"
+    },
+    {
+      "story_id": "ACA-01-019",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-01-019-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.735396",
+      "proof": "Receipt: ACA-01-019-receipt.py"
+    },
+    {
+      "story_id": "ACA-01-020",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-01-020-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.736395",
+      "proof": "Receipt: ACA-01-020-receipt.py"
+    },
+    {
+      "story_id": "ACA-01-021",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-01-021-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.737395",
+      "proof": "Receipt: ACA-01-021-receipt.py"
+    },
+    {
+      "story_id": "ACA-02-001",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-02-001-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.738394",
+      "proof": "Receipt: ACA-02-001-receipt.py"
+    },
+    {
+      "story_id": "ACA-02-002",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-02-002-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.738394",
+      "proof": "Receipt: ACA-02-002-receipt.py"
+    },
+    {
+      "story_id": "ACA-02-003",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-02-003-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.739394",
+      "proof": "Receipt: ACA-02-003-receipt.py"
+    },
+    {
+      "story_id": "ACA-02-004",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-02-004-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.740391",
+      "proof": "Receipt: ACA-02-004-receipt.py"
+    },
+    {
+      "story_id": "ACA-02-005",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-02-005-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.742394",
+      "proof": "Receipt: ACA-02-005-receipt.py"
+    },
+    {
+      "story_id": "ACA-02-006",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-02-006-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.743394",
+      "proof": "Receipt: ACA-02-006-receipt.py"
+    },
+    {
+      "story_id": "ACA-02-007",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-02-007-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.744393",
+      "proof": "Receipt: ACA-02-007-receipt.py"
+    },
+    {
+      "story_id": "ACA-02-008",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-02-008-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.745395",
+      "proof": "Receipt: ACA-02-008-receipt.py"
+    },
+    {
+      "story_id": "ACA-02-009",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-02-009-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.746392",
+      "proof": "Receipt: ACA-02-009-receipt.py"
+    },
+    {
+      "story_id": "ACA-02-010",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-02-010-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.746392",
+      "proof": "Receipt: ACA-02-010-receipt.py"
+    },
+    {
+      "story_id": "ACA-02-011",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-02-011-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.748394",
+      "proof": "Receipt: ACA-02-011-receipt.py"
+    },
+    {
+      "story_id": "ACA-02-012",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-02-012-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.749395",
+      "proof": "Receipt: ACA-02-012-receipt.py"
+    },
+    {
+      "story_id": "ACA-02-013",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-02-013-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.750394",
+      "proof": "Receipt: ACA-02-013-receipt.py"
+    },
+    {
+      "story_id": "ACA-02-014",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-02-014-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.751394",
+      "proof": "Receipt: ACA-02-014-receipt.py"
+    },
+    {
+      "story_id": "ACA-02-015",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-02-015-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.752392",
+      "proof": "Receipt: ACA-02-015-receipt.py"
+    },
+    {
+      "story_id": "ACA-02-016",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-02-016-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.753392",
+      "proof": "Receipt: ACA-02-016-receipt.py"
+    },
+    {
+      "story_id": "ACA-03-001",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-03-001-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.754392",
+      "proof": "Receipt: ACA-03-001-receipt.py"
+    },
+    {
+      "story_id": "ACA-03-002",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-03-002-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.755394",
+      "proof": "Receipt: ACA-03-002-receipt.py"
+    },
+    {
+      "story_id": "ACA-03-003",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-03-003-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.756393",
+      "proof": "Receipt: ACA-03-003-receipt.py"
+    },
+    {
+      "story_id": "ACA-03-004",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-03-004-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.757393",
+      "proof": "Receipt: ACA-03-004-receipt.py"
+    },
+    {
+      "story_id": "ACA-03-005",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-03-005-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.758392",
+      "proof": "Receipt: ACA-03-005-receipt.py"
+    },
+    {
+      "story_id": "ACA-03-006",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-03-006-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.759395",
+      "proof": "Receipt: ACA-03-006-receipt.py"
+    },
+    {
+      "story_id": "ACA-03-007",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-03-007-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.760395",
+      "proof": "Receipt: ACA-03-007-receipt.py"
+    },
+    {
+      "story_id": "ACA-03-008",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-03-008-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.762395",
+      "proof": "Receipt: ACA-03-008-receipt.py"
+    },
+    {
+      "story_id": "ACA-03-009",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-03-009-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.763394",
+      "proof": "Receipt: ACA-03-009-receipt.py"
+    },
+    {
+      "story_id": "ACA-03-010",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-03-010-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.764394",
+      "proof": "Receipt: ACA-03-010-receipt.py"
+    },
+    {
+      "story_id": "ACA-03-011",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-03-011-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.765393",
+      "proof": "Receipt: ACA-03-011-receipt.py"
+    },
+    {
+      "story_id": "ACA-03-012",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-03-012-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.766395",
+      "proof": "Receipt: ACA-03-012-receipt.py"
+    },
+    {
+      "story_id": "ACA-03-013",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-03-013-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.767395",
+      "proof": "Receipt: ACA-03-013-receipt.py"
+    },
+    {
+      "story_id": "ACA-03-014",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-03-014-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.769393",
+      "proof": "Receipt: ACA-03-014-receipt.py"
+    },
+    {
+      "story_id": "ACA-03-015",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-03-015-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.770394",
+      "proof": "Receipt: ACA-03-015-receipt.py"
+    },
+    {
+      "story_id": "ACA-03-016",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-03-016-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.771394",
+      "proof": "Receipt: ACA-03-016-receipt.py"
+    },
+    {
+      "story_id": "ACA-03-017",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-03-017-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.772394",
+      "proof": "Receipt: ACA-03-017-receipt.py"
+    },
+    {
+      "story_id": "ACA-03-018",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-03-018-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.773393",
+      "proof": "Receipt: ACA-03-018-receipt.py"
+    },
+    {
+      "story_id": "ACA-03-019",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-03-019-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.774395",
+      "proof": "Receipt: ACA-03-019-receipt.py"
+    },
+    {
+      "story_id": "ACA-03-020",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-03-020-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.775395",
+      "proof": "Receipt: ACA-03-020-receipt.py"
+    },
+    {
+      "story_id": "ACA-03-021",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-03-021-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.777393",
+      "proof": "Receipt: ACA-03-021-receipt.py"
+    },
+    {
+      "story_id": "ACA-03-022",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-03-022-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.779394",
+      "proof": "Receipt: ACA-03-022-receipt.py"
+    },
+    {
+      "story_id": "ACA-03-023",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-03-023-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.780395",
+      "proof": "Receipt: ACA-03-023-receipt.py"
+    },
+    {
+      "story_id": "ACA-03-024",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-03-024-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.781393",
+      "proof": "Receipt: ACA-03-024-receipt.py"
+    },
+    {
+      "story_id": "ACA-03-025",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-03-025-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.782393",
+      "proof": "Receipt: ACA-03-025-receipt.py"
+    },
+    {
+      "story_id": "ACA-03-026",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-03-026-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.783392",
+      "proof": "Receipt: ACA-03-026-receipt.py"
+    },
+    {
+      "story_id": "ACA-03-027",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-03-027-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.784396",
+      "proof": "Receipt: ACA-03-027-receipt.py"
+    },
+    {
+      "story_id": "ACA-03-028",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-03-028-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.786393",
+      "proof": "Receipt: ACA-03-028-receipt.py"
+    },
+    {
+      "story_id": "ACA-03-029",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-03-029-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.787393",
+      "proof": "Receipt: ACA-03-029-receipt.py"
+    },
+    {
+      "story_id": "ACA-03-030",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-03-030-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.788394",
+      "proof": "Receipt: ACA-03-030-receipt.py"
+    },
+    {
+      "story_id": "ACA-03-031",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-03-031-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.789395",
+      "proof": "Receipt: ACA-03-031-receipt.py"
+    },
+    {
+      "story_id": "ACA-03-032",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-03-032-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.790394",
+      "proof": "Receipt: ACA-03-032-receipt.py"
+    },
+    {
+      "story_id": "ACA-03-033",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-03-033-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.792417",
+      "proof": "Receipt: ACA-03-033-receipt.py"
+    },
+    {
+      "story_id": "ACA-04-001",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-04-001-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.793395",
+      "proof": "Receipt: ACA-04-001-receipt.py"
+    },
+    {
+      "story_id": "ACA-04-002",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-04-002-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.794393",
+      "proof": "Receipt: ACA-04-002-receipt.py"
+    },
+    {
+      "story_id": "ACA-04-003",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-04-003-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.795393",
+      "proof": "Receipt: ACA-04-003-receipt.py"
+    },
+    {
+      "story_id": "ACA-04-004",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-04-004-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.797394",
+      "proof": "Receipt: ACA-04-004-receipt.py"
+    },
+    {
+      "story_id": "ACA-04-005",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-04-005-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.798393",
+      "proof": "Receipt: ACA-04-005-receipt.py"
+    },
+    {
+      "story_id": "ACA-04-006",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-04-006-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.798393",
+      "proof": "Receipt: ACA-04-006-receipt.py"
+    },
+    {
+      "story_id": "ACA-04-007",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-04-007-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.799393",
+      "proof": "Receipt: ACA-04-007-receipt.py"
+    },
+    {
+      "story_id": "ACA-04-008",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-04-008-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.800394",
+      "proof": "Receipt: ACA-04-008-receipt.py"
+    },
+    {
+      "story_id": "ACA-04-009",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-04-009-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.802393",
+      "proof": "Receipt: ACA-04-009-receipt.py"
+    },
+    {
+      "story_id": "ACA-04-010",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-04-010-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.803396",
+      "proof": "Receipt: ACA-04-010-receipt.py"
+    },
+    {
+      "story_id": "ACA-04-011",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-04-011-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.804396",
+      "proof": "Receipt: ACA-04-011-receipt.py"
+    },
+    {
+      "story_id": "ACA-04-012",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-04-012-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.805394",
+      "proof": "Receipt: ACA-04-012-receipt.py"
+    },
+    {
+      "story_id": "ACA-04-013",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-04-013-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.806393",
+      "proof": "Receipt: ACA-04-013-receipt.py"
+    },
+    {
+      "story_id": "ACA-04-014",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-04-014-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.807395",
+      "proof": "Receipt: ACA-04-014-receipt.py"
+    },
+    {
+      "story_id": "ACA-04-015",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-04-015-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.808396",
+      "proof": "Receipt: ACA-04-015-receipt.py"
+    },
+    {
+      "story_id": "ACA-04-016",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-04-016-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.809396",
+      "proof": "Receipt: ACA-04-016-receipt.py"
+    },
+    {
+      "story_id": "ACA-04-017",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-04-017-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.810393",
+      "proof": "Receipt: ACA-04-017-receipt.py"
+    },
+    {
+      "story_id": "ACA-04-018",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-04-018-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.811394",
+      "proof": "Receipt: ACA-04-018-receipt.py"
+    },
+    {
+      "story_id": "ACA-04-019",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-04-019-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.812405",
+      "proof": "Receipt: ACA-04-019-receipt.py"
+    },
+    {
+      "story_id": "ACA-04-020",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-04-020-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.814392",
+      "proof": "Receipt: ACA-04-020-receipt.py"
+    },
+    {
+      "story_id": "ACA-04-021",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-04-021-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.815394",
+      "proof": "Receipt: ACA-04-021-receipt.py"
+    },
+    {
+      "story_id": "ACA-04-022",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-04-022-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.816395",
+      "proof": "Receipt: ACA-04-022-receipt.py"
+    },
+    {
+      "story_id": "ACA-04-023",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-04-023-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.818394",
+      "proof": "Receipt: ACA-04-023-receipt.py"
+    },
+    {
+      "story_id": "ACA-04-024",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-04-024-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.819396",
+      "proof": "Receipt: ACA-04-024-receipt.py"
+    },
+    {
+      "story_id": "ACA-04-025",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-04-025-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.820393",
+      "proof": "Receipt: ACA-04-025-receipt.py"
+    },
+    {
+      "story_id": "ACA-04-026",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-04-026-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.821394",
+      "proof": "Receipt: ACA-04-026-receipt.py"
+    },
+    {
+      "story_id": "ACA-04-027",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-04-027-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.822392",
+      "proof": "Receipt: ACA-04-027-receipt.py"
+    },
+    {
+      "story_id": "ACA-05-001",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-05-001-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.823392",
+      "proof": "Receipt: ACA-05-001-receipt.py"
+    },
+    {
+      "story_id": "ACA-05-002",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-05-002-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.825394",
+      "proof": "Receipt: ACA-05-002-receipt.py"
+    },
+    {
+      "story_id": "ACA-05-003",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-05-003-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.826393",
+      "proof": "Receipt: ACA-05-003-receipt.py"
+    },
+    {
+      "story_id": "ACA-05-004",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-05-004-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.827394",
+      "proof": "Receipt: ACA-05-004-receipt.py"
+    },
+    {
+      "story_id": "ACA-05-005",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-05-005-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.828395",
+      "proof": "Receipt: ACA-05-005-receipt.py"
+    },
+    {
+      "story_id": "ACA-05-006",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-05-006-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.829393",
+      "proof": "Receipt: ACA-05-006-receipt.py"
+    },
+    {
+      "story_id": "ACA-05-007",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-05-007-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.831398",
+      "proof": "Receipt: ACA-05-007-receipt.py"
+    },
+    {
+      "story_id": "ACA-05-008",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-05-008-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.832395",
+      "proof": "Receipt: ACA-05-008-receipt.py"
+    },
+    {
+      "story_id": "ACA-05-009",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-05-009-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.833393",
+      "proof": "Receipt: ACA-05-009-receipt.py"
+    },
+    {
+      "story_id": "ACA-05-010",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-05-010-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.835392",
+      "proof": "Receipt: ACA-05-010-receipt.py"
+    },
+    {
+      "story_id": "ACA-05-011",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-05-011-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.836395",
+      "proof": "Receipt: ACA-05-011-receipt.py"
+    },
+    {
+      "story_id": "ACA-05-012",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-05-012-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.837395",
+      "proof": "Receipt: ACA-05-012-receipt.py"
+    },
+    {
+      "story_id": "ACA-05-013",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-05-013-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.838394",
+      "proof": "Receipt: ACA-05-013-receipt.py"
+    },
+    {
+      "story_id": "ACA-05-014",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-05-014-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.839394",
+      "proof": "Receipt: ACA-05-014-receipt.py"
+    },
+    {
+      "story_id": "ACA-05-015",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-05-015-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.840394",
+      "proof": "Receipt: ACA-05-015-receipt.py"
+    },
+    {
+      "story_id": "ACA-05-016",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-05-016-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.841393",
+      "proof": "Receipt: ACA-05-016-receipt.py"
+    },
+    {
+      "story_id": "ACA-05-017",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-05-017-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.842392",
+      "proof": "Receipt: ACA-05-017-receipt.py"
+    },
+    {
+      "story_id": "ACA-05-018",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-05-018-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.843393",
+      "proof": "Receipt: ACA-05-018-receipt.py"
+    },
+    {
+      "story_id": "ACA-05-019",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-05-019-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.845396",
+      "proof": "Receipt: ACA-05-019-receipt.py"
+    },
+    {
+      "story_id": "ACA-05-020",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-05-020-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.846394",
+      "proof": "Receipt: ACA-05-020-receipt.py"
+    },
+    {
+      "story_id": "ACA-05-021",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-05-021-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.847394",
+      "proof": "Receipt: ACA-05-021-receipt.py"
+    },
+    {
+      "story_id": "ACA-05-022",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-05-022-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.848394",
+      "proof": "Receipt: ACA-05-022-receipt.py"
+    },
+    {
+      "story_id": "ACA-05-023",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-05-023-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.850394",
+      "proof": "Receipt: ACA-05-023-receipt.py"
+    },
+    {
+      "story_id": "ACA-05-024",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-05-024-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.851393",
+      "proof": "Receipt: ACA-05-024-receipt.py"
+    },
+    {
+      "story_id": "ACA-05-025",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-05-025-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.853394",
+      "proof": "Receipt: ACA-05-025-receipt.py"
+    },
+    {
+      "story_id": "ACA-05-026",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-05-026-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.854392",
+      "proof": "Receipt: ACA-05-026-receipt.py"
+    },
+    {
+      "story_id": "ACA-05-027",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-05-027-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.855392",
+      "proof": "Receipt: ACA-05-027-receipt.py"
+    },
+    {
+      "story_id": "ACA-05-028",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-05-028-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.856394",
+      "proof": "Receipt: ACA-05-028-receipt.py"
+    },
+    {
+      "story_id": "ACA-05-029",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-05-029-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.857392",
+      "proof": "Receipt: ACA-05-029-receipt.py"
+    },
+    {
+      "story_id": "ACA-05-030",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-05-030-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.859394",
+      "proof": "Receipt: ACA-05-030-receipt.py"
+    },
+    {
+      "story_id": "ACA-05-031",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-05-031-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.860394",
+      "proof": "Receipt: ACA-05-031-receipt.py"
+    },
+    {
+      "story_id": "ACA-05-032",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-05-032-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.861395",
+      "proof": "Receipt: ACA-05-032-receipt.py"
+    },
+    {
+      "story_id": "ACA-05-033",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-05-033-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.862392",
+      "proof": "Receipt: ACA-05-033-receipt.py"
+    },
+    {
+      "story_id": "ACA-05-034",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-05-034-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.863395",
+      "proof": "Receipt: ACA-05-034-receipt.py"
+    },
+    {
+      "story_id": "ACA-05-035",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-05-035-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.864396",
+      "proof": "Receipt: ACA-05-035-receipt.py"
+    },
+    {
+      "story_id": "ACA-05-036",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-05-036-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.866394",
+      "proof": "Receipt: ACA-05-036-receipt.py"
+    },
+    {
+      "story_id": "ACA-05-037",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-05-037-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.867393",
+      "proof": "Receipt: ACA-05-037-receipt.py"
+    },
+    {
+      "story_id": "ACA-05-038",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-05-038-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.868393",
+      "proof": "Receipt: ACA-05-038-receipt.py"
+    },
+    {
+      "story_id": "ACA-05-039",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-05-039-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.869392",
+      "proof": "Receipt: ACA-05-039-receipt.py"
+    },
+    {
+      "story_id": "ACA-05-040",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-05-040-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.870392",
+      "proof": "Receipt: ACA-05-040-receipt.py"
+    },
+    {
+      "story_id": "ACA-05-041",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-05-041-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.871393",
+      "proof": "Receipt: ACA-05-041-receipt.py"
+    },
+    {
+      "story_id": "ACA-05-042",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-05-042-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.873396",
+      "proof": "Receipt: ACA-05-042-receipt.py"
+    },
+    {
+      "story_id": "ACA-06-001",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-06-001-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.874393",
+      "proof": "Receipt: ACA-06-001-receipt.py"
+    },
+    {
+      "story_id": "ACA-06-002",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-06-002-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.875392",
+      "proof": "Receipt: ACA-06-002-receipt.py"
+    },
+    {
+      "story_id": "ACA-06-003",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-06-003-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.876392",
+      "proof": "Receipt: ACA-06-003-receipt.py"
+    },
+    {
+      "story_id": "ACA-06-004",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-06-004-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.877392",
+      "proof": "Receipt: ACA-06-004-receipt.py"
+    },
+    {
+      "story_id": "ACA-06-005",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-06-005-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.879392",
+      "proof": "Receipt: ACA-06-005-receipt.py"
+    },
+    {
+      "story_id": "ACA-06-006",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-06-006-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.880396",
+      "proof": "Receipt: ACA-06-006-receipt.py"
+    },
+    {
+      "story_id": "ACA-06-007",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-06-007-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.881398",
+      "proof": "Receipt: ACA-06-007-receipt.py"
+    },
+    {
+      "story_id": "ACA-06-008",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-06-008-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.882395",
+      "proof": "Receipt: ACA-06-008-receipt.py"
+    },
+    {
+      "story_id": "ACA-06-009",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-06-009-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.884391",
+      "proof": "Receipt: ACA-06-009-receipt.py"
+    },
+    {
+      "story_id": "ACA-06-010",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-06-010-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.885393",
+      "proof": "Receipt: ACA-06-010-receipt.py"
+    },
+    {
+      "story_id": "ACA-06-011",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-06-011-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.886393",
+      "proof": "Receipt: ACA-06-011-receipt.py"
+    },
+    {
+      "story_id": "ACA-06-012",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-06-012-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.887393",
+      "proof": "Receipt: ACA-06-012-receipt.py"
+    },
+    {
+      "story_id": "ACA-06-013",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-06-013-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.888395",
+      "proof": "Receipt: ACA-06-013-receipt.py"
+    },
+    {
+      "story_id": "ACA-06-014",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-06-014-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.889394",
+      "proof": "Receipt: ACA-06-014-receipt.py"
+    },
+    {
+      "story_id": "ACA-06-015",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-06-015-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.890393",
+      "proof": "Receipt: ACA-06-015-receipt.py"
+    },
+    {
+      "story_id": "ACA-06-016",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-06-016-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.892392",
+      "proof": "Receipt: ACA-06-016-receipt.py"
+    },
+    {
+      "story_id": "ACA-06-017",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-06-017-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.893392",
+      "proof": "Receipt: ACA-06-017-receipt.py"
+    },
+    {
+      "story_id": "ACA-07-001",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-07-001-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.894391",
+      "proof": "Receipt: ACA-07-001-receipt.py"
+    },
+    {
+      "story_id": "ACA-07-002",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-07-002-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.895394",
+      "proof": "Receipt: ACA-07-002-receipt.py"
+    },
+    {
+      "story_id": "ACA-07-003",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-07-003-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.897393",
+      "proof": "Receipt: ACA-07-003-receipt.py"
+    },
+    {
+      "story_id": "ACA-07-004",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-07-004-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.898392",
+      "proof": "Receipt: ACA-07-004-receipt.py"
+    },
+    {
+      "story_id": "ACA-07-005",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-07-005-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.898392",
+      "proof": "Receipt: ACA-07-005-receipt.py"
+    },
+    {
+      "story_id": "ACA-07-006",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-07-006-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.900393",
+      "proof": "Receipt: ACA-07-006-receipt.py"
+    },
+    {
+      "story_id": "ACA-07-007",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-07-007-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.901395",
+      "proof": "Receipt: ACA-07-007-receipt.py"
+    },
+    {
+      "story_id": "ACA-07-008",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-07-008-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.902395",
+      "proof": "Receipt: ACA-07-008-receipt.py"
+    },
+    {
+      "story_id": "ACA-07-009",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-07-009-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.903394",
+      "proof": "Receipt: ACA-07-009-receipt.py"
+    },
+    {
+      "story_id": "ACA-08-001",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-08-001-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.904393",
+      "proof": "Receipt: ACA-08-001-receipt.py"
+    },
+    {
+      "story_id": "ACA-08-002",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-08-002-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.906394",
+      "proof": "Receipt: ACA-08-002-receipt.py"
+    },
+    {
+      "story_id": "ACA-08-003",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-08-003-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.907394",
+      "proof": "Receipt: ACA-08-003-receipt.py"
+    },
+    {
+      "story_id": "ACA-08-004",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-08-004-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.909395",
+      "proof": "Receipt: ACA-08-004-receipt.py"
+    },
+    {
+      "story_id": "ACA-08-005",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-08-005-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.910395",
+      "proof": "Receipt: ACA-08-005-receipt.py"
+    },
+    {
+      "story_id": "ACA-08-006",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-08-006-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.911394",
+      "proof": "Receipt: ACA-08-006-receipt.py"
+    },
+    {
+      "story_id": "ACA-08-007",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-08-007-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.913393",
+      "proof": "Receipt: ACA-08-007-receipt.py"
+    },
+    {
+      "story_id": "ACA-08-008",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-08-008-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.914397",
+      "proof": "Receipt: ACA-08-008-receipt.py"
+    },
+    {
+      "story_id": "ACA-08-009",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-08-009-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.916392",
+      "proof": "Receipt: ACA-08-009-receipt.py"
+    },
+    {
+      "story_id": "ACA-08-010",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-08-010-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.917394",
+      "proof": "Receipt: ACA-08-010-receipt.py"
+    },
+    {
+      "story_id": "ACA-08-011",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-08-011-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.918393",
+      "proof": "Receipt: ACA-08-011-receipt.py"
+    },
+    {
+      "story_id": "ACA-08-012",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-08-012-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.919393",
+      "proof": "Receipt: ACA-08-012-receipt.py"
+    },
+    {
+      "story_id": "ACA-08-013",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-08-013-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.920393",
+      "proof": "Receipt: ACA-08-013-receipt.py"
+    },
+    {
+      "story_id": "ACA-08-014",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-08-014-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.922394",
+      "proof": "Receipt: ACA-08-014-receipt.py"
+    },
+    {
+      "story_id": "ACA-09-001",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-09-001-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.923393",
+      "proof": "Receipt: ACA-09-001-receipt.py"
+    },
+    {
+      "story_id": "ACA-09-002",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-09-002-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.924393",
+      "proof": "Receipt: ACA-09-002-receipt.py"
+    },
+    {
+      "story_id": "ACA-09-003",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-09-003-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.925392",
+      "proof": "Receipt: ACA-09-003-receipt.py"
+    },
+    {
+      "story_id": "ACA-09-004",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-09-004-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.927395",
+      "proof": "Receipt: ACA-09-004-receipt.py"
+    },
+    {
+      "story_id": "ACA-09-005",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-09-005-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.928393",
+      "proof": "Receipt: ACA-09-005-receipt.py"
+    },
+    {
+      "story_id": "ACA-09-006",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-09-006-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.929394",
+      "proof": "Receipt: ACA-09-006-receipt.py"
+    },
+    {
+      "story_id": "ACA-09-007",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-09-007-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.930394",
+      "proof": "Receipt: ACA-09-007-receipt.py"
+    },
+    {
+      "story_id": "ACA-09-008",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-09-008-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.931394",
+      "proof": "Receipt: ACA-09-008-receipt.py"
+    },
+    {
+      "story_id": "ACA-09-009",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-09-009-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.933395",
+      "proof": "Receipt: ACA-09-009-receipt.py"
+    },
+    {
+      "story_id": "ACA-09-010",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-09-010-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.934394",
+      "proof": "Receipt: ACA-09-010-receipt.py"
+    },
+    {
+      "story_id": "ACA-09-011",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-09-011-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.935392",
+      "proof": "Receipt: ACA-09-011-receipt.py"
+    },
+    {
+      "story_id": "ACA-09-012",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-09-012-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.937395",
+      "proof": "Receipt: ACA-09-012-receipt.py"
+    },
+    {
+      "story_id": "ACA-09-013",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-09-013-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.938393",
+      "proof": "Receipt: ACA-09-013-receipt.py"
+    },
+    {
+      "story_id": "ACA-09-014",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-09-014-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.939393",
+      "proof": "Receipt: ACA-09-014-receipt.py"
+    },
+    {
+      "story_id": "ACA-09-015",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-09-015-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.940393",
+      "proof": "Receipt: ACA-09-015-receipt.py"
+    },
+    {
+      "story_id": "ACA-09-016",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-09-016-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.943398",
+      "proof": "Receipt: ACA-09-016-receipt.py"
+    },
+    {
+      "story_id": "ACA-09-017",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-09-017-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.944395",
+      "proof": "Receipt: ACA-09-017-receipt.py"
+    },
+    {
+      "story_id": "ACA-09-018",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-09-018-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.945393",
+      "proof": "Receipt: ACA-09-018-receipt.py"
+    },
+    {
+      "story_id": "ACA-10-001",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-10-001-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.946392",
+      "proof": "Receipt: ACA-10-001-receipt.py"
+    },
+    {
+      "story_id": "ACA-10-002",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-10-002-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.948392",
+      "proof": "Receipt: ACA-10-002-receipt.py"
+    },
+    {
+      "story_id": "ACA-10-003",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-10-003-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.949394",
+      "proof": "Receipt: ACA-10-003-receipt.py"
+    },
+    {
+      "story_id": "ACA-10-004",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-10-004-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.950393",
+      "proof": "Receipt: ACA-10-004-receipt.py"
+    },
+    {
+      "story_id": "ACA-10-005",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-10-005-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.951396",
+      "proof": "Receipt: ACA-10-005-receipt.py"
+    },
+    {
+      "story_id": "ACA-10-006",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-10-006-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.952393",
+      "proof": "Receipt: ACA-10-006-receipt.py"
+    },
+    {
+      "story_id": "ACA-10-007",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-10-007-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.953392",
+      "proof": "Receipt: ACA-10-007-receipt.py"
+    },
+    {
+      "story_id": "ACA-10-008",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-10-008-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.954393",
+      "proof": "Receipt: ACA-10-008-receipt.py"
+    },
+    {
+      "story_id": "ACA-10-009",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-10-009-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.955394",
+      "proof": "Receipt: ACA-10-009-receipt.py"
+    },
+    {
+      "story_id": "ACA-10-010",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-10-010-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.957395",
+      "proof": "Receipt: ACA-10-010-receipt.py"
+    },
+    {
+      "story_id": "ACA-10-011",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-10-011-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.958396",
+      "proof": "Receipt: ACA-10-011-receipt.py"
+    },
+    {
+      "story_id": "ACA-10-012",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-10-012-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.959394",
+      "proof": "Receipt: ACA-10-012-receipt.py"
+    },
+    {
+      "story_id": "ACA-10-013",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-10-013-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.960392",
+      "proof": "Receipt: ACA-10-013-receipt.py"
+    },
+    {
+      "story_id": "ACA-10-014",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-10-014-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.961394",
+      "proof": "Receipt: ACA-10-014-receipt.py"
+    },
+    {
+      "story_id": "ACA-10-015",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-10-015-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.962393",
+      "proof": "Receipt: ACA-10-015-receipt.py"
+    },
+    {
+      "story_id": "ACA-11-001",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-11-001-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.963394",
+      "proof": "Receipt: ACA-11-001-receipt.py"
+    },
+    {
+      "story_id": "ACA-11-002",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-11-002-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.965394",
+      "proof": "Receipt: ACA-11-002-receipt.py"
+    },
+    {
+      "story_id": "ACA-11-003",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-11-003-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.966391",
+      "proof": "Receipt: ACA-11-003-receipt.py"
+    },
+    {
+      "story_id": "ACA-11-004",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-11-004-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.967395",
+      "proof": "Receipt: ACA-11-004-receipt.py"
+    },
+    {
+      "story_id": "ACA-11-005",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-11-005-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.968393",
+      "proof": "Receipt: ACA-11-005-receipt.py"
+    },
+    {
+      "story_id": "ACA-11-006",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-11-006-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.969393",
+      "proof": "Receipt: ACA-11-006-receipt.py"
+    },
+    {
+      "story_id": "ACA-11-007",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-11-007-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.970395",
+      "proof": "Receipt: ACA-11-007-receipt.py"
+    },
+    {
+      "story_id": "ACA-11-008",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-11-008-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.971394",
+      "proof": "Receipt: ACA-11-008-receipt.py"
+    },
+    {
+      "story_id": "ACA-11-009",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-11-009-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.973393",
+      "proof": "Receipt: ACA-11-009-receipt.py"
+    },
+    {
+      "story_id": "ACA-12-001",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-12-001-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.974394",
+      "proof": "Receipt: ACA-12-001-receipt.py"
+    },
+    {
+      "story_id": "ACA-12-002",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-12-002-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.975396",
+      "proof": "Receipt: ACA-12-002-receipt.py"
+    },
+    {
+      "story_id": "ACA-12-003",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-12-003-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.975396",
+      "proof": "Receipt: ACA-12-003-receipt.py"
+    },
+    {
+      "story_id": "ACA-12-004",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-12-004-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.977395",
+      "proof": "Receipt: ACA-12-004-receipt.py"
+    },
+    {
+      "story_id": "ACA-12-005",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-12-005-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.978393",
+      "proof": "Receipt: ACA-12-005-receipt.py"
+    },
+    {
+      "story_id": "ACA-12-006",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-12-006-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.979395",
+      "proof": "Receipt: ACA-12-006-receipt.py"
+    },
+    {
+      "story_id": "ACA-12-007",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-12-007-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.980392",
+      "proof": "Receipt: ACA-12-007-receipt.py"
+    },
+    {
+      "story_id": "ACA-12-008",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-12-008-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.981392",
+      "proof": "Receipt: ACA-12-008-receipt.py"
+    },
+    {
+      "story_id": "ACA-13-009",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-13-009-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.982396",
+      "proof": "Receipt: ACA-13-009-receipt.py"
+    },
+    {
+      "story_id": "ACA-13-010",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-13-010-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.983392",
+      "proof": "Receipt: ACA-13-010-receipt.py"
+    },
+    {
+      "story_id": "ACA-13-011",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-13-011-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.985396",
+      "proof": "Receipt: ACA-13-011-receipt.py"
+    },
+    {
+      "story_id": "ACA-13-012",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-13-012-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.986394",
+      "proof": "Receipt: ACA-13-012-receipt.py"
+    },
+    {
+      "story_id": "ACA-13-013",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-13-013-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.987395",
+      "proof": "Receipt: ACA-13-013-receipt.py"
+    },
+    {
+      "story_id": "ACA-13-014",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-13-014-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.989393",
+      "proof": "Receipt: ACA-13-014-receipt.py"
+    },
+    {
+      "story_id": "ACA-13-015",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-13-015-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.990395",
+      "proof": "Receipt: ACA-13-015-receipt.py"
+    },
+    {
+      "story_id": "ACA-13-016",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-13-016-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.991393",
+      "proof": "Receipt: ACA-13-016-receipt.py"
+    },
+    {
+      "story_id": "ACA-13-017",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-13-017-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.992396",
+      "proof": "Receipt: ACA-13-017-receipt.py"
+    },
+    {
+      "story_id": "ACA-13-018",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-13-018-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.993395",
+      "proof": "Receipt: ACA-13-018-receipt.py"
+    },
+    {
+      "story_id": "ACA-13-019",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-13-019-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.994394",
+      "proof": "Receipt: ACA-13-019-receipt.py"
+    },
+    {
+      "story_id": "ACA-14-001",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-14-001-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.995395",
+      "proof": "Receipt: ACA-14-001-receipt.py"
+    },
+    {
+      "story_id": "ACA-14-002",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-14-002-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.996394",
+      "proof": "Receipt: ACA-14-002-receipt.py"
+    },
+    {
+      "story_id": "ACA-14-003",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-14-003-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.998394",
+      "proof": "Receipt: ACA-14-003-receipt.py"
+    },
+    {
+      "story_id": "ACA-14-004",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-14-004-receipt.py",
+      "timestamp": "2026-02-28T15:47:46.999393",
+      "proof": "Receipt: ACA-14-004-receipt.py"
+    },
+    {
+      "story_id": "ACA-14-005",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-14-005-receipt.py",
+      "timestamp": "2026-02-28T15:47:47.000393",
+      "proof": "Receipt: ACA-14-005-receipt.py"
+    },
+    {
+      "story_id": "ACA-14-006",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-14-006-receipt.py",
+      "timestamp": "2026-02-28T15:47:47.001395",
+      "proof": "Receipt: ACA-14-006-receipt.py"
+    },
+    {
+      "story_id": "ACA-14-007",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-14-007-receipt.py",
+      "timestamp": "2026-02-28T15:47:47.002392",
+      "proof": "Receipt: ACA-14-007-receipt.py"
+    },
+    {
+      "story_id": "ACA-14-008",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-14-008-receipt.py",
+      "timestamp": "2026-02-28T15:47:47.003394",
+      "proof": "Receipt: ACA-14-008-receipt.py"
+    },
+    {
+      "story_id": "ACA-14-009",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-14-009-receipt.py",
+      "timestamp": "2026-02-28T15:47:47.004392",
+      "proof": "Receipt: ACA-14-009-receipt.py"
+    },
+    {
+      "story_id": "ACA-14-010",
+      "evidence_type": "receipt",
+      "source": "evidence/ACA-14-010-receipt.py",
+      "timestamp": "2026-02-28T15:47:47.006392",
+      "proof": "Receipt: ACA-14-010-receipt.py"
+    }
+  ],
+  "statistics": {
+    "total_evidence": 322,
+    "by_type": {
+      "code": 47,
+      "test": 25,
+      "receipt": 250
+    },
+    "by_epic": {
+      "ACA-17": 4,
+      "ACA-16": 7,
+      "ACA-15": 1,
+      "ACA-12": 10,
+      "ACA-04": 30,
+      "ACA-03": 75,
+      "ACA-01": 22,
+      "ACA-07": 10,
+      "ACA-02": 16,
+      "ACA-05": 42,
+      "ACA-06": 17,
+      "ACA-08": 14,
+      "ACA-09": 18,
+      "ACA-10": 15,
+      "ACA-11": 9,
+      "ACA-13": 11,
+      "ACA-14": 10
+    }
+  }
+}

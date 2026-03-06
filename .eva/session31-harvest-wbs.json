@@ -1,0 +1,2540 @@
+{
+  "harvest_date": "2026-03-06T16:39:29.492442Z",
+  "source": "PLAN.md",
+  "project_id": "51-ACA",
+  "epics": [
+    {
+      "epic_id": "ACA-1",
+      "epic_number": 1,
+      "title": "FOUNDATION AND INFRASTRUCTURE",
+      "milestone": "M1.0",
+      "status": "DONE"
+    },
+    {
+      "epic_id": "ACA-3",
+      "epic_number": 3,
+      "title": "ANALYSIS ENGINE AND RULES",
+      "milestone": "M1.2",
+      "status": "ACTIVE"
+    },
+    {
+      "epic_id": "ACA-5",
+      "epic_number": 5,
+      "title": "FRONTEND SPARK ARCHITECTURE",
+      "milestone": "M1.4",
+      "status": "ACTIVE"
+    },
+    {
+      "epic_id": "ACA-6",
+      "epic_number": 6,
+      "title": "MONETIZATION AND BILLING",
+      "milestone": "M1.5",
+      "status": "DONE"
+    },
+    {
+      "epic_id": "ACA-7",
+      "epic_number": 7,
+      "title": "DELIVERY PACKAGER",
+      "milestone": "M1.6",
+      "status": "ACTIVE"
+    },
+    {
+      "epic_id": "ACA-8",
+      "epic_number": 8,
+      "title": "OBSERVABILITY AND TELEMETRY",
+      "milestone": "M2.0",
+      "status": "ACTIVE"
+    },
+    {
+      "epic_id": "ACA-9",
+      "epic_number": 9,
+      "title": "i18n AND a11y",
+      "milestone": "M2.1",
+      "status": "ACTIVE"
+    },
+    {
+      "epic_id": "ACA-10",
+      "epic_number": 10,
+      "title": "COMMERCIAL HARDENING",
+      "milestone": "M2.2",
+      "status": "PLANNED"
+    },
+    {
+      "epic_id": "ACA-11",
+      "epic_number": 11,
+      "title": "PHASE 2 INFRASTRUCTURE",
+      "milestone": "M3.0",
+      "status": "PLANNED"
+    },
+    {
+      "epic_id": "ACA-12",
+      "epic_number": 12,
+      "title": "DATA MODEL SUPPORT",
+      "milestone": "ONGOING",
+      "status": "ACTIVE"
+    },
+    {
+      "epic_id": "ACA-15",
+      "epic_number": 15,
+      "title": "ONBOARDING SYSTEM",
+      "milestone": "M4.0",
+      "status": "NEW"
+    }
+  ],
+  "features": [
+    {
+      "feature_id": "ACA-1.1",
+      "epic_id": "ACA-1",
+      "feature_number": "1.1",
+      "title": "Local dev environment"
+    },
+    {
+      "feature_id": "ACA-1.2",
+      "epic_id": "ACA-1",
+      "feature_number": "1.2",
+      "title": "CI pipeline"
+    },
+    {
+      "feature_id": "ACA-1.3",
+      "epic_id": "ACA-1",
+      "feature_number": "1.3",
+      "title": "Phase 1 marco* infra wiring"
+    },
+    {
+      "feature_id": "ACA-1.4",
+      "epic_id": "ACA-1",
+      "feature_number": "1.4",
+      "title": "Container build + push"
+    },
+    {
+      "feature_id": "ACA-1.5",
+      "epic_id": "ACA-1",
+      "feature_number": "1.5",
+      "title": "Phase 1 deployment URLs"
+    },
+    {
+      "feature_id": "ACA-2.1",
+      "epic_id": "ACA-2",
+      "feature_number": "2.1",
+      "title": "Pre-flight validation"
+    },
+    {
+      "feature_id": "ACA-2.2",
+      "epic_id": "ACA-2",
+      "feature_number": "2.2",
+      "title": "Resource inventory"
+    },
+    {
+      "feature_id": "ACA-2.3",
+      "epic_id": "ACA-2",
+      "feature_number": "2.3",
+      "title": "Cost data"
+    },
+    {
+      "feature_id": "ACA-2.4",
+      "epic_id": "ACA-2",
+      "feature_number": "2.4",
+      "title": "Advisor, Policy, Network"
+    },
+    {
+      "feature_id": "ACA-2.5",
+      "epic_id": "ACA-2",
+      "feature_number": "2.5",
+      "title": "Collection lifecycle"
+    },
+    {
+      "feature_id": "ACA-3.1",
+      "epic_id": "ACA-3",
+      "feature_number": "3.1",
+      "title": "Rule engine"
+    },
+    {
+      "feature_id": "ACA-3.2",
+      "epic_id": "ACA-3",
+      "feature_number": "3.2",
+      "title": "Tier gating"
+    },
+    {
+      "feature_id": "ACA-3.3",
+      "epic_id": "ACA-3",
+      "feature_number": "3.3",
+      "title": "Individual rules (one story per rule)"
+    },
+    {
+      "feature_id": "ACA-3.4",
+      "epic_id": "ACA-3",
+      "feature_number": "3.4",
+      "title": "Rule unit tests (DECISION LOCKED 2026-02-27: 95% coverage, hardcoded fixtures)"
+    },
+    {
+      "feature_id": "ACA-4.1",
+      "epic_id": "ACA-4",
+      "feature_number": "4.1",
+      "title": "Authentication (DECISION LOCKED 2026-02-27)"
+    },
+    {
+      "feature_id": "ACA-4.2",
+      "epic_id": "ACA-4",
+      "feature_number": "4.2",
+      "title": "Core API endpoints (Spark paths from docs 22-23)"
+    },
+    {
+      "feature_id": "ACA-4.3",
+      "epic_id": "ACA-4",
+      "feature_number": "4.3",
+      "title": "APIM policies"
+    },
+    {
+      "feature_id": "ACA-4.4",
+      "epic_id": "ACA-4",
+      "feature_number": "4.4",
+      "title": "Admin API endpoints (NEW from docs 21/23)"
+    },
+    {
+      "feature_id": "ACA-4.5",
+      "epic_id": "ACA-4",
+      "feature_number": "4.5",
+      "title": "Data layer correctness"
+    },
+    {
+      "feature_id": "ACA-5.1",
+      "epic_id": "ACA-5",
+      "feature_number": "5.1",
+      "title": "Auth layer (NEW from docs 22-23)"
+    },
+    {
+      "feature_id": "ACA-5.2",
+      "epic_id": "ACA-5",
+      "feature_number": "5.2",
+      "title": "Layout layer (NEW from docs 22-23)"
+    },
+    {
+      "feature_id": "ACA-5.3",
+      "epic_id": "ACA-5",
+      "feature_number": "5.3",
+      "title": "Router (Spark createBrowserRouter pattern)"
+    },
+    {
+      "feature_id": "ACA-5.4",
+      "epic_id": "ACA-5",
+      "feature_number": "5.4",
+      "title": "Customer pages (/app/*)"
+    },
+    {
+      "feature_id": "ACA-5.5",
+      "epic_id": "ACA-5",
+      "feature_number": "5.5",
+      "title": "Admin pages (/admin/*) (NEW from docs 21/22/23)"
+    },
+    {
+      "feature_id": "ACA-5.6",
+      "epic_id": "ACA-5",
+      "feature_number": "5.6",
+      "title": "API client layer (NEW from doc 22)"
+    },
+    {
+      "feature_id": "ACA-5.7",
+      "epic_id": "ACA-5",
+      "feature_number": "5.7",
+      "title": "Shared components (NEW from doc 22)"
+    },
+    {
+      "feature_id": "ACA-5.8",
+      "epic_id": "ACA-5",
+      "feature_number": "5.8",
+      "title": "Consent and telemetry integration"
+    },
+    {
+      "feature_id": "ACA-5.9",
+      "epic_id": "ACA-5",
+      "feature_number": "5.9",
+      "title": "Accessibility"
+    },
+    {
+      "feature_id": "ACA-6.1",
+      "epic_id": "ACA-6",
+      "feature_number": "6.1",
+      "title": "Stripe checkout (DECISIONS LOCKED 2026-02-27)"
+    },
+    {
+      "feature_id": "ACA-6.2",
+      "epic_id": "ACA-6",
+      "feature_number": "6.2",
+      "title": "Webhook lifecycle"
+    },
+    {
+      "feature_id": "ACA-6.3",
+      "epic_id": "ACA-6",
+      "feature_number": "6.3",
+      "title": "Entitlement service"
+    },
+    {
+      "feature_id": "ACA-7.1",
+      "epic_id": "ACA-7",
+      "feature_number": "7.1",
+      "title": "IaC template library (DECISION LOCKED 2026-02-27: Bicep only)"
+    },
+    {
+      "feature_id": "ACA-7.2",
+      "epic_id": "ACA-7",
+      "feature_number": "7.2",
+      "title": "Package and deliver"
+    },
+    {
+      "feature_id": "ACA-8.1",
+      "epic_id": "ACA-8",
+      "feature_number": "8.1",
+      "title": "Frontend telemetry"
+    },
+    {
+      "feature_id": "ACA-8.2",
+      "epic_id": "ACA-8",
+      "feature_number": "8.2",
+      "title": "Backend observability"
+    },
+    {
+      "feature_id": "ACA-8.3",
+      "epic_id": "ACA-8",
+      "feature_number": "8.3",
+      "title": "Alerting"
+    },
+    {
+      "feature_id": "ACA-9.1",
+      "epic_id": "ACA-9",
+      "feature_number": "9.1",
+      "title": "i18n"
+    },
+    {
+      "feature_id": "ACA-9.2",
+      "epic_id": "ACA-9",
+      "feature_number": "9.2",
+      "title": "a11y (DECISION LOCKED 2026-02-27: Playwright headless CI)"
+    },
+    {
+      "feature_id": "ACA-10.1",
+      "epic_id": "ACA-10",
+      "feature_number": "10.1",
+      "title": "Security"
+    },
+    {
+      "feature_id": "ACA-10.2",
+      "epic_id": "ACA-10",
+      "feature_number": "10.2",
+      "title": "Privacy compliance"
+    },
+    {
+      "feature_id": "ACA-10.3",
+      "epic_id": "ACA-10",
+      "feature_number": "10.3",
+      "title": "Support and docs"
+    },
+    {
+      "feature_id": "ACA-11.1",
+      "epic_id": "ACA-11",
+      "feature_number": "11.1",
+      "title": "Terraform provisioning"
+    },
+    {
+      "feature_id": "ACA-11.2",
+      "epic_id": "ACA-11",
+      "feature_number": "11.2",
+      "title": "Cutover"
+    },
+    {
+      "feature_id": "ACA-12.1",
+      "epic_id": "ACA-12",
+      "feature_number": "12.1",
+      "title": "Build-time use"
+    },
+    {
+      "feature_id": "ACA-12.2",
+      "epic_id": "ACA-12",
+      "feature_number": "12.2",
+      "title": "Runtime use"
+    },
+    {
+      "feature_id": "ACA-12.3",
+      "epic_id": "ACA-12",
+      "feature_number": "12.3",
+      "title": "Phase 1 Core Infrastructure & Containers"
+    },
+    {
+      "feature_id": "ACA-13.1",
+      "epic_id": "ACA-13",
+      "feature_number": "13.1",
+      "title": "WAF Assessment Endpoint"
+    },
+    {
+      "feature_id": "ACA-13.2",
+      "epic_id": "ACA-13",
+      "feature_number": "13.2",
+      "title": "FinOps Best Practices Rules"
+    },
+    {
+      "feature_id": "ACA-13.3",
+      "epic_id": "ACA-13",
+      "feature_number": "13.3",
+      "title": "Security Assessment Rules"
+    },
+    {
+      "feature_id": "ACA-13.4",
+      "epic_id": "ACA-13",
+      "feature_number": "13.4",
+      "title": "APIM and API Design Rules"
+    },
+    {
+      "feature_id": "ACA-13.5",
+      "epic_id": "ACA-13",
+      "feature_number": "13.5",
+      "title": "IaC Quality Gate"
+    },
+    {
+      "feature_id": "ACA-14.1",
+      "epic_id": "ACA-14",
+      "feature_number": "14.1",
+      "title": "Sprint Backlog Item Template"
+    },
+    {
+      "feature_id": "ACA-14.2",
+      "epic_id": "ACA-14",
+      "feature_number": "14.2",
+      "title": "GitHub Actions DPDCA Workflow"
+    },
+    {
+      "feature_id": "ACA-14.3",
+      "epic_id": "ACA-14",
+      "feature_number": "14.3",
+      "title": "Agent Context and Model Wiring"
+    },
+    {
+      "feature_id": "ACA-14.4",
+      "epic_id": "ACA-14",
+      "feature_number": "14.4",
+      "title": "Evidence and Veritas Integration"
+    },
+    {
+      "feature_id": "ACA-14.5",
+      "epic_id": "ACA-14",
+      "feature_number": "14.5",
+      "title": "Sprint Workflow V2 Foundation (Observability Infrastructure)"
+    },
+    {
+      "feature_id": "ACA-15.1",
+      "epic_id": "ACA-15",
+      "feature_number": "15.1",
+      "title": "Infrastructure & Cosmos DB Setup"
+    },
+    {
+      "feature_id": "ACA-15.2",
+      "epic_id": "ACA-15",
+      "feature_number": "15.2",
+      "title": "Gate State Machine & FastAPI Backend"
+    },
+    {
+      "feature_id": "ACA-15.3",
+      "epic_id": "ACA-15",
+      "feature_number": "15.3",
+      "title": "Azure SDK Wrappers (Paginated, Rate-Limit Aware)"
+    },
+    {
+      "feature_id": "ACA-15.4",
+      "epic_id": "ACA-15",
+      "feature_number": "15.4",
+      "title": "CLI & Extraction Pipeline"
+    },
+    {
+      "feature_id": "ACA-15.5",
+      "epic_id": "ACA-15",
+      "feature_number": "15.5",
+      "title": "Analysis + Evidence"
+    },
+    {
+      "feature_id": "ACA-15.6",
+      "epic_id": "ACA-15",
+      "feature_number": "15.6",
+      "title": "React UI Integration (via 31-eva-faces)"
+    }
+  ],
+  "stories": [
+    {
+      "story_id": "ACA-01-001",
+      "epic_id": "ACA-01",
+      "feature_id": "ACA-01.1",
+      "title": "As a developer I can run `docker-compose up` and all services start",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-01-002",
+      "epic_id": "ACA-01",
+      "feature_id": "ACA-01.1",
+      "title": "As a developer I can run `pytest services/ -x -q` and all tests pass",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-01-003",
+      "epic_id": "ACA-01",
+      "feature_id": "ACA-01.1",
+      "title": "As a developer I can hit http://localhost:8080/health and get status=ok",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-01-004",
+      "epic_id": "ACA-01",
+      "feature_id": "ACA-01.1",
+      "title": "As a developer I can query the central data model (port 8010, managed by project 37)",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-01-005",
+      "epic_id": "ACA-01",
+      "feature_id": "ACA-01.1",
+      "title": "As a developer I can use the .env.example as a complete checklist",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-01-006",
+      "epic_id": "ACA-01",
+      "feature_id": "ACA-01.1",
+      "title": "As a developer, every PR triggers ruff lint. Zero lint errors = green.",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-01-007",
+      "epic_id": "ACA-01",
+      "feature_id": "ACA-01.1",
+      "title": "As a developer, every PR triggers mypy type check. No unresolved types.",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-01-008",
+      "epic_id": "ACA-01",
+      "feature_id": "ACA-01.1",
+      "title": "As a developer, every PR triggers pytest. No test failures = merge allowed.",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-01-009",
+      "epic_id": "ACA-01",
+      "feature_id": "ACA-01.1",
+      "title": "As a developer, main branch push triggers axe-core a11y check on frontend.",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-01-010",
+      "epic_id": "ACA-01",
+      "feature_id": "ACA-01.1",
+      "title": "As an operator I can run infra/phase1-marco/main.bicep and get 7 Cosmos containers",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-01-011",
+      "epic_id": "ACA-01",
+      "feature_id": "ACA-01.1",
+      "title": "As an operator all secrets are in marcosandkv20260203 (no .env in production)",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-01-012",
+      "epic_id": "ACA-01",
+      "feature_id": "ACA-01.1",
+      "title": "As an operator the API Container App has managed identity approved on KV",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-01-013",
+      "epic_id": "ACA-01",
+      "feature_id": "ACA-01.1",
+      "title": "As an operator the collector job has managed identity with Cosmos read/write",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-01-014",
+      "epic_id": "ACA-01",
+      "feature_id": "ACA-01.1",
+      "title": "As an operator OIDC is configured on the GitHub Actions workflow for EsDAICoE-Sandbox",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-01-015",
+      "epic_id": "ACA-01",
+      "feature_id": "ACA-01.1",
+      "title": "As an operator infra/phase1-marco/bootstrap.sh exists and provisions all",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-01-016",
+      "epic_id": "ACA-01",
+      "feature_id": "ACA-01.1",
+      "title": "As a developer all 4 Dockerfiles build without error on ubuntu-latest",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-01-017",
+      "epic_id": "ACA-01",
+      "feature_id": "ACA-01.1",
+      "title": "As an operator deploy-phase1.yml pushes 4 images to marcosandacr20260203",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-01-018",
+      "epic_id": "ACA-01",
+      "feature_id": "ACA-01.1",
+      "title": "As an operator collector-schedule.yml triggers nightly at 02:00 UTC",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-01-019",
+      "epic_id": "ACA-01",
+      "feature_id": "ACA-01.1",
+      "title": "As an operator PUBLIC_APP_URL and PUBLIC_API_URL are read from env vars;",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-01-020",
+      "epic_id": "ACA-01",
+      "feature_id": "ACA-01.1",
+      "title": "As a developer .env.example documents the Azure free hostname pattern",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-01-021",
+      "epic_id": "ACA-01",
+      "feature_id": "ACA-01.1",
+      "title": "As an operator ACA_ALLOWED_ORIGINS is seeded from the Phase 1 free hostname",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-02-001",
+      "epic_id": "ACA-02",
+      "feature_id": "ACA-02.1",
+      "title": "As a client using Mode A (delegated) I see a PASS/FAIL/WARN status",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-02-002",
+      "epic_id": "ACA-02",
+      "feature_id": "ACA-02.1",
+      "title": "As a client with missing Cost Management Reader role I see a clear",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-02-003",
+      "epic_id": "ACA-02",
+      "feature_id": "ACA-02.1",
+      "title": "As a client with PASS_WITH_WARNINGS I can still proceed with collection",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-02-004",
+      "epic_id": "ACA-02",
+      "feature_id": "ACA-02.1",
+      "title": "As an operator I can pass --preflight-only to the collector to validate",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-02-005",
+      "epic_id": "ACA-02",
+      "feature_id": "ACA-02.1",
+      "title": "As the system I collect all Azure resources via Resource Graph in < 60s",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-02-006",
+      "epic_id": "ACA-02",
+      "feature_id": "ACA-02.1",
+      "title": "As the system I save inventory to Cosmos with partition_key=subscriptionId",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-02-007",
+      "epic_id": "ACA-02",
+      "feature_id": "ACA-02.1",
+      "title": "As the system I capture: resource type, name, SKU, region, resource group, tags",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-02-008",
+      "epic_id": "ACA-02",
+      "feature_id": "ACA-02.1",
+      "title": "As the system I collect 91 days of daily cost rows via Cost Management Query API",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-02-009",
+      "epic_id": "ACA-02",
+      "feature_id": "ACA-02.1",
+      "title": "As the system I capture: date, MeterCategory, MeterName, resourceGroup,",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-02-010",
+      "epic_id": "ACA-02",
+      "feature_id": "ACA-02.1",
+      "title": "As the system I handle rate limiting (429) with exponential backoff + retry",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-02-011",
+      "epic_id": "ACA-02",
+      "feature_id": "ACA-02.1",
+      "title": "As the system I collect all Advisor recommendations across all categories",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-02-012",
+      "epic_id": "ACA-02",
+      "feature_id": "ACA-02.1",
+      "title": "As the system I collect Policy compliance state (compliant / non-compliant counts)",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-02-013",
+      "epic_id": "ACA-02",
+      "feature_id": "ACA-02.1",
+      "title": "As the system I collect network signals: NSG rule counts, private DNS zones,",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-02-014",
+      "epic_id": "ACA-02",
+      "feature_id": "ACA-02.1",
+      "title": "As the system I update scan status in Cosmos: queued -> running -> succeeded/failed",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-02-015",
+      "epic_id": "ACA-02",
+      "feature_id": "ACA-02.1",
+      "title": "As the system I write stats to the scan record (inventoryCount, costRows, advisorRecs)",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-02-016",
+      "epic_id": "ACA-02",
+      "feature_id": "ACA-02.1",
+      "title": "As the API I expose GET /v1/scans/:scanId so the frontend can poll status",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-02-017",
+      "epic_id": "ACA-02",
+      "feature_id": "ACA-02.1",
+      "title": "As the system, after mark_collection_complete sets status=collected, the analysis",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-03-001",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "title": "As the system I load all 12 rules from ALL_RULES and run each in sequence",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-03-002",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "title": "As the system I handle a rule failure in isolation (one rule crash does not",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-03-003",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "title": "As the system I persist each Finding to Cosmos with full schema:",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-03-004",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "title": "As the system I update AnalysisRun status: queued -> running -> succeeded/failed",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-03-005",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "title": "As the system I write findingsSummary to the analysis run record",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-03-006",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "title": "As a Tier 1 client calling GET /v1/findings/:scanId I receive findings",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-03-007",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "title": "As a Tier 1 client I do not receive narrative or deliverable_template_id",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-03-008",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "title": "As a Tier 2 client I receive the full finding including narrative and",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-03-009",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "title": "As a Tier 3 client I receive the full finding including deliverable_template_id",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-03-010",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "title": "As the red-team agent I can assert that Tier 1 tokens never leak",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-03-011",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "title": "R-01 Dev Box auto-stop: returns finding when annual Dev Box cost > $1,000",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-03-012",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "title": "R-02 Log retention: returns finding when annual LA cost > $500 in non-prod",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-03-013",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "title": "R-03 Defender mismatch: returns finding when annual Defender cost > $2,000",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-03-014",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "title": "R-04 Compute scheduling: returns finding when annual schedulable compute > $5,000",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-03-015",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "title": "R-05 Anomaly detection: returns finding for each category with z-score > 3.0",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-03-016",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "title": "R-06 Stale environments: returns finding when >= 3 App Service sites exist",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-03-017",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "title": "R-07 Search SKU oversize: returns finding when annual Search cost > $2,000",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-03-018",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "title": "R-08 ACR consolidation: returns finding when >= 3 registries exist",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-03-019",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "title": "R-09 DNS sprawl: returns finding when annual DNS cost > $1,000",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-03-020",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "title": "R-10 Savings plan: returns finding when annual total compute > $20,000",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-03-021",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "title": "R-11 APIM token budget: returns finding when APIM + OpenAI both present",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-03-022",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "title": "R-12 Chargeback gap: returns finding when total period cost > $5,000",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-03-020",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "title": "Unit test for R-01 devbox_autostop: fixture with Dev Box cost > $1,000 -> finding",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-03-021",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "title": "Unit test for R-02 log_retention: fixture with LA cost > $500 -> finding",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-03-022",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "title": "Unit test for R-03 defender_mismatch: fixture with Defender cost > $2,000 -> finding",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-03-023",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "title": "Unit test for R-04 compute_scheduling: fixture with schedulable > $5,000 -> finding",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-03-024",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "title": "Unit test for R-05 anomaly_detection: fixture with z-score > 3.0 -> finding",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-03-025",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "title": "Unit test for R-06 stale_environments: fixture with >= 3 App Services -> finding",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-03-026",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "title": "Unit test for R-07 search_sku_oversize: fixture with Search cost > $2,000 -> finding",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-03-027",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "title": "Unit test for R-08 acr_consolidation: fixture with >= 3 registries -> finding",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-03-028",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "title": "Unit test for R-09 dns_sprawl: fixture with DNS cost > $1,000 -> finding",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-03-029",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "title": "Unit test for R-10 savings_plan_coverage: fixture with compute > $20,000 -> finding",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-03-030",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "title": "Unit test for R-11 apim_token_budget: fixture with APIM + OpenAI -> finding",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-03-031",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "title": "Unit test for R-12 chargeback_gap: fixture with total cost > $5,000 -> finding",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-03-032",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "title": "Negative tests for each rule: below-threshold fixture -> no finding returned",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-03-033",
+      "epic_id": "ACA-03",
+      "feature_id": "ACA-03.1",
+      "title": "FindingsAssembler unit test: mock rule list -> correct Cosmos upsert payload",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-04-001",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "title": "As a client I can sign in via Microsoft Identity (any Microsoft tenant);",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-04-002",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "title": "As the API I validate the JWT on every authenticated endpoint using",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-04-003",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "title": "As the API I extract subscriptionId from the session (stored after connect);",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-04-004",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "title": "As a client I can connect my Azure subscription (POST /v1/auth/connect)",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-04-005",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "title": "As a client I can disconnect (POST /v1/auth/disconnect) and all access",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-04-006",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "title": "As a developer auth.py is reworked: MSAL authority=common, no EsDAICoE",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-04-007",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "title": "As the frontend LoginPage, sign-in CTA calls MSAL.js with",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-04-008",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "title": "POST /v1/auth/connect         -- Connect Azure subscription",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-04-009",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "title": "POST /v1/auth/preflight       -- Run pre-flight probes",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-04-010",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "title": "POST /v1/auth/disconnect      -- Disconnect subscription",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-04-011",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "title": "POST /v1/collect/start        -- Trigger collector job (was /v1/scans)",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-04-012",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "title": "GET  /v1/collect/status       -- Poll collection progress (was /v1/scans/:scanId)",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-04-013",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "title": "GET  /v1/reports/tier1        -- Tier 1 findings report (was /v1/findings/:scanId)",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-04-014",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "title": "POST /v1/billing/checkout     -- Stripe checkout (tier2 or tier3 in body)",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-04-015",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "title": "GET  /v1/billing/portal       -- Stripe billing portal redirect URL",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-04-016",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "title": "POST /v1/webhooks/stripe      -- Stripe event handler",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-04-017",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "title": "As the gateway I validate JWT signature on all /v1/* routes",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-04-018",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "title": "As the gateway I cache /v1/entitlements response for 60s per subscriptionId",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-04-019",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "title": "As the gateway I return 403 with TIER_REQUIRED error when a Tier 1",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-04-020",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "title": "As the gateway I enforce subscription key throttling (100 req/min default)",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-04-021",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "title": "As the gateway I forward X-Subscription-Id header to the API on all calls",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-04-022",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "title": "GET  /v1/admin/kpis",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-04-023",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "title": "GET  /v1/admin/customers?query=",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-04-024",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "title": "POST /v1/admin/entitlements/grant",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-04-025",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "title": "POST /v1/admin/subscriptions/:subscriptionId/lock",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-04-026",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "title": "POST /v1/admin/stripe/reconcile",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-04-027",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "title": "GET  /v1/admin/runs?type=scan|analysis|delivery",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-04-028",
+      "epic_id": "ACA-04",
+      "feature_id": "ACA-04.1",
+      "title": "services/api/app/db/cosmos.py upsert_item() must accept partition_key as a",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-05-001",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "title": "roles.ts defines ACA_Admin, ACA_Support, ACA_FinOps role constants",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-05-002",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "title": "useAuth.ts wraps MSAL PublicClientApplication; exposes user, roles,",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-05-003",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "title": "RequireAuth.tsx: if !isAuthenticated redirect to /",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-05-004",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "title": "RequireRole.tsx: if user lacks anyOf roles, redirect to /app/connect",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-05-005",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "title": "All admin routes require RequireAuth + RequireRole (ACA_Admin|Support|FinOps)",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-05-006",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "title": "CustomerLayout.tsx: top nav with logo, LanguageSelector, user menu",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-05-007",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "title": "AdminLayout.tsx: top nav + left sidebar with admin nav items",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-05-008",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "title": "NavCustomer.tsx: links to /app/connect, /app/status, /app/findings",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-05-009",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "title": "NavAdmin.tsx: links to /admin/dashboard, /admin/customers,",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-05-010",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "title": "AppShell.tsx: root component with FluentProvider + ConsentBanner +",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-05-011",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "title": "router.tsx uses createBrowserRouter (not BrowserRouter + <Routes>)",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-05-012",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "title": "Route / -> LoginPage (no auth required)",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-05-013",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "title": "Routes /app/* -> RequireAuth -> CustomerLayout -> Outlet",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-05-014",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "title": "Routes /admin/* -> RequireAuth -> RequireRole -> AdminLayout -> Outlet",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-05-015",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "title": "Code-split: all page components lazy-loaded with React.lazy",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-05-016",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "title": "LoginPage (/) -- Entra ID login CTA + dev bypass link",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-05-017",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "title": "ConnectSubscriptionPage (/app/connect) -- Mode A/B/C radio group;",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-05-018",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "title": "CollectionStatusPage (/app/status/:subscriptionId) -- polls",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-05-019",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "title": "FindingsTier1Page (/app/findings/:subscriptionId) -- renders Tier 1",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-05-020",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "title": "UpgradePage (/app/upgrade/:subscriptionId) -- Tier 2 vs Tier 3 cards;",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-05-021",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "title": "AdminDashboardPage (/admin/dashboard) -- calls GET /v1/admin/kpis;",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-05-022",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "title": "AdminCustomersPage (/admin/customers) -- search input calls",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-05-023",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "title": "AdminBillingPage (/admin/billing) -- Stripe billing portal link;",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-05-024",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "title": "AdminRunsPage (/admin/runs) -- lists runs from GET /v1/admin/runs;",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-05-025",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "title": "AdminControlsPage (/admin/controls) -- grant tier form (subscriptionId,",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-05-026",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "title": "frontend/src/app/api/client.ts -- base http<T> function; includes",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-05-027",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "title": "frontend/src/app/api/appApi.ts -- customer API calls:",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-05-028",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "title": "frontend/src/app/api/adminApi.ts -- admin API calls:",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-05-029",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "title": "frontend/src/app/types/models.ts -- TypeScript DTOs:",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-05-030",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "title": "Loading.tsx -- full-page or inline Fluent Spinner with aria-label",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-05-031",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "title": "ErrorState.tsx -- Fluent MessageBar (error) with retry callback",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-05-032",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "title": "DataTable.tsx -- accessible Fluent Table wrapper (th scope=col)",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-05-033",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "title": "MoneyRangeBar.tsx -- visual low/high saving range bar with currency label",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-05-034",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "title": "EffortBadge.tsx -- colour-coded badge: trivial/easy/medium/involved/strategic",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-05-035",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "title": "As a user I see a consent banner on first visit (ConsentBanner reused)",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-05-036",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "title": "TelemetryProvider.tsx wraps CustomerLayout; loads GTM + Clarity scripts",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-05-037",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "title": "All 16 AnalyticsEventName events fire at correct points in customer flow",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-05-038",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "title": "Admin surface does NOT load telemetry (no GA4 in admin pages)",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-05-039",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "title": "Skip-to-content link is first focusable element on every page",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-05-040",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "title": "Full keyboard navigation in all customer and admin pages",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-05-041",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "title": "All form fields have associated label elements",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-05-042",
+      "epic_id": "ACA-05",
+      "feature_id": "ACA-05.1",
+      "title": "Admin confirmation modals trap focus and close on Escape",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-06-001",
+      "epic_id": "ACA-06",
+      "feature_id": "ACA-06.1",
+      "title": "POST /v1/checkout/tier2 returns a Stripe checkout session URL",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-06-002",
+      "epic_id": "ACA-06",
+      "feature_id": "ACA-06.1",
+      "title": "POST /v1/checkout/tier3 returns a Stripe checkout session URL",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-06-003",
+      "epic_id": "ACA-06",
+      "feature_id": "ACA-06.1",
+      "title": "mode=subscription creates a Stripe subscription (Tier 2 monthly)",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-06-004",
+      "epic_id": "ACA-06",
+      "feature_id": "ACA-06.1",
+      "title": "mode=one_time creates a one-time session (Tier 2 one-time, Tier 3)",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-06-005",
+      "epic_id": "ACA-06",
+      "feature_id": "ACA-06.1",
+      "title": "Checkout metadata contains subscriptionId and analysisId",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-06-006",
+      "epic_id": "ACA-06",
+      "feature_id": "ACA-06.1",
+      "title": "As a client with a coupon code I can enter it at Stripe checkout",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-06-007",
+      "epic_id": "ACA-06",
+      "feature_id": "ACA-06.1",
+      "title": "settings.py has STRIPE_COUPON_ENABLED: bool = True field",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-06-008",
+      "epic_id": "ACA-06",
+      "feature_id": "ACA-06.1",
+      "title": "As an admin I can create Stripe promotion codes for trial clients",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-06-009",
+      "epic_id": "ACA-06",
+      "feature_id": "ACA-06.1",
+      "title": "checkout.session.completed -> write entitlement to Cosmos, trigger delivery",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-06-010",
+      "epic_id": "ACA-06",
+      "feature_id": "ACA-06.1",
+      "title": "invoice.paid -> renew Tier 2 subscription entitlement for next period",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-06-011",
+      "epic_id": "ACA-06",
+      "feature_id": "ACA-06.1",
+      "title": "customer.subscription.updated -> update Tier in Cosmos clients container",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-06-012",
+      "epic_id": "ACA-06",
+      "feature_id": "ACA-06.1",
+      "title": "customer.subscription.deleted -> downgrade to Tier 1 in Cosmos unless Tier 3 permanent",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-06-013",
+      "epic_id": "ACA-06",
+      "feature_id": "ACA-06.1",
+      "title": "All webhook events written to payments container for audit trail",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-06-014",
+      "epic_id": "ACA-06",
+      "feature_id": "ACA-06.1",
+      "title": "GET /v1/entitlements?subscriptionId=X returns { tier, validUntil, features[] }",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-06-015",
+      "epic_id": "ACA-06",
+      "feature_id": "ACA-06.1",
+      "title": "Tier gate evaluates entitlement from Cosmos (with APIM 60s cache)",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-06-016",
+      "epic_id": "ACA-06",
+      "feature_id": "ACA-06.1",
+      "title": "StripeCustomerMapRepo resolves stripeCustomerId -> subscriptionId for webhooks",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-06-017",
+      "epic_id": "ACA-06",
+      "feature_id": "ACA-06.1",
+      "title": "Billing portal endpoint derives stripeCustomerId from Cosmos clients container",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-06-018",
+      "epic_id": "ACA-06",
+      "feature_id": "ACA-06.1",
+      "title": "As a Tier 3 customer, when my Tier 2 subscription is canceled (subscription.deleted)",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-07-001",
+      "epic_id": "ACA-07",
+      "feature_id": "ACA-07.1",
+      "title": "12 Jinja2 template folders exist in services/delivery/app/templates/",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-07-002",
+      "epic_id": "ACA-07",
+      "feature_id": "ACA-07.1",
+      "title": "Each folder has main.bicep and README.md (Bicep Phase 1 only;",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-07-003",
+      "epic_id": "ACA-07",
+      "feature_id": "ACA-07.1",
+      "title": "Templates are parameterized with scan_id, subscription_id, and finding fields",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-07-004",
+      "epic_id": "ACA-07",
+      "feature_id": "ACA-07.1",
+      "title": "Template content sourced from 12-IaCscript.md patterns",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-07-005",
+      "epic_id": "ACA-07",
+      "feature_id": "ACA-07.1",
+      "title": "Delivery service generates all IaC artifacts for a scan's findings",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-07-006",
+      "epic_id": "ACA-07",
+      "feature_id": "ACA-07.1",
+      "title": "ZIP is assembled with findings.json manifest at root",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-07-007",
+      "epic_id": "ACA-07",
+      "feature_id": "ACA-07.1",
+      "title": "ZIP is signed with SHA-256 and the hash stored in the deliverables container",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-07-008",
+      "epic_id": "ACA-07",
+      "feature_id": "ACA-07.1",
+      "title": "ZIP is uploaded to Azure Blob Storage with 24h SAS URL",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-07-009",
+      "epic_id": "ACA-07",
+      "feature_id": "ACA-07.1",
+      "title": "Deliverable record is written to Cosmos with sasUrl, sha256, artifactCount",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-08-001",
+      "epic_id": "ACA-08",
+      "feature_id": "ACA-08.1",
+      "title": "GTM container is loaded in index.html with consent gating",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-08-002",
+      "epic_id": "ACA-08",
+      "feature_id": "ACA-08.1",
+      "title": "GA4 tag fires after consent accepted",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-08-003",
+      "epic_id": "ACA-08",
+      "feature_id": "ACA-08.1",
+      "title": "Clarity tag fires after consent accepted with form field masking ON",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-08-004",
+      "epic_id": "ACA-08",
+      "feature_id": "ACA-08.1",
+      "title": "All 16 AnalyticsEventName events are fired at correct points in the UI",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-08-005",
+      "epic_id": "ACA-08",
+      "feature_id": "ACA-08.1",
+      "title": "Consent banner allows accept/reject: rejected state suppresses all tags",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-08-006",
+      "epic_id": "ACA-08",
+      "feature_id": "ACA-08.1",
+      "title": "Consent preference is respected across page reloads (localStorage)",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-08-007",
+      "epic_id": "ACA-08",
+      "feature_id": "ACA-08.1",
+      "title": "App Insights connection string is set in all Container Apps via KV reference",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-08-008",
+      "epic_id": "ACA-08",
+      "feature_id": "ACA-08.1",
+      "title": "All service logs are structured JSON and appear in Azure Monitor",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-08-009",
+      "epic_id": "ACA-08",
+      "feature_id": "ACA-08.1",
+      "title": "Scan duration, analysis duration, delivery duration are emitted as custom metrics",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-08-010",
+      "epic_id": "ACA-08",
+      "feature_id": "ACA-08.1",
+      "title": "All API errors (4xx, 5xx) are logged with error_category enum (no raw messages)",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-08-011",
+      "epic_id": "ACA-08",
+      "feature_id": "ACA-08.1",
+      "title": "Stripe webhook events are logged with event type + subscriptionId (hashed)",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-08-012",
+      "epic_id": "ACA-08",
+      "feature_id": "ACA-08.1",
+      "title": "Alert: API service 5xx rate > 5% in 5 minutes -> PagerDuty / email",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-08-013",
+      "epic_id": "ACA-08",
+      "feature_id": "ACA-08.1",
+      "title": "Alert: Collector job failure -> email + Cosmos audit record",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-08-014",
+      "epic_id": "ACA-08",
+      "feature_id": "ACA-08.1",
+      "title": "Alert: Anomaly detection rule fires -> owner notified (Story R-05 output)",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-09-001",
+      "epic_id": "ACA-09",
+      "feature_id": "ACA-09.1",
+      "title": "i18next is configured with 5 locale namespaces in frontend/src/i18n/",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-09-002",
+      "epic_id": "ACA-09",
+      "feature_id": "ACA-09.1",
+      "title": "All user-visible strings are extracted to translation files (no hardcoded EN text)",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-09-003",
+      "epic_id": "ACA-09",
+      "feature_id": "ACA-09.1",
+      "title": "Language selector is visible in the nav with locale names in their own language:",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-09-004",
+      "epic_id": "ACA-09",
+      "feature_id": "ACA-09.1",
+      "title": "Locale preference is persisted in localStorage",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-09-005",
+      "epic_id": "ACA-09",
+      "feature_id": "ACA-09.1",
+      "title": "Date formats use Intl.DateTimeFormat -- locale-aware, no hardcoded format",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-09-006",
+      "epic_id": "ACA-09",
+      "feature_id": "ACA-09.1",
+      "title": "Number/currency formats use Intl.NumberFormat with locale and currency options:",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-09-007",
+      "epic_id": "ACA-09",
+      "feature_id": "ACA-09.1",
+      "title": "fr (fr-CA) translations are completed before Phase 1 go-live",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-09-008",
+      "epic_id": "ACA-09",
+      "feature_id": "ACA-09.1",
+      "title": "pt-BR, es, and de translations are completed before Phase 1 go-live",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-09-009",
+      "epic_id": "ACA-09",
+      "feature_id": "ACA-09.1",
+      "title": "API error messages returned with Accept-Language header support for the",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-09-010",
+      "epic_id": "ACA-09",
+      "feature_id": "ACA-09.1",
+      "title": "axe-core CI check runs on every PR -- zero critical or serious violations gate",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-09-011",
+      "epic_id": "ACA-09",
+      "feature_id": "ACA-09.1",
+      "title": "All icon-only buttons have aria-label in all 5 locales",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-09-012",
+      "epic_id": "ACA-09",
+      "feature_id": "ACA-09.1",
+      "title": "All form fields have associated <label> elements (no placeholder-as-label)",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-09-013",
+      "epic_id": "ACA-09",
+      "feature_id": "ACA-09.1",
+      "title": "Findings table has proper <th scope=\"col\"> headers",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-09-014",
+      "epic_id": "ACA-09",
+      "feature_id": "ACA-09.1",
+      "title": "PreFlight status indicators use both colour and icon/text (not colour-only)",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-09-015",
+      "epic_id": "ACA-09",
+      "feature_id": "ACA-09.1",
+      "title": "Colour contrast ratio >= 4.5:1 for all body text (verified in Figma + axe)",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-09-016",
+      "epic_id": "ACA-09",
+      "feature_id": "ACA-09.1",
+      "title": "Focus ring is visible and high-contrast on all focusable elements",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-09-017",
+      "epic_id": "ACA-09",
+      "feature_id": "ACA-09.1",
+      "title": "Skip-to-content link is the first focusable element on every page",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-09-018",
+      "epic_id": "ACA-09",
+      "feature_id": "ACA-09.1",
+      "title": "Consent banner is keyboard-accessible and screen-reader-labelled",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-10-001",
+      "epic_id": "ACA-10",
+      "feature_id": "ACA-10.1",
+      "title": "Red-team agent runs Tier 1 token against findings API and asserts",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-10-002",
+      "epic_id": "ACA-10",
+      "feature_id": "ACA-10.1",
+      "title": "All endpoints validated: no tenant A can access tenant B data",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-10-003",
+      "epic_id": "ACA-10",
+      "feature_id": "ACA-10.1",
+      "title": "Stripe webhook signature verified on every event (whsec_ secret)",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-10-004",
+      "epic_id": "ACA-10",
+      "feature_id": "ACA-10.1",
+      "title": "Admin endpoints protected by bearer token rotation schedule",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-10-005",
+      "epic_id": "ACA-10",
+      "feature_id": "ACA-10.1",
+      "title": "All Cosmos queries parameterized (no string concatenation in queries)",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-10-006",
+      "epic_id": "ACA-10",
+      "feature_id": "ACA-10.1",
+      "title": "CSP header enforced: scripts from GTM/Stripe/Clarity only, no inline",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-10-007",
+      "epic_id": "ACA-10",
+      "feature_id": "ACA-10.1",
+      "title": "Privacy policy published at /privacy in all 5 locales",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-10-008",
+      "epic_id": "ACA-10",
+      "feature_id": "ACA-10.1",
+      "title": "Terms of service published at /terms in all 5 locales",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-10-009",
+      "epic_id": "ACA-10",
+      "feature_id": "ACA-10.1",
+      "title": "Data retention policy: collected Azure data purged after 90 days",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-10-010",
+      "epic_id": "ACA-10",
+      "feature_id": "ACA-10.1",
+      "title": "Client can request data deletion via DELETE /v1/auth/disconnect which",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-10-011",
+      "epic_id": "ACA-10",
+      "feature_id": "ACA-10.1",
+      "title": "GA4 data retention set to 14 months. IP anonymization enabled.",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-10-012",
+      "epic_id": "ACA-10",
+      "feature_id": "ACA-10.1",
+      "title": "Clarity data retention respects GDPR right-to-be-forgotten via Clarity API",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-10-013",
+      "epic_id": "ACA-10",
+      "feature_id": "ACA-10.1",
+      "title": "docs/client-access-guide.md published at /docs/access-guide in all 5 locales",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-10-014",
+      "epic_id": "ACA-10",
+      "feature_id": "ACA-10.1",
+      "title": "FAQ page covers top 10 support questions (from preflight failure analysis)",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-10-015",
+      "epic_id": "ACA-10",
+      "feature_id": "ACA-10.1",
+      "title": "Status page (uptime) linked from footer",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-11-001",
+      "epic_id": "ACA-11",
+      "feature_id": "ACA-11.1",
+      "title": "`terraform apply` on infra/phase2-private completes without error",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-11-002",
+      "epic_id": "ACA-11",
+      "feature_id": "ACA-11.1",
+      "title": "ACA-specific APIM instance is deployed with Tier enforcement policies",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-11-003",
+      "epic_id": "ACA-11",
+      "feature_id": "ACA-11.1",
+      "title": "GitHub Actions deploy-phase2.yml is wired to private subscription via OIDC",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-11-004",
+      "epic_id": "ACA-11",
+      "feature_id": "ACA-11.1",
+      "title": "Custom domain (app.aca.example.com / api.aca.example.com) configured with",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-11-005",
+      "epic_id": "ACA-11",
+      "feature_id": "ACA-11.1",
+      "title": "Phase 2 Cosmos has 3 geo-replicas (canadacentral primary + failover)",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-11-006",
+      "epic_id": "ACA-11",
+      "feature_id": "ACA-11.1",
+      "title": "DNS TTL lowered 48h before cutover",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-11-007",
+      "epic_id": "ACA-11",
+      "feature_id": "ACA-11.1",
+      "title": "Phase 1 marco* infra remains live as rollback for 30 days post-cutover",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-11-008",
+      "epic_id": "ACA-11",
+      "feature_id": "ACA-11.1",
+      "title": "Phase 2 smoke test: full Tier 1 -> Tier 3 flow on Phase 2 infra",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-11-009",
+      "epic_id": "ACA-11",
+      "feature_id": "ACA-11.1",
+      "title": "APIM configuration exported and version-controlled",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-12-001",
+      "epic_id": "ACA-12",
+      "feature_id": "ACA-12.1",
+      "title": "All epics, features, and stories from this PLAN are seeded into",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-12-002",
+      "epic_id": "ACA-12",
+      "feature_id": "ACA-12.1",
+      "title": "Each story has status: not-started / in-progress / done",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-12-003",
+      "epic_id": "ACA-12",
+      "feature_id": "ACA-12.1",
+      "title": "Story status is updated by the agent at start and end of each work item",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-12-004",
+      "epic_id": "ACA-12",
+      "feature_id": "ACA-12.1",
+      "title": "data-model agent-summary reflects current overall completion percentage",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-12-005",
+      "epic_id": "ACA-12",
+      "feature_id": "ACA-12.1",
+      "title": "API service reads feature_flags layer to gate unreleased features",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-12-006",
+      "epic_id": "ACA-12",
+      "feature_id": "ACA-12.1",
+      "title": "Analysis service reads the rules layer to discover enabled/disabled rules",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-12-007",
+      "epic_id": "ACA-12",
+      "feature_id": "ACA-12.1",
+      "title": "Endpoints layer is kept in sync with every shipped route (PUT on ship)",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-12-008",
+      "epic_id": "ACA-12",
+      "feature_id": "ACA-12.1",
+      "title": "Containers layer reflects the actual Cosmos schema (fields, partition keys)",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-12-009",
+      "epic_id": "ACA-12",
+      "feature_id": "ACA-12.1",
+      "title": "Cosmos DB aca-db + scans container with 256-partition key on subscriptionId",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-12-010",
+      "epic_id": "ACA-12",
+      "feature_id": "ACA-12.1",
+      "title": "inventories container for Azure resource snapshots (partition key: subscriptionId)",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-12-011",
+      "epic_id": "ACA-12",
+      "feature_id": "ACA-12.1",
+      "title": "cost-data container for monthly cost export and FinOps hub landing zone",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-12-012",
+      "epic_id": "ACA-12",
+      "feature_id": "ACA-12.1",
+      "title": "advisor container for Azure Advisor recommendations + scores",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-12-013",
+      "epic_id": "ACA-12",
+      "feature_id": "ACA-12.1",
+      "title": "findings container for analysis rule output (indexed on risk_class, effort_class)",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-12-014",
+      "epic_id": "ACA-12",
+      "feature_id": "ACA-12.1",
+      "title": "APIM ACA product + subscription key policy for tier-gated rate limiting",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-12-015",
+      "epic_id": "ACA-12",
+      "feature_id": "ACA-12.1",
+      "title": "Key Vault secrets wiring (ACA-CLIENT-ID, ACA-OPENAI-KEY, ACA-COSMOS-CONN)",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-12-016",
+      "epic_id": "ACA-12",
+      "feature_id": "ACA-12.1",
+      "title": "Container App Job definitions for collector, analysis, delivery workers",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-14-001",
+      "epic_id": "ACA-14",
+      "feature_id": "ACA-14.1",
+      "title": "As the sprint agent I want a unified SprintContext class that merges",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-14-002",
+      "epic_id": "ACA-14",
+      "feature_id": "ACA-14.1",
+      "title": "As the sprint agent I want a state lock mechanism that prevents duplicate",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-14-003",
+      "epic_id": "ACA-14",
+      "feature_id": "ACA-14.1",
+      "title": "As the sprint agent I want phase verification checkpoints after each DPDCA",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-15-000",
+      "epic_id": "ACA-15",
+      "feature_id": "ACA-15.1",
+      "title": "Infrastructure provisioning: Bicep for Cosmos (9 containers)",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-15-001",
+      "epic_id": "ACA-15",
+      "feature_id": "ACA-15.1",
+      "title": "Cosmos DB schema implementation (9 containers all deployed)",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-15-002",
+      "epic_id": "ACA-15",
+      "feature_id": "ACA-15.1",
+      "title": "Gate state machine (7-gate workflow with timeout/retry logic)",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-15-003",
+      "epic_id": "ACA-15",
+      "feature_id": "ACA-15.1",
+      "title": "FastAPI backend routes (POST /init, GET /{id}, decision handling)",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-15-004",
+      "epic_id": "ACA-15",
+      "feature_id": "ACA-15.1",
+      "title": "Azure SDK wrappers + pagination + retry logic",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-15-005",
+      "epic_id": "ACA-15",
+      "feature_id": "ACA-15.1",
+      "title": "CLI command structure (init, resume, list, get, logs, retry-extract)",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-15-006",
+      "epic_id": "ACA-15",
+      "feature_id": "ACA-15.1",
+      "title": "Extraction pipeline (inventory + costs + advisor with recovery)",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-15-007",
+      "epic_id": "ACA-15",
+      "feature_id": "ACA-15.1",
+      "title": "Logging + recovery mechanism (detailed operation logs, resume)",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-15-008",
+      "epic_id": "ACA-15",
+      "feature_id": "ACA-15.1",
+      "title": "Analysis rules engine (18-azure-best pattern integration)",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-15-009",
+      "epic_id": "ACA-15",
+      "feature_id": "ACA-15.1",
+      "title": "Evidence receipt generation (HMAC-SHA256 cryptographic signing)",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-15-010",
+      "epic_id": "ACA-15",
+      "feature_id": "ACA-15.1",
+      "title": "Integration tests (all gates, security, performance)",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-15-011",
+      "epic_id": "ACA-15",
+      "feature_id": "ACA-15.1",
+      "title": "React components (role assessment, preflight, extraction progress)",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    },
+    {
+      "story_id": "ACA-15-012",
+      "epic_id": "ACA-15",
+      "feature_id": "ACA-15.1",
+      "title": "Findings report UI (savings display, PDF export, tier selector)",
+      "status": "UNKNOWN",
+      "harvested_from": "PLAN.md"
+    }
+  ],
+  "statistics": {
+    "total_epics": 11,
+    "total_features": 62,
+    "total_stories": 259,
+    "story_status_counts": {
+      "UNKNOWN": 259
+    }
+  }
+}

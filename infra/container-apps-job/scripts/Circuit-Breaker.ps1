@@ -297,3 +297,4 @@ INTEGRATION POINTS:
 ✓ All state transitions logged
 ✓ Ready for APM integration (metrics + alerts)
 #>
+
