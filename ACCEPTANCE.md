@@ -2,9 +2,17 @@ ACA -- Azure Cost Advisor -- ACCEPTANCE
 =========================================
 
 Version: 0.3.0
-Updated: 2026-02-26
+Updated: 2026-03-06T19:38:00-05:00 (2:38 PM ET - Sprint-003 Baseline Locked)
 Method: Each gate is verified manually OR by an automated test/check.
         [PASS] = verified. [ ] = not yet tested. [FAIL] = known failure.
+
+DATA MODEL STATE (as of 2:38 PM ET):
+- Cloud model row_version: 2 (synced after DPDCA cycle)
+- 281 stories planned across 15 epics
+- Coverage: 95.7% (269/281 stories with artifacts)
+- Evidence: 92.9% (261/281 stories with proof)
+- Gaps: 23 (12 missing_impl ACA-15, 11 orphan_tags in docs)
+- Status: SPRINT-003 ready for agent execution
 
 =============================================================================
 PHASE 1 ACCEPTANCE (marco* dev go-live)
