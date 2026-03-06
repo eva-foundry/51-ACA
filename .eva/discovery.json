@@ -1,7 +1,7 @@
 {
   "meta": {
     "schema": "eva.discovery.v2",
-    "generated_at": "2026-03-06T17:31:02.561Z",
+    "generated_at": "2026-03-06T17:34:05.389Z",
     "repo": "C:\\AICOE\\eva-foundry\\51-ACA"
   },
   "project": null,
@@ -3104,36 +3104,6 @@
         "story_tags": []
       },
       {
-        "path": "frontend/.env.example",
-        "type": "other",
-        "story_tags": []
-      },
-      {
-        "path": "frontend/index.html",
-        "type": "other",
-        "story_tags": []
-      },
-      {
-        "path": "frontend/package.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "frontend/tsconfig.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "frontend/tsconfig.node.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "frontend/vite.config.ts",
-        "type": "code",
-        "story_tags": []
-      },
-      {
         "path": "evidence/ACA-01-001-receipt.py",
         "type": "evidence",
         "story_tags": [
@@ -4924,6 +4894,36 @@
         ]
       },
       {
+        "path": "frontend/.env.example",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/index.html",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/package.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/tsconfig.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/tsconfig.node.json",
+        "type": "data",
+        "story_tags": []
+      },
+      {
+        "path": "frontend/vite.config.ts",
+        "type": "code",
+        "story_tags": []
+      },
+      {
         "path": "scripts/ado-create-project.ps1",
         "type": "code",
         "story_tags": []
@@ -5077,6 +5077,31 @@
         "story_tags": []
       },
       {
+        "path": ".github/copilot-skills/gap-report.skill.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": ".github/copilot-skills/progress-report.skill.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": ".github/copilot-skills/sprint-advance.skill.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": ".github/copilot-skills/sprint-report.skill.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": ".github/copilot-skills/veritas-expert.skill.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
         "path": ".github/ISSUE_TEMPLATE/agent-task.yml",
         "type": "config",
         "story_tags": [
@@ -5200,28 +5225,58 @@
         "story_tags": []
       },
       {
-        "path": ".github/copilot-skills/gap-report.skill.md",
-        "type": "doc",
+        "path": ".github/workflows/build-sprint-agent.yml",
+        "type": "config",
         "story_tags": []
       },
       {
-        "path": ".github/copilot-skills/progress-report.skill.md",
-        "type": "doc",
+        "path": ".github/workflows/ci.yml",
+        "type": "config",
+        "story_tags": [
+          "ACA-01-006"
+        ]
+      },
+      {
+        "path": ".github/workflows/collector-schedule.yml",
+        "type": "config",
+        "story_tags": [
+          "ACA-01-018"
+        ]
+      },
+      {
+        "path": ".github/workflows/copilot-setup-steps.yml",
+        "type": "config",
+        "story_tags": [
+          "ACA-14-006"
+        ]
+      },
+      {
+        "path": ".github/workflows/deploy-phase1.yml",
+        "type": "config",
+        "story_tags": [
+          "ACA-01-017"
+        ]
+      },
+      {
+        "path": ".github/workflows/dpdca-agent.yml",
+        "type": "config",
         "story_tags": []
       },
       {
-        "path": ".github/copilot-skills/sprint-advance.skill.md",
-        "type": "doc",
+        "path": ".github/workflows/epic15-sync-orchestrator.yml",
+        "type": "config",
         "story_tags": []
       },
       {
-        "path": ".github/copilot-skills/sprint-report.skill.md",
-        "type": "doc",
-        "story_tags": []
+        "path": ".github/workflows/sonnet-review.yml",
+        "type": "config",
+        "story_tags": [
+          "ACA-14-008"
+        ]
       },
       {
-        "path": ".github/copilot-skills/veritas-expert.skill.md",
-        "type": "doc",
+        "path": ".github/workflows/sprint-agent.yml",
+        "type": "config",
         "story_tags": []
       },
       {
@@ -5315,61 +5370,6 @@
         "story_tags": []
       },
       {
-        "path": ".github/workflows/build-sprint-agent.yml",
-        "type": "config",
-        "story_tags": []
-      },
-      {
-        "path": ".github/workflows/ci.yml",
-        "type": "config",
-        "story_tags": [
-          "ACA-01-006"
-        ]
-      },
-      {
-        "path": ".github/workflows/collector-schedule.yml",
-        "type": "config",
-        "story_tags": [
-          "ACA-01-018"
-        ]
-      },
-      {
-        "path": ".github/workflows/copilot-setup-steps.yml",
-        "type": "config",
-        "story_tags": [
-          "ACA-14-006"
-        ]
-      },
-      {
-        "path": ".github/workflows/deploy-phase1.yml",
-        "type": "config",
-        "story_tags": [
-          "ACA-01-017"
-        ]
-      },
-      {
-        "path": ".github/workflows/dpdca-agent.yml",
-        "type": "config",
-        "story_tags": []
-      },
-      {
-        "path": ".github/workflows/epic15-sync-orchestrator.yml",
-        "type": "config",
-        "story_tags": []
-      },
-      {
-        "path": ".github/workflows/sonnet-review.yml",
-        "type": "config",
-        "story_tags": [
-          "ACA-14-008"
-        ]
-      },
-      {
-        "path": ".github/workflows/sprint-agent.yml",
-        "type": "config",
-        "story_tags": []
-      },
-      {
         "path": "agents/failure-classifier/classifier_agent.py",
         "type": "code",
         "story_tags": []
@@ -5377,6 +5377,127 @@
       {
         "path": "agents/failure-classifier/system_prompt.md",
         "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "agents/onboarding-system/ACA-15-001.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-15-001"
+        ]
+      },
+      {
+        "path": "agents/onboarding-system/ACA-15-002.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-15-002"
+        ]
+      },
+      {
+        "path": "agents/onboarding-system/ACA-15-003.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-15-003"
+        ]
+      },
+      {
+        "path": "agents/onboarding-system/ACA-15-004.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-15-004"
+        ],
+        "implicit_evidence_for": [
+          "ACA-15-004"
+        ]
+      },
+      {
+        "path": "agents/onboarding-system/ACA-15-005.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-15-005"
+        ],
+        "implicit_evidence_for": [
+          "ACA-15-005"
+        ]
+      },
+      {
+        "path": "agents/onboarding-system/ACA-15-006.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-15-006"
+        ],
+        "implicit_evidence_for": [
+          "ACA-15-006"
+        ]
+      },
+      {
+        "path": "agents/onboarding-system/ACA-15-007.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-15-007"
+        ],
+        "implicit_evidence_for": [
+          "ACA-15-007"
+        ]
+      },
+      {
+        "path": "agents/onboarding-system/ACA-15-008.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-15-008"
+        ],
+        "implicit_evidence_for": [
+          "ACA-15-008"
+        ]
+      },
+      {
+        "path": "agents/onboarding-system/ACA-15-009.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-15-009"
+        ],
+        "implicit_evidence_for": [
+          "ACA-15-009"
+        ]
+      },
+      {
+        "path": "agents/onboarding-system/ACA-15-010.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-15-010"
+        ],
+        "implicit_evidence_for": [
+          "ACA-15-010"
+        ]
+      },
+      {
+        "path": "agents/onboarding-system/ACA-15-011.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-15-011"
+        ],
+        "implicit_evidence_for": [
+          "ACA-15-011"
+        ]
+      },
+      {
+        "path": "agents/onboarding-system/ACA-15-012.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-15-012"
+        ],
+        "implicit_evidence_for": [
+          "ACA-15-012"
+        ]
+      },
+      {
+        "path": "agents/onboarding-system/generate-stubs.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "agents/onboarding-system/__init__.py",
+        "type": "code",
         "story_tags": []
       },
       {
@@ -5396,6 +5517,26 @@
       },
       {
         "path": "agents/orchestrator-workflow/test_orchestrator_workflow.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "agents/retry-tuner/README.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "agents/retry-tuner/requirements.txt",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "agents/retry-tuner/test_tuner_agent.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "agents/retry-tuner/tuner_agent.py",
         "type": "code",
         "story_tags": []
       },
@@ -5602,26 +5743,6 @@
       {
         "path": "data-model/model/wbs.json",
         "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "agents/retry-tuner/README.md",
-        "type": "doc",
-        "story_tags": []
-      },
-      {
-        "path": "agents/retry-tuner/requirements.txt",
-        "type": "other",
-        "story_tags": []
-      },
-      {
-        "path": "agents/retry-tuner/test_tuner_agent.py",
-        "type": "code",
-        "story_tags": []
-      },
-      {
-        "path": "agents/retry-tuner/tuner_agent.py",
-        "type": "code",
         "story_tags": []
       },
       {
@@ -5883,22 +6004,22 @@
         "story_tags": []
       },
       {
-        "path": "services/collector/Dockerfile",
-        "type": "other",
-        "story_tags": []
-      },
-      {
-        "path": "services/collector/requirements.txt",
-        "type": "other",
-        "story_tags": []
-      },
-      {
         "path": "services/delivery/Dockerfile",
         "type": "other",
         "story_tags": []
       },
       {
         "path": "services/delivery/requirements.txt",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "services/collector/Dockerfile",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "services/collector/requirements.txt",
         "type": "other",
         "story_tags": []
       },
@@ -6123,32 +6244,6 @@
         ]
       },
       {
-        "path": "infra/container-apps-job/checkpoints/async-orchestration.json",
-        "type": "infra",
-        "story_tags": []
-      },
-      {
-        "path": "frontend/src/telemetry/analytics.ts",
-        "type": "code",
-        "story_tags": [
-          "ACA-08-004"
-        ]
-      },
-      {
-        "path": "frontend/src/telemetry/consent.ts",
-        "type": "code",
-        "story_tags": [
-          "ACA-08-005"
-        ]
-      },
-      {
-        "path": "frontend/src/telemetry/gtm.ts",
-        "type": "code",
-        "story_tags": [
-          "ACA-08-001"
-        ]
-      },
-      {
         "path": "frontend/src/pages/Admin.tsx",
         "type": "code",
         "story_tags": [
@@ -6224,6 +6319,32 @@
         "story_tags": [
           "ACA-05-018"
         ]
+      },
+      {
+        "path": "frontend/src/telemetry/analytics.ts",
+        "type": "code",
+        "story_tags": [
+          "ACA-08-004"
+        ]
+      },
+      {
+        "path": "frontend/src/telemetry/consent.ts",
+        "type": "code",
+        "story_tags": [
+          "ACA-08-005"
+        ]
+      },
+      {
+        "path": "frontend/src/telemetry/gtm.ts",
+        "type": "code",
+        "story_tags": [
+          "ACA-08-001"
+        ]
+      },
+      {
+        "path": "infra/container-apps-job/checkpoints/async-orchestration.json",
+        "type": "infra",
+        "story_tags": []
       },
       {
         "path": "infra/container-apps-job/scripts/Application-Insights-Logger.ps1",
@@ -6333,28 +6454,6 @@
         ]
       },
       {
-        "path": "services/api/app/main.py",
-        "type": "code",
-        "story_tags": [
-          "ACA-01-003",
-          "ACA-12-002"
-        ]
-      },
-      {
-        "path": "services/api/app/scan_pipeline.py",
-        "type": "code",
-        "story_tags": [
-          "ACA-04-011"
-        ]
-      },
-      {
-        "path": "services/api/app/settings.py",
-        "type": "code",
-        "story_tags": [
-          "ACA-01-005"
-        ]
-      },
-      {
         "path": "infra/phase1-marco/apim/apim-entitlements-policy.xml",
         "type": "infra",
         "story_tags": []
@@ -6443,6 +6542,57 @@
         "path": "services/analysis/tests/test_r12_chargeback.py",
         "type": "code",
         "story_tags": []
+      },
+      {
+        "path": "services/api/app/main.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-01-003",
+          "ACA-12-002"
+        ]
+      },
+      {
+        "path": "services/api/app/scan_pipeline.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-04-011"
+        ]
+      },
+      {
+        "path": "services/api/app/settings.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-01-005"
+        ]
+      },
+      {
+        "path": "services/delivery/app/cosmos.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-07-009"
+        ]
+      },
+      {
+        "path": "services/delivery/app/generator.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-07-003"
+        ]
+      },
+      {
+        "path": "services/delivery/app/main.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-07-005"
+        ]
+      },
+      {
+        "path": "services/delivery/app/packager.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-07-006",
+          "ACA-07-021"
+        ]
       },
       {
         "path": "services/api/tests/test_auth.py",
@@ -6553,41 +6703,7 @@
         "story_tags": []
       },
       {
-        "path": "services/delivery/app/cosmos.py",
-        "type": "code",
-        "story_tags": [
-          "ACA-07-009"
-        ]
-      },
-      {
-        "path": "services/delivery/app/generator.py",
-        "type": "code",
-        "story_tags": [
-          "ACA-07-003"
-        ]
-      },
-      {
-        "path": "services/delivery/app/main.py",
-        "type": "code",
-        "story_tags": [
-          "ACA-07-005"
-        ]
-      },
-      {
-        "path": "services/delivery/app/packager.py",
-        "type": "code",
-        "story_tags": [
-          "ACA-07-006",
-          "ACA-07-021"
-        ]
-      },
-      {
         "path": "frontend/public/locales/en/translation.json",
-        "type": "data",
-        "story_tags": []
-      },
-      {
-        "path": "frontend/public/locales/fr/translation.json",
         "type": "data",
         "story_tags": []
       },
@@ -6611,6 +6727,11 @@
         "story_tags": [
           "ACA-05-026"
         ]
+      },
+      {
+        "path": "frontend/public/locales/fr/translation.json",
+        "type": "data",
+        "story_tags": []
       },
       {
         "path": "frontend/src/app/auth/RequireAuth.tsx",
@@ -6669,13 +6790,6 @@
         ]
       },
       {
-        "path": "frontend/src/app/routes/router.tsx",
-        "type": "code",
-        "story_tags": [
-          "ACA-05-011"
-        ]
-      },
-      {
         "path": "frontend/src/app/layout/AdminLayout.tsx",
         "type": "code",
         "story_tags": [
@@ -6704,11 +6818,43 @@
         ]
       },
       {
+        "path": "frontend/src/app/routes/router.tsx",
+        "type": "code",
+        "story_tags": [
+          "ACA-05-011"
+        ]
+      },
+      {
         "path": "frontend/src/app/types/models.ts",
         "type": "code",
         "story_tags": [
           "ACA-05-029"
         ]
+      },
+      {
+        "path": "services/analysis/tests/rules/test_anomaly_detection.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/analysis/tests/rules/test_compute_scheduling.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/analysis/tests/rules/test_defender_mismatch.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/analysis/tests/rules/test_devbox_autostop.py",
+        "type": "code",
+        "story_tags": []
+      },
+      {
+        "path": "services/analysis/tests/rules/test_log_retention.py",
+        "type": "code",
+        "story_tags": []
       },
       {
         "path": "services/analysis/app/rules/acr_consolidation.py",
@@ -7011,20 +7157,6 @@
         ]
       },
       {
-        "path": "services/api/app/middleware/timing.py",
-        "type": "code",
-        "story_tags": [
-          "ACA-08-009"
-        ]
-      },
-      {
-        "path": "services/api/app/middleware/__init__.py",
-        "type": "code",
-        "story_tags": [
-          "ACA-08-009"
-        ]
-      },
-      {
         "path": "services/api/app/deps/auth.py",
         "type": "code",
         "story_tags": [
@@ -7036,6 +7168,20 @@
         "type": "code",
         "story_tags": [
           "ACA-04-002"
+        ]
+      },
+      {
+        "path": "services/api/app/middleware/timing.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-08-009"
+        ]
+      },
+      {
+        "path": "services/api/app/middleware/__init__.py",
+        "type": "code",
+        "story_tags": [
+          "ACA-08-009"
         ]
       },
       {
@@ -7165,31 +7311,6 @@
       },
       {
         "path": "services/api/app/services/__init__.py",
-        "type": "code",
-        "story_tags": []
-      },
-      {
-        "path": "services/analysis/tests/rules/test_anomaly_detection.py",
-        "type": "code",
-        "story_tags": []
-      },
-      {
-        "path": "services/analysis/tests/rules/test_compute_scheduling.py",
-        "type": "code",
-        "story_tags": []
-      },
-      {
-        "path": "services/analysis/tests/rules/test_defender_mismatch.py",
-        "type": "code",
-        "story_tags": []
-      },
-      {
-        "path": "services/analysis/tests/rules/test_devbox_autostop.py",
-        "type": "code",
-        "story_tags": []
-      },
-      {
-        "path": "services/analysis/tests/rules/test_log_retention.py",
         "type": "code",
         "story_tags": []
       },
@@ -12591,6 +12712,165 @@
           }
         ]
       },
+      "ACA-15-001": {
+        "artifacts": [
+          {
+            "path": "agents/onboarding-system/ACA-15-001.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-15-001"
+            ]
+          }
+        ]
+      },
+      "ACA-15-002": {
+        "artifacts": [
+          {
+            "path": "agents/onboarding-system/ACA-15-002.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-15-002"
+            ]
+          }
+        ]
+      },
+      "ACA-15-003": {
+        "artifacts": [
+          {
+            "path": "agents/onboarding-system/ACA-15-003.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-15-003"
+            ]
+          }
+        ]
+      },
+      "ACA-15-004": {
+        "artifacts": [
+          {
+            "path": "agents/onboarding-system/ACA-15-004.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-15-004"
+            ],
+            "implicit_evidence_for": [
+              "ACA-15-004"
+            ]
+          }
+        ]
+      },
+      "ACA-15-005": {
+        "artifacts": [
+          {
+            "path": "agents/onboarding-system/ACA-15-005.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-15-005"
+            ],
+            "implicit_evidence_for": [
+              "ACA-15-005"
+            ]
+          }
+        ]
+      },
+      "ACA-15-006": {
+        "artifacts": [
+          {
+            "path": "agents/onboarding-system/ACA-15-006.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-15-006"
+            ],
+            "implicit_evidence_for": [
+              "ACA-15-006"
+            ]
+          }
+        ]
+      },
+      "ACA-15-007": {
+        "artifacts": [
+          {
+            "path": "agents/onboarding-system/ACA-15-007.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-15-007"
+            ],
+            "implicit_evidence_for": [
+              "ACA-15-007"
+            ]
+          }
+        ]
+      },
+      "ACA-15-008": {
+        "artifacts": [
+          {
+            "path": "agents/onboarding-system/ACA-15-008.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-15-008"
+            ],
+            "implicit_evidence_for": [
+              "ACA-15-008"
+            ]
+          }
+        ]
+      },
+      "ACA-15-009": {
+        "artifacts": [
+          {
+            "path": "agents/onboarding-system/ACA-15-009.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-15-009"
+            ],
+            "implicit_evidence_for": [
+              "ACA-15-009"
+            ]
+          }
+        ]
+      },
+      "ACA-15-010": {
+        "artifacts": [
+          {
+            "path": "agents/onboarding-system/ACA-15-010.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-15-010"
+            ],
+            "implicit_evidence_for": [
+              "ACA-15-010"
+            ]
+          }
+        ]
+      },
+      "ACA-15-011": {
+        "artifacts": [
+          {
+            "path": "agents/onboarding-system/ACA-15-011.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-15-011"
+            ],
+            "implicit_evidence_for": [
+              "ACA-15-011"
+            ]
+          }
+        ]
+      },
+      "ACA-15-012": {
+        "artifacts": [
+          {
+            "path": "agents/onboarding-system/ACA-15-012.py",
+            "type": "code",
+            "story_tags": [
+              "ACA-15-012"
+            ],
+            "implicit_evidence_for": [
+              "ACA-15-012"
+            ]
+          }
+        ]
+      },
       "ACA-16-005": {
         "artifacts": [
           {
@@ -13656,6 +13936,69 @@
         {
           "sha": "evidence/ACA-16-004-STORY-COMPLETION.md",
           "snippet": "filename: evidence/ACA-16-004-STORY-COMPLETION.md",
+          "source": "filename"
+        }
+      ],
+      "ACA-15-004": [
+        {
+          "sha": "agents/onboarding-system/ACA-15-004.py",
+          "snippet": "filename: agents/onboarding-system/ACA-15-004.py",
+          "source": "filename"
+        }
+      ],
+      "ACA-15-005": [
+        {
+          "sha": "agents/onboarding-system/ACA-15-005.py",
+          "snippet": "filename: agents/onboarding-system/ACA-15-005.py",
+          "source": "filename"
+        }
+      ],
+      "ACA-15-006": [
+        {
+          "sha": "agents/onboarding-system/ACA-15-006.py",
+          "snippet": "filename: agents/onboarding-system/ACA-15-006.py",
+          "source": "filename"
+        }
+      ],
+      "ACA-15-007": [
+        {
+          "sha": "agents/onboarding-system/ACA-15-007.py",
+          "snippet": "filename: agents/onboarding-system/ACA-15-007.py",
+          "source": "filename"
+        }
+      ],
+      "ACA-15-008": [
+        {
+          "sha": "agents/onboarding-system/ACA-15-008.py",
+          "snippet": "filename: agents/onboarding-system/ACA-15-008.py",
+          "source": "filename"
+        }
+      ],
+      "ACA-15-009": [
+        {
+          "sha": "agents/onboarding-system/ACA-15-009.py",
+          "snippet": "filename: agents/onboarding-system/ACA-15-009.py",
+          "source": "filename"
+        }
+      ],
+      "ACA-15-010": [
+        {
+          "sha": "agents/onboarding-system/ACA-15-010.py",
+          "snippet": "filename: agents/onboarding-system/ACA-15-010.py",
+          "source": "filename"
+        }
+      ],
+      "ACA-15-011": [
+        {
+          "sha": "agents/onboarding-system/ACA-15-011.py",
+          "snippet": "filename: agents/onboarding-system/ACA-15-011.py",
+          "source": "filename"
+        }
+      ],
+      "ACA-15-012": [
+        {
+          "sha": "agents/onboarding-system/ACA-15-012.py",
+          "snippet": "filename: agents/onboarding-system/ACA-15-012.py",
           "source": "filename"
         }
       ],
