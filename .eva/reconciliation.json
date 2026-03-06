@@ -1,7 +1,7 @@
 {
   "meta": {
     "schema": "eva.reconciliation.v2",
-    "generated_at": "2026-03-05T13:44:42.902Z",
+    "generated_at": "2026-03-06T17:19:06.469Z",
     "repo": "C:\\AICOE\\eva-foundry\\51-ACA",
     "discovery_path": "C:\\AICOE\\eva-foundry\\51-ACA\\.eva\\discovery.json"
   },
@@ -261,22 +261,7 @@
     },
     {
       "type": "orphan_story_tag",
-      "story_id": "ACA-12-023",
-      "title": null
-    },
-    {
-      "type": "orphan_story_tag",
       "story_id": "ACA-NN-NNN",
-      "title": null
-    },
-    {
-      "type": "orphan_story_tag",
-      "story_id": "ACA-17-005",
-      "title": null
-    },
-    {
-      "type": "orphan_story_tag",
-      "story_id": "ACA-17-004",
       "title": null
     },
     {
