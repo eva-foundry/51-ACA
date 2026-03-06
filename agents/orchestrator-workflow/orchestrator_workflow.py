@@ -1,7 +1,5 @@
 """
-# EVA-STORY: ACA-17-005
-
-ACA-17-005: Multi-Agent Orchestration Workflow
+Multi-Agent Orchestration Workflow (Support infrastructure for multi-agent failure recovery pipeline)
 Coordinates Failure Classifier + Retry Tuner + Advisor agents via 29-Foundry.
 
 This module implements the orchestration logic for the following pipeline:

@@ -1,7 +1,5 @@
 """
-# EVA-STORY: ACA-17-004
-
-ACA-17-004: Sync Advisor Agent Test Suite
+Sync Advisor Agent Test Suite (Support infrastructure for multi-agent failure recovery pipeline)
 
 4 test scenarios covering acceptance criteria:
 1. All 21 stories failed -> "retry_all"

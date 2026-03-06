@@ -3,8 +3,6 @@
 # Prevents cascading failures by stopping retries on permanent failures
 # States: CLOSED (normal), OPEN (failing), HALF_OPEN (testing recovery)
 
-# EVA-STORY: ACA-16-003
-
 param(
     [string]$OperationName = "default-operation",
     [scriptblock]$LogFunction = { param([string]$Level, [string]$Message); Write-Host "[$Level] $Message" }

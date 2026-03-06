@@ -1,7 +1,6 @@
 # Invoke-With-Retry.ps1
 # Retry Logic with Exponential Backoff + Jitter
 # Used by: sync-orchestration-job.ps1 for all Cosmos + HTTP operations
-# EVA-STORY: ACA-16-002
 
 <#
 .SYNOPSIS

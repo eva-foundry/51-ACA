@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 # EVA-STORY: ACA-14-009
 # EVA-STORY: ACA-12-022
-# EVA-STORY: ACA-12-023
 # sprint_agent.py -- Full-sprint cloud execution runner
 #
 # Sprint 3 Enhancements (+180 lines):

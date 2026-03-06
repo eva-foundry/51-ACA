@@ -1,7 +1,5 @@
 """
-# EVA-STORY: ACA-17-005
-
-ACA-17-005: Multi-Agent Orchestration Workflow Test Suite
+Multi-Agent Orchestration Workflow Test Suite (Support infrastructure for multi-agent failure recovery pipeline)
 
 4 test scenarios covering acceptance criteria:
 1. Network timeout error → Classifier → Tuner → retry after 2s

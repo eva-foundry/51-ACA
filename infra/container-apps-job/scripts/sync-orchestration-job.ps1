@@ -3,8 +3,6 @@
 # Runs as Azure Container Apps Job
 # Supports: Retry logic, circuit breaker, health checks, checkpoint/resume, APM logging
 
-# EVA-STORY: ACA-16-001
-
 param(
     [string]$Environment = $env:ENVIRONMENT ?? "dev",
     [string]$Phase = $env:PHASE ?? "full",

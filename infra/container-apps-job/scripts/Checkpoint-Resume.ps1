@@ -2,8 +2,6 @@
 # Enhanced Checkpoint System with Integrity Validation
 # Save checkpoint after EACH story, resume from last successful story on restart
 
-# EVA-STORY: ACA-16-005
-
 param(
     [string]$CheckpointDir = "/app/state/checkpoints",
     [scriptblock]$LogFunction = { param([string]$Level, [string]$Message); Write-Host "[$Level] $Message" }

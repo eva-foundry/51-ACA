@@ -1,7 +1,5 @@
 """
-# EVA-STORY: ACA-17-004
-
-ACA-17-004: Sync Orchestration Advisor Agent
+Sync Orchestration Advisor Agent (Support infrastructure for multi-agent failure recovery pipeline)
 AI-driven recommendations for failure recovery and parallelism tuning.
 
 This agent analyzes sync orchestration failures and recommends:

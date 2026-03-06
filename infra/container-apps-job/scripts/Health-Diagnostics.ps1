@@ -2,8 +2,6 @@
 # Multi-System Health Check with Diagnostics & Recovery Suggestions
 # Concurrent assessments: Data Model API, Cosmos DB, Network, Storage, Credentials
 
-# EVA-STORY: ACA-16-004
-
 param(
     [string]$DataModelUrl = "https://marco-eva-data-model.livelyflower-7990bc7b.canadacentral.azurecontainerapps.io",
     [string]$CosmosUrl = "https://marco-sandbox-cosmos.documents.azure.com",
