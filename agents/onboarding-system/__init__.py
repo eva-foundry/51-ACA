@@ -1,20 +1,19 @@
 """
-EVA-STORY: ACA-15 (Onboarding System)
-Sprint-003 Agent Orchestration Package
+Onboarding System - Sprint-003 Agent Orchestration Package
 
 Implementation stubs for 12 stories scheduled for Sprint-003:
-- ACA-15-001: Infrastructure provisioning: Bicep for Cosmos (9 containers)
-- ACA-15-002: Cosmos DB schema implementation (9 containers all deployed)
-- ACA-15-003: Gate state machine (7-gate workflow with timeout/retry logic)
-- ACA-15-004: FastAPI backend routes (POST /init, GET /{id}, decision handling)
-- ACA-15-005: Azure SDK wrappers + pagination + retry logic
-- ACA-15-006: CLI command structure (init, resume, list, get, logs, retry-extract)
-- ACA-15-007: Extraction pipeline (inventory + costs + advisor with recovery)
-- ACA-15-008: Logging + recovery mechanism (detailed operation logs, resume)
-- ACA-15-009: Analysis rules engine (18-azure-best pattern integration)
-- ACA-15-010: Evidence receipt generation (HMAC-SHA256 cryptographic signing)
-- ACA-15-011: Integration tests (all gates, security, performance)
-- ACA-15-012: React components (role assessment, preflight, extraction progress)
+- Story 001: Infrastructure provisioning: Bicep for Cosmos (9 containers)
+- Story 002: Cosmos DB schema implementation (9 containers all deployed)
+- Story 003: Gate state machine (7-gate workflow with timeout/retry logic)
+- Story 004: FastAPI backend routes (POST /init, GET /{id}, decision handling)
+- Story 005: Azure SDK wrappers + pagination + retry logic
+- Story 006: CLI command structure (init, resume, list, get, logs, retry-extract)
+- Story 007: Extraction pipeline (inventory + costs + advisor with recovery)
+- Story 008: Logging + recovery mechanism (detailed operation logs, resume)
+- Story 009: Analysis rules engine (18-azure-best pattern integration)
+- Story 010: Evidence receipt generation (HMAC-SHA256 cryptographic signing)
+- Story 011: Integration tests (all gates, security, performance)
+- Story 012: React components (role assessment, preflight, extraction progress)
 
 Status: Placeholder implementation ready for Sprint-003 agent execution
 Ready: March 6, 2026
