@@ -1,18 +1,15 @@
 {
   "story_id": "ACA-03-022",
-  "title": "R-12 Chargeback Cost Allocation Gap",
+  "title": "R-12 Chargeback Gap",
   "phase": "A",
-  "timestamp": "2026-03-01T16:48:22Z",
-  "artifacts": [
-    "services/analysis/app/rules/r12_chargeback_gap.py",
-    "services/tests/test_rule_r12_chargeback_gap.py"
-  ],
+  "timestamp": "2026-03-11T13:22:14Z",
+  "artifacts": [],
   "test_result": "WARN",
   "lint_result": "WARN",
-  "commit_sha": "ceef16c64504bfed892c6bdbcee7aaaaf054fc6d",
-  "duration_ms": 7719,
+  "commit_sha": "d170fe8643a319f7255203b1fc149c926dea3b60",
+  "duration_ms": 2384,
   "tokens_used": 0,
   "test_count_before": 0,
   "test_count_after": 0,
-  "files_changed": 2
+  "files_changed": 0
 }

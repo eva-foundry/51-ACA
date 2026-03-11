@@ -367,4 +367,4 @@ STRIPE_WEBHOOK_SECRET
 ERROR services/tests/test_rule_r05_anomaly_detection.py
 ERROR services/tests/test_rule_r09_dns_sprawl.py
 !!!!!!!!!!!!!!!!!!! Interrupted: 6 errors during collection !!!!!!!!!!!!!!!!!!!!
-==================== 121 tests collected, 6 errors in 0.86s ====================
+==================== 121 tests collected, 6 errors in 0.88s ====================
