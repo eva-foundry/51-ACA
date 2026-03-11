@@ -1,0 +1,15 @@
+{
+  "story_id": "ACA-05-003",
+  "title": "Fix test_auth_connect.py 4 failures with mocked MSAL and Cosmos",
+  "phase": "A",
+  "timestamp": "2026-03-11T14:46:34Z",
+  "artifacts": [],
+  "test_result": "WARN",
+  "lint_result": "WARN",
+  "commit_sha": "2e18ac1f82edf90e1456bc746e0cc58fe0232cb0",
+  "duration_ms": 2039,
+  "tokens_used": 0,
+  "test_count_before": 0,
+  "test_count_after": 0,
+  "files_changed": 0
+}
