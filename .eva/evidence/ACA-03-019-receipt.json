@@ -1,20 +1,15 @@
 {
   "story_id": "ACA-03-019",
-  "phase": "D",
-  "timestamp": "2026-03-02T07:27:54.289554-05:00",
-  "artifacts": [
-    "services/analysis/app/rules/r09_dns_sprawl.py",
-    "services/analysis/app/rules/r10_savings_plan.py",
-    "services/analysis/app/rules/r11_apim_token.py",
-    "services/analysis/app/rules/r12_chargeback.py"
-  ],
-  "test_result": "PASS",
-  "commit_sha": "4b560fd8a8e7077c80b6a1ad8a25fc751a49fd49",
-  "metrics": {
-    "duration_ms": 143,
-    "tokens_used": 8500,
-    "test_count_before": 0,
-    "test_count_after": 8,
-    "files_changed": 4
-  }
+  "title": "R-09 DNS Sprawl Detection",
+  "phase": "A",
+  "timestamp": "2026-03-11T13:22:06Z",
+  "artifacts": [],
+  "test_result": "WARN",
+  "lint_result": "WARN",
+  "commit_sha": "88a8a092010a3181e206faeb42974b78267604ad",
+  "duration_ms": 5211,
+  "tokens_used": 0,
+  "test_count_before": 0,
+  "test_count_after": 0,
+  "files_changed": 0
 }
