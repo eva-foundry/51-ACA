@@ -405,12 +405,52 @@ for idx, story in enumerate(stories, 1):
 
 ## Action Items
 
-- [ ] **Immediate**: Implement Option 1 (skip P for new sprints)
-- [ ] **Short-term**: Test with Issue #39 re-run
-- [ ] **Medium-term**: Implement Option 3 (move P verification after execution)
+- [x] **Immediate**: Implement Option 1 (skip P for new sprints) - **COMPLETED 2026-03-11**
+- [x] **Medium-term**: Implement Option 3 (incremental P verification after execution) - **COMPLETED 2026-03-11**
+- [ ] **Validation**: Test with Issue #39 re-run - **READY FOR USER**
 - [ ] **Long-term**: Review all phase verifications for similar timing issues
 - [ ] **Documentation**: Update sprint agent docs with "new vs resume" behavior
 - [ ] **Monitoring**: Add telemetry for verification pass/fail rates
+
+---
+
+## Implementation Status (2026-03-11 10:59 AM)
+
+**✅ FIXED - Hybrid Approach Implemented**
+
+### Option 1: Skip P for New Sprints (Already Present)
+- **Function**: `_is_new_sprint(sprint_id)` (lines 117-137)
+- **Logic**: Checks `sprint-state.json` for prior sprint_id
+- **Location**: Lines 1044-1058 in sprint_agent.py
+- **Behavior**: Skips P verification at workflow start for new sprints
+
+### Option 3: Incremental P Verification (Newly Added)
+- **Location**: Lines 1176-1190 in sprint_agent.py  
+- **Logic**: After each DONE story, verify PLAN.md has correct [x] count
+- **Behavior**: Non-blocking warning (continues on failure)
+- **Formula**: `expected_checked = sum(1 for r in results if r.status == "DONE")`
+
+### Code Changes Summary
+```python
+# Lines 1176-1190 (NEW CODE)
+if verify_phase and story_result["status"] == "DONE":
+    completed_count = sum(1 for r in results if r.get("status") == "DONE")
+    try:
+        from phase_verifier import verify_p_plan_update
+        if not verify_p_plan_update(sprint_id, expected_checked=completed_count, repo_root=str(REPO_ROOT)):
+            print(f"[WARN] Incremental P verification: expected {completed_count} [x] marks after story {idx}")
+            # Don't exit - this is informational only
+        else:
+            print(f"[PASS] Incremental P verification: found {completed_count} completed items in PLAN.md")
+    except ImportError:
+        pass  # phase_verifier not available
+```
+
+### Validation Required
+**Next Step**: User must re-run Issue #39 to validate fix
+- Expected: Workflow executes all 4 stories, creates PR
+- Monitor: Incremental P warnings (informational only, should not block)
+- Evidence: `evidence/rca_p_verification_fix_20260311_105911.json`
 
 ---
 

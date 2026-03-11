@@ -17,11 +17,14 @@ Phase: Phase 1 active (multi-agent orchestration pipeline complete)
 
 This plan is the Work Breakdown Structure (WBS) for ACA.
 Each Epic maps to one or more data-model layers.
-Features map to user stories seeded into the data-model stories layer.
+Features map to WBS nodes whose leaf records are user stories in the data-model WBS layer.
 All milestone dates are relative to 2026-02-26 (project bootstrap complete).
 
 **SPRINT-003 BASELINE LOCKED**: 281 stories planned, 23 gaps (12 ACA-15 not-started, 11 orphan doc refs).
 Data model synced to cloud. Cloud model row_version: 2. Ready for agent orchestration. March 6, 2:38 PM ET.
+NOTE 2026-03-11: Cloud drift was later confirmed between legacy `/model/stories` consumers and the
+live WBS-backed hierarchy. Feature 12.4 governs the safe cleanup and ground-up restore. Recompute
+story counts after README + PLAN scope refresh and the controlled rebuild.
 
 =============================================================================
 WBS OVERVIEW
@@ -599,7 +602,7 @@ Goal: EVA data model used as source of truth for build process and as app runtim
 
 Feature 12.1 -- Build-time use
   Story 12.1.1 [ACA-12-001]  All epics, features, and stories from this PLAN are seeded into
-                the data-model stories layer
+                the data-model WBS layer with epic, feature, and user_story node types preserved
   Story 12.1.2 [ACA-12-002]  Each story has status: not-started / in-progress / done
   Story 12.1.3 [ACA-12-003]  Story status is updated by the agent at start and end of each work item
   Story 12.1.4 [ACA-12-004]  data-model agent-summary reflects current overall completion percentage
@@ -621,6 +624,22 @@ Feature 12.3 -- Phase 1 Core Infrastructure & Containers
   Story 12.3.6 [ACA-12-014]  APIM ACA product + subscription key policy for tier-gated rate limiting
   Story 12.3.7 [ACA-12-015]  Key Vault secrets wiring (ACA-CLIENT-ID, ACA-OPENAI-KEY, ACA-COSMOS-CONN)
   Story 12.3.8 [ACA-12-016]  Container App Job definitions for collector, analysis, delivery workers
+
+Feature 12.4 -- Data Model Safe Cleanup and Ground-Up Restore
+  Execution order: snapshot -> scoped cleanup -> re-prime -> README/PLAN refresh -> WBS rebuild -> Veritas audit
+  Gate: do not execute cleanup until the README scope refresh is merged and the snapshot evidence pack exists
+  Story 12.4.1 [ACA-12-029]  Snapshot the live `projects/51-ACA`, WBS, evidence, and related governance rows
+                before any delete so the restore can prove exactly what was removed and why
+  Story 12.4.2 [ACA-12-030]  Execute a scoped cleanup that deletes only 51-ACA WBS and evidence records,
+                preserves the canonical project identity row, and records API correlation IDs for every delete
+  Story 12.4.3 [ACA-12-031]  Re-prime 51-ACA through Project 07 after cleanup and verify governance
+                scaffolding, project registration, and PROJECT-ORGANIZATION continuity remain intact
+  Story 12.4.4 [ACA-12-032]  Regenerate the project hierarchy from README + PLAN top-down into the
+                data-model WBS layer, preserving epic -> feature -> user_story relationships
+  Story 12.4.5 [ACA-12-033]  Run a bottom-up reconciliation that flags missing user_story leaves,
+                duplicate IDs, orphan evidence, and legacy `/model/stories` dependencies as explicit gaps
+  Story 12.4.6 [ACA-12-034]  Publish a restore evidence pack plus Veritas audit results and do not
+                re-open cloud sprint execution until the rebuilt WBS counts and trust score are accepted
 
 =============================================================================
 MILESTONES
@@ -707,11 +726,11 @@ Epic Function Point Totals (estimated):
 |  9   | i18n and a11y                    |  21     |  85    |  4-5   | IN PROGRESS |
 | 10   | Commercial Hardening             |  15     |  90    |  5-6   | NOT STARTED |
 | 11   | Phase 2 Infrastructure           |   9     | 100    |  7-9   | NOT STARTED |
-| 12   | Data Model Support               |  16     |  50    |  ongo  | ONGOING     |
+| 12   | Data Model Support               |  22     |  75    |  ongo  | ONGOING     |
 | 13   | Azure Best Practices Catalog     |  12     |  55    |  4-5   | PLANNED     |
 | 14   | DPDCA Cloud Agent                |  10     |  65    |  3-5   | IN PROGRESS |
 | 15   | Onboarding System (Client SaaS)  |  22     |  72    | 14-17  | PLANNED     |
-| TOTAL|                                  | ~276    | ~1357  |        |             |
+| TOTAL|                                  | ~282    | ~1382  |        |             |
 
 Sprint Velocity:
 | Sprint | Dates              | Scope                                     | FP Completed | Notes            |

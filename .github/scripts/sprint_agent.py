@@ -1171,6 +1171,21 @@ Working through {len(stories)} stories in sequence. Progress comments will follo
         state["stories"].append(story_result)
         STATE_FILE.write_text(json.dumps(state, indent=2), encoding="utf-8")
 
+        # === EVA-STORY: ACA-14-003 -- Incremental P verification after each story ===
+        # RCA 2026-03-11: Option 3 - verify PLAN.md has 'idx' [x] marks after 'idx' stories complete
+        # This is non-blocking (warning only) - continue even if verification fails
+        if verify_phase and story_result["status"] == "DONE":
+            completed_count = sum(1 for r in results if r.get("status") == "DONE")
+            try:
+                from phase_verifier import verify_p_plan_update
+                if not verify_p_plan_update(sprint_id, expected_checked=completed_count, repo_root=str(REPO_ROOT)):
+                    print(f"[WARN] Incremental P verification: expected {completed_count} [x] marks after story {idx}")
+                    # Don't exit - this is informational only
+                else:
+                    print(f"[PASS] Incremental P verification: found {completed_count} completed items in PLAN.md")
+            except ImportError:
+                pass  # phase_verifier not available
+
         # Post progress comment
         comment = _story_progress_comment(
             sprint_id=sprint_id,

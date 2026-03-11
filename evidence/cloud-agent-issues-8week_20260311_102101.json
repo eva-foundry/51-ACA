@@ -1,0 +1,73 @@
+{
+  "mode": "live",
+  "issues_created": 1,
+  "issues_failed": 8,
+  "script": "create-cloud-agent-issues-8week.ps1",
+  "batches_total": 9,
+  "issues": [
+    {
+      "batch_id": 1,
+      "status": "created",
+      "title": "[SPRINT-004-BATCH-1] Analysis Rules Completion (R-09 to R-12)",
+      "url": "https://github.com/eva-foundry/51-ACA/issues/42",
+      "week": 1
+    },
+    {
+      "error": "gh issue create failed: could not add label: 'week-2' not found",
+      "batch_id": 2,
+      "status": "failed",
+      "title": "[SPRINT-005-BATCH-2] Core API Endpoints (Routes 11-16)",
+      "week": 2
+    },
+    {
+      "error": "gh issue create failed: could not add label: 'week-2' not found",
+      "batch_id": 3,
+      "status": "failed",
+      "title": "[SPRINT-005-BATCH-3] Admin API (6 Endpoints)",
+      "week": 2
+    },
+    {
+      "error": "gh issue create failed: could not add label: 'week-2' not found",
+      "batch_id": 4,
+      "status": "failed",
+      "title": "[SPRINT-005-BATCH-4a] Rule Unit Tests (R-01 to R-06)",
+      "week": 2
+    },
+    {
+      "error": "gh issue create failed: could not add label: 'week-2' not found",
+      "batch_id": 5,
+      "status": "failed",
+      "title": "[SPRINT-005-BATCH-4b] Rule Unit Tests (R-07 to R-12)",
+      "week": 2
+    },
+    {
+      "error": "gh issue create failed: could not add label: 'week-3' not found",
+      "batch_id": 6,
+      "status": "failed",
+      "title": "[SPRINT-006-BATCH-5] Frontend Auth Layer + Router",
+      "week": 3
+    },
+    {
+      "error": "gh issue create failed: could not add label: 'week-3' not found",
+      "batch_id": 7,
+      "status": "failed",
+      "title": "[SPRINT-006-BATCH-6] Frontend Layouts",
+      "week": 3
+    },
+    {
+      "error": "gh issue create failed: could not add label: 'week-3' not found",
+      "batch_id": 8,
+      "status": "failed",
+      "title": "[SPRINT-006-BATCH-7] API Client + Shared Components",
+      "week": 3
+    },
+    {
+      "error": "gh issue create failed: could not add label: 'week-5' not found",
+      "batch_id": 9,
+      "status": "failed",
+      "title": "[SPRINT-008-BATCH-8] IaC Template Library (12 Templates)",
+      "week": 5
+    }
+  ],
+  "timestamp": "2026-03-11 10:21:03"
+}
