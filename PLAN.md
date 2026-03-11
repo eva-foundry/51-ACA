@@ -202,7 +202,6 @@ Feature 3.4 -- Rule unit tests (DECISION LOCKED 2026-02-27: 95% coverage, hardco
   Target: 95% line coverage across all 12 rule modules. CI blocks on regression.
 
   Story 3.4.1 [ACA-03-020]   Unit test for R-01 devbox_autostop: fixture with Dev Box cost > $1,000 -> finding
-  Story 3.4.1 [ACA-03-020]   Unit test for R-01 devbox_autostop: fixture with Dev Box cost > $1,000 -> finding
     Status: DONE (test_r01_devbox.py, 3 tests passing)
   Story 3.4.2 [ACA-03-021]   Unit test for R-02 log_retention: fixture with LA cost > $500 -> finding
     Status: DONE (test_r02_log_retention.py, 3 tests passing)
