@@ -495,117 +495,180 @@ F821 Undefined name `query_items`
    |
 
 UP035 `typing.List` is deprecated, use `list` instead
- --> services/analysis/app/rules/r09_dns_sprawl.py:2:1
+ --> services/analysis/app/rules/r10_savings_plan_coverage.py:2:1
   |
-1 | # EVA-STORY: ACA-03-019
-2 | from typing import List, Dict
-  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+1 | # EVA-STORY: ACA-03-020
+2 | from typing import Optional, List, Dict
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 3 |
-4 | def analyze_dns_sprawl(resources: List[Dict]) -> List[Dict]:
+4 | def analyze_savings_plan_coverage(compute_cost_data: Optional[List[Dict]] = None, has_plan: bool = False) -> list[dict]:
   |
 
 UP035 `typing.Dict` is deprecated, use `dict` instead
- --> services/analysis/app/rules/r09_dns_sprawl.py:2:1
+ --> services/analysis/app/rules/r10_savings_plan_coverage.py:2:1
   |
-1 | # EVA-STORY: ACA-03-019
-2 | from typing import List, Dict
-  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+1 | # EVA-STORY: ACA-03-020
+2 | from typing import Optional, List, Dict
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 3 |
-4 | def analyze_dns_sprawl(resources: List[Dict]) -> List[Dict]:
+4 | def analyze_savings_plan_coverage(compute_cost_data: Optional[List[Dict]] = None, has_plan: bool = False) -> list[dict]:
   |
-
-I001 [*] Import block is un-sorted or un-formatted
- --> services/analysis/app/rules/r09_dns_sprawl.py:2:1
-  |
-1 | # EVA-STORY: ACA-03-019
-2 | from typing import List, Dict
-  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-3 |
-4 | def analyze_dns_sprawl(resources: List[Dict]) -> List[Dict]:
-  |
-help: Organize imports
-
-UP006 [*] Use `list` instead of `List` for type annotation
- --> services/analysis/app/rules/r09_dns_sprawl.py:4:35
-  |
-2 | from typing import List, Dict
-3 |
-4 | def analyze_dns_sprawl(resources: List[Dict]) -> List[Dict]:
-  |                                   ^^^^
-5 |     """
-6 |     Analyze DNS sprawl by identifying redundant or unused DNS zones.
-  |
-help: Replace with `list`
-
-UP006 [*] Use `dict` instead of `Dict` for type annotation
- --> services/analysis/app/rules/r09_dns_sprawl.py:4:40
-  |
-2 | from typing import List, Dict
-3 |
-4 | def analyze_dns_sprawl(resources: List[Dict]) -> List[Dict]:
-  |                                        ^^^^
-5 |     """
-6 |     Analyze DNS sprawl by identifying redundant or unused DNS zones.
-  |
-help: Replace with `dict`
-
-UP006 [*] Use `list` instead of `List` for type annotation
- --> services/analysis/app/rules/r09_dns_sprawl.py:4:50
-  |
-2 | from typing import List, Dict
-3 |
-4 | def analyze_dns_sprawl(resources: List[Dict]) -> List[Dict]:
-  |                                                  ^^^^
-5 |     """
-6 |     Analyze DNS sprawl by identifying redundant or unused DNS zones.
-  |
-help: Replace with `list`
-
-UP006 [*] Use `dict` instead of `Dict` for type annotation
- --> services/analysis/app/rules/r09_dns_sprawl.py:4:55
-  |
-2 | from typing import List, Dict
-3 |
-4 | def analyze_dns_sprawl(resources: List[Dict]) -> List[Dict]:
-  |                                                       ^^^^
-5 |     """
-6 |     Analyze DNS sprawl by identifying redundant or unused DNS zones.
-  |
-help: Replace with `dict`
 
 I001 [*] Import block is un-sorted or un-formatted
  --> services/analysis/app/rules/r10_savings_plan_coverage.py:2:1
   |
-1 |   # EVA-STORY: ACA-03-020
-2 | / from app.db.cosmos import query_items
-3 | | from app.services.findings_gate import gate_findings
-  | |____________________________________________________^
-4 |
-5 |   def analyze_savings_plan_coverage(subscription_id: str, tier: int) -> list[dict]:
+1 | # EVA-STORY: ACA-03-020
+2 | from typing import Optional, List, Dict
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+3 |
+4 | def analyze_savings_plan_coverage(compute_cost_data: Optional[List[Dict]] = None, has_plan: bool = False) -> list[dict]:
   |
 help: Organize imports
+
+UP045 [*] Use `X | None` for type annotations
+ --> services/analysis/app/rules/r10_savings_plan_coverage.py:4:54
+  |
+2 | from typing import Optional, List, Dict
+3 |
+4 | def analyze_savings_plan_coverage(compute_cost_data: Optional[List[Dict]] = None, has_plan: bool = False) -> list[dict]:
+  |                                                      ^^^^^^^^^^^^^^^^^^^^
+5 |     """
+6 |     Analyze savings plan coverage for compute resources.
+  |
+help: Convert to `X | None`
+
+UP006 [*] Use `list` instead of `List` for type annotation
+ --> services/analysis/app/rules/r10_savings_plan_coverage.py:4:63
+  |
+2 | from typing import Optional, List, Dict
+3 |
+4 | def analyze_savings_plan_coverage(compute_cost_data: Optional[List[Dict]] = None, has_plan: bool = False) -> list[dict]:
+  |                                                               ^^^^
+5 |     """
+6 |     Analyze savings plan coverage for compute resources.
+  |
+help: Replace with `list`
+
+UP006 [*] Use `dict` instead of `Dict` for type annotation
+ --> services/analysis/app/rules/r10_savings_plan_coverage.py:4:68
+  |
+2 | from typing import Optional, List, Dict
+3 |
+4 | def analyze_savings_plan_coverage(compute_cost_data: Optional[List[Dict]] = None, has_plan: bool = False) -> list[dict]:
+  |                                                                    ^^^^
+5 |     """
+6 |     Analyze savings plan coverage for compute resources.
+  |
+help: Replace with `dict`
+
+UP035 `typing.List` is deprecated, use `list` instead
+ --> services/analysis/app/rules/r11_apim_token_budget.py:2:1
+  |
+1 | # EVA-STORY: ACA-03-021
+2 | from typing import Optional, List, Dict
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+3 |
+4 | def r11_apim_token_budget(has_apim: bool = False, has_openai: bool = False) -> list[dict]:
+  |
+
+UP035 `typing.Dict` is deprecated, use `dict` instead
+ --> services/analysis/app/rules/r11_apim_token_budget.py:2:1
+  |
+1 | # EVA-STORY: ACA-03-021
+2 | from typing import Optional, List, Dict
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+3 |
+4 | def r11_apim_token_budget(has_apim: bool = False, has_openai: bool = False) -> list[dict]:
+  |
 
 I001 [*] Import block is un-sorted or un-formatted
  --> services/analysis/app/rules/r11_apim_token_budget.py:2:1
   |
 1 | # EVA-STORY: ACA-03-021
-2 | from app.db.cosmos import query_items
-  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2 | from typing import Optional, List, Dict
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 3 |
-4 | def r11_apim_token_budget(subscription_id: str) -> list[dict]:
+4 | def r11_apim_token_budget(has_apim: bool = False, has_openai: bool = False) -> list[dict]:
   |
 help: Organize imports
+
+F401 [*] `typing.Optional` imported but unused
+ --> services/analysis/app/rules/r11_apim_token_budget.py:2:20
+  |
+1 | # EVA-STORY: ACA-03-021
+2 | from typing import Optional, List, Dict
+  |                    ^^^^^^^^
+3 |
+4 | def r11_apim_token_budget(has_apim: bool = False, has_openai: bool = False) -> list[dict]:
+  |
+help: Remove unused import
+
+F401 [*] `typing.List` imported but unused
+ --> services/analysis/app/rules/r11_apim_token_budget.py:2:30
+  |
+1 | # EVA-STORY: ACA-03-021
+2 | from typing import Optional, List, Dict
+  |                              ^^^^
+3 |
+4 | def r11_apim_token_budget(has_apim: bool = False, has_openai: bool = False) -> list[dict]:
+  |
+help: Remove unused import
+
+F401 [*] `typing.Dict` imported but unused
+ --> services/analysis/app/rules/r11_apim_token_budget.py:2:36
+  |
+1 | # EVA-STORY: ACA-03-021
+2 | from typing import Optional, List, Dict
+  |                                    ^^^^
+3 |
+4 | def r11_apim_token_budget(has_apim: bool = False, has_openai: bool = False) -> list[dict]:
+  |
+help: Remove unused import
+
+UP035 `typing.Dict` is deprecated, use `dict` instead
+ --> services/analysis/app/rules/r12_chargeback_gap.py:2:1
+  |
+1 | # EVA-STORY: ACA-03-022
+2 | from typing import Optional, Dict
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+3 |
+4 | def identify_chargeback_gap(resource_cost: float = 0, allocation_tags: Optional[Dict] = None) -> list[dict]:
+  |
 
 I001 [*] Import block is un-sorted or un-formatted
  --> services/analysis/app/rules/r12_chargeback_gap.py:2:1
   |
 1 | # EVA-STORY: ACA-03-022
-2 | from app.db.cosmos import query_items
-  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2 | from typing import Optional, Dict
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 3 |
-4 | def identify_chargeback_gap(subscription_id: str, threshold: float = 5000.0) -> list[dict]:
+4 | def identify_chargeback_gap(resource_cost: float = 0, allocation_tags: Optional[Dict] = None) -> list[dict]:
   |
 help: Organize imports
+
+UP045 [*] Use `X | None` for type annotations
+ --> services/analysis/app/rules/r12_chargeback_gap.py:4:72
+  |
+2 | from typing import Optional, Dict
+3 |
+4 | def identify_chargeback_gap(resource_cost: float = 0, allocation_tags: Optional[Dict] = None) -> list[dict]:
+  |                                                                        ^^^^^^^^^^^^^^
+5 |     """
+6 |     Identify cost allocation gaps for chargeback.
+  |
+help: Convert to `X | None`
+
+UP006 [*] Use `dict` instead of `Dict` for type annotation
+ --> services/analysis/app/rules/r12_chargeback_gap.py:4:81
+  |
+2 | from typing import Optional, Dict
+3 |
+4 | def identify_chargeback_gap(resource_cost: float = 0, allocation_tags: Optional[Dict] = None) -> list[dict]:
+  |                                                                                 ^^^^
+5 |     """
+6 |     Identify cost allocation gaps for chargeback.
+  |
+help: Replace with `dict`
 
 I001 [*] Import block is un-sorted or un-formatted
  --> services/analysis/app/rules/rule_01_dev_box_autostop.py:2:1
@@ -664,6 +727,26 @@ I001 [*] Import block is un-sorted or un-formatted
 help: Organize imports
 
 I001 [*] Import block is un-sorted or un-formatted
+ --> services/analysis/app/rules/test_r09_r12.py:3:1
+  |
+1 |   """Unit tests for Sprint 13 rules (R-09 through R-12)"""
+2 |
+3 | / import pytest
+4 | | from unittest.mock import Mock
+  | |______________________________^
+  |
+help: Organize imports
+
+F401 [*] `unittest.mock.Mock` imported but unused
+ --> services/analysis/app/rules/test_r09_r12.py:4:27
+  |
+3 | import pytest
+4 | from unittest.mock import Mock
+  |                           ^^^^
+  |
+help: Remove unused import: `unittest.mock.Mock`
+
+I001 [*] Import block is un-sorted or un-formatted
  --> services/analysis/app/trigger.py:2:1
   |
 1 |   # EVA-STORY: ACA-03-015
@@ -694,6 +777,200 @@ T201 `print` found
    |     ^^^^^
    |
 help: Remove `print`
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> services/analysis/tests/rules/conftest.py:3:1
+  |
+1 |   # EVA-STORY: ACA-03-019
+2 |   """Pytest configuration: add rules directory to sys.path for direct imports."""
+3 | / import sys
+4 | | import os
+  | |_________^
+5 |
+6 |   sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "app", "rules"))
+  |
+help: Organize imports
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> services/analysis/tests/rules/test_anomaly_detection.py:2:1
+  |
+1 | """Unit tests for R-05: Cost anomaly detection (z-score)"""
+2 | import pytest
+  | ^^^^^^^^^^^^^
+3 |
+4 | def test_anomaly_high_zscore():
+  |
+help: Organize imports
+
+F401 [*] `pytest` imported but unused
+ --> services/analysis/tests/rules/test_anomaly_detection.py:2:8
+  |
+1 | """Unit tests for R-05: Cost anomaly detection (z-score)"""
+2 | import pytest
+  |        ^^^^^^
+3 |
+4 | def test_anomaly_high_zscore():
+  |
+help: Remove unused import: `pytest`
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> services/analysis/tests/rules/test_compute_scheduling.py:2:1
+  |
+1 | """Unit tests for R-04: Compute scheduling (auto-stop)"""
+2 | import pytest
+  | ^^^^^^^^^^^^^
+3 |
+4 | def test_scheduling_above_threshold():
+  |
+help: Organize imports
+
+F401 [*] `pytest` imported but unused
+ --> services/analysis/tests/rules/test_compute_scheduling.py:2:8
+  |
+1 | """Unit tests for R-04: Compute scheduling (auto-stop)"""
+2 | import pytest
+  |        ^^^^^^
+3 |
+4 | def test_scheduling_above_threshold():
+  |
+help: Remove unused import: `pytest`
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> services/analysis/tests/rules/test_defender_mismatch.py:2:1
+  |
+1 | """Unit tests for R-03: Defender plan mismatch"""
+2 | import pytest
+  | ^^^^^^^^^^^^^
+3 |
+4 | def test_defender_above_threshold():
+  |
+help: Organize imports
+
+F401 [*] `pytest` imported but unused
+ --> services/analysis/tests/rules/test_defender_mismatch.py:2:8
+  |
+1 | """Unit tests for R-03: Defender plan mismatch"""
+2 | import pytest
+  |        ^^^^^^
+3 |
+4 | def test_defender_above_threshold():
+  |
+help: Remove unused import: `pytest`
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> services/analysis/tests/rules/test_devbox_autostop.py:2:1
+  |
+1 | """Unit tests for R-01: Dev Box auto-stop"""
+2 | import pytest
+  | ^^^^^^^^^^^^^
+3 |
+4 | def test_devbox_above_threshold():
+  |
+help: Organize imports
+
+F401 [*] `pytest` imported but unused
+ --> services/analysis/tests/rules/test_devbox_autostop.py:2:8
+  |
+1 | """Unit tests for R-01: Dev Box auto-stop"""
+2 | import pytest
+  |        ^^^^^^
+3 |
+4 | def test_devbox_above_threshold():
+  |
+help: Remove unused import: `pytest`
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> services/analysis/tests/rules/test_log_retention.py:2:1
+  |
+1 | """Unit tests for R-02: Log retention policy"""
+2 | import pytest
+  | ^^^^^^^^^^^^^
+3 |
+4 | def test_log_retention_above_threshold():
+  |
+help: Organize imports
+
+F401 [*] `pytest` imported but unused
+ --> services/analysis/tests/rules/test_log_retention.py:2:8
+  |
+1 | """Unit tests for R-02: Log retention policy"""
+2 | import pytest
+  |        ^^^^^^
+3 |
+4 | def test_log_retention_above_threshold():
+  |
+help: Remove unused import: `pytest`
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> services/analysis/tests/test_performance_scale.py:3:1
+  |
+1 | """Performance test: 1000-resource inventory -> analysis completes in < 10 seconds"""
+2 |
+3 | import time
+  | ^^^^^^^^^^^
+4 |
+5 | def test_large_inventory_performance():
+  |
+help: Organize imports
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> services/api/app/auth/msal_client.py:2:1
+  |
+1 |   """MSAL client factory for multi-tenant Azure authentication"""
+2 | / import os
+3 | | from msal import PublicClientApplication
+  | |________________________________________^
+4 |
+5 |   def create_msal_app():
+  |
+help: Organize imports
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> services/api/app/auth/probes.py:2:1
+  |
+1 |   """Preflight probe functions: validate RBAC, Cosmos, KV, Storage, AppInsights access"""
+2 | / import os
+3 | | from datetime import datetime
+  | |_____________________________^
+4 |
+5 |   async def probe_rbac(management_token: str, subscription_id: str) -> dict:
+  |
+help: Organize imports
+
+F541 [*] f-string without any placeholders
+  --> services/api/app/auth/probes.py:62:20
+   |
+60 |         "name": "app_insights",
+61 |         "status": "pass",
+62 |         "message": f"Application Insights writable"
+   |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+63 |     }
+   |
+help: Remove extraneous `f` prefix
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> services/api/app/auth/session.py:2:1
+  |
+1 |   """Session utilities: extract subscriptionId and tier from request context"""
+2 | / from fastapi import Request
+3 | | import json
+  | |___________^
+4 |
+5 |   def extract_subscription_id(request: Request) -> str:
+  |
+help: Organize imports
+
+F401 [*] `json` imported but unused
+ --> services/api/app/auth/session.py:3:8
+  |
+1 | """Session utilities: extract subscriptionId and tier from request context"""
+2 | from fastapi import Request
+3 | import json
+  |        ^^^^
+4 |
+5 | def extract_subscription_id(request: Request) -> str:
+  |
+help: Remove unused import: `json`
 
 I001 [*] Import block is un-sorted or un-formatted
   --> services/api/app/db/cosmos.py:9:1
@@ -1288,8 +1565,8 @@ I001 [*] Import block is un-sorted or un-formatted
 10 | |
 11 | | from app.settings import get_settings
 12 | | from app.middleware.timing import TimingMiddleware
-13 | | from app.routers import auth, scans, findings, checkout, admin, health
-   | |______________________________________________________________________^
+13 | | from app.routers import auth, scans, findings, checkout, admin, health, collect, reports, billing, webhooks, entitlements
+   | |_________________________________________________________________________________________________________________________^
 14 |
 15 |   settings = get_settings()
    |
@@ -1532,18 +1809,81 @@ B008 Do not perform function call `Depends` in argument defaults; instead, perfo
 I001 [*] Import block is un-sorted or un-formatted
   --> services/api/app/routers/auth.py:10:1
    |
- 8 |   Onboarding modes: delegated (device code) and service principal.
+ 8 |   Modes: delegated (multi-tenant, any Microsoft account), service principal (future).
  9 |   """
-10 | / from fastapi import APIRouter, HTTPException
+10 | / from fastapi import APIRouter, HTTPException, Request
 11 | | from pydantic import BaseModel
-12 | |
-13 | | from app.services.token_service import TokenService
-14 | | from app.db.repos.clients_repo import ClientsRepo
-   | |_________________________________________________^
-15 |
-16 |   router = APIRouter(tags=["auth"])
+12 | | from datetime import datetime
+13 | | from ..auth.msal_client import create_msal_app
+14 | | from ..auth.session import set_subscription_context, extract_subscription_id
+15 | | from ..auth.probes import run_all_probes
+   | |________________________________________^
+16 |
+17 |   router = APIRouter(tags=["auth"])
    |
 help: Organize imports
+
+F401 [*] `..auth.msal_client.create_msal_app` imported but unused
+  --> services/api/app/routers/auth.py:13:32
+   |
+11 | from pydantic import BaseModel
+12 | from datetime import datetime
+13 | from ..auth.msal_client import create_msal_app
+   |                                ^^^^^^^^^^^^^^^
+14 | from ..auth.session import set_subscription_context, extract_subscription_id
+15 | from ..auth.probes import run_all_probes
+   |
+help: Remove unused import: `..auth.msal_client.create_msal_app`
+
+F841 Local variable `kv_secret_name` is assigned to but never used
+  --> services/api/app/routers/auth.py:57:5
+   |
+56 |     # Store refresh token in Key Vault (stub: would call KV API)
+57 |     kv_secret_name = f"aca-connect-{subscription_id}"
+   |     ^^^^^^^^^^^^^^
+58 |     
+59 |     set_subscription_context(request, subscription_id, desired_tier)
+   |
+help: Remove assignment to unused variable `kv_secret_name`
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> services/api/app/routers/billing.py:4:1
+  |
+2 |   # EVA-STORY: ACA-04-015
+3 |   """Billing router -- Stripe checkout and portal management"""
+4 | / from fastapi import APIRouter, HTTPException, Request
+5 | | from pydantic import BaseModel
+6 | | from datetime import datetime, timedelta
+7 | | from ..auth.session import extract_subscription_id
+  | |__________________________________________________^
+8 |
+9 |   router = APIRouter(tags=["billing"])
+  |
+help: Organize imports
+
+F841 Local variable `subscription_id` is assigned to but never used
+  --> services/api/app/routers/billing.py:23:5
+   |
+21 |     """
+22 |     # Stub: use mock subscription_id if not provided
+23 |     subscription_id = extract_subscription_id(request) or "00000000-0000-0000-0000-000000000001"
+   |     ^^^^^^^^^^^^^^^
+24 |     
+25 |     if body.desired_tier not in ["TIER2", "TIER3"]:
+   |
+help: Remove assignment to unused variable `subscription_id`
+
+F841 Local variable `subscription_id` is assigned to but never used
+  --> services/api/app/routers/billing.py:45:5
+   |
+43 |     """
+44 |     # Stub: use mock subscription_id if not provided
+45 |     subscription_id = extract_subscription_id(request) or "00000000-0000-0000-0000-000000000001"
+   |     ^^^^^^^^^^^^^^^
+46 |     
+47 |     # Stub: return hardcoded Stripe test portal URL
+   |
+help: Remove assignment to unused variable `subscription_id`
 
 I001 [*] Import block is un-sorted or un-formatted
   --> services/api/app/routers/checkout.py:13:1
@@ -1668,6 +2008,57 @@ B904 Within an `except` clause, raise exceptions with `raise ... from err` or `r
     |
 
 I001 [*] Import block is un-sorted or un-formatted
+ --> services/api/app/routers/collect.py:4:1
+  |
+2 |   # EVA-STORY: ACA-04-012
+3 |   """Collect router -- trigger and poll Azure resource collection"""
+4 | / from fastapi import APIRouter, HTTPException, Request
+5 | | from pydantic import BaseModel
+6 | | from datetime import datetime, timedelta
+7 | | from ..auth.session import extract_subscription_id
+  | |__________________________________________________^
+8 |
+9 |   router = APIRouter(tags=["collect"])
+  |
+help: Organize imports
+
+F841 Local variable `subscription_id` is assigned to but never used
+  --> services/api/app/routers/collect.py:47:5
+   |
+45 |     """
+46 |     # Stub: use mock subscription_id if not provided
+47 |     subscription_id = extract_subscription_id(request) or "00000000-0000-0000-0000-000000000001"
+   |     ^^^^^^^^^^^^^^^
+48 |     
+49 |     if not scan_id:
+   |
+help: Remove assignment to unused variable `subscription_id`
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> services/api/app/routers/entitlements.py:3:1
+  |
+1 |   # EVA-STORY: ACA-04-017
+2 |   """Entitlements router -- fetch current tier for subscription"""
+3 | / from fastapi import APIRouter, HTTPException, Request
+4 | | from ..auth.session import extract_subscription_id
+  | |__________________________________________________^
+5 |
+6 |   router = APIRouter(tags=["entitlements"])
+  |
+help: Organize imports
+
+F401 [*] `fastapi.HTTPException` imported but unused
+ --> services/api/app/routers/entitlements.py:3:32
+  |
+1 | # EVA-STORY: ACA-04-017
+2 | """Entitlements router -- fetch current tier for subscription"""
+3 | from fastapi import APIRouter, HTTPException, Request
+  |                                ^^^^^^^^^^^^^
+4 | from ..auth.session import extract_subscription_id
+  |
+help: Remove unused import: `fastapi.HTTPException`
+
+I001 [*] Import block is un-sorted or un-formatted
   --> services/api/app/routers/findings.py:8:1
    |
  6 |   Never return narrative or deliverable_template_id to Tier 1 clients.
@@ -1719,6 +2110,31 @@ F401 [*] `app.settings.get_settings` imported but unused
 help: Remove unused import: `app.settings.get_settings`
 
 I001 [*] Import block is un-sorted or un-formatted
+ --> services/api/app/routers/reports.py:3:1
+  |
+1 |   # EVA-STORY: ACA-04-013
+2 |   """Reports router -- return tier-gated findings"""
+3 | / from fastapi import APIRouter, HTTPException, Request
+4 | | from ..auth.session import extract_subscription_id
+  | |__________________________________________________^
+5 |
+6 |   router = APIRouter(tags=["reports"])
+  |
+help: Organize imports
+
+F841 Local variable `subscription_id` is assigned to but never used
+  --> services/api/app/routers/reports.py:16:5
+   |
+14 |     """
+15 |     # Stub: use mock subscription_id if not provided
+16 |     subscription_id = extract_subscription_id(request) or "00000000-0000-0000-0000-000000000001"
+   |     ^^^^^^^^^^^^^^^
+17 |     
+18 |     if not scan_id:
+   |
+help: Remove assignment to unused variable `subscription_id`
+
+I001 [*] Import block is un-sorted or un-formatted
   --> services/api/app/routers/scans.py:8:1
    |
  6 |   Scans router -- trigger and monitor collection + analysis jobs.
@@ -1759,6 +2175,55 @@ B904 Within an `except` clause, raise exceptions with `raise ... from err` or `r
 118 |
 119 |     log_event("scan_state_advanced", {
     |
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> services/api/app/routers/webhooks.py:3:1
+  |
+1 |   # EVA-STORY: ACA-04-016
+2 |   """Webhooks router -- Stripe event handler"""
+3 | / from fastapi import APIRouter, HTTPException, Request
+4 | | import hmac
+5 | | import hashlib
+6 | | import os
+  | |_________^
+7 |
+8 |   router = APIRouter(tags=["webhooks"])
+  |
+help: Organize imports
+
+F401 [*] `hmac` imported but unused
+ --> services/api/app/routers/webhooks.py:4:8
+  |
+2 | """Webhooks router -- Stripe event handler"""
+3 | from fastapi import APIRouter, HTTPException, Request
+4 | import hmac
+  |        ^^^^
+5 | import hashlib
+6 | import os
+  |
+help: Remove unused import: `hmac`
+
+F401 [*] `hashlib` imported but unused
+ --> services/api/app/routers/webhooks.py:5:8
+  |
+3 | from fastapi import APIRouter, HTTPException, Request
+4 | import hmac
+5 | import hashlib
+  |        ^^^^^^^
+6 | import os
+  |
+help: Remove unused import: `hashlib`
+
+F841 Local variable `webhook_secret` is assigned to but never used
+  --> services/api/app/routers/webhooks.py:28:5
+   |
+27 |     # Stub: assume all signatures valid (would fail in production)
+28 |     webhook_secret = os.getenv("STRIPE_WEBHOOK_SECRET", "whsec_test_secret")
+   |     ^^^^^^^^^^^^^^
+29 |     
+30 |     # For now, just accept and log
+   |
+help: Remove assignment to unused variable `webhook_secret`
 
 I001 [*] Import block is un-sorted or un-formatted
   --> services/api/app/scan_pipeline.py:21:1
@@ -2095,6 +2560,58 @@ I001 [*] Import block is un-sorted or un-formatted
   | |______________________________________________________________^
   |
 help: Organize imports
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> services/api/tests/test_auth.py:6:1
+   |
+ 4 |   # EVA-STORY: ACA-04-001
+ 5 |   """Sprint 17 auth endpoint tests"""
+ 6 | / import pytest
+ 7 | | from fastapi.testclient import TestClient
+ 8 | | from app.main import app
+   | |________________________^
+ 9 |
+10 |   client = TestClient(app)
+   |
+help: Organize imports
+
+F401 [*] `pytest` imported but unused
+ --> services/api/tests/test_auth.py:6:8
+  |
+4 | # EVA-STORY: ACA-04-001
+5 | """Sprint 17 auth endpoint tests"""
+6 | import pytest
+  |        ^^^^^^
+7 | from fastapi.testclient import TestClient
+8 | from app.main import app
+  |
+help: Remove unused import: `pytest`
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> services/api/tests/test_core_endpoints.py:4:1
+  |
+2 |   # EVA-STORY: ACA-04-012
+3 |   """Sprint 18 endpoint tests"""
+4 | / import pytest
+5 | | from fastapi.testclient import TestClient
+6 | | from app.main import app
+  | |________________________^
+7 |
+8 |   client = TestClient(app)
+  |
+help: Organize imports
+
+F401 [*] `pytest` imported but unused
+ --> services/api/tests/test_core_endpoints.py:4:8
+  |
+2 | # EVA-STORY: ACA-04-012
+3 | """Sprint 18 endpoint tests"""
+4 | import pytest
+  |        ^^^^^^
+5 | from fastapi.testclient import TestClient
+6 | from app.main import app
+  |
+help: Remove unused import: `pytest`
 
 I001 [*] Import block is un-sorted or un-formatted
   --> services/collector/app/azure_client.py:5:1
@@ -3207,33 +3724,20 @@ I001 [*] Import block is un-sorted or un-formatted
   |
 1 |   # EVA-STORY: ACA-03-019
 2 | / import pytest
-3 | | from services.analysis.app.rules.r09_dns_sprawl import analyze_dns_sprawl
-  | |_________________________________________________________________________^
-4 |
-5 |   def test_analyze_dns_sprawl():
+3 | | from services.analysis.app.rules.r09_dns_sprawl import evaluate_dns_sprawl
+  | |__________________________________________________________________________^
   |
 help: Organize imports
-
-F401 [*] `pytest` imported but unused
- --> services/tests/test_rule_r09_dns_sprawl.py:2:8
-  |
-1 | # EVA-STORY: ACA-03-019
-2 | import pytest
-  |        ^^^^^^
-3 | from services.analysis.app.rules.r09_dns_sprawl import analyze_dns_sprawl
-  |
-help: Remove unused import: `pytest`
 
 I001 [*] Import block is un-sorted or un-formatted
  --> services/tests/test_rule_r10_savings_plan_coverage.py:2:1
   |
 1 |   # EVA-STORY: ACA-03-020
 2 | / import pytest
-3 | | from unittest.mock import MagicMock
-4 | | from app.analysis.app.rules.r10_savings_plan_coverage import analyze_savings_plan_coverage
-  | |__________________________________________________________________________________________^
-5 |
-6 |   def test_analyze_savings_plan_coverage():
+3 | | from services.analysis.app.rules.r10_savings_plan_coverage import analyze_savings_plan_coverage
+  | |_______________________________________________________________________________________________^
+4 |
+5 |   def test_analyze_savings_plan_coverage():
   |
 help: Organize imports
 
@@ -3243,56 +3747,19 @@ F401 [*] `pytest` imported but unused
 1 | # EVA-STORY: ACA-03-020
 2 | import pytest
   |        ^^^^^^
-3 | from unittest.mock import MagicMock
-4 | from app.analysis.app.rules.r10_savings_plan_coverage import analyze_savings_plan_coverage
+3 | from services.analysis.app.rules.r10_savings_plan_coverage import analyze_savings_plan_coverage
   |
 help: Remove unused import: `pytest`
-
-F811 Redefinition of unused `query_items` from line 33
-  --> services/tests/test_rule_r10_savings_plan_coverage.py:33:31
-   |
-32 |     # Patch the query_items function
-33 |     from app.db.cosmos import query_items
-   |                               ----------- previous definition of `query_items` here
-34 |     query_items = mock_query_items
-   |     ^^^^^^^^^^^ `query_items` redefined here
-35 |
-36 |     findings = analyze_savings_plan_coverage(subscription_id, tier)
-   |
-help: Remove definition: `query_items`
-
-F841 Local variable `query_items` is assigned to but never used
-  --> services/tests/test_rule_r10_savings_plan_coverage.py:34:5
-   |
-32 |     # Patch the query_items function
-33 |     from app.db.cosmos import query_items
-34 |     query_items = mock_query_items
-   |     ^^^^^^^^^^^
-35 |
-36 |     findings = analyze_savings_plan_coverage(subscription_id, tier)
-   |
-help: Remove assignment to unused variable `query_items`
-
-T201 `print` found
-  --> services/tests/test_rule_r10_savings_plan_coverage.py:49:5
-   |
-47 |     assert "heuristic_source" not in findings[0]  # Tier 2 gating removes heuristic_source
-48 |
-49 |     print("[PASS] test_analyze_savings_plan_coverage")
-   |     ^^^^^
-   |
-help: Remove `print`
 
 I001 [*] Import block is un-sorted or un-formatted
  --> services/tests/test_rule_r11_apim_token_budget.py:2:1
   |
 1 |   # EVA-STORY: ACA-03-021
 2 | / import pytest
-3 | | from unittest.mock import MagicMock
-4 | | from services.analysis.app.rules.r11_apim_token_budget import r11_apim_token_budget
+3 | | from services.analysis.app.rules.r11_apim_token_budget import r11_apim_token_budget
   | |___________________________________________________________________________________^
-5 |
-6 |   def test_r11_apim_token_budget():
+4 |
+5 |   def test_r11_apim_token_budget():
   |
 help: Organize imports
 
@@ -3302,47 +3769,19 @@ F401 [*] `pytest` imported but unused
 1 | # EVA-STORY: ACA-03-021
 2 | import pytest
   |        ^^^^^^
-3 | from unittest.mock import MagicMock
-4 | from services.analysis.app.rules.r11_apim_token_budget import r11_apim_token_budget
+3 | from services.analysis.app.rules.r11_apim_token_budget import r11_apim_token_budget
   |
 help: Remove unused import: `pytest`
-
-F811 Redefinition of unused `query_items` from line 33
-  --> services/tests/test_rule_r11_apim_token_budget.py:33:44
-   |
-32 |     # Patch the query_items function
-33 |     from services.api.app.db.cosmos import query_items
-   |                                            ----------- previous definition of `query_items` here
-34 |     query_items = mock_query_items
-   |     ^^^^^^^^^^^ `query_items` redefined here
-35 |
-36 |     findings = r11_apim_token_budget(subscription_id)
-   |
-help: Remove definition: `query_items`
-
-F841 Local variable `query_items` is assigned to but never used
-  --> services/tests/test_rule_r11_apim_token_budget.py:34:5
-   |
-32 |     # Patch the query_items function
-33 |     from services.api.app.db.cosmos import query_items
-34 |     query_items = mock_query_items
-   |     ^^^^^^^^^^^
-35 |
-36 |     findings = r11_apim_token_budget(subscription_id)
-   |
-help: Remove assignment to unused variable `query_items`
 
 I001 [*] Import block is un-sorted or un-formatted
  --> services/tests/test_rule_r12_chargeback_gap.py:2:1
   |
 1 |   # EVA-STORY: ACA-03-022
 2 | / import pytest
-3 | | from unittest.mock import MagicMock
-4 | | from app.db.cosmos import query_items
-5 | | from services.analysis.app.rules.r12_chargeback_gap import identify_chargeback_gap
+3 | | from services.analysis.app.rules.r12_chargeback_gap import identify_chargeback_gap
   | |__________________________________________________________________________________^
-6 |
-7 |   def test_identify_chargeback_gap():
+4 |
+5 |   def test_identify_chargeback_gap():
   |
 help: Organize imports
 
@@ -3352,8 +3791,7 @@ F401 [*] `pytest` imported but unused
 1 | # EVA-STORY: ACA-03-022
 2 | import pytest
   |        ^^^^^^
-3 | from unittest.mock import MagicMock
-4 | from app.db.cosmos import query_items
+3 | from services.analysis.app.rules.r12_chargeback_gap import identify_chargeback_gap
   |
 help: Remove unused import: `pytest`
 

@@ -1,0 +1,15 @@
+{
+  "story_id": "ACA-05-001",
+  "title": "Fix test_rule_r02/r03/r04 wrong interface and query_items in tests",
+  "phase": "A",
+  "timestamp": "2026-03-11T14:46:28Z",
+  "artifacts": [],
+  "test_result": "WARN",
+  "lint_result": "WARN",
+  "commit_sha": "f91b19de2af4cc37f28f3617c1552fbb5cb35696",
+  "duration_ms": 2678,
+  "tokens_used": 0,
+  "test_count_before": 0,
+  "test_count_after": 0,
+  "files_changed": 0
+}
