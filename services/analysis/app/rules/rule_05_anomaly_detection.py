@@ -63,3 +63,24 @@ def rule_05_anomaly_detection(data: dict) -> list[dict]:
                 "deliverable_template_id": "tmpl-anomaly-alert",
             })
     return findings
+
+
+def evaluate_anomaly(cost_history: list, category: str, advisor_data: list) -> dict | None:
+    """Wrapper: detect z-score anomaly in a cost history list for a single category.
+    Returns finding if z-score > 3.0 with at least 30 data points, otherwise None."""
+    if len(cost_history) < 30:
+        return None
+    zscores = _z_scores(cost_history)
+    max_z = max(zscores) if zscores else 0
+    if max_z < Z_THRESHOLD:
+        return None
+    return {
+        "id": RULE_ID,
+        "category": "anomaly-detection",
+        "title": f"Cost anomaly detected in {category} (spike index: {max_z:.1f})",
+        "estimated_saving_low": 0,
+        "estimated_saving_high": 0,
+        "effort_class": "easy",
+        "risk_class": "medium",
+        "heuristic_source": RULE_ID,
+    }

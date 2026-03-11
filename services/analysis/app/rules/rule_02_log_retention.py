@@ -36,3 +36,25 @@ def rule_02_log_retention(data: dict) -> dict | None:
         ),
         "deliverable_template_id": "tmpl-log-retention",
     }
+
+
+def evaluate_log_retention(resources: list, cost_data: list, advisor_data: list) -> dict | None:
+    """Wrapper: evaluate Log Analytics cost from cost_data list. Returns finding if cost > $500."""
+    la_rows = [
+        r for r in cost_data
+        if "log" in str(r.get("service", "")).lower()
+        or "analytics" in str(r.get("service", "")).lower()
+    ]
+    total_cost = sum(float(r.get("cost", 0)) for r in la_rows)
+    if total_cost < 500:
+        return None
+    return {
+        "id": RULE_ID,
+        "category": "storage-retention",
+        "title": "Log Analytics workspaces likely retaining more data than required for dev",
+        "estimated_saving_low": round(total_cost * 0.25),
+        "estimated_saving_high": round(total_cost * 0.50),
+        "effort_class": "trivial",
+        "risk_class": "none",
+        "heuristic_source": RULE_ID,
+    }

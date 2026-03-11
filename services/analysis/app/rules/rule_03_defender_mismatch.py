@@ -38,3 +38,25 @@ def rule_03_defender_mismatch(data: dict) -> dict | None:
         ),
         "deliverable_template_id": "tmpl-defender-plan",
     }
+
+
+def evaluate_defender(resources: list, cost_data: list, advisor_data: list) -> dict | None:
+    """Wrapper: evaluate Defender cost from cost_data list. Returns finding if cost > $2,000."""
+    def_rows = [
+        r for r in cost_data
+        if "defender" in str(r.get("service", "")).lower()
+        or "security" in str(r.get("service", "")).lower()
+    ]
+    total_cost = sum(float(r.get("cost", 0)) for r in def_rows)
+    if total_cost < 2000:
+        return None
+    return {
+        "id": RULE_ID,
+        "category": "security-plan",
+        "title": "Defender for Cloud plan tier may be higher than required for this environment",
+        "estimated_saving_low": round(total_cost * 0.28),
+        "estimated_saving_high": round(total_cost * 0.42),
+        "effort_class": "easy",
+        "risk_class": "low",
+        "heuristic_source": RULE_ID,
+    }
