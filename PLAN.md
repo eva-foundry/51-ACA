@@ -189,13 +189,13 @@ Feature 3.3 -- Individual rules (one story per rule)
   Story 3.3.8 [ACA-03-018]  R-08 ACR consolidation: returns finding when >= 3 registries exist
     Status: DONE (Sprint-08, merged PR #31)
   Story 3.3.9 [ACA-03-019]  R-09 DNS sprawl: returns finding when annual DNS cost > $1,000
-    Status: PLANNED (Sprint-09, issue #32)
+    Status: DONE (Sprint-004-Batch-1, merged PR #43, Issue #39 closed)
   Story 3.3.10 [ACA-03-020] R-10 Savings plan: returns finding when annual total compute > $20,000
-    Status: PLANNED (Sprint-09, issue #32)
+    Status: DONE (Sprint-004-Batch-1, merged PR #43, Issue #39 closed)
   Story 3.3.11 [ACA-03-021] R-11 APIM token budget: returns finding when APIM + OpenAI both present
-    Status: PLANNED (Sprint-09, issue #32)
+    Status: DONE (Sprint-004-Batch-1, merged PR #43, Issue #39 closed)
   Story 3.3.12 [ACA-03-022] R-12 Chargeback gap: returns finding when total period cost > $5,000
-    Status: PLANNED (Sprint-09, issue #32)
+    Status: DONE (Sprint-004-Batch-1, merged PR #43, Issue #39 closed)
 
 Feature 3.4 -- Rule unit tests (DECISION LOCKED 2026-02-27: 95% coverage, hardcoded fixtures)
   One test file per rule. Tests use hardcoded JSON fixtures (no Cosmos calls).
@@ -210,9 +210,13 @@ Feature 3.4 -- Rule unit tests (DECISION LOCKED 2026-02-27: 95% coverage, hardco
   Story 3.4.7 [ACA-03-026]   Unit test for R-07 search_sku_oversize: fixture with Search cost > $2,000 -> finding
   Story 3.4.8 [ACA-03-027]   Unit test for R-08 acr_consolidation: fixture with >= 3 registries -> finding
   Story 3.4.9 [ACA-03-028]   Unit test for R-09 dns_sprawl: fixture with DNS cost > $1,000 -> finding
+    Status: DONE (Sprint-004-Batch-1, 5 tests in test_r09_dns_sprawl.py, merged PR #43)
   Story 3.4.10 [ACA-03-029]  Unit test for R-10 savings_plan_coverage: fixture with compute > $20,000 -> finding
+    Status: DONE (Sprint-004-Batch-1, 4 tests in test_r10_savings_plan.py, merged PR #43)
   Story 3.4.11 [ACA-03-030]  Unit test for R-11 apim_token_budget: fixture with APIM + OpenAI -> finding
+    Status: DONE (Sprint-004-Batch-1, 5 tests in test_r11_apim_token.py, merged PR #43)
   Story 3.4.12 [ACA-03-031]  Unit test for R-12 chargeback_gap: fixture with total cost > $5,000 -> finding
+    Status: DONE (Sprint-004-Batch-1, 5 tests in test_r12_chargeback.py, merged PR #43)
   Story 3.4.13 [ACA-03-032]  Negative tests for each rule: below-threshold fixture -> no finding returned
   Story 3.4.14 [ACA-03-033]  FindingsAssembler unit test: mock rule list -> correct Cosmos upsert payload
     Status: DONE (Sprint-01, merged PR #11)
