@@ -944,6 +944,7 @@ def run_sprint(issue: int, repo: str) -> None:
 
     sprint_id = manifest.get("sprint_id", "SPRINT")
     stories = manifest.get("stories", [])
+    branch = manifest.get("target_branch", "sprint/main")
     if not stories:
         _gh_comment(issue, repo, f"[FAIL] Sprint manifest has no stories.")
         sys.exit(1)
