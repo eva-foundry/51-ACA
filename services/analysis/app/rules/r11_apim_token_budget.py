@@ -1,30 +1,49 @@
+"""
 # EVA-STORY: ACA-03-021
-from typing import Optional, List, Dict
+Rule R-11: APIM Token Budget Enforcement
+Source: 14-az-finops saving-opportunities.md #11
+Risk: high (no dollar saving -- governance risk only)
+Effort: medium
+"""
 
-def r11_apim_token_budget(has_apim: bool = False, has_openai: bool = False) -> list[dict]:
+RULE_ID = "r11-apim-token-budget"
+
+
+def r11_apim_token_budget(data: dict) -> dict | None:
     """
-    Identify API Management with OpenAI token budget risk.
-
-    Args:
-        has_apim (bool): Whether APIM is present.
-        has_openai (bool): Whether OpenAI service is present.
-
-    Returns:
-        list[dict]: Findings if both services present.
+    Detects subscriptions running both APIM and Azure OpenAI without token budget controls.
+    Risk-only finding: no dollar saving, risk_class=high.
     """
-    findings = []
-    
-    # Risk flag: APIM + OpenAI = potential token budget exhaustion
-    if has_apim and has_openai:
-        findings.append({
-            "id": "apim-openai-token-risk",
-            "title": "API Management with OpenAI Token Budget Risk",
-            "category": "api-cost-optimization",
-            "estimated_saving_low": 2000,
-            "estimated_saving_high": 5000,
-            "effort_class": "medium",
-            "risk_class": "medium",
-            "heuristic_source": "r11_apim_token_budget"
-        })
-    
-    return findings
+    resources = data.get("resources", [])
+    has_apim = any(
+        "apimanagement/service" in str(r.get("type", r.get("resourceType", ""))).lower()
+        for r in resources
+    )
+    has_openai = any(
+        "cognitiveservices" in str(r.get("type", r.get("resourceType", ""))).lower()
+        or "openai" in str(r.get("type", r.get("resourceType", ""))).lower()
+        for r in resources
+    )
+
+    if not (has_apim and has_openai):
+        return None
+
+    return {
+        "id": RULE_ID,
+        "finding_type": "cost_risk",
+        "category": "cost-governance",
+        "title": "APIM + Azure OpenAI present without confirmed token budget policy",
+        "estimated_saving_low": 0,
+        "estimated_saving_high": 0,
+        "effort_class": "medium",
+        "risk_class": "high",
+        "heuristic_source": RULE_ID,
+        "narrative": (
+            "APIM and OpenAI/AI services are both deployed in this subscription. "
+            "Without per-application token budget policies enforced at the APIM gateway, "
+            "a single runaway client can exhaust the entire token quota, creating unbounded "
+            "cost exposure. Historical incidents from this pattern have exceeded $150K in "
+            "a single billing period."
+        ),
+        "deliverable_template_id": "tmpl-apim-token-budget",
+    }
