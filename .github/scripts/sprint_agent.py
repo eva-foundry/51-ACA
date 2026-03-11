@@ -114,6 +114,29 @@ def _run(cmd: list, check: bool = False, capture: bool = True) -> subprocess.Com
     return subprocess.run(cmd, capture_output=capture, text=True, check=check)
 
 
+def _is_new_sprint(sprint_id: str) -> bool:
+    """
+    Detect if this is a new sprint (never run before) vs resume.
+    
+    Checks sprint-state.json to see if this sprint_id has prior state.
+    Returns True for new sprints (no state file or different sprint_id).
+    
+    This is used to skip P-phase verification for new sprints,
+    since P verification expects PLAN.md to have completion markers
+    that can only exist after work is done.
+    """
+    if not STATE_FILE.exists():
+        return True
+    
+    try:
+        state = json.loads(STATE_FILE.read_text(encoding="utf-8"))
+        current_sprint = state.get("sprint_id", "")
+        return current_sprint != sprint_id
+    except Exception:
+        # Treat any error as "new sprint" (safe default)
+        return True
+
+
 # ---------------------------------------------------------------------------
 # Data Model API Client
 # ---------------------------------------------------------------------------
@@ -1015,12 +1038,23 @@ Working through {len(stories)} stories in sequence. Progress comments will follo
             sys.exit(1)
     
     # === EVA-STORY: ACA-14-003 -- Verify P (Plan) phase ===
-    if verify_phase:
+    # RCA 2026-03-11: P verification expects PLAN.md to have [x] marks for completed stories.
+    # This only makes sense for RESUME scenarios (sprint ran before, now continuing).
+    # For NEW sprints, stories exist only in SPRINT_MANIFEST, not yet in PLAN.md.
+    # Solution: Skip P verification for new sprints (detect via sprint-state.json).
+    is_new = _is_new_sprint(sprint_id)
+    
+    if verify_phase and not is_new:
+        # Only verify P phase for RESUME scenarios
         if not verify_phase("P", sprint_id, repo_root=str(REPO_ROOT)):
             msg = f"[FAIL] P verification failed -- PLAN.md not updated"
             print(msg)
             _gh_comment(issue, repo, f"{msg}")
             sys.exit(1)
+    elif is_new:
+        print(f"[INFO] Skipping P verification (new sprint: {sprint_id}, no prior state)")
+    else:
+        print(f"[INFO] P verification disabled (verify_phase module not available)")
 
     # Load context once for all LLM calls
     context = _load_context()
