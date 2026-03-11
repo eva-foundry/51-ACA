@@ -202,13 +202,22 @@ Feature 3.4 -- Rule unit tests (DECISION LOCKED 2026-02-27: 95% coverage, hardco
   Target: 95% line coverage across all 12 rule modules. CI blocks on regression.
 
   Story 3.4.1 [ACA-03-020]   Unit test for R-01 devbox_autostop: fixture with Dev Box cost > $1,000 -> finding
+  Story 3.4.1 [ACA-03-020]   Unit test for R-01 devbox_autostop: fixture with Dev Box cost > $1,000 -> finding
+    Status: DONE (test_r01_devbox.py, 3 tests passing)
   Story 3.4.2 [ACA-03-021]   Unit test for R-02 log_retention: fixture with LA cost > $500 -> finding
+    Status: DONE (test_r02_log_retention.py, 3 tests passing)
   Story 3.4.3 [ACA-03-022]   Unit test for R-03 defender_mismatch: fixture with Defender cost > $2,000 -> finding
+    Status: DONE (test_r03_defender.py, 3 tests passing)
   Story 3.4.4 [ACA-03-023]   Unit test for R-04 compute_scheduling: fixture with schedulable > $5,000 -> finding
+    Status: DONE (test_r04_compute.py, 3 tests passing)
   Story 3.4.5 [ACA-03-024]   Unit test for R-05 anomaly_detection: fixture with z-score > 3.0 -> finding
+    Status: DONE (test_r05_anomaly.py, 3 tests passing)
   Story 3.4.6 [ACA-03-025]   Unit test for R-06 stale_environments: fixture with >= 3 App Services -> finding
+    Status: DONE (test_r06_stale.py, 3 tests passing)
   Story 3.4.7 [ACA-03-026]   Unit test for R-07 search_sku_oversize: fixture with Search cost > $2,000 -> finding
+    Status: DONE (test_r07_search.py, 3 tests passing)
   Story 3.4.8 [ACA-03-027]   Unit test for R-08 acr_consolidation: fixture with >= 3 registries -> finding
+    Status: DONE (test_r08_acr.py, 3 tests passing)
   Story 3.4.9 [ACA-03-028]   Unit test for R-09 dns_sprawl: fixture with DNS cost > $1,000 -> finding
     Status: DONE (Sprint-004-Batch-1, 5 tests in test_r09_dns_sprawl.py, merged PR #43)
   Story 3.4.10 [ACA-03-029]  Unit test for R-10 savings_plan_coverage: fixture with compute > $20,000 -> finding
@@ -218,6 +227,7 @@ Feature 3.4 -- Rule unit tests (DECISION LOCKED 2026-02-27: 95% coverage, hardco
   Story 3.4.12 [ACA-03-031]  Unit test for R-12 chargeback_gap: fixture with total cost > $5,000 -> finding
     Status: DONE (Sprint-004-Batch-1, 5 tests in test_r12_chargeback.py, merged PR #43)
   Story 3.4.13 [ACA-03-032]  Negative tests for each rule: below-threshold fixture -> no finding returned
+    Status: DONE (test_negative_batch_1.py + test_negative_batch_2.py, 12 tests, all 12 rules covered)
   Story 3.4.14 [ACA-03-033]  FindingsAssembler unit test: mock rule list -> correct Cosmos upsert payload
     Status: DONE (Sprint-01, merged PR #11)
 =============================================================================
