@@ -25,8 +25,10 @@ import { EffortBadge } from "../../components/EffortBadge";
 import { Loading } from "../../components/Loading";
 import { ErrorState } from "../../components/ErrorState";
 import type { Tier1Report } from "../../types/models";
+import { useTranslation } from "react-i18next";
 
 export default function FindingsTier1Page() {
+  const { t, i18n } = useTranslation();
   const { subscriptionId } = useParams<{ subscriptionId: string }>();
   const [report, setReport] = useState<Tier1Report | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -40,7 +42,7 @@ export default function FindingsTier1Page() {
       const data = await appApi.getTier1Report(subscriptionId);
       setReport(data);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to load report.");
+      setError(err instanceof Error ? err.message : t("pages.report.load_failed"));
     } finally {
       setIsLoading(false);
     }
@@ -48,12 +50,12 @@ export default function FindingsTier1Page() {
 
   useEffect(() => { loadReport(); }, [subscriptionId]);
 
-  if (isLoading) return <Loading label="Loading your cost report..." />;
-  if (error) return <ErrorState message="Could not load report" detail={error} onRetry={loadReport} />;
+  if (isLoading) return <Loading label={t("pages.report.loading")} />;
+  if (error) return <ErrorState message={t("pages.report.could_not_load")} detail={error} onRetry={loadReport} />;
   if (!report) return null;
 
   const fmtCad = (n: number) =>
-    new Intl.NumberFormat("en-CA", {
+    new Intl.NumberFormat(i18n.language === "fr" ? "fr-CA" : "en-CA", {
       style: "currency",
       currency: report.currency,
       maximumFractionDigits: 0,
@@ -62,15 +64,15 @@ export default function FindingsTier1Page() {
   return (
     <div style={{ maxWidth: 1100 }}>
       <Subtitle1 as="h1" block style={{ marginBottom: 4 }}>
-        Free Scan Summary
+        {t("pages.report.title")}
       </Subtitle1>
       <Body1 style={{ color: "#555", marginBottom: 8 }}>
-        Subscription: <code>{subscriptionId}</code>
+        {t("pages.report.subscription")}: <code>{subscriptionId}</code>
       </Body1>
 
       <div
         role="region"
-        aria-label="Total estimated saving range"
+        aria-label={t("pages.report.savings_region_label")}
         style={{
           background: "#f0f7ff",
           border: "1px solid #b3d4f5",
@@ -80,23 +82,23 @@ export default function FindingsTier1Page() {
         }}
       >
         <Body1>
-          <strong>Total estimated annual saving: </strong>
+          <strong>{t("findings.total_savings")}: </strong>
           <span style={{ fontSize: 20, fontWeight: 700, color: "#0078d4" }}>
             {fmtCad(report.totalSavingLow)} &ndash; {fmtCad(report.totalSavingHigh)}
           </span>
         </Body1>
         <Body1 style={{ fontSize: 12, color: "#555", marginTop: 4 }}>
-          {report.findings.length} opportunities identified. Upgrade for full details.
+          {t("pages.report.opportunities", { count: report.findings.length })}
         </Body1>
       </div>
 
-      <Table aria-label="Cost findings">
+      <Table aria-label={t("pages.report.table_label")}>
         <TableHeader>
           <TableRow>
-            <TableHeaderCell scope="col">Category</TableHeaderCell>
-            <TableHeaderCell scope="col">Opportunity</TableHeaderCell>
-            <TableHeaderCell scope="col">Estimated Saving (CAD/yr)</TableHeaderCell>
-            <TableHeaderCell scope="col">Effort</TableHeaderCell>
+            <TableHeaderCell scope="col">{t("pages.report.table.category")}</TableHeaderCell>
+            <TableHeaderCell scope="col">{t("pages.report.table.opportunity")}</TableHeaderCell>
+            <TableHeaderCell scope="col">{t("pages.report.table.saving")}</TableHeaderCell>
+            <TableHeaderCell scope="col">{t("pages.report.table.effort")}</TableHeaderCell>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -131,11 +133,10 @@ export default function FindingsTier1Page() {
         }}
       >
         <Subtitle1 block style={{ marginBottom: 8 }}>
-          Unlock Full Advisory Report
+          {t("pages.report.unlock_title")}
         </Subtitle1>
         <Body1 style={{ color: "#555", marginBottom: 16 }}>
-          Get full narrative, risk ratings, evidence, and ready-to-run IaC implementation
-          packages with Tier 2 or Tier 3.
+          {t("pages.report.unlock_body")}
         </Body1>
         <Link
           to={`/app/upgrade/${encodeURIComponent(subscriptionId!)}`}
@@ -148,7 +149,7 @@ export default function FindingsTier1Page() {
             fontWeight: 600,
           }}
         >
-          View Upgrade Options
+          {t("pages.report.view_upgrade")}
         </Link>
       </div>
     </div>

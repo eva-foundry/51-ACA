@@ -6,6 +6,8 @@
   "nav": {
     "home": "Home",
     "connect": "Connect",
+    "status": "Status",
+    "report": "Report",
     "findings": "Findings",
     "billing": "Billing",
     "admin": "Admin",
@@ -71,6 +73,107 @@
       "low": "Low",
       "medium": "Medium",
       "high": "High"
+    }
+  },
+  "pages": {
+    "status": {
+      "title": "Collecting data...",
+      "subtitle": "ACA is pulling read-only data from your Azure subscription. This typically takes 2-4 minutes.",
+      "poll_retry": "Polling error. Will retry...",
+      "progress_label": "Collection {{progress}}% complete",
+      "progress_text": "{{progress}}% complete",
+      "steps": {
+        "inventory": "Resource Inventory",
+        "cost_data": "Cost Data (91 days)",
+        "advisor": "Azure Advisor",
+        "policy": "Policy Compliance",
+        "analysis": "Analysis Engine",
+        "unknown": "{{name}}"
+      }
+    },
+    "report": {
+      "title": "Free Scan Summary",
+      "subscription": "Subscription",
+      "loading": "Loading your cost report...",
+      "load_failed": "Failed to load report.",
+      "could_not_load": "Could not load report",
+      "savings_region_label": "Total estimated saving range",
+      "table_label": "Cost findings",
+      "opportunities": "{{count}} opportunities identified. Upgrade for full details.",
+      "table": {
+        "category": "Category",
+        "opportunity": "Opportunity",
+        "saving": "Estimated Saving (CAD/yr)",
+        "effort": "Effort"
+      },
+      "unlock_title": "Unlock Full Advisory Report",
+      "unlock_body": "Get full narrative, risk ratings, evidence, and ready-to-run IaC implementation packages with Tier 2 or Tier 3.",
+      "view_upgrade": "View Upgrade Options"
+    },
+    "connect": {
+      "title": "Connect Azure Subscription",
+      "subtitle": "ACA needs read-only access to your Azure subscription to run the cost analysis. No resources are modified.",
+      "step1_label": "Step 1: Enter your Azure Subscription ID",
+      "subscription_id_label": "Azure Subscription ID",
+      "subscription_id_placeholder": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "step2_label": "Step 2: Choose access mode",
+      "connecting": "Connecting...",
+      "start_scan": "Start Free Scan",
+      "validation": {
+        "subscription_required": "Please enter your Azure subscription ID."
+      },
+      "modes": {
+        "A": {
+          "title": "Mode A -- Delegated user sign-in (recommended)",
+          "desc": "Quick scan using your own Azure credentials. Ideal for trial access."
+        },
+        "B": {
+          "title": "Mode B -- Service principal",
+          "desc": "Enterprise governance-friendly. You create an SP with Reader role."
+        },
+        "C": {
+          "title": "Mode C -- Azure Lighthouse delegation",
+          "desc": "MSP-grade. Multi-subscription support via Lighthouse."
+        }
+      }
+    },
+    "upgrade": {
+      "title": "Upgrade Your Report",
+      "subscription": "Subscription:",
+      "back": "Back to free summary",
+      "checkout_failed": "Checkout failed",
+      "redirecting": "Redirecting to Stripe...",
+      "tiers": {
+        "tier2": {
+          "title": "Tier 2 -- Advisory Report",
+          "price": "CAD $499 one-time  OR  CAD $150/month",
+          "cta": "Get Full Report",
+          "benefits": [
+            "Full findings with narrative",
+            "Effort and risk classification",
+            "Beyond-cost signals (SKU, network, policy)",
+            "Interactive dashboard + PDF export"
+          ]
+        },
+        "tier3": {
+          "title": "Tier 3 -- Deliverable Package",
+          "price": "CAD $1,499",
+          "cta": "Get Full Package",
+          "benefits": [
+            "Everything in Tier 2",
+            "Terraform + Bicep templates (parameterized for YOUR subscription)",
+            "PowerShell / Bash automation scripts",
+            "Implementation guide PDF + rollback instructions",
+            "24-hour SAS URL download link"
+          ]
+        }
+      }
+    },
+    "login": {
+      "tagline": "Connect your Azure subscription and get a free prioritized cost report in minutes.",
+      "description": "Read-only access. No resource modifications. Run a free Tier 1 scan with no credit card required. Unlock full advisory and IaC deliverables with Tier 2 and Tier 3.",
+      "sign_in": "Sign in with Microsoft",
+      "dev_mode": "Dev mode active (VITE_DEV_AUTH=true) — sign-in is bypassed."
     }
   },
   "consent": {

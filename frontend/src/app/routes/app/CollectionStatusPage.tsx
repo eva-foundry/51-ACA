@@ -12,13 +12,14 @@ import { ProgressBar, Subtitle1, Body1, Badge } from "@fluentui/react-components
 import { appApi } from "../../api/appApi";
 import { ErrorState } from "../../components/ErrorState";
 import type { CollectionStatus, CollectionStepStatus } from "../../types/models";
+import { useTranslation } from "react-i18next";
 
-const STEP_LABEL_MAP: Record<string, string> = {
-  inventory:  "Resource Inventory",
-  cost_data:  "Cost Data (91 days)",
-  advisor:    "Azure Advisor",
-  policy:     "Policy Compliance",
-  analysis:   "Analysis Engine",
+const STEP_LABEL_KEYS: Record<string, string> = {
+  inventory: "pages.status.steps.inventory",
+  cost_data: "pages.status.steps.cost_data",
+  advisor: "pages.status.steps.advisor",
+  policy: "pages.status.steps.policy",
+  analysis: "pages.status.steps.analysis",
 };
 
 function stepIntent(s: CollectionStepStatus) {
@@ -29,6 +30,7 @@ function stepIntent(s: CollectionStepStatus) {
 }
 
 export default function CollectionStatusPage() {
+  const { t } = useTranslation();
   const { subscriptionId } = useParams<{ subscriptionId: string }>();
   const navigate = useNavigate();
   const [status, setStatus] = useState<CollectionStatus | null>(null);
@@ -48,14 +50,14 @@ export default function CollectionStatusPage() {
         return;
       }
       if (data.status === "failed") {
-        setError(data.error ?? "Collection failed. Please try again from the Connect page.");
+        setError(data.error ?? t("errors.scan_failed"));
         return;
       }
       // Schedule next poll with cap at 30s
       backoffRef.current = Math.min(backoffRef.current * 1.4, 30_000);
       intervalRef.current = setTimeout(poll, backoffRef.current);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Polling error. Will retry...");
+      setError(err instanceof Error ? err.message : t("pages.status.poll_retry"));
       intervalRef.current = setTimeout(poll, 15_000);
     }
   };
@@ -63,17 +65,15 @@ export default function CollectionStatusPage() {
   useEffect(() => {
     poll();
     return () => { if (intervalRef.current) clearTimeout(intervalRef.current); };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [subscriptionId]);
 
   return (
     <div style={{ maxWidth: 640 }}>
       <Subtitle1 as="h1" block style={{ marginBottom: 8 }}>
-        Collecting data&hellip;
+        {t("pages.status.title")}
       </Subtitle1>
       <Body1 style={{ color: "#555", marginBottom: 24 }}>
-        ACA is pulling read-only data from your Azure subscription.
-        This typically takes 2&ndash;4 minutes.
+        {t("pages.status.subtitle")}
       </Body1>
 
       {error && <ErrorState message={error} />}
@@ -83,7 +83,7 @@ export default function CollectionStatusPage() {
           <div
             role="status"
             aria-live="polite"
-            aria-label={`Collection ${status.progress}% complete`}
+            aria-label={t("pages.status.progress_label", { progress: status.progress })}
             style={{ marginBottom: 16 }}
           >
             <ProgressBar
@@ -92,7 +92,7 @@ export default function CollectionStatusPage() {
               thickness="large"
             />
             <Body1 style={{ marginTop: 8, color: "#555" }}>
-              {status.progress}% complete
+              {t("pages.status.progress_text", { progress: status.progress })}
             </Body1>
           </div>
 
@@ -114,7 +114,7 @@ export default function CollectionStatusPage() {
                 >
                   {step.status}
                 </Badge>
-                <span>{STEP_LABEL_MAP[step.name] ?? step.name}</span>
+                <span>{t(STEP_LABEL_KEYS[step.name] ?? "pages.status.steps.unknown", { name: step.name })}</span>
                 {step.message && (
                   <span style={{ fontSize: 12, color: "#888", marginLeft: "auto" }}>
                     {step.message}

@@ -6,6 +6,8 @@
   "nav": {
     "home": "Accueil",
     "connect": "Connexion",
+    "status": "Statut",
+    "report": "Rapport",
     "findings": "Constats",
     "billing": "Facturation",
     "admin": "Admin",
@@ -71,6 +73,107 @@
       "low": "Faible",
       "medium": "Moyen",
       "high": "Eleve"
+    }
+  },
+  "pages": {
+    "status": {
+      "title": "Collecte des donnees...",
+      "subtitle": "ACA extrait des donnees en lecture seule de votre abonnement Azure. Cela prend generalement 2 a 4 minutes.",
+      "poll_retry": "Erreur de suivi. Nouvelle tentative...",
+      "progress_label": "Collecte a {{progress}}%",
+      "progress_text": "{{progress}}% termine",
+      "steps": {
+        "inventory": "Inventaire des ressources",
+        "cost_data": "Donnees de cout (91 jours)",
+        "advisor": "Azure Advisor",
+        "policy": "Conformite des politiques",
+        "analysis": "Moteur d'analyse",
+        "unknown": "{{name}}"
+      }
+    },
+    "report": {
+      "title": "Resume de l'analyse gratuite",
+      "subscription": "Abonnement",
+      "loading": "Chargement du rapport de cout...",
+      "load_failed": "Echec du chargement du rapport.",
+      "could_not_load": "Impossible de charger le rapport",
+      "savings_region_label": "Plage d'economies estimees",
+      "table_label": "Constats de couts",
+      "opportunities": "{{count}} opportunites detectees. Passez au niveau superieur pour plus de details.",
+      "table": {
+        "category": "Categorie",
+        "opportunity": "Opportunite",
+        "saving": "Economies estimees (CAD/an)",
+        "effort": "Effort"
+      },
+      "unlock_title": "Debloquer le rapport conseil complet",
+      "unlock_body": "Obtenez le narratif complet, les niveaux de risque, les preuves et les packs IaC prets a executer avec le niveau 2 ou 3.",
+      "view_upgrade": "Voir les options de mise a niveau"
+    },
+    "connect": {
+      "title": "Connecter l'abonnement Azure",
+      "subtitle": "ACA necessite un acces en lecture seule a votre abonnement Azure pour effectuer l'analyse des couts. Aucune ressource n'est modifiee.",
+      "step1_label": "Etape 1 : Entrez votre ID d'abonnement Azure",
+      "subscription_id_label": "ID d'abonnement Azure",
+      "subscription_id_placeholder": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "step2_label": "Etape 2 : Choisissez le mode d'acces",
+      "connecting": "Connexion en cours...",
+      "start_scan": "Lancer l'analyse gratuite",
+      "validation": {
+        "subscription_required": "Veuillez entrer votre ID d'abonnement Azure."
+      },
+      "modes": {
+        "A": {
+          "title": "Mode A -- Connexion utilisateur deleguee (recommande)",
+          "desc": "Analyse rapide avec vos propres informations d'identification Azure. Ideal pour un essai."
+        },
+        "B": {
+          "title": "Mode B -- Principal de service",
+          "desc": "Recommande pour la gouvernance d'entreprise. Vous creez un SP avec le role Lecteur."
+        },
+        "C": {
+          "title": "Mode C -- Delegation Azure Lighthouse",
+          "desc": "Niveau MSP. Support multi-abonnements via Lighthouse."
+        }
+      }
+    },
+    "upgrade": {
+      "title": "Ameliorer votre rapport",
+      "subscription": "Abonnement :",
+      "back": "Retour au resume gratuit",
+      "checkout_failed": "Echec de la commande",
+      "redirecting": "Redirection vers Stripe...",
+      "tiers": {
+        "tier2": {
+          "title": "Niveau 2 -- Rapport conseil",
+          "price": "499 CAD paiement unique OU 150 CAD/mois",
+          "cta": "Obtenir le rapport complet",
+          "benefits": [
+            "Constats complets avec narratif",
+            "Classification par effort et risque",
+            "Signaux au-dela des couts (SKU, reseau, politique)",
+            "Tableau de bord interactif + export PDF"
+          ]
+        },
+        "tier3": {
+          "title": "Niveau 3 -- Livrable complet",
+          "price": "1 499 CAD",
+          "cta": "Obtenir le livrable complet",
+          "benefits": [
+            "Tout ce qui est dans le niveau 2",
+            "Gabarits Terraform + Bicep (parametres pour VOTRE abonnement)",
+            "Scripts PowerShell / Bash",
+            "Guide d'implementation PDF + instructions de restauration",
+            "Lien de telechargement SAS de 24 heures"
+          ]
+        }
+      }
+    },
+    "login": {
+      "tagline": "Connectez votre abonnement Azure et obtenez un rapport de couts priorise gratuit en quelques minutes.",
+      "description": "Acces en lecture seule. Aucune modification de ressources. Effectuez une analyse gratuite de niveau 1 sans carte de credit. Debloquez les rapports conseil et les livrables IaC avec les niveaux 2 et 3.",
+      "sign_in": "Se connecter avec Microsoft",
+      "dev_mode": "Mode developpement actif (VITE_DEV_AUTH=true) - la connexion est contournee."
     }
   },
   "consent": {

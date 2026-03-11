@@ -7,6 +7,8 @@
 
 import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import type { TFunction } from "i18next";
 import {
   Button,
   Subtitle1,
@@ -27,40 +29,33 @@ interface TierOption {
   cta: string;
 }
 
-const TIERS: TierOption[] = [
-  {
-    tier: 2,
-    title: "Tier 2 -- Advisory Report",
-    priceLabel: "CAD $499 one-time  OR  CAD $150/month",
-    mode: "one_time",
-    benefits: [
-      "Full findings with narrative",
-      "Effort and risk classification",
-      "Beyond-cost signals (SKU, network, policy)",
-      "Interactive dashboard + PDF export",
-    ],
-    cta: "Get Full Report",
-  },
-  {
-    tier: 3,
-    title: "Tier 3 -- Deliverable Package",
-    priceLabel: "CAD $1,499",
-    mode: "one_time",
-    benefits: [
-      "Everything in Tier 2",
-      "Terraform + Bicep templates (parameterized for YOUR subscription)",
-      "PowerShell / Bash automation scripts",
-      "Implementation guide PDF + rollback instructions",
-      "24-hour SAS URL download link",
-    ],
-    cta: "Get Full Package",
-  },
-];
+function getTiers(t: TFunction): TierOption[] {
+  return [
+    {
+      tier: 2,
+      title: t("pages.upgrade.tiers.tier2.title"),
+      priceLabel: t("pages.upgrade.tiers.tier2.price"),
+      mode: "one_time",
+      benefits: t("pages.upgrade.tiers.tier2.benefits", { returnObjects: true }) as string[],
+      cta: t("pages.upgrade.tiers.tier2.cta"),
+    },
+    {
+      tier: 3,
+      title: t("pages.upgrade.tiers.tier3.title"),
+      priceLabel: t("pages.upgrade.tiers.tier3.price"),
+      mode: "one_time",
+      benefits: t("pages.upgrade.tiers.tier3.benefits", { returnObjects: true }) as string[],
+      cta: t("pages.upgrade.tiers.tier3.cta"),
+    },
+  ];
+}
 
 export default function UpgradePage() {
+  const { t } = useTranslation();
   const { subscriptionId } = useParams<{ subscriptionId: string }>();
   const [loadingTier, setLoadingTier] = useState<2 | 3 | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const tiers = getTiers(t);
 
   const handleCheckout = async (option: TierOption) => {
     if (!subscriptionId) return;
@@ -70,7 +65,7 @@ export default function UpgradePage() {
       const { redirectUrl } = await appApi.startCheckout(subscriptionId, option.tier, option.mode);
       window.location.href = redirectUrl;
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Checkout failed. Please try again.");
+      setError(err instanceof Error ? err.message : t("errors.generic"));
     } finally {
       setLoadingTier(null);
     }
@@ -79,38 +74,38 @@ export default function UpgradePage() {
   return (
     <div style={{ maxWidth: 800 }}>
       <Subtitle1 as="h1" block style={{ marginBottom: 8 }}>
-        Upgrade Your Report
+        {t("pages.upgrade.title")}
       </Subtitle1>
       <Body1 style={{ color: "#555", marginBottom: 8 }}>
-        Subscription: <code>{subscriptionId}</code>
+        {t("pages.upgrade.subscription")} <code>{subscriptionId}</code>
       </Body1>
       <Link to={`/app/findings/${encodeURIComponent(subscriptionId!)}`} style={{ fontSize: 13 }}>
-        &larr; Back to free summary
+        &larr; {t("pages.upgrade.back")}
       </Link>
 
       {error && (
-        <ErrorState message="Checkout failed" detail={error} onRetry={() => setError(null)} />
+        <ErrorState message={t("pages.upgrade.checkout_failed")} detail={error} onRetry={() => setError(null)} />
       )}
 
       <div style={{ display: "flex", gap: 24, marginTop: 32, flexWrap: "wrap" }}>
-        {TIERS.map((t) => (
+        {tiers.map((tier) => (
           <div
-            key={t.tier}
+            key={tier.tier}
             style={{
               flex: "1 1 300px",
               border: "2px solid #d0d0d0",
               borderRadius: 12,
               padding: 24,
-              background: t.tier === 3 ? "#f0f7ff" : "#fff",
+              background: tier.tier === 3 ? "#f0f7ff" : "#fff",
             }}
           >
-            <h2 style={{ margin: "0 0 8px", fontSize: 18 }}>{t.title}</h2>
+            <h2 style={{ margin: "0 0 8px", fontSize: 18 }}>{tier.title}</h2>
             <p style={{ fontSize: 14, color: "#0078d4", fontWeight: 600, margin: "0 0 16px" }}>
-              {t.priceLabel}
+              {tier.priceLabel}
             </p>
             <Divider />
             <ul role="list" style={{ paddingLeft: 20, marginBlock: 16 }}>
-              {t.benefits.map((b) => (
+              {tier.benefits.map((b) => (
                 <li key={b} style={{ marginBottom: 8, fontSize: 14 }}>
                   {b}
                 </li>
@@ -119,12 +114,12 @@ export default function UpgradePage() {
             <Button
               appearance="primary"
               size="large"
-              onClick={() => handleCheckout(t)}
+              onClick={() => handleCheckout(tier)}
               disabled={loadingTier !== null}
-              aria-busy={loadingTier === t.tier}
+              aria-busy={loadingTier === tier.tier}
               style={{ width: "100%" }}
             >
-              {loadingTier === t.tier ? "Redirecting to Stripe..." : t.cta}
+              {loadingTier === tier.tier ? t("pages.upgrade.redirecting") : tier.cta}
             </Button>
           </div>
         ))}
