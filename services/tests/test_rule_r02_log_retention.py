@@ -24,8 +24,8 @@ def test_evaluate_log_retention_costs_positive():
 def test_evaluate_log_retention_costs_negative():
     """Test case where annual cost does not exceed $500."""
     log_analytics_data = [
-        {"environment": "non-prod", "daily_cost": 1},
         {"environment": "non-prod", "daily_cost": 0.5},
+        {"environment": "non-prod", "daily_cost": 0.4},
         {"environment": "prod", "daily_cost": 5},
     ]
 

@@ -1,42 +1,43 @@
 # EVA-STORY: ACA-03-010
-import pytest
-from fastapi.testclient import TestClient
-from app.main import app
+from app.services.findings_gate import gate_findings, TIER1_FIELDS
 
-@pytest.fixture
-def client():
-    return TestClient(app)
 
-def test_tier1_findings_no_leak(client):
-    """Ensure Tier 1 findings do not contain forbidden fields."""
-    response = client.get("/v1/findings", headers={"Authorization": "Bearer fake-tier1-token"})
-    assert response.status_code == 200, "[FAIL] API did not return 200 OK"
+def _sample_findings():
+    return [
+        {
+            "id": "f-1",
+            "category": "compute",
+            "title": "High VM spend",
+            "estimated_saving_low": 100,
+            "estimated_saving_high": 250,
+            "effort_class": "easy",
+            "risk_class": "low",
+            "narrative": "Detailed implementation narrative",
+            "deliverable_template_id": "tmpl-123",
+            "evidence_refs": ["ev-1"],
+            "heuristic_source": "rule-04",
+        }
+    ]
 
-    findings = response.json()
-    forbidden_fields = ["narrative", "deliverable_template_id", "evidence_refs"]
 
-    for finding in findings:
-        for field in forbidden_fields:
-            assert field not in finding, f"[LEAK] Forbidden field '{field}' found in Tier 1 findings."
+def test_tier1_findings_no_leak():
+    """Tier 1 must strip narrative/template/evidence fields."""
+    findings = gate_findings(_sample_findings(), "tier1")
+    assert len(findings) == 1
+    assert set(findings[0].keys()) == set(TIER1_FIELDS)
+    assert "narrative" not in findings[0]
+    assert "deliverable_template_id" not in findings[0]
+    assert "evidence_refs" not in findings[0]
 
-    print("[PASS] No forbidden fields found in Tier 1 findings.")
 
-def test_tier1_findings_with_leak(client):
-    """Simulate a leak scenario for Tier 1 findings."""
-    response = client.get("/v1/findings", headers={"Authorization": "Bearer fake-tier1-token"})
-    assert response.status_code == 200, "[FAIL] API did not return 200 OK"
+def test_tier1_findings_with_leak_fixture_still_filtered():
+    """Even if source findings contain forbidden fields, tier1 output must not."""
+    raw = _sample_findings()
+    raw[0]["narrative"] = "Leaked narrative"
+    raw[0]["deliverable_template_id"] = "Leaked template ID"
+    raw[0]["evidence_refs"] = ["leaked-evidence"]
 
-    findings = response.json()
-    forbidden_fields = ["narrative", "deliverable_template_id", "evidence_refs"]
-
-    # Simulate a leak by adding forbidden fields
-    findings[0]["narrative"] = "Leaked narrative"
-    findings[0]["deliverable_template_id"] = "Leaked template ID"
-
-    for finding in findings:
-        for field in forbidden_fields:
-            if field in finding:
-                print(f"[LEAK] Forbidden field '{field}' found in Tier 1 findings.")
-                assert False, f"[LEAK] Forbidden field '{field}' found in Tier 1 findings."
-
-    print("[PASS] No forbidden fields found in Tier 1 findings.")
+    findings = gate_findings(raw, "tier1")
+    assert "narrative" not in findings[0]
+    assert "deliverable_template_id" not in findings[0]
+    assert "evidence_refs" not in findings[0]

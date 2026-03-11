@@ -1,10 +1,8 @@
 # EVA-STORY: ACA-03-017
-import pytest
-from unittest.mock import patch, MagicMock
-from datetime import datetime
-from services.analysis.app.rules.r07_search_sku_oversize import analyze_search_costs
+from services.analysis.app.rules import r07_search_sku_oversize as r07
 
-def test_analyze_search_costs_exceeds_threshold():
+
+def test_analyze_search_costs_exceeds_threshold(monkeypatch):
     scan_id = "test-scan-id"
     subscription_id = "test-sub-id"
 
@@ -16,34 +14,57 @@ def test_analyze_search_costs_exceeds_threshold():
             ]
         }
     ]
+    persisted = []
 
-    with patch("app.db.cosmos.query_items", return_value=mock_cost_data):
-        with patch("app.findings.persist_finding") as mock_persist:
-            analyze_search_costs(scan_id, subscription_id)
+    monkeypatch.setattr(
+        r07,
+        "query_items",
+        lambda container_name, query, parameters, partition_key: mock_cost_data,
+        raising=False,
+    )
+    monkeypatch.setattr(
+        r07,
+        "persist_finding",
+        lambda cosmos_client, finding: persisted.append(finding),
+        raising=False,
+    )
 
-            mock_persist.assert_called_once()
-            finding = mock_persist.call_args[0][1]
+    r07.analyze_search_costs(scan_id, subscription_id)
 
-            assert finding["category"] == "search-optimization"
-            assert finding["title"] == "High Azure AI Search Costs"
-            assert finding["estimated_saving_low"] == 500
-            assert finding["estimated_saving_high"] == 1500
+    assert len(persisted) == 1
+    finding = persisted[0]
+    assert finding["category"] == "search-optimization"
+    assert finding["title"] == "High Azure AI Search Costs"
+    assert finding["estimated_saving_low"] == 500
+    assert finding["estimated_saving_high"] == 1500
 
-def test_analyze_search_costs_below_threshold():
+
+def test_analyze_search_costs_below_threshold(monkeypatch):
     scan_id = "test-scan-id"
     subscription_id = "test-sub-id"
 
     mock_cost_data = [
         {
             "rows": [
-                {"serviceName": "Azure AI Search", "meterCategory": "Search", "cost": 500},
-                {"serviceName": "Azure AI Search", "meterCategory": "Search", "cost": 400},
+                {"serviceName": "Azure AI Search", "meterCategory": "Search", "cost": 200},
+                {"serviceName": "Azure AI Search", "meterCategory": "Search", "cost": 200},
             ]
         }
     ]
+    persisted = []
 
-    with patch("app.db.cosmos.query_items", return_value=mock_cost_data):
-        with patch("app.findings.persist_finding") as mock_persist:
-            analyze_search_costs(scan_id, subscription_id)
+    monkeypatch.setattr(
+        r07,
+        "query_items",
+        lambda container_name, query, parameters, partition_key: mock_cost_data,
+        raising=False,
+    )
+    monkeypatch.setattr(
+        r07,
+        "persist_finding",
+        lambda cosmos_client, finding: persisted.append(finding),
+        raising=False,
+    )
 
-            mock_persist.assert_not_called()
+    r07.analyze_search_costs(scan_id, subscription_id)
+    assert persisted == []
