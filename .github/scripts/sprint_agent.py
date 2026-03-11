@@ -1186,12 +1186,18 @@ Working through {len(stories)} stories in sequence. Progress comments will follo
         print(f"[INFO] Progress comment posted for {sid}")
 
     # === EVA-STORY: ACA-14-003 -- Verify D3 (Do-execute) phase ===
-    if verify_phase:
+    # RCA 2026-03-11: D3 verification expects manifest file in docs/ or .github/sprints/
+    # This only exists in resume scenarios. For new sprints, skip this check.
+    if verify_phase and not is_new:
         if not verify_phase("D3", sprint_id, repo_root=str(REPO_ROOT)):
             msg = f"[FAIL] D3 verification failed -- story selection manifest not found"
             print(msg)
             _gh_comment(issue, repo, f"{msg}")
             sys.exit(1)
+    elif is_new:
+        print(f"[INFO] Skipping D3 verification (new sprint: {sprint_id}, no prior manifest)")
+    else:
+        print(f"[INFO] D3 verification disabled (verify_phase module not available)")
 
     # Push branch
     push_ok = push_branch(branch)
