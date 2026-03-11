@@ -33,7 +33,7 @@ TRUST TREND: 100 → 70 → 69 (Stabilized)
 ## WORKFLOW LAYERS & DATA FLOW
 
 ### LAYER 1: SOURCE (51-ACA Repository)
-**Location**: `C:\AICOE\eva-foundry\51-ACA`  
+**Location**: `C:\eva-foundry\51-ACA`  
 **Purpose**: DPDCA workflow execution with evidence capture
 
 #### What Gets Captured:
@@ -157,7 +157,7 @@ Reconciliation compares:
   "meta": {
     "schema": "eva.trust.v2",
     "generated_at": "2026-03-02T17:04:02.187Z",
-    "repo": "C:\\AICOE\\eva-foundry\\51-ACA",
+    "repo": "C:\\eva-foundry\\eva-foundry\\51-ACA",
     "reconciliation_path": ".eva\\reconciliation.json"
   },
   "score": 69,

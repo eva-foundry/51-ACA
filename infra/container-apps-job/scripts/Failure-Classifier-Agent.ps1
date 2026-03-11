@@ -9,8 +9,8 @@ param()
 # ============================================================================
 
 $FailureClassifierAgentModule = @{
-    PythonScript = "C:\AICOE\eva-foundry\51-ACA\agents\failure-classifier\classifier_agent.py"
-    VenvPython   = "C:\AICOE\.venv\Scripts\python.exe"
+    PythonScript = "C:\eva-foundry\51-ACA\agents\failure-classifier\classifier_agent.py"
+    VenvPython   = "C:\eva-foundry\.venv\Scripts\python.exe"
     TimeoutMs    = 100
     MaxRetries   = 2
 }
@@ -131,7 +131,7 @@ function Test-ClassifierConnection {
     # Test 3: Try to import the agent module (basic syntax check)
     try {
         $testResult = & $FailureClassifierAgentModule.VenvPython `
-            -c "import sys; sys.path.insert(0, 'C:\AICOE\eva-foundry\51-ACA\agents\failure-classifier'); import classifier_agent; print('OK')" `
+            -c "import sys; sys.path.insert(0, 'C:\eva-foundry\51-ACA\agents\failure-classifier'); import classifier_agent; print('OK')" `
             2>&1
 
         if ($testResult -like "*OK*") {
@@ -191,7 +191,7 @@ function Invoke-ClassifierAgent {
             import sys
             import json
             import asyncio
-            sys.path.insert(0, 'C:\AICOE\eva-foundry\51-ACA\agents\failure-classifier')
+            sys.path.insert(0, 'C:\eva-foundry\51-ACA\agents\failure-classifier')
             from classifier_agent import classify_error, ErrorContext
             
             # Prepare context

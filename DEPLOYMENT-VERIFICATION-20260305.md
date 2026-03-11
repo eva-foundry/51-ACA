@@ -100,8 +100,8 @@ Consistency: 100% (281/281/281/281) ✅
 
 ## Deployment Locations
 
-**Source**: C:\AICOE\eva-foundry\51-ACA\.eva\
-**Target**: C:\AICOE\eva-foundry\31-eva-faces\.eva\projects\51-ACA\
+**Source**: C:\eva-foundry\51-ACA\.eva\
+**Target**: C:\eva-foundry\31-eva-faces\.eva\projects\51-ACA\
 
 Files are now available to the production dashboard at this location:
 - Portal Face (portal-face): Can read metrics for display

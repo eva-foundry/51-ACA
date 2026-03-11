@@ -178,7 +178,7 @@ if ($WhatIf) {
         Write-Host "[OK] All done stories now have sprint and assignee metadata." -ForegroundColor Green
         Write-Host ""
         Write-Host "Next: Re-run Veritas audit to confirm MTI score improvement:" -ForegroundColor Gray
-        Write-Host "  node C:\AICOE\eva-foundry\48-eva-veritas\src\cli.js audit --repo ." -ForegroundColor Gray
+        Write-Host "  node C:\eva-foundry\48-eva-veritas\src\cli.js audit --repo ." -ForegroundColor Gray
     } else {
         Write-Host "[WARNING] Some updates failed. Check errors above." -ForegroundColor Yellow
     }

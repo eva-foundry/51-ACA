@@ -376,7 +376,7 @@ ACA-16-004: Adds concurrent checks = 5s → 2s (60% improvement)
 
 ### 1. Local Validation (DEV)
 ```powershell
-cd C:\AICOE\eva-foundry\51-ACA
+cd C:\eva-foundry\51-ACA
 docker build -f infra/container-apps-job/Dockerfile -t aca-sync-job:local .
 docker run --rm -e DRY_RUN=true -e ENVIRONMENT=dev aca-sync-job:local
 # Verify logs show health diagnostics report with all 4 checks

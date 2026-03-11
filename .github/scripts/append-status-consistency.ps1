@@ -1,8 +1,8 @@
 # Script: append-status-consistency.ps1
 # Appends Veritas consistency declarations to STATUS.md
 
-$statusPath = "C:\AICOE\eva-foundry\51-ACA\STATUS.md"
-$planPath   = "C:\AICOE\eva-foundry\51-ACA\.eva\veritas-plan.json"
+$statusPath = "C:\eva-foundry\51-ACA\STATUS.md"
+$planPath   = "C:\eva-foundry\51-ACA\.eva\veritas-plan.json"
 
 $plan = Get-Content $planPath | ConvertFrom-Json
 

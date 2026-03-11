@@ -161,7 +161,7 @@ $(if ($blocked_stories) {
 *Generated: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss UTC')*
 "@
 
-$report_path = "C:\AICOE\eva-foundry\51-ACA\docs\sprint-report-$sprint_id.md"
+$report_path = "C:\eva-foundry\51-ACA\docs\sprint-report-$sprint_id.md"
 $report | Set-Content $report_path -Encoding UTF8
 Write-Host "`n[PASS] Sprint report written to: $report_path"
 ```
@@ -205,7 +205,7 @@ This skill is invoked automatically in sprint-advance.skill.md Phase 5:
 
 ```powershell
 # After sprint manifest is created, generate report
-node C:\AICOE\eva-foundry\48-eva-veritas\src\cli.js audit --repo . --warn-only
+node C:\eva-foundry\48-eva-veritas\src\cli.js audit --repo . --warn-only
 
 # Trigger: "sprint report" or "generate sprint summary"
 # This skill runs and produces:
@@ -246,7 +246,7 @@ sprint report for sprint 2
 ## DEPENDENCIES
 
 - Data model API: `https://marco-eva-data-model.livelyflower-7990bc7b.canadacentral.azurecontainerapps.io`
-- Veritas CLI: `C:\AICOE\eva-foundry\48-eva-veritas\src\cli.js`
+- Veritas CLI: `C:\eva-foundry\48-eva-veritas\src\cli.js`
 - PowerShell 7+
 
 ---

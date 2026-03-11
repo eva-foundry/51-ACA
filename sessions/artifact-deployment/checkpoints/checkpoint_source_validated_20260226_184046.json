@@ -1,7 +1,7 @@
 {
   "data": {
-    "template_path": "C:\\AICOE\\eva-foundry\\07-foundation-layer\\02-design\\artifact-templates\\copilot-instructions-template.md",
-    "source_path": "C:\\AICOE\\eva-foundry\\07-foundation-layer\\02-design\\artifact-templates"
+    "template_path": "C:\\eva-foundry\\eva-foundry\\07-foundation-layer\\02-design\\artifact-templates\\copilot-instructions-template.md",
+    "source_path": "C:\\eva-foundry\\eva-foundry\\07-foundation-layer\\02-design\\artifact-templates"
   },
   "timestamp": "2026-02-26T18:40:46.9765430-05:00",
   "component": "artifact-deployment",

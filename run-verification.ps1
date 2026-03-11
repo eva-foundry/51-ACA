@@ -20,7 +20,7 @@ Write-Result ""
 Write-Result "[CHECK 1] LOCAL DB Sprint 2 Linkage"
 Write-Result "-----------------------------------"
 try {
-    $s2Count = & C:\AICOE\.venv\Scripts\python.exe -c "import sys; sys.path.insert(0, 'data-model'); import db; s2 = [s for s in db.list_layer('wbs') if s.get('sprint_id') == 'Sprint-02']; print(len(s2))"
+    $s2Count = & C:\eva-foundry\.venv\Scripts\python.exe -c "import sys; sys.path.insert(0, 'data-model'); import db; s2 = [s for s in db.list_layer('wbs') if s.get('sprint_id') == 'Sprint-02']; print(len(s2))"
     
     Write-Result "Stories linked to Sprint-02: $s2Count"
     Write-Result "Expected: 15"
@@ -76,7 +76,7 @@ Write-Result "-----------------------------------"
 Write-Result "Running pytest services/ -x -q..."
 
 try {
-    $testOutput = & C:\AICOE\.venv\Scripts\python.exe -m pytest services/ -x -q --tb=line 2>&1
+    $testOutput = & C:\eva-foundry\.venv\Scripts\python.exe -m pytest services/ -x -q --tb=line 2>&1
     $exitCode = $LASTEXITCODE
     
     # Get test count from output

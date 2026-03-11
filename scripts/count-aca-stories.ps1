@@ -1,4 +1,4 @@
-$plan = Get-Content "C:\AICOE\eva-foundry\51-ACA\.eva\veritas-plan.json" -Raw | ConvertFrom-Json
+$plan = Get-Content "C:\eva-foundry\51-ACA\.eva\veritas-plan.json" -Raw | ConvertFrom-Json
 $total = 0; $done = 0; $notDone = 0
 foreach ($f in $plan.features) {
     $t = $f.stories.Count

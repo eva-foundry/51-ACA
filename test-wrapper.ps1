@@ -2,7 +2,7 @@
 # Test Universal Command Wrapper on 51-ACA Sprint 2 Verification
 # Location: 51-ACA/test-wrapper.ps1
 
-. C:\AICOE\eva-foundry\07-foundation-layer\scripts\Invoke-CommandWithLog.ps1
+. C:\eva-foundry\07-foundation-layer\scripts\Invoke-CommandWithLog.ps1
 
 Write-Host "=== TESTING UNIVERSAL COMMAND WRAPPER ===" -ForegroundColor Cyan
 Write-Host ""
@@ -10,7 +10,7 @@ Write-Host ""
 # TEST 1: LOCAL DB Sprint 2 Count
 Write-Host "[TEST 1] LOCAL DB Sprint 2 Count" -ForegroundColor Yellow
 $r1 = Invoke-CommandWithLog `
-    -Command "C:\AICOE\.venv\Scripts\python.exe -c `"import sys; sys.path.insert(0, 'data-model'); import db; print('Stories:', len([s for s in db.list_layer('wbs') if s.get('sprint_id')=='Sprint-02'])))`"" `
+    -Command "C:\eva-foundry\.venv\Scripts\python.exe -c `"import sys; sys.path.insert(0, 'data-model'); import db; print('Stories:', len([s for s in db.list_layer('wbs') if s.get('sprint_id')=='Sprint-02'])))`"" `
     -SearchPattern "Stories:" `
     -Label "db-check"
 
@@ -31,7 +31,7 @@ Write-Host ""
 # TEST 3: Full Verification Script
 Write-Host "[TEST 3] Run manual-verify.py with wrapper" -ForegroundColor Yellow
 $r3 = Invoke-CommandWithLog `
-    -Command "C:\AICOE\.venv\Scripts\python.exe manual-verify.py" `
+    -Command "C:\eva-foundry\.venv\Scripts\python.exe manual-verify.py" `
     -ReturnFullLog `
     -Label "full-verify"
 

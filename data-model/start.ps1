@@ -3,12 +3,12 @@
 # DB persists across restarts at: data-model/aca-model.db
 #
 # Usage:
-#   pwsh -File C:\AICOE\eva-foundry\51-ACA\data-model\start.ps1
+#   pwsh -File C:\eva-foundry\51-ACA\data-model\start.ps1
 #   Then: Invoke-RestMethod http://localhost:8055/health
 #   Docs: http://localhost:8055/docs
 
 $SCRIPT_DIR = $PSScriptRoot
-$VENV_PY    = "C:\AICOE\.venv\Scripts\python.exe"
+$VENV_PY    = "C:\eva-foundry\.venv\Scripts\python.exe"
 $Port       = 8055
 
 Write-Host "[INFO] Starting ACA data model on http://localhost:$Port"

@@ -74,7 +74,7 @@ AZURE_OPENAI_ENDPOINT: (fallback if GITHUB_TOKEN missing)
 ```bash
 cd 51-ACA
 $env:PYTHONPATH = "."
-C:\AICOE\.venv\Scripts\python.exe -m pytest services/analysis/app/rules/test_r*.py -v --tb=short
+C:\eva-foundry\.venv\Scripts\python.exe -m pytest services/analysis/app/rules/test_r*.py -v --tb=short
 ```
 
 **Timing Instrumentation**:

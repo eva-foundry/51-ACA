@@ -122,7 +122,7 @@ Total: 23 stories → 23 sequential ADO IDs (3193-3215)
 ### Step 1: Pre-Flight (Dry-Run)
 
 ```powershell
-cd C:\AICOE\eva-foundry\51-ACA
+cd C:\eva-foundry\51-ACA
 
 # Run dry-run to validate everything without making changes
 pwsh scripts/epic15-update-cycle-with-evidence.ps1 -Mode full -DryRun -VerboseTrace
@@ -292,7 +292,7 @@ For every story, trace explains: why (narrative), what (payload), when (timestam
 **Solution**: 
 ```powershell
 # Restart data-model service
-pwsh -File C:\AICOE\eva-foundry\37-data-model\start.ps1
+pwsh -File C:\eva-foundry\37-data-model\start.ps1
 Start-Sleep 4
 
 # Re-run dry-run

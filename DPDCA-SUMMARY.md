@@ -69,7 +69,7 @@ Terminal output issues prevent automated verification. **MANUAL STEPS**:
 
 **Option B - CLI Check (run manually):**
 ```powershell
-cd C:\AICOE\eva-foundry\51-ACA
+cd C:\eva-foundry\51-ACA
 pwsh -NoProfile -File verify-ado-sprint2.ps1
 ```
 
@@ -83,7 +83,7 @@ Expected output:
 ### Step 2: Run ADO Sync (if Step 1 shows empty board)
 
 ```powershell
-cd C:\AICOE\eva-foundry\51-ACA
+cd C:\eva-foundry\51-ACA
 pwsh -NoProfile -File sync-ado-sprint2-improved.ps1
 ```
 
@@ -92,8 +92,8 @@ Expected: 15 "[PASS] Work item NNNN updated" messages
 ### Step 3: Run Baseline Tests
 
 ```powershell
-cd C:\AICOE\eva-foundry\51-ACA
-C:\AICOE\.venv\Scripts\python.exe -m pytest services/ -x -q --tb=short
+cd C:\eva-foundry\51-ACA
+C:\eva-foundry\.venv\Scripts\python.exe -m pytest services/ -x -q --tb=short
 ```
 
 Expected: All tests pass (exit code 0)
@@ -102,8 +102,8 @@ Record test count for baseline
 ### Step 4: Run Veritas Audit (Recommended)
 
 ```powershell
-cd C:\AICOE\eva-foundry\51-ACA
-node C:\AICOE\eva-foundry\48-eva-veritas\src\cli.js audit --repo . --warn-only
+cd C:\eva-foundry\51-ACA
+node C:\eva-foundry\48-eva-veritas\src\cli.js audit --repo . --warn-only
 ```
 
 Expected: MTI >= 30

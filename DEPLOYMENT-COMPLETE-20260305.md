@@ -15,8 +15,8 @@ All three deployment tasks have been **COMPLETED AND VERIFIED**:
 Deployed all 5 regenerated files from 51-ACA source to 31-eva-faces production dashboard:
 
 ```
-Source:  C:\AICOE\eva-foundry\51-ACA\.eva\
-Target:  C:\AICOE\eva-foundry\31-eva-faces\.eva\projects\51-ACA\
+Source:  C:\eva-foundry\51-ACA\.eva\
+Target:  C:\eva-foundry\31-eva-faces\.eva\projects\51-ACA\
 
 FILES DEPLOYED:
   ✓ veritas-plan.json     (83.1 KB)

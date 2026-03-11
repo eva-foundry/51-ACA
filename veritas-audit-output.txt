@@ -1,10 +1,10 @@
-[INFO] Discovering: C:\AICOE\eva-foundry\51-ACA
+[INFO] Discovering: C:\eva-foundry\51-ACA
 [INFO] Using veritas-plan.json (format: auto-seeded, 281 stories, 0 tasks)
 [INFO] Planned: 15 features, 281 stories
 [INFO] Actual: 838 artifacts, 279 stories tagged
 [INFO] Evidence: 58 from commits, 0 from PRs, 8 from filenames
-[PASS] discovery written: C:\AICOE\eva-foundry\51-ACA\.eva\discovery.json
-[PASS] reconciliation written: C:\AICOE\eva-foundry\51-ACA\.eva\reconciliation.json
+[PASS] discovery written: C:\eva-foundry\51-ACA\.eva\discovery.json
+[PASS] reconciliation written: C:\eva-foundry\51-ACA\.eva\reconciliation.json
 [INFO] Gaps: 26
 [INFO] Running WBS quality gates for project: 51-ACA
 [FAIL] WBS Quality Gate Violations (24 done stories):
@@ -21,12 +21,12 @@
   ... and 14 more
 [INFO] Field population rates: sprint=0%, assignee=0%, ado_id=17%
 [INFO] Field population score: 3% (sprint, assignee, ado_id)
-[PASS] trust written: C:\AICOE\eva-foundry\51-ACA\.eva\trust.json (score: 57)
+[PASS] trust written: C:\eva-foundry\51-ACA\.eva\trust.json (score: 57)
 
 =======================================
 EVA Veritas Report: 51-ACA
 =======================================
-Repo:    C:\AICOE\eva-foundry\51-ACA
+Repo:    C:\eva-foundry\51-ACA
 Planned: 15 features, 281 stories
 
 Coverage

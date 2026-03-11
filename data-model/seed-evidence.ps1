@@ -36,7 +36,7 @@ if ($DryRun) {
     Write-Host $script
 } else {
     $script | Set-Content "$env:TEMP\seed-evidence.py" -Encoding UTF8
-    C:\AICOE\.venv\Scripts\python.exe "$env:TEMP\seed-evidence.py"
+    C:\eva-foundry\.venv\Scripts\python.exe "$env:TEMP\seed-evidence.py"
 }
 
 Write-Host "[INFO] Done"

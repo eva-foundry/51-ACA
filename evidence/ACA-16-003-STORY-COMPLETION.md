@@ -380,7 +380,7 @@ This will provide operators with actionable information when the circuit breaker
 
 ### 1. Local Validation (DEV)
 ```powershell
-cd C:\AICOE\eva-foundry\51-ACA
+cd C:\eva-foundry\51-ACA
 docker build -f infra/container-apps-job/Dockerfile -t aca-sync-job:local .
 docker run --rm -e DRY_RUN=true -e ENVIRONMENT=dev aca-sync-job:local
 # Verify logs show circuit breaker checks + state transitions

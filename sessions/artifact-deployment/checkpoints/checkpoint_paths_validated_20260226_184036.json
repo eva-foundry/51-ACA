@@ -3,7 +3,7 @@
   "checkpoint_id": "paths_validated",
   "data": {
     "dry_run": false,
-    "target_path": "C:\\AICOE\\eva-foundry\\51-ACA"
+    "target_path": "C:\\eva-foundry\\eva-foundry\\51-ACA"
   },
   "component": "artifact-deployment"
 }

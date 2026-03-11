@@ -1,5 +1,5 @@
 [INFO] ACA seed-from-plan -- 2026-02-27 13:40:37
-[INFO] Repo: C:\AICOE\eva-foundry\51-ACA
+[INFO] Repo: C:\eva-foundry\51-ACA
 [INFO] PLAN.md        60,825 chars
 [INFO] STATUS.md      45,301 chars
 [INFO] ACCEPTANCE.md  11,027 chars
@@ -25,7 +25,7 @@
   ACA-12  ACTIVE        stories=  8  done=0  -- DATA MODEL SUPPORT
   ACA-13  NEW           stories= 11  done=0  -- AZURE BEST PRACTICES SERVICE CATALOG
   ACA-14  NEW           stories= 14  done=11  -- DPDCA CLOUD AGENT
-[INFO] Wiping data model (SQLite: C:\AICOE\eva-foundry\51-ACA\data-model\aca-model.db) ...
+[INFO] Wiping data model (SQLite: C:\eva-foundry\51-ACA\data-model\aca-model.db) ...
   [INFO] Wiped requirements: 270 objects
   [INFO] Wiped endpoints: 27 objects
   [INFO] Wiped containers: 11 objects

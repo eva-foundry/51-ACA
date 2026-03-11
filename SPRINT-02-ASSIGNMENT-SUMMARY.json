@@ -5,7 +5,7 @@
   },
   
   "local_sqlite_database": {
-    "path": "C:\\AICOE\\eva-foundry\\51-ACA\\data-model\\aca-model.db",
+    "path": "C:\\eva-foundry\\eva-foundry\\51-ACA\\data-model\\aca-model.db",
     "status": "UPDATED",
     "sprint_02_stories_linked": 15,
     "story_ids_assigned": [

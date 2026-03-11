@@ -2,7 +2,7 @@
 
 **Date**: March 6, 2026 17:02 UTC  
 **Project**: 51-ACA -- Azure Cost Advisor  
-**Repository**: C:\AICOE\eva-foundry\51-ACA  
+**Repository**: C:\eva-foundry\51-ACA  
 **Audit Type**: Data Model Completeness vs. Planned & Implemented Work
 
 ---

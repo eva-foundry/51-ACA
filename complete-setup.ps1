@@ -35,7 +35,7 @@ Write-Host ""
 Write-Host "=== STEP 2: Verify Local DB Sprint 2 Linkage ==="
 Write-Host ""
 
-$localCheck = & C:\AICOE\.venv\Scripts\python.exe -c @"
+$localCheck = & C:\eva-foundry\.venv\Scripts\python.exe -c @"
 import sys; sys.path.insert(0, 'data-model'); import db
 s2 = [s for s in db.list_layer('wbs') if s.get('sprint_id') == 'Sprint-02']
 print(f'Stories linked to Sprint-02: {len(s2)}')

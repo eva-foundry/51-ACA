@@ -11,8 +11,8 @@
     "meta": {
       "schema": "eva.reconciliation.v2",
       "generated_at": "2026-03-06T17:19:06.469Z",
-      "repo": "C:\\AICOE\\eva-foundry\\51-ACA",
-      "discovery_path": "C:\\AICOE\\eva-foundry\\51-ACA\\.eva\\discovery.json"
+      "repo": "C:\\eva-foundry\\eva-foundry\\51-ACA",
+      "discovery_path": "C:\\eva-foundry\\eva-foundry\\51-ACA\\.eva\\discovery.json"
     },
     "coverage": {
       "stories_total": 281,

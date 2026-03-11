@@ -397,7 +397,7 @@ Region: canadacentral (primary), canadaeast (secondary for OpenAI + Foundry)
 
 ### Terraform Modules (Phase 2)
 
-**Source:** `C:\AICOE\eva-foundry\18-azure-best\04-terraform-modules`
+**Source:** `C:\eva-foundry\18-azure-best\04-terraform-modules`
 
 ```
 infra/phase2-private/

@@ -7,7 +7,7 @@ Write-Host ""
 # 1. LOCAL DB Check
 Write-Host "[1] LOCAL DB" -ForegroundColor Yellow
 try {
-    $s2Count = & C:\AICOE\.venv\Scripts\python.exe -c "import sys; sys.path.insert(0, 'data-model'); import db; s2 = [s for s in db.list_layer('wbs') if s.get('sprint_id') == 'Sprint-02']; print(len(s2))"
+    $s2Count = & C:\eva-foundry\.venv\Scripts\python.exe -c "import sys; sys.path.insert(0, 'data-model'); import db; s2 = [s for s in db.list_layer('wbs') if s.get('sprint_id') == 'Sprint-02']; print(len(s2))"
     
     if ($s2Count -eq "15") {
         Write-Host "  Stories: 15/15 [PASS]" -ForegroundColor Green

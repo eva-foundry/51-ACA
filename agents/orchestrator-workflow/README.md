@@ -279,7 +279,7 @@ Orchestration Result {action, delay_ms, guidance, confidence, agents_executed}
 
 ```bash
 # Activate Python venv
-cd C:\AICOE\eva-foundry\51-ACA\agents\orchestrator-workflow
+cd C:\eva-foundry\51-ACA\agents\orchestrator-workflow
 python -m venv venv
 .\venv\Scripts\Activate.ps1
 pip install -r requirements.txt
@@ -362,7 +362,7 @@ Emit-OrchestrationEvent -Result $decision -CorrelationId $correlationId
 ## Testing
 
 ```bash
-cd C:\AICOE\eva-foundry\51-ACA\agents\orchestrator-workflow
+cd C:\eva-foundry\51-ACA\agents\orchestrator-workflow
 pytest test_orchestrator_workflow.py -v
 
 # Output:

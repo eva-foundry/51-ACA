@@ -214,8 +214,8 @@ git commit -m "docs: governance alignment audit -- port 8010, project registered
 ## References
 
 - **Project 37 API Docs**: `http://localhost:8010/model/agent-guide`
-- **ADO Integration**: `C:\AICOE\eva-foundry\38-ado-poc\scripts\ado-import-project.ps1`
-- **Governance Template**: `C:\AICOE\eva-foundry\07-foundation-layer\.github\copilot-skills\`
+- **ADO Integration**: `C:\eva-foundry\38-ado-poc\scripts\ado-import-project.ps1`
+- **Governance Template**: `C:\eva-foundry\07-foundation-layer\.github\copilot-skills\`
 
 ---
 

@@ -1,0 +1,3609 @@
+{
+  "meta": {
+    "schema": "eva.upload-to-model.v1",
+    "timestamp": "2026-03-08T02:32:11.893Z",
+    "project_id": "51-ACA",
+    "api_base": "https://msub-eva-data-model.victoriousgrass-30debbd3.canadacentral.azurecontainerapps.io",
+    "dry_run": false,
+    "layers_uploaded": [
+      "wbs",
+      "evidence",
+      "decisions",
+      "risks"
+    ],
+    "source_export": "C:\\eva-foundry\\eva-foundry\\51-ACA\\.eva\\model-export.json"
+  },
+  "summary": {
+    "total_records": 573,
+    "total_inserted": 523,
+    "total_updated": 50,
+    "total_skipped": 0,
+    "total_failed": 0
+  },
+  "layers": {
+    "wbs": {
+      "total": 297,
+      "batches": 6,
+      "inserted": 247,
+      "updated": 50,
+      "skipped": 0,
+      "failed": 0,
+      "batch_results": [
+        {
+          "batch": 1,
+          "inserted": 4,
+          "updated": 46,
+          "skipped": 0,
+          "failed": 0,
+          "details": [
+            {
+              "operation": "wbs/WBS-51ACA",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-F01",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S001",
+              "strategy": "update",
+              "reason": "New record newer (2026-03-08T02:03:42.113Z > 2026-03-08T02:03:33.741Z)",
+              "status": "updated"
+            },
+            {
+              "operation": "wbs/WBS-S002",
+              "strategy": "update",
+              "reason": "New record newer (2026-03-08T02:03:42.113Z > 2026-03-08T02:03:33.741Z)",
+              "status": "updated"
+            },
+            {
+              "operation": "wbs/WBS-S003",
+              "strategy": "update",
+              "reason": "New record newer (2026-03-08T02:03:42.113Z > 2026-03-08T02:03:33.741Z)",
+              "status": "updated"
+            },
+            {
+              "operation": "wbs/WBS-S004",
+              "strategy": "update",
+              "reason": "New record newer (2026-03-08T02:03:42.113Z > 2026-03-08T02:03:33.741Z)",
+              "status": "updated"
+            },
+            {
+              "operation": "wbs/WBS-S005",
+              "strategy": "update",
+              "reason": "New record newer (2026-03-08T02:03:42.113Z > 2026-03-08T02:03:33.741Z)",
+              "status": "updated"
+            },
+            {
+              "operation": "wbs/WBS-S006",
+              "strategy": "update",
+              "reason": "New record newer (2026-03-08T02:03:42.113Z > 2026-03-08T02:03:33.741Z)",
+              "status": "updated"
+            },
+            {
+              "operation": "wbs/WBS-S007",
+              "strategy": "update",
+              "reason": "New record newer (2026-03-08T02:03:42.113Z > 2026-03-08T02:03:33.741Z)",
+              "status": "updated"
+            },
+            {
+              "operation": "wbs/WBS-S008",
+              "strategy": "update",
+              "reason": "New record newer (2026-03-08T02:03:42.113Z > 2026-03-08T02:03:33.741Z)",
+              "status": "updated"
+            },
+            {
+              "operation": "wbs/WBS-S009",
+              "strategy": "update",
+              "reason": "New record newer (2026-03-08T02:03:42.113Z > 2026-03-08T02:03:33.741Z)",
+              "status": "updated"
+            },
+            {
+              "operation": "wbs/WBS-S010",
+              "strategy": "update",
+              "reason": "New record newer (2026-03-08T02:03:42.113Z > 2026-03-08T02:03:33.741Z)",
+              "status": "updated"
+            },
+            {
+              "operation": "wbs/WBS-S011",
+              "strategy": "update",
+              "reason": "New record newer (2026-03-08T02:03:42.113Z > 2026-03-08T02:03:33.741Z)",
+              "status": "updated"
+            },
+            {
+              "operation": "wbs/WBS-S012",
+              "strategy": "update",
+              "reason": "New record newer (2026-03-08T02:03:42.113Z > 2026-03-08T02:03:33.741Z)",
+              "status": "updated"
+            },
+            {
+              "operation": "wbs/WBS-S013",
+              "strategy": "update",
+              "reason": "New record newer (2026-03-08T02:03:42.113Z > 2026-03-08T02:03:33.741Z)",
+              "status": "updated"
+            },
+            {
+              "operation": "wbs/WBS-S014",
+              "strategy": "update",
+              "reason": "New record newer (2026-03-08T02:03:42.113Z > 2026-03-08T02:03:33.741Z)",
+              "status": "updated"
+            },
+            {
+              "operation": "wbs/WBS-S015",
+              "strategy": "update",
+              "reason": "New record newer (2026-03-08T02:03:42.113Z > 2026-03-08T02:03:33.741Z)",
+              "status": "updated"
+            },
+            {
+              "operation": "wbs/WBS-S016",
+              "strategy": "update",
+              "reason": "New record newer (2026-03-08T02:03:42.113Z > 2026-03-08T02:03:33.741Z)",
+              "status": "updated"
+            },
+            {
+              "operation": "wbs/WBS-S017",
+              "strategy": "update",
+              "reason": "New record newer (2026-03-08T02:03:42.113Z > 2026-03-08T02:03:33.741Z)",
+              "status": "updated"
+            },
+            {
+              "operation": "wbs/WBS-S018",
+              "strategy": "update",
+              "reason": "New record newer (2026-03-08T02:03:42.113Z > 2026-03-08T02:03:33.741Z)",
+              "status": "updated"
+            },
+            {
+              "operation": "wbs/WBS-S019",
+              "strategy": "update",
+              "reason": "New record newer (2026-03-08T02:03:42.113Z > 2026-03-08T02:03:33.741Z)",
+              "status": "updated"
+            },
+            {
+              "operation": "wbs/WBS-S020",
+              "strategy": "update",
+              "reason": "New record newer (2026-03-08T02:03:42.113Z > 2026-03-08T02:03:33.741Z)",
+              "status": "updated"
+            },
+            {
+              "operation": "wbs/WBS-S021",
+              "strategy": "update",
+              "reason": "New record newer (2026-03-08T02:03:42.113Z > 2026-03-08T02:03:33.741Z)",
+              "status": "updated"
+            },
+            {
+              "operation": "wbs/WBS-F02",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S022",
+              "strategy": "update",
+              "reason": "New record newer (2026-03-08T02:03:42.113Z > 2026-03-08T02:03:33.741Z)",
+              "status": "updated"
+            },
+            {
+              "operation": "wbs/WBS-S023",
+              "strategy": "update",
+              "reason": "New record newer (2026-03-08T02:03:42.113Z > 2026-03-08T02:03:33.741Z)",
+              "status": "updated"
+            },
+            {
+              "operation": "wbs/WBS-S024",
+              "strategy": "update",
+              "reason": "New record newer (2026-03-08T02:03:42.113Z > 2026-03-08T02:03:33.741Z)",
+              "status": "updated"
+            },
+            {
+              "operation": "wbs/WBS-S025",
+              "strategy": "update",
+              "reason": "New record newer (2026-03-08T02:03:42.113Z > 2026-03-08T02:03:33.741Z)",
+              "status": "updated"
+            },
+            {
+              "operation": "wbs/WBS-S026",
+              "strategy": "update",
+              "reason": "New record newer (2026-03-08T02:03:42.113Z > 2026-03-08T02:03:33.741Z)",
+              "status": "updated"
+            },
+            {
+              "operation": "wbs/WBS-S027",
+              "strategy": "update",
+              "reason": "New record newer (2026-03-08T02:03:42.113Z > 2026-03-08T02:03:33.741Z)",
+              "status": "updated"
+            },
+            {
+              "operation": "wbs/WBS-S028",
+              "strategy": "update",
+              "reason": "New record newer (2026-03-08T02:03:42.113Z > 2026-03-08T02:03:33.741Z)",
+              "status": "updated"
+            },
+            {
+              "operation": "wbs/WBS-S029",
+              "strategy": "update",
+              "reason": "New record newer (2026-03-08T02:03:42.113Z > 2026-03-08T02:03:33.741Z)",
+              "status": "updated"
+            },
+            {
+              "operation": "wbs/WBS-S030",
+              "strategy": "update",
+              "reason": "New record newer (2026-03-08T02:03:42.113Z > 2026-03-08T02:03:33.741Z)",
+              "status": "updated"
+            },
+            {
+              "operation": "wbs/WBS-S031",
+              "strategy": "update",
+              "reason": "New record newer (2026-03-08T02:03:42.113Z > 2026-03-08T02:03:33.741Z)",
+              "status": "updated"
+            },
+            {
+              "operation": "wbs/WBS-S032",
+              "strategy": "update",
+              "reason": "New record newer (2026-03-08T02:03:42.113Z > 2026-03-08T02:03:33.741Z)",
+              "status": "updated"
+            },
+            {
+              "operation": "wbs/WBS-S033",
+              "strategy": "update",
+              "reason": "New record newer (2026-03-08T02:03:42.113Z > 2026-03-08T02:03:33.741Z)",
+              "status": "updated"
+            },
+            {
+              "operation": "wbs/WBS-S034",
+              "strategy": "update",
+              "reason": "New record newer (2026-03-08T02:03:42.113Z > 2026-03-08T02:03:33.741Z)",
+              "status": "updated"
+            },
+            {
+              "operation": "wbs/WBS-S035",
+              "strategy": "update",
+              "reason": "New record newer (2026-03-08T02:03:42.113Z > 2026-03-08T02:03:33.741Z)",
+              "status": "updated"
+            },
+            {
+              "operation": "wbs/WBS-S036",
+              "strategy": "update",
+              "reason": "New record newer (2026-03-08T02:03:42.113Z > 2026-03-08T02:03:33.741Z)",
+              "status": "updated"
+            },
+            {
+              "operation": "wbs/WBS-S037",
+              "strategy": "update",
+              "reason": "New record newer (2026-03-08T02:03:42.113Z > 2026-03-08T02:03:33.741Z)",
+              "status": "updated"
+            },
+            {
+              "operation": "wbs/WBS-S038",
+              "strategy": "update",
+              "reason": "New record newer (2026-03-08T02:03:42.113Z > 2026-03-08T02:03:33.741Z)",
+              "status": "updated"
+            },
+            {
+              "operation": "wbs/WBS-F03",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S039",
+              "strategy": "update",
+              "reason": "New record newer (2026-03-08T02:03:42.113Z > 2026-03-08T02:03:33.741Z)",
+              "status": "updated"
+            },
+            {
+              "operation": "wbs/WBS-S040",
+              "strategy": "update",
+              "reason": "New record newer (2026-03-08T02:03:42.113Z > 2026-03-08T02:03:33.741Z)",
+              "status": "updated"
+            },
+            {
+              "operation": "wbs/WBS-S041",
+              "strategy": "update",
+              "reason": "New record newer (2026-03-08T02:03:42.113Z > 2026-03-08T02:03:33.741Z)",
+              "status": "updated"
+            },
+            {
+              "operation": "wbs/WBS-S042",
+              "strategy": "update",
+              "reason": "New record newer (2026-03-08T02:03:42.113Z > 2026-03-08T02:03:33.741Z)",
+              "status": "updated"
+            },
+            {
+              "operation": "wbs/WBS-S043",
+              "strategy": "update",
+              "reason": "New record newer (2026-03-08T02:03:42.113Z > 2026-03-08T02:03:33.741Z)",
+              "status": "updated"
+            },
+            {
+              "operation": "wbs/WBS-S044",
+              "strategy": "update",
+              "reason": "New record newer (2026-03-08T02:03:42.113Z > 2026-03-08T02:03:33.741Z)",
+              "status": "updated"
+            },
+            {
+              "operation": "wbs/WBS-S045",
+              "strategy": "update",
+              "reason": "New record newer (2026-03-08T02:03:42.113Z > 2026-03-08T02:03:33.741Z)",
+              "status": "updated"
+            },
+            {
+              "operation": "wbs/WBS-S046",
+              "strategy": "update",
+              "reason": "New record newer (2026-03-08T02:03:42.113Z > 2026-03-08T02:03:33.741Z)",
+              "status": "updated"
+            }
+          ]
+        },
+        {
+          "batch": 2,
+          "inserted": 46,
+          "updated": 4,
+          "skipped": 0,
+          "failed": 0,
+          "details": [
+            {
+              "operation": "wbs/WBS-S047",
+              "strategy": "update",
+              "reason": "New record newer (2026-03-08T02:03:42.113Z > 2026-03-08T02:03:33.741Z)",
+              "status": "updated"
+            },
+            {
+              "operation": "wbs/WBS-S048",
+              "strategy": "update",
+              "reason": "New record newer (2026-03-08T02:03:42.113Z > 2026-03-08T02:03:33.741Z)",
+              "status": "updated"
+            },
+            {
+              "operation": "wbs/WBS-S049",
+              "strategy": "update",
+              "reason": "New record newer (2026-03-08T02:03:42.113Z > 2026-03-08T02:03:33.741Z)",
+              "status": "updated"
+            },
+            {
+              "operation": "wbs/WBS-S050",
+              "strategy": "update",
+              "reason": "New record newer (2026-03-08T02:03:42.113Z > 2026-03-08T02:03:33.741Z)",
+              "status": "updated"
+            },
+            {
+              "operation": "wbs/WBS-S051",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S052",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S053",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S054",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S055",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S056",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S057",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S058",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S059",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S060",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S061",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S062",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S063",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S064",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S065",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S066",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S067",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S068",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S069",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S070",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S071",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-F04",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S072",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S073",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S074",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S075",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S076",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S077",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S078",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S079",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S080",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S081",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S082",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S083",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S084",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S085",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S086",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S087",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S088",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S089",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S090",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S091",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S092",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S093",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S094",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S095",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            }
+          ]
+        },
+        {
+          "batch": 3,
+          "inserted": 50,
+          "updated": 0,
+          "skipped": 0,
+          "failed": 0,
+          "details": [
+            {
+              "operation": "wbs/WBS-S096",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S097",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S098",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S099",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-F05",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S100",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S101",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S102",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S103",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S104",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S105",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S106",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S107",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S108",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S109",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S110",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S111",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S112",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S113",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S114",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S115",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S116",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S117",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S118",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S119",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S120",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S121",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S122",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S123",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S124",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S125",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S126",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S127",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S128",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S129",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S130",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S131",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S132",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S133",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S134",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S135",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S136",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S137",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S138",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S139",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S140",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S141",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-F06",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S142",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S143",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            }
+          ]
+        },
+        {
+          "batch": 4,
+          "inserted": 50,
+          "updated": 0,
+          "skipped": 0,
+          "failed": 0,
+          "details": [
+            {
+              "operation": "wbs/WBS-S144",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S145",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S146",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S147",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S148",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S149",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S150",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S151",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S152",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S153",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S154",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S155",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S156",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S157",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S158",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S159",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-F07",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S160",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S161",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S162",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S163",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S164",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S165",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S166",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S167",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S168",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-F08",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S169",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S170",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S171",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S172",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S173",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S174",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S175",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S176",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S177",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S178",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S179",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S180",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S181",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S182",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-F09",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S183",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S184",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S185",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S186",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S187",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S188",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S189",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S190",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            }
+          ]
+        },
+        {
+          "batch": 5,
+          "inserted": 50,
+          "updated": 0,
+          "skipped": 0,
+          "failed": 0,
+          "details": [
+            {
+              "operation": "wbs/WBS-S191",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S192",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S193",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S194",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S195",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S196",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S197",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S198",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S199",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S200",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-F10",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S201",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S202",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S203",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S204",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S205",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S206",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S207",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S208",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S209",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S210",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S211",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S212",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S213",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S214",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S215",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-F11",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S216",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S217",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S218",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S219",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S220",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S221",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S222",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S223",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S224",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-F12",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S225",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S226",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S227",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S228",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S229",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S230",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S231",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S232",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S233",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S234",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S235",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S236",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S237",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            }
+          ]
+        },
+        {
+          "batch": 6,
+          "inserted": 47,
+          "updated": 0,
+          "skipped": 0,
+          "failed": 0,
+          "details": [
+            {
+              "operation": "wbs/WBS-S238",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S239",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S240",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-F13",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S241",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S242",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S243",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S244",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S245",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S246",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S247",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S248",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S249",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S250",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S251",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-F14",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S252",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S253",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S254",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S255",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S256",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S257",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S258",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S259",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S260",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S261",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S262",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S263",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S264",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-F15",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S265",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S266",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S267",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S268",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S269",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S270",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S271",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S272",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S273",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S274",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S275",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S276",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S277",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S278",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S279",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S280",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "wbs/WBS-S281",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            }
+          ]
+        }
+      ]
+    },
+    "evidence": {
+      "total": 276,
+      "batches": 6,
+      "inserted": 276,
+      "updated": 0,
+      "skipped": 0,
+      "failed": 0,
+      "batch_results": [
+        {
+          "batch": 1,
+          "inserted": 50,
+          "updated": 0,
+          "skipped": 0,
+          "failed": 0,
+          "details": [
+            {
+              "operation": "evidence/EVD-51ACA-D3-001",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-002",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-003",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-004",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-005",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-006",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-007",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-008",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-009",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-010",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-011",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-012",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-013",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-014",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-015",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-016",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-017",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-018",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-019",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-020",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-021",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-022",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-023",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-024",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-025",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-026",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-027",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-028",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-029",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-030",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-031",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-032",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-033",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-034",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-035",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-036",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-037",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-038",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-039",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-040",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-041",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-042",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-043",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-044",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-045",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-046",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-047",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-048",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-049",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-050",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            }
+          ]
+        },
+        {
+          "batch": 2,
+          "inserted": 50,
+          "updated": 0,
+          "skipped": 0,
+          "failed": 0,
+          "details": [
+            {
+              "operation": "evidence/EVD-51ACA-D3-051",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-052",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-053",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-054",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-055",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-056",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-057",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-058",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-059",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-060",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-061",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-062",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-063",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-064",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-065",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-066",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-067",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-068",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-069",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-070",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-071",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-072",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-073",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-074",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-075",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-076",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-077",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-078",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-079",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-080",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-081",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-082",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-083",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-084",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-085",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-086",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-087",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-088",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-089",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-090",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-091",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-092",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-093",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-094",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-095",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-096",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-097",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-098",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-099",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-100",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            }
+          ]
+        },
+        {
+          "batch": 3,
+          "inserted": 50,
+          "updated": 0,
+          "skipped": 0,
+          "failed": 0,
+          "details": [
+            {
+              "operation": "evidence/EVD-51ACA-D3-101",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-102",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-103",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-104",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-105",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-106",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-107",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-108",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-109",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-110",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-111",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-112",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-113",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-114",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-115",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-116",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-117",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-118",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-119",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-120",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-121",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-122",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-123",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-124",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-125",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-126",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-127",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-128",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-129",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-130",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-131",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-132",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-133",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-134",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-135",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-136",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-137",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-138",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-139",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-140",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-141",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-142",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-143",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-144",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-145",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-146",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-147",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-148",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-149",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-150",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            }
+          ]
+        },
+        {
+          "batch": 4,
+          "inserted": 50,
+          "updated": 0,
+          "skipped": 0,
+          "failed": 0,
+          "details": [
+            {
+              "operation": "evidence/EVD-51ACA-D3-151",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-152",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-153",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-154",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-155",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-156",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-157",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-158",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-159",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-160",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-161",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-162",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-163",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-164",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-165",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-166",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-167",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-168",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-169",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-170",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-171",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-172",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-173",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-174",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-175",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-176",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-177",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-178",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-179",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-180",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-181",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-182",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-183",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-184",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-185",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-186",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-187",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-188",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-189",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-190",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-191",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-192",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-193",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-194",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-195",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-196",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-197",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-198",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-199",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-200",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            }
+          ]
+        },
+        {
+          "batch": 5,
+          "inserted": 50,
+          "updated": 0,
+          "skipped": 0,
+          "failed": 0,
+          "details": [
+            {
+              "operation": "evidence/EVD-51ACA-D3-201",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-202",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-203",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-204",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-205",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-206",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-207",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-208",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-209",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-210",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-211",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-212",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-213",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-214",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-215",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-216",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-217",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-218",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-219",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-220",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-221",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-222",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-223",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-224",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-225",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-226",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-227",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-228",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-229",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-230",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-231",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-232",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-233",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-234",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-235",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-236",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-237",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-238",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-239",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-240",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-241",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-242",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-243",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-244",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-245",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-246",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-247",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-248",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-249",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-250",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            }
+          ]
+        },
+        {
+          "batch": 6,
+          "inserted": 26,
+          "updated": 0,
+          "skipped": 0,
+          "failed": 0,
+          "details": [
+            {
+              "operation": "evidence/EVD-51ACA-D3-251",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-252",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-253",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-254",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-255",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-256",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-257",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-258",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-259",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-260",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-261",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-262",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-263",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-264",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-265",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-266",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-267",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-268",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-269",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-270",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-271",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-272",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-273",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-274",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-275",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            },
+            {
+              "operation": "evidence/EVD-51ACA-D3-276",
+              "strategy": "insert",
+              "reason": "Record not found in API",
+              "status": "inserted"
+            }
+          ]
+        }
+      ]
+    },
+    "decisions": {
+      "total": 0,
+      "batches": 0,
+      "inserted": 0,
+      "updated": 0,
+      "skipped": 0,
+      "failed": 0,
+      "batch_results": []
+    },
+    "risks": {
+      "total": 0,
+      "batches": 0,
+      "inserted": 0,
+      "updated": 0,
+      "skipped": 0,
+      "failed": 0,
+      "batch_results": []
+    }
+  }
+}

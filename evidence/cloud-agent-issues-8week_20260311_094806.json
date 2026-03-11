@@ -1,0 +1,17 @@
+{
+  "mode": "live",
+  "issues_created": 1,
+  "issues_failed": 0,
+  "script": "create-cloud-agent-issues-8week.ps1",
+  "batches_total": 1,
+  "issues": [
+    {
+      "batch_id": 1,
+      "status": "created",
+      "title": "[SPRINT-004-BATCH-1] Analysis Rules Completion (R-09 to R-12)",
+      "url": "https://github.com/eva-foundry/51-ACA/issues/39",
+      "week": 1
+    }
+  ],
+  "timestamp": "2026-03-11 09:48:08"
+}

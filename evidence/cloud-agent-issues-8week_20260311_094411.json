@@ -1,0 +1,17 @@
+{
+  "mode": "live",
+  "issues_created": 0,
+  "issues_failed": 1,
+  "script": "create-cloud-agent-issues-8week.ps1",
+  "batches_total": 1,
+  "issues": [
+    {
+      "error": "gh issue create failed: could not add label: 'cloud-agent' not found",
+      "batch_id": 1,
+      "status": "failed",
+      "title": "[SPRINT-004-BATCH-1] Analysis Rules Completion (R-09 to R-12)",
+      "week": 1
+    }
+  ],
+  "timestamp": "2026-03-11 09:44:13"
+}

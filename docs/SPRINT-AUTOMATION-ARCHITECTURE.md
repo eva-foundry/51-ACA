@@ -99,7 +99,7 @@ python scripts/seed-from-plan.py --epic "epic-04" --sprint "51-ACA-sprint-03"
 
 # Phase 1
 pytest services/ -x -q
-node C:\AICOE\eva-foundry\48-eva-veritas\src\cli.js audit --repo . --warn-only
+node C:\eva-foundry\48-eva-veritas\src\cli.js audit --repo . --warn-only
 # (checks MTI >= 0.70)
 
 # Phase 2
@@ -180,23 +180,23 @@ VERIFICATION:
 #### DPDCA Loop (One Command Each Step)
 
 ```powershell
-$repo = "C:\AICOE\eva-foundry\51-ACA"
+$repo = "C:\eva-foundry\51-ACA"
 
 # All in one -- PREFERRED
-node C:\AICOE\eva-foundry\48-eva-veritas\src\cli.js audit --repo $repo --warn-only
+node C:\eva-foundry\48-eva-veritas\src\cli.js audit --repo $repo --warn-only
 
 # Or step-by-step:
 # D -- Discover: scan planned docs + actual source
-node C:\AICOE\eva-foundry\48-eva-veritas\src\cli.js discover --repo $repo
+node C:\eva-foundry\48-eva-veritas\src\cli.js discover --repo $repo
 
 # P + D -- Reconcile: planned vs actual
-node C:\AICOE\eva-foundry\48-eva-veritas\src\cli.js reconcile --repo $repo
+node C:\eva-foundry\48-eva-veritas\src\cli.js reconcile --repo $repo
 
 # C -- Compute trust
-node C:\AICOE\eva-foundry\48-eva-veritas\src\cli.js compute-trust --repo $repo
+node C:\eva-foundry\48-eva-veritas\src\cli.js compute-trust --repo $repo
 
 # A -- Report
-node C:\AICOE\eva-foundry\48-eva-veritas\src\cli.js report --repo $repo
+node C:\eva-foundry\48-eva-veritas\src\cli.js report --repo $repo
 ```
 
 #### Evidence Receipt Template
@@ -327,7 +327,7 @@ Epic 3: Analysis Rules      /model/stories/ACA-03-001         WI 2978: ACA-03-00
 
 ```powershell
 # Seed Sprint 3 from Epic 4
-cd C:\AICOE\eva-foundry\51-ACA
+cd C:\eva-foundry\51-ACA
 python scripts/seed-from-plan.py --epic "epic-04" --sprint "51-ACA-sprint-03"
 
 # Output:
@@ -650,7 +650,7 @@ pytest services/ -x -q --tb=line
 
 ```powershell
 # Before launching next sprint, check MTI
-node C:\AICOE\eva-foundry\48-eva-veritas\src\cli.js audit --repo . --warn-only
+node C:\eva-foundry\48-eva-veritas\src\cli.js audit --repo . --warn-only
 $trust = Get-Content .eva\trust.json | ConvertFrom-Json
 
 # Sprint 2: MTI >= 0.30 (bootstrap)
@@ -671,7 +671,7 @@ if ($trust.mti -lt $threshold) {
 # - Test file with EVA-STORY tag
 # - Evidence receipt in evidence/ directory
 
-$gaps = node C:\AICOE\eva-foundry\48-eva-veritas\src\cli.js audit --repo . --json |
+$gaps = node C:\eva-foundry\48-eva-veritas\src\cli.js audit --repo . --json |
          ConvertFrom-Json | 
          Select-Object -ExpandProperty gaps |
          Where-Object { $_.type -eq "missing_evidence" }
@@ -729,16 +729,16 @@ Invoke-RestMethod "http://localhost:8055/model/admin/commit" -Method POST
 **Sprint Integration Points**:
 ```powershell
 # Pre-sprint: Verify readiness
-node C:\AICOE\eva-foundry\48-eva-veritas\src\cli.js audit --repo . --warn-only
+node C:\eva-foundry\48-eva-veritas\src\cli.js audit --repo . --warn-only
 # Check: gaps.Count == 0 for all done stories
 
 # Post-sprint: Update trust score
-node C:\AICOE\eva-foundry\48-eva-veritas\src\cli.js compute-trust --repo .
+node C:\eva-foundry\48-eva-veritas\src\cli.js compute-trust --repo .
 $trust = Get-Content .eva\trust.json | ConvertFrom-Json
 # Record MTI in STATUS.md
 
 # Sprint advance: Archaeology -- find undone stories
-node C:\AICOE\eva-foundry\48-eva-veritas\src\cli.js discover --repo .
+node C:\eva-foundry\48-eva-veritas\src\cli.js discover --repo .
 $plan = Get-Content .eva\veritas-plan.json | ConvertFrom-Json
 $undone = $plan.stories | Where-Object { $_.has_artifacts -eq $false }
 # Include $undone in next sprint if from prior epics
@@ -921,11 +921,11 @@ See **Section 6: Future Automation Roadmap** for implementation priorities
 
 ```powershell
 # Copy 51-ACA skills to your project
-cp C:\AICOE\eva-foundry\51-ACA\.github\copilot-skills\sprint-advance.skill.md \
-   C:\AICOE\eva-foundry\{YOUR-PROJECT}\.github\copilot-skills\
+cp C:\eva-foundry\51-ACA\.github\copilot-skills\sprint-advance.skill.md \
+   C:\eva-foundry\{YOUR-PROJECT}\.github\copilot-skills\
 
-cp C:\AICOE\eva-foundry\51-ACA\.github\copilot-skills\veritas-expert.skill.md \
-   C:\AICOE\eva-foundry\{YOUR-PROJECT}\.github\copilot-skills\
+cp C:\eva-foundry\51-ACA\.github\copilot-skills\veritas-expert.skill.md \
+   C:\eva-foundry\{YOUR-PROJECT}\.github\copilot-skills\
 
 # Update project references in skills (51-ACA → YOUR-PROJECT)
 ```
@@ -933,11 +933,11 @@ cp C:\AICOE\eva-foundry\51-ACA\.github\copilot-skills\veritas-expert.skill.md \
 ### Step 2: Copy Workflows
 
 ```powershell
-cp C:\AICOE\eva-foundry\51-ACA\.github\workflows\sprint-agent.yml \
-   C:\AICOE\eva-foundry\{YOUR-PROJECT}\.github\workflows\
+cp C:\eva-foundry\51-ACA\.github\workflows\sprint-agent.yml \
+   C:\eva-foundry\{YOUR-PROJECT}\.github\workflows\
 
-cp C:\AICOE\eva-foundry\51-ACA\.github\scripts\sprint_agent.py \
-   C:\AICOE\eva-foundry\{YOUR-PROJECT}\.github\scripts\
+cp C:\eva-foundry\51-ACA\.github\scripts\sprint_agent.py \
+   C:\eva-foundry\{YOUR-PROJECT}\.github\scripts\
 
 # Update repo references in sprint_agent.py
 ```
@@ -945,11 +945,11 @@ cp C:\AICOE\eva-foundry\51-ACA\.github\scripts\sprint_agent.py \
 ### Step 3: Copy Templates
 
 ```powershell
-cp C:\AICOE\eva-foundry\51-ACA\.github\SPRINT_ISSUE_TEMPLATE.md \
-   C:\AICOE\eva-foundry\{YOUR-PROJECT}\.github\
+cp C:\eva-foundry\51-ACA\.github\SPRINT_ISSUE_TEMPLATE.md \
+   C:\eva-foundry\{YOUR-PROJECT}\.github\
 
 # Create sprints folder
-mkdir C:\AICOE\eva-foundry\{YOUR-PROJECT}\.github\sprints
+mkdir C:\eva-foundry\{YOUR-PROJECT}\.github\sprints
 ```
 
 ### Step 4: Seed First Sprint

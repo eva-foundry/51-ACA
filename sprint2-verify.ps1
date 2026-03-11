@@ -24,7 +24,7 @@ if s2: print(f"Sample IDs: {', '.join([s.get('id', 'N/A')[:15] for s in s2[:3]])
 
 Write-Host "Checking LOCAL db for sprint_id='Sprint-02'..." -ForegroundColor Gray
 try {
-    $dbOut = C:\AICOE\.venv\Scripts\python.exe -c $dbCmd 2>&1 | Out-String
+    $dbOut = C:\eva-foundry\.venv\Scripts\python.exe -c $dbCmd 2>&1 | Out-String
     Write-Host $dbOut -ForegroundColor Gray
     
     if ($dbOut -match "Count: 15") {
@@ -79,7 +79,7 @@ Write-Host "-" * 40 -ForegroundColor Gray
 Write-Host "Running: pytest services/ -x -q --tb=line" -ForegroundColor Gray
 
 try {
-    $testOut = C:\AICOE\.venv\Scripts\python.exe -m pytest services/ -x -q --tb=line 2>&1 | Out-String
+    $testOut = C:\eva-foundry\.venv\Scripts\python.exe -m pytest services/ -x -q --tb=line 2>&1 | Out-String
     $testExitCode = $LASTEXITCODE
     
     Write-Host $testOut -ForegroundColor Gray

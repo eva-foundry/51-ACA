@@ -1,17 +1,17 @@
-[INFO] Discovering: C:\AICOE\eva-foundry\51-ACA
+[INFO] Discovering: C:\eva-foundry\51-ACA
 [INFO] Using veritas-plan.json (format: auto-seeded, 257 stories, 0 tasks)
 [INFO] Planned: 14 features, 257 stories
 [INFO] Actual: 646 artifacts, 274 stories tagged
 [INFO] Evidence: 51 from commits, 0 from PRs, 1 from filenames
-[PASS] discovery written: C:\AICOE\eva-foundry\51-ACA\.eva\discovery.json
-[PASS] reconciliation written: C:\AICOE\eva-foundry\51-ACA\.eva\reconciliation.json
+[PASS] discovery written: C:\eva-foundry\51-ACA\.eva\discovery.json
+[PASS] reconciliation written: C:\eva-foundry\51-ACA\.eva\reconciliation.json
 [INFO] Gaps: 18
-[PASS] trust written: C:\AICOE\eva-foundry\51-ACA\.eva\trust.json (score: 70)
+[PASS] trust written: C:\eva-foundry\51-ACA\.eva\trust.json (score: 70)
 
 =======================================
 EVA Veritas Report: 51-ACA
 =======================================
-Repo:    C:\AICOE\eva-foundry\51-ACA
+Repo:    C:\eva-foundry\51-ACA
 Planned: 14 features, 257 stories
 
 Coverage

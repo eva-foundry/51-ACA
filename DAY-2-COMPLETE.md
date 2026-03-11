@@ -65,7 +65,7 @@
 
 ```bash
 # 1. Create GitHub issue with test manifest
-cd C:\AICOE\eva-foundry\51-ACA
+cd C:\eva-foundry\51-ACA
 
 gh issue create \
   --title "Test Sprint: ACA-03-001 (Single Story E2E)" \

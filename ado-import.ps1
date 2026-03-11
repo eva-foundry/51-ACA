@@ -8,7 +8,7 @@
 #   $env:ADO_PAT = "<pat>"; .\ado-import.ps1
 #   $env:ADO_PAT = "<pat>"; .\ado-import.ps1 -DryRun
 param([switch]$DryRun)
-$sharedScript   = "C:\AICOE\eva-foundry\38-ado-poc\scripts\ado-import-project.ps1"
+$sharedScript   = "C:\eva-foundry\38-ado-poc\scripts\ado-import-project.ps1"
 $artifactsFile  = Join-Path $PSScriptRoot "ado-artifacts.json"
 if (-not (Test-Path $sharedScript))  { throw "Shared import script not found: $sharedScript" }
 if (-not (Test-Path $artifactsFile)) { throw "Artifacts file not found: $artifactsFile" }

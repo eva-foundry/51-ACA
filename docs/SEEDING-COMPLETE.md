@@ -172,7 +172,7 @@ Create 3 new report skills (as defined in DATA-MODEL-ASSESSMENT.md):
 ### Local SQLite (port 8055 dev server)
 ```powershell
 # Start local data model server
-pwsh -File C:\AICOE\eva-foundry\51-ACA\data-model\start.ps1
+pwsh -File C:\eva-foundry\51-ACA\data-model\start.ps1
 
 # Query WBS count
 $base = "http://localhost:8055"
@@ -190,8 +190,8 @@ $story | Select-Object id,label,status,story_points,sprint_id,ado_id,project_id 
 
 ### Python Script Verification
 ```powershell
-cd C:\AICOE\eva-foundry\51-ACA
-C:\AICOE\.venv\Scripts\python.exe verify-data-model.py
+cd C:\eva-foundry\51-ACA
+C:\eva-foundry\.venv\Scripts\python.exe verify-data-model.py
 ```
 
 ---

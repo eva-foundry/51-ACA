@@ -1,6 +1,6 @@
 param(
-    [string]$CheckpointPath = "C:\AICOE\eva-foundry\51-ACA\infra\container-apps-job\checkpoints",
-    [string]$SnapshotPath = "C:\AICOE\eva-foundry\51-ACA\infra\container-apps-job\snapshots",
+    [string]$CheckpointPath = "C:\eva-foundry\51-ACA\infra\container-apps-job\checkpoints",
+    [string]$SnapshotPath = "C:\eva-foundry\51-ACA\infra\container-apps-job\snapshots",
     [int]$MaxParallelJobs = 3,
     [int]$JobTimeoutSeconds = 30,
     [scriptblock]$LogFunction = { param($msg, $level) Write-Host "[$level] $msg" },
@@ -232,7 +232,7 @@ function Invoke-SyncJobForStory {
         param($storyIdx, $storyId, $timeout)
         
         # Import required modules (in real implementation)
-        # . C:\AICOE\eva-foundry\51-ACA\services\ado\Sync-Orchestration-Job.ps1
+        # . C:\eva-foundry\51-ACA\services\ado\Sync-Orchestration-Job.ps1
         
         $startTime = [datetime]::UtcNow
         

@@ -6,7 +6,7 @@
 | Tool | Purpose | How to Use |
 |------|---------|------------|
 | 37-data-model | Central source of truth (port 8010): All 51-ACA stories, services, infrastructure | GET http://localhost:8010/model/projects/51-ACA |
-| 29-foundry | Agentic capabilities (search, RAG, eval, observability) | C:\AICOE\eva-foundation\29-foundry |
+| 29-foundry | Agentic capabilities (search, RAG, eval, observability) | C:\eva-foundry\eva-foundation\29-foundry |
 | 48-eva-veritas | Trust score and coverage audit | MCP tool: audit_repo / get_trust_score |
 | 07-foundation-layer | Copilot instructions primer + governance templates | MCP tool: apply_primer / audit_project |
 
@@ -106,7 +106,7 @@ PRODUCT DIFFERENTIATORS
 
 4. 12+1 analysis rules from real production data
    All 12 heuristics are seeded from real spending patterns in
-   C:\AICOE\eva-foundry\14-az-finops -- not generic advice.
+   C:\eva-foundry\14-az-finops -- not generic advice.
 
 5. Privacy-first telemetry
    GA4 (via GTM) and Microsoft Clarity track product events only.
@@ -428,7 +428,7 @@ LOCAL DEVELOPMENT
 =============================================================================
 
 Prerequisites:
-  - Python 3.12   (C:\AICOE\.venv)
+  - Python 3.12   (C:\eva-foundry\.venv)
   - Node 22+      (for frontend)
   - Docker Desktop (for docker-compose local stack)
   - az CLI        (logged in to EsDAICoE-Sandbox)
@@ -494,7 +494,7 @@ AZURE BEST PRACTICES SERVICE CATALOG (18-azure-best integration)
 =============================================================================
 
 ACA's analysis engine and service endpoints are powered by the EVA Azure Best
-Practices Library at C:\AICOE\eva-foundry\18-azure-best (32 modules, read-only).
+Practices Library at C:\eva-foundry\18-azure-best (32 modules, read-only).
 Each ACA service offering maps to one or more library modules:
 
 | ACA Endpoint / Service           | 18-azure-best Module                                    |

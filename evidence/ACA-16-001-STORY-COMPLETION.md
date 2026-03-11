@@ -367,6 +367,6 @@ customEvents
 
 - **Docker/Container Issues**: Check logs with `docker logs <container_id>`
 - **Azure Deployment Issues**: Check ARM template errors in Portal → Deployments
-- **Agent Framework Issues**: Refer to Agent Framework docs at `C:\AICOE\eva-foundry\29-foundry\`
+- **Agent Framework Issues**: Refer to Agent Framework docs at `C:\eva-foundry\29-foundry\`
 - **On-Call**: See runbook (TBD in Sprint-004)
 

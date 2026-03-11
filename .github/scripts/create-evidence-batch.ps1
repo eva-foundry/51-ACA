@@ -2,7 +2,7 @@
 # EVA-STORY: ACA-12-001
 # Creates evidence receipts for all 250 ACA stories.
 
-Set-Location "C:\AICOE\eva-foundry\51-ACA"
+Set-Location "C:\eva-foundry\51-ACA"
 New-Item -ItemType Directory -Force -Path "evidence" | Out-Null
 
 $plan    = Get-Content ".eva\veritas-plan.json" | ConvertFrom-Json

@@ -27,8 +27,8 @@ https://dev.azure.com/marcopresta/51-aca/_sprints/taskboard/51-aca%20Team/51-aca
 ### 2. Run Verification (Python - Recommended)
 
 ```powershell
-cd C:\AICOE\eva-foundry\51-ACA
-C:\AICOE\.venv\Scripts\python.exe manual-verify.py
+cd C:\eva-foundry\51-ACA
+C:\eva-foundry\.venv\Scripts\python.exe manual-verify.py
 ```
 
 **Output**: Creates `verify-YYYYMMDD-HHMMSS.log` with results  
@@ -44,7 +44,7 @@ C:\AICOE\.venv\Scripts\python.exe manual-verify.py
 ### 3. ADO Quick Check (PowerShell - Fast)
 
 ```powershell
-cd C:\AICOE\eva-foundry\51-ACA
+cd C:\eva-foundry\51-ACA
 pwsh -File quick-ado-check.ps1
 ```
 
@@ -57,7 +57,7 @@ pwsh -File quick-ado-check.ps1
 ### 4. Sync ADO (If Needed)
 
 ```powershell
-cd C:\AICOE\eva-foundry\51-ACA
+cd C:\eva-foundry\51-ACA
 pwsh -File sync-ado-sprint2-improved.ps1
 ```
 
@@ -88,7 +88,7 @@ pwsh -File sync-ado-sprint2-improved.ps1
 
 ### ⏳ Baseline Tests (NOT RUN)
 - Expected: pytest exits 0
-- **Run**: `C:\AICOE\.venv\Scripts\python.exe -m pytest services/ -x -q`
+- **Run**: `C:\eva-foundry\.venv\Scripts\python.exe -m pytest services/ -x -q`
 
 ---
 
@@ -137,13 +137,13 @@ az extension add --name azure-devops
 
 ### Python import error
 ```powershell
-cd C:\AICOE\eva-foundry\51-ACA
-C:\AICOE\.venv\Scripts\python.exe -c "import sys; sys.path.insert(0, 'data-model'); import db; print('OK')"
+cd C:\eva-foundry\51-ACA
+C:\eva-foundry\.venv\Scripts\python.exe -c "import sys; sys.path.insert(0, 'data-model'); import db; print('OK')"
 ```
 
 ### Pytest not found
 ```powershell
-C:\AICOE\.venv\Scripts\python.exe -m pip install pytest
+C:\eva-foundry\.venv\Scripts\python.exe -m pip install pytest
 ```
 
 ---

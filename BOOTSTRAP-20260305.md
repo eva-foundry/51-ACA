@@ -12,11 +12,11 @@ Project 51-ACA (Azure Cost Advisor) has been bootstrapped and is ready for devel
 ### Python Configuration
 - **Environment Type**: Virtual Environment (venv)
 - **Python Version**: 3.11.9 (64-bit)
-- **Executable**: `c:/AICOE/eva-foundry/07-foundation-layer/.venv/Scripts/python.exe`
+- **Executable**: `c:/eva-foundry/07-foundation-layer/.venv/Scripts/python.exe`
 - **Status**: ✅ Active and verified
 
 ### Project Root
-- **Path**: `C:\AICOE\eva-foundry\51-ACA`
+- **Path**: `C:\eva-foundry\51-ACA`
 - **Repository**: eva-foundry/51-ACA (main branch)
 - **Type**: Python project with pyproject.toml configuration
 
@@ -85,7 +85,7 @@ Project 51-ACA (Azure Cost Advisor) has been bootstrapped and is ready for devel
 
 ### 1. Verify Project State
 ```powershell
-cd C:\AICOE\eva-foundry\51-ACA
+cd C:\eva-foundry\51-ACA
 python -m pytest services/tests -v
 ```
 

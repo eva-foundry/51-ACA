@@ -125,7 +125,7 @@ Gaps:                 25 issues identified
 Pre-requisite: Azure DevOps Personal Access Token (PAT) with project creation rights
 
 ```powershell
-cd C:\AICOE\eva-foundry\51-ACA
+cd C:\eva-foundry\51-ACA
 $env:ADO_PAT = "<your-azure-devops-pat>"
 .\ado-import.ps1
 ```
@@ -142,7 +142,7 @@ Creates evidence receipts so Veritas can discover metadata:
 
 ```powershell
 python .\generate-metadata-receipts.py
-node C:\AICOE\eva-foundry\48-eva-veritas\src\cli.js audit --repo .
+node C:\eva-foundry\48-eva-veritas\src\cli.js audit --repo .
 ```
 
 **Expected Outcome**:

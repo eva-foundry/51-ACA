@@ -8,9 +8,9 @@ param(
 )
 
 # Configuration
-$PROJECT_DIR = "C:\AICOE\eva-foundry\51-ACA"
-$DASHBOARD_DIR = "C:\AICOE\eva-foundry\31-eva-faces"
-$DATA_MODEL_DIR = "C:\AICOE\eva-foundry\37-data-model"
+$PROJECT_DIR = "C:\eva-foundry\51-ACA"
+$DASHBOARD_DIR = "C:\eva-foundry\31-eva-faces"
+$DATA_MODEL_DIR = "C:\eva-foundry\37-data-model"
 
 $FILES_TO_DEPLOY = @(
     "veritas-plan.json",

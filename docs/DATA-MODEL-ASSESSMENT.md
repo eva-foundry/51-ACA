@@ -140,7 +140,7 @@ Invoke-RestMethod "$base/model/wbs/" |
 ```powershell
 # Skill: sprint-planner (NEW)
 # Trigger: "plan sprint 3" or "select next sprint stories"
-node C:\AICOE\eva-foundry\51-ACA\.github\scripts\plan-sprint.js \
+node C:\eva-foundry\51-ACA\.github\scripts\plan-sprint.js \
     --project 51-ACA \
     --velocity 21 \
     --priority "GB-02,GB-03,Epic-3" \

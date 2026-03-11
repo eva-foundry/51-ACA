@@ -49,7 +49,7 @@ Step D.3 -- Check data model health
   Invoke-RestMethod http://localhost:8055/model/agent-summary | Select-Object total
 
 Step D.4 -- Run Veritas audit to get the true progress baseline
-  node C:\AICOE\eva-foundry\48-eva-veritas\src\cli.js audit --repo . --warn-only 2>&1 | Select-Object -Last 20
+  node C:\eva-foundry\48-eva-veritas\src\cli.js audit --repo . --warn-only 2>&1 | Select-Object -Last 20
 
 Step D.5 -- Write the Session Brief (one paragraph):
   Active phase, current MTI, last test count, next undone story, open blockers.
@@ -145,11 +145,11 @@ C -- CHECK
 Purpose: verify the work before merging.
 
 Step C.1 -- Run tests
-  C:\AICOE\.venv\Scripts\python.exe -m pytest services/ -x -q 2>&1
+  C:\eva-foundry\.venv\Scripts\python.exe -m pytest services/ -x -q 2>&1
   Must exit 0.
 
 Step C.2 -- Run Veritas audit
-  node C:\AICOE\eva-foundry\48-eva-veritas\src\cli.js audit --repo . 2>&1 | Select-Object -Last 20
+  node C:\eva-foundry\48-eva-veritas\src\cli.js audit --repo . 2>&1 | Select-Object -Last 20
   MTI must be >= 30 (Sprint 2 gate -- raise to 70 at Sprint 3 boundary).
   Check trust.json: "no-deploy" flag must not be present.
 
@@ -205,8 +205,8 @@ Return to D -- DISCOVER for the next sprint.
 | Reflect IDs | python scripts/reflect-ids.py |
 | Browse undone | python scripts/gen-sprint-manifest.py --list-undone |
 | Generate manifest | python scripts/gen-sprint-manifest.py --sprint NN --name X --stories ACA-NN-NNN,... |
-| Run tests | C:\AICOE\.venv\Scripts\python.exe -m pytest services/ -x -q |
-| Veritas audit | node C:\AICOE\eva-foundry\48-eva-veritas\src\cli.js audit --repo . |
+| Run tests | C:\eva-foundry\.venv\Scripts\python.exe -m pytest services/ -x -q |
+| Veritas audit | node C:\eva-foundry\48-eva-veritas\src\cli.js audit --repo . |
 | Create issue | gh issue create --repo eva-foundry/51-ACA --title "[SPRINT-NN] ..." --body-file ... --label sprint-task |
 | Trigger review | gh issue edit <N> --add-label sonnet-review --repo eva-foundry/51-ACA |
 

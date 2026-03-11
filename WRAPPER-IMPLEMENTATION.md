@@ -13,11 +13,11 @@
 ### 07-Foundation-Layer (Global Utilities)
 
 **Scripts**:
-- [Invoke-CommandWithLog.ps1](C:\AICOE\eva-foundry\07-foundation-layer\scripts\Invoke-CommandWithLog.ps1) - PowerShell wrapper (200 lines)
-- [invoke_command_with_log.py](C:\AICOE\eva-foundry\07-foundation-layer\scripts\invoke_command_with_log.py) - Python wrapper (200 lines)
+- [Invoke-CommandWithLog.ps1](C:\eva-foundry\07-foundation-layer\scripts\Invoke-CommandWithLog.ps1) - PowerShell wrapper (200 lines)
+- [invoke_command_with_log.py](C:\eva-foundry\07-foundation-layer\scripts\invoke_command_with_log.py) - Python wrapper (200 lines)
 
 **Skill** (Documentation):
-- [universal-command-wrapper.skill.md](C:\AICOE\eva-foundry\07-foundation-layer\.github\copilot-skills\universal-command-wrapper.skill.md) - Complete usage guide (400 lines)
+- [universal-command-wrapper.skill.md](C:\eva-foundry\07-foundation-layer\.github\copilot-skills\universal-command-wrapper.skill.md) - Complete usage guide (400 lines)
 
 **Properties**:
 - Takes: command + optional search pattern
@@ -31,8 +31,8 @@
 ### 51-ACA (Immediate Application)
 
 **Verification Scripts Using Wrapper**:
-- [sprint2-verify.ps1](C:\AICOE\eva-foundry\51-ACA\sprint2-verify.ps1) - Full 3-gate verification (130 lines)
-- [test-wrapper.ps1](C:\AICOE\eva-foundry\51-ACA\test-wrapper.ps1) - Wrapper functionality test (60 lines)
+- [sprint2-verify.ps1](C:\eva-foundry\51-ACA\sprint2-verify.ps1) - Full 3-gate verification (130 lines)
+- [test-wrapper.ps1](C:\eva-foundry\51-ACA\test-wrapper.ps1) - Wrapper functionality test (60 lines)
 
 **Gates Checked**:
 1. LOCAL DB: 15 stories in Sprint-02
@@ -46,7 +46,7 @@
 ### Step 1: Run Sprint 2 Verification
 
 ```powershell
-cd C:\AICOE\eva-foundry\51-ACA
+cd C:\eva-foundry\51-ACA
 pwsh -NoProfile -File sprint2-verify.ps1
 ```
 
@@ -82,7 +82,7 @@ OR: Click "Sprint 1" dropdown → select "Sprint 2"
 ### Step 3: Sync ADO (Sprint 2 is Empty)
 
 ```powershell
-cd C:\AICOE\eva-foundry\51-ACA
+cd C:\eva-foundry\51-ACA
 pwsh -File sync-ado-sprint2-improved.ps1
 ```
 
@@ -98,7 +98,7 @@ pwsh -File sync-ado-sprint2-improved.ps1
 
 ```powershell
 # Load wrapper
-. C:\AICOE\eva-foundry\07-foundation-layer\scripts\Invoke-CommandWithLog.ps1
+. C:\eva-foundry\07-foundation-layer\scripts\Invoke-CommandWithLog.ps1
 
 # Basic usage
 $result = Invoke-CommandWithLog -Command "your-command"
@@ -124,7 +124,7 @@ Write-Host "Success: $($result.Success)"
 
 ```python
 import sys
-sys.path.insert(0, 'C:/AICOE/eva-foundry/07-foundation-layer/scripts')
+sys.path.insert(0, 'C:/eva-foundry/07-foundation-layer/scripts')
 from invoke_command_with_log import run_with_log
 
 # Basic usage
@@ -265,7 +265,7 @@ AI agent `run_in_terminal` tool returns only command echoes, no output. Root cau
 ## Run Now
 
 ```powershell
-cd C:\AICOE\eva-foundry\51-ACA
+cd C:\eva-foundry\51-ACA
 pwsh -NoProfile -File sprint2-verify.ps1
 ```
 

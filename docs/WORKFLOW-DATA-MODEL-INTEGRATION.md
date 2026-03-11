@@ -223,7 +223,7 @@ If the data model is unavailable (server not running or requests library not ins
 
 1. **Start data model server:**
    ```powershell
-   pwsh -File C:\AICOE\eva-foundry\51-ACA\data-model\start.ps1
+   pwsh -File C:\eva-foundry\51-ACA\data-model\start.ps1
    ```
    - Listens on `http://localhost:8055`
    - Backed by SQLite: `data-model/aca-model.db`

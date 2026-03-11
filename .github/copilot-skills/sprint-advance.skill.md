@@ -32,8 +32,8 @@ Never skip a phase. Never start Phase 4 before Phase 2 is clean.
 ### 1.1 Run pytest gate
 
 ```powershell
-Set-Location C:\AICOE\eva-foundry\51-ACA
-C:\AICOE\.venv\Scripts\python.exe -m pytest services/ -x -q --tb=short 2>&1
+Set-Location C:\eva-foundry\51-ACA
+C:\eva-foundry\.venv\Scripts\python.exe -m pytest services/ -x -q --tb=short 2>&1
 # REQUIRED: exits 0.  If non-zero: fix failures BEFORE advancing.
 ```
 
@@ -42,8 +42,8 @@ Record the test count. Write to STATUS.md under "Test count: N passing."
 ### 1.2 Run veritas full audit
 
 ```powershell
-$repo = "C:\AICOE\eva-foundry\51-ACA"
-node C:\AICOE\eva-foundry\48-eva-veritas\src\cli.js audit --repo $repo --warn-only 2>&1 |
+$repo = "C:\eva-foundry\51-ACA"
+node C:\eva-foundry\48-eva-veritas\src\cli.js audit --repo $repo --warn-only 2>&1 |
     Tee-Object "$repo\veritas-audit-out.txt" | Select-Object -Last 30
 Write-Host AUDIT_DONE
 ```
@@ -81,7 +81,7 @@ Record MTI in STATUS.md.
 $base = "http://localhost:8055"
 $h = Invoke-RestMethod "$base/health" -ErrorAction SilentlyContinue
 if (-not $h) {
-    pwsh -File "C:\AICOE\eva-foundry\51-ACA\data-model\start.ps1"
+    pwsh -File "C:\eva-foundry\51-ACA\data-model\start.ps1"
     Start-Sleep 4
     $h = Invoke-RestMethod "$base/health" -ErrorAction SilentlyContinue
 }
@@ -94,13 +94,13 @@ Write-Host "store=$($h.store)  version=$($h.version)"
 $s = Invoke-RestMethod "$base/model/agent-summary"
 Write-Host "total=$($s.total)"
 # If total is lower than last known baseline (see STATUS.md): reseed before continuing
-C:\AICOE\.venv\Scripts\python.exe scripts/seed-from-plan.py --reseed-model
+C:\eva-foundry\.venv\Scripts\python.exe scripts/seed-from-plan.py --reseed-model
 ```
 
 ### 2.3 Run veritas-plan story dump -- find all undone stories
 
 ```powershell
-$vp = Get-Content C:\AICOE\eva-foundry\51-ACA\.eva\veritas-plan.json | ConvertFrom-Json
+$vp = Get-Content C:\eva-foundry\51-ACA\.eva\veritas-plan.json | ConvertFrom-Json
 foreach ($feat in $vp.features) {
     $undone = $feat.stories | Where-Object { -not $_.done }
     if ($undone) {
@@ -155,8 +155,8 @@ Add "Status: DONE" on the line after the story title block header.
 Then reseed:
 
 ```powershell
-C:\AICOE\.venv\Scripts\python.exe scripts/seed-from-plan.py --reseed-model
-C:\AICOE\.venv\Scripts\python.exe scripts/reflect-ids.py
+C:\eva-foundry\.venv\Scripts\python.exe scripts/seed-from-plan.py --reseed-model
+C:\eva-foundry\.venv\Scripts\python.exe scripts/reflect-ids.py
 ```
 
 Verify the count increased:
@@ -205,11 +205,11 @@ Write-Host "violations=$($c.violation_count)  errors=$($c.export_errors.Count)"
 
 ```powershell
 # Generate ADO items from the repo (eva-veritas generates Epic/Feature/Story/Task)
-node C:\AICOE\eva-foundry\48-eva-veritas\src\cli.js generate_ado_items `
-    --repo C:\AICOE\eva-foundry\51-ACA --include_gaps 2>&1 |
+node C:\eva-foundry\48-eva-veritas\src\cli.js generate_ado_items `
+    --repo C:\eva-foundry\51-ACA --include_gaps 2>&1 |
     Select-Object -Last 20
 # Then use the 38-ado-poc ADO plane agent to push items to the board:
-# C:\AICOE\.venv\Scripts\python.exe C:\AICOE\eva-foundry\38-ado-poc\agents\ado_plane.py
+# C:\eva-foundry\.venv\Scripts\python.exe C:\eva-foundry\38-ado-poc\agents\ado_plane.py
 ```
 
 ---
@@ -249,13 +249,13 @@ Never use gpt-4o-mini for: auth.py, any Cosmos query, any secret handling, Strip
 ### 4.4 Run the manifest generator
 
 ```powershell
-Set-Location C:\AICOE\eva-foundry\51-ACA
+Set-Location C:\eva-foundry\51-ACA
 
 # List undone stories to confirm final selection
-C:\AICOE\.venv\Scripts\python.exe scripts/gen-sprint-manifest.py --list-undone
+C:\eva-foundry\.venv\Scripts\python.exe scripts/gen-sprint-manifest.py --list-undone
 
 # Generate the manifest (replace with actual story IDs chosen in 4.1)
-C:\AICOE\.venv\Scripts\python.exe scripts/gen-sprint-manifest.py `
+C:\eva-foundry\.venv\Scripts\python.exe scripts/gen-sprint-manifest.py `
     --sprint 03 `
     --name "brief-hyphenated-name" `
     --stories ACA-NN-NNN,ACA-NN-NNN,ACA-NN-NNN,ACA-NN-NNN,ACA-NN-NNN `
@@ -342,7 +342,7 @@ foreach ($id in @("ACA-NN-NNN","ACA-NN-NNN")) {
 ### 5.4 Create the GitHub issue
 
 ```powershell
-Set-Location C:\AICOE\eva-foundry\51-ACA
+Set-Location C:\eva-foundry\51-ACA
 gh issue create `
     --repo eva-foundry/51-ACA `
     --title "[SPRINT-NN] hyphenated-name" `
@@ -374,7 +374,7 @@ gh workflow run sprint-agent.yml `
 ### After issue is created, before any other work:
 
 ```powershell
-Set-Location C:\AICOE\eva-foundry\51-ACA
+Set-Location C:\eva-foundry\51-ACA
 
 # 1. Commit the manifest file
 git add .github/sprints/sprint-NN-<name>.md
@@ -465,26 +465,26 @@ agent/ACA-NN-NNN-YYYYMMDD-HHMMSS
 
 ```powershell
 # Run full audit
-node C:\AICOE\eva-foundry\48-eva-veritas\src\cli.js audit --repo C:\AICOE\eva-foundry\51-ACA --warn-only
+node C:\eva-foundry\48-eva-veritas\src\cli.js audit --repo C:\eva-foundry\51-ACA --warn-only
 
 # Check MTI
-(Get-Content C:\AICOE\eva-foundry\51-ACA\.eva\trust.json | ConvertFrom-Json).mti
+(Get-Content C:\eva-foundry\51-ACA\.eva\trust.json | ConvertFrom-Json).mti
 
 # List undone stories grouped by epic
-$vp = Get-Content C:\AICOE\eva-foundry\51-ACA\.eva\veritas-plan.json | ConvertFrom-Json
+$vp = Get-Content C:\eva-foundry\51-ACA\.eva\veritas-plan.json | ConvertFrom-Json
 foreach ($f in $vp.features) {
     $u = $f.stories | Where-Object { -not $_.done }
     if ($u) { Write-Host "$($f.id): $($u.Count) undone" }
 }
 
 # Reseed after PLAN.md change
-C:\AICOE\.venv\Scripts\python.exe scripts/seed-from-plan.py --reseed-model
+C:\eva-foundry\.venv\Scripts\python.exe scripts/seed-from-plan.py --reseed-model
 
 # Reflect IDs into PLAN.md
-C:\AICOE\.venv\Scripts\python.exe scripts/reflect-ids.py
+C:\eva-foundry\.venv\Scripts\python.exe scripts/reflect-ids.py
 
 # Generate sprint manifest
-C:\AICOE\.venv\Scripts\python.exe scripts/gen-sprint-manifest.py --sprint NN --name "name" `
+C:\eva-foundry\.venv\Scripts\python.exe scripts/gen-sprint-manifest.py --sprint NN --name "name" `
     --stories ACA-NN-NNN,ACA-NN-NNN
 
 # Create GitHub issue

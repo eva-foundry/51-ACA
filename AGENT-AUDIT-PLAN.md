@@ -104,7 +104,7 @@ gh run watch
 **Test Plan**:
 ```bash
 # Test 1: Audit current repo state
-node C:\AICOE\eva-foundry\48-eva-veritas\src\cli.js audit --repo . --warn-only
+node C:\eva-foundry\48-eva-veritas\src\cli.js audit --repo . --warn-only
 
 # Test 2: Validate MTI gate (30)
 # - Check .eva/trust.json score field

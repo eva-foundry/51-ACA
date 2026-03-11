@@ -116,7 +116,7 @@ def add_metadata_to_stories(plan_file: str, whatif: bool = False) -> None:
     
     print()
     print("Next: Run Veritas audit to confirm MTI score improvement:")
-    print("  node C:\\AICOE\\eva-foundry\\48-eva-veritas\\src\\cli.js audit --repo .")
+    print("  node C:\\eva-foundry\\eva-foundry\\48-eva-veritas\\src\\cli.js audit --repo .")
 
 if __name__ == '__main__':
     import argparse

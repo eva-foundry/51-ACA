@@ -82,7 +82,7 @@ All 15 work items successfully assigned to Sprint 2 iteration:
 
 ### 1. Initial Verification
 ```powershell
-cd C:\AICOE\eva-foundry\51-ACA
+cd C:\eva-foundry\51-ACA
 pwsh -NoProfile -File sprint2-verify.ps1
 ```
 Result: GATE 2 failed (ADO auth missing)

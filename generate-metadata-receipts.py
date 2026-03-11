@@ -138,7 +138,7 @@ def generate_metadata_receipts(output_dir: str = 'evidence') -> None:
     print(f"[OK] Generated {len(done_stories)} metadata receipt files")
     print()
     print("Next: Run Veritas audit to confirm MTI score improvement:")
-    print("  node C:\\AICOE\\eva-foundry\\48-eva-veritas\\src\\cli.js audit --repo .")
+    print("  node C:\\eva-foundry\\eva-foundry\\48-eva-veritas\\src\\cli.js audit --repo .")
 
 if __name__ == '__main__':
     generate_metadata_receipts()

@@ -1,5 +1,5 @@
 # Create GitHub Issues for Epic 15 onboarding stories (22 total: 12 original + 10 gaps)
-# Run from: C:\AICOE\eva-foundry\51-ACA
+# Run from: C:\eva-foundry\51-ACA
 # Usage: pwsh scripts/create-epic15-github-issues.ps1 -DryRun
 
 param(

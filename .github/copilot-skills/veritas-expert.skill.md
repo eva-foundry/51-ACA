@@ -51,22 +51,22 @@ penalised. Rule: >= 20% declared and no artifact -> penalty.
 ## 2. DPDCA LOOP FOR VERITAS (one command each step, do not skip)
 
 ```powershell
-$repo = "C:\AICOE\eva-foundry\51-ACA"
+$repo = "C:\eva-foundry\51-ACA"
 
 # D -- Discover: scan planned docs + actual source files
-node C:\AICOE\eva-foundry\48-eva-veritas\src\cli.js discover --repo $repo
+node C:\eva-foundry\48-eva-veritas\src\cli.js discover --repo $repo
 
 # P + D -- Reconcile: planned vs actual
-node C:\AICOE\eva-foundry\48-eva-veritas\src\cli.js reconcile --repo $repo
+node C:\eva-foundry\48-eva-veritas\src\cli.js reconcile --repo $repo
 
 # C -- Compute trust
-node C:\AICOE\eva-foundry\48-eva-veritas\src\cli.js compute-trust --repo $repo
+node C:\eva-foundry\48-eva-veritas\src\cli.js compute-trust --repo $repo
 
 # A -- Report
-node C:\AICOE\eva-foundry\48-eva-veritas\src\cli.js report --repo $repo
+node C:\eva-foundry\48-eva-veritas\src\cli.js report --repo $repo
 
 # All in one -- PREFERRED
-node C:\AICOE\eva-foundry\48-eva-veritas\src\cli.js audit --repo $repo --warn-only
+node C:\eva-foundry\48-eva-veritas\src\cli.js audit --repo $repo --warn-only
 ```
 
 **Never** run only `audit` after editing files without understanding which gap
@@ -199,7 +199,7 @@ Orphan penalty: reduces the coverage score.
 
 Always check for orphans before committing tags:
 ```powershell
-node C:\AICOE\eva-foundry\48-eva-veritas\src\cli.js audit --repo . --warn-only 2>&1 | Select-String "orphan"
+node C:\eva-foundry\48-eva-veritas\src\cli.js audit --repo . --warn-only 2>&1 | Select-String "orphan"
 ```
 
 ---
@@ -207,25 +207,25 @@ node C:\AICOE\eva-foundry\48-eva-veritas\src\cli.js audit --repo . --warn-only 2
 ## 10. FULL RECONCILIATION CYCLE (run this in order every time)
 
 ```powershell
-Set-Location C:\AICOE\eva-foundry\51-ACA
+Set-Location C:\eva-foundry\51-ACA
 
 # Step 1 -- reseed the model (if PLAN.md changed)
-C:\AICOE\.venv\Scripts\python.exe scripts/seed-from-plan.py --reseed-model
+C:\eva-foundry\.venv\Scripts\python.exe scripts/seed-from-plan.py --reseed-model
 
 # Step 2 -- run discovery (scans all source files + docs)
-node C:\AICOE\eva-foundry\48-eva-veritas\src\cli.js discover --repo .
+node C:\eva-foundry\48-eva-veritas\src\cli.js discover --repo .
 
 # Step 3 -- reconcile
-node C:\AICOE\eva-foundry\48-eva-veritas\src\cli.js reconcile --repo .
+node C:\eva-foundry\48-eva-veritas\src\cli.js reconcile --repo .
 
 # Step 4 -- compute trust
-node C:\AICOE\eva-foundry\48-eva-veritas\src\cli.js compute-trust --repo .
+node C:\eva-foundry\48-eva-veritas\src\cli.js compute-trust --repo .
 
 # Step 5 -- full report with gap list
-node C:\AICOE\eva-foundry\48-eva-veritas\src\cli.js report --repo .
+node C:\eva-foundry\48-eva-veritas\src\cli.js report --repo .
 
 # Or all in one:
-node C:\AICOE\eva-foundry\48-eva-veritas\src\cli.js audit --repo . --warn-only
+node C:\eva-foundry\48-eva-veritas\src\cli.js audit --repo . --warn-only
 
 # Read the reconciliation stats:
 (Get-Content .eva/reconciliation.json | ConvertFrom-Json).coverage
@@ -278,13 +278,13 @@ Missing STATUS.md declarations: all 61 done stories
 
 ```powershell
 # Run full audit (standard)
-node C:\AICOE\eva-foundry\48-eva-veritas\src\cli.js audit --repo C:\AICOE\eva-foundry\51-ACA --warn-only
+node C:\eva-foundry\48-eva-veritas\src\cli.js audit --repo C:\eva-foundry\51-ACA --warn-only
 
 # See just the score breakdown
-(Get-Content C:\AICOE\eva-foundry\51-ACA\.eva\trust.json | ConvertFrom-Json).components
+(Get-Content C:\eva-foundry\51-ACA\.eva\trust.json | ConvertFrom-Json).components
 
 # See coverage numbers
-(Get-Content C:\AICOE\eva-foundry\51-ACA\.eva\reconciliation.json | ConvertFrom-Json).coverage
+(Get-Content C:\eva-foundry\51-ACA\.eva\reconciliation.json | ConvertFrom-Json).coverage
 
 # See gap list for a specific epic
 node ... audit --warn-only 2>&1 | Select-String "ACA-04"

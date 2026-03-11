@@ -7,7 +7,7 @@
 ## DISCOVER - Current State Assessment
 
 ### ✅ LOCAL SQLite Database
-- Path: C:\AICOE\eva-foundry\51-ACA\data-model\aca-model.db
+- Path: C:\eva-foundry\51-ACA\data-model\aca-model.db
 - Sprint-02 linkage: 15 stories (ACA-03-001 through ACA-03-016, skipping done 006)
 - ADO mapping: Work items 2978-2993
 - Status: READY
@@ -113,7 +113,7 @@ Option B - Via workflow_dispatch:
 
 ### Task 1: Run ADO Sync [NEXT]
 ```powershell
-cd C:\AICOE\eva-foundry\51-ACA
+cd C:\eva-foundry\51-ACA
 pwsh -NoProfile -File update-ado-sprint2.ps1 2>&1 | Tee-Object ado-sync-result.txt
 Write-Host "[DONE] ADO sync complete - check ado-sync-result.txt"
 ```
@@ -125,8 +125,8 @@ Write-Host "[DONE] ADO sync complete - check ado-sync-result.txt"
 
 ### Task 3: Run Baseline Tests [AFTER TASK 2]
 ```powershell
-cd C:\AICOE\eva-foundry\51-ACA
-C:\AICOE\.venv\Scripts\python.exe -m pytest services/ -x -q --tb=short 2>&1 | 
+cd C:\eva-foundry\51-ACA
+C:\eva-foundry\.venv\Scripts\python.exe -m pytest services/ -x -q --tb=short 2>&1 | 
     Tee-Object baseline-tests.txt
 Write-Host "[DONE] Baseline tests complete"
 ```
@@ -243,7 +243,7 @@ Sprint 2 execution is COMPLETE when:
 
 **COMMAND**:
 ```powershell
-cd C:\AICOE\eva-foundry\51-ACA
+cd C:\eva-foundry\51-ACA
 pwsh -NoProfile -File update-ado-sprint2.ps1
 ```
 

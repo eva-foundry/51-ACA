@@ -1,4 +1,4 @@
-$draft = Get-Content "C:\AICOE\eva-foundry\51-ACA\_opus_review_issue_draft.md" -Raw
+$draft = Get-Content "C:\eva-foundry\51-ACA\_opus_review_issue_draft.md" -Raw
 
 # Extract title (line after "## TITLE")
 $titleMatch = [regex]::Match($draft, '(?m)^## TITLE\r?\n(.+)')

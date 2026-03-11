@@ -202,7 +202,7 @@ Story 11.1.6 [ACA-11-010]  As the system I use a standalone data model server (P
 **Current state**:
 - Analysis service uses: `sys.path.insert(0, "../29-foundry")` imports
 - Agent definitions: agents/collection-agent.yaml, analysis-agent.yaml, generation-agent.yaml, redteam-agent.yaml
-- Shared code: tools/search.py, tools/rag.py, agents/orchestrator.py from C:\AICOE\eva-foundry\29-foundry
+- Shared code: tools/search.py, tools/rag.py, agents/orchestrator.py from C:\eva-foundry\29-foundry
 - Acceptable for Phase 1 (project infrastructure reuse)
 - BLOCKER for Phase 2 (commercial product cannot depend on EVA internal service)
 

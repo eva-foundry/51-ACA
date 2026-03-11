@@ -14,7 +14,7 @@ Test 4: Rate-limit Fallback - Cosmos 429 circuit breaker behavior
 #>
 
 # Source the orchestration engine to get JobQueueManager class and helper functions
-. "C:\AICOE\eva-foundry\51-ACA\infra\container-apps-job\scripts\Async-Orchestration-Engine.ps1"
+. "C:\eva-foundry\51-ACA\infra\container-apps-job\scripts\Async-Orchestration-Engine.ps1"
 
 # ============================================================================
 # TEST SCENARIO 1: JobQueueManager - Parallelism Control

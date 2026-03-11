@@ -1,14 +1,14 @@
 {
   "meta": {
     "schema": "eva.trust.v2",
-    "generated_at": "2026-03-06T17:34:14.640Z",
-    "repo": "C:\\AICOE\\eva-foundry\\51-ACA",
-    "reconciliation_path": "C:\\AICOE\\eva-foundry\\51-ACA\\.eva\\reconciliation.json"
+    "generated_at": "2026-03-06T17:36:25.989Z",
+    "repo": "C:\\eva-foundry\\eva-foundry\\51-ACA",
+    "reconciliation_path": "C:\\eva-foundry\\eva-foundry\\51-ACA\\.eva\\reconciliation.json"
   },
   "score": 60,
   "stale": false,
-  "sparkline": "57 -> 57 -> 57 -> 57 -> 57 -> 57 -> 57 -> 57 -> 58 -> 60",
-  "sparkline_delta": "+2",
+  "sparkline": "57 -> 57 -> 57 -> 57 -> 57 -> 57 -> 57 -> 58 -> 60 -> 60",
+  "sparkline_delta": "no change",
   "components": {
     "coverage": 1,
     "evidenceCompleteness": 0.96,

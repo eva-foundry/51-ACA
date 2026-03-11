@@ -35,5 +35,5 @@ Option C -- LLM-Assisted (GitHub Copilot):
   2. Ask Copilot to implement ACA-03-001
   3. Run pytest to validate
 
-[INFO] Evidence receipt stub written: C:\AICOE\eva-foundry\51-ACA\.eva\evidence\ACA-03-001-receipt.json
+[INFO] Evidence receipt stub written: C:\eva-foundry\51-ACA\.eva\evidence\ACA-03-001-receipt.json
 [PASS] Test runner complete -- manual implementation required

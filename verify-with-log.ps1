@@ -21,7 +21,7 @@ try {
     Write-Log "[CHECK 1] LOCAL DB Sprint 2 Linkage" "Yellow"
     Write-Log "-----------------------------------" "Gray"
     try {
-        $dbCheck = & C:\AICOE\.venv\Scripts\python.exe -c "import sys; sys.path.insert(0, 'data-model'); import db; s2 = [s for s in db.list_layer('wbs') if s.get('sprint_id') == 'Sprint-02']; print(f'Count: {len(s2)}'); print(f'IDs: {[s.get(\"id\") for s in s2[:5]]}'); print(f'Status: {\"PASS\" if len(s2) == 15 else \"FAIL\"}')" 2>&1
+        $dbCheck = & C:\eva-foundry\.venv\Scripts\python.exe -c "import sys; sys.path.insert(0, 'data-model'); import db; s2 = [s for s in db.list_layer('wbs') if s.get('sprint_id') == 'Sprint-02']; print(f'Count: {len(s2)}'); print(f'IDs: {[s.get(\"id\") for s in s2[:5]]}'); print(f'Status: {\"PASS\" if len(s2) == 15 else \"FAIL\"}')" 2>&1
         
         Write-Log "Output:" "Gray"
         $dbCheck | ForEach-Object { Write-Log "  $_" "Gray" }
@@ -76,7 +76,7 @@ try {
     Write-Log "Running: pytest services/ -x -q --tb=line" "Gray"
     
     try {
-        $testOutput = & C:\AICOE\.venv\Scripts\python.exe -m pytest services/ -x -q --tb=line 2>&1
+        $testOutput = & C:\eva-foundry\.venv\Scripts\python.exe -m pytest services/ -x -q --tb=line 2>&1
         $exitCode = $LASTEXITCODE
         
         Write-Log "Exit Code: $exitCode" "Gray"

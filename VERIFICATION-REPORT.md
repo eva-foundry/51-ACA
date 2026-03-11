@@ -126,8 +126,8 @@ Current workflow does NOT integrate:
 
 **Expected Command:**
 ```powershell
-cd C:\AICOE\eva-foundry\51-ACA
-C:\AICOE\.venv\Scripts\python.exe -m pytest services/ -x -q
+cd C:\eva-foundry\51-ACA
+C:\eva-foundry\.venv\Scripts\python.exe -m pytest services/ -x -q
 ```
 
 **Expected Result:**
@@ -170,8 +170,8 @@ Question: Do you see 15 work items on the Sprint 2 board?
 
 **Step 2: Run Baseline Tests** (User Action - 1 minute)
 ```powershell
-cd C:\AICOE\eva-foundry\51-ACA
-C:\AICOE\.venv\Scripts\python.exe -m pytest services/ -x -q
+cd C:\eva-foundry\51-ACA
+C:\eva-foundry\.venv\Scripts\python.exe -m pytest services/ -x -q
 
 Expected: All tests pass (exit code 0)
 If FAIL: Do NOT execute Sprint 2 until tests pass

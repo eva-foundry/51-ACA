@@ -14,7 +14,7 @@
 ### 1. Verify Current State (Uses NEW Wrapper)
 
 ```powershell
-cd C:\AICOE\eva-foundry\51-ACA
+cd C:\eva-foundry\51-ACA
 pwsh -NoProfile -File sprint2-verify.ps1
 ```
 
@@ -69,7 +69,7 @@ pwsh -File sprint2-verify.ps1
 
 ```powershell
 # Load
-. C:\AICOE\eva-foundry\07-foundation-layer\scripts\Invoke-CommandWithLog.ps1
+. C:\eva-foundry\07-foundation-layer\scripts\Invoke-CommandWithLog.ps1
 
 # Use
 $result = Invoke-CommandWithLog `

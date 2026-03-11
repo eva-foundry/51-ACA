@@ -105,7 +105,7 @@ After fixing Option A:
 python .github/scripts/aca-seed-plan.py --reseed
 
 # Re-run audit
-node C:\AICOE\eva-foundry\48-eva-veritas\src\cli.js audit --repo C:\AICOE\eva-foundry\51-ACA
+node C:\eva-foundry\48-eva-veritas\src\cli.js audit --repo C:\eva-foundry\51-ACA
 
 # Verify: consistency_score should be 1.0, MTI should jump back to 100
 ```

@@ -1,9 +1,9 @@
-﻿# GitHub Copilot Instructions -- 51-ACA
+# GitHub Copilot Instructions -- 51-ACA
 
-**Template Version**: 3.3.2
-**Last Updated**: February 26, 2026 ET
+**Template Version**: 3.4.0
+**Last Updated**: March 6, 2026 @ 6:53 PM ET  
 **Project**: 51-ACA -- Azure Cost Advisor (commercial SaaS)
-**Path**: `C:\AICOE\eva-foundry\51-ACA\`
+**Path**: `C:\eva-foundry\51-ACA\`
 **Stack**: Python 3.12 / FastAPI / React 19 / Fluent UI v9 / Azure Container Apps / Cosmos DB NoSQL / Azure OpenAI / Stripe
 
 > This file is the Copilot operating manual for this repository.
@@ -24,7 +24,7 @@ Before answering any question or writing any code:
 1. **Establish $base** (Central EVA data model on port 8010 -- managed by project 37):
    - Central EVA data model: `http://localhost:8010` (all workspace projects, unified data store)
    - 51-ACA data is now in central Cosmos (migrated from local SQLite 2026-03-05)
-   - Depends on: Project 37 (`C:\AICOE\eva-foundry\37-data-model\`) running on port 8010
+   - Depends on: Project 37 (`C:\eva-foundry\37-data-model\`) running on port 8010
    - `$base` must be set before any model query in this session.
 
 2. **Read this project's governance docs** (in order):
@@ -73,7 +73,7 @@ Loop      --> return to Discover if tasks remain
 > The HTTP API is the only interface. One HTTP call beats ten file reads.
 > The API self-documents: `GET /model/agent-guide` returns the complete operating protocol.
 
-> **Full reference**: `C:\AICOE\eva-foundry\51-ACA\data-model\README.md`
+> **Full reference**: `C:\eva-foundry\51-ACA\data-model\README.md`
 > The model is the single source of truth. One HTTP call beats 10 file reads.
 > Never grep source files for something the model already knows.
 
@@ -202,7 +202,7 @@ multi_replace_string_in_file for edits to existing files.
 
 ```powershell
 # Pre-flight check
-if (Test-Path "C:\AICOE\path\to\file.ps1") {
+if (Test-Path "C:\eva-foundry\path\to\file.ps1") {
     # use replace_string_in_file -- do NOT call create_file
 } else {
     # safe to call create_file
@@ -363,8 +363,8 @@ Maintain a mental count of Do steps (file edits, terminal commands, test runs) t
 ### 6. Python Environment
 
 ```
-venv exec: C:\AICOE\.venv\Scripts\python.exe
-activate:  C:\AICOE\.venv\Scripts\Activate.ps1
+venv exec: C:\eva-foundry\.venv\Scripts\python.exe
+activate:  C:\eva-foundry\.venv\Scripts\Activate.ps1
 ```
 
 Never use bare `python` or `python3`. Always use the full venv path.
@@ -536,7 +536,7 @@ git clone https://github.com/eva-foundry/51-ACA.git
 cd 51-ACA
 
 # 2. Python venv (shared across services for local dev)
-C:\AICOE\.venv\Scripts\Activate.ps1
+C:\eva-foundry\.venv\Scripts\Activate.ps1
 pip install -r services/api/requirements.txt
 pip install -r services/collector/requirements.txt
 pip install -r services/analysis/requirements.txt
@@ -551,19 +551,19 @@ copy .env.example .env   # fill in ACA_COSMOS_URL, ACA_OPENAI_KEY, etc.
 # 5. Run (local docker-compose)
 docker compose up
 # OR run API only:
-C:\AICOE\.venv\Scripts\python.exe -m uvicorn services.api.app.main:app --reload --port 8080
+C:\eva-foundry\.venv\Scripts\python.exe -m uvicorn services.api.app.main:app --reload --port 8080
 ```
 
 **Quick commands:**
 ```powershell
 # Run all tests
-C:\AICOE\.venv\Scripts\python.exe -m pytest services/ -v
+C:\eva-foundry\.venv\Scripts\python.exe -m pytest services/ -v
 
 # Lint
-C:\AICOE\.venv\Scripts\python.exe -m ruff check services/
+C:\eva-foundry\.venv\Scripts\python.exe -m ruff check services/
 
 # Type check
-C:\AICOE\.venv\Scripts\python.exe -m mypy services/
+C:\eva-foundry\.venv\Scripts\python.exe -m mypy services/
 
 # Frontend
 cd frontend && npm run dev      # dev server
@@ -571,17 +571,17 @@ cd frontend && npm run build    # production build
 cd frontend && npm test         # vitest
 
 # DPDCA P step: assign canonical IDs to every story in PLAN.md + re-seed
-C:\AICOE\.venv\Scripts\python.exe scripts/seed-from-plan.py --reseed-model
-C:\AICOE\.venv\Scripts\python.exe scripts/reflect-ids.py
+C:\eva-foundry\.venv\Scripts\python.exe scripts/seed-from-plan.py --reseed-model
+C:\eva-foundry\.venv\Scripts\python.exe scripts/reflect-ids.py
 
 # DPDCA P step: browse undone stories, generate sprint manifest stub
-C:\AICOE\.venv\Scripts\python.exe scripts/gen-sprint-manifest.py --list-undone
-C:\AICOE\.venv\Scripts\python.exe scripts/gen-sprint-manifest.py --sprint 02 --name "api-fixes" --stories ACA-03-006,ACA-06-018 --sizes ACA-03-006=M,ACA-06-018=XS
+C:\eva-foundry\.venv\Scripts\python.exe scripts/gen-sprint-manifest.py --list-undone
+C:\eva-foundry\.venv\Scripts\python.exe scripts/gen-sprint-manifest.py --sprint 02 --name "api-fixes" --stories ACA-03-006,ACA-06-018 --sizes ACA-03-006=M,ACA-06-018=XS
 ```
 
 **Test command for DPDCA Check step:**
 ```powershell
-C:\AICOE\.venv\Scripts\python.exe -m pytest services/ -x -q 2>&1
+C:\eva-foundry\.venv\Scripts\python.exe -m pytest services/ -x -q 2>&1
 ```
 Must exit 0 before any commit.
 
@@ -941,7 +941,7 @@ when multiple commits exist for the same story.
 - Gate IDs: Phase prefix (P1/P2) + 2-digit seq + optional a/b/c suffix
 - Gates are checked during manual QA, not by agents
 
-**Run audit**: `node C:\AICOE\eva-foundry\48-eva-veritas\src\cli.js audit --repo .`
+**Run audit**: `node C:\eva-foundry\48-eva-veritas\src\cli.js audit --repo .`
 Current baseline: MTI=30 (lowered 2026-02-27 for Sprint 2 pre-flight; raise to 70 at Sprint 3 boundary).
 Do not regress below 30.
 
@@ -951,7 +951,7 @@ Actions at MTI=30: ["test", "review", "merge-with-approval"] -- no-deploy flag C
 ### CA.6 29-Foundry Agent Tools (for complex analysis stories)
 
 For Epic 3 (analysis rules) and Epic 13 (Azure best practices), agents may use
-the 29-foundry tool chain from: `C:\AICOE\eva-foundry\29-foundry\`
+the 29-foundry tool chain from: `C:\eva-foundry\29-foundry\`
 
 ```python
 import sys

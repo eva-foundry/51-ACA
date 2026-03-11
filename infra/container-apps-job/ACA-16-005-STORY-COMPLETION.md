@@ -312,8 +312,8 @@ docker run ... sync-orchestration-job.ps1
 ## Evidence Trail
 
 - **File Locations**: 
-  - Source: C:\AICOE\eva-foundry\51-ACA\infra\container-apps-job\scripts\Checkpoint-Resume.ps1
-  - Integration: C:\AICOE\eva-foundry\51-ACA\infra\container-apps-job\scripts\sync-orchestration-job.ps1
+  - Source: C:\eva-foundry\51-ACA\infra\container-apps-job\scripts\Checkpoint-Resume.ps1
+  - Integration: C:\eva-foundry\51-ACA\infra\container-apps-job\scripts\sync-orchestration-job.ps1
   - Checkpoints (runtime): /app/state/checkpoints/latest.json (Container Apps Job filesystem)
 
 - **Restart Behavior**:

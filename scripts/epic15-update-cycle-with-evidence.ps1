@@ -19,7 +19,7 @@ $ErrorActionPreference = "Continue"
 # CONFIGURATION & CONSTANTS
 # ============================================================================
 
-$baseDir       = "C:\AICOE\eva-foundry\51-ACA"
+$baseDir       = "C:\eva-foundry\51-ACA"
 $scriptsDir    = "$baseDir\scripts"
 $dataModelUrl  = "https://marco-eva-data-model.livelyflower-7990bc7b.canadacentral.azurecontainerapps.io"
 $evidenceDir   = "$baseDir\.eva\evidence"

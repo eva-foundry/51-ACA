@@ -2,8 +2,8 @@
 
 ## EVA Ecosystem Tools
 
-- Data model (central, port 8010): GET http://localhost:8010/model/projects/51-ACA
-- 29-foundry agents: C:\AICOE\eva-foundation\29-foundry\agents\
+- Data model (central, port 8010): GET https://msub-eva-data-model.victoriousgrass-30debbd3.canadacentral.azurecontainerapps.io/model/projects/51-ACA
+- 29-foundry agents: C:\eva-foundry\eva-foundation\29-foundry\agents\
 - 48-eva-veritas audit: run audit_repo MCP tool
 
 ---
@@ -11,14 +11,17 @@
 ACA -- Azure Cost Advisor -- PLAN
 =================================
 
-Version: 0.6.0
-Updated: 2026-03-05T09:20:00Z (Data Migration Complete: All 281 ACA stories + infrastructure migrated from port 8055 to port 8010 Cosmos. Single unified data model.)
+Version: 0.7.0
+Updated: 2026-03-06T19:38:00-05:00 (2:38 PM ET - Sprint-003 Baseline Locked, Agent Execution Ready)
 Phase: Phase 1 active (multi-agent orchestration pipeline complete)
 
 This plan is the Work Breakdown Structure (WBS) for ACA.
 Each Epic maps to one or more data-model layers.
 Features map to user stories seeded into the data-model stories layer.
 All milestone dates are relative to 2026-02-26 (project bootstrap complete).
+
+**SPRINT-003 BASELINE LOCKED**: 281 stories planned, 23 gaps (12 ACA-15 not-started, 11 orphan doc refs).
+Data model synced to cloud. Cloud model row_version: 2. Ready for agent orchestration. March 6, 2:38 PM ET.
 
 =============================================================================
 WBS OVERVIEW
@@ -756,7 +759,7 @@ WBS: 13.x.x
 Description: ACA consumes the 18-azure-best 32-module library to expose a governed
   set of best-practice assessments as API-gated service endpoints. Each rule maps to
   one or more entries in the 18-azure-best library. Engineers must read
-  C:\AICOE\eva-foundry\18-azure-best before implementing rules.
+  C:\eva-foundry\18-azure-best before implementing rules.
 
 Related dependencies: D11 (18-azure-best library)
 
@@ -1339,7 +1342,7 @@ Blocker gate: MTI >= 30 (lowered from 70; restore at Sprint 3 boundary)
                  cosmos_client), causing TypeError on every analysis run (bug C-04).
     Acceptance:
     - services/analysis/app/main.py instantiates FindingsAssembler with all 3 args
-    - C:\AICOE\.venv\Scripts\python.exe -c "from services.analysis.app.main import run; print('[PASS]')" succeeds
+    - C:\eva-foundry\.venv\Scripts\python.exe -c "from services.analysis.app.main import run; print('[PASS]')" succeeds
     - pytest: FindingsAssembler with mock cosmos_client constructs without error
 
   Story ACA-07-021  Fix generate_blob_sas call and SAS_HOURS constant

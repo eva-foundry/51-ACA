@@ -1,6 +1,6 @@
 # Quick ADO Sprint 2 Check
 # Purpose: Verify if work items are assigned to Sprint 2
-# Run from: C:\AICOE\eva-foundry\51-ACA
+# Run from: C:\eva-foundry\51-ACA
 
 Write-Host "=== ADO SPRINT 2 QUICK CHECK ===" -ForegroundColor Cyan
 Write-Host ""

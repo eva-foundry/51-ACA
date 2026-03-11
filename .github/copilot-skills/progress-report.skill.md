@@ -123,7 +123,7 @@ if ($m10_pct -eq 100) {
 ### Step 4: Parse recent commits for story IDs
 
 ```powershell
-$repo = "C:\AICOE\eva-foundry\51-ACA"
+$repo = "C:\eva-foundry\51-ACA"
 $recent_commits = git -C $repo log --oneline -10 2>&1
 
 $story_commits = @()
@@ -240,7 +240,7 @@ $(($recommended | ForEach-Object { "1. **$($_.id)** -- $($_.label) (FP=$($_.stor
 *Progress report updated. Use this instead of STATUS.md for current snapshot.*
 "@
 
-$report_path = "C:\AICOE\eva-foundry\51-ACA\docs\progress-report.md"
+$report_path = "C:\eva-foundry\51-ACA\docs\progress-report.md"
 $report | Set-Content $report_path -Encoding UTF8
 Write-Host "`n[PASS] Progress report written to: $report_path"
 ```

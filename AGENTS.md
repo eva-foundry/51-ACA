@@ -58,7 +58,7 @@ NON-NEGOTIABLE RULES
 5. PYTHON VENV
    Never use bare python or python3.
    In Codespaces: python (devcontainer sets path).
-   Locally (Windows): C:\AICOE\.venv\Scripts\python.exe
+   Locally (Windows): C:\eva-foundry\.venv\Scripts\python.exe
 
 6. NO PROMPT-AND-WAIT
    Agents must not ask for permission on a step they can determine themselves.

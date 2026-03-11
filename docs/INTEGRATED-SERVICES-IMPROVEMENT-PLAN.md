@@ -226,7 +226,7 @@ Returns: {
 {
   "name": "verify_sprint_readiness",
   "input": {
-    "repo_path": "C:\\AICOE\\eva-foundry\\51-ACA",
+    "repo_path": "C:\\eva-foundry\\eva-foundry\\51-ACA",
     "sprint_id": "51-ACA-sprint-02",
     "min_trust_score": 0.7
   },
@@ -255,7 +255,7 @@ Returns: {
 {
   "name": "validate_story_before_commit",
   "input": {
-    "repo_path": "C:\\AICOE\\eva-foundry\\51-ACA",
+    "repo_path": "C:\\eva-foundry\\eva-foundry\\51-ACA",
     "story": {
       "id": "ACA-04-001",
       "title": "GET /v1/findings endpoint",
@@ -286,7 +286,7 @@ Returns: {
 {
   "name": "enrich_ado_items_with_trust",
   "input": {
-    "repo_path": "C:\\AICOE\\eva-foundry\\51-ACA",
+    "repo_path": "C:\\eva-foundry\\eva-foundry\\51-ACA",
     "ado_ids": [2978, 2979, 2980]
   },
   "output": {
@@ -314,7 +314,7 @@ Returns: {
 **Proposed**: Enhance `scan_portfolio` output
 ```json
 {
-  "portfolio_root": "C:\\AICOE\\eva-foundry",
+  "portfolio_root": "C:\\eva-foundry\\eva-foundry",
   "portfolio_mti": 0.78,
   "sprint_readiness": {
     "51-ACA-sprint-02": {"ready": true, "mti": 0.85, "project": "51-ACA"},

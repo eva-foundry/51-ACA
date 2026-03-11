@@ -79,8 +79,8 @@ $critical_blockers | ForEach-Object {
 ### Step 2: Check for missing evidence on done stories
 
 ```powershell
-$repo = "C:\AICOE\eva-foundry\51-ACA"
-node C:\AICOE\eva-foundry\48-eva-veritas\src\cli.js reconcile --repo $repo 2>&1 | Out-Null
+$repo = "C:\eva-foundry\51-ACA"
+node C:\eva-foundry\48-eva-veritas\src\cli.js reconcile --repo $repo 2>&1 | Out-Null
 
 $reconciliation = Get-Content "$repo\.eva\reconciliation.json" | ConvertFrom-Json
 $missing_evidence_gaps = $reconciliation.gaps | Where-Object { $_.type -eq "missing_evidence" }
@@ -219,7 +219,7 @@ $(($undone_milestone_stories | ForEach-Object { "- $($_.id) -- $($_.label) (FP=$
 *Gap report complete. Fix critical blockers before advancing to next sprint.*
 "@
 
-$report_path = "C:\AICOE\eva-foundry\51-ACA\docs\gap-report.md"
+$report_path = "C:\eva-foundry\51-ACA\docs\gap-report.md"
 $report | Set-Content $report_path -Encoding UTF8
 Write-Host "`n[PASS] Gap report written to: $report_path"
 ```
@@ -313,7 +313,7 @@ gap report for milestone M1.0
 ## DEPENDENCIES
 
 - Data model API: `https://marco-eva-data-model.livelyflower-7990bc7b.canadacentral.azurecontainerapps.io`
-- Veritas CLI: `C:\AICOE\eva-foundry\48-eva-veritas\src\cli.js`
+- Veritas CLI: `C:\eva-foundry\48-eva-veritas\src\cli.js`
 - PowerShell 7+ with ConvertFrom-Json support
 
 ---

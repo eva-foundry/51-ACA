@@ -181,7 +181,7 @@
 | Component | Version/Path |
 |---|---|
 | **Python** | 3.10.11 |
-| **Virtualenv** | C:\AICOE\.venv |
+| **Virtualenv** | C:\eva-foundry\.venv |
 | **FastAPI** | 0.115+ |
 | **pytest** | 8.3.3 |
 | **pytest-cov** | 7.0.0 |

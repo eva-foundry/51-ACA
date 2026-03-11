@@ -3,7 +3,7 @@
 **Version**: 1.0.0
 **Updated**: 2026-03-01
 **Project**: 51-ACA -- Azure Cost Advisor
-**Path**: `C:\AICOE\eva-foundry\51-ACA\`
+**Path**: `C:\eva-foundry\51-ACA\`
 
 ---
 
@@ -299,7 +299,7 @@ Execution Time per Sprint
 
 ## Appendix: Evidence Receipt Schema
 
-All receipts follow [ACA-14-010 schema](C:\AICOE\eva-foundry\51-ACA\.github\scripts\evidence_schema.py):
+All receipts follow [ACA-14-010 schema](C:\eva-foundry\51-ACA\.github\scripts\evidence_schema.py):
 
 ```python
 REQUIRED_FIELDS = [
@@ -321,8 +321,8 @@ REQUIRED_FIELDS = [
 
 ## References
 
-- **Sprint 12 Completion**: [STATUS.md v1.33.0](C:\AICOE\eva-foundry\51-ACA\STATUS.md)
-- **Sprint 13-16 Manifests**: [.github/sprints/](C:\AICOE\eva-foundry\51-ACA\.github\sprints)
-- **Evidence Layer**: [ACA-12-022 implementation](C:\AICOE\eva-foundry\51-ACA\data-model\db.py#L209-L263)
-- **Veritas MTI Baseline**: [48-eva-veritas](C:\AICOE\eva-foundry\48-eva-veritas) (MTI >= 30 for Sprint 2, >= 70 for Sprint 3+)
-- **18-Azure-Best Practices**: [18-azure-best/](C:\AICOE\eva-foundry\18-azure-best) (referenced in rule implementations)
+- **Sprint 12 Completion**: [STATUS.md v1.33.0](C:\eva-foundry\51-ACA\STATUS.md)
+- **Sprint 13-16 Manifests**: [.github/sprints/](C:\eva-foundry\51-ACA\.github\sprints)
+- **Evidence Layer**: [ACA-12-022 implementation](C:\eva-foundry\51-ACA\data-model\db.py#L209-L263)
+- **Veritas MTI Baseline**: [48-eva-veritas](C:\eva-foundry\48-eva-veritas) (MTI >= 30 for Sprint 2, >= 70 for Sprint 3+)
+- **18-Azure-Best Practices**: [18-azure-best/](C:\eva-foundry\18-azure-best) (referenced in rule implementations)

@@ -79,7 +79,7 @@ The following actions remain for future session:
 **Action 3.1** -- Run ADO import
 ```powershell
 $env:ADO_PAT = "<pat>"
-cd C:\AICOE\eva-foundry\51-ACA
+cd C:\eva-foundry\51-ACA
 .\ado-import.ps1
 # Creates 1 epic, 15 features, 281 stories in dev.azure.com/marcopresta/51-aca
 ```

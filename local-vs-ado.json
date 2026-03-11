@@ -1,6 +1,6 @@
 {
   "storage": {
-    "local_sqlite": "C:\\AICOE\\eva-foundry\\51-ACA\\data-model\\aca-model.db",
+    "local_sqlite": "C:\\eva-foundry\\eva-foundry\\51-ACA\\data-model\\aca-model.db",
     "size_kb": 316.0
   },
   "ado_integration": {

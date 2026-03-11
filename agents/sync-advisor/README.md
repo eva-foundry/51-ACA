@@ -138,7 +138,7 @@ Emit-AdvisorRecommendationEvent → Application Insights telemetry
 
 ```bash
 # Activate Python venv
-cd C:\AICOE\eva-foundry\51-ACA\agents\sync-advisor
+cd C:\eva-foundry\51-ACA\agents\sync-advisor
 python -m venv venv
 .\venv\Scripts\Activate.ps1
 pip install -r requirements.txt
@@ -204,7 +204,7 @@ Emit-AdvisorRecommendationEvent -Recommendation $rec -CorrelationId $correlation
 ### Run All Tests
 
 ```bash
-cd C:\AICOE\eva-foundry\51-ACA\agents\sync-advisor
+cd C:\eva-foundry\51-ACA\agents\sync-advisor
 pytest test_advisor_agent.py -v
 
 # Output:

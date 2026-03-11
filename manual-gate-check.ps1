@@ -13,7 +13,7 @@ $fail = 0
 # Gate 1: LOCAL DB
 Write-Host "[GATE 1] LOCAL DB Sprint 2 Linkage" -ForegroundColor Yellow
 try {
-    $count = & C:\AICOE\.venv\Scripts\python.exe -c "import sys; sys.path.insert(0, 'data-model'); import db; print(len([s for s in db.list_layer('wbs') if s.get('sprint_id') == 'Sprint-02']))"
+    $count = & C:\eva-foundry\.venv\Scripts\python.exe -c "import sys; sys.path.insert(0, 'data-model'); import db; print(len([s for s in db.list_layer('wbs') if s.get('sprint_id') == 'Sprint-02']))"
     Write-Host "  Stories linked: $count / 15" -ForegroundColor Gray
     if ($count -eq "15") {
         Write-Host "  Result: PASS" -ForegroundColor Green
@@ -56,7 +56,7 @@ Write-Host ""
 Write-Host "[GATE 3] Baseline Test Suite" -ForegroundColor Yellow
 Write-Host "  Running: pytest services/ -x -q ..." -ForegroundColor Gray
 try {
-    $testOutput = & C:\AICOE\.venv\Scripts\python.exe -m pytest services/ -x -q --tb=line 2>&1
+    $testOutput = & C:\eva-foundry\.venv\Scripts\python.exe -m pytest services/ -x -q --tb=line 2>&1
     $exitCode = $LASTEXITCODE
     $summary = $testOutput | Select-String "passed|failed|error" | Select-Object -Last 1
     Write-Host "  Exit Code: $exitCode" -ForegroundColor Gray

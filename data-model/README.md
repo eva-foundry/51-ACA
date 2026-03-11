@@ -34,7 +34,7 @@ Layers stored: requirements, endpoints, containers, screens, agents, services,
 START THE HTTP SERVER
 =============================================================================
 
-  pwsh -File C:\AICOE\eva-foundry\51-ACA\data-model\start.ps1
+  pwsh -File C:\eva-foundry\51-ACA\data-model\start.ps1
   # http://localhost:8055
   # Swagger: http://localhost:8055/docs
 
@@ -42,11 +42,11 @@ START THE HTTP SERVER
 REBUILD FROM PLAN.MD
 =============================================================================
 
-  cd C:\AICOE\eva-foundry\51-ACA
-  C:\AICOE\.venv\Scripts\python.exe scripts/seed-from-plan.py --reseed-model
+  cd C:\eva-foundry\51-ACA
+  C:\eva-foundry\.venv\Scripts\python.exe scripts/seed-from-plan.py --reseed-model
 
   # Dry-run (no writes):
-  C:\AICOE\.venv\Scripts\python.exe scripts/seed-from-plan.py --dry-run
+  C:\eva-foundry\.venv\Scripts\python.exe scripts/seed-from-plan.py --dry-run
 
 =============================================================================
 DIRECT SQLITE QUERY (no server needed)
@@ -78,6 +78,6 @@ HTTP QUICK REFERENCE (port 8055)
 VERITAS
 =============================================================================
 
-  node C:\AICOE\eva-foundry\48-eva-veritas\src\cli.js audit --repo C:\AICOE\eva-foundry\51-ACA
+  node C:\eva-foundry\48-eva-veritas\src\cli.js audit --repo C:\eva-foundry\51-ACA
   # Target MTI >= 70 before Phase 1 go-live
 

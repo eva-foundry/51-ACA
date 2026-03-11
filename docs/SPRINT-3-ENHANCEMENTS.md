@@ -61,7 +61,7 @@ evidence = {
 **After sprint completes:**
 ```bash
 # Run Veritas audit
-node C:\AICOE\eva-foundry\48-eva-veritas\src\cli.js audit --repo .
+node C:\eva-foundry\48-eva-veritas\src\cli.js audit --repo .
 
 # Check MTI score
 if [ $MTI -lt 30 ]; then

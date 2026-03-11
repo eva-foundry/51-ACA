@@ -5,7 +5,7 @@
 ## Data Model State
 
 ### LOCAL SQLite (51-ACA standalone)
-- Path: C:\AICOE\eva-foundry\51-ACA\data-model\aca-model.db
+- Path: C:\eva-foundry\51-ACA\data-model\aca-model.db
 - Size: 316 KB
 - Objects: 324 WBS stories + 4 sprint metadata records
 - Server: FastAPI port 8055 (http://localhost:8055)
@@ -151,5 +151,5 @@ Target 38-ado-poc pattern:
 - 29-foundry GitHub plane skills: copilot-skills/github-plane/01-sprint-execute.skill.md
 - LOCAL db API: http://localhost:8055/model/agent-guide
 - Cloud Cosmos API: https://marco-eva-data-model.../model/agent-guide
-- Veritas CLI: C:\AICOE\eva-foundry\48-eva-veritas\src\cli.js
+- Veritas CLI: C:\eva-foundry\48-eva-veritas\src\cli.js
 - ADO REST API: https://dev.azure.com/marcopresta/_apis/

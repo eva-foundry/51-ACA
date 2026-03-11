@@ -16,7 +16,7 @@ This handles:
 #>
 
 param(
-    [string]$RepoRoot = "c:\AICOE\eva-foundry\51-ACA",
+    [string]$RepoRoot = "c:\eva-foundry\51-ACA",
     [switch]$WhatIf = $false
 )
 
@@ -124,5 +124,5 @@ if ($WhatIf) {
     Write-Host "[OK] Orphan story tags cleaned up." -ForegroundColor Green
     Write-Host ""
     Write-Host "Next: Run Veritas audit to confirm cleanup:" -ForegroundColor Gray
-    Write-Host "  node C:\AICOE\eva-foundry\48-eva-veritas\src\cli.js audit --repo ." -ForegroundColor Gray
+    Write-Host "  node C:\eva-foundry\48-eva-veritas\src\cli.js audit --repo ." -ForegroundColor Gray
 }

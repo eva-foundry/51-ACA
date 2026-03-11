@@ -1235,7 +1235,7 @@ $with_ado = $wbs | Where-Object {$_.level -eq "story" -and $_.ado_id -ne $null}
 
 ```powershell
 # Start local data model server
-pwsh -File C:\AICOE\eva-foundry\51-ACA\data-model\start.ps1
+pwsh -File C:\eva-foundry\51-ACA\data-model\start.ps1
 
 # Query all undone Epic 3 stories
 $base = "http://localhost:8055"

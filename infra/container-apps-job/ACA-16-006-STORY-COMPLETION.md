@@ -378,8 +378,8 @@ docker run ... sync-orchestration-job.ps1
 ## Evidence Trail
 
 - **File Locations**:
-  - Source: C:\AICOE\eva-foundry\51-ACA\infra\container-apps-job\scripts\Rollback-Manager.ps1
-  - Integration: C:\AICOE\eva-foundry\51-ACA\infra\container-apps-job\scripts\sync-orchestration-job.ps1
+  - Source: C:\eva-foundry\51-ACA\infra\container-apps-job\scripts\Rollback-Manager.ps1
+  - Integration: C:\eva-foundry\51-ACA\infra\container-apps-job\scripts\sync-orchestration-job.ps1
   - Snapshots (runtime): /app/state/rollback/snapshot-*.json (Container Apps Job filesystem)
   - Archives (audit): /app/state/rollback/archive/snapshot-*.json
 

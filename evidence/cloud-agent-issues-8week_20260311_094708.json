@@ -1,0 +1,9 @@
+{
+  "mode": "dry-run",
+  "issues_created": 0,
+  "issues_failed": 0,
+  "script": "create-cloud-agent-issues-8week.ps1",
+  "batches_total": 1,
+  "issues": [],
+  "timestamp": "2026-03-11 09:47:10"
+}
