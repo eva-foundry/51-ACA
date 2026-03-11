@@ -1,18 +1,15 @@
 {
   "story_id": "ACA-03-020",
-  "title": "R-10 Savings Plan Coverage Analysis",
+  "title": "R-10 Savings Plan Coverage",
   "phase": "A",
-  "timestamp": "2026-03-01T16:48:05Z",
-  "artifacts": [
-    "services/analysis/app/rules/r10_savings_plan_coverage.py",
-    "services/tests/test_rule_r10_savings_plan_coverage.py"
-  ],
+  "timestamp": "2026-03-11T13:22:09Z",
+  "artifacts": [],
   "test_result": "WARN",
   "lint_result": "WARN",
-  "commit_sha": "e4dc79882e2c2707f7fb0f1081ea5f3b28f5e324",
-  "duration_ms": 8836,
+  "commit_sha": "4fb3eacd6af83fe96a881377a2232d10a2935114",
+  "duration_ms": 2062,
   "tokens_used": 0,
   "test_count_before": 0,
   "test_count_after": 0,
-  "files_changed": 2
+  "files_changed": 0
 }
