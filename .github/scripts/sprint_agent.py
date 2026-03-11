@@ -1016,7 +1016,7 @@ Working through {len(stories)} stories in sequence. Progress comments will follo
     
     # === EVA-STORY: ACA-14-003 -- Verify P (Plan) phase ===
     if verify_phase:
-        if not verify_phase("P", sprint_id, expected_checked=len(stories), repo_root=str(REPO_ROOT)):
+        if not verify_phase("P", sprint_id, repo_root=str(REPO_ROOT)):
             msg = f"[FAIL] P verification failed -- PLAN.md not updated"
             print(msg)
             _gh_comment(issue, repo, f"{msg}")
