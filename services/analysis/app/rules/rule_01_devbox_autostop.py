@@ -40,3 +40,24 @@ def rule_01_devbox_autostop(data: dict) -> dict | None:
         ),
         "deliverable_template_id": "tmpl-devbox-autostop",
     }
+
+
+def evaluate_devbox(resources: list, cost_data: list, advisor_data: list) -> dict | None:
+    """Wrapper: evaluate DevBox cost from resource list. Returns finding if cost > $1,000."""
+    devbox_resources = [
+        r for r in resources
+        if r.get("type", "").lower() in ("devbox", "dev box", "microsoft dev box")
+    ]
+    total_cost = sum(float(r.get("cost", 0)) for r in devbox_resources)
+    if total_cost < 1000:
+        return None
+    return {
+        "id": RULE_ID,
+        "category": "compute-scheduling",
+        "title": "Dev Box instances run without auto-stop on nights and weekends",
+        "estimated_saving_low": round(total_cost * 0.33),
+        "estimated_saving_high": round(total_cost * 0.47),
+        "effort_class": "trivial",
+        "risk_class": "none",
+        "heuristic_source": RULE_ID,
+    }

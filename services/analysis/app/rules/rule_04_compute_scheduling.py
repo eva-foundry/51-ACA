@@ -45,3 +45,20 @@ def rule_04_compute_scheduling(data: dict) -> dict | None:
         ),
         "deliverable_template_id": "tmpl-compute-schedule",
     }
+
+
+def evaluate_scheduling(resources: list, cost_data: list, advisor_data: list) -> dict | None:
+    """Wrapper: evaluate schedulable compute cost from resource list. Returns finding if cost > $5,000."""
+    total_cost = sum(float(r.get("cost", 0)) for r in resources)
+    if total_cost < 5000:
+        return None
+    return {
+        "id": RULE_ID,
+        "category": "compute-scheduling",
+        "title": "Schedulable compute services likely running 24x7 without auto-shutdown",
+        "estimated_saving_low": round(total_cost * 0.33),
+        "estimated_saving_high": round(total_cost * 0.47),
+        "effort_class": "easy",
+        "risk_class": "none",
+        "heuristic_source": RULE_ID,
+    }
