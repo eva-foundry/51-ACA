@@ -1,18 +1,15 @@
 {
   "story_id": "ACA-03-021",
-  "title": "R-11 APIM Token Budget Review",
+  "title": "R-11 APIM Token Budget",
   "phase": "A",
-  "timestamp": "2026-03-01T16:48:13Z",
-  "artifacts": [
-    "services/analysis/app/rules/r11_apim_token_budget.py",
-    "services/tests/test_rule_r11_apim_token_budget.py"
-  ],
+  "timestamp": "2026-03-11T13:22:11Z",
+  "artifacts": [],
   "test_result": "WARN",
   "lint_result": "WARN",
-  "commit_sha": "6963418275607c89b223f5317ea5ea7d6fde9511",
-  "duration_ms": 6468,
+  "commit_sha": "b87783f9c5e1793fe14bff929a6658c988ecdc04",
+  "duration_ms": 1804,
   "tokens_used": 0,
   "test_count_before": 0,
   "test_count_after": 0,
-  "files_changed": 2
+  "files_changed": 0
 }
