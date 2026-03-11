@@ -241,4 +241,4 @@ E   ModuleNotFoundError: No module named 'numpy'
 ERROR services/tests/test_packager_sas.py
 ERROR services/tests/test_rule_r05_anomaly_detection.py
 !!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!
-==================== 147 tests collected, 2 errors in 0.84s ====================
+==================== 147 tests collected, 2 errors in 0.85s ====================
