@@ -569,9 +569,9 @@ def _generate_code(story: dict, context: str, ctx: Optional[object] = None) -> d
         - No UTF-8 BOM in any file.
 
         EVA-STORY TAG (mandatory -- missing tag drops Veritas artifact score):
-        - Python / YAML / Dockerfile: # EVA-STORY: ACA-NN-NNN
-        - JS / TS / Bicep:            // EVA-STORY: ACA-NN-NNN
-        - HTML / JSX / TSX:           <!-- EVA-STORY: ACA-NN-NNN -->
+        - Python / YAML / Dockerfile: # EVA-STORY: STORY-ID
+        - JS / TS / Bicep:            // EVA-STORY: STORY-ID
+        - HTML / JSX / TSX:           <!-- EVA-STORY: STORY-ID -->
         - Tag MUST appear on the first functional line of every file.
 
         CODE PATTERNS (from copilot-instructions P2.5 -- apply exactly):

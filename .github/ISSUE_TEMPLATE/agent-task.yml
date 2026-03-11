@@ -3,7 +3,7 @@ description: >-
   A well-scoped sprint story submitted for the DPDCA cloud agent.
   Fill every field -- the agent uses these as its complete work order.
   Trigger: add label "agent-task" after creating the issue.
-title: "[ACA-XX-XXX] <story title>"
+title: "[STORY-ID] <story title>"
 labels: []
 assignees: []
 body:
@@ -123,7 +123,7 @@ body:
         - [ ] tenant_id from decoded token matches subscriptionId scope
         - [ ] pytest services/ -x -q exits 0
         - [ ] ruff check services/ exits 0
-        - [ ] EVA-STORY tag present: # EVA-STORY: ACA-XX-XXX
+        - [ ] EVA-STORY tag present: # EVA-STORY: STORY-ID
     validations:
       required: true
 
