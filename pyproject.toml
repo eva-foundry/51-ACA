@@ -1,7 +1,7 @@
 [tool.pytest.ini_options]
 testpaths = ["services"]
 addopts = "-v --tb=short"
-pythonpath = [".", "services/api"]
+pythonpath = [".", "services/api", "services/analysis/app/rules"]
 
 [tool.ruff]
 line-length = 100
