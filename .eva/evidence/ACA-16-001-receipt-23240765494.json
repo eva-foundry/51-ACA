@@ -1,0 +1,19 @@
+{
+  "story_id": "ACA-16-001",
+  "phase": "D",
+  "timestamp": "2026-03-18T10:42:37Z",
+  "correlation_id": "ACA-EPIC15-20260318-1042-23240765494",
+  "github_run_url": "https://github.com/eva-foundry/51-ACA/actions/runs/23240765494",
+  "environment": "dev",
+  "phase_execution": "full",
+  "dry_run": false,
+  "artifacts": [
+    "infra/container-apps-job/Dockerfile",
+    "infra/container-apps-job/scripts/sync-orchestration-job.ps1",
+    "infra/container-apps-job/job-template.json",
+    ".github/workflows/epic15-sync-orchestrator.yml"
+  ],
+  "test_result": "success",
+  "duration_ms": 0,
+  "tokens_used": 0
+}
