@@ -1,0 +1,75 @@
+{
+  "metrics": {
+    "total_epics": 19,
+    "baseline_stories": 281,
+    "total_stories": 617,
+    "new_stories": 336,
+    "total_fp": 4890,
+    "gap_stories": 5
+  },
+  "source_documents": {
+    "reconciliation": "docs/WBS-RECONCILIATION-20260311.md",
+    "architectural_docs": 43,
+    "gaps": "docs/GAPS-AND-DECISIONS.md",
+    "comprehensive_wbs": "docs/WBS-FROM-DOCS-COMPLETE-20260311.md"
+  },
+  "deliverables": {
+    "acceptance": {
+      "target_lines": 700,
+      "path": "ACCEPTANCE.md",
+      "blocker": "Needs creation from template",
+      "completeness": 0,
+      "status": "not_started"
+    },
+    "readme": {
+      "path": "README.md",
+      "size_chars": 15692,
+      "completeness": 100,
+      "status": "complete"
+    },
+    "plan": {
+      "path": "PLAN.md",
+      "blocker": "Too large for single operation - requires systematic WBS parsing",
+      "status": "requires_manual_generation",
+      "stories": 617,
+      "completeness": 0,
+      "target_lines": 3000
+    },
+    "summary": {
+      "path": "GOVERNANCE-REGENERATION-SUMMARY.md",
+      "purpose": "Comprehensive guide for completing remaining work",
+      "status": "complete"
+    },
+    "status": {
+      "path": "STATUS.md",
+      "blocker": "Needs expansion with full metrics",
+      "status": "stub_created",
+      "completeness": 5,
+      "target_lines": 500,
+      "size_lines": 19
+    }
+  },
+  "next_actions": [
+    "Generate comprehensive PLAN.md (3000+ lines) by parsing WBS documents",
+    "Expand STATUS.md from 19 lines to 400-600 lines with full metrics",
+    "Create ACCEPTANCE.md (600-800 lines) with all phase gates",
+    "Resolve story ID conflicts (ACA-03-020 duplicate)",
+    "Integrate 5 gap stories from GAPS-AND-DECISIONS.md",
+    "Run Veritas audit on completed governance",
+    "Sync all 617 stories to Data Model API (L26-wbs)"
+  ],
+  "sprint": 48,
+  "status": "partial_complete",
+  "operation": "governance_regeneration",
+  "backup": {
+    "status": "complete",
+    "files": [
+      "README.md",
+      "PLAN.md",
+      "STATUS.md",
+      "ACCEPTANCE.md"
+    ],
+    "location": "docs/archive/backup_20260311_145445"
+  },
+  "timestamp": "2026-03-11T15:00:06Z"
+}

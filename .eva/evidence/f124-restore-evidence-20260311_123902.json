@@ -1,0 +1,52 @@
+{
+  "operation": "F12.4 restore evidence pack",
+  "timestamp": "2026-03-11T12:39:05.4085246-03:00",
+  "project_id": "51-ACA",
+  "steps": {
+    "snapshot": "completed",
+    "cleanup": "completed",
+    "re_prime": "completed",
+    "rebuild_plan": "completed",
+    "rebuild_wbs": "completed",
+    "audit": "completed"
+  },
+  "artifacts": {
+    "snapshot": ".eva/snapshots/wbs-evidence-snapshot-20260311_113054.json",
+    "rebuilt_veritas_plan": ".eva/veritas-plan.json",
+    "put_results": ".eva/wbs-put-results-20260311_123418.json",
+    "discovery": ".eva/discovery.json",
+    "reconciliation": ".eva/reconciliation.json",
+    "trust": ".eva/trust.json"
+  },
+  "verification": {
+    "wbs_records_total": 297,
+    "wbs_level_breakdown": [
+      {
+        "level": "epic",
+        "count": 1
+      },
+      {
+        "level": "feature",
+        "count": 15
+      },
+      {
+        "level": "user_story",
+        "count": 281
+      }
+    ],
+    "put_success": 297,
+    "put_failed": 0,
+    "planned_features": 0,
+    "planned_stories": 0,
+    "mti_score": 66,
+    "mti_actions": [
+      "review-required",
+      "no-deploy"
+    ]
+  },
+  "status": "PASS",
+  "notes": [
+    "Veritas data-model client patched to use client-side WBS filtering and feature/user_story mapping",
+    "API-only fail-closed audit now succeeds with cloud-backed WBS data"
+  ]
+}

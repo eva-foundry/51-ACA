@@ -64,7 +64,8 @@ def load_veritas() -> dict:
         print(f"[FAIL] veritas-plan.json not found: {VERITAS_FILE}")
         print("[INFO] Run: python scripts/seed-from-plan.py --reseed-model")
         sys.exit(1)
-    return json.loads(VERITAS_FILE.read_text(encoding="utf-8"))
+    # Use utf-8-sig so files written with a BOM do not break manifest generation.
+    return json.loads(VERITAS_FILE.read_text(encoding="utf-8-sig"))
 
 
 def build_story_index(veritas: dict) -> dict[str, dict]:

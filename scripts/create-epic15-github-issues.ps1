@@ -85,7 +85,7 @@ $(if ($story.gap) { "Gap item from minor gaps analysis. " } else { "Core Epic 15
 - [ ] Story implemented per PLAN.md acceptance criteria
 - [ ] All files created/modified as specified
 - [ ] Tests pass (unit + integration)
-- [ ] Code tagged with EVA-STORY: ACA-$($story.id.Split('-')[1])-$($story.id.Split('-')[2])
+- [ ] Code tagged with the real EVA-STORY ID for this story
 - [ ] Evidence receipt generated (.eva/evidence/)
 
 ### References

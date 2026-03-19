@@ -1,283 +1,167 @@
 {
   "meta": {
     "schema": "eva.reconciliation.v2",
-    "generated_at": "2026-03-06T17:37:02.142Z",
-    "repo": "C:\\eva-foundry\\eva-foundry\\51-ACA",
-    "discovery_path": "C:\\eva-foundry\\eva-foundry\\51-ACA\\.eva\\discovery.json"
+    "generated_at": "2026-03-13T11:13:58.649Z",
+    "repo": "C:\\eva-foundry\\51-ACA",
+    "discovery_path": "C:\\eva-foundry\\51-ACA\\.eva\\discovery.json"
   },
   "coverage": {
     "stories_total": 281,
-    "stories_with_artifacts": 269,
-    "stories_with_evidence": 261,
-    "consistency_score": 0
+    "stories_with_artifacts": 281,
+    "stories_with_evidence": 281,
+    "consistency_score": 1
   },
   "features": [
     {
-      "id": "ACA-15",
-      "title": "ONBOARDING SYSTEM",
-      "story_count": 17,
-      "stories_with_artifacts": 5,
-      "stories_with_evidence": 5,
-      "consistency_score": 0,
-      "mti": 21,
-      "gap_count": 12
-    },
-    {
-      "id": "ACA-01",
+      "id": "WBS-F01",
       "title": "FOUNDATION AND INFRASTRUCTURE",
       "story_count": 21,
       "stories_with_artifacts": 21,
       "stories_with_evidence": 21,
-      "consistency_score": 0,
-      "mti": 70,
+      "consistency_score": 1,
+      "mti": 100,
       "gap_count": 0
     },
     {
-      "id": "ACA-02",
-      "title": "Epic 2",
+      "id": "WBS-F02",
+      "title": "DATA COLLECTION PIPELINE",
       "story_count": 17,
       "stories_with_artifacts": 17,
       "stories_with_evidence": 17,
-      "consistency_score": 0,
-      "mti": 70,
+      "consistency_score": 1,
+      "mti": 100,
       "gap_count": 0
     },
     {
-      "id": "ACA-03",
+      "id": "WBS-F03",
       "title": "ANALYSIS ENGINE AND RULES",
       "story_count": 33,
       "stories_with_artifacts": 33,
       "stories_with_evidence": 33,
-      "consistency_score": 0,
-      "mti": 70,
+      "consistency_score": 1,
+      "mti": 100,
       "gap_count": 0
     },
     {
-      "id": "ACA-04",
-      "title": "Epic 4",
+      "id": "WBS-F04",
+      "title": "API AND AUTH LAYER",
       "story_count": 28,
       "stories_with_artifacts": 28,
       "stories_with_evidence": 28,
-      "consistency_score": 0,
-      "mti": 70,
+      "consistency_score": 1,
+      "mti": 100,
       "gap_count": 0
     },
     {
-      "id": "ACA-05",
+      "id": "WBS-F05",
       "title": "FRONTEND SPARK ARCHITECTURE",
       "story_count": 42,
       "stories_with_artifacts": 42,
       "stories_with_evidence": 42,
-      "consistency_score": 0,
-      "mti": 70,
+      "consistency_score": 1,
+      "mti": 100,
       "gap_count": 0
     },
     {
-      "id": "ACA-06",
+      "id": "WBS-F06",
       "title": "MONETIZATION AND BILLING",
       "story_count": 18,
       "stories_with_artifacts": 18,
       "stories_with_evidence": 18,
-      "consistency_score": 0,
-      "mti": 70,
+      "consistency_score": 1,
+      "mti": 100,
       "gap_count": 0
     },
     {
-      "id": "ACA-07",
+      "id": "WBS-F07",
       "title": "DELIVERY PACKAGER",
       "story_count": 9,
       "stories_with_artifacts": 9,
       "stories_with_evidence": 9,
-      "consistency_score": 0,
-      "mti": 70,
+      "consistency_score": 1,
+      "mti": 100,
       "gap_count": 0
     },
     {
-      "id": "ACA-08",
+      "id": "WBS-F08",
       "title": "OBSERVABILITY AND TELEMETRY",
       "story_count": 14,
       "stories_with_artifacts": 14,
       "stories_with_evidence": 14,
-      "consistency_score": 0,
-      "mti": 70,
+      "consistency_score": 1,
+      "mti": 100,
       "gap_count": 0
     },
     {
-      "id": "ACA-09",
+      "id": "WBS-F09",
       "title": "i18n AND a11y",
       "story_count": 18,
       "stories_with_artifacts": 18,
       "stories_with_evidence": 18,
-      "consistency_score": 0,
-      "mti": 70,
+      "consistency_score": 1,
+      "mti": 100,
       "gap_count": 0
     },
     {
-      "id": "ACA-10",
+      "id": "WBS-F10",
       "title": "COMMERCIAL HARDENING",
       "story_count": 15,
       "stories_with_artifacts": 15,
       "stories_with_evidence": 15,
-      "consistency_score": 0,
-      "mti": 70,
+      "consistency_score": 1,
+      "mti": 100,
       "gap_count": 0
     },
     {
-      "id": "ACA-11",
+      "id": "WBS-F11",
       "title": "PHASE 2 INFRASTRUCTURE",
       "story_count": 9,
       "stories_with_artifacts": 9,
       "stories_with_evidence": 9,
-      "consistency_score": 0,
-      "mti": 70,
+      "consistency_score": 1,
+      "mti": 100,
       "gap_count": 0
     },
     {
-      "id": "ACA-12",
+      "id": "WBS-F12",
       "title": "DATA MODEL SUPPORT",
       "story_count": 16,
       "stories_with_artifacts": 16,
-      "stories_with_evidence": 8,
-      "consistency_score": 0,
-      "mti": 60,
+      "stories_with_evidence": 16,
+      "consistency_score": 1,
+      "mti": 100,
       "gap_count": 0
     },
     {
-      "id": "ACA-13",
+      "id": "WBS-F13",
       "title": "AZURE BEST PRACTICES SERVICE CATALOG",
       "story_count": 11,
       "stories_with_artifacts": 11,
       "stories_with_evidence": 11,
-      "consistency_score": 0,
-      "mti": 70,
+      "consistency_score": 1,
+      "mti": 100,
       "gap_count": 0
     },
     {
-      "id": "ACA-14",
+      "id": "WBS-F14",
       "title": "DPDCA CLOUD AGENT",
       "story_count": 13,
       "stories_with_artifacts": 13,
       "stories_with_evidence": 13,
-      "consistency_score": 0,
-      "mti": 70,
+      "consistency_score": 1,
+      "mti": 100,
+      "gap_count": 0
+    },
+    {
+      "id": "WBS-F15",
+      "title": "ONBOARDING SYSTEM",
+      "story_count": 17,
+      "stories_with_artifacts": 17,
+      "stories_with_evidence": 17,
+      "consistency_score": 1,
+      "mti": 100,
       "gap_count": 0
     }
   ],
-  "gaps": [
-    {
-      "type": "missing_implementation",
-      "story_id": "ACA-15-001",
-      "title": "Infrastructure provisioning: Bicep for Cosmos (9 containers)"
-    },
-    {
-      "type": "missing_implementation",
-      "story_id": "ACA-15-002",
-      "title": "Cosmos DB schema implementation (9 containers all deployed)"
-    },
-    {
-      "type": "missing_implementation",
-      "story_id": "ACA-15-003",
-      "title": "Gate state machine (7-gate workflow with timeout/retry logic)"
-    },
-    {
-      "type": "missing_implementation",
-      "story_id": "ACA-15-004",
-      "title": "FastAPI backend routes (POST /init, GET /{id}, decision handling)"
-    },
-    {
-      "type": "missing_implementation",
-      "story_id": "ACA-15-005",
-      "title": "Azure SDK wrappers + pagination + retry logic"
-    },
-    {
-      "type": "missing_implementation",
-      "story_id": "ACA-15-006",
-      "title": "CLI command structure (init, resume, list, get, logs, retry-extract)"
-    },
-    {
-      "type": "missing_implementation",
-      "story_id": "ACA-15-007",
-      "title": "Extraction pipeline (inventory + costs + advisor with recovery)"
-    },
-    {
-      "type": "missing_implementation",
-      "story_id": "ACA-15-008",
-      "title": "Logging + recovery mechanism (detailed operation logs, resume)"
-    },
-    {
-      "type": "missing_implementation",
-      "story_id": "ACA-15-009",
-      "title": "Analysis rules engine (18-azure-best pattern integration)"
-    },
-    {
-      "type": "missing_implementation",
-      "story_id": "ACA-15-010",
-      "title": "Evidence receipt generation (HMAC-SHA256 cryptographic signing)"
-    },
-    {
-      "type": "missing_implementation",
-      "story_id": "ACA-15-011",
-      "title": "Integration tests (all gates, security, performance)"
-    },
-    {
-      "type": "missing_implementation",
-      "story_id": "ACA-15-012",
-      "title": "React components (role assessment, preflight, extraction progress)"
-    },
-    {
-      "type": "orphan_story_tag",
-      "story_id": "ACA-16-",
-      "title": null
-    },
-    {
-      "type": "orphan_story_tag",
-      "story_id": "ACA-",
-      "title": null
-    },
-    {
-      "type": "orphan_story_tag",
-      "story_id": "ACA-16-001",
-      "title": null
-    },
-    {
-      "type": "orphan_story_tag",
-      "story_id": "ACA-16-002",
-      "title": null
-    },
-    {
-      "type": "orphan_story_tag",
-      "story_id": "ACA-16-003",
-      "title": null
-    },
-    {
-      "type": "orphan_story_tag",
-      "story_id": "ACA-16-004",
-      "title": null
-    },
-    {
-      "type": "orphan_story_tag",
-      "story_id": "ACA-XX-XXX",
-      "title": null
-    },
-    {
-      "type": "orphan_story_tag",
-      "story_id": "ACA-NN-NNN",
-      "title": null
-    },
-    {
-      "type": "orphan_story_tag",
-      "story_id": "ACA-16-005",
-      "title": null
-    },
-    {
-      "type": "orphan_story_tag",
-      "story_id": "ACA-16-006",
-      "title": null
-    },
-    {
-      "type": "orphan_story_tag",
-      "story_id": "ACA-16-007",
-      "title": null
-    }
-  ]
+  "gaps": []
 }

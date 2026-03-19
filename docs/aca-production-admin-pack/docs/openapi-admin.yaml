@@ -1,0 +1,74 @@
+openapi: 3.0.3
+info:
+  title: ACA Admin API
+  version: 1.0.0
+paths:
+  /v1/admin/kpis:
+    get:
+      summary: Get admin KPIs
+      responses:
+        "200":
+          description: OK
+  /v1/admin/customers:
+    get:
+      summary: Search customers
+      parameters:
+        - name: query
+          in: query
+          required: true
+          schema: { type: string }
+      responses:
+        "200":
+          description: OK
+  /v1/admin/customers/{subscriptionId}:
+    get:
+      summary: Get customer detail
+      parameters:
+        - name: subscriptionId
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        "200":
+          description: OK
+  /v1/admin/entitlements/grant:
+    post:
+      summary: Grant entitlement
+      responses:
+        "200":
+          description: OK
+  /v1/admin/subscriptions/lock:
+    post:
+      summary: Lock subscription
+      responses:
+        "200":
+          description: OK
+  /v1/admin/subscriptions/unlock:
+    post:
+      summary: Unlock subscription
+      responses:
+        "200":
+          description: OK
+  /v1/admin/reconcile/stripe:
+    post:
+      summary: Reconcile Stripe state
+      responses:
+        "200":
+          description: OK
+  /v1/admin/runs:
+    get:
+      summary: List runs
+      parameters:
+        - name: type
+          in: query
+          required: true
+          schema: { type: string, enum: [scan, analysis, delivery] }
+      responses:
+        "200":
+          description: OK
+  /v1/admin/audit:
+    get:
+      summary: List admin audit events
+      responses:
+        "200":
+          description: OK

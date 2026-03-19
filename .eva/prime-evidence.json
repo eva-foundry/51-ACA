@@ -1,18 +1,18 @@
 {
-  "template_version": "v3.1.0",
   "results": {
     "steps": [
       "copilot-instructions:SKIP",
-      "PLAN.md:SKIP",
-      "STATUS.md:SKIP",
+      "PLAN.md:INJECTED",
+      "STATUS.md:APPENDED",
       "ACCEPTANCE.md:SKIP",
       "README.md:CHECKED",
-      "PROJECT-ORGANIZATION.md:CREATED",
+      "PROJECT-ORGANIZATION.md:SKIP",
       "API-SYNC:EXISTS"
     ],
     "folder": "51-ACA"
   },
-  "dry_run": false,
-  "primed_at": "2026-03-11T10:31:39-03:00",
-  "primed_by": "agent:copilot"
+  "primed_by": "agent:copilot",
+  "template_version": "6.1.0",
+  "primed_at": "2026-03-15T02:26:18+00:00",
+  "dry_run": false
 }
