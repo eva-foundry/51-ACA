@@ -34,9 +34,11 @@ jobs:
       - name: Pre-flight checks
         shell: bash
         run: |
+          echo "COLLECTOR_READY=false" >> "$GITHUB_ENV"
+
           if [ -z "$AZURE_CLIENT_ID_VALUE" ] || [ -z "$AZURE_TENANT_ID_VALUE" ] || [ -z "$AZURE_SUBSCRIPTION_ID_VALUE" ]; then
-            echo "[ERROR] Missing Azure OIDC secrets for collector schedule"
-            exit 1
+            echo "[WARN] Missing Azure OIDC secrets for collector schedule; collector run will be skipped"
+            exit 0
           fi
 
           TARGET_SUBSCRIPTION="${{ github.event.inputs.subscription_id }}"
@@ -45,13 +47,15 @@ jobs:
           fi
 
           if [ -z "$TARGET_SUBSCRIPTION" ]; then
-            echo "[ERROR] No target subscription ID provided and no default subscription secret configured"
-            exit 1
+            echo "[WARN] No target subscription ID provided and no default subscription secret configured; collector run will be skipped"
+            exit 0
           fi
 
           echo "TARGET_SUBSCRIPTION=$TARGET_SUBSCRIPTION" >> "$GITHUB_ENV"
+          echo "COLLECTOR_READY=true" >> "$GITHUB_ENV"
 
       - name: Azure login (OIDC)
+        if: env.COLLECTOR_READY == 'true'
         uses: azure/login@v2
         with:
           client-id: ${{ env.AZURE_CLIENT_ID_VALUE }}
@@ -59,10 +63,12 @@ jobs:
           subscription-id: ${{ env.AZURE_SUBSCRIPTION_ID_VALUE }}
 
       - name: Install Azure Container Apps extension
+        if: env.COLLECTOR_READY == 'true'
         run: |
           az extension add --name containerapp --upgrade -y
 
       - name: Trigger collector Container App Job
+        if: env.COLLECTOR_READY == 'true'
         run: |
           SCAN_ID="${{ github.event.inputs.scan_id }}"
           if [ -z "$SCAN_ID" ]; then
@@ -82,4 +88,10 @@ jobs:
           echo "" >> "$GITHUB_STEP_SUMMARY"
           echo "- Job: $COLLECTOR_JOB_NAME" >> "$GITHUB_STEP_SUMMARY"
           echo "- Resource Group: $COLLECTOR_RESOURCE_GROUP" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Target Subscription: $TARGET_SUBSCRIPTION" >> "$GITHUB_STEP_SUMMARY"
+          if [ "$COLLECTOR_READY" = "true" ]; then
+            echo "- Status: started" >> "$GITHUB_STEP_SUMMARY"
+            echo "- Target Subscription: $TARGET_SUBSCRIPTION" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "- Status: skipped" >> "$GITHUB_STEP_SUMMARY"
+            echo "- Reason: missing Azure OIDC or subscription configuration" >> "$GITHUB_STEP_SUMMARY"
+          fi
