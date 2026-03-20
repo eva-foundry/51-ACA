@@ -432,11 +432,11 @@ ACA is the proof-of-concept implementation of the **Fractal Knowledge Transforma
 
 **Reference**: [Fractal Knowledge Transformation Engine](../57-FKTE/docs/FRACTAL-KNOWLEDGE-TRANSFORMATION-ENGINE.md)
 
-51-ACA demonstrates the FKTE Observatory ? Analyzer ? Synthesizer ? Publisher pattern. Future factories (Security, Compliance, Performance) use the same architectural patterns proven here.
+51-ACA demonstrates the FKTE Observatory ? Analyzer ? Synthesizer ? Publisher pattern and serves as the FinOps SaaS reference implementation. Future factories (Security, Compliance, Performance) use the same architectural patterns proven here.
 
 **FKTE Sister Projects**:
-- **Project 58-CyberSec** (Security Factory): Second FKTE implementation validating domain independence
-- **Project 51-ACA** (FinOps Factory): Reference implementation [this project]
+- **Project 51-ACA** (FinOps SaaS): Reference implementation [this project]
+- **Project 58-CyberSec** (Cybersecurity SaaS): Follow-on FKTE implementation validating domain independence
 
 ### Data Model API (Project 37)
 
