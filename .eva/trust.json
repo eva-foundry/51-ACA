@@ -1,24 +1,26 @@
 {
   "meta": {
     "schema": "eva.trust.v2",
-    "generated_at": "2026-03-06T17:37:06.419Z",
-    "repo": "C:\\eva-foundry\\eva-foundry\\51-ACA",
-    "reconciliation_path": "C:\\eva-foundry\\eva-foundry\\51-ACA\\.eva\\reconciliation.json"
+    "generated_at": "2026-03-13T11:14:01.982Z",
+    "repo": "C:\\eva-foundry\\51-ACA",
+    "reconciliation_path": "C:\\eva-foundry\\51-ACA\\.eva\\reconciliation.json"
   },
-  "score": 57,
+  "score": 98,
   "stale": false,
-  "sparkline": "57 -> 57 -> 57 -> 57 -> 57 -> 57 -> 58 -> 60 -> 60 -> 57",
-  "sparkline_delta": "-3",
+  "sparkline": "57 -> 57 -> 57 -> 66 -> 67 -> 97 -> 97 -> 99 -> 99 -> 98",
+  "sparkline_delta": "-1",
   "components": {
-    "coverage": 0.96,
-    "evidenceCompleteness": 0.93,
-    "consistencyScore": 0,
+    "coverage": 1,
+    "evidenceCompleteness": 1,
+    "consistencyScore": 1,
     "complexityCoverage": 0,
-    "fieldPopulationScore": 0.03,
-    "formula": "4-component-field-population"
+    "fieldPopulationScore": 0.84,
+    "formula": "4-component-field-population",
+    "gate_adjustment_applied": false
   },
   "actions": [
-    "review-required",
-    "no-deploy"
+    "deploy",
+    "merge",
+    "release"
   ]
 }

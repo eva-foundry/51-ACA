@@ -1,0 +1,58 @@
+{
+  "sprint": 49,
+  "phase": "DISCOVER",
+  "timestamp": "2026-03-12T08:35:00Z",
+  "baseline": {
+    "tests": {
+      "total": 17,
+      "passed": 17,
+      "failed": 0,
+      "status": "PASS"
+    },
+    "coverage": {
+      "total": "59%",
+      "target": ">=80%",
+      "status": "INCOMPLETE",
+      "artifact": "coverage-baseline-20260312.xml"
+    },
+    "lint": {
+      "total_issues": 150,
+      "fixable": 84,
+      "status": "FAIL",
+      "artifact": "ruff-baseline-20260312.txt"
+    },
+    "mti": {
+      "status": "PENDING",
+      "reason": "Veritas audit not yet run"
+    }
+  },
+  "story_ids_validation": {
+    "sprint_49_ids": [
+      "ACA-01-024",
+      "ACA-01-025",
+      "ACA-06-046",
+      "ACA-06-047"
+    ],
+    "in_veritas_plan": 0,
+    "expected": 4,
+    "status": "BLOCKER",
+    "reason": "IDs missing from .eva/veritas-plan.json - Track A (governance sync/export) must complete first"
+  },
+  "track_status": {
+    "track_a_governance_sync": "NOT_STARTED",
+    "track_b_implementation": "BLOCKED_ON_TRACK_A",
+    "blockers": [
+      "Sprint 49 story IDs not in veritas-plan.json",
+      "Coverage below 80% target",
+      "Lint violations: 150 issues (84 fixable)"
+    ]
+  },
+  "next_actions": [
+    "Execute Track A: refresh data model export to include ACA-01-024/025, ACA-06-046/047",
+    "Rebuild veritas-plan.json from updated WBS baseline",
+    "Regenerate canonical Sprint 49 manifest (replace provisional)",
+    "Begin Track B implementation with story tags and evidence",
+    "Uplift coverage to >=80% gate",
+    "Remediate fixable lint violations"
+  ]
+}

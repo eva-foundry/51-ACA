@@ -7,6 +7,7 @@
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import {
   Button,
   Field,
@@ -21,22 +22,8 @@ import { ErrorState } from "../../components/ErrorState";
 
 type OnboardMode = "A" | "B" | "C";
 
-const MODE_LABELS: Record<OnboardMode, { title: string; desc: string }> = {
-  A: {
-    title: "Mode A -- Delegated user sign-in (recommended)",
-    desc: "Quick scan using your own Azure credentials. Ideal for trial access.",
-  },
-  B: {
-    title: "Mode B -- Service principal",
-    desc: "Enterprise governance-friendly. You create an SP with Reader role.",
-  },
-  C: {
-    title: "Mode C -- Azure Lighthouse delegation",
-    desc: "MSP-grade. Multi-subscription support via Lighthouse.",
-  },
-};
-
 export default function ConnectSubscriptionPage() {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [subscriptionId, setSubscriptionId] = useState(
     sessionStorage.getItem("aca_subscription_id") ?? ""
@@ -45,9 +32,15 @@ export default function ConnectSubscriptionPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  const MODE_LABELS: Record<OnboardMode, { title: string; desc: string }> = {
+    A: { title: t("pages.connect.modes.A.title"), desc: t("pages.connect.modes.A.desc") },
+    B: { title: t("pages.connect.modes.B.title"), desc: t("pages.connect.modes.B.desc") },
+    C: { title: t("pages.connect.modes.C.title"), desc: t("pages.connect.modes.C.desc") },
+  };
+
   const handleConnect = async () => {
     if (!subscriptionId.trim()) {
-      setError("Please enter your Azure subscription ID.");
+      setError(t("pages.connect.validation.subscription_required"));
       return;
     }
     setIsLoading(true);
@@ -59,7 +52,7 @@ export default function ConnectSubscriptionPage() {
       await appApi.startCollection(subscriptionId.trim());
       navigate(`/app/status/${encodeURIComponent(subscriptionId.trim())}`);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Connection failed. Please try again.");
+      setError(err instanceof Error ? err.message : t("errors.generic"));
     } finally {
       setIsLoading(false);
     }
@@ -68,24 +61,23 @@ export default function ConnectSubscriptionPage() {
   return (
     <div style={{ maxWidth: 640 }}>
       <Subtitle1 as="h1" block style={{ marginBottom: 8 }}>
-        Connect Azure Subscription
+        {t("pages.connect.title")}
       </Subtitle1>
       <Body1 style={{ color: "#555", marginBottom: 24 }}>
-        ACA needs read-only access to your Azure subscription to run the cost analysis.
-        No resources are modified.
+        {t("pages.connect.subtitle")}
       </Body1>
 
       {error && <ErrorState message={error} onRetry={() => setError(null)} />}
 
       <fieldset style={{ border: "none", margin: 0, padding: 0 }}>
         <legend style={{ fontWeight: 600, marginBottom: 12 }}>
-          Step 1: Enter your Azure Subscription ID
+          {t("pages.connect.step1_label")}
         </legend>
-        <Field label="Azure Subscription ID" required>
+        <Field label={t("pages.connect.subscription_id_label")} required>
           <Input
             value={subscriptionId}
             onChange={(_, { value }) => setSubscriptionId(value)}
-            placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+            placeholder={t("pages.connect.subscription_id_placeholder")}
             style={{ maxWidth: 420 }}
           />
         </Field>
@@ -93,7 +85,7 @@ export default function ConnectSubscriptionPage() {
 
       <fieldset style={{ border: "none", margin: "24px 0 0", padding: 0 }}>
         <legend style={{ fontWeight: 600, marginBottom: 12 }}>
-          Step 2: Choose access mode
+          {t("pages.connect.step2_label")}
         </legend>
         <RadioGroup
           value={mode}
@@ -124,7 +116,7 @@ export default function ConnectSubscriptionPage() {
         aria-busy={isLoading}
         style={{ marginTop: 32 }}
       >
-        {isLoading ? "Connecting..." : "Start Free Scan"}
+        {isLoading ? t("pages.connect.connecting") : t("pages.connect.start_scan")}
       </Button>
     </div>
   );

@@ -8,10 +8,12 @@ import { Link, useLocation } from "react-router-dom";
 import { Button, Text } from "@fluentui/react-components";
 import { LanguageSelector } from "../../components/LanguageSelector";
 import { useAuth } from "../auth/useAuth";
+import { useTranslation } from "react-i18next";
 
 export function NavCustomer() {
   const { user, logout } = useAuth();
   const { pathname } = useLocation();
+  const { t } = useTranslation();
 
   const navLink = (to: string, label: string) => (
     <Link
@@ -44,12 +46,12 @@ export function NavCustomer() {
         ACA
       </a>
 
-      {navLink("/app/connect", "Connect")}
+      {navLink("/app/connect", t("nav.connect"))}
 
       {user?.subscriptionId && (
         <>
-          {navLink(`/app/status/${user.subscriptionId}`, "Status")}
-          {navLink(`/app/findings/${user.subscriptionId}`, "Report")}
+          {navLink(`/app/status/${user.subscriptionId}`, t("nav.status"))}
+          {navLink(`/app/findings/${user.subscriptionId}`, t("nav.report"))}
         </>
       )}
 
@@ -63,7 +65,7 @@ export function NavCustomer() {
       )}
 
       <Button size="small" appearance="subtle" onClick={logout} style={{ marginLeft: 8 }}>
-        Sign out
+        {t("actions.sign_out")}
       </Button>
     </nav>
   );

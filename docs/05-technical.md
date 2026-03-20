@@ -1,296 +1,1256 @@
-# ACA Full API Technical Specification
-# EVA-STORY: ACA-12-002
+Below are \*\*three artifacts\*\* you can paste directly into your repo:
 
-Version: 1.0.0
-Updated: 2026-02-27
-Status: AUTHORITATIVE -- agents must read this before implementing any endpoint.
 
----
 
-## 1. Technology Stack
+1\. `docs/api-spec.md`
 
-| Layer | Technology |
-|---|---|
-| Frontend | React 19, Fluent UI v9 |
-| API | FastAPI 0.115+, Python 3.12 |
-| Auth | MSAL Python (delegated + SP modes), Entra OIDC |
-| Database | Cosmos DB NoSQL (marco-sandbox-cosmos Phase 1) |
-| AI / LLM | Azure OpenAI GPT-4o via marco-sandbox-openai-v2 |
-| Agent framework | 29-foundry (collection, analysis, generation, redteam agents) |
-| Payment | Stripe (Tier 2 / Tier 3 checkout, webhook unlock) |
-| Infra Phase 1 | Bicep -- reuse marco* resources |
-| Delivery | Azure Blob Storage (SAS URLs, 7-day / 168-hour expiry) |
-| Observability | Application Insights (marco-sandbox-appinsights) |
-| CI/CD | GitHub Actions (OIDC federation to Azure) |
+2\. \*\*Technical API/code skeleton guidance\*\* (FastAPI structure + key modules)
+
+3\. \*\*ASCII architecture diagram\*\*
+
+
+
+(Everything aligns with your ACA scope/tiers/services.  )
+
+
 
 ---
 
-## 2. Architecture Overview
 
-```
-Client browser
-  -> frontend React (Vite dev server / ACA static)
-  -> services/api FastAPI (APIM + Entra auth, port 8080)
-  -> collector job (Azure SDK -> Cosmos inventories)
-  -> analysis job (Cosmos inventories -> findings JSON -> Cosmos findings)
-  -> frontend shows Tier 1 report
-  -> Stripe checkout -> tier upgrade in Cosmos entitlements
-  -> delivery job (findings + inventory -> zip + SHA-256 manifest -> Blob SAS URL)
-```
 
-Services:
+\## 1) `docs/api-spec.md`
 
-| Service | Type | Purpose |
-|---|---|---|
-| services/api | Container App | Orchestration, auth, tier gating, APIM-facing |
-| services/collector | Container App Job | Azure SDK inventory + cost + advisor pull |
-| services/analysis | Container App Job | 12 rules + 29-foundry agents -> findings |
-| services/delivery | Container App Job | IaC generator + zip packager (Tier 3) |
-| frontend | Static ACA | React 19 UI (Tier 1/2/3, checkout, download) |
 
----
 
-## 3. Cosmos DB Containers
+```markdown
 
-All containers use `subscriptionId` as the partition key unless noted.
+\# ACA API Specification
 
-| Container | Partition Key | Purpose |
-|---|---|---|
-| scans | subscriptionId | Scan run records (status, timestamps, preflight_result) |
-| inventories | subscriptionId | Azure resource inventory (ARM Resource Graph) |
-| cost-data | subscriptionId | 91-day daily cost rows (Cost Management) |
-| advisor | subscriptionId | Azure Advisor recommendations |
-| findings | subscriptionId | Analysis rule findings (tiered) |
-| entitlements | subscriptionId | Customer tier, Stripe subscription state |
-| payments | subscriptionId | Stripe payment events (immutable audit log) |
-| clients | tenantId | Multi-tenant client records (ACA-specific) |
-| stripe-map | stripeCustomerId | Stripe customer to subscriptionId mapping |
+======================
 
-Tenant isolation rule: Every Cosmos query MUST include the partition key.
-The API middleware extracts subscriptionId from the auth token and injects it
-into every DB operation. Never call cosmos_client.query_items() without partition_key.
 
----
 
-## 4. Endpoint Inventory (27 endpoints)
+Version: 0.1
 
-### 4.1 Auth Router (/v1/auth)
+Updated: 2026-02-26
 
-| Method | Path | Status | Auth | Description |
-|---|---|---|---|---|
-| POST | /v1/auth/connect | stub | none | Initiate delegated MSAL auth flow |
-| POST | /v1/auth/preflight | stub | none | Exchange code, run 5 RBAC probes |
-| DELETE | /v1/auth/disconnect | stub | bearer | Revoke refresh token, disconnect |
+Audience: ACA backend/frontend developers, APIM policy authors
 
-### 4.2 Scans Router (/v1/scans)
 
-| Method | Path | Status | Auth | Description |
-|---|---|---|---|---|
-| POST | /v1/scans | stub | bearer | Create scan record, return scan_id |
-| GET | /v1/scans/{scan_id} | stub | bearer | Poll scan status + progress |
-| GET | /v1/scans | stub | bearer | List scans for subscription |
 
-### 4.3 Collector Router (/v1/collect)
+This document defines the public and internal APIs for ACA (Azure Cost Advisor).
 
-| Method | Path | Status | Auth | Description |
-|---|---|---|---|---|
-| POST | /v1/collect/start | stub | bearer | Trigger collector Container App Job |
-| GET | /v1/collect/status/{scan_id} | stub | bearer | Collection job status |
 
-### 4.4 Findings Router (/v1/findings)
 
-| Method | Path | Status | Auth | Description |
-|---|---|---|---|---|
-| GET | /v1/findings/{scan_id} | stub | bearer | Tier-gated findings for scan |
-| GET | /v1/findings/{scan_id}/summary | stub | bearer | Savings summary (Tier 1 safe) |
+Scope
 
-### 4.5 Checkout Router (/v1/checkout)
+-----
 
-| Method | Path | Status | Auth | Description |
-|---|---|---|---|---|
-| POST | /v1/checkout/tier2 | implemented | bearer | Create Stripe checkout session Tier 2 |
-| POST | /v1/checkout/tier3 | implemented | bearer | Create Stripe checkout session Tier 3 |
-| POST | /v1/checkout/webhook | implemented | none | Stripe webhook receiver (raw body) |
-| POST | /v1/checkout/portal | implemented | bearer | Stripe billing portal redirect |
-| GET | /v1/checkout/entitlements/{sub_id} | implemented | bearer | Check customer tier |
+\- Client onboarding + subscription connection
 
-### 4.6 Admin Router (/v1/admin)
+\- Pre-flight validation (RBAC + capability probes)
 
-| Method | Path | Status | Auth | Description |
-|---|---|---|---|---|
-| GET | /v1/admin/tenants | stub | admin | List all registered tenants |
-| GET | /v1/admin/scans | stub | admin | List all scans across tenants |
-| POST | /v1/admin/lock/{scan_id} | stub | admin | Lock scan record (immutable) |
-| DELETE | /v1/admin/tenant/{tenant_id} | stub | admin | Soft-delete tenant data |
+\- Scan orchestration (collector job)
 
-### 4.7 Delivery Router (/v1/delivery) -- MISSING, needs implementation
+\- Analysis orchestration (analysis job)
 
-| Method | Path | Status | Auth | Description |
-|---|---|---|---|---|
-| GET | /v1/deliverables/{deliverable_id} | missing | bearer | Get SAS URL for Tier 3 ZIP |
-| POST | /v1/delivery/trigger/{scan_id} | stub | bearer | Trigger delivery job |
+\- Findings retrieval (Tier 1/2 gating)
 
----
+\- Checkout (Tier 2/3)
 
-## 5. FastAPI App Structure
+\- Deliverable packaging (Tier 3)
 
-```
-services/api/app/
-  main.py             -- FastAPI app factory, router mounts, CORS, middleware
-  routers/
-    auth.py           -- /v1/auth/*
-    scans.py          -- /v1/scans/*
-    collector.py      -- /v1/collect/*
-    findings.py       -- /v1/findings/*
-    checkout.py       -- /v1/checkout/*
-    admin.py          -- /v1/admin/*
-  middleware/
-    tenant.py         -- subscriptionId injection from auth token (MISSING -- needs create)
-    tier_gate.py      -- request-level tier enforcement (MISSING -- needs create)
-  models/
-    scan.py           -- ScanRecord, ScanStatus Pydantic models
-    finding.py        -- Finding, FindingTier1, FindingTier2, FindingTier3
-    entitlement.py    -- Entitlement, TierEnum
-  db/
-    cosmos.py         -- Cosmos client, upsert_item, query_items, get_container
-  settings.py         -- pydantic-settings (ACA_COSMOS_URL, STRIPE_SECRET_KEY, etc.)
-```
+\- Audit log access
 
----
 
-## 6. Critical Code Patterns
 
-### Pattern 1: Tenant Isolation Middleware
+ACA system context: three services (collector, analysis, delivery) orchestrated via an API and jobs. See PLAN/README. (Ref) :contentReference\[oaicite:2]{index=2} :contentReference\[oaicite:3]{index=3}
 
-```python
-# services/api/app/middleware/tenant.py
-from fastapi import Request, HTTPException
 
-def get_subscription_id(request: Request) -> str:
-    sub_id = getattr(request.state, "subscription_id", None)
-    if not sub_id:
-        raise HTTPException(status_code=403, detail="No subscription context")
-    return sub_id
-```
 
-### Pattern 2: Tier Gating on Findings
+-------------------------------------------------------------------------------
 
-```python
-# services/api/app/routers/findings.py
-def gate_findings(findings: list, tier: str) -> list:
-    if tier == "tier1":
-        return [
-            {
-                "id": f["id"],
-                "title": f["title"],
-                "category": f["category"],
-                "estimated_saving_low": f["estimated_saving_low"],
-                "estimated_saving_high": f["estimated_saving_high"],
-                "effort_class": f["effort_class"],
-            }
-            for f in findings
-        ]
-    if tier == "tier2":
-        return [
-            {k: v for k, v in f.items() if k != "deliverable_template_id"}
-            for f in findings
-        ]
-    return findings  # tier3: full object including deliverable_template_id
-```
+1\. API SECURITY MODEL
 
-Tier 1 MUST NOT return: narrative, deliverable_template_id, heuristic_source (full detail).
-Tier 2 MUST NOT return: deliverable_template_id.
-Tier 3: all fields returned.
+-------------------------------------------------------------------------------
 
-### Pattern 3: Cosmos Partition Safety
 
-```python
-# services/api/app/db/cosmos.py
-def query_findings(sub_id: str) -> list:
-    # CORRECT -- always partition-scoped
-    return list(container.query_items(
-        query="SELECT * FROM c WHERE c.subscriptionId = @sub",
-        parameters=[{"name": "@sub", "value": sub_id}],
-        partition_key=sub_id,   # MANDATORY -- never omit
-    ))
 
-def upsert_item(container_name: str, item: dict, partition_key: str) -> dict:
-    # partition_key must be an explicit parameter -- not inferred from item
-    container = get_container(container_name)
-    return container.upsert_item(body=item, partition_key=partition_key)
-```
+1.1 Authentication
 
----
+\- Primary: Microsoft Entra ID (OIDC) for end-users accessing the ACA UI
 
-## 7. Settings (pydantic-settings)
+\- Secondary: APIM subscription key for client-level throttling / tier enforcement
 
-```python
-# services/api/app/settings.py
-class Settings(BaseSettings):
-    # Cosmos
-    ACA_COSMOS_URL: str
-    ACA_COSMOS_KEY: str        # or COSMOS_CONN_STR for connection string mode
-    ACA_COSMOS_DB: str = "aca-db"
+\- Internal: Managed Identity for service-to-service access (jobs, Cosmos, Key Vault)
 
-    # Auth
-    ACA_CLIENT_ID: str         # Entra app registration (pending Phase 1)
-    ACA_TENANT_ID: str
-    ACA_CLIENT_SECRET: str     # SP mode only
 
-    # Stripe
-    STRIPE_SECRET_KEY: str
-    STRIPE_WEBHOOK_SECRET: str
-    STRIPE_TIER2_PRICE_ID: str = "price_tier2_cad"
-    STRIPE_TIER3_PRICE_ID: str = "price_tier3_cad"
-    STRIPE_COUPON_ENABLED: bool = False
 
-    # OpenAI
-    ACA_OPENAI_ENDPOINT: str
-    ACA_OPENAI_KEY: str
-    ACA_OPENAI_DEPLOYMENT: str = "gpt-4o"
+1.2 Authorization
 
-    # Delivery
-    BLOB_CONN_STR: str          # Azure Storage connection string
-    BLOB_CONTAINER: str = "aca-deliverables"
-    SAS_HOURS: int = 168        # 7 days; do NOT lower below 168
+\- A "client" in ACA maps to a subscription-scoped tenant boundary.
 
-    # CORS
-    ACA_ALLOWED_ORIGINS: str    # comma-separated list of allowed origins
-```
+\- All tenant data operations require a subscriptionId and enforce:
 
-All secrets sourced from marcosandkv20260203 Key Vault via ACA managed identity.
-Never hard-code secrets. Never log secrets.
+&nbsp; - Cosmos partition key = subscriptionId
 
----
+&nbsp; - API middleware enforces partition filter for every DB query (no cross-tenant)
 
-## 8. Health Endpoint
 
-```
-GET /health
-Response 200:
+
+1.3 Tier gating
+
+\- Tier 1: high-level findings only (no implementation detail)
+
+\- Tier 2: full findings (narrative, effort/risk, beyond-cost signals)
+
+\- Tier 3: downloadable deliverable package (zip) generated after payment
+
+
+
+-------------------------------------------------------------------------------
+
+2\. BASE URLS \& VERSIONING
+
+-------------------------------------------------------------------------------
+
+
+
+Public API (via APIM):
+
+\- Base: https://api.aca.example.com
+
+\- Version prefix: /v1
+
+
+
+Internal job endpoints (optional, not exposed publicly):
+
+\- Base: http://aca-api.internal
+
+\- Version prefix: /v1/internal
+
+
+
+-------------------------------------------------------------------------------
+
+3\. CORE ENTITIES (DATA CONTRACTS)
+
+-------------------------------------------------------------------------------
+
+
+
+3.1 Client
+
+\- clientId: string (ACA internal)
+
+\- tenantId: string (Entra tenant)
+
+\- primaryEmail: string
+
+\- createdUtc: datetime
+
+\- tier: "tier1" | "tier2" | "tier3"
+
+\- paymentStatus: "none" | "active" | "past\_due" | "canceled"
+
+\- allowedSubscriptions: string\[] (subscriptionIds)
+
+
+
+3.2 SubscriptionConnection
+
+\- subscriptionId: string
+
+\- subscriptionName: string
+
+\- tenantId: string
+
+\- principalType: "User" | "ServicePrincipal"
+
+\- principalId: string
+
+\- connectedUtc: datetime
+
+\- connectionMode: "delegated" | "service\_principal" | "lighthouse"
+
+\- status: "connected" | "disconnected"
+
+
+
+3.3 PreFlightResult
+
+\- preflightId: string
+
+\- subscriptionId: string
+
+\- principal: { tenantId, principalId, principalType, displayName? }
+
+\- requiredRoles: \[{ roleName, scope, mandatory }]
+
+\- roleValidation: { status, evidence\[] }
+
+\- capabilityProbes: \[{ name, mandatory, status, httpStatus, latencyMs, evidenceRef }]
+
+\- verdict: { status: "PASS"|"PASS\_WITH\_WARNINGS"|"FAIL", warnings\[], blockers\[] }
+
+\- createdUtc: datetime
+
+
+
+3.4 Scan (Collector Run)
+
+\- scanId: string
+
+\- subscriptionId: string
+
+\- preflightId: string
+
+\- requestedBy: principalId
+
+\- status: "queued" | "running" | "succeeded" | "failed" | "canceled"
+
+\- startedUtc: datetime?
+
+\- completedUtc: datetime?
+
+\- stats: { inventoryCount?, costRows?, advisorRecs?, policyStates? }
+
+\- error?: { code, message, details? }
+
+
+
+3.5 AnalysisRun
+
+\- analysisId: string
+
+\- subscriptionId: string
+
+\- scanId: string
+
+\- status: "queued" | "running" | "succeeded" | "failed"
+
+\- startedUtc: datetime?
+
+\- completedUtc: datetime?
+
+\- findingsSummary: { findingCount, totalSavingLow, totalSavingHigh, categories\[] }
+
+\- error?: { code, message, details? }
+
+
+
+3.6 Finding (Tiered View)
+
+\- id: string
+
+\- category: string
+
+\- title: string
+
+\- estimated\_saving\_low: number
+
+\- estimated\_saving\_high: number
+
+\- effort\_class: "trivial"|"easy"|"medium"|"involved"|"strategic"
+
+\- risk\_class: "none"|"low"|"medium"|"high"
+
+\- heuristic\_source: string
+
+\- narrative?: string           (Tier 2+)
+
+\- deliverable\_template\_id?: string (Tier 3)
+
+\- evidence\_refs?: string\[]     (Tier 2+)
+
+
+
+3.7 Deliverable (Tier 3)
+
+\- deliverableId: string
+
+\- subscriptionId: string
+
+\- analysisId: string
+
+\- status: "pending\_payment" | "queued" | "generating" | "ready" | "failed"
+
+\- createdUtc: datetime
+
+\- artifact: { blobPath, sha256, sizeBytes }?
+
+\- download: { sasUrl, expiresUtc }?  (only when ready)
+
+
+
+3.8 AuditEvent
+
+\- auditId: string
+
+\- subscriptionId: string
+
+\- actor: { principalId, principalType }
+
+\- action: string
+
+\- target: string
+
+\- status: "ok"|"error"
+
+\- timestampUtc: datetime
+
+\- correlationId: string
+
+\- metadata: object (sanitized)
+
+
+
+-------------------------------------------------------------------------------
+
+4\. PUBLIC API ENDPOINTS (/v1)
+
+-------------------------------------------------------------------------------
+
+
+
+4.1 Health
+
+GET /v1/health
+
+Response: { status: "ok", version: "0.1", timeUtc: "..." }
+
+
+
+4.2 Current user \& entitlements
+
+GET /v1/me
+
+Response:
+
 {
-  "status": "ok",
-  "cosmos": "reachable" | "error",
-  "version": "0.1.0"
+
+&nbsp; "clientId": "...",
+
+&nbsp; "tenantId": "...",
+
+&nbsp; "email": "...",
+
+&nbsp; "tier": "tier1",
+
+&nbsp; "allowedSubscriptions": \["..."]
+
 }
+
+
+
+4.3 Subscription discovery (post-login)
+
+GET /v1/subscriptions
+
+Returns Azure subscriptions visible to the signed-in principal (delegated) OR
+
+returns the ACA-connected subscriptions if using service principal mode.
+
+Response: { subscriptions: \[{ subscriptionId, name, state }] }
+
+
+
+4.4 Connect subscription
+
+POST /v1/subscriptions/connect
+
+Body:
+
+{
+
+&nbsp; "mode": "delegated" | "service\_principal",
+
+&nbsp; "subscriptionId": "....",
+
+&nbsp; "servicePrincipal": {
+
+&nbsp;   "tenantId": "...",
+
+&nbsp;   "clientId": "...",
+
+&nbsp;   "clientSecret": "..."   // only for service\_principal mode
+
+&nbsp; }
+
+}
+
+Response:
+
+{
+
+&nbsp; "connection": { ...SubscriptionConnection... }
+
+}
+
+
+
+Security notes:
+
+\- For delegated mode, Body.servicePrincipal must be omitted.
+
+\- Client secrets must never be logged; store in Key Vault.
+
+
+
+4.5 Disconnect subscription
+
+POST /v1/subscriptions/{subscriptionId}/disconnect
+
+Response: { status: "disconnected" }
+
+
+
+4.6 Pre-flight validation (MANDATORY before scan)
+
+POST /v1/onboarding/preflight
+
+Body:
+
+{
+
+&nbsp; "subscriptionId": "...",
+
+&nbsp; "features": {
+
+&nbsp;   "enableLogAnalyticsSignals": false,
+
+&nbsp;   "enableNetworkSignals": true,
+
+&nbsp;   "policyInsightsMandatory": true
+
+&nbsp; }
+
+}
+
+Response: PreFlightResult
+
+
+
+4.7 Start scan (collector run)
+
+POST /v1/scans
+
+Body:
+
+{
+
+&nbsp; "subscriptionId": "...",
+
+&nbsp; "preflightId": "...",
+
+&nbsp; "windowDays": 91,
+
+&nbsp; "force": false
+
+}
+
+Response: { scanId: "...", statusUrl: "/v1/scans/{scanId}" }
+
+
+
+Rules:
+
+\- Requires latest preflight PASS for the subscriptionId.
+
+\- Enforce Tier 1 scan frequency limits (e.g., one per 30 days) at APIM + API.
+
+
+
+4.8 Scan status
+
+GET /v1/scans/{scanId}
+
+Response: Scan
+
+
+
+4.9 List scans (per subscription)
+
+GET /v1/subscriptions/{subscriptionId}/scans?limit=20
+
+Response: { scans: Scan\[] }
+
+
+
+4.10 Start analysis
+
+POST /v1/analyses
+
+Body:
+
+{
+
+&nbsp; "subscriptionId": "...",
+
+&nbsp; "scanId": "...",
+
+&nbsp; "mode": "tier1" | "tier2"
+
+}
+
+Response: { analysisId: "...", statusUrl: "/v1/analyses/{analysisId}" }
+
+
+
+Rules:
+
+\- Tier 1 analysis allowed free.
+
+\- Tier 2 analysis requires entitlement (tier2 or tier3 paid).
+
+
+
+4.11 Analysis status
+
+GET /v1/analyses/{analysisId}
+
+Response: AnalysisRun
+
+
+
+4.12 Findings summary (Tier 1-safe)
+
+GET /v1/analyses/{analysisId}/findings/summary
+
+Response:
+
+{
+
+&nbsp; "findingCount": 12,
+
+&nbsp; "totalSavingLow": 1500,
+
+&nbsp; "totalSavingHigh": 4200,
+
+&nbsp; "categories": \[{ "name": "Compute", "count": 4 }]
+
+}
+
+
+
+4.13 Findings list (tier-gated)
+
+GET /v1/analyses/{analysisId}/findings
+
+Query: ?tier=1|2
+
+Response:
+
+{
+
+&nbsp; "tier": 1,
+
+&nbsp; "findings": \[ Finding\[] ]
+
+}
+
+
+
+Gating:
+
+\- tier=1 always allowed (titles/categories/savings only, no narrative/templates)
+
+\- tier=2 requires paid entitlement
+
+
+
+4.14 Checkout (Tier 2)
+
+POST /v1/checkout/tier2
+
+Body:
+
+{
+
+&nbsp; "subscriptionId": "...",
+
+&nbsp; "analysisId": "..."
+
+}
+
+Response:
+
+{
+
+&nbsp; "checkoutSessionId": "...",
+
+&nbsp; "redirectUrl": "https://checkout.stripe.com/..."
+
+}
+
+
+
+4.15 Checkout (Tier 3)
+
+POST /v1/checkout/tier3
+
+Body:
+
+{
+
+&nbsp; "subscriptionId": "...",
+
+&nbsp; "analysisId": "..."
+
+}
+
+Response:
+
+{
+
+&nbsp; "checkoutSessionId": "...",
+
+&nbsp; "redirectUrl": "https://checkout.stripe.com/..."
+
+}
+
+
+
+4.16 Stripe webhook
+
+POST /v1/webhooks/stripe
+
+\- Validates signature
+
+\- On successful payment:
+
+&nbsp; - unlock tier2 entitlement OR
+
+&nbsp; - trigger delivery job (tier3)
+
+
+
+Response: 200 OK
+
+
+
+4.17 Create deliverable (Tier 3 trigger, internal/after payment)
+
+POST /v1/deliverables
+
+Body:
+
+{
+
+&nbsp; "subscriptionId": "...",
+
+&nbsp; "analysisId": "..."
+
+}
+
+Response: Deliverable
+
+
+
+4.18 Deliverable status
+
+GET /v1/deliverables/{deliverableId}
+
+Response: Deliverable
+
+
+
+4.19 Deliverable download link (Tier 3 gated)
+
+POST /v1/deliverables/{deliverableId}/download
+
+Response:
+
+{
+
+&nbsp; "sasUrl": "...",
+
+&nbsp; "expiresUtc": "..."
+
+}
+
+Rules:
+
+\- Only when deliverable.status=ready
+
+\- Short-lived SAS (e.g., 7 days) and single-subscription enforcement
+
+
+
+4.20 Audit events (client-accessible)
+
+GET /v1/subscriptions/{subscriptionId}/audit?limit=200
+
+Response: { events: AuditEvent\[] }
+
+
+
+-------------------------------------------------------------------------------
+
+5\. INTERNAL ENDPOINTS (/v1/internal) (OPTIONAL)
+
+-------------------------------------------------------------------------------
+
+
+
+If you prefer jobs to call Cosmos directly, you can omit these. If you want an
+
+orchestration layer, implement as internal-only endpoints.
+
+
+
+POST /v1/internal/jobs/collector/run
+
+POST /v1/internal/jobs/analysis/run
+
+POST /v1/internal/jobs/delivery/run
+
+
+
+Each takes: subscriptionId, correlationId, and job parameters, returns jobRunId.
+
+
+
+-------------------------------------------------------------------------------
+
+6\. ERROR MODEL
+
+-------------------------------------------------------------------------------
+
+
+
+All errors return:
+
+{
+
+&nbsp; "error": {
+
+&nbsp;   "code": "MISSING\_PERMISSION|AUTH\_FAILED|NOT\_FOUND|TIER\_LOCKED|RATE\_LIMITED|INTERNAL",
+
+&nbsp;   "message": "Human-readable",
+
+&nbsp;   "details": { ...optional... },
+
+&nbsp;   "correlationId": "..."
+
+&nbsp; }
+
+}
+
+
+
+Common codes:
+
+\- MISSING\_PERMISSION: preflight fails or probe denied
+
+\- TIER\_LOCKED: requesting tier2/3 endpoints without entitlement
+
+\- RATE\_LIMITED: APIM throttle triggered
+
+\- VALIDATION\_FAILED: request body invalid
+
+\- STRIPE\_WEBHOOK\_INVALID: signature check failed
+
+
+
+-------------------------------------------------------------------------------
+
+7\. OPENAPI (COMPACT SNIPPET)
+
+-------------------------------------------------------------------------------
+
+
+
+This is a minimal snippet. Generate the full OpenAPI from FastAPI.
+
+
+
+openapi: 3.0.3
+
+info:
+
+&nbsp; title: ACA API
+
+&nbsp; version: "0.1"
+
+paths:
+
+&nbsp; /v1/onboarding/preflight:
+
+&nbsp;   post:
+
+&nbsp;     summary: Run pre-flight permission validation
+
+&nbsp;     requestBody:
+
+&nbsp;       required: true
+
+&nbsp;       content:
+
+&nbsp;         application/json:
+
+&nbsp;           schema:
+
+&nbsp;             type: object
+
+&nbsp;             required: \[subscriptionId]
+
+&nbsp;             properties:
+
+&nbsp;               subscriptionId: { type: string }
+
+&nbsp;               features:
+
+&nbsp;                 type: object
+
+&nbsp;                 properties:
+
+&nbsp;                   enableLogAnalyticsSignals: { type: boolean, default: false }
+
+&nbsp;                   enableNetworkSignals: { type: boolean, default: true }
+
+&nbsp;                   policyInsightsMandatory: { type: boolean, default: true }
+
+&nbsp;     responses:
+
+&nbsp;       "200":
+
+&nbsp;         description: PreFlightResult
+
+&nbsp;         content:
+
+&nbsp;           application/json:
+
+&nbsp;             schema:
+
+&nbsp;               type: object
+
+&nbsp;               properties:
+
+&nbsp;                 preflightId: { type: string }
+
+&nbsp;                 subscriptionId: { type: string }
+
+&nbsp;                 verdict:
+
+&nbsp;                   type: object
+
+&nbsp;                   properties:
+
+&nbsp;                     status: { type: string, enum: \[PASS, PASS\_WITH\_WARNINGS, FAIL] }
+
+
+
+&nbsp; /v1/scans:
+
+&nbsp;   post:
+
+&nbsp;     summary: Start collector run
+
+&nbsp;     responses:
+
+&nbsp;       "200": { description: Scan started }
+
+
+
+&nbsp; /v1/analyses:
+
+&nbsp;   post:
+
+&nbsp;     summary: Start analysis run
+
+&nbsp;     responses:
+
+&nbsp;       "200": { description: Analysis started }
+
+
+
+-------------------------------------------------------------------------------
+
+8\. NON-FUNCTIONAL REQUIREMENTS (API)
+
+-------------------------------------------------------------------------------
+
+
+
+Latency targets:
+
+\- Preflight: < 5s typical
+
+\- Health: < 200ms
+
+\- Findings list: < 1s typical (cached/optimized)
+
+
+
+Logging:
+
+\- Every request includes correlationId
+
+\- Do not log secrets, tokens, or client secrets
+
+
+
+Idempotency:
+
+\- /scans POST supports idempotency key: (subscriptionId + day) unless force=true
+
+\- /deliverables creation is idempotent per (analysisId)
+
+
+
+-------------------------------------------------------------------------------
+
+END
+
+-------------------------------------------------------------------------------
+
 ```
 
-Must return HTTP 200 for ACA Container App liveness probe.
+
 
 ---
 
-## 9. Known Bugs (from 2026-02-27 review)
 
-| Bug ID | Severity | File | Description |
-|---|---|---|---|
-| C-05 | CRITICAL | routers/checkout.py | Duplicate @router.post("/webhook") at line 383 shadows real handler at line 149 -- revenue broken |
-| C-04 | CRITICAL | analysis/main.py | FindingsAssembler missing cosmos_client arg -- TypeError every analysis run |
-| C-03 | HIGH | db/cosmos.py | upsert_item has no partition_key param -- tenant isolation not enforced at code level |
-| C-06 | HIGH | routers/findings.py | GET /v1/findings/{scan_id} raises 404 unconditionally -- gate_findings never called |
-| C-07 | HIGH | delivery/packager.py | generate_blob_sas() invalid API call -- TypeError; SAS_HOURS=24 not 168 |
 
-Fix C-05 and C-04 before any Tier 2/3 launch. No exceptions.
+\## 2) Technical API / code skeleton (FastAPI)
+
+
+
+This is a \*\*practical layout\*\* that matches your "API + jobs" model. 
+
+
+
+```text
+
+services/api/
+
+&nbsp; app/
+
+&nbsp;   main.py
+
+&nbsp;   settings.py
+
+&nbsp;   deps.py
+
+&nbsp;   middleware/
+
+&nbsp;     correlation\_id.py
+
+&nbsp;     subscription\_scope.py   # enforces subscriptionId + Cosmos partition filter
+
+&nbsp;     tier\_gate.py            # tier1/tier2/tier3 access checks
+
+&nbsp;   auth/
+
+&nbsp;     entra\_oidc.py           # validates user JWT (frontend login)
+
+&nbsp;     sp\_credentials.py       # service principal mode: store/retrieve in Key Vault
+
+&nbsp;   routers/
+
+&nbsp;     health.py
+
+&nbsp;     me.py
+
+&nbsp;     subscriptions.py
+
+&nbsp;     onboarding.py           # preflight endpoints
+
+&nbsp;     scans.py
+
+&nbsp;     analyses.py
+
+&nbsp;     findings.py
+
+&nbsp;     checkout.py
+
+&nbsp;     deliverables.py
+
+&nbsp;     audit.py
+
+&nbsp;     webhooks\_stripe.py
+
+&nbsp;   services/
+
+&nbsp;     preflight\_service.py
+
+&nbsp;     scan\_service.py         # triggers collector job
+
+&nbsp;     analysis\_service.py     # triggers analysis job
+
+&nbsp;     delivery\_service.py     # triggers delivery job
+
+&nbsp;     entitlement\_service.py  # tier checks
+
+&nbsp;     audit\_service.py
+
+&nbsp;   azure/
+
+&nbsp;     arm.py
+
+&nbsp;     resource\_graph.py
+
+&nbsp;     cost\_mgmt.py
+
+&nbsp;     advisor.py
+
+&nbsp;     policy\_insights.py
+
+&nbsp;     network.py
+
+&nbsp;     log\_analytics.py
+
+&nbsp;   db/
+
+&nbsp;     cosmos.py
+
+&nbsp;     repos/
+
+&nbsp;       clients\_repo.py
+
+&nbsp;       preflight\_repo.py
+
+&nbsp;       scans\_repo.py
+
+&nbsp;       analyses\_repo.py
+
+&nbsp;       findings\_repo.py
+
+&nbsp;       deliverables\_repo.py
+
+&nbsp;       audit\_repo.py
+
+&nbsp;   models/
+
+&nbsp;     dtos.py                 # request/response models (Pydantic)
+
+&nbsp;     enums.py
+
+```
+
+
+
+\### Key middleware you should implement first
+
+
+
+\* `correlation\_id`: generate/propagate `X-Correlation-Id`
+
+\* `subscription\_scope`: reject any request that touches data without `subscriptionId` and enforce partition key
+
+\* `tier\_gate`: enforce `tier=1` safe redaction vs `tier=2` full payload vs `tier=3` download access
+
+
+
+\### "Preflight" implementation notes
+
+
+
+Implement preflight as a service with \*\*probe adapters\*\*:
+
+
+
+```text
+
+preflight\_service.run(subscriptionId, features):
+
+&nbsp; - validate token
+
+&nbsp; - subscriptions.list probe
+
+&nbsp; - resource\_graph probe
+
+&nbsp; - cost\_mgmt probe
+
+&nbsp; - advisor probe
+
+&nbsp; - policy\_insights probe
+
+&nbsp; - network probes
+
+&nbsp; - optional log\_analytics probe
+
+&nbsp; - return verdict + store PreFlightResult
+
+```
+
+
+
+\### Job triggering pattern (Container Apps Jobs)
+
+
+
+Expose a single internal function:
+
+
+
+\* `enqueue\_job(jobType, payload)` where jobType in `{collector, analysis, delivery}`
+
+
+
+Implementation options:
+
+
+
+\* Call Container Apps Job "start" API (preferred)
+
+\* Or put a message on a queue (future enhancement)
+
+
 
 ---
 
-*See also: 02-preflight.md (auth flow), 08-payment.md (Stripe), saving-opportunity-rules.md (12 rules)*
+
+
+\## 3) ASCII architecture diagram
+
+
+
+```text
+
+&nbsp;                          ???????????????????????????????????????????????
+
+&nbsp;                          ?                Client / User                 ?
+
+&nbsp;                          ?  Entra ID Login (MFA/CA) + Select Sub        ?
+
+&nbsp;                          ???????????????????????????????????????????????
+
+&nbsp;                                                      ?
+
+&nbsp;                                                      v
+
+???????????????????????????????????????????????????????????????????????????????????????
+
+?                                 ACA FRONTEND (React)                                ?
+
+?  Pages: Login - Connect Subscription - Preflight Results - Findings - Checkout       ?
+
+??????????????????????????????????????????????????????????????????????????????????????
+
+&nbsp;                           ? HTTPS
+
+&nbsp;                           v
+
+???????????????????????????????????????????????????????????????????????????????????????
+
+?                                    APIM GATEWAY                                     ?
+
+?  - Subscription key (client throttle, tier limits)                                   ?
+
+?  - Token budget / rate limiting policies                                             ?
+
+?  - Routes /v1/\* to ACA API                                                           ?
+
+??????????????????????????????????????????????????????????????????????????????????????
+
+&nbsp;                           ?
+
+&nbsp;                           v
+
+???????????????????????????????????????????????????????????????????????????????????????
+
+?                                 ACA API (FastAPI)                                   ?
+
+?  AuthN: Entra ID (user) / Service Principal (enterprise)                             ?
+
+?  AuthZ: subscriptionId scope enforced + tier gating                                  ?
+
+?  Endpoints: preflight - scans - analyses - findings - checkout - deliverables - audit?
+
+??????????????????????????????????????????????????????????????????????????????????????
+
+&nbsp;               ?                               ?                               ?
+
+&nbsp;               ? writes/reads                   ? secrets/tokens                ? job triggers
+
+&nbsp;               v                               v                               v
+
+&nbsp;     ????????????????????????        ????????????????????????        ????????????????????????
+
+&nbsp;     ?  Cosmos DB (ACA DB)   ?        ?     Key Vault        ?        ? Container Apps Jobs  ?
+
+&nbsp;     ?  PK = subscriptionId  ?        ?  SP creds, keys      ?        ?  collector/analysis  ?
+
+&nbsp;     ?  containers:          ?        ????????????????????????        ?  delivery            ?
+
+&nbsp;     ?   - preflights        ?                                         ???????????????????????
+
+&nbsp;     ?   - scans             ?                                                    ?
+
+&nbsp;     ?   - inventories        ?                                                    ?
+
+&nbsp;     ?   - cost-data         ?                                                    ?
+
+&nbsp;     ?   - findings          ?                                                    ?
+
+&nbsp;     ?   - deliverables      ?                                                    ?
+
+&nbsp;     ?   - audit\_events      ?                                                    ?
+
+&nbsp;     ????????????????????????                                                    ?
+
+&nbsp;                 ?                                                                ?
+
+&nbsp;                 ?                                                                ?
+
+&nbsp;                 v                                                                v
+
+&nbsp;    ????????????????????????????                                  ????????????????????????????
+
+&nbsp;    ?  Observability           ?                                  ?  ACA Storage (Artifacts) ?
+
+&nbsp;    ?  App Insights + Logs     ?                                  ?  - PDFs, ZIP packages     ?
+
+&nbsp;    ?  - traces, metrics       ?                                  ?  - signed + SAS download  ?
+
+&nbsp;    ????????????????????????????                                  ????????????????????????????
+
+
+
+DATA EXTRACTION PATH (read-only; client-controlled):
+
+&nbsp; Collector Job -> Azure Resource Graph + ARM + Cost Mgmt + Advisor + Policy Insights (+ optional Logs)
+
+&nbsp; -> writes inventory/cost/advisor/policy/network signals into Cosmos
+
+
+
+ANALYSIS PATH:
+
+&nbsp; Analysis Job -> rules + LLM agents -> findings JSON -> Cosmos -> API exposes tiered views
+
+
+
+DELIVERY PATH (Tier 3):
+
+&nbsp; Stripe webhook -> Delivery Job -> generate IaC/scripts -> ZIP -> Storage -> SAS link -> client
+
+```
+
+
+
+---
+
+
+
+If you want the \*\*next "code-ready" artifact\*\*, I can generate:
+
+
+
+\* `services/api/app/models/dtos.py` (Pydantic models for the entire contract)
+
+\* `services/api/app/routers/onboarding.py` (preflight endpoint + stubs)
+
+\* `services/api/app/middleware/subscription\_scope.py` (partition enforcement)
+
+\* `services/api/app/azure/\*` probe adapters (Resource Graph / Cost / Advisor / Policy)
+
+
+
+Just say "generate the stubs" and I'll output them in a clean, copy/paste order.
+
+
+

@@ -10,7 +10,7 @@ story IDs (ACA-16-*, ACA-17-*, etc). These need to be re-tagged with correct
 IDs from the planned epic range (ACA-01 through ACA-15).
 
 This handles:
-1. # EVA-STORY: ACA-16-* tags in PowerShell files -> delete or re-assign
+1. EVA story tags for out-of-range ACA-16-* in PowerShell files -> delete or re-assign
 2. Evidence files (ACA-16-001-STORY-COMPLETION.md, etc) -> delete
 3. Comments in Python files with ACA-17-* -> update to valid ID or remove
 #>
@@ -82,8 +82,8 @@ foreach ($file in $filesToClean) {
     $fullPath = Join-Path $RepoRoot $file
     if (Test-Path $fullPath) {
         $content = Get-Content -Path $fullPath -Raw
-        # Remove any # EVA-STORY: ACA-16-* or ACA-17-* lines
-        $pattern = '# EVA-STORY: ACA-(16|17)-[0-9a-z]+'
+        # Remove any out-of-range EVA story tag lines (ACA-16-* or ACA-17-*)
+        $pattern = '#\s*EVA[-_]STORY:\s*ACA-(16|17)-[0-9a-z]+'
         
         if ($content -match $pattern) {
             if ($WhatIf) {

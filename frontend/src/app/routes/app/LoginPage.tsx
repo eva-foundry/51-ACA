@@ -7,10 +7,12 @@
 
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Button, Subtitle1, Body1 } from "@fluentui/react-components";
 import { useAuth } from "../../auth/useAuth";
 
 export default function LoginPage() {
+  const { t } = useTranslation();
   const { isAuthenticated, login } = useAuth();
   const navigate = useNavigate();
 
@@ -40,14 +42,13 @@ export default function LoginPage() {
       }}
     >
       <h1 style={{ fontSize: 40, fontWeight: 700, color: "#0078d4", margin: 0 }}>
-        Azure Cost Advisor
+        {t("app.title")}
       </h1>
       <Subtitle1>
-        Connect your Azure subscription and get a free prioritized cost report in minutes.
+        {t("pages.login.tagline")}
       </Subtitle1>
       <Body1 style={{ maxWidth: 480, color: "#555" }}>
-        Read-only access. No resource modifications. Run a free Tier 1 scan with no credit card
-        required. Unlock full advisory and IaC deliverables with Tier 2 and Tier 3.
+        {t("pages.login.description")}
       </Body1>
 
       <Button
@@ -56,12 +57,12 @@ export default function LoginPage() {
         onClick={handleLogin}
         style={{ marginTop: 16, minWidth: 200 }}
       >
-        Sign in with Microsoft
+        {t("pages.login.sign_in")}
       </Button>
 
       {import.meta.env.VITE_DEV_AUTH === "true" && (
         <Body1 style={{ fontSize: 12, color: "#888", marginTop: 8 }}>
-          Dev mode active (VITE_DEV_AUTH=true) &mdash; sign-in is bypassed.
+          {t("pages.login.dev_mode")}
         </Body1>
       )}
     </div>

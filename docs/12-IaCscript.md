@@ -1,277 +1,774 @@
-# ACA IaC Template Library
-# EVA-STORY: ACA-12-002
+```bash
 
-Version: 1.0.0
-Updated: 2026-02-27
-Status: AUTHORITATIVE -- agents must read this before implementing any delivery or template story.
+\#!/usr/bin/env bash
 
-Note: This document specifies the IaC template library consumed by services/delivery/.
-For the infrastructure bootstrap script (Phase 1/2 ACA provisioning), see the root
-12-IaCscript.md file at the project root. These are separate concerns.
+\# ==============================================================================
 
----
+\# ACA Infrastructure Bootstrap (az cli) -- Phase 1 (marco\* sandbox reuse) AND
 
-## 1. Overview
+\# Phase 2 (new subscription / new RG).
 
-The Tier 3 deliverable is a ZIP file containing:
-1. A set of IaC templates (Bicep Phase 1 / Terraform Phase 2) parametrized for the customer subscription
-2. A FINDINGS.json summary of all findings for the subscription
-3. A README.md with instructions
-4. A manifest.json with SHA-256 hashes of all files in the ZIP
+\#
 
-The delivery packager (services/delivery/app/) renders templates using Jinja2,
-assembles the ZIP, uploads it to Azure Blob Storage, and returns a 7-day SAS URL.
+\# Single-file runner: set MODE=phase1 or MODE=phase2 and fill variables below.
 
----
+\#
 
-## 2. Template Directory Structure
+\# Phase 1 goal: reuse existing marco\* resources in EsDAICoE-Sandbox (no provisioning
 
-Each template category lives in its own folder under services/delivery/app/templates/.
-Each folder contains exactly: main.bicep (or main.tf), README.md, variables.json.
+\# required except ACA-specific Cosmos DB containers / secrets) :contentReference\[oaicite:0]{index=0}
 
-```
-services/delivery/app/templates/
-  tmpl-devbox-autostop/
-    main.bicep
-    README.md
-    variables.json
-  tmpl-log-retention/
-    main.bicep
-    README.md
-    variables.json
-  tmpl-defender-plan/
-    main.bicep
-    README.md
-    variables.json
-  tmpl-compute-schedule/
-    main.bicep
-    README.md
-    variables.json
-  tmpl-anomaly-alert/
-    main.bicep
-    README.md
-    variables.json
-  tmpl-stale-envs/
-    main.bicep
-    README.md
-    variables.json
-  tmpl-search-sku/
-    main.bicep
-    README.md
-    variables.json
-  tmpl-acr-consolidation/
-    main.bicep
-    README.md
-    variables.json
-  tmpl-dns-consolidation/
-    main.bicep
-    README.md
-    variables.json
-  tmpl-savings-plan/
-    main.bicep
-    README.md
-    variables.json
-  tmpl-apim-token-budget/
-    main.bicep
-    README.md
-    variables.json
-  tmpl-chargeback-policy/
-    main.bicep
-    README.md
-    variables.json
-```
+\#
 
-CURRENT STATE: All 12 folders are MISSING (0 of 12 exist). Templates directory is empty.
-This is tracked as finding C-09 (delivery templates absent). Sprint 2 story ACA-07-005.
+\# Marco\* inventory snapshot (resources exist in EsDAICoE-Sandbox):
 
----
+\# - marco-sandbox-cosmos (Cosmos DB)
 
-## 3. Template Catalogue (12 categories)
+\# - marcosandkv20260203 (Key Vault)
 
-| Template ID | Rule | Category | Description |
-|---|---|---|---|
-| tmpl-devbox-autostop | rule_01 | compute-scheduling | Bicep policy to enable autostop on Dev Box at 18:00 local time |
-| tmpl-log-retention | rule_02 | log-retention | Bicep to set Log Analytics workspace retention to 30 days |
-| tmpl-defender-plan | rule_03 | defender-optimization | Bicep to scope Defender for Cloud plans to production workloads only |
-| tmpl-compute-schedule | rule_04 | compute-scheduling | Bicep / Azure Automation runbook to schedule VM shutdown + startup |
-| tmpl-anomaly-alert | rule_05 | cost-anomaly | Bicep to deploy Azure Monitor cost anomaly alert rule |
-| tmpl-stale-envs | rule_06 | stale-resource | Bicep policy to tag and lock idle dev/test environments after 14 days |
-| tmpl-search-sku | rule_07 | search-optimization | Bicep to downscale Azure AI Search from Standard to Basic tier |
-| tmpl-acr-consolidation | rule_08 | registry-consolidation | Bicep to consolidate multiple ACR registries into one with geo-replication |
-| tmpl-dns-consolidation | rule_09 | dns-consolidation | Bicep to merge overlapping DNS zones into a single zone hierarchy |
-| tmpl-savings-plan | rule_10 | commitment-discount | Bicep + ARM to purchase 1-year compute savings plan |
-| tmpl-apim-token-budget | rule_11 | api-cost-control | Bicep to add token budget policy to APIM AI Gateway product |
-| tmpl-chargeback-policy | rule_12 | cost-allocation | Bicep Azure Policy to enforce mandatory cost-center tags on all resources |
+\# - marcosandacr20260203 (ACR)
 
----
+\# - marco-sandbox-apim (APIM)
 
-## 4. Template File Contracts
+\# - marco-sandbox-appinsights (AppInsights)
 
-### main.bicep (Jinja2 template, rendered before delivery)
+\# - etc. :contentReference\[oaicite:1]{index=1} :contentReference\[oaicite:2]{index=2}
 
-Bicep file parametrized with Jinja2 variables. The generator replaces {{ var }}
-tokens with values from the customer inventory before including in the ZIP.
+\#
 
-Required Jinja2 variables:
-- {{ subscription_id }} -- Azure subscription GUID
-- {{ resource_group }} -- target resource group name
-- {{ location }} -- Azure region (default: canadacentral)
-- {{ resource_name }} -- affected Azure resource name (from finding.resource_ids)
+\# Phase 2 goal: provision a clean private subscription + RG for commercial MVP
 
-Example (tmpl-log-retention/main.bicep):
-```bicep
-// EVA-STORY: ACA-07-005
-// ACA generated template -- Log Analytics retention reduction
-// Generated for subscription: {{ subscription_id }}
-// DO NOT commit with real subscription IDs
+\# (Container Apps, Cosmos, APIM, Key Vault, Storage, AppInsights/Logs, etc.). :contentReference\[oaicite:3]{index=3}
 
-targetScope = 'resourceGroup'
+\#
 
-param workspaceName string = '{{ resource_name }}'
-param retentionInDays int = 30
+\# NOTE:
 
-resource workspace 'Microsoft.OperationalInsights/workspaces@2022-10-01' existing = {
-  name: workspaceName
+\# - This script assumes you already have az cli installed and you are logged in:
+
+\#     az login
+
+\# - Some org environments restrict creating certain resources (OpenAI, APIM tiers, etc.).
+
+\#   The script is written to be safe: it checks existence before creating.
+
+\# ==============================================================================
+
+
+
+set -euo pipefail
+
+
+
+\# ------------------------------------------------------------------------------
+
+\# REQUIRED SETTINGS (edit these)
+
+\# ------------------------------------------------------------------------------
+
+MODE="${MODE:-phase1}"  # phase1 | phase2
+
+
+
+\# Phase 1 (marco\* reuse) target
+
+PHASE1\_SUBSCRIPTION\_ID="${PHASE1\_SUBSCRIPTION\_ID:-d2d4e571-e0f2-4f6c-901a-f88f7669bcba}"   # from inventory tags/links :contentReference\[oaicite:4]{index=4}
+
+PHASE1\_RG="${PHASE1\_RG:-EsDAICoE-Sandbox}"
+
+PHASE1\_COSMOS\_ACCOUNT="${PHASE1\_COSMOS\_ACCOUNT:-marco-sandbox-cosmos}"                     # exists :contentReference\[oaicite:5]{index=5}
+
+PHASE1\_KV\_NAME="${PHASE1\_KV\_NAME:-marcosandkv20260203}"                                    # exists :contentReference\[oaicite:6]{index=6}
+
+PHASE1\_LOC="${PHASE1\_LOC:-canadacentral}"
+
+
+
+\# Phase 2 (new subscription) target
+
+PHASE2\_SUBSCRIPTION\_ID="${PHASE2\_SUBSCRIPTION\_ID:-}"     # set me (private ACA sub)
+
+PHASE2\_RG="${PHASE2\_RG:-aca-prod-rg}"
+
+PHASE2\_LOC="${PHASE2\_LOC:-canadacentral}"
+
+PHASE2\_COSMOS\_ACCOUNT="${PHASE2\_COSMOS\_ACCOUNT:-aca-cosmos-$(date +%y%m%d%H%M)}"  # must be globally unique (lowercase, 3-44)
+
+PHASE2\_KV\_NAME="${PHASE2\_KV\_NAME:-aca-kv-$(date +%y%m%d%H%M)}"                    # must be globally unique
+
+PHASE2\_STORAGE="${PHASE2\_STORAGE:-acastorage$(date +%y%m%d%H%M)}"                 # must be globally unique (lowercase, 3-24)
+
+PHASE2\_ACR\_NAME="${PHASE2\_ACR\_NAME:-acaacr$(date +%y%m%d%H%M)}"                   # must be globally unique
+
+PHASE2\_APPINSIGHTS\_NAME="${PHASE2\_APPINSIGHTS\_NAME:-aca-appinsights}"
+
+PHASE2\_LOGS\_NAME="${PHASE2\_LOGS\_NAME:-aca-logs}"
+
+
+
+\# ACA Cosmos database name (shared across phase1/phase2)
+
+COSMOS\_DB\_NAME="${COSMOS\_DB\_NAME:-aca}"
+
+
+
+\# ------------------------------------------------------------------------------
+
+\# ACA Containers (PK strategy)
+
+\# ------------------------------------------------------------------------------
+
+\# Tenant-scoped: PK=/subscriptionId (matches ACA design) :contentReference\[oaicite:7]{index=7}
+
+C\_SCANS="scans"
+
+C\_INVENTORIES="inventories"
+
+C\_COSTDATA="cost-data"
+
+C\_ADVISOR="advisor"
+
+C\_FINDINGS="findings"
+
+
+
+\# Billing/Entitlements (from your Stripe + gating work)
+
+C\_ENTITLEMENTS="entitlements"                 # PK=/subscriptionId
+
+C\_PAYMENTS="payments"                         # PK=/subscriptionId
+
+C\_CLIENTS="clients"                           # PK=/subscriptionId
+
+C\_STRIPE\_MAP="stripe\_customer\_map"            # PK=/stripeCustomerId (webhook O(1) lookup)
+
+
+
+\# Throughput (RU/s). Adjust as needed.
+
+RU\_DB="${RU\_DB:-400}"
+
+RU\_CONTAINER="${RU\_CONTAINER:-400}"
+
+
+
+\# ------------------------------------------------------------------------------
+
+\# Helpers
+
+\# ------------------------------------------------------------------------------
+
+need() { command -v "$1" >/dev/null 2>\&1 || { echo "ERROR: missing dependency: $1"; exit 1; }; }
+
+
+
+az\_set\_sub() {
+
+&nbsp; local sub="$1"
+
+&nbsp; if \[\[ -z "$sub" ]]; then
+
+&nbsp;   echo "ERROR: subscription id is empty"; exit 1
+
+&nbsp; fi
+
+&nbsp; az account set --subscription "$sub" >/dev/null
+
 }
 
-resource retentionPolicy 'Microsoft.OperationalInsights/workspaces/retentionInDays@2022-10-01' = {
-  parent: workspace
-  name: 'default'
-  properties: {
-    retentionInDays: retentionInDays
-  }
+
+
+exists\_rg() {
+
+&nbsp; local rg="$1"
+
+&nbsp; az group exists -n "$rg" | grep -qi true
+
 }
-```
 
-Phase 1 goal: stub Bicep templates are acceptable -- they must exist, render without error,
-and include all required Jinja2 variables. Full production templates are Sprint 3+ work.
 
-### README.md (per template)
 
-Must contain:
-1. What this template does (one sentence)
-2. Prerequisites (roles needed to deploy)
-3. Deployment command:
-   ```
-   az deployment group create \
-     --resource-group <rg> \
-     --template-file main.bicep \
-     --parameters workspaceName=<name>
-   ```
-4. Estimated saving range (from rule reference)
-5. Risk class and effort class
+exists\_kv() {
 
-### variables.json (per template)
+&nbsp; local rg="$1" kv="$2"
 
-Machine-readable parameter schema for the generator:
+&nbsp; az keyvault show -g "$rg" -n "$kv" >/dev/null 2>\&1
 
-```json
-{
-  "template_id": "tmpl-log-retention",
-  "rule_id": "rule_02",
-  "jinja2_vars": ["subscription_id", "resource_group", "location", "resource_name"],
-  "bicep_params": [
-    {"name": "workspaceName", "type": "string", "source": "resource_name"},
-    {"name": "retentionInDays", "type": "int", "default": 30}
-  ]
 }
-```
 
----
 
-## 5. Generator Flow (services/delivery/app/generator.py)
 
-```python
-from jinja2 import Environment, FileSystemLoader, TemplateNotFound
+exists\_cosmos() {
 
-TEMPLATES_DIR = Path(__file__).parent / "templates"
+&nbsp; local rg="$1" acct="$2"
 
-def render_template(template_id: str, variables: dict) -> dict[str, str]:
-    """
-    Render all files in a template folder with Jinja2 substitution.
-    Returns dict of filename -> rendered content.
-    Raises TemplateNotFound if template_id folder does not exist.
-    """
-    template_dir = TEMPLATES_DIR / template_id
-    if not template_dir.exists():
-        raise TemplateNotFound(f"Template directory missing: {template_id}")
+&nbsp; az cosmosdb show -g "$rg" -n "$acct" >/dev/null 2>\&1
 
-    env = Environment(loader=FileSystemLoader(str(template_dir)))
-    rendered = {}
-    for filename in ("main.bicep", "README.md"):
-        try:
-            tmpl = env.get_template(filename)
-            rendered[filename] = tmpl.render(**variables)
-        except TemplateNotFound:
-            raise TemplateNotFound(f"Missing file {filename} in {template_id}")
-    return rendered
-```
-
-Note: The current generator.py swallows TemplateNotFound silently (bug C-09).
-Fix: let the exception propagate so the packager records the failure and the scan
-status is set to "partial_delivery" instead of crashing silently.
-
----
-
-## 6. Packager SAS URL Rules (services/delivery/app/packager.py)
-
-Phase 1 specs:
-- SAS_HOURS = 168 (7 days). Do NOT use 24. See bug C-07.
-- generate_blob_sas() must use the storage account KEY, not DefaultAzureCredential.
-  DefaultAzureCredential() is NOT valid as the `credential` parameter for SAS generation.
-- The ZIP must include a manifest.json at the root with SHA-256 hashes of all included files.
-
-Correct SAS generation pattern:
-```python
-from azure.storage.blob import generate_blob_sas, BlobSasPermissions
-from datetime import timedelta, timezone, datetime
-
-sas_token = generate_blob_sas(
-    account_name=account_name,
-    container_name=container_name,
-    blob_name=blob_name,
-    account_key=account_key,          # NOT DefaultAzureCredential
-    permission=BlobSasPermissions(read=True),
-    expiry=datetime.now(timezone.utc) + timedelta(hours=SAS_HOURS),
-)
-```
-
----
-
-## 7. ZIP Manifest Schema (manifest.json)
-
-```json
-{
-  "generated_at": "2026-MM-DDTHH:MM:SSZ",
-  "scan_id": "...",
-  "subscription_id": "...",
-  "templates": [
-    {
-      "template_id": "tmpl-devbox-autostop",
-      "rule_id": "rule_01",
-      "files": [
-        {"name": "tmpl-devbox-autostop/main.bicep", "sha256": "..."},
-        {"name": "tmpl-devbox-autostop/README.md", "sha256": "..."}
-      ]
-    }
-  ],
-  "findings_sha256": "...",
-  "manifest_version": "1.0"
 }
+
+
+
+exists\_cosmos\_db() {
+
+&nbsp; local rg="$1" acct="$2" db="$3"
+
+&nbsp; az cosmosdb sql database show -g "$rg" -a "$acct" -n "$db" >/dev/null 2>\&1
+
+}
+
+
+
+exists\_container() {
+
+&nbsp; local rg="$1" acct="$2" db="$3" c="$4"
+
+&nbsp; az cosmosdb sql container show -g "$rg" -a "$acct" -d "$db" -n "$c" >/dev/null 2>\&1
+
+}
+
+
+
+create\_rg\_if\_missing() {
+
+&nbsp; local rg="$1" loc="$2"
+
+&nbsp; if exists\_rg "$rg"; then
+
+&nbsp;   echo "OK: RG exists: $rg"
+
+&nbsp; else
+
+&nbsp;   echo "CREATE: RG $rg ($loc)"
+
+&nbsp;   az group create -n "$rg" -l "$loc" >/dev/null
+
+&nbsp; fi
+
+}
+
+
+
+create\_kv\_if\_missing() {
+
+&nbsp; local rg="$1" kv="$2" loc="$3"
+
+&nbsp; if exists\_kv "$rg" "$kv"; then
+
+&nbsp;   echo "OK: Key Vault exists: $kv"
+
+&nbsp; else
+
+&nbsp;   echo "CREATE: Key Vault $kv"
+
+&nbsp;   # Using RBAC auth is recommended for production, but vaults may be policy-based in some orgs.
+
+&nbsp;   # This creates a vault; you can later switch/access model based on your tenant rules.
+
+&nbsp;   az keyvault create -g "$rg" -n "$kv" -l "$loc" >/dev/null
+
+&nbsp; fi
+
+}
+
+
+
+create\_cosmos\_if\_missing() {
+
+&nbsp; local rg="$1" acct="$2" loc="$3"
+
+&nbsp; if exists\_cosmos "$rg" "$acct"; then
+
+&nbsp;   echo "OK: Cosmos account exists: $acct"
+
+&nbsp; else
+
+&nbsp;   echo "CREATE: Cosmos account $acct"
+
+&nbsp;   az cosmosdb create \\
+
+&nbsp;     -g "$rg" -n "$acct" \\
+
+&nbsp;     --locations regionName="$loc" failoverPriority=0 isZoneRedundant=false \\
+
+&nbsp;     --default-consistency-level "Session" \\
+
+&nbsp;     --enable-free-tier true \\
+
+&nbsp;     --backup-policy-type "Periodic" \\
+
+&nbsp;     --backup-interval 240 \\
+
+&nbsp;     --backup-retention 8 >/dev/null
+
+&nbsp; fi
+
+}
+
+
+
+create\_cosmos\_db\_if\_missing() {
+
+&nbsp; local rg="$1" acct="$2" db="$3" ru="$4"
+
+&nbsp; if exists\_cosmos\_db "$rg" "$acct" "$db"; then
+
+&nbsp;   echo "OK: Cosmos DB exists: $db"
+
+&nbsp; else
+
+&nbsp;   echo "CREATE: Cosmos DB: $db (RU=$ru)"
+
+&nbsp;   az cosmosdb sql database create -g "$rg" -a "$acct" -n "$db" --throughput "$ru" >/dev/null
+
+&nbsp; fi
+
+}
+
+
+
+create\_container\_if\_missing() {
+
+&nbsp; local rg="$1" acct="$2" db="$3" c="$4" pk="$5" ru="$6"
+
+&nbsp; if exists\_container "$rg" "$acct" "$db" "$c"; then
+
+&nbsp;   echo "OK: Container exists: $c"
+
+&nbsp; else
+
+&nbsp;   echo "CREATE: Container $c (PK=$pk RU=$ru)"
+
+&nbsp;   az cosmosdb sql container create \\
+
+&nbsp;     -g "$rg" -a "$acct" -d "$db" -n "$c" \\
+
+&nbsp;     -p "$pk" \\
+
+&nbsp;     --throughput "$ru" >/dev/null
+
+&nbsp; fi
+
+}
+
+
+
+kv\_set\_secret\_if\_value() {
+
+&nbsp; local kv="$1" name="$2" value="${3:-}"
+
+&nbsp; if \[\[ -z "$value" ]]; then
+
+&nbsp;   echo "SKIP: secret $name (no value provided)"
+
+&nbsp;   return 0
+
+&nbsp; fi
+
+&nbsp; echo "SET: KeyVault secret $name"
+
+&nbsp; az keyvault secret set --vault-name "$kv" --name "$name" --value "$value" >/dev/null
+
+}
+
+
+
+\# ------------------------------------------------------------------------------
+
+\# Phase 1: marco\* reuse
+
+\# ------------------------------------------------------------------------------
+
+phase1() {
+
+&nbsp; echo "========================"
+
+&nbsp; echo "PHASE 1 -- marco\* reuse"
+
+&nbsp; echo "========================"
+
+&nbsp; echo "Target RG:  $PHASE1\_RG"
+
+&nbsp; echo "Cosmos:     $PHASE1\_COSMOS\_ACCOUNT"
+
+&nbsp; echo "Key Vault:  $PHASE1\_KV\_NAME"
+
+&nbsp; echo
+
+
+
+&nbsp; az\_set\_sub "$PHASE1\_SUBSCRIPTION\_ID"
+
+
+
+&nbsp; # Validate expected existing infra (from inventory)
+
+&nbsp; if ! exists\_rg "$PHASE1\_RG"; then
+
+&nbsp;   echo "ERROR: Phase1 RG not found: $PHASE1\_RG (expected per inventory)"; exit 1
+
+&nbsp; fi
+
+&nbsp; if ! exists\_cosmos "$PHASE1\_RG" "$PHASE1\_COSMOS\_ACCOUNT"; then
+
+&nbsp;   echo "ERROR: Phase1 Cosmos not found: $PHASE1\_COSMOS\_ACCOUNT (expected)"; exit 1
+
+&nbsp; fi
+
+&nbsp; if ! exists\_kv "$PHASE1\_RG" "$PHASE1\_KV\_NAME"; then
+
+&nbsp;   echo "ERROR: Phase1 KeyVault not found: $PHASE1\_KV\_NAME (expected)"; exit 1
+
+&nbsp; fi
+
+
+
+&nbsp; # Ensure ACA DB + containers exist inside marco-sandbox-cosmos
+
+&nbsp; create\_cosmos\_db\_if\_missing "$PHASE1\_RG" "$PHASE1\_COSMOS\_ACCOUNT" "$COSMOS\_DB\_NAME" "$RU\_DB"
+
+
+
+&nbsp; # Core ACA data containers (PK=/subscriptionId)
+
+&nbsp; create\_container\_if\_missing "$PHASE1\_RG" "$PHASE1\_COSMOS\_ACCOUNT" "$COSMOS\_DB\_NAME" "$C\_SCANS"       "/subscriptionId" "$RU\_CONTAINER"
+
+&nbsp; create\_container\_if\_missing "$PHASE1\_RG" "$PHASE1\_COSMOS\_ACCOUNT" "$COSMOS\_DB\_NAME" "$C\_INVENTORIES" "/subscriptionId" "$RU\_CONTAINER"
+
+&nbsp; create\_container\_if\_missing "$PHASE1\_RG" "$PHASE1\_COSMOS\_ACCOUNT" "$COSMOS\_DB\_NAME" "$C\_COSTDATA"    "/subscriptionId" "$RU\_CONTAINER"
+
+&nbsp; create\_container\_if\_missing "$PHASE1\_RG" "$PHASE1\_COSMOS\_ACCOUNT" "$COSMOS\_DB\_NAME" "$C\_ADVISOR"     "/subscriptionId" "$RU\_CONTAINER"
+
+&nbsp; create\_container\_if\_missing "$PHASE1\_RG" "$PHASE1\_COSMOS\_ACCOUNT" "$COSMOS\_DB\_NAME" "$C\_FINDINGS"    "/subscriptionId" "$RU\_CONTAINER"
+
+
+
+&nbsp; # Billing/entitlements containers
+
+&nbsp; create\_container\_if\_missing "$PHASE1\_RG" "$PHASE1\_COSMOS\_ACCOUNT" "$COSMOS\_DB\_NAME" "$C\_ENTITLEMENTS" "/subscriptionId" "$RU\_CONTAINER"
+
+&nbsp; create\_container\_if\_missing "$PHASE1\_RG" "$PHASE1\_COSMOS\_ACCOUNT" "$COSMOS\_DB\_NAME" "$C\_PAYMENTS"     "/subscriptionId" "$RU\_CONTAINER"
+
+&nbsp; create\_container\_if\_missing "$PHASE1\_RG" "$PHASE1\_COSMOS\_ACCOUNT" "$COSMOS\_DB\_NAME" "$C\_CLIENTS"      "/subscriptionId" "$RU\_CONTAINER"
+
+&nbsp; create\_container\_if\_missing "$PHASE1\_RG" "$PHASE1\_COSMOS\_ACCOUNT" "$COSMOS\_DB\_NAME" "$C\_STRIPE\_MAP"   "/stripeCustomerId" "$RU\_CONTAINER"
+
+
+
+&nbsp; echo
+
+&nbsp; echo "DONE: Phase 1 Cosmos schema is ready in marco-sandbox-cosmos."
+
+&nbsp; echo "Next: seed Key Vault secrets (optional in Phase 1, required Phase 2)."
+
+&nbsp; echo
+
+&nbsp; echo "To seed secrets, export env vars then re-run this script:"
+
+&nbsp; echo "  export STRIPE\_SECRET\_KEY=..."
+
+&nbsp; echo "  export STRIPE\_WEBHOOK\_SECRET=..."
+
+&nbsp; echo "  export STRIPE\_PRICE\_TIER2\_ONE\_TIME=..."
+
+&nbsp; echo "  export STRIPE\_PRICE\_TIER2\_SUBSCRIPTION=..."
+
+&nbsp; echo "  export STRIPE\_PRICE\_TIER3\_ONE\_TIME=..."
+
+&nbsp; echo "  export PUBLIC\_APP\_URL=https://..."
+
+&nbsp; echo "  export PUBLIC\_API\_URL=https://..."
+
+&nbsp; echo "  export COSMOS\_ENDPOINT=https://...documents.azure.com:443/"
+
+&nbsp; echo "  export COSMOS\_KEY=..."
+
+&nbsp; echo
+
+
+
+&nbsp; kv\_set\_secret\_if\_value "$PHASE1\_KV\_NAME" "STRIPE\_SECRET\_KEY" "${STRIPE\_SECRET\_KEY:-}"
+
+&nbsp; kv\_set\_secret\_if\_value "$PHASE1\_KV\_NAME" "STRIPE\_WEBHOOK\_SECRET" "${STRIPE\_WEBHOOK\_SECRET:-}"
+
+&nbsp; kv\_set\_secret\_if\_value "$PHASE1\_KV\_NAME" "STRIPE\_PRICE\_TIER2\_ONE\_TIME" "${STRIPE\_PRICE\_TIER2\_ONE\_TIME:-}"
+
+&nbsp; kv\_set\_secret\_if\_value "$PHASE1\_KV\_NAME" "STRIPE\_PRICE\_TIER2\_SUBSCRIPTION" "${STRIPE\_PRICE\_TIER2\_SUBSCRIPTION:-}"
+
+&nbsp; kv\_set\_secret\_if\_value "$PHASE1\_KV\_NAME" "STRIPE\_PRICE\_TIER3\_ONE\_TIME" "${STRIPE\_PRICE\_TIER3\_ONE\_TIME:-}"
+
+&nbsp; kv\_set\_secret\_if\_value "$PHASE1\_KV\_NAME" "PUBLIC\_APP\_URL" "${PUBLIC\_APP\_URL:-}"
+
+&nbsp; kv\_set\_secret\_if\_value "$PHASE1\_KV\_NAME" "PUBLIC\_API\_URL" "${PUBLIC\_API\_URL:-}"
+
+
+
+&nbsp; # Cosmos connection (if you want to store these in KV too)
+
+&nbsp; kv\_set\_secret\_if\_value "$PHASE1\_KV\_NAME" "COSMOS\_ENDPOINT" "${COSMOS\_ENDPOINT:-}"
+
+&nbsp; kv\_set\_secret\_if\_value "$PHASE1\_KV\_NAME" "COSMOS\_KEY" "${COSMOS\_KEY:-}"
+
+&nbsp; kv\_set\_secret\_if\_value "$PHASE1\_KV\_NAME" "COSMOS\_DB\_NAME" "$COSMOS\_DB\_NAME"
+
+
+
+&nbsp; echo
+
+&nbsp; echo "OK: Phase 1 complete."
+
+&nbsp; echo "Reminder: Phase 1 is explicitly 'Developer Go-Live on marco\* Infrastructure' :contentReference\[oaicite:8]{index=8}"
+
+}
+
+
+
+\# ------------------------------------------------------------------------------
+
+\# Phase 2: new subscription + new RG (commercial MVP)
+
+\# ------------------------------------------------------------------------------
+
+phase2() {
+
+&nbsp; echo "=========================================="
+
+&nbsp; echo "PHASE 2 -- new subscription + new RG"
+
+&nbsp; echo "=========================================="
+
+&nbsp; if \[\[ -z "$PHASE2\_SUBSCRIPTION\_ID" ]]; then
+
+&nbsp;   echo "ERROR: PHASE2\_SUBSCRIPTION\_ID is required for phase2"; exit 1
+
+&nbsp; fi
+
+
+
+&nbsp; az\_set\_sub "$PHASE2\_SUBSCRIPTION\_ID"
+
+
+
+&nbsp; create\_rg\_if\_missing "$PHASE2\_RG" "$PHASE2\_LOC"
+
+
+
+&nbsp; # Cosmos + DB + containers
+
+&nbsp; create\_cosmos\_if\_missing "$PHASE2\_RG" "$PHASE2\_COSMOS\_ACCOUNT" "$PHASE2\_LOC"
+
+&nbsp; create\_cosmos\_db\_if\_missing "$PHASE2\_RG" "$PHASE2\_COSMOS\_ACCOUNT" "$COSMOS\_DB\_NAME" "$RU\_DB"
+
+
+
+&nbsp; create\_container\_if\_missing "$PHASE2\_RG" "$PHASE2\_COSMOS\_ACCOUNT" "$COSMOS\_DB\_NAME" "$C\_SCANS"        "/subscriptionId" "$RU\_CONTAINER"
+
+&nbsp; create\_container\_if\_missing "$PHASE2\_RG" "$PHASE2\_COSMOS\_ACCOUNT" "$COSMOS\_DB\_NAME" "$C\_INVENTORIES"  "/subscriptionId" "$RU\_CONTAINER"
+
+&nbsp; create\_container\_if\_missing "$PHASE2\_RG" "$PHASE2\_COSMOS\_ACCOUNT" "$COSMOS\_DB\_NAME" "$C\_COSTDATA"     "/subscriptionId" "$RU\_CONTAINER"
+
+&nbsp; create\_container\_if\_missing "$PHASE2\_RG" "$PHASE2\_COSMOS\_ACCOUNT" "$COSMOS\_DB\_NAME" "$C\_ADVISOR"      "/subscriptionId" "$RU\_CONTAINER"
+
+&nbsp; create\_container\_if\_missing "$PHASE2\_RG" "$PHASE2\_COSMOS\_ACCOUNT" "$COSMOS\_DB\_NAME" "$C\_FINDINGS"     "/subscriptionId" "$RU\_CONTAINER"
+
+
+
+&nbsp; create\_container\_if\_missing "$PHASE2\_RG" "$PHASE2\_COSMOS\_ACCOUNT" "$COSMOS\_DB\_NAME" "$C\_ENTITLEMENTS" "/subscriptionId" "$RU\_CONTAINER"
+
+&nbsp; create\_container\_if\_missing "$PHASE2\_RG" "$PHASE2\_COSMOS\_ACCOUNT" "$COSMOS\_DB\_NAME" "$C\_PAYMENTS"     "/subscriptionId" "$RU\_CONTAINER"
+
+&nbsp; create\_container\_if\_missing "$PHASE2\_RG" "$PHASE2\_COSMOS\_ACCOUNT" "$COSMOS\_DB\_NAME" "$C\_CLIENTS"      "/subscriptionId" "$RU\_CONTAINER"
+
+&nbsp; create\_container\_if\_missing "$PHASE2\_RG" "$PHASE2\_COSMOS\_ACCOUNT" "$COSMOS\_DB\_NAME" "$C\_STRIPE\_MAP"   "/stripeCustomerId" "$RU\_CONTAINER"
+
+
+
+&nbsp; # Key Vault
+
+&nbsp; create\_kv\_if\_missing "$PHASE2\_RG" "$PHASE2\_KV\_NAME" "$PHASE2\_LOC"
+
+
+
+&nbsp; # Storage (for Tier 3 zip packages + any landing zones)
+
+&nbsp; if az storage account show -g "$PHASE2\_RG" -n "$PHASE2\_STORAGE" >/dev/null 2>\&1; then
+
+&nbsp;   echo "OK: Storage exists: $PHASE2\_STORAGE"
+
+&nbsp; else
+
+&nbsp;   echo "CREATE: Storage $PHASE2\_STORAGE (RA-GRS recommended for prod; using Standard\_RAGRS)"
+
+&nbsp;   az storage account create \\
+
+&nbsp;     -g "$PHASE2\_RG" -n "$PHASE2\_STORAGE" -l "$PHASE2\_LOC" \\
+
+&nbsp;     --sku Standard\_RAGRS --kind StorageV2 \\
+
+&nbsp;     --https-only true \\
+
+&nbsp;     --allow-blob-public-access false >/dev/null
+
+&nbsp; fi
+
+
+
+&nbsp; # ACR (optional but typical for runtime; GHCR can still be build registry)
+
+&nbsp; if az acr show -g "$PHASE2\_RG" -n "$PHASE2\_ACR\_NAME" >/dev/null 2>\&1; then
+
+&nbsp;   echo "OK: ACR exists: $PHASE2\_ACR\_NAME"
+
+&nbsp; else
+
+&nbsp;   echo "CREATE: ACR $PHASE2\_ACR\_NAME (Standard recommended for prod; using Standard)"
+
+&nbsp;   az acr create -g "$PHASE2\_RG" -n "$PHASE2\_ACR\_NAME" -l "$PHASE2\_LOC" --sku Standard >/dev/null
+
+&nbsp; fi
+
+
+
+&nbsp; # Log Analytics + App Insights (classic pattern)
+
+&nbsp; if az monitor log-analytics workspace show -g "$PHASE2\_RG" -n "$PHASE2\_LOGS\_NAME" >/dev/null 2>\&1; then
+
+&nbsp;   echo "OK: Log Analytics workspace exists: $PHASE2\_LOGS\_NAME"
+
+&nbsp; else
+
+&nbsp;   echo "CREATE: Log Analytics workspace $PHASE2\_LOGS\_NAME"
+
+&nbsp;   az monitor log-analytics workspace create -g "$PHASE2\_RG" -n "$PHASE2\_LOGS\_NAME" -l "$PHASE2\_LOC" >/dev/null
+
+&nbsp; fi
+
+
+
+&nbsp; # App Insights (workspace-based)
+
+&nbsp; if az monitor app-insights component show -g "$PHASE2\_RG" -a "$PHASE2\_APPINSIGHTS\_NAME" >/dev/null 2>\&1; then
+
+&nbsp;   echo "OK: App Insights exists: $PHASE2\_APPINSIGHTS\_NAME"
+
+&nbsp; else
+
+&nbsp;   echo "CREATE: App Insights $PHASE2\_APPINSIGHTS\_NAME (workspace-based)"
+
+&nbsp;   WORKSPACE\_ID="$(az monitor log-analytics workspace show -g "$PHASE2\_RG" -n "$PHASE2\_LOGS\_NAME" --query id -o tsv)"
+
+&nbsp;   az monitor app-insights component create \\
+
+&nbsp;     -g "$PHASE2\_RG" -a "$PHASE2\_APPINSIGHTS\_NAME" -l "$PHASE2\_LOC" \\
+
+&nbsp;     --kind web \\
+
+&nbsp;     --workspace "$WORKSPACE\_ID" >/dev/null
+
+&nbsp; fi
+
+
+
+&nbsp; # Cosmos endpoint/key -> store in KV (recommended)
+
+&nbsp; COSMOS\_ENDPOINT\_ACTUAL="$(az cosmosdb show -g "$PHASE2\_RG" -n "$PHASE2\_COSMOS\_ACCOUNT" --query documentEndpoint -o tsv)"
+
+&nbsp; COSMOS\_KEY\_ACTUAL="$(az cosmosdb keys list -g "$PHASE2\_RG" -n "$PHASE2\_COSMOS\_ACCOUNT" --type keys --query primaryMasterKey -o tsv)"
+
+
+
+&nbsp; kv\_set\_secret\_if\_value "$PHASE2\_KV\_NAME" "COSMOS\_ENDPOINT" "$COSMOS\_ENDPOINT\_ACTUAL"
+
+&nbsp; kv\_set\_secret\_if\_value "$PHASE2\_KV\_NAME" "COSMOS\_KEY" "$COSMOS\_KEY\_ACTUAL"
+
+&nbsp; kv\_set\_secret\_if\_value "$PHASE2\_KV\_NAME" "COSMOS\_DB\_NAME" "$COSMOS\_DB\_NAME"
+
+
+
+&nbsp; # Stripe + public URLs (you can export env vars before running)
+
+&nbsp; kv\_set\_secret\_if\_value "$PHASE2\_KV\_NAME" "STRIPE\_SECRET\_KEY" "${STRIPE\_SECRET\_KEY:-}"
+
+&nbsp; kv\_set\_secret\_if\_value "$PHASE2\_KV\_NAME" "STRIPE\_WEBHOOK\_SECRET" "${STRIPE\_WEBHOOK\_SECRET:-}"
+
+&nbsp; kv\_set\_secret\_if\_value "$PHASE2\_KV\_NAME" "STRIPE\_PRICE\_TIER2\_ONE\_TIME" "${STRIPE\_PRICE\_TIER2\_ONE\_TIME:-}"
+
+&nbsp; kv\_set\_secret\_if\_value "$PHASE2\_KV\_NAME" "STRIPE\_PRICE\_TIER2\_SUBSCRIPTION" "${STRIPE\_PRICE\_TIER2\_SUBSCRIPTION:-}"
+
+&nbsp; kv\_set\_secret\_if\_value "$PHASE2\_KV\_NAME" "STRIPE\_PRICE\_TIER3\_ONE\_TIME" "${STRIPE\_PRICE\_TIER3\_ONE\_TIME:-}"
+
+&nbsp; kv\_set\_secret\_if\_value "$PHASE2\_KV\_NAME" "PUBLIC\_APP\_URL" "${PUBLIC\_APP\_URL:-}"
+
+&nbsp; kv\_set\_secret\_if\_value "$PHASE2\_KV\_NAME" "PUBLIC\_API\_URL" "${PUBLIC\_API\_URL:-}"
+
+
+
+&nbsp; echo
+
+&nbsp; echo "DONE: Phase 2 core infra provisioned (Cosmos+containers, KV, Storage, ACR, Logs, AppInsights)."
+
+&nbsp; echo "This aligns with 'Commercial MVP on Private Azure Subscription' objective :contentReference\[oaicite:9]{index=9}"
+
+&nbsp; echo
+
+&nbsp; echo "NEXT (intentionally NOT auto-created here, since org policies vary):"
+
+&nbsp; echo "  - APIM (Developer/Standard), policies for tier gating + caching (you already have patterns)"
+
+&nbsp; echo "  - Container Apps Environment + apps/jobs (aca-api, aca-collector, aca-analysis, aca-delivery) :contentReference\[oaicite:10]{index=10}"
+
+&nbsp; echo "  - Azure OpenAI / Foundry resources (availability + approvals vary)"
+
+&nbsp; echo "  - GitHub OIDC federated identity to this subscription (no stored creds) :contentReference\[oaicite:11]{index=11}"
+
+}
+
+
+
+\# ------------------------------------------------------------------------------
+
+\# Entry
+
+\# ------------------------------------------------------------------------------
+
+need az
+
+need bash
+
+
+
+case "$MODE" in
+
+&nbsp; phase1) phase1 ;;
+
+&nbsp; phase2) phase2 ;;
+
+&nbsp; \*)
+
+&nbsp;   echo "ERROR: MODE must be phase1 or phase2. Got: $MODE"
+
+&nbsp;   exit 1
+
+&nbsp;   ;;
+
+esac
+
 ```
 
----
 
-## 8. Phase 1 / Phase 2 Template Format
 
-Phase 1: Bicep templates only (infra/phase1-marco/ patterns).
-Phase 2: Terraform modules from 18-azure-best/04-terraform-modules become available.
+This single script matches your plan to \*\*start on existing marco\*\*\* infra in \*\*EsDAICoE-Sandbox\*\*  and later \*\*move cleanly to a new subscription/RG for commercial MVP\*\* .
 
-For Phase 2, the generator must detect which format the customer prefers and render
-accordingly. The template_format field in the delivery trigger request determines this:
-- "bicep" (default, Phase 1)
-- "terraform" (Phase 2+)
 
----
 
-*See also: saving-opportunity-rules.md (12 rule reference + template IDs), 05-technical.md (delivery endpoint)*
+If you want, I can extend this same file to also:
+
+
+
+\* create \*\*Container Apps Environment + container apps/jobs\*\* (FastAPI + 3 workers),
+
+\* create \*\*APIM\*\* and import the API spec + apply the \*\*tier-gating + entitlements caching\*\* policies,
+
+\* create a \*\*User Assigned Managed Identity\*\* and wire it to Key Vault + Cosmos RBAC.
+
+
+

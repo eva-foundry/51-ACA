@@ -7,7 +7,7 @@
  */
 
 export const apiBase =
-  (import.meta.env.VITE_API_BASE_URL as string | undefined) ?? "/api";
+  (import.meta.env.VITE_API_BASE_URL as string | undefined) ?? "";
 
 export async function http<T>(path: string, init?: RequestInit): Promise<T> {
   const res = await fetch(`${apiBase}${path}`, {

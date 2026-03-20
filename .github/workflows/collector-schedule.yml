@@ -8,7 +8,7 @@ on:
     inputs:
       subscription_id:
         description: "Azure subscription ID to collect"
-        required: true
+        required: false
       scan_id:
         description: "Scan ID (leave blank to auto-generate)"
         required: false
@@ -17,27 +17,81 @@ permissions:
   id-token: write
   contents: read
 
+env:
+  AZURE_CLIENT_ID_VALUE: ${{ secrets.AZURE_CLIENT_ID_PHASE1 || secrets.AZURE_CLIENT_ID }}
+  AZURE_TENANT_ID_VALUE: ${{ secrets.AZURE_TENANT_ID }}
+  AZURE_SUBSCRIPTION_ID_VALUE: ${{ secrets.AZURE_SUBSCRIPTION_ID_PHASE1 || secrets.AZURE_SUBSCRIPTION_ID }}
+  DEFAULT_SUBSCRIPTION_ID_VALUE: ${{ secrets.DEFAULT_SUBSCRIPTION_ID || secrets.AZURE_SUBSCRIPTION_ID_PHASE1 || secrets.AZURE_SUBSCRIPTION_ID }}
+  COLLECTOR_RESOURCE_GROUP: EsDAICoE-Sandbox
+  COLLECTOR_JOB_NAME: aca-51-collector
+
 jobs:
   collect:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
+      - name: Pre-flight checks
+        shell: bash
+        run: |
+          echo "COLLECTOR_READY=false" >> "$GITHUB_ENV"
+
+          if [ -z "$AZURE_CLIENT_ID_VALUE" ] || [ -z "$AZURE_TENANT_ID_VALUE" ] || [ -z "$AZURE_SUBSCRIPTION_ID_VALUE" ]; then
+            echo "[WARN] Missing Azure OIDC secrets for collector schedule; collector run will be skipped"
+            exit 0
+          fi
+
+          TARGET_SUBSCRIPTION="${{ github.event.inputs.subscription_id }}"
+          if [ -z "$TARGET_SUBSCRIPTION" ]; then
+            TARGET_SUBSCRIPTION="$DEFAULT_SUBSCRIPTION_ID_VALUE"
+          fi
+
+          if [ -z "$TARGET_SUBSCRIPTION" ]; then
+            echo "[WARN] No target subscription ID provided and no default subscription secret configured; collector run will be skipped"
+            exit 0
+          fi
+
+          echo "TARGET_SUBSCRIPTION=$TARGET_SUBSCRIPTION" >> "$GITHUB_ENV"
+          echo "COLLECTOR_READY=true" >> "$GITHUB_ENV"
+
       - name: Azure login (OIDC)
+        if: env.COLLECTOR_READY == 'true'
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZURE_CLIENT_ID_PHASE1 }}
-          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID_PHASE1 }}
+          client-id: ${{ env.AZURE_CLIENT_ID_VALUE }}
+          tenant-id: ${{ env.AZURE_TENANT_ID_VALUE }}
+          subscription-id: ${{ env.AZURE_SUBSCRIPTION_ID_VALUE }}
+
+      - name: Install Azure Container Apps extension
+        if: env.COLLECTOR_READY == 'true'
+        run: |
+          az extension add --name containerapp --upgrade -y
 
       - name: Trigger collector Container App Job
+        if: env.COLLECTOR_READY == 'true'
         run: |
           SCAN_ID="${{ github.event.inputs.scan_id }}"
           if [ -z "$SCAN_ID" ]; then
             SCAN_ID="sched-$(date +%Y%m%d-%H%M%S)"
           fi
           az containerapp job start \
-            --name aca-51-collector \
-            --resource-group EsDAICoE-Sandbox \
+            --name "$COLLECTOR_JOB_NAME" \
+            --resource-group "$COLLECTOR_RESOURCE_GROUP" \
             --args "--scan-id" "$SCAN_ID" \
-                   "--subscription-id" "${{ github.event.inputs.subscription_id || secrets.DEFAULT_SUBSCRIPTION_ID }}"
+                   "--subscription-id" "$TARGET_SUBSCRIPTION"
+
+      - name: Summarize collector launch
+        if: always()
+        shell: bash
+        run: |
+          echo "## Collector Schedule" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Job: $COLLECTOR_JOB_NAME" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Resource Group: $COLLECTOR_RESOURCE_GROUP" >> "$GITHUB_STEP_SUMMARY"
+          if [ "$COLLECTOR_READY" = "true" ]; then
+            echo "- Status: started" >> "$GITHUB_STEP_SUMMARY"
+            echo "- Target Subscription: $TARGET_SUBSCRIPTION" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "- Status: skipped" >> "$GITHUB_STEP_SUMMARY"
+            echo "- Reason: missing Azure OIDC or subscription configuration" >> "$GITHUB_STEP_SUMMARY"
+          fi

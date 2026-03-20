@@ -10,7 +10,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.settings import get_settings
 from app.middleware.timing import TimingMiddleware
-from app.routers import auth, scans, findings, checkout, admin, health, collect, reports, billing, webhooks, entitlements
+from app.routers import auth, scans, findings, checkout, admin, health, collect, reports, billing, webhooks, entitlements, onboarding, preflight
 
 settings = get_settings()
 
@@ -39,6 +39,8 @@ def create_app() -> FastAPI:
     )
     app.add_middleware(TimingMiddleware)
 
+    # Pre-flight health checks (runs early to warn clients)
+    app.include_router(preflight.router)
     app.include_router(health.router)
     app.include_router(auth.router, prefix="/v1/auth")
     app.include_router(collect.router, prefix="/v1/collect")
@@ -46,6 +48,7 @@ def create_app() -> FastAPI:
     app.include_router(billing.router, prefix="/v1/billing")
     app.include_router(webhooks.router, prefix="/v1/webhooks")
     app.include_router(entitlements.router, prefix="/v1/entitlements")
+    app.include_router(onboarding.router, prefix="/v1/onboarding")
     app.include_router(scans.router, prefix="/v1/scans")
     app.include_router(findings.router, prefix="/v1/findings")
     app.include_router(checkout.router, prefix="/v1/checkout")

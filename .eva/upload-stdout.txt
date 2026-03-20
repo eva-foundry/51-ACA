@@ -1,0 +1,47 @@
+[INFO] upload-to-model: 51-ACA
+[INFO] API Base: https://msub-eva-data-model.victoriousgrass-30debbd3.canadacentral.azurecontainerapps.io
+[INFO] Layers: wbs
+[INFO] Starting upload process...
+
+[START] Layer 26 (WBS) - 297 records
+
+[BATCH] wbs - Batch 1/6 (50 records)
+[INSERT] wbs/WBS-51ACA
+[INSERT] wbs/WBS-F01
+[INSERT] wbs/WBS-S001
+[INSERT] wbs/WBS-S002
+[INSERT] wbs/WBS-S003
+[INSERT] wbs/WBS-S004
+[INSERT] wbs/WBS-S005
+[INSERT] wbs/WBS-S006
+[INSERT] wbs/WBS-S007
+[INSERT] wbs/WBS-S008
+[INSERT] wbs/WBS-S009
+[INSERT] wbs/WBS-S010
+[INSERT] wbs/WBS-S011
+[INSERT] wbs/WBS-S012
+[INSERT] wbs/WBS-S013
+[INSERT] wbs/WBS-S014
+[INSERT] wbs/WBS-S015
+[INSERT] wbs/WBS-S016
+[INSERT] wbs/WBS-S017
+[INSERT] wbs/WBS-S018
+[INSERT] wbs/WBS-S019
+[INSERT] wbs/WBS-S020
+[INSERT] wbs/WBS-S021
+[INSERT] wbs/WBS-F02
+[INSERT] wbs/WBS-S022
+[INSERT] wbs/WBS-S023
+[INSERT] wbs/WBS-S024
+[INSERT] wbs/WBS-S025
+[INSERT] wbs/WBS-S026
+[INSERT] wbs/WBS-S027
+[INSERT] wbs/WBS-S028
+[INSERT] wbs/WBS-S029
+[INSERT] wbs/WBS-S030
+[INSERT] wbs/WBS-S031
+[INSERT] wbs/WBS-S032
+[INSERT] wbs/WBS-S033
+[INSERT] wbs/WBS-S034
+[INSERT] wbs/WBS-S035
+[INSERT] wbs/WBS-S036

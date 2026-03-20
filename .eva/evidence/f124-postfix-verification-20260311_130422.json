@@ -1,0 +1,77 @@
+{
+  "operation": "F12.4 post-fix verification",
+  "timestamp": "2026-03-11T13:04:24.8867017-03:00",
+  "project_id": "51-ACA",
+  "checks": {
+    "cloud_wbs_total": 297,
+    "feature_labels_synced": [
+      {
+        "id": "WBS-F01",
+        "label": "FOUNDATION AND INFRASTRUCTURE"
+      },
+      {
+        "id": "WBS-F02",
+        "label": "DATA COLLECTION PIPELINE"
+      },
+      {
+        "id": "WBS-F03",
+        "label": "ANALYSIS ENGINE AND RULES"
+      },
+      {
+        "id": "WBS-F04",
+        "label": "API AND AUTH LAYER"
+      },
+      {
+        "id": "WBS-F05",
+        "label": "FRONTEND SPARK ARCHITECTURE"
+      },
+      {
+        "id": "WBS-F06",
+        "label": "MONETIZATION AND BILLING"
+      },
+      {
+        "id": "WBS-F07",
+        "label": "DELIVERY PACKAGER"
+      },
+      {
+        "id": "WBS-F08",
+        "label": "OBSERVABILITY AND TELEMETRY"
+      },
+      {
+        "id": "WBS-F09",
+        "label": "i18n AND a11y"
+      },
+      {
+        "id": "WBS-F10",
+        "label": "COMMERCIAL HARDENING"
+      },
+      {
+        "id": "WBS-F11",
+        "label": "PHASE 2 INFRASTRUCTURE"
+      },
+      {
+        "id": "WBS-F12",
+        "label": "DATA MODEL SUPPORT"
+      },
+      {
+        "id": "WBS-F13",
+        "label": "AZURE BEST PRACTICES SERVICE CATALOG"
+      },
+      {
+        "id": "WBS-F14",
+        "label": "DPDCA CLOUD AGENT"
+      },
+      {
+        "id": "WBS-F15",
+        "label": "ONBOARDING SYSTEM"
+      }
+    ],
+    "audit_writeback": "PASS",
+    "mti_score": 66,
+    "mti_actions": [
+      "review-required",
+      "no-deploy"
+    ]
+  },
+  "status": "PASS"
+}

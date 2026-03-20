@@ -1,0 +1,152 @@
+app\auth\msal_client.py:2:1: I001 [*] Import block is un-sorted or un-formatted
+app\auth\probes.py:2:1: I001 [*] Import block is un-sorted or un-formatted
+app\auth\probes.py:62:20: F541 [*] f-string without any placeholders
+app\auth\session.py:2:1: I001 [*] Import block is un-sorted or un-formatted
+app\auth\session.py:3:8: F401 [*] `json` imported but unused
+app\db\cosmos.py:9:1: I001 [*] Import block is un-sorted or un-formatted
+app\db\cosmos.py:84:9: T201 `print` found
+app\db\repos\admin_audit_repo.py:13:1: UP035 `typing.Dict` is deprecated, use `dict` instead
+app\db\repos\admin_audit_repo.py:13:1: UP035 `typing.List` is deprecated, use `list` instead
+app\db\repos\admin_audit_repo.py:30:18: UP007 Use `X | Y` for type annotations
+app\db\repos\admin_audit_repo.py:30:27: UP006 [*] Use `dict` instead of `Dict` for type annotation
+app\db\repos\admin_audit_repo.py:31:10: UP006 [*] Use `dict` instead of `Dict` for type annotation
+app\db\repos\admin_audit_repo.py:32:28: UP017 [*] Use `datetime.UTC` alias
+app\db\repos\admin_audit_repo.py:34:14: UP006 [*] Use `dict` instead of `Dict` for type annotation
+app\db\repos\admin_audit_repo.py:48:10: UP006 [*] Use `list` instead of `List` for type annotation
+app\db\repos\admin_audit_repo.py:48:15: UP006 [*] Use `dict` instead of `Dict` for type annotation
+app\db\repos\clients_repo.py:12:1: UP035 `typing.Dict` is deprecated, use `dict` instead
+app\db\repos\clients_repo.py:26:44: UP007 Use `X | Y` for type annotations
+app\db\repos\clients_repo.py:26:53: UP006 [*] Use `dict` instead of `Dict` for type annotation
+app\db\repos\clients_repo.py:42:29: UP007 Use `X | Y` for type annotations
+app\db\repos\clients_repo.py:43:16: UP007 Use `X | Y` for type annotations
+app\db\repos\clients_repo.py:43:25: UP006 [*] Use `dict` instead of `Dict` for type annotation
+app\db\repos\clients_repo.py:44:10: UP006 [*] Use `dict` instead of `Dict` for type annotation
+app\db\repos\clients_repo.py:45:28: UP017 [*] Use `datetime.UTC` alias
+app\db\repos\clients_repo.py:47:14: UP006 [*] Use `dict` instead of `Dict` for type annotation
+app\db\repos\clients_repo.py:69:45: UP017 [*] Use `datetime.UTC` alias
+app\db\repos\entitlements_repo.py:10:1: UP035 `typing.Dict` is deprecated, use `dict` instead
+app\db\repos\entitlements_repo.py:27:44: UP007 Use `X | Y` for type annotations
+app\db\repos\entitlements_repo.py:27:53: UP006 [*] Use `dict` instead of `Dict` for type annotation
+app\db\repos\entitlements_repo.py:43:29: UP007 Use `X | Y` for type annotations
+app\db\repos\entitlements_repo.py:44:33: UP007 Use `X | Y` for type annotations
+app\db\repos\entitlements_repo.py:45:22: UP007 Use `X | Y` for type annotations
+app\db\repos\entitlements_repo.py:47:10: UP006 [*] Use `dict` instead of `Dict` for type annotation
+app\db\repos\entitlements_repo.py:48:28: UP017 [*] Use `datetime.UTC` alias
+app\db\repos\entitlements_repo.py:49:14: UP006 [*] Use `dict` instead of `Dict` for type annotation
+app\db\repos\entitlements_repo.py:69:10: UP006 [*] Use `dict` instead of `Dict` for type annotation
+app\db\repos\entitlements_repo.py:71:28: UP017 [*] Use `datetime.UTC` alias
+app\db\repos\entitlements_repo.py:79:14: UP006 [*] Use `dict` instead of `Dict` for type annotation
+app\db\repos\payments_repo.py:10:1: UP035 `typing.Dict` is deprecated, use `dict` instead
+app\db\repos\payments_repo.py:10:1: UP035 `typing.List` is deprecated, use `list` instead
+app\db\repos\payments_repo.py:31:29: UP007 Use `X | Y` for type annotations
+app\db\repos\payments_repo.py:32:33: UP007 Use `X | Y` for type annotations
+app\db\repos\payments_repo.py:33:23: UP007 Use `X | Y` for type annotations
+app\db\repos\payments_repo.py:36:10: UP006 [*] Use `dict` instead of `Dict` for type annotation
+app\db\repos\payments_repo.py:37:28: UP017 [*] Use `datetime.UTC` alias
+app\db\repos\payments_repo.py:38:14: UP006 [*] Use `dict` instead of `Dict` for type annotation
+app\db\repos\payments_repo.py:53:62: UP006 [*] Use `list` instead of `List` for type annotation
+app\db\repos\payments_repo.py:53:67: UP006 [*] Use `dict` instead of `Dict` for type annotation
+app\db\repos\stripe_customer_map_repo.py:13:1: UP035 `typing.Dict` is deprecated, use `dict` instead
+app\db\repos\stripe_customer_map_repo.py:24:79: UP006 [*] Use `dict` instead of `Dict` for type annotation
+app\db\repos\stripe_customer_map_repo.py:25:28: UP017 [*] Use `datetime.UTC` alias
+app\db\repos\stripe_customer_map_repo.py:26:14: UP006 [*] Use `dict` instead of `Dict` for type annotation
+app\db\repos\stripe_customer_map_repo.py:34:63: UP007 Use `X | Y` for type annotations
+app\deps\auth.py:28:12: UP007 Use `X | Y` for type annotations
+app\main.py:6:1: I001 [*] Import block is un-sorted or un-formatted
+app\middleware\timing.py:30:1: UP035 [*] Import from `collections.abc` instead: `Callable`
+app\routers\admin.py:17:1: I001 [*] Import block is un-sorted or un-formatted
+app\routers\admin.py:21:41: F401 [*] `fastapi.HTTPException` imported but unused
+app\routers\admin.py:25:27: F401 [*] `app.db.cosmos.upsert_item` imported but unused
+app\routers\admin.py:25:40: F401 [*] `app.db.cosmos.query_items` imported but unused
+app\routers\admin.py:25:53: F401 [*] `app.db.cosmos.get_container` imported but unused
+app\routers\admin.py:49:22: UP007 Use `X | Y` for type annotations
+app\routers\admin.py:78:17: UP007 Use `X | Y` for type annotations
+app\routers\admin.py:79:20: UP007 Use `X | Y` for type annotations
+app\routers\admin.py:104:58: B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+app\routers\admin.py:118:43: B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+app\routers\admin.py:132:43: B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+app\routers\admin.py:140:22: UP017 [*] Use `datetime.UTC` alias
+app\routers\admin.py:169:43: B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+app\routers\admin.py:194:66: B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+app\routers\admin.py:214:11: UP007 Use `X | Y` for type annotations
+app\routers\admin.py:215:21: UP007 Use `X | Y` for type annotations
+app\routers\admin.py:216:43: B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+app\routers\admin.py:231:55: B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+app\routers\admin.py:240:43: B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+app\routers\auth.py:10:1: I001 [*] Import block is un-sorted or un-formatted
+app\routers\auth.py:13:32: F401 [*] `..auth.msal_client.create_msal_app` imported but unused
+app\routers\auth.py:57:5: F841 Local variable `kv_secret_name` is assigned to but never used
+app\routers\billing.py:4:1: I001 [*] Import block is un-sorted or un-formatted
+app\routers\billing.py:23:5: F841 Local variable `subscription_id` is assigned to but never used
+app\routers\billing.py:45:5: F841 Local variable `subscription_id` is assigned to but never used
+app\routers\checkout.py:13:1: I001 [*] Import block is un-sorted or un-formatted
+app\routers\checkout.py:42:18: UP007 Use `X | Y` for type annotations
+app\routers\checkout.py:43:17: UP007 Use `X | Y` for type annotations
+app\routers\checkout.py:49:18: UP007 Use `X | Y` for type annotations
+app\routers\checkout.py:50:17: UP007 Use `X | Y` for type annotations
+app\routers\checkout.py:110:9: B904 Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling
+app\routers\checkout.py:138:9: B904 Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling
+app\routers\checkout.py:170:9: B904 Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling
+app\routers\checkout.py:173:9: B904 Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling
+app\routers\checkout.py:327:9: B904 Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling
+app\routers\collect.py:4:1: I001 [*] Import block is un-sorted or un-formatted
+app\routers\collect.py:47:5: F841 Local variable `subscription_id` is assigned to but never used
+app\routers\entitlements.py:3:1: I001 [*] Import block is un-sorted or un-formatted
+app\routers\entitlements.py:3:32: F401 [*] `fastapi.HTTPException` imported but unused
+app\routers\findings.py:8:1: I001 [*] Import block is un-sorted or un-formatted
+app\routers\findings.py:8:47: F401 [*] `fastapi.Request` imported but unused
+app\routers\findings.py:9:22: F401 [*] `pydantic.BaseModel` imported but unused
+app\routers\findings.py:11:26: F401 [*] `app.settings.get_settings` imported but unused
+app\routers\onboarding.py:4:1: I001 [*] Import block is un-sorted or un-formatted
+app\routers\onboarding.py:33:24: UP017 [*] Use `datetime.UTC` alias
+app\routers\onboarding.py:66:35: UP017 [*] Use `datetime.UTC` alias
+app\routers\reports.py:3:1: I001 [*] Import block is un-sorted or un-formatted
+app\routers\reports.py:16:5: F841 Local variable `subscription_id` is assigned to but never used
+app\routers\scans.py:8:1: I001 [*] Import block is un-sorted or un-formatted
+app\routers\scans.py:115:9: B904 Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling
+app\routers\scans.py:117:9: B904 Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling
+app\routers\webhooks.py:3:1: I001 [*] Import block is un-sorted or un-formatted
+app\routers\webhooks.py:4:8: F401 [*] `hmac` imported but unused
+app\routers\webhooks.py:5:8: F401 [*] `hashlib` imported but unused
+app\routers\webhooks.py:28:5: F841 Local variable `webhook_secret` is assigned to but never used
+app\scan_pipeline.py:21:1: I001 [*] Import block is un-sorted or un-formatted
+app\scan_pipeline.py:105:24: UP007 Use `X | Y` for type annotations
+app\scan_pipeline.py:112:46: UP037 [*] Remove quotes from type annotation
+app\scan_pipeline.py:114:28: UP017 [*] Use `datetime.UTC` alias
+app\scan_pipeline.py:164:63: UP007 Use `X | Y` for type annotations
+app\scan_pipeline.py:174:16: UP007 Use `X | Y` for type annotations
+app\scan_pipeline.py:204:28: UP017 [*] Use `datetime.UTC` alias
+app\scan_pipeline.py:254:45: F401 [*] `tools.update_data_model.update_scan` imported but unused
+app\services\entitlement_service.py:13:1: F811 Redefinition of unused `PaymentStatus` from line 11
+app\services\entitlement_service.py:33:31: UP007 Use `X | Y` for type annotations
+app\services\entitlement_service.py:53:29: UP007 Use `X | Y` for type annotations
+app\services\entitlement_service.py:54:33: UP007 Use `X | Y` for type annotations
+app\services\entitlement_service.py:73:29: UP007 Use `X | Y` for type annotations
+app\services\entitlement_service.py:74:33: UP007 Use `X | Y` for type annotations
+app\services\entitlement_service.py:90:33: UP007 Use `X | Y` for type annotations
+app\services\onboarding_runtime.py:11:1: I001 [*] Import block is un-sorted or un-formatted
+app\services\onboarding_runtime.py:14:32: F401 [*] `datetime.timedelta` imported but unused
+app\services\onboarding_runtime.py:20:1: UP035 [*] Import from `collections.abc` instead: `Callable`
+app\services\onboarding_runtime.py:72:29: UP017 [*] Use `datetime.UTC` alias
+app\services\onboarding_runtime.py:97:31: UP017 [*] Use `datetime.UTC` alias
+app\services\onboarding_runtime.py:106:37: UP017 [*] Use `datetime.UTC` alias
+app\services\onboarding_runtime.py:132:38: UP017 [*] Use `datetime.UTC` alias
+app\services\stripe_service.py:7:1: UP035 `typing.Dict` is deprecated, use `dict` instead
+app\services\stripe_service.py:7:1: I001 [*] Import block is un-sorted or un-formatted
+app\services\stripe_service.py:46:25: UP007 Use `X | Y` for type annotations
+app\services\stripe_service.py:47:31: UP007 Use `X | Y` for type annotations
+app\services\stripe_service.py:52:17: UP006 [*] Use `dict` instead of `Dict` for type annotation
+app\services\token_service.py:11:1: I001 [*] Import block is un-sorted or un-formatted
+app\services\token_service.py:13:1: UP035 `typing.Dict` is deprecated, use `dict` instead
+app\services\token_service.py:21:35: UP007 Use `X | Y` for type annotations
+app\services\token_service.py:31:61: UP006 [*] Use `dict` instead of `Dict` for type annotation
+app\services\token_service.py:54:42: UP006 [*] Use `dict` instead of `Dict` for type annotation
+app\services\token_service.py:54:61: UP006 [*] Use `dict` instead of `Dict` for type annotation
+app\settings.py:1:1: I001 [*] Import block is un-sorted or un-formatted
+tests\test_auth.py:6:1: I001 [*] Import block is un-sorted or un-formatted
+tests\test_auth.py:6:8: F401 [*] `pytest` imported but unused
+tests\test_core_endpoints.py:4:1: I001 [*] Import block is un-sorted or un-formatted
+tests\test_core_endpoints.py:4:8: F401 [*] `pytest` imported but unused
+tests\test_onboarding_routes.py:15:1: I001 [*] Import block is un-sorted or un-formatted
+Found 150 errors.
+[*] 84 fixable with the `--fix` option (41 hidden fixes can be enabled with the `--unsafe-fixes` option).

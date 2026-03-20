@@ -1,0 +1,5207 @@
+{
+  "counts": {
+    "evidence": 120,
+    "wbs": 74
+  },
+  "purpose": "Feature 12.4.1 - Pre-cleanup snapshot before ground-up restore",
+  "project_id": "51-ACA",
+  "timestamp": "2026-03-11T11:30:41.8369256-03:00",
+  "evidence": [
+    {
+      "id": "ACA-ACA-06-P-ACA-06-018",
+      "sprint_id": "ACA-ACA-06",
+      "story_id": "ACA-06-018",
+      "phase": "P",
+      "created_at": "2026-02-27T12:49:09Z",
+      "validation": {
+        "test_result": "WARN",
+        "lint_result": "WARN",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [
+        {
+          "path": "services/api/app/services/entitlement_service.py",
+          "type": "source",
+          "action": "modified"
+        }
+      ],
+      "commits": [
+        {
+          "sha": "fb943d679107c6d2ff593dfb4d957d92ef5b71f7",
+          "message": "entitlement_service.py revoke() -- preserve Tier 3 on subscription.deleted",
+          "timestamp": "2026-02-27T12:49:09Z"
+        }
+      ],
+      "completed_at": "2026-02-27T12:49:09Z",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-03-A-ACA-03-001",
+      "sprint_id": "ACA-ACA-03",
+      "story_id": "ACA-03-001",
+      "phase": "A",
+      "created_at": "2026-03-01T15:06:39Z",
+      "validation": {
+        "test_result": "WARN",
+        "lint_result": "WARN",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [
+        {
+          "path": "services/analysis/app/main.py (update run_analysis to load ALL_RULES)",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "services/tests/test_analysis_rule_loader.py (new)",
+          "type": "source",
+          "action": "modified"
+        }
+      ],
+      "commits": [
+        {
+          "sha": "07ff958ed39a92d95b172c5eec513e3224291388",
+          "message": "As the system I load all 12 rules from ALL_RULES and run each in sequence",
+          "timestamp": "2026-03-01T15:06:39Z"
+        }
+      ],
+      "completed_at": "2026-03-01T15:06:39Z",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-15-P-ACA-15-008",
+      "sprint_id": "ACA-ACA-15",
+      "story_id": "ACA-15-008",
+      "phase": "P",
+      "created_at": "2026-03-02T15:18:28.1238702-03:00",
+      "validation": {
+        "test_result": "SKIP",
+        "lint_result": "SKIP",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [],
+      "commits": [],
+      "completed_at": "2026-03-02T15:18:28.1238702-03:00",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-15-P-ACA-15-006a",
+      "sprint_id": "ACA-ACA-15",
+      "story_id": "ACA-15-006a",
+      "phase": "P",
+      "created_at": "2026-03-02T15:18:28.1238702-03:00",
+      "validation": {
+        "test_result": "SKIP",
+        "lint_result": "SKIP",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [],
+      "commits": [],
+      "completed_at": "2026-03-02T15:18:28.1238702-03:00",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-15-P-ACA-15-003a",
+      "sprint_id": "ACA-ACA-15",
+      "story_id": "ACA-15-003a",
+      "phase": "P",
+      "created_at": "2026-03-02T15:18:28.1238702-03:00",
+      "validation": {
+        "test_result": "SKIP",
+        "lint_result": "SKIP",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [],
+      "commits": [],
+      "completed_at": "2026-03-02T15:18:28.1238702-03:00",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-03-A-ACA-03-012",
+      "sprint_id": "ACA-ACA-03",
+      "story_id": "ACA-03-012",
+      "phase": "A",
+      "created_at": "2026-03-01T15:57:32Z",
+      "validation": {
+        "test_result": "WARN",
+        "lint_result": "WARN",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [
+        {
+          "path": "services/analysis/app/rules/r02_log_retention.py",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "services/tests/test_rule_r02_log_retention.py",
+          "type": "source",
+          "action": "modified"
+        }
+      ],
+      "commits": [
+        {
+          "sha": "ebb5eff2861d5995ded9790f66e75f10261b07c1",
+          "message": "As the system I implement R-02 rule: returns finding when annual LA cost > $500 in non-prod environments",
+          "timestamp": "2026-03-01T15:57:32Z"
+        }
+      ],
+      "completed_at": "2026-03-01T15:57:32Z",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-15-P-ACA-15-004",
+      "sprint_id": "ACA-ACA-15",
+      "story_id": "ACA-15-004",
+      "phase": "P",
+      "created_at": "2026-03-02T15:18:28.1238702-03:00",
+      "validation": {
+        "test_result": "SKIP",
+        "lint_result": "SKIP",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [],
+      "commits": [],
+      "completed_at": "2026-03-02T15:18:28.1238702-03:00",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-03-A-ACA-03-015",
+      "sprint_id": "ACA-ACA-03",
+      "story_id": "ACA-03-015",
+      "phase": "A",
+      "created_at": "2026-03-01T16:15:51Z",
+      "validation": {
+        "test_result": "WARN",
+        "lint_result": "WARN",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [
+        {
+          "path": "services/analysis/app/rules/r05_anomaly_detection.py",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "services/tests/test_rule_r05_anomaly_detection.py",
+          "type": "source",
+          "action": "modified"
+        }
+      ],
+      "commits": [
+        {
+          "sha": "ff796692c70f94cb8b42d621ade0fa7603740f76",
+          "message": "As the system I implement R-05 rule: returns finding for each category with z-score > 3.0",
+          "timestamp": "2026-03-01T16:15:51Z"
+        }
+      ],
+      "completed_at": "2026-03-01T16:15:51Z",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-15-P-ACA-15-006b",
+      "sprint_id": "ACA-ACA-15",
+      "story_id": "ACA-15-006b",
+      "phase": "P",
+      "created_at": "2026-03-02T15:18:28.1238702-03:00",
+      "validation": {
+        "test_result": "SKIP",
+        "lint_result": "SKIP",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [],
+      "commits": [],
+      "completed_at": "2026-03-02T15:18:28.1238702-03:00",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-14-D3-ACA-14-010",
+      "sprint_id": "ACA-ACA-14",
+      "story_id": "ACA-14-010",
+      "phase": "D3",
+      "created_at": "2026-03-01T22:25:00Z",
+      "validation": {
+        "test_result": "PASS",
+        "lint_result": "SKIP",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [
+        {
+          "path": ".github/scripts/evidence_schema.py",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": ".github/scripts/sprint_agent.py",
+          "type": "source",
+          "action": "modified"
+        }
+      ],
+      "commits": [
+        {
+          "sha": "pending",
+          "message": "",
+          "timestamp": "2026-03-01T22:25:00Z"
+        }
+      ],
+      "completed_at": "2026-03-01T22:25:00Z",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-15-P-ACA-15-005",
+      "sprint_id": "ACA-ACA-15",
+      "story_id": "ACA-15-005",
+      "phase": "P",
+      "created_at": "2026-03-02T15:18:28.1238702-03:00",
+      "validation": {
+        "test_result": "SKIP",
+        "lint_result": "SKIP",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [],
+      "commits": [],
+      "completed_at": "2026-03-02T15:18:28.1238702-03:00",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-03-A-ACA-03-017",
+      "sprint_id": "ACA-ACA-03",
+      "story_id": "ACA-03-017",
+      "phase": "A",
+      "created_at": "2026-03-01T16:16:08Z",
+      "validation": {
+        "test_result": "WARN",
+        "lint_result": "WARN",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [
+        {
+          "path": "services/analysis/app/rules/r07_search_sku_oversize.py",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "services/tests/test_rule_r07_search_sku_oversize.py",
+          "type": "source",
+          "action": "modified"
+        }
+      ],
+      "commits": [
+        {
+          "sha": "e134a4f28bf0b864dae22e553ba3f720f3810e75",
+          "message": "As the system I implement R-07 rule: returns finding when annual Search cost > $2,000",
+          "timestamp": "2026-03-01T16:16:08Z"
+        }
+      ],
+      "completed_at": "2026-03-01T16:16:08Z",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-15-P-ACA-15-000",
+      "sprint_id": "ACA-ACA-15",
+      "story_id": "ACA-15-000",
+      "phase": "P",
+      "created_at": "2026-03-02T15:18:28.1238702-03:00",
+      "validation": {
+        "test_result": "SKIP",
+        "lint_result": "SKIP",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [],
+      "commits": [],
+      "completed_at": "2026-03-02T15:18:28.1238702-03:00",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-14-D3-ACA-14-009",
+      "sprint_id": "ACA-ACA-14",
+      "story_id": "ACA-14-009",
+      "phase": "D3",
+      "created_at": "2026-03-01T22:15:00Z",
+      "validation": {
+        "test_result": "PASS",
+        "lint_result": "SKIP",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [
+        {
+          "path": ".github/scripts/sprint_agent.py",
+          "type": "source",
+          "action": "modified"
+        }
+      ],
+      "commits": [
+        {
+          "sha": "pending",
+          "message": "",
+          "timestamp": "2026-03-01T22:15:00Z"
+        }
+      ],
+      "completed_at": "2026-03-01T22:15:00Z",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-03-A-ACA-03-011",
+      "sprint_id": "ACA-ACA-03",
+      "story_id": "ACA-03-011",
+      "phase": "A",
+      "created_at": "2026-03-01T13:07:24Z",
+      "validation": {
+        "test_result": "WARN",
+        "lint_result": "WARN",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [
+        {
+          "path": "services/analysis/app/rules/rule_01_dev_box_autostop.py (replace stub with full implementation)",
+          "type": "source",
+          "action": "modified"
+        }
+      ],
+      "commits": [
+        {
+          "sha": "68b39bc4b223862481456a6d437a1e0bdfaf4658",
+          "message": "R-01 Dev Box auto-stop: returns finding when annual Dev Box cost > $1,000",
+          "timestamp": "2026-03-01T13:07:24Z"
+        }
+      ],
+      "completed_at": "2026-03-01T13:07:24Z",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-15-P-ACA-15-006",
+      "sprint_id": "ACA-ACA-15",
+      "story_id": "ACA-15-006",
+      "phase": "P",
+      "created_at": "2026-03-02T15:18:28.1238702-03:00",
+      "validation": {
+        "test_result": "SKIP",
+        "lint_result": "SKIP",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [],
+      "commits": [],
+      "completed_at": "2026-03-02T15:18:28.1238702-03:00",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-04-D3-ACA-04-011,ACA-04-012,ACA-04-013,ACA-04-014,ACA-04-015,ACA-04-016,ACA-04-017",
+      "sprint_id": "ACA-ACA-04",
+      "story_id": "ACA-04-011,ACA-04-012,ACA-04-013,ACA-04-014,ACA-04-015,ACA-04-016,ACA-04-017",
+      "phase": "D3",
+      "created_at": "2026-03-02T08:50:00Z",
+      "validation": {
+        "test_result": "PASS",
+        "lint_result": "SKIP",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [
+        {
+          "path": "services/api/app/routers/collect.py",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "services/api/app/routers/reports.py",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "services/api/app/routers/billing.py",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "services/api/app/routers/webhooks.py",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "services/api/app/routers/entitlements.py",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "services/api/tests/test_core_endpoints.py",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "services/api/app/main.py",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": ".github/sprints/sprint-18-api-endpoints-batch-2.md",
+          "type": "source",
+          "action": "modified"
+        }
+      ],
+      "commits": [
+        {
+          "sha": "2db676f9e2a4c5b1d8f3a7e9c2b4d6f8a1e3c5b7",
+          "message": "",
+          "timestamp": "2026-03-02T08:50:00Z"
+        }
+      ],
+      "completed_at": "2026-03-02T08:50:00Z",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-15-P-ACA-15-003",
+      "sprint_id": "ACA-ACA-15",
+      "story_id": "ACA-15-003",
+      "phase": "P",
+      "created_at": "2026-03-02T15:18:28.1238702-03:00",
+      "validation": {
+        "test_result": "SKIP",
+        "lint_result": "SKIP",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [],
+      "commits": [],
+      "completed_at": "2026-03-02T15:18:28.1238702-03:00",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-03-A-ACA-03-018",
+      "sprint_id": "ACA-ACA-03",
+      "story_id": "ACA-03-018",
+      "phase": "A",
+      "created_at": "2026-03-01T16:16:16Z",
+      "validation": {
+        "test_result": "WARN",
+        "lint_result": "WARN",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [
+        {
+          "path": "services/analysis/app/rules/r08_acr_consolidation.py",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "services/tests/test_rule_r08_acr_consolidation.py",
+          "type": "source",
+          "action": "modified"
+        }
+      ],
+      "commits": [
+        {
+          "sha": "98d70c7b158f3db174a4909ed70c0566ae17ab0e",
+          "message": "As the system I implement R-08 rule: returns finding when >= 3 registries exist",
+          "timestamp": "2026-03-01T16:16:16Z"
+        }
+      ],
+      "completed_at": "2026-03-01T16:16:16Z",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-15-P-ACA-15-004a",
+      "sprint_id": "ACA-ACA-15",
+      "story_id": "ACA-15-004a",
+      "phase": "P",
+      "created_at": "2026-03-02T14:19:53.4237757-03:00",
+      "validation": {
+        "test_result": "SKIP",
+        "lint_result": "SKIP",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [],
+      "commits": [],
+      "completed_at": "2026-03-02T14:19:53.4237757-03:00",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-03-D3-ACA-03-034",
+      "sprint_id": "ACA-ACA-03",
+      "story_id": "ACA-03-034",
+      "phase": "D3",
+      "created_at": "2026-03-02T08:27:30Z",
+      "validation": {
+        "test_result": "PASS",
+        "lint_result": "SKIP",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [
+        {
+          "path": "services/analysis/tests/test_r12_chargeback.py",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "services/analysis/tests/test_negative_batch_1.py",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "services/analysis/tests/test_negative_batch_2.py",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "services/analysis/tests/test_edge_cases.py",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "services/analysis/tests/test_all_rules_integration.py",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "services/analysis/tests/test_performance_scale.py",
+          "type": "source",
+          "action": "modified"
+        }
+      ],
+      "commits": [
+        {
+          "sha": "cefb1d7a2f9e8c6d5b4a3f9e2d1c8b7a6f5e4d3c",
+          "message": "",
+          "timestamp": "2026-03-02T08:27:30Z"
+        }
+      ],
+      "completed_at": "2026-03-02T08:27:30Z",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-15-P-ACA-15-002",
+      "sprint_id": "ACA-ACA-15",
+      "story_id": "ACA-15-002",
+      "phase": "P",
+      "created_at": "2026-03-02T15:18:28.1238702-03:00",
+      "validation": {
+        "test_result": "SKIP",
+        "lint_result": "SKIP",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [],
+      "commits": [],
+      "completed_at": "2026-03-02T15:18:28.1238702-03:00",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-03-A-ACA-03-008",
+      "sprint_id": "ACA-ACA-03",
+      "story_id": "ACA-03-008",
+      "phase": "A",
+      "created_at": "2026-03-01T15:06:47Z",
+      "validation": {
+        "test_result": "WARN",
+        "lint_result": "WARN",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [
+        {
+          "path": "services/api/app/services/findings_gate.py (add TIER2_FIELDS constant)",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "services/tests/test_findings_tier2_gating.py (new)",
+          "type": "source",
+          "action": "modified"
+        }
+      ],
+      "commits": [
+        {
+          "sha": "26cb622da15682e3d8fe89267d1aa74967dac1ed",
+          "message": "As a Tier 2 client I receive the full finding including narrative and",
+          "timestamp": "2026-03-01T15:06:47Z"
+        }
+      ],
+      "completed_at": "2026-03-01T15:06:47Z",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-03-D3-ACA-03-028",
+      "sprint_id": "ACA-ACA-03",
+      "story_id": "ACA-03-028",
+      "phase": "D3",
+      "created_at": "2026-03-02T08:23:30Z",
+      "validation": {
+        "test_result": "PASS",
+        "lint_result": "SKIP",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [
+        {
+          "path": "services/analysis/tests/test_r06_stale.py",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "services/analysis/tests/test_r07_search.py",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "services/analysis/tests/test_r08_acr.py",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "services/analysis/tests/test_r09_dns_sprawl.py",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "services/analysis/tests/test_r10_savings_plan.py",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "services/analysis/tests/test_r11_apim_token.py",
+          "type": "source",
+          "action": "modified"
+        }
+      ],
+      "commits": [
+        {
+          "sha": "0cdd3182df8e6ecbb2c5a9dc8b6c9f2e7a1b5c3d",
+          "message": "",
+          "timestamp": "2026-03-02T08:23:30Z"
+        }
+      ],
+      "completed_at": "2026-03-02T08:23:30Z",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-03-D3-ACA-03-023",
+      "sprint_id": "ACA-ACA-03",
+      "story_id": "ACA-03-023",
+      "phase": "D3",
+      "created_at": "2026-03-02T10:20:43.0064917-03:00",
+      "validation": {
+        "test_result": "PASS",
+        "lint_result": "SKIP",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [
+        {
+          "path": "services/analysis/tests/test_r01_devbox.py",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "services/analysis/tests/test_r02_log_retention.py",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "services/analysis/tests/test_r03_defender.py",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "services/analysis/tests/test_r04_compute.py",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "services/analysis/tests/test_r05_anomaly.py",
+          "type": "source",
+          "action": "modified"
+        }
+      ],
+      "commits": [
+        {
+          "sha": "1de026dd1c446f1d241d1f329783d6711b4b7e80",
+          "message": "",
+          "timestamp": "2026-03-02T10:20:43.0064917-03:00"
+        }
+      ],
+      "completed_at": "2026-03-02T10:20:43.0064917-03:00",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-03-P-ACA-03-033",
+      "sprint_id": "ACA-ACA-03",
+      "story_id": "ACA-03-033",
+      "phase": "P",
+      "created_at": "2026-02-27T12:49:29Z",
+      "validation": {
+        "test_result": "WARN",
+        "lint_result": "WARN",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [
+        {
+          "path": "services/tests/__init__.py",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "services/tests/test_checkout_router.py",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "services/tests/test_findings_gate.py",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "services/tests/test_packager_sas.py",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "services/tests/test_entitlement_revoke.py",
+          "type": "source",
+          "action": "modified"
+        }
+      ],
+      "commits": [
+        {
+          "sha": "65422f3959d12891b8b28ffb284f414d089e4121",
+          "message": "Minimum test suite: checkout router + findings gate + packager SAS",
+          "timestamp": "2026-02-27T12:49:29Z"
+        }
+      ],
+      "completed_at": "2026-02-27T12:49:29Z",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-03-A-ACA-03-020",
+      "sprint_id": "ACA-ACA-03",
+      "story_id": "ACA-03-020",
+      "phase": "A",
+      "created_at": "2026-03-01T16:48:05Z",
+      "validation": {
+        "test_result": "WARN",
+        "lint_result": "WARN",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [
+        {
+          "path": "services/analysis/app/rules/r10_savings_plan_coverage.py",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "services/tests/test_rule_r10_savings_plan_coverage.py",
+          "type": "source",
+          "action": "modified"
+        }
+      ],
+      "commits": [
+        {
+          "sha": "e4dc79882e2c2707f7fb0f1081ea5f3b28f5e324",
+          "message": "R-10 Savings Plan Coverage Analysis",
+          "timestamp": "2026-03-01T16:48:05Z"
+        }
+      ],
+      "completed_at": "2026-03-01T16:48:05Z",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-03-A-ACA-03-022",
+      "sprint_id": "ACA-ACA-03",
+      "story_id": "ACA-03-022",
+      "phase": "A",
+      "created_at": "2026-03-01T16:48:22Z",
+      "validation": {
+        "test_result": "WARN",
+        "lint_result": "WARN",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [
+        {
+          "path": "services/analysis/app/rules/r12_chargeback_gap.py",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "services/tests/test_rule_r12_chargeback_gap.py",
+          "type": "source",
+          "action": "modified"
+        }
+      ],
+      "commits": [
+        {
+          "sha": "ceef16c64504bfed892c6bdbcee7aaaaf054fc6d",
+          "message": "R-12 Chargeback Cost Allocation Gap",
+          "timestamp": "2026-03-01T16:48:22Z"
+        }
+      ],
+      "completed_at": "2026-03-01T16:48:22Z",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-03-A-ACA-03-013",
+      "sprint_id": "ACA-ACA-03",
+      "story_id": "ACA-03-013",
+      "phase": "A",
+      "created_at": "2026-03-01T15:57:40Z",
+      "validation": {
+        "test_result": "WARN",
+        "lint_result": "WARN",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [
+        {
+          "path": "services/analysis/app/rules/r03_defender_mismatch.py",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "services/tests/test_rule_r03_defender_mismatch.py",
+          "type": "source",
+          "action": "modified"
+        }
+      ],
+      "commits": [
+        {
+          "sha": "31fdadc6fb64a1afa04e3cae6113d4a6ac50ea75",
+          "message": "As the system I implement R-03 rule: returns finding when annual Defender cost > $2,000",
+          "timestamp": "2026-03-01T15:57:40Z"
+        }
+      ],
+      "completed_at": "2026-03-01T15:57:40Z",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-04-D3-ACA-04-001,ACA-04-004,ACA-04-005,ACA-04-009,ACA-04-007",
+      "sprint_id": "ACA-ACA-04",
+      "story_id": "ACA-04-001,ACA-04-004,ACA-04-005,ACA-04-009,ACA-04-007",
+      "phase": "D3",
+      "created_at": "2026-03-02T08:42:00Z",
+      "validation": {
+        "test_result": "PASS",
+        "lint_result": "SKIP",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [
+        {
+          "path": "services/api/app/auth/msal_client.py",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "services/api/app/auth/session.py",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "services/api/app/auth/probes.py",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "services/api/app/routers/auth.py",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "services/api/tests/test_auth.py",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "frontend/src/pages/LoginPage.tsx",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": ".github/sprints/sprint-17-api-auth-routes-batch-1.md",
+          "type": "source",
+          "action": "modified"
+        }
+      ],
+      "commits": [
+        {
+          "sha": "d20a43a06cc96c3a2d9a8f5e1c4b2d8e9faa0b1c",
+          "message": "",
+          "timestamp": "2026-03-02T08:42:00Z"
+        }
+      ],
+      "completed_at": "2026-03-02T08:42:00Z",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-03-A-ACA-03-004",
+      "sprint_id": "ACA-ACA-03",
+      "story_id": "ACA-03-004",
+      "phase": "A",
+      "created_at": "2026-03-01T14:29:41Z",
+      "validation": {
+        "test_result": "WARN",
+        "lint_result": "WARN",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [
+        {
+          "path": "services/analysis/app/main.py",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "services/tests/test_analysis_status.py",
+          "type": "source",
+          "action": "modified"
+        }
+      ],
+      "commits": [
+        {
+          "sha": "20ccbb0447ad236e66150e65008ae2ef874e92a0",
+          "message": "As the system I update AnalysisRun status: queued -> running -> succeeded/failed",
+          "timestamp": "2026-03-01T14:29:41Z"
+        }
+      ],
+      "completed_at": "2026-03-01T14:29:41Z",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-03-P-ACA-03-006",
+      "sprint_id": "ACA-ACA-03",
+      "story_id": "ACA-03-006",
+      "phase": "P",
+      "created_at": "2026-02-27T12:49:03Z",
+      "validation": {
+        "test_result": "WARN",
+        "lint_result": "WARN",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [
+        {
+          "path": "services/api/app/routers/findings.py",
+          "type": "source",
+          "action": "modified"
+        }
+      ],
+      "commits": [
+        {
+          "sha": "b88e023f0496ce63955d3dcd70433db50e77f4ab",
+          "message": "Wire findings.py GET handler: Cosmos reads + gate_findings",
+          "timestamp": "2026-02-27T12:49:03Z"
+        }
+      ],
+      "completed_at": "2026-02-27T12:49:03Z",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-15-P-ACA-15-003b",
+      "sprint_id": "ACA-ACA-15",
+      "story_id": "ACA-15-003b",
+      "phase": "P",
+      "created_at": "2026-03-02T15:18:28.1238702-03:00",
+      "validation": {
+        "test_result": "SKIP",
+        "lint_result": "SKIP",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [],
+      "commits": [],
+      "completed_at": "2026-03-02T15:18:28.1238702-03:00",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-15-P-ACA-15-007",
+      "sprint_id": "ACA-ACA-15",
+      "story_id": "ACA-15-007",
+      "phase": "P",
+      "created_at": "2026-03-02T15:18:28.1238702-03:00",
+      "validation": {
+        "test_result": "SKIP",
+        "lint_result": "SKIP",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [],
+      "commits": [],
+      "completed_at": "2026-03-02T15:18:28.1238702-03:00",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-03-D3-ACA-03-019",
+      "sprint_id": "ACA-ACA-03",
+      "story_id": "ACA-03-019",
+      "phase": "D3",
+      "created_at": "2026-03-02T09:27:54.289554-03:00",
+      "validation": {
+        "test_result": "PASS",
+        "lint_result": "SKIP",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [
+        {
+          "path": "services/analysis/app/rules/r09_dns_sprawl.py",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "services/analysis/app/rules/r10_savings_plan.py",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "services/analysis/app/rules/r11_apim_token.py",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "services/analysis/app/rules/r12_chargeback.py",
+          "type": "source",
+          "action": "modified"
+        }
+      ],
+      "commits": [
+        {
+          "sha": "4b560fd8a8e7077c80b6a1ad8a25fc751a49fd49",
+          "message": "",
+          "timestamp": "2026-03-02T09:27:54.289554-03:00"
+        }
+      ],
+      "completed_at": "2026-03-02T09:27:54.289554-03:00",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-03-A-ACA-03-005",
+      "sprint_id": "ACA-ACA-03",
+      "story_id": "ACA-03-005",
+      "phase": "A",
+      "created_at": "2026-03-01T14:29:49Z",
+      "validation": {
+        "test_result": "WARN",
+        "lint_result": "WARN",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [
+        {
+          "path": "services/analysis/app/main.py",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "services/tests/test_findings_summary.py",
+          "type": "source",
+          "action": "modified"
+        }
+      ],
+      "commits": [
+        {
+          "sha": "a870a35505239437337c5eaf3d91190cd3315e4c",
+          "message": "As the system I write findingsSummary to the analysis run record",
+          "timestamp": "2026-03-01T14:29:49Z"
+        }
+      ],
+      "completed_at": "2026-03-01T14:29:49Z",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-03-A-ACA-03-016",
+      "sprint_id": "ACA-ACA-03",
+      "story_id": "ACA-03-016",
+      "phase": "A",
+      "created_at": "2026-03-01T16:15:59Z",
+      "validation": {
+        "test_result": "WARN",
+        "lint_result": "WARN",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [
+        {
+          "path": "services/analysis/app/rules/r06_stale_environments.py",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "services/tests/test_rule_r06_stale_environments.py",
+          "type": "source",
+          "action": "modified"
+        }
+      ],
+      "commits": [
+        {
+          "sha": "e4585132d285329466f98f9b16d146ab108b00ca",
+          "message": "As the system I implement R-06 rule: returns finding when >= 3 App Service sites exist",
+          "timestamp": "2026-03-01T16:15:59Z"
+        }
+      ],
+      "completed_at": "2026-03-01T16:15:59Z",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-15-P-ACA-15-002a",
+      "sprint_id": "ACA-ACA-15",
+      "story_id": "ACA-15-002a",
+      "phase": "P",
+      "created_at": "2026-03-02T15:18:28.1238702-03:00",
+      "validation": {
+        "test_result": "SKIP",
+        "lint_result": "SKIP",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [],
+      "commits": [],
+      "completed_at": "2026-03-02T15:18:28.1238702-03:00",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-03-A-ACA-03-010",
+      "sprint_id": "ACA-ACA-03",
+      "story_id": "ACA-03-010",
+      "phase": "A",
+      "created_at": "2026-03-01T15:57:26Z",
+      "validation": {
+        "test_result": "WARN",
+        "lint_result": "WARN",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [
+        {
+          "path": "agents/red-team-agent.yaml",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "services/tests/test_redteam_tier1_leak.py",
+          "type": "source",
+          "action": "modified"
+        }
+      ],
+      "commits": [
+        {
+          "sha": "fb454d33eb2016e672799d7de8e13853293f84df",
+          "message": "As the red-team agent I can assert that Tier 1 tokens never leak narrative or deliverable_template_id fields",
+          "timestamp": "2026-03-01T15:57:26Z"
+        }
+      ],
+      "completed_at": "2026-03-01T15:57:26Z",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-02-P-ACA-02-017",
+      "sprint_id": "ACA-ACA-02",
+      "story_id": "ACA-02-017",
+      "phase": "P",
+      "created_at": "2026-02-27T12:49:20Z",
+      "validation": {
+        "test_result": "WARN",
+        "lint_result": "WARN",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [
+        {
+          "path": "services/collector/app/ingest.py",
+          "type": "source",
+          "action": "modified"
+        }
+      ],
+      "commits": [
+        {
+          "sha": "42caa44203e2920563eb2117130631dfaa2830a1",
+          "message": "ingest.py mark_collection_complete -- trigger analysis Container App Job",
+          "timestamp": "2026-02-27T12:49:20Z"
+        }
+      ],
+      "completed_at": "2026-02-27T12:49:20Z",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-03-A-ACA-03-002",
+      "sprint_id": "ACA-ACA-03",
+      "story_id": "ACA-03-002",
+      "phase": "A",
+      "created_at": "2026-03-01T13:07:12Z",
+      "validation": {
+        "test_result": "WARN",
+        "lint_result": "WARN",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [
+        {
+          "path": "services/analysis/app/main.py (update run_analysis to wrap each rule in try-except)",
+          "type": "source",
+          "action": "modified"
+        }
+      ],
+      "commits": [
+        {
+          "sha": "e2b091c9941eb70d7c78c9c162af9806649b9d3b",
+          "message": "As the system I handle a rule failure in isolation (one rule crash does not",
+          "timestamp": "2026-03-01T13:07:12Z"
+        }
+      ],
+      "completed_at": "2026-03-01T13:07:12Z",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-03-A-ACA-03-021",
+      "sprint_id": "ACA-ACA-03",
+      "story_id": "ACA-03-021",
+      "phase": "A",
+      "created_at": "2026-03-01T16:48:13Z",
+      "validation": {
+        "test_result": "WARN",
+        "lint_result": "WARN",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [
+        {
+          "path": "services/analysis/app/rules/r11_apim_token_budget.py",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "services/tests/test_rule_r11_apim_token_budget.py",
+          "type": "source",
+          "action": "modified"
+        }
+      ],
+      "commits": [
+        {
+          "sha": "6963418275607c89b223f5317ea5ea7d6fde9511",
+          "message": "R-11 APIM Token Budget Review",
+          "timestamp": "2026-03-01T16:48:13Z"
+        }
+      ],
+      "completed_at": "2026-03-01T16:48:13Z",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-15-P-ACA-15-001",
+      "sprint_id": "ACA-ACA-15",
+      "story_id": "ACA-15-001",
+      "phase": "P",
+      "created_at": "2026-03-02T15:18:28.1238702-03:00",
+      "validation": {
+        "test_result": "SKIP",
+        "lint_result": "SKIP",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [],
+      "commits": [],
+      "completed_at": "2026-03-02T15:18:28.1238702-03:00",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-15-P-ACA-15-001a",
+      "sprint_id": "ACA-ACA-15",
+      "story_id": "ACA-15-001a",
+      "phase": "P",
+      "created_at": "2026-03-02T15:18:28.1238702-03:00",
+      "validation": {
+        "test_result": "SKIP",
+        "lint_result": "SKIP",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [],
+      "commits": [],
+      "completed_at": "2026-03-02T15:18:28.1238702-03:00",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-04-P-ACA-04-028",
+      "sprint_id": "ACA-ACA-04",
+      "story_id": "ACA-04-028",
+      "phase": "P",
+      "created_at": "2026-02-27T12:49:13Z",
+      "validation": {
+        "test_result": "WARN",
+        "lint_result": "WARN",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [
+        {
+          "path": "services/api/app/db/cosmos.py",
+          "type": "source",
+          "action": "modified"
+        }
+      ],
+      "commits": [
+        {
+          "sha": "49469109b3a07d08d19e8e28336b6dd79f418542",
+          "message": "cosmos.py upsert_item -- add partition_key parameter",
+          "timestamp": "2026-02-27T12:49:13Z"
+        }
+      ],
+      "completed_at": "2026-02-27T12:49:13Z",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-03-A-ACA-03-003",
+      "sprint_id": "ACA-ACA-03",
+      "story_id": "ACA-03-003",
+      "phase": "A",
+      "created_at": "2026-03-01T13:07:17Z",
+      "validation": {
+        "test_result": "WARN",
+        "lint_result": "WARN",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [
+        {
+          "path": "services/analysis/app/findings.py (new module for Finding persistence)",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "services/analysis/app/models.py (add Finding Pydantic model with all 11 fields)",
+          "type": "source",
+          "action": "modified"
+        }
+      ],
+      "commits": [
+        {
+          "sha": "3af5882fc198e4d837bdfe3c39267f830eef60e1",
+          "message": "As the system I persist each Finding to Cosmos with full schema:",
+          "timestamp": "2026-03-01T13:07:17Z"
+        }
+      ],
+      "completed_at": "2026-03-01T13:07:17Z",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-15-P-ACA-15-009a",
+      "sprint_id": "ACA-ACA-15",
+      "story_id": "ACA-15-009a",
+      "phase": "P",
+      "created_at": "2026-03-02T15:18:28.1238702-03:00",
+      "validation": {
+        "test_result": "SKIP",
+        "lint_result": "SKIP",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [],
+      "commits": [],
+      "completed_at": "2026-03-02T15:18:28.1238702-03:00",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-15-P-ACA-15-010a",
+      "sprint_id": "ACA-ACA-15",
+      "story_id": "ACA-15-010a",
+      "phase": "P",
+      "created_at": "2026-03-02T14:19:53.4237757-03:00",
+      "validation": {
+        "test_result": "SKIP",
+        "lint_result": "SKIP",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [],
+      "commits": [],
+      "completed_at": "2026-03-02T14:19:53.4237757-03:00",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-15-P-ACA-15-010",
+      "sprint_id": "ACA-ACA-15",
+      "story_id": "ACA-15-010",
+      "phase": "P",
+      "created_at": "2026-03-02T15:18:28.1238702-03:00",
+      "validation": {
+        "test_result": "SKIP",
+        "lint_result": "SKIP",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [],
+      "commits": [],
+      "completed_at": "2026-03-02T15:18:28.1238702-03:00",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-15-P-ACA-15-008a",
+      "sprint_id": "ACA-ACA-15",
+      "story_id": "ACA-15-008a",
+      "phase": "P",
+      "created_at": "2026-03-02T14:19:53.4237757-03:00",
+      "validation": {
+        "test_result": "SKIP",
+        "lint_result": "SKIP",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [],
+      "commits": [],
+      "completed_at": "2026-03-02T14:19:53.4237757-03:00",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-15-P-ACA-15-011",
+      "sprint_id": "ACA-ACA-15",
+      "story_id": "ACA-15-011",
+      "phase": "P",
+      "created_at": "2026-03-02T15:18:28.1238702-03:00",
+      "validation": {
+        "test_result": "SKIP",
+        "lint_result": "SKIP",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [],
+      "commits": [],
+      "completed_at": "2026-03-02T15:18:28.1238702-03:00",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-15-P-ACA-15-012a",
+      "sprint_id": "ACA-ACA-15",
+      "story_id": "ACA-15-012a",
+      "phase": "P",
+      "created_at": "2026-03-02T15:18:28.1238702-03:00",
+      "validation": {
+        "test_result": "SKIP",
+        "lint_result": "SKIP",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [],
+      "commits": [],
+      "completed_at": "2026-03-02T15:18:28.1238702-03:00",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-15-P-ACA-15-012",
+      "sprint_id": "ACA-ACA-15",
+      "story_id": "ACA-15-012",
+      "phase": "P",
+      "created_at": "2026-03-02T15:18:28.1238702-03:00",
+      "validation": {
+        "test_result": "SKIP",
+        "lint_result": "SKIP",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [],
+      "commits": [],
+      "completed_at": "2026-03-02T15:18:28.1238702-03:00",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-17-D3-ACA-17-002",
+      "sprint_id": "ACA-ACA-17",
+      "story_id": "ACA-17-002",
+      "phase": "D3",
+      "created_at": "2026-03-02T22:25:00Z",
+      "validation": {
+        "test_result": "PASS",
+        "lint_result": "SKIP",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [
+        {
+          "path": "agents/retry-tuner/tuner_agent.py",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "agents/retry-tuner/requirements.txt",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "agents/retry-tuner/test_tuner_agent.py",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "agents/retry-tuner/README.md",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "infra/container-apps-job/scripts/Retry-Tuner-Job.ps1",
+          "type": "source",
+          "action": "modified"
+        }
+      ],
+      "commits": [
+        {
+          "sha": "TBD",
+          "message": "",
+          "timestamp": "2026-03-02T22:25:00Z"
+        }
+      ],
+      "completed_at": "2026-03-02T22:25:00Z",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-15-P-ACA-15-011a",
+      "sprint_id": "ACA-ACA-15",
+      "story_id": "ACA-15-011a",
+      "phase": "P",
+      "created_at": "2026-03-02T14:19:53.4237757-03:00",
+      "validation": {
+        "test_result": "SKIP",
+        "lint_result": "SKIP",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [],
+      "commits": [],
+      "completed_at": "2026-03-02T14:19:53.4237757-03:00",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-17-D3-ACA-17-005",
+      "sprint_id": "ACA-ACA-17",
+      "story_id": "ACA-17-005",
+      "phase": "D3",
+      "created_at": "2026-03-02T21:50:00Z",
+      "validation": {
+        "test_result": "PASS",
+        "lint_result": "SKIP",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [
+        {
+          "path": "agents/orchestrator-workflow/orchestrator_workflow.py",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "agents/orchestrator-workflow/test_orchestrator_workflow.py",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "agents/orchestrator-workflow/Invoke-WorkflowOrchestration.ps1",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "agents/orchestrator-workflow/requirements.txt",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "agents/orchestrator-workflow/README.md",
+          "type": "source",
+          "action": "modified"
+        }
+      ],
+      "commits": [
+        {
+          "sha": "pending",
+          "message": "Multi-Agent Orchestrator",
+          "timestamp": "2026-03-02T21:50:00Z"
+        }
+      ],
+      "completed_at": "2026-03-02T21:50:00Z",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-17-D3-ACA-17-004",
+      "sprint_id": "ACA-ACA-17",
+      "story_id": "ACA-17-004",
+      "phase": "D3",
+      "created_at": "2026-03-02T22:45:00Z",
+      "validation": {
+        "test_result": "SKIP",
+        "lint_result": "SKIP",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [
+        {
+          "path": "51-ACA/agents/sync-advisor/advisor_agent.py",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "51-ACA/agents/sync-advisor/test_advisor_agent.py",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "51-ACA/agents/sync-advisor/requirements.txt",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "51-ACA/agents/sync-advisor/README.md",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "51-ACA/infra/container-apps-job/scripts/Invoke-SyncAdvisor.ps1",
+          "type": "source",
+          "action": "modified"
+        }
+      ],
+      "commits": [],
+      "completed_at": "2026-03-02T22:45:00Z",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-17-D3-ACA-17-003",
+      "sprint_id": "ACA-ACA-17",
+      "story_id": "ACA-17-003",
+      "phase": "D3",
+      "created_at": "2026-03-02T23:15:00Z",
+      "validation": {
+        "test_result": "PASS",
+        "lint_result": "SKIP",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [
+        {
+          "path": "infra/container-apps-job/scripts/Async-Orchestration-Engine.ps1",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "infra/container-apps-job/scripts/Test-Async-Orchestration-Engine.ps1",
+          "type": "source",
+          "action": "modified"
+        }
+      ],
+      "commits": [],
+      "completed_at": "2026-03-02T23:15:00Z",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-03-A-ACA-03-009",
+      "sprint_id": "ACA-ACA-03",
+      "story_id": "ACA-03-009",
+      "phase": "A",
+      "created_at": "2026-03-01T15:06:54Z",
+      "validation": {
+        "test_result": "WARN",
+        "lint_result": "WARN",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [
+        {
+          "path": "services/api/app/services/findings_gate.py (add TIER3_FIELDS constant)",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "services/tests/test_findings_tier3_gating.py (new)",
+          "type": "source",
+          "action": "modified"
+        }
+      ],
+      "commits": [
+        {
+          "sha": "329b2538889ec750bbc74c0140ee0cd941029811",
+          "message": "As a Tier 3 client I receive the full finding including deliverable_template_id",
+          "timestamp": "2026-03-01T15:06:54Z"
+        }
+      ],
+      "completed_at": "2026-03-01T15:06:54Z",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-15-P-ACA-15-009",
+      "sprint_id": "ACA-ACA-15",
+      "story_id": "ACA-15-009",
+      "phase": "P",
+      "created_at": "2026-03-02T15:18:28.1238702-03:00",
+      "validation": {
+        "test_result": "SKIP",
+        "lint_result": "SKIP",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [],
+      "commits": [],
+      "completed_at": "2026-03-02T15:18:28.1238702-03:00",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-03-A-ACA-03-007",
+      "sprint_id": "ACA-ACA-03",
+      "story_id": "ACA-03-007",
+      "phase": "A",
+      "created_at": "2026-03-01T14:29:55Z",
+      "validation": {
+        "test_result": "WARN",
+        "lint_result": "WARN",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [
+        {
+          "path": "services/api/app/services/findings_gate.py",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "services/tests/test_tier1_gating.py",
+          "type": "source",
+          "action": "modified"
+        }
+      ],
+      "commits": [
+        {
+          "sha": "6139b80e4987b582ecf40413654561a63c8fcffc",
+          "message": "As a Tier 1 client I do not receive narrative or deliverable_template_id",
+          "timestamp": "2026-03-01T14:29:55Z"
+        }
+      ],
+      "completed_at": "2026-03-01T14:29:55Z",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-ACA-03-A-ACA-03-014",
+      "sprint_id": "ACA-ACA-03",
+      "story_id": "ACA-03-014",
+      "phase": "A",
+      "created_at": "2026-03-01T15:57:48Z",
+      "validation": {
+        "test_result": "WARN",
+        "lint_result": "WARN",
+        "audit_result": "SKIP"
+      },
+      "metrics": {},
+      "artifacts": [
+        {
+          "path": "services/analysis/app/rules/r04_compute_scheduling.py",
+          "type": "source",
+          "action": "modified"
+        },
+        {
+          "path": "services/tests/test_rule_r04_compute_scheduling.py",
+          "type": "source",
+          "action": "modified"
+        }
+      ],
+      "commits": [
+        {
+          "sha": "a9ed5e7d5df150555808706b00707ec83cbd6225",
+          "message": "As the system I implement R-04 rule: returns finding when annual schedulable compute > $5,000",
+          "timestamp": "2026-03-01T15:57:48Z"
+        }
+      ],
+      "completed_at": "2026-03-01T15:57:48Z",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "created_by": "admin:dev-admi",
+      "modified_by": "admin:dev-admi",
+      "modified_at": "2026-03-05T15:43:11.255419-03:00",
+      "row_version": 1
+    },
+    {
+      "id": "ACA-S11-L35-github-rules-Do",
+      "sprint_id": "51-ACA-S11",
+      "story_id": "L35-001",
+      "phase": "Do",
+      "created_at": "2026-03-05T20:32:00Z",
+      "modified_at": "2026-03-05T20:32:00Z",
+      "created_by": "agent:copilot",
+      "modified_by": "agent:copilot",
+      "tech_stack": "github-rules",
+      "validation": {
+        "test_result": "PASS",
+        "lint_result": "PASS",
+        "audit_result": "PASS"
+      },
+      "metrics": {
+        "branch_protection_rules": 1,
+        "commit_standards_enforced": true,
+        "naming_conventions_defined": 3
+      },
+      "artifacts": [
+        {
+          "path": "model/github_rules.json",
+          "type": "configuration",
+          "action": "created"
+        }
+      ],
+      "commits": [
+        {
+          "sha": "789abc123def",
+          "message": "Session 28: Add L35 github-rules layer with branch protection and naming conventions",
+          "timestamp": "2026-03-05T20:32:00Z"
+        }
+      ],
+      "context": {
+        "branch_protection": {
+          "require_pull_request_reviews": true,
+          "require_code_owner_reviews": true,
+          "required_status_checks": [
+            "validate-model",
+            "semantic-check"
+          ],
+          "enforced_for_admins": true
+        },
+        "commit_standards": {
+          "require_signed_commits": true,
+          "message_pattern": "^(feat|fix|Session \\d+):",
+          "require_issue_reference": true
+        },
+        "naming_conventions": {
+          "branch_pattern": "^(main|feature/|hotfix/).*",
+          "tag_pattern": "^v\\d+\\.\\d+\\.\\d+.*",
+          "reserved_names": [
+            "main",
+            "develop",
+            "stage"
+          ]
+        }
+      },
+      "completed_at": "2026-03-05T20:32:00Z",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "row_version": 1
+    },
+    {
+      "id": "ACA-S11-L33-agent-policies-D",
+      "sprint_id": "51-ACA-S11",
+      "story_id": "L33-001",
+      "phase": "D",
+      "created_at": "2026-03-05T20:30:00Z",
+      "modified_at": "2026-03-05T20:30:00Z",
+      "created_by": "agent:copilot",
+      "modified_by": "agent:copilot",
+      "tech_stack": "agent-policies",
+      "validation": {
+        "test_result": "PASS",
+        "lint_result": "PASS",
+        "audit_result": "PASS"
+      },
+      "metrics": {
+        "policies_defined": 3,
+        "capabilities_enabled": 8,
+        "safety_constraints_enforced": true
+      },
+      "artifacts": [
+        {
+          "path": "model/agent_policies.json",
+          "type": "configuration",
+          "action": "created"
+        }
+      ],
+      "commits": [
+        {
+          "sha": "abc123def456",
+          "message": "Session 28: Add L33 agent-policies layer with polymorphic evidence",
+          "timestamp": "2026-03-05T20:30:00Z"
+        }
+      ],
+      "context": {
+        "capabilities": [
+          "read-models",
+          "read-repos",
+          "query-search",
+          "analyze-code"
+        ],
+        "safety_constraints": {
+          "max_concurrent_tasks": 5,
+          "allowed_actions": [
+            "GET /model/*",
+            "search:files"
+          ],
+          "forbidden_actions": [
+            "DELETE",
+            "PUT /model/*"
+          ],
+          "requires_human_approval": true
+        },
+        "project_access": {
+          "allowed_projects": [
+            "51-ACA",
+            "37-data-model"
+          ],
+          "access_level": "read"
+        }
+      },
+      "completed_at": "2026-03-05T20:30:00Z",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "row_version": 1
+    },
+    {
+      "id": "ACA-S11-L34-quality-gates-P",
+      "sprint_id": "51-ACA-S11",
+      "story_id": "L34-001",
+      "phase": "P",
+      "created_at": "2026-03-05T20:31:00Z",
+      "modified_at": "2026-03-05T20:31:00Z",
+      "created_by": "agent:copilot",
+      "modified_by": "agent:copilot",
+      "tech_stack": "quality-gates",
+      "validation": {
+        "test_result": "PASS",
+        "lint_result": "PASS",
+        "audit_result": "PASS"
+      },
+      "metrics": {
+        "gates_defined": 5,
+        "phases_covered": 5,
+        "mti_threshold": 75,
+        "test_coverage_required": 80
+      },
+      "artifacts": [
+        {
+          "path": "model/quality_gates.json",
+          "type": "configuration",
+          "action": "created"
+        }
+      ],
+      "commits": [
+        {
+          "sha": "def456abc789",
+          "message": "Session 28: Add L34 quality-gates layer with phase-specific blockers",
+          "timestamp": "2026-03-05T20:31:00Z"
+        }
+      ],
+      "context": {
+        "mti_threshold": 75,
+        "test_coverage_percent": 80,
+        "gates_per_phase": {
+          "D": {
+            "gate_name": "Discovery Complete",
+            "required_artifacts": [
+              "requirements:epic",
+              "risks:identified"
+            ],
+            "approval_required": true
+          },
+          "P": {
+            "gate_name": "Planning Approved",
+            "required_artifacts": [
+              "requirements:story",
+              "decisions:recorded"
+            ],
+            "approval_required": true
+          },
+          "Do": {
+            "gate_name": "Implementation Verified",
+            "required_artifacts": [
+              "evidence:tests_passing"
+            ],
+            "approval_required": false
+          }
+        },
+        "blockers": []
+      },
+      "completed_at": "2026-03-05T20:31:00Z",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "row_version": 1
+    },
+    {
+      "id": "ACA-S11-L36-deployment-policies-D",
+      "sprint_id": "51-ACA-S11",
+      "story_id": "L36-001",
+      "phase": "D",
+      "created_at": "2026-03-06T14:00:00Z",
+      "modified_at": "2026-03-06T14:00:00Z",
+      "created_by": "agent:copilot",
+      "modified_by": "agent:copilot",
+      "tech_stack": "deployment-policies",
+      "validation": {
+        "test_result": "PASS",
+        "lint_result": "PASS",
+        "audit_result": "PASS"
+      },
+      "metrics": {
+        "policies_defined": 4,
+        "container_apps_configured": 3,
+        "deployment_gates_enforced": true
+      },
+      "artifacts": [
+        {
+          "path": "model/deployment_policies.json",
+          "type": "configuration",
+          "action": "created"
+        }
+      ],
+      "commits": [
+        {
+          "sha": "session30abc",
+          "message": "Session 30: Add L36 deployment-policies layer",
+          "timestamp": "2026-03-06T14:00:00Z"
+        }
+      ],
+      "context": {
+        "container_apps": [
+          {
+            "project": "51-ACA",
+            "name": "aca-evidence-api",
+            "cpu": "0.25",
+            "memory": "0.5Gi",
+            "min_replicas": 0,
+            "max_replicas": 2
+          },
+          {
+            "project": "37-data-model",
+            "name": "msub-eva-data-model",
+            "cpu": "0.5",
+            "memory": "1Gi",
+            "min_replicas": 1,
+            "max_replicas": 3
+          },
+          {
+            "project": "48-eva-veritas",
+            "name": "eva-veritas-api",
+            "cpu": "0.5",
+            "memory": "1Gi",
+            "min_replicas": 1,
+            "max_replicas": 5
+          }
+        ],
+        "deployment_gates": [
+          "pytest_pass",
+          "validate_model_pass",
+          "assemble_successful"
+        ],
+        "revision_strategy": "single_with_rollback"
+      },
+      "completed_at": "2026-03-06T14:00:00Z",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "row_version": 1
+    },
+    {
+      "id": "ACA-S11-L37-testing-policies-P",
+      "sprint_id": "51-ACA-S11",
+      "story_id": "L37-001",
+      "phase": "P",
+      "created_at": "2026-03-06T14:15:00Z",
+      "modified_at": "2026-03-06T14:15:00Z",
+      "created_by": "agent:copilot",
+      "modified_by": "agent:copilot",
+      "tech_stack": "testing-policies",
+      "validation": {
+        "test_result": "PASS",
+        "lint_result": "PASS",
+        "audit_result": "PASS"
+      },
+      "metrics": {
+        "policies_defined": 4,
+        "coverage_thresholds_set": true,
+        "ci_workflows_configured": 2
+      },
+      "artifacts": [
+        {
+          "path": "model/testing_policies.json",
+          "type": "configuration",
+          "action": "created"
+        }
+      ],
+      "commits": [
+        {
+          "sha": "session30def",
+          "message": "Session 30: Add L37 testing-policies layer",
+          "timestamp": "2026-03-06T14:15:00Z"
+        }
+      ],
+      "context": {
+        "coverage_thresholds": {
+          "51-ACA": {
+            "unit": 80,
+            "integration": 70
+          },
+          "37-data-model": {
+            "unit": 85,
+            "integration": 75
+          },
+          "07-foundation": {
+            "unit": 75,
+            "integration": 60
+          },
+          "48-eva-veritas": {
+            "unit": 95,
+            "integration": 90
+          }
+        },
+        "ci_workflows": {
+          "pytest": ".github/workflows/pytest.yml",
+          "validate_model": ".github/workflows/validate-model.yml"
+        },
+        "test_data_strategy": "seed_from_json"
+      },
+      "completed_at": "2026-03-06T14:15:00Z",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "row_version": 1
+    },
+    {
+      "id": "ACA-S11-L38-validation-rules-Do",
+      "sprint_id": "51-ACA-S11",
+      "story_id": "L38-001",
+      "phase": "D3",
+      "created_at": "2026-03-06T14:30:00Z",
+      "modified_at": "2026-03-06T14:30:00Z",
+      "created_by": "agent:copilot",
+      "modified_by": "agent:copilot",
+      "tech_stack": "validation-rules",
+      "validation": {
+        "test_result": "PASS",
+        "lint_result": "PASS",
+        "audit_result": "PASS"
+      },
+      "metrics": {
+        "rules_defined": 4,
+        "cross_reference_checks_configured": 9,
+        "compliance_gates_enforced": true
+      },
+      "artifacts": [
+        {
+          "path": "model/validation_rules.json",
+          "type": "configuration",
+          "action": "created"
+        }
+      ],
+      "commits": [
+        {
+          "sha": "session30ghi",
+          "message": "Session 30: Add L38 validation-rules layer",
+          "timestamp": "2026-03-06T14:30:00Z"
+        }
+      ],
+      "context": {
+        "schema_enforcement": {
+          "51-ACA": "strict",
+          "37-data-model": "strict",
+          "07-foundation": "permissive",
+          "48-eva-veritas": "strict"
+        },
+        "cross_reference_checks": [
+          "evidence.sprint_id -> sprints.id",
+          "evidence.story_id -> project_work.id",
+          "endpoints.service_id -> services.id",
+          "schemas.service_id -> services.id"
+        ],
+        "compliance_gates": {
+          "dpdca_required": true,
+          "mti_thresholds": {
+            "51-ACA": 70,
+            "37-data-model": 0,
+            "07-foundation": 70,
+            "48-eva-veritas": 85
+          }
+        },
+        "validation_scripts": {
+          "assemble": "scripts/assemble-model.ps1",
+          "validate": "scripts/validate-model.ps1",
+          "expected_layers": 41
+        }
+      },
+      "completed_at": "2026-03-06T14:30:00Z",
+      "source_file": "model/evidence.json",
+      "layer": "evidence",
+      "is_active": true,
+      "row_version": 1
+    },
+    {
+      "id": "EVD-37-D-001",
+      "project_id": "37-data-model",
+      "phase": "D",
+      "story_id": "WBS-S001",
+      "status": "passed",
+      "test_count": 5,
+      "test_passed": 5,
+      "coverage": 82,
+      "timestamp": "2026-03-06T18:38:06.690568Z",
+      "actor": "agent:copilot",
+      "layer": "evidence",
+      "modified_by": "agent:copilot",
+      "created_by": "system:autoload",
+      "is_active": true,
+      "modified_at": "2026-03-06T15:39:34.966754-03:00",
+      "created_at": "2026-03-06T15:01:30.498794-03:00",
+      "row_version": 2
+    },
+    {
+      "id": "EVD-37-D-002",
+      "project_id": "37-data-model",
+      "phase": "D",
+      "story_id": "WBS-S002",
+      "status": "passed",
+      "test_count": 6,
+      "test_passed": 6,
+      "coverage": 83,
+      "timestamp": "2026-03-06T18:38:06.690568Z",
+      "actor": "agent:copilot",
+      "layer": "evidence",
+      "modified_by": "agent:copilot",
+      "created_by": "system:autoload",
+      "is_active": true,
+      "modified_at": "2026-03-06T15:39:36.152415-03:00",
+      "created_at": "2026-03-06T15:01:31.969543-03:00",
+      "row_version": 2
+    },
+    {
+      "id": "EVD-37-D-003",
+      "project_id": "37-data-model",
+      "phase": "D",
+      "story_id": "WBS-S003",
+      "status": "passed",
+      "test_count": 7,
+      "test_passed": 7,
+      "coverage": 84,
+      "timestamp": "2026-03-06T18:38:06.690568Z",
+      "actor": "agent:copilot",
+      "layer": "evidence",
+      "modified_by": "agent:copilot",
+      "created_by": "system:autoload",
+      "is_active": true,
+      "modified_at": "2026-03-06T15:39:37.430351-03:00",
+      "created_at": "2026-03-06T15:01:33.237008-03:00",
+      "row_version": 2
+    },
+    {
+      "id": "EVD-37-D-004",
+      "project_id": "37-data-model",
+      "phase": "D",
+      "story_id": "WBS-S004",
+      "status": "passed",
+      "test_count": 5,
+      "test_passed": 5,
+      "coverage": 85,
+      "timestamp": "2026-03-06T18:38:06.690568Z",
+      "actor": "agent:copilot",
+      "layer": "evidence",
+      "modified_by": "agent:copilot",
+      "created_by": "system:autoload",
+      "is_active": true,
+      "modified_at": "2026-03-06T15:39:38.565831-03:00",
+      "created_at": "2026-03-06T15:01:34.385683-03:00",
+      "row_version": 2
+    },
+    {
+      "id": "EVD-37-D-005",
+      "project_id": "37-data-model",
+      "phase": "D",
+      "story_id": "WBS-S005",
+      "status": "passed",
+      "test_count": 6,
+      "test_passed": 6,
+      "coverage": 86,
+      "timestamp": "2026-03-06T18:38:06.690568Z",
+      "actor": "agent:copilot",
+      "layer": "evidence",
+      "modified_by": "agent:copilot",
+      "created_by": "system:autoload",
+      "is_active": true,
+      "modified_at": "2026-03-06T15:39:39.728159-03:00",
+      "created_at": "2026-03-06T15:01:35.49519-03:00",
+      "row_version": 2
+    },
+    {
+      "id": "EVD-37-D-006",
+      "project_id": "37-data-model",
+      "phase": "D",
+      "story_id": "WBS-S006",
+      "status": "passed",
+      "test_count": 7,
+      "test_passed": 7,
+      "coverage": 87,
+      "timestamp": "2026-03-06T18:38:06.690568Z",
+      "actor": "agent:copilot",
+      "layer": "evidence",
+      "modified_by": "agent:copilot",
+      "created_by": "system:autoload",
+      "is_active": true,
+      "modified_at": "2026-03-06T15:39:40.795304-03:00",
+      "created_at": "2026-03-06T15:01:36.772545-03:00",
+      "row_version": 2
+    },
+    {
+      "id": "EVD-37-D-007",
+      "project_id": "37-data-model",
+      "phase": "D",
+      "story_id": "WBS-S007",
+      "status": "passed",
+      "test_count": 5,
+      "test_passed": 5,
+      "coverage": 88,
+      "timestamp": "2026-03-06T18:38:06.690568Z",
+      "actor": "agent:copilot",
+      "layer": "evidence",
+      "modified_by": "agent:copilot",
+      "created_by": "system:autoload",
+      "is_active": true,
+      "modified_at": "2026-03-06T15:39:41.931027-03:00",
+      "created_at": "2026-03-06T15:01:38.078238-03:00",
+      "row_version": 2
+    },
+    {
+      "id": "EVD-37-D-008",
+      "project_id": "37-data-model",
+      "phase": "D",
+      "story_id": "WBS-S008",
+      "status": "passed",
+      "test_count": 6,
+      "test_passed": 6,
+      "coverage": 89,
+      "timestamp": "2026-03-06T18:38:06.690568Z",
+      "actor": "agent:copilot",
+      "layer": "evidence",
+      "modified_by": "agent:copilot",
+      "created_by": "system:autoload",
+      "is_active": true,
+      "modified_at": "2026-03-06T15:39:43.074071-03:00",
+      "created_at": "2026-03-06T15:01:39.574837-03:00",
+      "row_version": 2
+    },
+    {
+      "id": "EVD-37-D-009",
+      "project_id": "37-data-model",
+      "phase": "D",
+      "story_id": "WBS-S009",
+      "status": "passed",
+      "test_count": 7,
+      "test_passed": 7,
+      "coverage": 90,
+      "timestamp": "2026-03-06T18:38:06.690568Z",
+      "actor": "agent:copilot",
+      "layer": "evidence",
+      "modified_by": "agent:copilot",
+      "created_by": "system:autoload",
+      "is_active": true,
+      "modified_at": "2026-03-06T15:39:44.369195-03:00",
+      "created_at": "2026-03-06T15:01:40.884291-03:00",
+      "row_version": 2
+    },
+    {
+      "id": "EVD-37-D-010",
+      "project_id": "37-data-model",
+      "phase": "D",
+      "story_id": "WBS-S010",
+      "status": "passed",
+      "test_count": 5,
+      "test_passed": 5,
+      "coverage": 91,
+      "timestamp": "2026-03-06T18:38:06.690568Z",
+      "actor": "agent:copilot",
+      "layer": "evidence",
+      "modified_by": "agent:copilot",
+      "created_by": "system:autoload",
+      "is_active": true,
+      "modified_at": "2026-03-06T15:39:45.504702-03:00",
+      "created_at": "2026-03-06T15:01:42.177659-03:00",
+      "row_version": 2
+    },
+    {
+      "id": "EVD-37-P-001",
+      "project_id": "37-data-model",
+      "phase": "P",
+      "story_id": "WBS-S001",
+      "status": "passed",
+      "test_count": 5,
+      "test_passed": 5,
+      "coverage": 82,
+      "timestamp": "2026-03-06T18:38:06.690568Z",
+      "actor": "agent:copilot",
+      "layer": "evidence",
+      "modified_by": "agent:copilot",
+      "created_by": "system:autoload",
+      "is_active": true,
+      "modified_at": "2026-03-06T15:39:46.687846-03:00",
+      "created_at": "2026-03-06T15:01:43.620152-03:00",
+      "row_version": 2
+    },
+    {
+      "id": "EVD-37-P-002",
+      "project_id": "37-data-model",
+      "phase": "P",
+      "story_id": "WBS-S002",
+      "status": "passed",
+      "test_count": 6,
+      "test_passed": 6,
+      "coverage": 83,
+      "timestamp": "2026-03-06T18:38:06.690568Z",
+      "actor": "agent:copilot",
+      "layer": "evidence",
+      "modified_by": "agent:copilot",
+      "created_by": "system:autoload",
+      "is_active": true,
+      "modified_at": "2026-03-06T15:39:47.750009-03:00",
+      "created_at": "2026-03-06T15:01:44.864046-03:00",
+      "row_version": 2
+    },
+    {
+      "id": "EVD-37-P-003",
+      "project_id": "37-data-model",
+      "phase": "P",
+      "story_id": "WBS-S003",
+      "status": "passed",
+      "test_count": 7,
+      "test_passed": 7,
+      "coverage": 84,
+      "timestamp": "2026-03-06T18:38:06.690568Z",
+      "actor": "agent:copilot",
+      "layer": "evidence",
+      "modified_by": "agent:copilot",
+      "created_by": "system:autoload",
+      "is_active": true,
+      "modified_at": "2026-03-06T15:39:48.998351-03:00",
+      "created_at": "2026-03-06T15:01:46.051861-03:00",
+      "row_version": 2
+    },
+    {
+      "id": "EVD-37-P-004",
+      "project_id": "37-data-model",
+      "phase": "P",
+      "story_id": "WBS-S004",
+      "status": "passed",
+      "test_count": 5,
+      "test_passed": 5,
+      "coverage": 85,
+      "timestamp": "2026-03-06T18:38:06.690568Z",
+      "actor": "agent:copilot",
+      "layer": "evidence",
+      "modified_by": "agent:copilot",
+      "created_by": "system:autoload",
+      "is_active": true,
+      "modified_at": "2026-03-06T15:39:50.25139-03:00",
+      "created_at": "2026-03-06T15:01:47.251168-03:00",
+      "row_version": 2
+    },
+    {
+      "id": "EVD-37-P-005",
+      "project_id": "37-data-model",
+      "phase": "P",
+      "story_id": "WBS-S005",
+      "status": "passed",
+      "test_count": 6,
+      "test_passed": 6,
+      "coverage": 86,
+      "timestamp": "2026-03-06T18:38:06.690568Z",
+      "actor": "agent:copilot",
+      "layer": "evidence",
+      "modified_by": "agent:copilot",
+      "created_by": "system:autoload",
+      "is_active": true,
+      "modified_at": "2026-03-06T15:39:51.176063-03:00",
+      "created_at": "2026-03-06T15:01:48.884966-03:00",
+      "row_version": 2
+    },
+    {
+      "id": "EVD-37-P-006",
+      "project_id": "37-data-model",
+      "phase": "P",
+      "story_id": "WBS-S006",
+      "status": "passed",
+      "test_count": 7,
+      "test_passed": 7,
+      "coverage": 87,
+      "timestamp": "2026-03-06T18:38:06.690568Z",
+      "actor": "agent:copilot",
+      "layer": "evidence",
+      "modified_by": "agent:copilot",
+      "created_by": "system:autoload",
+      "is_active": true,
+      "modified_at": "2026-03-06T15:39:52.183221-03:00",
+      "created_at": "2026-03-06T15:01:50.034408-03:00",
+      "row_version": 2
+    },
+    {
+      "id": "EVD-37-P-007",
+      "project_id": "37-data-model",
+      "phase": "P",
+      "story_id": "WBS-S007",
+      "status": "passed",
+      "test_count": 5,
+      "test_passed": 5,
+      "coverage": 88,
+      "timestamp": "2026-03-06T18:38:06.690568Z",
+      "actor": "agent:copilot",
+      "layer": "evidence",
+      "modified_by": "agent:copilot",
+      "created_by": "system:autoload",
+      "is_active": true,
+      "modified_at": "2026-03-06T15:39:53.213484-03:00",
+      "created_at": "2026-03-06T15:01:51.253345-03:00",
+      "row_version": 2
+    },
+    {
+      "id": "EVD-37-P-008",
+      "project_id": "37-data-model",
+      "phase": "P",
+      "story_id": "WBS-S008",
+      "status": "passed",
+      "test_count": 6,
+      "test_passed": 6,
+      "coverage": 89,
+      "timestamp": "2026-03-06T18:38:06.690568Z",
+      "actor": "agent:copilot",
+      "layer": "evidence",
+      "modified_by": "agent:copilot",
+      "created_by": "system:autoload",
+      "is_active": true,
+      "modified_at": "2026-03-06T15:39:54.094592-03:00",
+      "created_at": "2026-03-06T15:01:52.558539-03:00",
+      "row_version": 2
+    },
+    {
+      "id": "EVD-37-P-009",
+      "project_id": "37-data-model",
+      "phase": "P",
+      "story_id": "WBS-S009",
+      "status": "passed",
+      "test_count": 7,
+      "test_passed": 7,
+      "coverage": 90,
+      "timestamp": "2026-03-06T18:38:06.690568Z",
+      "actor": "agent:copilot",
+      "layer": "evidence",
+      "modified_by": "agent:copilot",
+      "created_by": "system:autoload",
+      "is_active": true,
+      "modified_at": "2026-03-06T15:39:55.14961-03:00",
+      "created_at": "2026-03-06T15:01:53.878044-03:00",
+      "row_version": 2
+    },
+    {
+      "id": "EVD-37-P-010",
+      "project_id": "37-data-model",
+      "phase": "P",
+      "story_id": "WBS-S010",
+      "status": "passed",
+      "test_count": 5,
+      "test_passed": 5,
+      "coverage": 91,
+      "timestamp": "2026-03-06T18:38:06.690568Z",
+      "actor": "agent:copilot",
+      "layer": "evidence",
+      "modified_by": "agent:copilot",
+      "created_by": "system:autoload",
+      "is_active": true,
+      "modified_at": "2026-03-06T15:39:56.119023-03:00",
+      "created_at": "2026-03-06T15:01:55.356033-03:00",
+      "row_version": 2
+    },
+    {
+      "id": "EVD-37-P-011",
+      "project_id": "37-data-model",
+      "phase": "P",
+      "story_id": "WBS-S011",
+      "status": "passed",
+      "test_count": 6,
+      "test_passed": 6,
+      "coverage": 92,
+      "timestamp": "2026-03-06T18:38:06.690568Z",
+      "actor": "agent:copilot",
+      "layer": "evidence",
+      "modified_by": "agent:copilot",
+      "created_by": "system:autoload",
+      "is_active": true,
+      "modified_at": "2026-03-06T15:39:57.074877-03:00",
+      "created_at": "2026-03-06T15:01:57.02423-03:00",
+      "row_version": 2
+    },
+    {
+      "id": "EVD-37-P-012",
+      "project_id": "37-data-model",
+      "phase": "P",
+      "story_id": "WBS-S012",
+      "status": "passed",
+      "test_count": 7,
+      "test_passed": 7,
+      "coverage": 93,
+      "timestamp": "2026-03-06T18:38:06.690568Z",
+      "actor": "agent:copilot",
+      "layer": "evidence",
+      "modified_by": "agent:copilot",
+      "created_by": "system:autoload",
+      "is_active": true,
+      "modified_at": "2026-03-06T15:39:58.066524-03:00",
+      "created_at": "2026-03-06T15:01:58.317345-03:00",
+      "row_version": 2
+    },
+    {
+      "id": "EVD-37-P-013",
+      "project_id": "37-data-model",
+      "phase": "P",
+      "story_id": "WBS-S013",
+      "status": "passed",
+      "test_count": 5,
+      "test_passed": 5,
+      "coverage": 94,
+      "timestamp": "2026-03-06T18:38:06.690568Z",
+      "actor": "agent:copilot",
+      "layer": "evidence",
+      "modified_by": "agent:copilot",
+      "created_by": "system:autoload",
+      "is_active": true,
+      "modified_at": "2026-03-06T15:39:58.932955-03:00",
+      "created_at": "2026-03-06T15:01:59.754131-03:00",
+      "row_version": 2
+    },
+    {
+      "id": "EVD-37-P-014",
+      "project_id": "37-data-model",
+      "phase": "P",
+      "story_id": "WBS-S014",
+      "status": "passed",
+      "test_count": 6,
+      "test_passed": 6,
+      "coverage": 95,
+      "timestamp": "2026-03-06T18:38:06.690568Z",
+      "actor": "agent:copilot",
+      "layer": "evidence",
+      "modified_by": "agent:copilot",
+      "created_by": "system:autoload",
+      "is_active": true,
+      "modified_at": "2026-03-06T15:39:59.920393-03:00",
+      "created_at": "2026-03-06T15:02:01.263968-03:00",
+      "row_version": 2
+    },
+    {
+      "id": "EVD-37-P-015",
+      "project_id": "37-data-model",
+      "phase": "P",
+      "story_id": "WBS-S015",
+      "status": "passed",
+      "test_count": 7,
+      "test_passed": 7,
+      "coverage": 96,
+      "timestamp": "2026-03-06T18:38:06.690568Z",
+      "actor": "agent:copilot",
+      "layer": "evidence",
+      "modified_by": "agent:copilot",
+      "created_by": "system:autoload",
+      "is_active": true,
+      "modified_at": "2026-03-06T15:40:00.890894-03:00",
+      "created_at": "2026-03-06T15:02:02.537781-03:00",
+      "row_version": 2
+    },
+    {
+      "id": "EVD-37-P-016",
+      "project_id": "37-data-model",
+      "phase": "P",
+      "story_id": "WBS-S016",
+      "status": "passed",
+      "test_count": 5,
+      "test_passed": 5,
+      "coverage": 82,
+      "timestamp": "2026-03-06T18:38:06.690568Z",
+      "actor": "agent:copilot",
+      "layer": "evidence",
+      "modified_by": "agent:copilot",
+      "created_by": "system:autoload",
+      "is_active": true,
+      "modified_at": "2026-03-06T15:40:01.782542-03:00",
+      "created_at": "2026-03-06T15:02:04.041095-03:00",
+      "row_version": 2
+    },
+    {
+      "id": "EVD-37-Do-001",
+      "project_id": "37-data-model",
+      "phase": "Do",
+      "story_id": "WBS-S001",
+      "status": "passed",
+      "test_count": 5,
+      "test_passed": 5,
+      "coverage": 82,
+      "timestamp": "2026-03-06T18:38:06.690568Z",
+      "actor": "agent:copilot",
+      "layer": "evidence",
+      "modified_by": "agent:copilot",
+      "created_by": "system:autoload",
+      "is_active": true,
+      "modified_at": "2026-03-06T15:40:02.64427-03:00",
+      "created_at": "2026-03-06T15:02:06.163889-03:00",
+      "row_version": 2
+    },
+    {
+      "id": "EVD-37-Do-002",
+      "project_id": "37-data-model",
+      "phase": "Do",
+      "story_id": "WBS-S002",
+      "status": "passed",
+      "test_count": 6,
+      "test_passed": 6,
+      "coverage": 83,
+      "timestamp": "2026-03-06T18:38:06.690568Z",
+      "actor": "agent:copilot",
+      "layer": "evidence",
+      "modified_by": "agent:copilot",
+      "created_by": "system:autoload",
+      "is_active": true,
+      "modified_at": "2026-03-06T15:40:03.577125-03:00",
+      "created_at": "2026-03-06T15:02:07.336041-03:00",
+      "row_version": 2
+    },
+    {
+      "id": "EVD-37-Do-003",
+      "project_id": "37-data-model",
+      "phase": "Do",
+      "story_id": "WBS-S003",
+      "status": "passed",
+      "test_count": 7,
+      "test_passed": 7,
+      "coverage": 84,
+      "timestamp": "2026-03-06T18:38:06.690568Z",
+      "actor": "agent:copilot",
+      "layer": "evidence",
+      "modified_by": "agent:copilot",
+      "created_by": "system:autoload",
+      "is_active": true,
+      "modified_at": "2026-03-06T15:40:04.698759-03:00",
+      "created_at": "2026-03-06T15:02:08.817732-03:00",
+      "row_version": 2
+    },
+    {
+      "id": "EVD-37-Do-004",
+      "project_id": "37-data-model",
+      "phase": "Do",
+      "story_id": "WBS-S004",
+      "status": "passed",
+      "test_count": 5,
+      "test_passed": 5,
+      "coverage": 85,
+      "timestamp": "2026-03-06T18:38:06.690568Z",
+      "actor": "agent:copilot",
+      "layer": "evidence",
+      "modified_by": "agent:copilot",
+      "created_by": "system:autoload",
+      "is_active": true,
+      "modified_at": "2026-03-06T15:40:05.890618-03:00",
+      "created_at": "2026-03-06T15:02:10.549405-03:00",
+      "row_version": 2
+    },
+    {
+      "id": "EVD-37-Do-005",
+      "project_id": "37-data-model",
+      "phase": "Do",
+      "story_id": "WBS-S005",
+      "status": "passed",
+      "test_count": 6,
+      "test_passed": 6,
+      "coverage": 86,
+      "timestamp": "2026-03-06T18:38:06.690568Z",
+      "actor": "agent:copilot",
+      "layer": "evidence",
+      "modified_by": "agent:copilot",
+      "created_by": "system:autoload",
+      "is_active": true,
+      "modified_at": "2026-03-06T15:40:06.813441-03:00",
+      "created_at": "2026-03-06T15:02:12.230221-03:00",
+      "row_version": 2
+    },
+    {
+      "id": "EVD-37-Do-006",
+      "project_id": "37-data-model",
+      "phase": "Do",
+      "story_id": "WBS-S006",
+      "status": "passed",
+      "test_count": 7,
+      "test_passed": 7,
+      "coverage": 87,
+      "timestamp": "2026-03-06T18:38:06.690568Z",
+      "actor": "agent:copilot",
+      "layer": "evidence",
+      "modified_by": "agent:copilot",
+      "created_by": "system:autoload",
+      "is_active": true,
+      "modified_at": "2026-03-06T15:40:07.718319-03:00",
+      "created_at": "2026-03-06T15:02:13.586296-03:00",
+      "row_version": 2
+    },
+    {
+      "id": "EVD-37-Do-007",
+      "project_id": "37-data-model",
+      "phase": "Do",
+      "story_id": "WBS-S007",
+      "status": "passed",
+      "test_count": 5,
+      "test_passed": 5,
+      "coverage": 88,
+      "timestamp": "2026-03-06T18:38:06.690568Z",
+      "actor": "agent:copilot",
+      "layer": "evidence",
+      "modified_by": "agent:copilot",
+      "created_by": "system:autoload",
+      "is_active": true,
+      "modified_at": "2026-03-06T15:40:08.737668-03:00",
+      "created_at": "2026-03-06T15:02:15.056694-03:00",
+      "row_version": 2
+    },
+    {
+      "id": "EVD-37-Do-008",
+      "project_id": "37-data-model",
+      "phase": "Do",
+      "story_id": "WBS-S008",
+      "status": "passed",
+      "test_count": 6,
+      "test_passed": 6,
+      "coverage": 89,
+      "timestamp": "2026-03-06T18:38:06.690568Z",
+      "actor": "agent:copilot",
+      "layer": "evidence",
+      "modified_by": "agent:copilot",
+      "created_by": "system:autoload",
+      "is_active": true,
+      "modified_at": "2026-03-06T15:40:10.665306-03:00",
+      "created_at": "2026-03-06T15:02:16.623252-03:00",
+      "row_version": 2
+    },
+    {
+      "id": "EVD-37-D3-001",
+      "project_id": "37-data-model",
+      "phase": "D3",
+      "story_id": "WBS-S001",
+      "status": "passed",
+      "test_count": 5,
+      "test_passed": 5,
+      "coverage": 82,
+      "timestamp": "2026-03-06T18:38:06.690568Z",
+      "actor": "agent:copilot",
+      "layer": "evidence",
+      "modified_by": "agent:copilot",
+      "created_by": "system:autoload",
+      "is_active": true,
+      "modified_at": "2026-03-06T15:40:12.066416-03:00",
+      "created_at": "2026-03-06T15:02:18.670667-03:00",
+      "row_version": 2
+    },
+    {
+      "id": "EVD-37-D3-002",
+      "project_id": "37-data-model",
+      "phase": "D3",
+      "story_id": "WBS-S002",
+      "status": "passed",
+      "test_count": 6,
+      "test_passed": 6,
+      "coverage": 83,
+      "timestamp": "2026-03-06T18:38:06.690568Z",
+      "actor": "agent:copilot",
+      "layer": "evidence",
+      "modified_by": "agent:copilot",
+      "created_by": "system:autoload",
+      "is_active": true,
+      "modified_at": "2026-03-06T15:40:13.326249-03:00",
+      "created_at": "2026-03-06T15:02:20.44933-03:00",
+      "row_version": 2
+    },
+    {
+      "id": "EVD-37-D3-003",
+      "project_id": "37-data-model",
+      "phase": "D3",
+      "story_id": "WBS-S003",
+      "status": "passed",
+      "test_count": 7,
+      "test_passed": 7,
+      "coverage": 84,
+      "timestamp": "2026-03-06T18:38:06.690568Z",
+      "actor": "agent:copilot",
+      "layer": "evidence",
+      "modified_by": "agent:copilot",
+      "created_by": "system:autoload",
+      "is_active": true,
+      "modified_at": "2026-03-06T15:40:14.525545-03:00",
+      "created_at": "2026-03-06T15:02:21.931355-03:00",
+      "row_version": 2
+    },
+    {
+      "id": "EVD-37-D3-004",
+      "project_id": "37-data-model",
+      "phase": "D3",
+      "story_id": "WBS-S004",
+      "status": "passed",
+      "test_count": 5,
+      "test_passed": 5,
+      "coverage": 85,
+      "timestamp": "2026-03-06T18:38:06.690568Z",
+      "actor": "agent:copilot",
+      "layer": "evidence",
+      "modified_by": "agent:copilot",
+      "created_by": "system:autoload",
+      "is_active": true,
+      "modified_at": "2026-03-06T15:40:15.955788-03:00",
+      "created_at": "2026-03-06T15:02:23.185557-03:00",
+      "row_version": 2
+    },
+    {
+      "id": "EVD-37-D3-005",
+      "project_id": "37-data-model",
+      "phase": "D3",
+      "story_id": "WBS-S005",
+      "status": "passed",
+      "test_count": 6,
+      "test_passed": 6,
+      "coverage": 86,
+      "timestamp": "2026-03-06T18:38:06.690568Z",
+      "actor": "agent:copilot",
+      "layer": "evidence",
+      "modified_by": "agent:copilot",
+      "created_by": "system:autoload",
+      "is_active": true,
+      "modified_at": "2026-03-06T15:40:17.179261-03:00",
+      "created_at": "2026-03-06T15:02:24.872328-03:00",
+      "row_version": 2
+    },
+    {
+      "id": "EVD-37-D3-006",
+      "project_id": "37-data-model",
+      "phase": "D3",
+      "story_id": "WBS-S006",
+      "status": "passed",
+      "test_count": 7,
+      "test_passed": 7,
+      "coverage": 87,
+      "timestamp": "2026-03-06T18:38:06.690568Z",
+      "actor": "agent:copilot",
+      "layer": "evidence",
+      "modified_by": "agent:copilot",
+      "created_by": "system:autoload",
+      "is_active": true,
+      "modified_at": "2026-03-06T15:40:18.283847-03:00",
+      "created_at": "2026-03-06T15:02:27.036642-03:00",
+      "row_version": 2
+    },
+    {
+      "id": "EVD-37-D3-007",
+      "project_id": "37-data-model",
+      "phase": "D3",
+      "story_id": "WBS-S007",
+      "status": "passed",
+      "test_count": 5,
+      "test_passed": 5,
+      "coverage": 88,
+      "timestamp": "2026-03-06T18:38:06.690568Z",
+      "actor": "agent:copilot",
+      "layer": "evidence",
+      "modified_by": "agent:copilot",
+      "created_by": "system:autoload",
+      "is_active": true,
+      "modified_at": "2026-03-06T15:40:19.232195-03:00",
+      "created_at": "2026-03-06T15:02:28.419307-03:00",
+      "row_version": 2
+    },
+    {
+      "id": "EVD-37-D3-008",
+      "project_id": "37-data-model",
+      "phase": "D3",
+      "story_id": "WBS-S008",
+      "status": "passed",
+      "test_count": 6,
+      "test_passed": 6,
+      "coverage": 89,
+      "timestamp": "2026-03-06T18:38:06.690568Z",
+      "actor": "agent:copilot",
+      "layer": "evidence",
+      "modified_by": "agent:copilot",
+      "created_by": "system:autoload",
+      "is_active": true,
+      "modified_at": "2026-03-06T15:40:20.395618-03:00",
+      "created_at": "2026-03-06T15:02:29.861378-03:00",
+      "row_version": 2
+    },
+    {
+      "id": "EVD-37-D3-009",
+      "project_id": "37-data-model",
+      "phase": "D3",
+      "story_id": "WBS-S009",
+      "status": "passed",
+      "test_count": 7,
+      "test_passed": 7,
+      "coverage": 90,
+      "timestamp": "2026-03-06T18:38:06.690568Z",
+      "actor": "agent:copilot",
+      "layer": "evidence",
+      "modified_by": "agent:copilot",
+      "created_by": "system:autoload",
+      "is_active": true,
+      "modified_at": "2026-03-06T15:40:21.548623-03:00",
+      "created_at": "2026-03-06T15:02:31.20504-03:00",
+      "row_version": 2
+    },
+    {
+      "id": "EVD-37-D3-010",
+      "project_id": "37-data-model",
+      "phase": "D3",
+      "story_id": "WBS-S010",
+      "status": "passed",
+      "test_count": 5,
+      "test_passed": 5,
+      "coverage": 91,
+      "timestamp": "2026-03-06T18:38:06.690568Z",
+      "actor": "agent:copilot",
+      "layer": "evidence",
+      "modified_by": "agent:copilot",
+      "created_by": "system:autoload",
+      "is_active": true,
+      "modified_at": "2026-03-06T15:40:22.658113-03:00",
+      "created_at": "2026-03-06T15:02:32.895427-03:00",
+      "row_version": 2
+    },
+    {
+      "id": "EVD-37-A-001",
+      "project_id": "37-data-model",
+      "phase": "A",
+      "story_id": "WBS-S001",
+      "status": "passed",
+      "test_count": 5,
+      "test_passed": 5,
+      "coverage": 82,
+      "timestamp": "2026-03-06T18:38:06.690568Z",
+      "actor": "agent:copilot",
+      "layer": "evidence",
+      "modified_by": "agent:copilot",
+      "created_by": "system:autoload",
+      "is_active": true,
+      "modified_at": "2026-03-06T15:40:23.815118-03:00",
+      "created_at": "2026-03-06T15:02:34.254395-03:00",
+      "row_version": 2
+    },
+    {
+      "id": "EVD-37-A-002",
+      "project_id": "37-data-model",
+      "phase": "A",
+      "story_id": "WBS-S002",
+      "status": "passed",
+      "test_count": 6,
+      "test_passed": 6,
+      "coverage": 83,
+      "timestamp": "2026-03-06T18:38:06.690568Z",
+      "actor": "agent:copilot",
+      "layer": "evidence",
+      "modified_by": "agent:copilot",
+      "created_by": "system:autoload",
+      "is_active": true,
+      "modified_at": "2026-03-06T15:40:25.005405-03:00",
+      "created_at": "2026-03-06T15:02:35.886002-03:00",
+      "row_version": 2
+    },
+    {
+      "id": "EVD-37-A-003",
+      "project_id": "37-data-model",
+      "phase": "A",
+      "story_id": "WBS-S003",
+      "status": "passed",
+      "test_count": 7,
+      "test_passed": 7,
+      "coverage": 84,
+      "timestamp": "2026-03-06T18:38:06.690568Z",
+      "actor": "agent:copilot",
+      "layer": "evidence",
+      "modified_by": "agent:copilot",
+      "created_by": "system:autoload",
+      "is_active": true,
+      "modified_at": "2026-03-06T15:40:26.144997-03:00",
+      "created_at": "2026-03-06T15:02:37.762467-03:00",
+      "row_version": 2
+    },
+    {
+      "id": "EVD-37-A-004",
+      "project_id": "37-data-model",
+      "phase": "A",
+      "story_id": "WBS-S004",
+      "status": "passed",
+      "test_count": 5,
+      "test_passed": 5,
+      "coverage": 85,
+      "timestamp": "2026-03-06T18:38:06.690568Z",
+      "actor": "agent:copilot",
+      "layer": "evidence",
+      "modified_by": "agent:copilot",
+      "created_by": "system:autoload",
+      "is_active": true,
+      "modified_at": "2026-03-06T15:40:28.008239-03:00",
+      "created_at": "2026-03-06T15:02:39.599474-03:00",
+      "row_version": 2
+    },
+    {
+      "id": "EVD-37-A-005",
+      "project_id": "37-data-model",
+      "phase": "A",
+      "story_id": "WBS-S005",
+      "status": "passed",
+      "test_count": 6,
+      "test_passed": 6,
+      "coverage": 86,
+      "timestamp": "2026-03-06T18:38:06.690568Z",
+      "actor": "agent:copilot",
+      "layer": "evidence",
+      "modified_by": "agent:copilot",
+      "created_by": "system:autoload",
+      "is_active": true,
+      "modified_at": "2026-03-06T15:40:29.205144-03:00",
+      "created_at": "2026-03-06T15:02:40.800798-03:00",
+      "row_version": 2
+    },
+    {
+      "id": "EVD-37-A-006",
+      "project_id": "37-data-model",
+      "phase": "A",
+      "story_id": "WBS-S006",
+      "status": "passed",
+      "test_count": 7,
+      "test_passed": 7,
+      "coverage": 87,
+      "timestamp": "2026-03-06T18:38:06.690568Z",
+      "actor": "agent:copilot",
+      "layer": "evidence",
+      "modified_by": "agent:copilot",
+      "created_by": "system:autoload",
+      "is_active": true,
+      "modified_at": "2026-03-06T15:40:30.189207-03:00",
+      "created_at": "2026-03-06T15:02:42.181585-03:00",
+      "row_version": 2
+    },
+    {
+      "id": "EVD-37-A-007",
+      "project_id": "37-data-model",
+      "phase": "A",
+      "story_id": "WBS-S007",
+      "status": "passed",
+      "test_count": 5,
+      "test_passed": 5,
+      "coverage": 88,
+      "timestamp": "2026-03-06T18:38:06.690568Z",
+      "actor": "agent:copilot",
+      "layer": "evidence",
+      "modified_by": "agent:copilot",
+      "created_by": "system:autoload",
+      "is_active": true,
+      "modified_at": "2026-03-06T15:40:31.526754-03:00",
+      "created_at": "2026-03-06T15:02:43.668088-03:00",
+      "row_version": 2
+    },
+    {
+      "id": "EVD-37-A-008",
+      "project_id": "37-data-model",
+      "phase": "A",
+      "story_id": "WBS-S008",
+      "status": "passed",
+      "test_count": 6,
+      "test_passed": 6,
+      "coverage": 89,
+      "timestamp": "2026-03-06T18:38:06.690568Z",
+      "actor": "agent:copilot",
+      "layer": "evidence",
+      "modified_by": "agent:copilot",
+      "created_by": "system:autoload",
+      "is_active": true,
+      "modified_at": "2026-03-06T15:40:32.680313-03:00",
+      "created_at": "2026-03-06T15:02:45.152499-03:00",
+      "row_version": 2
+    }
+  ],
+  "schema": "eva.wbs-snapshot.v1",
+  "actor": "agent:copilot",
+  "wbs": [
+    {
+      "id": "WBS-S001",
+      "project_id": "51-ACA",
+      "parent_wbs_id": "WBS-F01",
+      "label": "As a developer I can run `docker-compose up` and all services start",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": null,
+      "original_story_id": "ACA-01-001",
+      "created_at": "2026-03-06T14:59:51.188707-03:00",
+      "updated_at": "2026-03-08T02:03:42.113Z",
+      "layer": "wbs",
+      "is_active": true,
+      "modified_by": "copilot-agent",
+      "modified_at": "2026-03-07T23:32:21.56176-03:00",
+      "created_by": "system:autoload",
+      "row_version": 5
+    },
+    {
+      "id": "WBS-S002",
+      "project_id": "51-ACA",
+      "parent_wbs_id": "WBS-F01",
+      "label": "As a developer I can run `pytest services/ -x -q` and all tests pass",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": null,
+      "original_story_id": "ACA-01-002",
+      "created_at": "2026-03-06T14:59:52.770337-03:00",
+      "updated_at": "2026-03-08T02:03:42.113Z",
+      "layer": "wbs",
+      "is_active": true,
+      "modified_by": "copilot-agent",
+      "modified_at": "2026-03-07T23:32:22.576163-03:00",
+      "created_by": "system:autoload",
+      "row_version": 5
+    },
+    {
+      "id": "WBS-S003",
+      "project_id": "51-ACA",
+      "parent_wbs_id": "WBS-F01",
+      "label": "As a developer I can hit http://localhost:8080/health and get status=ok",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": null,
+      "original_story_id": "ACA-01-003",
+      "created_at": "2026-03-06T14:59:55.035478-03:00",
+      "updated_at": "2026-03-08T02:03:42.113Z",
+      "layer": "wbs",
+      "is_active": true,
+      "modified_by": "copilot-agent",
+      "modified_at": "2026-03-07T23:32:23.272052-03:00",
+      "created_by": "system:autoload",
+      "row_version": 5
+    },
+    {
+      "id": "WBS-S004",
+      "project_id": "51-ACA",
+      "parent_wbs_id": "WBS-F01",
+      "label": "As a developer I can run the data-model on port 8011 (start.ps1)",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": null,
+      "original_story_id": "ACA-01-004",
+      "created_at": "2026-03-06T14:59:56.106014-03:00",
+      "updated_at": "2026-03-08T02:03:42.113Z",
+      "layer": "wbs",
+      "is_active": true,
+      "modified_by": "copilot-agent",
+      "modified_at": "2026-03-07T23:32:24.086178-03:00",
+      "created_by": "system:autoload",
+      "row_version": 5
+    },
+    {
+      "id": "WBS-S005",
+      "project_id": "51-ACA",
+      "parent_wbs_id": "WBS-F01",
+      "label": "As a developer I can use the .env.example as a complete checklist",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": null,
+      "original_story_id": "ACA-01-005",
+      "created_at": "2026-03-06T14:59:58.396307-03:00",
+      "updated_at": "2026-03-08T02:03:42.113Z",
+      "layer": "wbs",
+      "is_active": true,
+      "modified_by": "copilot-agent",
+      "modified_at": "2026-03-07T23:32:24.590027-03:00",
+      "created_by": "system:autoload",
+      "row_version": 5
+    },
+    {
+      "id": "WBS-S006",
+      "project_id": "51-ACA",
+      "parent_wbs_id": "WBS-F01",
+      "label": "As a developer, every PR triggers ruff lint. Zero lint errors = green.",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": null,
+      "original_story_id": "ACA-01-006",
+      "created_at": "2026-03-06T14:59:59.60703-03:00",
+      "updated_at": "2026-03-08T02:03:42.113Z",
+      "layer": "wbs",
+      "is_active": true,
+      "modified_by": "copilot-agent",
+      "modified_at": "2026-03-07T23:32:25.230743-03:00",
+      "created_by": "system:autoload",
+      "row_version": 5
+    },
+    {
+      "id": "WBS-S007",
+      "project_id": "51-ACA",
+      "parent_wbs_id": "WBS-F01",
+      "label": "As a developer, every PR triggers mypy type check. No unresolved types.",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": null,
+      "original_story_id": "ACA-01-007",
+      "created_at": "2026-03-06T15:00:02.170094-03:00",
+      "updated_at": "2026-03-08T02:03:42.113Z",
+      "layer": "wbs",
+      "is_active": true,
+      "modified_by": "copilot-agent",
+      "modified_at": "2026-03-07T23:32:25.951238-03:00",
+      "created_by": "system:autoload",
+      "row_version": 5
+    },
+    {
+      "id": "WBS-S008",
+      "project_id": "51-ACA",
+      "parent_wbs_id": "WBS-F01",
+      "label": "As a developer, every PR triggers pytest. No test failures = merge allowed.",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": null,
+      "original_story_id": "ACA-01-008",
+      "created_at": "2026-03-06T15:00:03.284148-03:00",
+      "updated_at": "2026-03-08T02:03:42.113Z",
+      "layer": "wbs",
+      "is_active": true,
+      "modified_by": "copilot-agent",
+      "modified_at": "2026-03-07T23:32:26.680297-03:00",
+      "created_by": "system:autoload",
+      "row_version": 5
+    },
+    {
+      "id": "WBS-S009",
+      "project_id": "51-ACA",
+      "parent_wbs_id": "WBS-F01",
+      "label": "As a developer, main branch push triggers axe-core a11y check on frontend.",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": null,
+      "original_story_id": "ACA-01-009",
+      "created_at": "2026-03-06T15:00:05.806232-03:00",
+      "updated_at": "2026-03-08T02:03:42.113Z",
+      "layer": "wbs",
+      "is_active": true,
+      "modified_by": "copilot-agent",
+      "modified_at": "2026-03-07T23:32:27.325028-03:00",
+      "created_by": "system:autoload",
+      "row_version": 5
+    },
+    {
+      "id": "WBS-S010",
+      "project_id": "51-ACA",
+      "parent_wbs_id": "WBS-F01",
+      "label": "As an operator I can run infra/phase1-marco/main.bicep and get 7 Cosmos containers",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": null,
+      "original_story_id": "ACA-01-010",
+      "created_at": "2026-03-06T15:00:06.934212-03:00",
+      "updated_at": "2026-03-08T02:03:42.113Z",
+      "layer": "wbs",
+      "is_active": true,
+      "modified_by": "copilot-agent",
+      "modified_at": "2026-03-07T23:32:27.901205-03:00",
+      "created_by": "system:autoload",
+      "row_version": 5
+    },
+    {
+      "id": "WBS-S011",
+      "project_id": "51-ACA",
+      "parent_wbs_id": "WBS-F01",
+      "label": "As an operator all secrets are in marcosandkv20260203 (no .env in production)",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": null,
+      "original_story_id": "ACA-01-011",
+      "created_at": "2026-03-06T15:00:10.728679-03:00",
+      "updated_at": "2026-03-08T02:03:42.113Z",
+      "layer": "wbs",
+      "is_active": true,
+      "modified_by": "copilot-agent",
+      "modified_at": "2026-03-07T23:32:28.674467-03:00",
+      "created_by": "system:autoload",
+      "row_version": 5
+    },
+    {
+      "id": "WBS-S012",
+      "project_id": "51-ACA",
+      "parent_wbs_id": "WBS-F01",
+      "label": "As an operator the API Container App has managed identity approved on KV",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": null,
+      "original_story_id": "ACA-01-012",
+      "created_at": "2026-03-06T15:00:12.018081-03:00",
+      "updated_at": "2026-03-08T02:03:42.113Z",
+      "layer": "wbs",
+      "is_active": true,
+      "modified_by": "copilot-agent",
+      "modified_at": "2026-03-07T23:32:29.313542-03:00",
+      "created_by": "system:autoload",
+      "row_version": 5
+    },
+    {
+      "id": "WBS-S013",
+      "project_id": "51-ACA",
+      "parent_wbs_id": "WBS-F01",
+      "label": "As an operator the collector job has managed identity with Cosmos read/write",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": null,
+      "original_story_id": "ACA-01-013",
+      "created_at": "2026-03-06T15:00:14.701246-03:00",
+      "updated_at": "2026-03-08T02:03:42.113Z",
+      "layer": "wbs",
+      "is_active": true,
+      "modified_by": "copilot-agent",
+      "modified_at": "2026-03-07T23:32:30.056189-03:00",
+      "created_by": "system:autoload",
+      "row_version": 5
+    },
+    {
+      "id": "WBS-S014",
+      "project_id": "51-ACA",
+      "parent_wbs_id": "WBS-F01",
+      "label": "As an operator OIDC is configured on the GitHub Actions workflow for EsDAICoE-Sandbox",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": null,
+      "original_story_id": "ACA-01-014",
+      "created_at": "2026-03-06T15:00:15.91699-03:00",
+      "updated_at": "2026-03-08T02:03:42.113Z",
+      "layer": "wbs",
+      "is_active": true,
+      "modified_by": "copilot-agent",
+      "modified_at": "2026-03-07T23:32:30.702943-03:00",
+      "created_by": "system:autoload",
+      "row_version": 5
+    },
+    {
+      "id": "WBS-S015",
+      "project_id": "51-ACA",
+      "parent_wbs_id": "WBS-F01",
+      "label": "As an operator infra/phase1-marco/bootstrap.sh exists and provisions all",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": null,
+      "original_story_id": "ACA-01-015",
+      "created_at": "2026-03-06T15:00:18.39295-03:00",
+      "updated_at": "2026-03-08T02:03:42.113Z",
+      "layer": "wbs",
+      "is_active": true,
+      "modified_by": "copilot-agent",
+      "modified_at": "2026-03-07T23:32:31.447869-03:00",
+      "created_by": "system:autoload",
+      "row_version": 5
+    },
+    {
+      "id": "WBS-S016",
+      "project_id": "51-ACA",
+      "parent_wbs_id": "WBS-F01",
+      "label": "As a developer all 4 Dockerfiles build without error on ubuntu-latest",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": null,
+      "original_story_id": "ACA-01-016",
+      "created_at": "2026-03-06T15:00:20.038723-03:00",
+      "updated_at": "2026-03-08T02:03:42.113Z",
+      "layer": "wbs",
+      "is_active": true,
+      "modified_by": "copilot-agent",
+      "modified_at": "2026-03-07T23:32:32.134786-03:00",
+      "created_by": "system:autoload",
+      "row_version": 5
+    },
+    {
+      "id": "WBS-S017",
+      "project_id": "51-ACA",
+      "parent_wbs_id": "WBS-F01",
+      "label": "As an operator deploy-phase1.yml pushes 4 images to marcosandacr20260203",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": null,
+      "original_story_id": "ACA-01-017",
+      "created_at": "2026-03-06T15:00:22.700669-03:00",
+      "updated_at": "2026-03-08T02:03:42.113Z",
+      "layer": "wbs",
+      "is_active": true,
+      "modified_by": "copilot-agent",
+      "modified_at": "2026-03-07T23:32:32.851772-03:00",
+      "created_by": "system:autoload",
+      "row_version": 5
+    },
+    {
+      "id": "WBS-S018",
+      "project_id": "51-ACA",
+      "parent_wbs_id": "WBS-F01",
+      "label": "As an operator collector-schedule.yml triggers nightly at 02:00 UTC",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": null,
+      "original_story_id": "ACA-01-018",
+      "created_at": "2026-03-06T15:00:24.278693-03:00",
+      "updated_at": "2026-03-08T02:03:42.113Z",
+      "layer": "wbs",
+      "is_active": true,
+      "modified_by": "copilot-agent",
+      "modified_at": "2026-03-07T23:32:33.376395-03:00",
+      "created_by": "system:autoload",
+      "row_version": 5
+    },
+    {
+      "id": "WBS-S019",
+      "project_id": "51-ACA",
+      "parent_wbs_id": "WBS-F01",
+      "label": "As an operator PUBLIC_APP_URL and PUBLIC_API_URL are read from env vars;",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": null,
+      "original_story_id": "ACA-01-019",
+      "created_at": "2026-03-06T15:00:26.776057-03:00",
+      "updated_at": "2026-03-08T02:03:42.113Z",
+      "layer": "wbs",
+      "is_active": true,
+      "modified_by": "copilot-agent",
+      "modified_at": "2026-03-07T23:32:34.024978-03:00",
+      "created_by": "system:autoload",
+      "row_version": 5
+    },
+    {
+      "id": "WBS-S020",
+      "project_id": "51-ACA",
+      "parent_wbs_id": "WBS-F01",
+      "label": "As a developer .env.example documents the Azure free hostname pattern",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": null,
+      "original_story_id": "ACA-01-020",
+      "created_at": "2026-03-06T15:00:27.873447-03:00",
+      "updated_at": "2026-03-08T02:03:42.113Z",
+      "layer": "wbs",
+      "is_active": true,
+      "modified_by": "copilot-agent",
+      "modified_at": "2026-03-07T23:32:34.745801-03:00",
+      "created_by": "system:autoload",
+      "row_version": 4
+    },
+    {
+      "id": "WBS-S021",
+      "project_id": "51-ACA",
+      "parent_wbs_id": "WBS-F01",
+      "label": "As an operator ACA_ALLOWED_ORIGINS is seeded from the Phase 1 free hostname",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": null,
+      "original_story_id": "ACA-01-021",
+      "created_at": "2026-03-06T15:00:31.676435-03:00",
+      "updated_at": "2026-03-08T02:03:42.113Z",
+      "layer": "wbs",
+      "is_active": true,
+      "modified_by": "copilot-agent",
+      "modified_at": "2026-03-07T23:32:35.490431-03:00",
+      "created_by": "system:autoload",
+      "row_version": 4
+    },
+    {
+      "id": "WBS-S022",
+      "project_id": "51-ACA",
+      "parent_wbs_id": "WBS-F02",
+      "label": "As a client using Mode A (delegated) I see a PASS/FAIL/WARN status",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": null,
+      "original_story_id": "ACA-02-001",
+      "created_at": "2026-03-06T15:00:32.943716-03:00",
+      "updated_at": "2026-03-08T02:03:42.113Z",
+      "layer": "wbs",
+      "is_active": true,
+      "modified_by": "copilot-agent",
+      "modified_at": "2026-03-07T23:32:37.859342-03:00",
+      "created_by": "system:autoload",
+      "row_version": 4
+    },
+    {
+      "id": "WBS-S023",
+      "project_id": "51-ACA",
+      "parent_wbs_id": "WBS-F02",
+      "label": "As a client with missing Cost Management Reader role I see a clear",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": null,
+      "original_story_id": "ACA-02-002",
+      "created_at": "2026-03-06T15:00:35.777197-03:00",
+      "updated_at": "2026-03-08T02:03:42.113Z",
+      "layer": "wbs",
+      "is_active": true,
+      "modified_by": "copilot-agent",
+      "modified_at": "2026-03-07T23:32:38.562506-03:00",
+      "created_by": "system:autoload",
+      "row_version": 4
+    },
+    {
+      "id": "WBS-S024",
+      "project_id": "51-ACA",
+      "parent_wbs_id": "WBS-F02",
+      "label": "As a client with PASS_WITH_WARNINGS I can still proceed with collection",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": null,
+      "original_story_id": "ACA-02-003",
+      "created_at": "2026-03-06T15:00:36.90431-03:00",
+      "updated_at": "2026-03-08T02:03:42.113Z",
+      "layer": "wbs",
+      "is_active": true,
+      "modified_by": "copilot-agent",
+      "modified_at": "2026-03-07T23:32:39.420953-03:00",
+      "created_by": "system:autoload",
+      "row_version": 4
+    },
+    {
+      "id": "WBS-S025",
+      "project_id": "51-ACA",
+      "parent_wbs_id": "WBS-F02",
+      "label": "As an operator I can pass --preflight-only to the collector to validate",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": null,
+      "original_story_id": "ACA-02-004",
+      "created_at": "2026-03-06T15:00:39.07618-03:00",
+      "updated_at": "2026-03-08T02:03:42.113Z",
+      "layer": "wbs",
+      "is_active": true,
+      "modified_by": "copilot-agent",
+      "modified_at": "2026-03-07T23:32:40.12649-03:00",
+      "created_by": "system:autoload",
+      "row_version": 4
+    },
+    {
+      "id": "WBS-S026",
+      "project_id": "51-ACA",
+      "parent_wbs_id": "WBS-F02",
+      "label": "As the system I collect all Azure resources via Resource Graph in < 60s",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": null,
+      "original_story_id": "ACA-02-005",
+      "created_at": "2026-03-06T15:00:40.34163-03:00",
+      "updated_at": "2026-03-08T02:03:42.113Z",
+      "layer": "wbs",
+      "is_active": true,
+      "modified_by": "copilot-agent",
+      "modified_at": "2026-03-07T23:32:41.093517-03:00",
+      "created_by": "system:autoload",
+      "row_version": 4
+    },
+    {
+      "id": "WBS-S027",
+      "project_id": "51-ACA",
+      "parent_wbs_id": "WBS-F02",
+      "label": "As the system I save inventory to Cosmos with partition_key=subscriptionId",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": null,
+      "original_story_id": "ACA-02-006",
+      "created_at": "2026-03-06T15:00:42.902295-03:00",
+      "updated_at": "2026-03-08T02:03:42.113Z",
+      "layer": "wbs",
+      "is_active": true,
+      "modified_by": "copilot-agent",
+      "modified_at": "2026-03-07T23:32:41.75022-03:00",
+      "created_by": "system:autoload",
+      "row_version": 4
+    },
+    {
+      "id": "WBS-S028",
+      "project_id": "51-ACA",
+      "parent_wbs_id": "WBS-F02",
+      "label": "As the system I capture: resource type, name, SKU, region, resource group, tags",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": null,
+      "original_story_id": "ACA-02-007",
+      "created_at": "2026-03-06T15:00:44.077403-03:00",
+      "updated_at": "2026-03-08T02:03:42.113Z",
+      "layer": "wbs",
+      "is_active": true,
+      "modified_by": "copilot-agent",
+      "modified_at": "2026-03-07T23:32:42.577296-03:00",
+      "created_by": "system:autoload",
+      "row_version": 4
+    },
+    {
+      "id": "WBS-S029",
+      "project_id": "51-ACA",
+      "parent_wbs_id": "WBS-F02",
+      "label": "As the system I collect 91 days of daily cost rows via Cost Management Query API",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": null,
+      "original_story_id": "ACA-02-008",
+      "created_at": "2026-03-06T15:00:47.85265-03:00",
+      "updated_at": "2026-03-08T02:03:42.113Z",
+      "layer": "wbs",
+      "is_active": true,
+      "modified_by": "copilot-agent",
+      "modified_at": "2026-03-07T23:32:43.273021-03:00",
+      "created_by": "system:autoload",
+      "row_version": 4
+    },
+    {
+      "id": "WBS-S030",
+      "project_id": "51-ACA",
+      "parent_wbs_id": "WBS-F02",
+      "label": "As the system I capture: date, MeterCategory, MeterName, resourceGroup,",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": null,
+      "original_story_id": "ACA-02-009",
+      "created_at": "2026-03-06T15:00:48.824588-03:00",
+      "updated_at": "2026-03-08T02:03:42.113Z",
+      "layer": "wbs",
+      "is_active": true,
+      "modified_by": "copilot-agent",
+      "modified_at": "2026-03-07T23:32:43.915581-03:00",
+      "created_by": "system:autoload",
+      "row_version": 4
+    },
+    {
+      "id": "WBS-S031",
+      "project_id": "51-ACA",
+      "parent_wbs_id": "WBS-F02",
+      "label": "As the system I handle rate limiting (429) with exponential backoff + retry",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": null,
+      "original_story_id": "ACA-02-010",
+      "created_at": "2026-03-06T15:00:53.982281-03:00",
+      "updated_at": "2026-03-08T02:03:42.113Z",
+      "layer": "wbs",
+      "is_active": true,
+      "modified_by": "copilot-agent",
+      "modified_at": "2026-03-07T23:32:44.996658-03:00",
+      "created_by": "system:autoload",
+      "row_version": 4
+    },
+    {
+      "id": "WBS-S032",
+      "project_id": "51-ACA",
+      "parent_wbs_id": "WBS-F02",
+      "label": "As the system I collect all Advisor recommendations across all categories",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": null,
+      "original_story_id": "ACA-02-011",
+      "created_at": "2026-03-06T15:00:55.163477-03:00",
+      "updated_at": "2026-03-08T02:03:42.113Z",
+      "layer": "wbs",
+      "is_active": true,
+      "modified_by": "copilot-agent",
+      "modified_at": "2026-03-07T23:32:45.762775-03:00",
+      "created_by": "system:autoload",
+      "row_version": 4
+    },
+    {
+      "id": "WBS-S033",
+      "project_id": "51-ACA",
+      "parent_wbs_id": "WBS-F02",
+      "label": "As the system I collect Policy compliance state (compliant / non-compliant counts)",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": null,
+      "original_story_id": "ACA-02-012",
+      "created_at": "2026-03-06T15:00:57.195612-03:00",
+      "updated_at": "2026-03-08T02:03:42.113Z",
+      "layer": "wbs",
+      "is_active": true,
+      "modified_by": "copilot-agent",
+      "modified_at": "2026-03-07T23:32:46.297012-03:00",
+      "created_by": "system:autoload",
+      "row_version": 4
+    },
+    {
+      "id": "WBS-S034",
+      "project_id": "51-ACA",
+      "parent_wbs_id": "WBS-F02",
+      "label": "As the system I collect network signals: NSG rule counts, private DNS zones,",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": null,
+      "original_story_id": "ACA-02-013",
+      "created_at": "2026-03-06T15:00:58.171867-03:00",
+      "updated_at": "2026-03-08T02:03:42.113Z",
+      "layer": "wbs",
+      "is_active": true,
+      "modified_by": "copilot-agent",
+      "modified_at": "2026-03-07T23:32:46.913903-03:00",
+      "created_by": "system:autoload",
+      "row_version": 4
+    },
+    {
+      "id": "WBS-S035",
+      "project_id": "51-ACA",
+      "parent_wbs_id": "WBS-F02",
+      "label": "As the system I update scan status in Cosmos: queued -> running -> succeeded/failed",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": null,
+      "original_story_id": "ACA-02-014",
+      "created_at": "2026-03-06T15:01:00.3967-03:00",
+      "updated_at": "2026-03-08T02:03:42.113Z",
+      "layer": "wbs",
+      "is_active": true,
+      "modified_by": "copilot-agent",
+      "modified_at": "2026-03-07T23:32:47.516799-03:00",
+      "created_by": "system:autoload",
+      "row_version": 4
+    },
+    {
+      "id": "WBS-S036",
+      "project_id": "51-ACA",
+      "parent_wbs_id": "WBS-F02",
+      "label": "As the system I write stats to the scan record (inventoryCount, costRows, advisorRecs)",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": null,
+      "original_story_id": "ACA-02-015",
+      "created_at": "2026-03-06T15:01:01.570505-03:00",
+      "updated_at": "2026-03-08T02:03:42.113Z",
+      "layer": "wbs",
+      "is_active": true,
+      "modified_by": "copilot-agent",
+      "modified_at": "2026-03-07T23:32:48.120975-03:00",
+      "created_by": "system:autoload",
+      "row_version": 4
+    },
+    {
+      "id": "WBS-S037",
+      "project_id": "51-ACA",
+      "parent_wbs_id": "WBS-F02",
+      "label": "As the API I expose GET /v1/scans/:scanId so the frontend can poll status",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": null,
+      "original_story_id": "ACA-02-016",
+      "created_at": "2026-03-06T15:01:03.820138-03:00",
+      "updated_at": "2026-03-08T02:03:42.113Z",
+      "layer": "wbs",
+      "is_active": true,
+      "modified_by": "copilot-agent",
+      "modified_at": "2026-03-07T23:32:48.764662-03:00",
+      "created_by": "system:autoload",
+      "row_version": 4
+    },
+    {
+      "id": "WBS-S038",
+      "project_id": "51-ACA",
+      "parent_wbs_id": "WBS-F02",
+      "label": "As the system, after mark_collection_complete sets status=collected, the analysis",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": null,
+      "original_story_id": "ACA-02-017",
+      "created_at": "2026-03-06T15:01:04.791223-03:00",
+      "updated_at": "2026-03-08T02:03:42.113Z",
+      "layer": "wbs",
+      "is_active": true,
+      "modified_by": "copilot-agent",
+      "modified_at": "2026-03-07T23:32:49.582617-03:00",
+      "created_by": "system:autoload",
+      "row_version": 4
+    },
+    {
+      "id": "WBS-S039",
+      "project_id": "51-ACA",
+      "parent_wbs_id": "WBS-F03",
+      "label": "As the system I load all 12 rules from ALL_RULES and run each in sequence",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": null,
+      "original_story_id": "ACA-03-001",
+      "created_at": "2026-03-06T15:01:06.907106-03:00",
+      "updated_at": "2026-03-08T02:03:42.113Z",
+      "layer": "wbs",
+      "is_active": true,
+      "modified_by": "copilot-agent",
+      "modified_at": "2026-03-07T23:32:54.065847-03:00",
+      "created_by": "system:autoload",
+      "row_version": 4
+    },
+    {
+      "id": "WBS-S040",
+      "project_id": "51-ACA",
+      "parent_wbs_id": "WBS-F03",
+      "label": "As the system I handle a rule failure in isolation (one rule crash does not",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": null,
+      "original_story_id": "ACA-03-002",
+      "created_at": "2026-03-06T15:01:07.901613-03:00",
+      "updated_at": "2026-03-08T02:03:42.113Z",
+      "layer": "wbs",
+      "is_active": true,
+      "modified_by": "copilot-agent",
+      "modified_at": "2026-03-07T23:32:54.845359-03:00",
+      "created_by": "system:autoload",
+      "row_version": 4
+    },
+    {
+      "id": "WBS-S041",
+      "project_id": "51-ACA",
+      "parent_wbs_id": "WBS-F03",
+      "label": "As the system I persist each Finding to Cosmos with full schema:",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": null,
+      "original_story_id": "ACA-03-003",
+      "created_at": "2026-03-06T15:01:12.03641-03:00",
+      "updated_at": "2026-03-08T02:03:42.113Z",
+      "layer": "wbs",
+      "is_active": true,
+      "modified_by": "copilot-agent",
+      "modified_at": "2026-03-07T23:32:55.68167-03:00",
+      "created_by": "system:autoload",
+      "row_version": 4
+    },
+    {
+      "id": "WBS-S042",
+      "project_id": "51-ACA",
+      "parent_wbs_id": "WBS-F03",
+      "label": "As the system I update AnalysisRun status: queued -> running -> succeeded/failed",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": null,
+      "original_story_id": "ACA-03-004",
+      "created_at": "2026-03-06T15:01:13.18096-03:00",
+      "updated_at": "2026-03-08T02:03:42.113Z",
+      "layer": "wbs",
+      "is_active": true,
+      "modified_by": "copilot-agent",
+      "modified_at": "2026-03-07T23:32:56.436802-03:00",
+      "created_by": "system:autoload",
+      "row_version": 4
+    },
+    {
+      "id": "WBS-S043",
+      "project_id": "51-ACA",
+      "parent_wbs_id": "WBS-F03",
+      "label": "As the system I write findingsSummary to the analysis run record",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": null,
+      "original_story_id": "ACA-03-005",
+      "created_at": "2026-03-06T15:01:15.650994-03:00",
+      "updated_at": "2026-03-08T02:03:42.113Z",
+      "layer": "wbs",
+      "is_active": true,
+      "modified_by": "copilot-agent",
+      "modified_at": "2026-03-07T23:32:57.083808-03:00",
+      "created_by": "system:autoload",
+      "row_version": 4
+    },
+    {
+      "id": "WBS-S044",
+      "project_id": "51-ACA",
+      "parent_wbs_id": "WBS-F03",
+      "label": "As a Tier 1 client calling GET /v1/findings/:scanId I receive findings",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": null,
+      "original_story_id": "ACA-03-006",
+      "created_at": "2026-03-06T15:01:16.844731-03:00",
+      "updated_at": "2026-03-08T02:03:42.113Z",
+      "layer": "wbs",
+      "is_active": true,
+      "modified_by": "copilot-agent",
+      "modified_at": "2026-03-07T23:32:57.635292-03:00",
+      "created_by": "system:autoload",
+      "row_version": 4
+    },
+    {
+      "id": "WBS-S045",
+      "project_id": "51-ACA",
+      "parent_wbs_id": "WBS-F03",
+      "label": "As a Tier 1 client I do not receive narrative or deliverable_template_id",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": null,
+      "original_story_id": "ACA-03-007",
+      "created_at": "2026-03-06T15:01:19.396497-03:00",
+      "updated_at": "2026-03-08T02:03:42.113Z",
+      "layer": "wbs",
+      "is_active": true,
+      "modified_by": "copilot-agent",
+      "modified_at": "2026-03-07T23:32:58.508172-03:00",
+      "created_by": "system:autoload",
+      "row_version": 4
+    },
+    {
+      "id": "WBS-S046",
+      "project_id": "51-ACA",
+      "parent_wbs_id": "WBS-F03",
+      "label": "As a Tier 2 client I receive the full finding including narrative and",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": null,
+      "original_story_id": "ACA-03-008",
+      "created_at": "2026-03-06T15:01:20.631139-03:00",
+      "updated_at": "2026-03-08T02:03:42.113Z",
+      "layer": "wbs",
+      "is_active": true,
+      "modified_by": "copilot-agent",
+      "modified_at": "2026-03-07T23:32:59.064661-03:00",
+      "created_by": "system:autoload",
+      "row_version": 4
+    },
+    {
+      "id": "WBS-S047",
+      "project_id": "51-ACA",
+      "parent_wbs_id": "WBS-F03",
+      "label": "As a Tier 3 client I receive the full finding including deliverable_template_id",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": null,
+      "original_story_id": "ACA-03-009",
+      "created_at": "2026-03-06T15:01:23.166533-03:00",
+      "updated_at": "2026-03-08T02:03:42.113Z",
+      "layer": "wbs",
+      "is_active": true,
+      "modified_by": "copilot-agent",
+      "modified_at": "2026-03-07T23:33:00.233238-03:00",
+      "created_by": "system:autoload",
+      "row_version": 4
+    },
+    {
+      "id": "WBS-S048",
+      "project_id": "51-ACA",
+      "parent_wbs_id": "WBS-F03",
+      "label": "As the red-team agent I can assert that Tier 1 tokens never leak",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": null,
+      "original_story_id": "ACA-03-010",
+      "created_at": "2026-03-06T15:01:24.375511-03:00",
+      "updated_at": "2026-03-08T02:03:42.113Z",
+      "layer": "wbs",
+      "is_active": true,
+      "modified_by": "copilot-agent",
+      "modified_at": "2026-03-07T23:33:00.809135-03:00",
+      "created_by": "system:autoload",
+      "row_version": 4
+    },
+    {
+      "id": "WBS-S049",
+      "project_id": "51-ACA",
+      "parent_wbs_id": "WBS-F03",
+      "label": "R-01 Dev Box auto-stop: returns finding when annual Dev Box cost > $1,000",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": null,
+      "original_story_id": "ACA-03-011",
+      "created_at": "2026-03-06T15:01:27.272551-03:00",
+      "updated_at": "2026-03-08T02:03:42.113Z",
+      "layer": "wbs",
+      "is_active": true,
+      "modified_by": "copilot-agent",
+      "modified_at": "2026-03-07T23:33:01.455687-03:00",
+      "created_by": "system:autoload",
+      "row_version": 4
+    },
+    {
+      "id": "WBS-S050",
+      "project_id": "51-ACA",
+      "parent_wbs_id": "WBS-F03",
+      "label": "R-02 Log retention: returns finding when annual LA cost > $500 in non-prod",
+      "level": "user_story",
+      "status": "planned",
+      "percent_complete": 0,
+      "points_total": 3,
+      "points_done": 0,
+      "acceptance_criteria": null,
+      "original_story_id": "ACA-03-012",
+      "created_at": "2026-03-06T15:01:28.650923-03:00",
+      "updated_at": "2026-03-08T02:03:42.113Z",
+      "layer": "wbs",
+      "is_active": true,
+      "modified_by": "copilot-agent",
+      "modified_at": "2026-03-07T23:33:02.36208-03:00",
+      "created_by": "system:autoload",
+      "row_version": 4
+    },
+    {
+      "id": "ACA-03-001",
+      "project_id": "51-ACA",
+      "status": "done",
+      "is_active": true,
+      "sprint_id": "51-ACA-sprint-06",
+      "epic_id": "ACA-03",
+      "title": "As the system I load all 12 rules from ALL_RULES and run each in sequence",
+      "start_timestamp": "2026-03-01T12:48:31Z",
+      "layer": "wbs",
+      "modified_by": "sprint-agent",
+      "modified_at": "2026-03-01T12:06:40.124144-03:00",
+      "created_by": "sprint-agent",
+      "created_at": "2026-03-01T09:48:31.792065-03:00",
+      "row_version": 4,
+      "commit_sha": "26cb622da15682e3d8fe89267d1aa74967dac1ed",
+      "actual_time_minutes": 0.1,
+      "files_created": "services/analysis/app/main.py (update run_analysis to load ALL_RULES),services/tests/test_analysis_rule_loader.py (new)",
+      "test_result": "WARN",
+      "lint_result": "WARN",
+      "done_timestamp": "2026-03-01T15:06:40Z",
+      "source_file": "model/wbs.json"
+    },
+    {
+      "id": "ACA-03-002",
+      "project_id": "51-ACA",
+      "status": "done",
+      "is_active": true,
+      "sprint_id": "51-ACA-sprint-04",
+      "epic_id": "ACA-03",
+      "title": "As the system I handle a rule failure in isolation (one rule crash does not",
+      "start_timestamp": "2026-03-01T13:03:49Z",
+      "layer": "wbs",
+      "modified_by": "sprint-agent",
+      "modified_at": "2026-03-01T10:07:12.590861-03:00",
+      "created_by": "sprint-agent",
+      "created_at": "2026-03-01T10:03:49.438003-03:00",
+      "row_version": 4,
+      "commit_sha": "3af5882fc198e4d837bdfe3c39267f830eef60e1",
+      "actual_time_minutes": 0.1,
+      "files_created": "services/analysis/app/main.py",
+      "test_result": "WARN",
+      "lint_result": "WARN",
+      "done_timestamp": "2026-03-01T13:07:12Z",
+      "source_file": "model/wbs.json"
+    },
+    {
+      "id": "ACA-03-003",
+      "project_id": "51-ACA",
+      "status": "done",
+      "is_active": true,
+      "sprint_id": "51-ACA-sprint-04",
+      "epic_id": "ACA-03",
+      "title": "As the system I persist each Finding to Cosmos with full schema:",
+      "start_timestamp": "2026-03-01T13:03:56Z",
+      "layer": "wbs",
+      "modified_by": "sprint-agent",
+      "modified_at": "2026-03-01T10:07:18.165518-03:00",
+      "created_by": "sprint-agent",
+      "created_at": "2026-03-01T10:03:56.16708-03:00",
+      "row_version": 4,
+      "commit_sha": "68b39bc4b223862481456a6d437a1e0bdfaf4658",
+      "actual_time_minutes": 0.1,
+      "files_created": "services/analysis/app/findings.py,services/analysis/app/models.py",
+      "test_result": "WARN",
+      "lint_result": "WARN",
+      "done_timestamp": "2026-03-01T13:07:17Z",
+      "source_file": "model/wbs.json"
+    },
+    {
+      "id": "ACA-03-011",
+      "project_id": "51-ACA",
+      "status": "done",
+      "is_active": true,
+      "sprint_id": "51-ACA-sprint-04",
+      "epic_id": "ACA-03",
+      "title": "R-01 Dev Box auto-stop: returns finding when annual Dev Box cost > $1,000",
+      "start_timestamp": "2026-03-01T13:04:01Z",
+      "layer": "wbs",
+      "modified_by": "sprint-agent",
+      "modified_at": "2026-03-01T10:07:24.595138-03:00",
+      "created_by": "sprint-agent",
+      "created_at": "2026-03-01T10:04:01.595966-03:00",
+      "row_version": 4,
+      "commit_sha": "cb8b321a6e23940f9f143fcd02704d81c69476ef",
+      "actual_time_minutes": 0.1,
+      "files_created": "services/analysis/app/rules/rule_01_dev_box_autostop.py",
+      "test_result": "WARN",
+      "lint_result": "WARN",
+      "done_timestamp": "2026-03-01T13:07:24Z",
+      "source_file": "model/wbs.json"
+    },
+    {
+      "id": "ACA-03-008",
+      "project_id": "51-ACA",
+      "status": "done",
+      "is_active": true,
+      "sprint_id": "51-ACA-sprint-06",
+      "epic_id": "ACA-03",
+      "title": "As a Tier 2 client I receive the full finding including narrative and",
+      "start_timestamp": "2026-03-01T15:06:41Z",
+      "layer": "wbs",
+      "modified_by": "sprint-agent",
+      "modified_at": "2026-03-01T12:06:47.730674-03:00",
+      "created_by": "sprint-agent",
+      "created_at": "2026-03-01T12:06:41.196126-03:00",
+      "row_version": 2,
+      "commit_sha": "329b2538889ec750bbc74c0140ee0cd941029811",
+      "actual_time_minutes": 0.1,
+      "files_created": "services/api/app/services/findings_gate.py,services/tests/test_findings_tier2_gating.py",
+      "test_result": "WARN",
+      "lint_result": "WARN",
+      "done_timestamp": "2026-03-01T15:06:47Z",
+      "source_file": "model/wbs.json"
+    },
+    {
+      "id": "ACA-03-009",
+      "project_id": "51-ACA",
+      "status": "done",
+      "is_active": true,
+      "sprint_id": "51-ACA-sprint-06",
+      "epic_id": "ACA-03",
+      "title": "As a Tier 3 client I receive the full finding including deliverable_template_id",
+      "start_timestamp": "2026-03-01T15:06:48Z",
+      "layer": "wbs",
+      "modified_by": "sprint-agent",
+      "modified_at": "2026-03-01T12:06:54.78774-03:00",
+      "created_by": "sprint-agent",
+      "created_at": "2026-03-01T12:06:48.571671-03:00",
+      "row_version": 2,
+      "commit_sha": "27e9dbd648bc996d860418a02badcb94b097dc6f",
+      "actual_time_minutes": 0.1,
+      "files_created": "services/api/app/services/findings_gate.py,services/tests/test_findings_tier3_gating.py",
+      "test_result": "WARN",
+      "lint_result": "WARN",
+      "done_timestamp": "2026-03-01T15:06:54Z",
+      "source_file": "model/wbs.json"
+    },
+    {
+      "id": "ACA-03-010",
+      "project_id": "51-ACA",
+      "status": "done",
+      "is_active": true,
+      "sprint_id": "51-ACA-sprint-07",
+      "epic_id": "ACA-03",
+      "title": "As the red-team agent I can assert that Tier 1 tokens never leak narrative or deliverable_template_id fields",
+      "start_timestamp": "2026-03-01T15:57:18Z",
+      "layer": "wbs",
+      "modified_by": "sprint-agent",
+      "modified_at": "2026-03-01T12:57:26.648265-03:00",
+      "created_by": "sprint-agent",
+      "created_at": "2026-03-01T12:57:19.015038-03:00",
+      "row_version": 2,
+      "commit_sha": "ebb5eff2861d5995ded9790f66e75f10261b07c1",
+      "actual_time_minutes": 0.1,
+      "files_created": "agents/red-team-agent.yaml,services/tests/test_redteam_tier1_leak.py",
+      "test_result": "WARN",
+      "lint_result": "WARN",
+      "done_timestamp": "2026-03-01T15:57:26Z",
+      "source_file": "model/wbs.json"
+    },
+    {
+      "id": "ACA-03-012",
+      "project_id": "51-ACA",
+      "status": "done",
+      "is_active": true,
+      "sprint_id": "51-ACA-sprint-07",
+      "epic_id": "ACA-03",
+      "title": "As the system I implement R-02 rule: returns finding when annual LA cost > $500 in non-prod environments",
+      "start_timestamp": "2026-03-01T15:57:27Z",
+      "layer": "wbs",
+      "modified_by": "sprint-agent",
+      "modified_at": "2026-03-01T12:57:33.094159-03:00",
+      "created_by": "sprint-agent",
+      "created_at": "2026-03-01T12:57:27.563962-03:00",
+      "row_version": 2,
+      "commit_sha": "31fdadc6fb64a1afa04e3cae6113d4a6ac50ea75",
+      "actual_time_minutes": 0.1,
+      "files_created": "services/analysis/app/rules/r02_log_retention.py,services/tests/test_rule_r02_log_retention.py",
+      "test_result": "WARN",
+      "lint_result": "WARN",
+      "done_timestamp": "2026-03-01T15:57:32Z",
+      "source_file": "model/wbs.json"
+    },
+    {
+      "id": "ACA-03-013",
+      "project_id": "51-ACA",
+      "status": "done",
+      "is_active": true,
+      "sprint_id": "51-ACA-sprint-07",
+      "epic_id": "ACA-03",
+      "title": "As the system I implement R-03 rule: returns finding when annual Defender cost > $2,000",
+      "start_timestamp": "2026-03-01T15:57:33Z",
+      "layer": "wbs",
+      "modified_by": "sprint-agent",
+      "modified_at": "2026-03-01T12:57:40.272046-03:00",
+      "created_by": "sprint-agent",
+      "created_at": "2026-03-01T12:57:34.003187-03:00",
+      "row_version": 2,
+      "commit_sha": "a9ed5e7d5df150555808706b00707ec83cbd6225",
+      "actual_time_minutes": 0.1,
+      "files_created": "services/analysis/app/rules/r03_defender_mismatch.py,services/tests/test_rule_r03_defender_mismatch.py",
+      "test_result": "WARN",
+      "lint_result": "WARN",
+      "done_timestamp": "2026-03-01T15:57:40Z",
+      "source_file": "model/wbs.json"
+    },
+    {
+      "id": "ACA-03-014",
+      "project_id": "51-ACA",
+      "status": "done",
+      "is_active": true,
+      "sprint_id": "51-ACA-sprint-07",
+      "epic_id": "ACA-03",
+      "title": "As the system I implement R-04 rule: returns finding when annual schedulable compute > $5,000",
+      "start_timestamp": "2026-03-01T15:57:40Z",
+      "layer": "wbs",
+      "modified_by": "sprint-agent",
+      "modified_at": "2026-03-01T12:57:49.055505-03:00",
+      "created_by": "sprint-agent",
+      "created_at": "2026-03-01T12:57:41.04718-03:00",
+      "row_version": 2,
+      "commit_sha": "d00bdb055d1d076b289d5dbaf5a0a428585f5f53",
+      "actual_time_minutes": 0.1,
+      "files_created": "services/analysis/app/rules/r04_compute_scheduling.py,services/tests/test_rule_r04_compute_scheduling.py",
+      "test_result": "WARN",
+      "lint_result": "WARN",
+      "done_timestamp": "2026-03-01T15:57:48Z",
+      "source_file": "model/wbs.json"
+    },
+    {
+      "id": "ACA-03-015",
+      "project_id": "51-ACA",
+      "status": "done",
+      "is_active": true,
+      "sprint_id": "51-ACA-sprint-08",
+      "epic_id": "ACA-03",
+      "title": "As the system I implement R-05 rule: returns finding for each category with z-score > 3.0",
+      "start_timestamp": "2026-03-01T16:15:41Z",
+      "layer": "wbs",
+      "modified_by": "sprint-agent",
+      "modified_at": "2026-03-01T13:15:51.483445-03:00",
+      "created_by": "sprint-agent",
+      "created_at": "2026-03-01T13:15:41.79778-03:00",
+      "row_version": 2,
+      "commit_sha": "e4585132d285329466f98f9b16d146ab108b00ca",
+      "actual_time_minutes": 0.2,
+      "files_created": "services/analysis/app/rules/r05_anomaly_detection.py,services/tests/test_rule_r05_anomaly_detection.py",
+      "test_result": "WARN",
+      "lint_result": "WARN",
+      "done_timestamp": "2026-03-01T16:15:51Z",
+      "source_file": "model/wbs.json"
+    },
+    {
+      "id": "ACA-03-005",
+      "project_id": "51-ACA",
+      "status": "done",
+      "is_active": true,
+      "sprint_id": "51-ACA-sprint-05",
+      "epic_id": "ACA-03",
+      "title": "As the system I write findingsSummary to the analysis run record",
+      "start_timestamp": "2026-03-01T14:29:43Z",
+      "layer": "wbs",
+      "modified_by": "sprint-agent",
+      "modified_at": "2026-03-01T11:29:50.063903-03:00",
+      "created_by": "sprint-agent",
+      "created_at": "2026-03-01T11:29:43.187106-03:00",
+      "row_version": 2,
+      "commit_sha": "6139b80e4987b582ecf40413654561a63c8fcffc",
+      "actual_time_minutes": 0.1,
+      "files_created": "services/analysis/app/main.py,services/tests/test_findings_summary.py",
+      "test_result": "WARN",
+      "lint_result": "WARN",
+      "done_timestamp": "2026-03-01T14:29:49Z",
+      "source_file": "model/wbs.json"
+    },
+    {
+      "id": "ACA-03-016",
+      "project_id": "51-ACA",
+      "status": "done",
+      "is_active": true,
+      "sprint_id": "51-ACA-sprint-08",
+      "epic_id": "ACA-03",
+      "title": "As the system I implement R-06 rule: returns finding when >= 3 App Service sites exist",
+      "start_timestamp": "2026-03-01T16:15:52Z",
+      "layer": "wbs",
+      "modified_by": "sprint-agent",
+      "modified_at": "2026-03-01T13:15:59.308912-03:00",
+      "created_by": "sprint-agent",
+      "created_at": "2026-03-01T13:15:52.355407-03:00",
+      "row_version": 2,
+      "commit_sha": "e134a4f28bf0b864dae22e553ba3f720f3810e75",
+      "actual_time_minutes": 0.1,
+      "files_created": "services/analysis/app/rules/r06_stale_environments.py,services/tests/test_rule_r06_stale_environments.py",
+      "test_result": "WARN",
+      "lint_result": "WARN",
+      "done_timestamp": "2026-03-01T16:15:59Z",
+      "source_file": "model/wbs.json"
+    },
+    {
+      "id": "ACA-14-001",
+      "project_id": "51-ACA",
+      "status": "done",
+      "is_active": true,
+      "sprint_id": "51-ACA-sprint-11",
+      "epic_id": "ACA-14",
+      "title": "As the sprint agent I want a unified SprintContext class that merges correlation ID + LM tracer + timeline",
+      "start_timestamp": "2026-03-01T19:38:49Z",
+      "layer": "wbs",
+      "modified_by": "sprint-agent",
+      "modified_at": "2026-03-01T16:38:56.619537-03:00",
+      "created_by": "sprint-agent",
+      "created_at": "2026-03-01T16:38:49.327896-03:00",
+      "row_version": 2,
+      "commit_sha": "24ed2bf7e31acca117affb008328061cb3d4d875",
+      "actual_time_minutes": 0.1,
+      "files_created": ".github/scripts/sprint_context.py,.github/scripts/aca_lm_tracer.py",
+      "test_result": "WARN",
+      "lint_result": "WARN",
+      "done_timestamp": "2026-03-01T19:38:56Z",
+      "source_file": "model/wbs.json"
+    },
+    {
+      "id": "ACA-14-002",
+      "project_id": "51-ACA",
+      "status": "done",
+      "is_active": true,
+      "sprint_id": "51-ACA-sprint-11",
+      "epic_id": "ACA-14",
+      "title": "As the sprint agent I want a state lock mechanism that prevents duplicate sprint dispatch",
+      "start_timestamp": "2026-03-01T19:38:57Z",
+      "layer": "wbs",
+      "modified_by": "sprint-agent",
+      "modified_at": "2026-03-01T16:39:02.817489-03:00",
+      "created_by": "sprint-agent",
+      "created_at": "2026-03-01T16:38:57.92204-03:00",
+      "row_version": 2,
+      "commit_sha": "211c26114b1356c0797aa4d816fda636d473e065",
+      "actual_time_minutes": 0.1,
+      "files_created": ".eva/locks/.gitkeep,.github/scripts/state_lock.py",
+      "test_result": "WARN",
+      "lint_result": "WARN",
+      "done_timestamp": "2026-03-01T19:39:02Z",
+      "source_file": "model/wbs.json"
+    },
+    {
+      "id": "ACA-14-003",
+      "project_id": "51-ACA",
+      "status": "done",
+      "is_active": true,
+      "sprint_id": "51-ACA-sprint-11",
+      "epic_id": "ACA-14",
+      "title": "As the sprint agent I want phase verification checkpoints after each DPDCA phase",
+      "start_timestamp": "2026-03-01T19:39:03Z",
+      "layer": "wbs",
+      "modified_by": "sprint-agent",
+      "modified_at": "2026-03-01T16:39:11.459786-03:00",
+      "created_by": "sprint-agent",
+      "created_at": "2026-03-01T16:39:03.672835-03:00",
+      "row_version": 2,
+      "commit_sha": "13c65904bd01cac7095da35f00632d8cda7c08aa",
+      "actual_time_minutes": 0.1,
+      "files_created": ".github/scripts/phase_verifier.py,.github/scripts/test_phase_verifier.py",
+      "test_result": "WARN",
+      "lint_result": "WARN",
+      "done_timestamp": "2026-03-01T19:39:11Z",
+      "source_file": "model/wbs.json"
+    },
+    {
+      "id": "ACA-03-018",
+      "project_id": "51-ACA",
+      "status": "done",
+      "is_active": true,
+      "sprint_id": "51-ACA-sprint-08",
+      "epic_id": "ACA-03",
+      "title": "As the system I implement R-08 rule: returns finding when >= 3 registries exist",
+      "start_timestamp": "2026-03-01T16:16:09Z",
+      "layer": "wbs",
+      "modified_by": "sprint-agent",
+      "modified_at": "2026-03-01T13:16:17.159405-03:00",
+      "created_by": "sprint-agent",
+      "created_at": "2026-03-01T13:16:09.468194-03:00",
+      "row_version": 2,
+      "commit_sha": "661917b44f6ac51e5486996997dbcffd5101d3b1",
+      "actual_time_minutes": 0.1,
+      "files_created": "services/analysis/app/rules/r08_acr_consolidation.py,services/tests/test_rule_r08_acr_consolidation.py",
+      "test_result": "WARN",
+      "lint_result": "WARN",
+      "done_timestamp": "2026-03-01T16:16:17Z",
+      "source_file": "model/wbs.json"
+    },
+    {
+      "id": "ACA-03-004",
+      "project_id": "51-ACA",
+      "status": "done",
+      "is_active": true,
+      "sprint_id": "51-ACA-sprint-05",
+      "epic_id": "ACA-03",
+      "title": "As the system I update AnalysisRun status: queued -> running -> succeeded/failed",
+      "start_timestamp": "2026-03-01T14:29:33Z",
+      "layer": "wbs",
+      "modified_by": "sprint-agent",
+      "modified_at": "2026-03-01T11:29:42.278164-03:00",
+      "created_by": "sprint-agent",
+      "created_at": "2026-03-01T11:29:33.638967-03:00",
+      "row_version": 2,
+      "commit_sha": "a870a35505239437337c5eaf3d91190cd3315e4c",
+      "actual_time_minutes": 0.2,
+      "files_created": "services/analysis/app/main.py,services/tests/test_analysis_status.py",
+      "test_result": "WARN",
+      "lint_result": "WARN",
+      "done_timestamp": "2026-03-01T14:29:42Z",
+      "source_file": "model/wbs.json"
+    },
+    {
+      "id": "ACA-03-017",
+      "project_id": "51-ACA",
+      "status": "done",
+      "is_active": true,
+      "sprint_id": "51-ACA-sprint-08",
+      "epic_id": "ACA-03",
+      "title": "As the system I implement R-07 rule: returns finding when annual Search cost > $2,000",
+      "start_timestamp": "2026-03-01T16:16:00Z",
+      "layer": "wbs",
+      "modified_by": "sprint-agent",
+      "modified_at": "2026-03-01T13:16:08.675262-03:00",
+      "created_by": "sprint-agent",
+      "created_at": "2026-03-01T13:16:00.346238-03:00",
+      "row_version": 2,
+      "commit_sha": "98d70c7b158f3db174a4909ed70c0566ae17ab0e",
+      "actual_time_minutes": 0.1,
+      "files_created": "services/analysis/app/rules/r07_search_sku_oversize.py,services/tests/test_rule_r07_search_sku_oversize.py",
+      "test_result": "WARN",
+      "lint_result": "WARN",
+      "done_timestamp": "2026-03-01T16:16:08Z",
+      "source_file": "model/wbs.json"
+    },
+    {
+      "id": "ACA-03-019",
+      "project_id": "51-ACA",
+      "status": "done",
+      "is_active": true,
+      "sprint_id": "51-ACA-sprint-09",
+      "epic_id": "",
+      "title": "R-09 DNS Sprawl Cost Optimization",
+      "ado_id": 3197,
+      "start_timestamp": "2026-03-01T16:47:46Z",
+      "layer": "wbs",
+      "modified_by": "sprint-agent",
+      "modified_at": "2026-03-01T13:47:56.321976-03:00",
+      "created_by": "sprint-agent",
+      "created_at": "2026-03-01T13:47:47.057799-03:00",
+      "row_version": 2,
+      "commit_sha": "e4dc79882e2c2707f7fb0f1081ea5f3b28f5e324",
+      "actual_time_minutes": 0.2,
+      "files_created": "services/analysis/app/rules/r09_dns_sprawl.py,services/tests/test_rule_r09_dns_sprawl.py",
+      "test_result": "WARN",
+      "lint_result": "WARN",
+      "done_timestamp": "2026-03-01T16:47:56Z",
+      "source_file": "model/wbs.json"
+    },
+    {
+      "id": "ACA-03-020",
+      "project_id": "51-ACA",
+      "status": "done",
+      "is_active": true,
+      "sprint_id": "51-ACA-sprint-09",
+      "epic_id": "",
+      "title": "R-10 Savings Plan Coverage Analysis",
+      "ado_id": 3198,
+      "start_timestamp": "2026-03-01T16:47:57Z",
+      "layer": "wbs",
+      "modified_by": "sprint-agent",
+      "modified_at": "2026-03-01T13:48:06.344866-03:00",
+      "created_by": "sprint-agent",
+      "created_at": "2026-03-01T13:47:58.173248-03:00",
+      "row_version": 2,
+      "commit_sha": "6963418275607c89b223f5317ea5ea7d6fde9511",
+      "actual_time_minutes": 0.1,
+      "files_created": "services/analysis/app/rules/r10_savings_plan_coverage.py,services/tests/test_rule_r10_savings_plan_coverage.py",
+      "test_result": "WARN",
+      "lint_result": "WARN",
+      "done_timestamp": "2026-03-01T16:48:06Z",
+      "source_file": "model/wbs.json"
+    },
+    {
+      "id": "ACA-03-021",
+      "project_id": "51-ACA",
+      "status": "done",
+      "is_active": true,
+      "sprint_id": "51-ACA-sprint-09",
+      "epic_id": "",
+      "title": "R-11 APIM Token Budget Review",
+      "ado_id": 3199,
+      "start_timestamp": "2026-03-01T16:48:08Z",
+      "layer": "wbs",
+      "modified_by": "sprint-agent",
+      "modified_at": "2026-03-01T13:48:13.975917-03:00",
+      "created_by": "sprint-agent",
+      "created_at": "2026-03-01T13:48:08.271133-03:00",
+      "row_version": 2,
+      "commit_sha": "ceef16c64504bfed892c6bdbcee7aaaaf054fc6d",
+      "actual_time_minutes": 0.1,
+      "files_created": "services/analysis/app/rules/r11_apim_token_budget.py,services/tests/test_rule_r11_apim_token_budget.py",
+      "test_result": "WARN",
+      "lint_result": "WARN",
+      "done_timestamp": "2026-03-01T16:48:13Z",
+      "source_file": "model/wbs.json"
+    },
+    {
+      "id": "ACA-03-007",
+      "project_id": "51-ACA",
+      "status": "done",
+      "is_active": true,
+      "sprint_id": "51-ACA-sprint-05",
+      "epic_id": "ACA-03",
+      "title": "As a Tier 1 client I do not receive narrative or deliverable_template_id",
+      "start_timestamp": "2026-03-01T14:29:50Z",
+      "layer": "wbs",
+      "modified_by": "sprint-agent",
+      "modified_at": "2026-03-01T11:29:55.67444-03:00",
+      "created_by": "sprint-agent",
+      "created_at": "2026-03-01T11:29:51.063175-03:00",
+      "row_version": 2,
+      "commit_sha": "266e09bad941bb7e2c6e771ae4ee1fb5d931de20",
+      "actual_time_minutes": 0.1,
+      "files_created": "services/api/app/services/findings_gate.py,services/tests/test_tier1_gating.py",
+      "test_result": "WARN",
+      "lint_result": "WARN",
+      "done_timestamp": "2026-03-01T14:29:55Z",
+      "source_file": "model/wbs.json"
+    },
+    {
+      "id": "ACA-03-022",
+      "project_id": "51-ACA",
+      "status": "done",
+      "is_active": true,
+      "sprint_id": "51-ACA-sprint-09",
+      "epic_id": "",
+      "title": "R-12 Chargeback Cost Allocation Gap",
+      "ado_id": 3200,
+      "start_timestamp": "2026-03-01T16:48:15Z",
+      "layer": "wbs",
+      "modified_by": "sprint-agent",
+      "modified_at": "2026-03-01T13:48:23.240062-03:00",
+      "created_by": "sprint-agent",
+      "created_at": "2026-03-01T13:48:15.602676-03:00",
+      "row_version": 2,
+      "commit_sha": "2efdcffd38c7a822f716f00a9e4a76d7603d27dd",
+      "actual_time_minutes": 0.1,
+      "files_created": "services/analysis/app/rules/r12_chargeback_gap.py,services/tests/test_rule_r12_chargeback_gap.py",
+      "test_result": "WARN",
+      "lint_result": "WARN",
+      "done_timestamp": "2026-03-01T16:48:23Z",
+      "source_file": "model/wbs.json"
+    }
+  ]
+}

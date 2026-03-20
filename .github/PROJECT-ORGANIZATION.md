@@ -1,10 +1,10 @@
 <!-- eva-primed-organization -->
-<!-- Placeholders: 51-ACA = project folder name | 2026-03-11 = YYYY-MM-DD format | agent:copilot = agent:name or human:name -->
+<!-- Placeholders: 51-ACA = project folder name | 2026-03-15 = YYYY-MM-DD format | agent:copilot = agent:name or human:name -->
 
 # 51-ACA - Organization Standards
 
 **Version**: v5.0.0 (Session 44 - Governance Template Consolidation)
-**Primed**: 2026-03-11 by agent:copilot
+**Primed**: 2026-03-15 by agent:copilot
 **Status**: Canonical scaffold for folder structure and file placement
 
 ---
@@ -194,7 +194,7 @@ Document how this project integrates with other systems or components.
 **Flow**:
 ```
 [ASCII diagram or description]
-Component A ? Component B ? Component C
+Component A → Component B → Component C
 ```
 
 **Code Example** (if applicable):
@@ -214,7 +214,7 @@ def integrate_with_system():
 
 **Flow**:
 ```
-Producer ? Event Grid ? Function App (Consumer) ? Cosmos DB
+Producer → Event Grid → Function App (Consumer) → Cosmos DB
 ```
 
 **Code Example**:
@@ -240,11 +240,11 @@ def process_event(event: func.EventGridEvent):
 **Governance**: PLAN.md, STATUS.md, ACCEPTANCE.md (v5.0.0 format)
 
 **Project-Specific Compliance** (Update as needed):
-- **Language/Runtime**: [TODO: Primary language] 
-- **Key Dependencies**: {{DEPENDENCIES}}
-- **Cloud Provider**: {{CLOUD_PROVIDER}}
-- **Security Standards**: {{SECURITY_STANDARDS}}
-- **Data Residency**: {{DATA_RESIDENCY}}
+- **Language/Runtime**: Project-specific 
+- **Key Dependencies**: See README.md, PLAN.md, and project_work records in the data model.
+- **Cloud Provider**: Azure
+- **Security Standards**: Workspace governance, RBAC, and evidence-backed verification
+- **Data Residency**: Canada Central unless project-specific requirements state otherwise
 
 ---
 
